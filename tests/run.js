@@ -5,7 +5,7 @@
  * Loads every script listed in index.html into a sandbox with a
  * fake DOM, then checks the module graph and all lesson content:
  *  - every script in index.html exists and loads without error
- *  - every lesson in RV.unit is registered, ids unique
+ *  - every lesson of every chapter (RV.chapters) is registered, ids unique
  *  - every step type / widget / anim referenced exists
  *  - every widget's own validate(q) passes (answers in range…)
  *  - every bilingual text has both ar & en
@@ -109,7 +109,12 @@ console.log('▶ Checking unit + lessons');
 const STEP_TYPES = ['scene', 'intro', 'quiz', 'example', 'summary'];
 const KINDS = ['learn', 'example', 'practice', 'flash', 'challenge', 'game', 'test'];
 const seenLessons = new Set();
-RV.unit.lessons.forEach((id) => {
+const ALL_LESSONS = RV.chapters.reduce((a, c) => a.concat(c.lessons), []);
+RV.chapters.forEach((c, i) => {
+  ['title', 'subtitle', 'challengeTitle', 'challengeSub', 'route', 'challengeId'].forEach((k) => { if (!c[k]) fail(`chapter ${c.number}: missing ${k}`); else ok(); });
+  if (c.number !== i + 1) fail(`chapter numbers must be 1, 2, 3… in order (got ${c.number})`);
+});
+ALL_LESSONS.forEach((id) => {
   if (!RV.lessons.has(id)) { fail(`lesson ${id} listed in unit but not registered`); return; }
   if (seenLessons.has(id)) fail(`duplicate lesson ${id}`);
   seenLessons.add(id);
@@ -152,7 +157,7 @@ RV.unit.lessons.forEach((id) => {
 
 // every registered anim is used somewhere (dead-code check)
 const used = new Set();
-RV.unit.lessons.forEach((id) => RV.lessons.has(id) && RV.lessons.get(id).stations.forEach((st) => st.steps.forEach((s) => s.visual && used.add(s.visual.anim))));
+ALL_LESSONS.forEach((id) => RV.lessons.has(id) && RV.lessons.get(id).stations.forEach((st) => st.steps.forEach((s) => s.visual && used.add(s.visual.anim))));
 used.add('hero'); // used by intro steps
 RV.anims.list().forEach((a) => { if (!used.has(a)) fail(`anim "${a}" is registered but never used`); else ok(); });
 

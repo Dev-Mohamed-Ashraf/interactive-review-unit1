@@ -1,5 +1,6 @@
 /* =========================================================
- * screens/home.js — unit landing: hero + 4 lesson cards + challenge.
+ * screens/home.js — landing: course hero, then one section per chapter
+ * (its lesson cards + its challenge), then extras (badges, certificate, offline).
  * ========================================================= */
 (function () {
   'use strict';
@@ -8,25 +9,28 @@
 
   RV.screens.add('home', {
     render(root) {
-      const unit = RV.unit;
+      const course = RV.course || RV.unit;
       RV.chrome.lessonTheme(root, null);
 
       const hero = h('header', { class: 'home-hero' },
         h('div', { class: 'home-hero-bg' }, heroOrbit()),
         h('div', { class: 'home-hero-text' },
           h('div', { class: 'home-kicker' }, h('span', { class: 'chip' }, RV.i18n.ui('subject')), h('span', { class: 'muted' }, RV.i18n.ui('grade'))),
-          h('h1', { class: 'home-title' }, h('span', { class: 'home-unit-no' }, `${RV.i18n.ui('unit')} ${unit.number}`), t(unit.title)),
-          h('p', { class: 'home-sub' }, t(unit.subtitle)),
+          h('h1', { class: 'home-title' }, h('span', { class: 'home-unit-no' }, t({ ar: `${RV.chapters.length} فصول · ${RV.availableLessons().length} دروس`, en: `${RV.chapters.length} chapters · ${RV.availableLessons().length} lessons` })), t(course.title)),
+          h('p', { class: 'home-sub' }, t(course.subtitle)),
           h('p', { class: 'home-by muted' }, RV.i18n.ui('madeBy'))));
 
-      const grid = h('section', { class: 'lesson-grid' },
-        RV.availableLessons().map((id, i) => lessonCard(RV.lessons.get(id), i)));
-
-      const challenge = h('a', { class: 'challenge-card card', href: '#/challenge' },
-        h('div', { class: 'challenge-ico' }, RV.icon('trophy')),
-        h('div', null, h('h3', null, RV.i18n.ui('unitChallenge')), h('p', { class: 'muted' }, RV.i18n.ui('unitChallengeSub'))),
-        bestBadge('unit', 'challenge'),
-        h('span', { class: 'challenge-go' }, RV.icon('arrowNext', 'flip-rtl')));
+      let n = 0;
+      const chapters = RV.chapters.filter((c) => RV.chapterLessons(c).length).map((c) => h('section', { class: 'chapter-block' },
+        h('header', { class: 'chapter-head' },
+          h('span', { class: 'chapter-no mono' }, String(c.number).padStart(2, '0')),
+          h('div', null, h('small', { class: 'muted' }, `${RV.i18n.ui('unit')} ${c.number}`), h('h2', null, t(c.title)), h('p', { class: 'muted' }, t(c.subtitle)))),
+        h('div', { class: 'lesson-grid' }, RV.chapterLessons(c).map((id) => lessonCard(RV.lessons.get(id), n++))),
+        h('a', { class: 'challenge-card card', href: c.route },
+          h('div', { class: 'challenge-ico' }, RV.icon('trophy')),
+          h('div', null, h('h3', null, t(c.challengeTitle)), h('p', { class: 'muted' }, t(c.challengeSub))),
+          bestBadge(c.challengeId, 'challenge'),
+          h('span', { class: 'challenge-go' }, RV.icon('arrowNext', 'flip-rtl')))));
 
       const top = h('div', { class: 'topbar home-top' },
         h('div', { class: 'brand' }, h('span', { class: 'brand-mark mono' }, '</>'), h('span', null, RV.i18n.ui('appTitle'))),
@@ -39,12 +43,12 @@
         h('a', { class: 'extra-card card', href: '#/certificate' }, h('span', { class: 'extra-ico' }, '🎓'),
           h('div', null, h('b', null, t({ ar: 'شهادتك', en: 'Your certificate' })), h('small', { class: 'muted' }, t({ ar: 'اكتب اسمك واطبعها', en: 'Add your name and print' })))),
         offlineCard());
-      root.append(h('div', { class: 'screen home' }, top, hero, grid, challenge, extras));
+      root.append(h('div', { class: 'screen home' }, top, hero, chapters, extras));
 
       gsap.timeline()
         .from('.home-kicker, .home-title, .home-sub, .home-by', { y: 30, opacity: 0, stagger: 0.08, duration: 0.7, ease: 'power3.out' })
         .from('.lesson-card', { y: 50, opacity: 0, stagger: 0.09, duration: 0.6, ease: 'power3.out' }, '-=0.4')
-        .from('.challenge-card', { y: 30, opacity: 0, duration: 0.5 }, '-=0.3');
+        .from('.challenge-card, .chapter-head', { y: 30, opacity: 0, duration: 0.5, stagger: 0.08 }, '-=0.3');
       gsap.to('.orbit', { rotation: 360, duration: 120, repeat: -1, ease: 'none' });
       gsap.to('.orbit-node', { opacity: 0.35, duration: 1.6, repeat: -1, yoyo: true, stagger: 0.4, ease: 'sine.inOut' });
     },

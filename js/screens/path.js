@@ -17,6 +17,14 @@
   };
   RV.stationKinds = KIND;
 
+  /** Next lesson in the same chapter — or, after its last lesson, that chapter's challenge. */
+  function chapterNext(lesson, list, idx) {
+    const ch = RV.chapterOf(lesson.id);
+    const mine = RV.chapterLessons(ch);
+    if (mine.indexOf(lesson.id) === mine.length - 1) return h('a', { class: 'btn btn-ghost', href: ch.route }, t(ch.challengeTitle), RV.icon('trophy'));
+    return h('a', { class: 'btn btn-ghost', href: `#/l/${list[idx + 1]}` }, list[idx + 1], RV.icon('arrowNext', 'flip-rtl'));
+  }
+
   RV.screens.add('path', {
     render(root, params) {
       const lesson = RV.lessons.get(params.lessonId);
@@ -47,7 +55,7 @@
       const wheelBtn = h('button', { class: 'btn wheel-btn', type: 'button', onClick: () => RV.wheel.open(lesson) }, '🎡 ', t({ ar: 'عجلة الأسئلة', en: 'Question wheel' }));
       const nav = h('nav', { class: 'path-nav' },
         idx > 0 ? h('a', { class: 'btn btn-ghost', href: `#/l/${list[idx - 1]}` }, RV.icon('arrowPrev', 'flip-rtl'), list[idx - 1]) : h('span'),
-        idx < list.length - 1 ? h('a', { class: 'btn btn-ghost', href: `#/l/${list[idx + 1]}` }, list[idx + 1], RV.icon('arrowNext', 'flip-rtl')) : h('a', { class: 'btn btn-ghost', href: '#/challenge' }, RV.i18n.ui('unitChallenge'), RV.icon('trophy')));
+        chapterNext(lesson, list, idx));
 
       root.append(h('div', { class: 'screen path' }, top, hero, h('div', { class: 'path-tools' }, wheelBtn), h('div', { class: 'path-layout' }, objectives, road), nav));
 

@@ -21,7 +21,7 @@
       let busy = false;
 
       RV.chrome.lessonTheme(root, lesson.color ? lesson : null);
-      const backHref = lesson.id === 'unit' ? '#/' : `#/l/${lesson.id}`;
+      const backHref = lesson.isChallenge ? '#/' : `#/l/${lesson.id}`;
 
       // ---------- chrome ----------
       const bar = h('div', { class: 'player-progress' }, h('i'));
@@ -29,7 +29,7 @@
       const top = h('div', { class: 'topbar player-top' },
         h('a', { class: 'icon-btn', href: backHref, title: RV.i18n.ui('back') }, RV.icon('close')),
         h('div', { class: 'topbar-title' },
-          h('span', { class: 'chip mono' }, lesson.id === 'unit' ? '★' : lesson.id),
+          h('span', { class: 'chip mono' }, lesson.isChallenge ? '★' : lesson.id),
           h('span', { class: 'player-station' }, t(station.title)), counter),
         RV.game.pill(),
         ttsBtn(),
@@ -218,7 +218,7 @@
 
         const actions = h('div', { class: 'done-actions' },
           result ? h('button', { class: 'btn', type: 'button', onClick: () => RV.app.rerender() }, RV.icon('refresh'), RV.i18n.ui('retake')) : null,
-          h('a', { class: 'btn' + (nextSt ? '' : ' btn-primary'), href: backHref }, RV.icon(lesson.id === 'unit' ? 'home' : 'flag'), RV.i18n.ui(lesson.id === 'unit' ? 'home' : 'backToPath')),
+          h('a', { class: 'btn' + (nextSt ? '' : ' btn-primary'), href: backHref }, RV.icon(lesson.isChallenge ? 'home' : 'flag'), RV.i18n.ui(lesson.isChallenge ? 'home' : 'backToPath')),
           nextSt ? h('a', { class: 'btn btn-primary', href: `#/l/${lesson.id}/s/${nextSt.id}` }, RV.i18n.ui('nextStation'), RV.icon('arrowNext', 'flip-rtl')) : null);
 
         const card = h('div', { class: 'done card' },

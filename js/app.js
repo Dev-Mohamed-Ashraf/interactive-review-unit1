@@ -3,7 +3,8 @@
  *   #/                      → home
  *   #/l/<lessonId>          → lesson path
  *   #/l/<lessonId>/s/<sid>  → station player
- *   #/challenge             → unit challenge (random test)
+ *   #/challenge             → chapter 1 challenge (random test)
+ *   #/challenge/<n>         → chapter n challenge
  *   #/selftest              → mounts every step (QA)
  * ========================================================= */
 (function () {
@@ -15,7 +16,7 @@
     const parts = (location.hash.replace(/^#\/?/, '') || '').split('/').filter(Boolean);
     if (parts[0] === 'l' && parts[1] && parts[2] === 's' && parts[3]) return { screen: 'player', lessonId: parts[1], stationId: parts[3] };
     if (parts[0] === 'l' && parts[1]) return { screen: 'path', lessonId: parts[1] };
-    if (parts[0] === 'challenge') return { screen: 'challenge' };
+    if (parts[0] === 'challenge') return { screen: 'challenge', chapter: +parts[1] || 1 };
     if (parts[0] === 'selftest') return { screen: 'selftest' };
     if (parts[0] === 'audit') return { screen: 'audit' };
     if (parts[0] === 'badges') return { screen: 'badges' };
@@ -39,7 +40,8 @@
         if (!RV.store.isUnlocked(lesson, idx)) { location.replace(`#/l/${lesson.id}`); return; }
         current = RV.screens.get('player').render(root, { lesson, station });
       } else if (r.screen === 'challenge') {
-        current = RV.screens.get('player').render(root, { lesson: challengeLesson(), station: challengeStation() });
+        const ch = RV.chapters.find((c) => c.number === r.chapter) || RV.chapters[0];
+        current = RV.screens.get('player').render(root, { lesson: challengeLesson(ch), station: challengeStation(ch) });
       } else if (r.screen === 'path') {
         current = RV.screens.get('path').render(root, { lessonId: r.lessonId });
       } else {
@@ -51,15 +53,15 @@
     }
   }
 
-  /** The unit challenge = N random questions drawn from every lesson test + practice. */
-  function challengeLesson() {
-    return { id: 'unit', title: RV.unit.title, color: '#fbbf24', stations: [] };
+  /** A chapter challenge = N random questions drawn from that chapter's lesson tests + practice. */
+  function challengeLesson(ch) {
+    return { id: ch.challengeId, isChallenge: true, chapter: ch, title: ch.title, color: '#fbbf24', stations: [] };
   }
   let cachedChallenge = null;
-  function challengeStation() {
-    if (cachedChallenge && cachedChallenge.lang === RV.i18n.lang && location.hash === '#/challenge' && cachedChallenge.keep) return cachedChallenge.station;
+  function challengeStation(ch) {
+    if (cachedChallenge && cachedChallenge.lang === RV.i18n.lang && location.hash === ch.route && cachedChallenge.keep) return cachedChallenge.station;
     const pool = [];
-    RV.availableLessons().forEach((id) => {
+    RV.chapterLessons(ch).forEach((id) => {
       RV.lessons.get(id).stations.forEach((st) => {
         if (st.kind !== 'test' && st.kind !== 'practice') return;
         st.steps.forEach((step) => {
@@ -67,8 +69,8 @@
         });
       });
     });
-    const steps = RV.dom.shuffle(pool).slice(0, RV.unit.challengeCount || 20);
-    const station = { id: 'challenge', kind: 'test', title: { ar: 'تحدّي الفصل الأول', en: 'Chapter 1 Challenge' }, steps };
+    const steps = RV.dom.shuffle(pool).slice(0, ch.challengeCount || 20);
+    const station = { id: 'challenge', kind: 'test', title: ch.challengeTitle, steps };
     cachedChallenge = { station, lang: RV.i18n.lang, keep: false };
     return station;
   }

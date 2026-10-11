@@ -34,7 +34,14 @@
   RV.widgets = makeRegistry('widget');
   RV.lessons = makeRegistry('lesson');
   RV.screens = makeRegistry('screen');
-  RV.unit = null; // set by js/content/unit1.js
+  RV.unit = null;     // the FIRST chapter (kept for older code paths)
+  RV.chapters = [];   // every chapter, in order — js/content/unit*.js call RV.addChapter
+  RV.course = null;   // the whole review (js/content/course.js)
+  RV.addChapter = (c) => { RV.chapters.push(c); if (!RV.unit) RV.unit = c; return c; };
+  /** The chapter a lesson belongs to. */
+  RV.chapterOf = (lessonId) => RV.chapters.find((c) => c.lessons.includes(lessonId)) || RV.chapters[0];
+  /** Loaded lessons of one chapter. */
+  RV.chapterLessons = (c) => c.lessons.filter((id) => RV.lessons.has(id));
   /**
    * Extra steps for a station, from a separate content file (e.g. js/content/checks-1-1.js —
    * "check yourself" questions). Inserted just before the station's summary step, so a lesson
@@ -47,5 +54,5 @@
     st.steps.splice(at === -1 ? st.steps.length : at, 0, ...steps);
   };
   /** Lessons of the unit that are actually loaded (missing ones are reported by tests). */
-  RV.availableLessons = () => (RV.unit ? RV.unit.lessons.filter((id) => RV.lessons.has(id)) : []);
+  RV.availableLessons = () => RV.chapters.reduce((all, c) => all.concat(RV.chapterLessons(c)), []);
 })();

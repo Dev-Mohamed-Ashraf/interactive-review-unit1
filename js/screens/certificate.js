@@ -22,22 +22,22 @@
         return h('div', { class: 'cert-row' }, h('span', { class: 'mono' }, id), h('span', null, t(lesson.title)),
           RV.chrome.stars(test ? test.stars || 0 : 0), h('span', { class: 'mono' }, test ? `${test.best}/${test.max}` : '—'));
       });
-      const ch = RV.store.station('unit', 'challenge');
+      const challenges = RV.chapters.map((c) => ({ c, r: RV.store.station(c.challengeId, 'challenge') })).filter((x) => x.r);
       const date = new Date().toLocaleDateString(RV.i18n.lang === 'ar' ? 'ar-EG' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
 
       const cert = h('section', { class: 'cert' },
         h('div', { class: 'cert-border' }),
         h('div', { class: 'cert-seal' }, '🎓'),
         h('small', { class: 'cert-kicker' }, t({ ar: 'شهادة إتمام', en: 'Certificate of completion' })),
-        h('h1', null, t(RV.unit.title)),
+        h('h1', null, t((RV.course || RV.unit).title)),
         h('p', { class: 'muted' }, RV.i18n.ui('subject'), ' · ', RV.i18n.ui('grade')),
         h('p', null, t({ ar: 'تشهد المراجعة التفاعلية بأن الطالب/ة', en: 'This certifies that' })),
         nameOut,
-        h('p', null, t({ ar: 'أتمّ مراجعة الفصل الأول بنجاح', en: 'has completed the Chapter 1 interactive review' })),
+        h('p', null, t({ ar: 'أتمّ المراجعة التفاعلية بنجاح', en: 'has completed the interactive review' })),
         h('div', { class: 'cert-rows' }, rows),
         h('div', { class: 'cert-stats' },
           h('span', null, L.icon, ' ', t(L.name)), h('span', { class: 'mono' }, `${g.xp} XP`),
-          ch ? h('span', null, '🏆 ', t({ ar: 'تحدّي الفصل', en: 'Challenge' }), ' ', h('b', { class: 'mono' }, `${ch.best}/${ch.max}`)) : null),
+          challenges.map(({ c, r }) => h('span', null, '🏆 ', t(c.challengeTitle), ' ', h('b', { class: 'mono' }, `${r.best}/${r.max}`)))),
         h('div', { class: 'cert-badges' }, g.badges.map((id) => h('span', { title: t(RV.game.BADGES[id].name) }, RV.game.BADGES[id].icon))),
         h('div', { class: 'cert-foot' }, h('span', null, date), h('span', null, RV.i18n.ui('madeBy'))));
 

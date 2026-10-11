@@ -127,9 +127,10 @@
       award('first');
       if (station.kind === 'test' && result && result.score === result.max) award('perfect');
       if (station.id === 'moore-math') award('moore');
-      if (lesson.id === 'unit' && station.id === 'challenge') award('challenge');
+      if (lesson.isChallenge) award('challenge');
       if (lesson.stations && lesson.stations.length && RV.store.lessonProgress(lesson) === 1) award('lesson');
-      if (RV.availableLessons().every((id) => RV.store.lessonProgress(RV.lessons.get(id)) === 1)) award('chapter');
+      const ch = lesson.isChallenge ? null : RV.chapterOf(lesson.id);
+      if (ch && RV.chapterLessons(ch).every((id) => RV.store.lessonProgress(RV.lessons.get(id)) === 1)) award('chapter');
     },
     event(name, data) {
       if (name === 'speed' && data.correct >= 10) award('speed');
