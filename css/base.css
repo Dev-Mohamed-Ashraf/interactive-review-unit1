@@ -1,0 +1,161 @@
+/* =========================================================
+ * css/base.css — design tokens, fonts, resets, primitives.
+ * Every color in the app comes from a token here.
+ * ========================================================= */
+@font-face { font-family: 'Cairo'; font-weight: 400; font-display: swap; src: url(../fonts/cairo-400.woff2) format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F, U+2010-2011, U+204F, U+2E41; }
+@font-face { font-family: 'Cairo'; font-weight: 600; font-display: swap; src: url(../fonts/cairo-600.woff2) format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F, U+2010-2011, U+204F, U+2E41; }
+@font-face { font-family: 'Cairo'; font-weight: 700; font-display: swap; src: url(../fonts/cairo-700.woff2) format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F, U+2010-2011, U+204F, U+2E41; }
+@font-face { font-family: 'Cairo'; font-weight: 800; font-display: swap; src: url(../fonts/cairo-800.woff2) format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F, U+2010-2011, U+204F, U+2E41; }
+@font-face { font-family: 'Cairo'; font-weight: 900; font-display: swap; src: url(../fonts/cairo-900.woff2) format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F, U+2010-2011, U+204F, U+2E41; }
+@font-face { font-family: 'Cairo'; font-weight: 400; font-display: swap; src: url(../fonts/cairo-latin-400.woff2) format('woff2'); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122, U+2190-21FF, U+2212; }
+@font-face { font-family: 'Cairo'; font-weight: 600; font-display: swap; src: url(../fonts/cairo-latin-600.woff2) format('woff2'); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122, U+2190-21FF, U+2212; }
+@font-face { font-family: 'Cairo'; font-weight: 700; font-display: swap; src: url(../fonts/cairo-latin-700.woff2) format('woff2'); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122, U+2190-21FF, U+2212; }
+@font-face { font-family: 'Cairo'; font-weight: 800; font-display: swap; src: url(../fonts/cairo-latin-800.woff2) format('woff2'); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122, U+2190-21FF, U+2212; }
+@font-face { font-family: 'Cairo'; font-weight: 900; font-display: swap; src: url(../fonts/cairo-latin-900.woff2) format('woff2'); unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122, U+2190-21FF, U+2212; }
+@font-face { font-family: 'Plex'; font-weight: 400; font-display: swap; src: url(../fonts/plex-400.woff2) format('woff2'); }
+@font-face { font-family: 'Plex'; font-weight: 600; font-display: swap; src: url(../fonts/plex-600.woff2) format('woff2'); }
+@font-face { font-family: 'Plex'; font-weight: 700; font-display: swap; src: url(../fonts/plex-700.woff2) format('woff2'); }
+@font-face { font-family: 'Mono'; font-weight: 600; font-display: swap; src: url(../fonts/mono-600.woff2) format('woff2'); }
+
+:root {
+  --bg: #060b1c;
+  --bg-2: #0a1430;
+  --bg-glow: radial-gradient(1200px 700px at 85% -10%, rgba(56, 189, 248, .16), transparent 60%),
+             radial-gradient(900px 600px at -10% 110%, rgba(167, 139, 250, .14), transparent 60%);
+  --surface: rgba(148, 180, 255, .06);
+  --surface-2: rgba(148, 180, 255, .1);
+  --card: #0e1a3a;
+  --card-2: #13224a;
+  --line: rgba(148, 180, 255, .16);
+  --line-strong: rgba(148, 180, 255, .32);
+  --text: #eaf0ff;
+  --muted: #9db0d8;
+  --faint: #6a7ca6;
+  --accent: #38bdf8;
+  --accent-ink: #04202e;
+  --violet: #a78bfa;
+  --gold: #fbbf24;
+  --ok: #34d399;
+  --ok-bg: rgba(52, 211, 153, .14);
+  --bad: #fb7185;
+  --bad-bg: rgba(251, 113, 133, .14);
+  --warn: #fb923c;
+  --lesson: var(--accent);        /* overridden per lesson */
+  --lesson-soft: rgba(56, 189, 248, .14);
+  --shadow: 0 20px 50px -20px rgba(0, 0, 0, .7);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --font: 'Cairo', 'Plex', system-ui, sans-serif;
+  --font-en: 'Plex', 'Cairo', system-ui, sans-serif;
+  --mono: 'Mono', 'Cairo', ui-monospace, monospace;
+  --fs-0: clamp(.78rem, .74rem + .2vw, .9rem);
+  --fs-1: clamp(.92rem, .86rem + .3vw, 1.08rem);
+  --fs-2: clamp(1.05rem, .96rem + .45vw, 1.3rem);
+  --fs-3: clamp(1.3rem, 1.1rem + .9vw, 1.9rem);
+  --fs-4: clamp(1.7rem, 1.3rem + 1.8vw, 3rem);
+  --gutter: clamp(14px, 3vw, 32px);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #f3f6fc;
+  --bg-2: #e8eef9;
+  --bg-glow: radial-gradient(1200px 700px at 85% -10%, rgba(14, 165, 233, .14), transparent 60%),
+             radial-gradient(900px 600px at -10% 110%, rgba(124, 58, 237, .1), transparent 60%);
+  --surface: rgba(15, 40, 100, .04);
+  --surface-2: rgba(15, 40, 100, .07);
+  --card: #ffffff;
+  --card-2: #f6f8fd;
+  --line: rgba(15, 40, 100, .12);
+  --line-strong: rgba(15, 40, 100, .25);
+  --text: #0c1733;
+  --muted: #47557a;
+  --faint: #7a87a8;
+  --accent: #0284c7;
+  --accent-ink: #ffffff;
+  --violet: #7c3aed;
+  --gold: #b45309;
+  --ok: #059669;
+  --ok-bg: rgba(5, 150, 105, .1);
+  --bad: #e11d48;
+  --bad-bg: rgba(225, 29, 72, .08);
+  --warn: #c2410c;
+  --shadow: 0 18px 40px -22px rgba(15, 40, 100, .45);
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; } /* components set display:grid/flex; hidden must still win */
+html { -webkit-text-size-adjust: 100%; height: 100%; }
+html[lang="en"] body { font-family: var(--font-en); }
+body {
+  margin: 0; min-height: 100%;
+  font-family: var(--font); font-size: var(--fs-1); line-height: 1.7;
+  color: var(--text); background: var(--bg); background-image: var(--bg-glow); background-attachment: fixed;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+textarea { font: inherit; color: inherit; }
+h1, h2, h3, h4 { margin: 0; line-height: 1.3; font-weight: 800; }
+p { margin: 0; }
+.en, [lang="en"] { font-family: var(--font-en); }
+.mono { font-family: var(--mono); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+
+/* ---------- primitives ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  min-height: 48px; padding: .55em 1.3em; border-radius: 999px;
+  font-weight: 700; font-size: var(--fs-1);
+  background: var(--surface-2); border: 1px solid var(--line);
+  transition: transform .15s ease, background .2s ease, border-color .2s ease, opacity .2s;
+  user-select: none;
+}
+.btn:active { transform: scale(.96); }
+.btn[disabled] { opacity: .4; pointer-events: none; }
+.btn-primary { background: var(--lesson); color: var(--accent-ink); border-color: transparent; box-shadow: 0 10px 30px -10px var(--lesson); }
+:root[data-theme="light"] .btn-primary { color: #fff; }
+.btn-ghost { background: transparent; }
+.btn-sm { min-height: 38px; padding: .3em .95em; font-size: var(--fs-0); }
+.icon-btn {
+  width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center;
+  background: var(--surface); border: 1px solid var(--line); transition: background .2s, transform .15s;
+}
+.icon-btn:active { transform: scale(.92); }
+.icon-btn.on { background: var(--lesson-soft); border-color: var(--lesson); color: var(--lesson); }
+.icon-btn svg, .btn svg { width: 22px; height: 22px; }
+.chip {
+  display: inline-flex; align-items: center; gap: .35em; padding: .1em .7em; border-radius: 999px;
+  font-size: var(--fs-0); font-weight: 700; background: var(--lesson-soft); color: var(--lesson); border: 1px solid color-mix(in srgb, var(--lesson) 35%, transparent);
+}
+.chip.en-term { font-family: var(--font-en); font-weight: 600; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.ico { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.muted { color: var(--muted); }
+.term { color: var(--lesson); font-weight: 800; }
+.flip-rtl { transform: scaleX(1); }
+[dir="rtl"] .flip-rtl { transform: scaleX(-1); }
+
+/* ---------- fx ---------- */
+.fx-confetti { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 999; }
+.fx-toast {
+  position: fixed; left: 50%; bottom: calc(24px + var(--safe-bottom)); transform: translate(-50%, 140%);
+  padding: .7em 1.4em; border-radius: 999px; font-weight: 700; z-index: 998;
+  background: var(--card-2); border: 1px solid var(--line-strong); box-shadow: var(--shadow);
+  transition: transform .35s cubic-bezier(.2, .9, .3, 1.3);
+}
+.fx-toast.show { transform: translate(-50%, 0); }
+
+/* calm motion: chosen by the user in the top bar (not forced by the OS setting - animation is the lesson) */
+html.calm *, html.calm *::before, html.calm *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+
+/* ---------- lite mode (set by core/perf.js on weak devices / data-saver) ---------- */
+html.lite * { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+html.lite .lp-particles, html.lite .stage-ambient i, html.lite .et-stars, html.lite .lp-sweep { display: none !important; }
+html.lite .cn-grade { mix-blend-mode: normal; opacity: .25; }
