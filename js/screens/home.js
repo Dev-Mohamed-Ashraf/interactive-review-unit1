@@ -53,6 +53,12 @@
   /** "Download for offline": one tap with internet → the whole review works with no internet (videos too). */
   function offlineCard() {
     if (!RV.offline.supported) return null; // file:// and the dev server have no service worker
+    // iPad/iPhone in a Safari tab: the offline copy must live in the Home Screen app, not in Safari
+    if (RV.offline.ios && !RV.offline.standalone) {
+      return h('div', { class: 'extra-card card offline-card' }, h('span', { class: 'extra-ico' }, '📲'),
+        h('div', null, h('b', null, t({ ar: 'علشان تشتغل من غير إنترنت على الآيباد/الآيفون', en: 'To use it offline on iPad / iPhone' })),
+          h('small', { class: 'muted' }, t({ ar: '١) زرار المشاركة ⬆️ ← «إضافة إلى الشاشة الرئيسية»  ٢) افتحها من الأيقونة وإنت على النت واستنى «✅ جاهزة»  ٣) بعد كده افتحها من الأيقونة في أي مكان', en: '1) Share ⬆️ → "Add to Home Screen"  2) open it from the icon while online and wait for "✅ Ready"  3) then open it from the icon anywhere' }))));
+    }
     const sub = h('small', { class: 'muted' });
     const bar = h('div', { class: 'offline-bar' }, h('i'));
     const card = h('button', { class: 'extra-card card offline-card', type: 'button' }, h('span', { class: 'extra-ico' }, '📥'),

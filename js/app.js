@@ -93,6 +93,7 @@
       const devHost = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
       if ('serviceWorker' in navigator && location.protocol.startsWith('http') && (!devHost || /[?&]sw\b/.test(location.search))) { // (?sw = QA on the dev server)
         navigator.serviceWorker.register('sw.js').catch(() => {});
+        setTimeout(() => RV.offline.auto(), 1500); // Home Screen app: store everything for offline by itself
         // once the page has settled, let the worker fetch images in the background
         setTimeout(() => navigator.serviceWorker.ready.then((r) => r.active && r.active.postMessage('warm')), 20000);
       }

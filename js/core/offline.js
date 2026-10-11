@@ -33,13 +33,27 @@
     try { return localStorage.getItem(KEY) === '1'; } catch (e) { return false; }
   }
 
+  // iPhone / iPad: an app added to the Home Screen has its OWN storage, separate from Safari —
+  // what was downloaded in a Safari tab is NOT available to the icon. So the icon downloads itself.
+  const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const standalone = navigator.standalone === true || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+
+  let running = null;
+  const listeners = new Set();
+  /** Start (or join) the download; onProgress({ done, total }). */
   function download(onProgress) {
+    if (onProgress) listeners.add(onProgress);
+    if (running) return running;
+    running = start().then((res) => { running = null; listeners.clear(); return res; });
+    return running;
+  }
+  function start() {
     if (!supported) return Promise.resolve({ ok: false, failed: -1 });
     if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {}); // ask the browser not to evict it
     return navigator.serviceWorker.ready.then((reg) => new Promise((resolve) => {
       function onMsg(e) {
         const d = e.data || {};
-        if (d.type === 'offline-progress' && onProgress) onProgress(d);
+        if (d.type === 'offline-progress') listeners.forEach((fn) => fn(d));
         if (d.type === 'offline-done') {
           navigator.serviceWorker.removeEventListener('message', onMsg);
           if (d.ok) { try { localStorage.setItem(KEY, '1'); } catch (err) { /* private mode */ } }
@@ -51,5 +65,19 @@
     }));
   }
 
-  RV.offline = { supported, ready, download, videoList };
+  /**
+   * Opened from the Home Screen icon with internet → fetch whatever is missing, silently
+   * (only what is not stored yet is downloaded, so later launches are instant).
+   */
+  function auto() {
+    if (!supported || !standalone || !navigator.onLine) return;
+    const first = !ready();
+    if (first) RV.fx.toast(RV.i18n.t({ ar: '📥 بنجهّز المراجعة تشتغل من غير إنترنت… خلّيها مفتوحة دقيقة', en: '📥 Preparing the review to work offline… keep it open a minute' }));
+    download().then((res) => {
+      if (first && res.ok) RV.fx.toast(RV.i18n.t({ ar: '✅ جاهزة! تقدر تفتحها بعد كده من غير إنترنت', en: '✅ Ready! It now opens without internet' }));
+      if (RV.app && RV.app.rerender && location.hash.replace(/^#\/?/, '') === '') RV.app.rerender(); // refresh the home card state
+    });
+  }
+
+  RV.offline = { supported, ready, download, videoList, auto, ios, standalone };
 })();
