@@ -1,0 +1,158 @@
+/* =========================================================
+ * anims-movie.css — httpsMovie: the HTTPS explainer as a stepped,
+ * teacher-driven animation (ported from the HyperFrames video).
+ * Everything lives on a fixed 1920×880 board scaled to the stage, so
+ * the audited layout (no text ever overlaps) holds at every size.
+ * ========================================================= */
+.hm-wrap { position: absolute; inset: 0; overflow: hidden; z-index: 2; }
+.hm-board { position: absolute; left: 0; top: 0; width: 1920px; height: 880px; transform-origin: 0 0; overflow: hidden;
+  font-family: 'Cairo', 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif; color: #f1f5f9; border-radius: 18px; }
+.hm-board * { box-sizing: border-box; }
+.hm-replay { position: absolute; z-index: 5; inset-inline-start: 10px; top: 10px; }
+.hm-dots { position: absolute; z-index: 5; inset-inline-end: 14px; top: 20px; display: flex; gap: 6px; }
+.hm-dots i { width: 9px; height: 9px; border-radius: 50%; background: rgba(148,163,184,.35); transition: background .3s, transform .3s; }
+.hm-dots i.on { background: var(--lesson, #38bdf8); transform: scale(1.3); }
+.hm-board .abs { position: absolute; }
+.hm-board .later { opacity: 0; }
+.hm-board #hm-bg { position: absolute; inset: 0;
+  background: radial-gradient(1100px 700px at 85% -10%, rgba(56,189,248,.18), transparent 60%),
+              radial-gradient(900px 650px at -5% 110%, rgba(167,139,250,.16), transparent 60%),
+              linear-gradient(180deg, #081029 0%, #0b1533 60%, #0a1230 100%); }
+.hm-board #hm-grid { position: absolute; inset: 0; opacity: .22;
+  background-image: linear-gradient(rgba(148,163,184,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.13) 1px, transparent 1px);
+  background-size: 64px 64px; }
+.hm-board #hm-vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%); }
+.hm-board #hm-hook { position: absolute; inset: 0; }
+.hm-board #hm-h-title { position: absolute; left: 0; right: 0; top: 52px; margin: auto; width: fit-content; font-size: 104px; font-weight: 900; letter-spacing: -1px; line-height: 1.25;
+  background: linear-gradient(90deg, #7dd3fc, #c4b5fd); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hm-board #hm-h-title span { font-family: 'Cairo'; color: #7dd3fc; -webkit-text-fill-color: #7dd3fc; }
+.hm-board #hm-win { position: absolute; left: 410px; top: 262px; width: 1100px; height: 520px; border-radius: 26px; background: #0f172a;
+  border: 2px solid rgba(148,163,184,.35); box-shadow: 0 40px 120px rgba(0,0,0,.6); overflow: hidden; }
+.hm-board #hm-win .bar { height: 96px; background: #1e293b; display: flex; align-items: center; gap: 20px; padding: 0 28px; direction: ltr; }
+.hm-board #hm-win .dots { display: flex; gap: 10px; }
+.hm-board #hm-win .dots i { width: 18px; height: 18px; border-radius: 50%; display: block; background: #f87171; }
+.hm-board #hm-win .dots i:nth-child(2) { background: #fbbf24; }
+.hm-board #hm-win .dots i:nth-child(3) { background: #34d399; }
+.hm-board #hm-url { flex: 1; height: 58px; border-radius: 30px; background: #0b1222; display: flex; align-items: center; gap: 14px; padding: 0 24px;
+  font-size: 34px; font-weight: 700; color: #e2e8f0; direction: ltr; }
+.hm-board #hm-url .s { color: #34d399; }
+.hm-board #hm-hlock { width: 40px; height: 44px; display: block; }
+.hm-board #hm-win .page { padding: 46px 70px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.hm-board #hm-win .brand { font-size: 64px; font-weight: 900; color: #7dd3fc; }
+.hm-board #hm-win .brand small { display: block; font-size: 30px; color: #94a3b8; font-weight: 700; }
+.hm-board #hm-win .form { display: grid; gap: 18px; }
+.hm-board #hm-win .form div { height: 66px; border-radius: 14px; background: #1e293b; border: 2px solid #334155; font-size: 28px; color: #94a3b8;
+  display: flex; align-items: center; padding: 0 22px; font-weight: 700; }
+.hm-board #hm-win .form .btn { background: #2563eb; color: #fff; justify-content: center; border: 0; }
+.hm-board #hm-h-ring { position: absolute; left: 470px; top: 274px; width: 130px; height: 74px; border-radius: 40px; border: 5px solid #34d399;
+  box-shadow: 0 0 40px rgba(52,211,153,.7); }
+.hm-board #hm-h-secret { position: absolute; left: 0; right: 0; top: 806px; margin: auto; width: fit-content; font-size: 50px; font-weight: 900;
+  padding: 12px 40px; border-radius: 60px; background: rgba(250,204,21,.14); border: 3px solid #facc15; color: #fde68a; }
+.hm-board #hm-stage { position: absolute; inset: 0; }
+.hm-board #hm-net { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: visible; }
+.hm-board .char { position: absolute; width: 260px; height: 338px; }
+.hm-board .char svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.hm-board #hm-ch-browser { left: 150px; top: 370px; }
+.hm-board #hm-ch-server { left: 1440px; top: 370px; }
+.hm-board #hm-ch-ca { left: 830px; top: 128px; }
+.hm-board #hm-ch-hacker { left: 850px; top: 575px; width: 220px; height: 286px; }
+.hm-board #hm-rack { position: absolute; left: 1712px; top: 276px; width: 165px; height: 430px; }
+.hm-board .tag { position: absolute; width: 300px; text-align: center; font-size: 34px; font-weight: 900; padding: 6px 0; border-radius: 16px; }
+.hm-board #hm-t-browser { left: 130px; top: 724px; background: rgba(56,189,248,.16); border: 3px solid #38bdf8; color: #bae6fd; }
+.hm-board #hm-t-server { left: 1420px; top: 724px; background: rgba(52,211,153,.16); border: 3px solid #34d399; color: #a7f3d0; }
+.hm-board #hm-t-ca { left: 770px; top: 480px; width: 350px; font-size: 29px; white-space: nowrap; background: rgba(251,191,36,.16); border: 3px solid #fbbf24; color: #fde68a; }
+.hm-board #hm-t-hacker { left: 1080px; top: 770px; width: 200px; font-size: 30px; background: rgba(248,113,113,.16); border: 3px solid #f87171; color: #fecaca; }
+.hm-board .sub-tag { display: block; font-size: 25px; font-weight: 700; opacity: .85; }
+.hm-board #hm-netlabel { position: absolute; left: 560px; top: 562px; width: 200px; text-align: center; font-size: 28px; font-weight: 700; color: #b6c3d6; }
+.hm-board .head { position: absolute; left: 0; right: 0; top: 34px; margin: auto; width: fit-content; font-size: 46px; font-weight: 900;
+  padding: 8px 40px; border-radius: 60px; color: #0b1222; }
+.hm-board #hm-hd1 { background: linear-gradient(90deg, #7dd3fc, #38bdf8); }
+.hm-board #hm-hd2 { background: linear-gradient(90deg, #fde68a, #fbbf24); }
+.hm-board #hm-hd3 { background: linear-gradient(90deg, #a7f3d0, #34d399); }
+.hm-board .bubble { position: absolute; background: #f8fafc; color: #0f172a; font-size: 32px; line-height: 1.35; font-weight: 900; padding: 14px 28px; border-radius: 28px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.4); white-space: nowrap; }
+.hm-board .bubble::after { content: ''; position: absolute; bottom: -18px; width: 0; height: 0; border: 12px solid transparent; border-top: 18px solid #f8fafc; }
+.hm-board .bubble.tl::after { left: 40px; }
+.hm-board .bubble.tr::after { right: 40px; }
+.hm-board #hm-b-browser { left: 8px; top: 300px; }
+.hm-board #hm-b-server { left: 1150px; top: 236px; }
+.hm-board #hm-b-ca { left: 1096px; top: 160px; }
+.hm-board #hm-b-hack1 { left: 1080px; top: 584px; }
+.hm-board #hm-b-hack2 { left: 1068px; top: 584px; }
+.hm-board #hm-b-hack2 { white-space: normal; width: 400px; text-align: center; font-size: 30px; line-height: 1.35; }
+.hm-board #hm-b-hack2 span { display: block; }
+.hm-board #hm-b-hack2 { background: #fee2e2; }
+.hm-board #hm-b-hack2::after { border-top-color: #fee2e2; }
+.hm-board .card { position: absolute; border-radius: 22px; padding: 18px 22px; font-weight: 900; text-align: center; }
+.hm-board .threat { top: 176px; width: 310px; height: 224px; line-height: 1.45; background: rgba(248,113,113,.12); border: 3px solid #f87171; font-size: 30px; color: #fecaca; }
+.hm-board .threat .e { display: block; font-size: 56px; line-height: 1.15; }
+.hm-board .threat small { display: block; font-size: 27px; color: #fca5a5; font-weight: 700; }
+.hm-board #hm-th1 { left: 450px; }
+.hm-board #hm-th2 { left: 775px; }
+.hm-board #hm-th3 { left: 1100px; }
+.hm-board .xm { position: absolute; top: 100px; width: 310px; height: 62px; display: flex; align-items: center; justify-content: center; }
+.hm-board .xm b { font-size: 32px; font-weight: 900; color: #fff; background: #dc2626; padding: 2px 26px; border-radius: 30px; direction: rtl; }
+.hm-board #hm-xm1 { left: 450px; }
+.hm-board #hm-xm2 { left: 775px; }
+.hm-board #hm-xm3 { left: 1100px; }
+.hm-board #hm-shield { position: absolute; left: 0; right: 0; top: 404px; margin: auto; width: fit-content; font-size: 58px; font-weight: 900; padding: 16px 56px; border-radius: 70px;
+  background: linear-gradient(90deg, #059669, #10b981); color: #fff; box-shadow: 0 0 80px rgba(16,185,129,.6); direction: rtl; }
+.hm-board #hm-tp { position: absolute; left: 440px; top: 480px; font-size: 30px; font-weight: 900; padding: 6px 24px; border-radius: 30px; background: #fef3c7; color: #78350f; }
+.hm-board #hm-tp2 { position: absolute; left: 440px; top: 480px; font-size: 30px; font-weight: 900; padding: 6px 24px; border-radius: 30px; background: #fef3c7; color: #78350f; }
+.hm-board #hm-tp2 b { color: #dc2626; }
+.hm-board #hm-cert { position: absolute; left: 1060px; top: 340px; width: 350px; height: 200px; white-space: nowrap; border-radius: 16px; background: #fffbeb; color: #78350f; border: 4px solid #f59e0b;
+  padding: 12px 14px; font-weight: 900; font-size: 26px; line-height: 1.35; text-align: center; box-shadow: 0 16px 36px rgba(0,0,0,.45); }
+.hm-board #hm-cert .t { font-size: 33px; color: #92400e; }
+.hm-board #hm-cert .d { font-size: 26px; line-height: 1.5; color: #a16207; direction: ltr; }
+.hm-board #hm-cert .seal { position: absolute; right: -22px; bottom: -22px; width: 62px; height: 62px; border-radius: 50%; background: #dc2626; color: #fff; font-size: 30px;
+  display: flex; align-items: center; justify-content: center; border: 4px solid #fecaca; }
+.hm-board #hm-pub { position: absolute; left: 1380px; top: 372px; width: 86px; height: 104px; }
+.hm-board .ptag { position: absolute; font-size: 28px; font-weight: 900; padding: 4px 16px; border-radius: 14px; white-space: nowrap; }
+.hm-board #hm-pubtag { left: 400px; top: 372px; background: #1d4ed8; color: #fff; }
+.hm-board #hm-priv { position: absolute; left: 1560px; top: 262px; width: 140px; height: 64px; }
+.hm-board #hm-privtag { left: 1430px; top: 178px; background: #7c3aed; color: #fff; }
+.hm-board #hm-vcheck { position: absolute; left: 306px; top: 160px; width: 110px; height: 110px; border-radius: 50%; background: #10b981; color: #fff; font-size: 70px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 0 50px rgba(16,185,129,.8); border: 6px solid #d1fae5; }
+.hm-board #hm-stamp { position: absolute; left: 960px; top: 356px; width: 100px; height: 120px; }
+.hm-board #hm-real { left: 400px; top: 372px; background: #059669; color: #fff; font-size: 30px; }
+.hm-board #hm-skey { position: absolute; left: 450px; top: 300px; width: 140px; height: 64px; }
+.hm-board #hm-skeytag { left: 190px; top: 232px; background: #b45309; color: #fff; }
+.hm-board #hm-spark { position: absolute; left: 420px; top: 262px; width: 200px; height: 140px; }
+.hm-board #hm-boxg { position: absolute; left: 450px; top: 410px; width: 160px; height: 140px; }
+.hm-board #hm-boxg svg { width: 100%; height: 100%; overflow: visible; display: block; }
+.hm-board #hm-boxlock { position: absolute; left: 52px; top: 52px; width: 56px; height: 66px; }
+.hm-board #hm-xbox { position: absolute; left: 880px; top: 410px; width: 180px; height: 170px; font-size: 170px; line-height: 1; color: #f87171; text-shadow: 0 0 24px rgba(248,113,113,.6); font-weight: 900; display: flex; align-items: center; justify-content: center; }
+.hm-board #hm-note { left: 0; right: 0; top: 150px; margin: auto; width: 1040px; background: rgba(15,23,42,.92); border: 3px solid #fbbf24; font-size: 38px; line-height: 1.6; padding: 18px 30px; }
+.hm-board #hm-note .no { color: #fca5a5; display: block; }
+.hm-board #hm-note .yes { color: #a7f3d0; display: block; }
+.hm-board #hm-skey2 { position: absolute; left: 1295px; top: 330px; width: 140px; height: 64px; }
+.hm-board #hm-skeyB { position: absolute; left: 450px; top: 300px; width: 140px; height: 64px; }
+.hm-board #hm-same { left: 0; right: 0; top: 150px; margin: auto; width: fit-content; background: rgba(251,191,36,.15); border: 3px solid #fbbf24; color: #fde68a; font-size: 44px; padding: 12px 40px; }
+.hm-board .pk { position: absolute; left: 470px; top: 494px; font-size: 28px; font-weight: 900; padding: 6px 20px; border-radius: 26px; background: #a7f3d0; color: #064e3b; white-space: nowrap; }
+.hm-board #hm-scr { position: absolute; left: 1070px; top: 600px; width: 340px; height: 120px; border-radius: 26px; background: #1f2937; border: 3px solid #f87171; }
+.hm-board #hm-scr span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 900; color: #fca5a5; direction: ltr; font-family: Consolas, monospace; }
+.hm-board #hm-fast { left: 0; right: 0; top: 150px; margin: auto; width: fit-content; background: rgba(52,211,153,.14); border: 3px solid #34d399; color: #a7f3d0; font-size: 46px; padding: 10px 40px; }
+.hm-board #hm-recap { position: absolute; inset: 0; }
+.hm-board #hm-r-title { position: absolute; left: 0; right: 0; top: 70px; line-height: 1.3; margin: auto; width: fit-content; font-size: 76px; font-weight: 900; color: #e2e8f0; }
+.hm-board .rc { position: absolute; top: 230px; width: 640px; height: 330px; border-radius: 34px; padding: 30px; text-align: center; font-weight: 900; }
+.hm-board .rc .ic { display: block; font-size: 110px; line-height: 1.15; }
+.hm-board .rc .h { display: block; font-size: 52px; }
+.hm-board .rc .p { display: block; font-size: 36px; opacity: .9; }
+.hm-board #hm-rc1 { left: 1060px; background: rgba(59,130,246,.15); border: 4px solid #60a5fa; color: #bfdbfe; }
+.hm-board #hm-rc2 { left: 220px; background: rgba(251,191,36,.13); border: 4px solid #fbbf24; color: #fde68a; }
+.hm-board #hm-r-plus { position: absolute; left: 900px; top: 340px; width: 120px; text-align: center; font-size: 110px; font-weight: 900; color: #94a3b8; }
+.hm-board #hm-r-eq { position: absolute; left: 0; right: 0; top: 600px; margin: auto; width: fit-content; font-size: 60px; font-weight: 900; padding: 14px 54px; border-radius: 70px;
+  background: linear-gradient(90deg, #059669, #10b981); color: #fff; box-shadow: 0 0 80px rgba(16,185,129,.5); }
+.hm-board #hm-r-url { position: absolute; left: 0; right: 0; top: 740px; margin: auto; width: 760px; height: 82px; border-radius: 42px; background: #0b1222; border: 3px solid #334155;
+  display: flex; align-items: center; justify-content: center; gap: 16px; font-size: 40px; font-weight: 700; direction: ltr; color: #e2e8f0; }
+.hm-board #hm-r-url .s { color: #34d399; }
+.hm-board #hm-r-brand { position: absolute; left: 0; right: 0; top: 14px; margin: auto; width: fit-content; font-size: 26px; line-height: 1.5; font-weight: 700; color: #64748b; }
+/* app board is 880px tall (no subtitle band): pull the hook up a little */
+.hm-board #hm-win { top: 236px; height: 500px; }
+.hm-board #hm-h-ring { top: 248px; }
+.hm-board #hm-h-secret { top: 762px; }
+.hm-board #hm-win .page { padding: 36px 70px; }
+.hm-board #hm-skeytag { top: 192px; }
+/* the movie gets the full width (bigger characters and text); the explanation sits under it */
+.split.split-wide:has(> .stage.anim-httpsMovie) { grid-template-columns: minmax(0, 1fr); }
+.stage.stage-wide.anim-httpsMovie { min-height: 0; height: auto; aspect-ratio: 1920 / 880; max-height: 74vh; }
