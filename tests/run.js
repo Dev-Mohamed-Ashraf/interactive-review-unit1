@@ -15,6 +15,7 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const quiz = require('../tools/quiz-report.js'); // question-quality rules
 
 const ROOT = path.resolve(__dirname, '..');
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
@@ -140,6 +141,8 @@ RV.unit.lessons.forEach((id) => {
         const errs = RV.widgets.get(step.q.widget).validate(step.q) || [];
         errs.forEach((e) => fail(`${w} ${step.q.widget}: ${e}`));
         if (!errs.length) ok();
+        // question quality: the right option must never be a give-away by being the longest
+        if (quiz.longestIsAnswer(step.q)) fail(`${w} mcq: the correct option is clearly the longest — lengthen the distractors (node tools/quiz-report.js --list)`); else ok();
       }
       if (step.type === 'example' && (!step.solution || !step.solution.length)) fail(`${w}: example needs solution[]`);
       if (st.kind === 'test' && step.type !== 'quiz') fail(`${w}: test stations may contain quiz steps only`);

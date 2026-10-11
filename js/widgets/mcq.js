@@ -1,10 +1,22 @@
 /* widgets/mcq.js — multiple choice (single or multi-select).
- * q = { widget:'mcq', prompt, options:[bi], answer: i | [i,j], explain } */
+ * q = { widget:'mcq', prompt, options:[bi], answer: i | [i,j], explain, fixedOrder? }
+ * Options are shown in a NEW random order every time (so the letter / position of the
+ * right answer can never be memorised); "all/none of the above" stays last.
+ * `fixedOrder: true` keeps the authored order (e.g. ordered numbers). */
 (function () {
   'use strict';
   const { h } = RV.dom;
   const W = RV.wkit;
   const LETTERS = { ar: ['أ', 'ب', 'ج', 'د', 'هـ', 'و'], en: ['A', 'B', 'C', 'D', 'E', 'F'] };
+
+  const LAST = /(كل|جميع) ما سبق|لا شيء مما سبق|ولا (واحدة|حاجة) من (دول|السابق)|all of the above|none of the above/i;
+  /** Random order, with "all / none of the above" kept at the end. */
+  function displayOrder(q) {
+    const idx = q.options.map((_, i) => i);
+    if (q.fixedOrder) return idx;
+    const pinned = idx.filter((i) => LAST.test(q.options[i].ar || '') || LAST.test(q.options[i].en || ''));
+    return RV.dom.shuffle(idx.filter((i) => !pinned.includes(i))).concat(pinned);
+  }
 
   W.defineWidget('mcq', {
     validate(q) {
@@ -25,13 +37,14 @@
       const chosen = new Set();
 
       const list = h('div', { class: 'opts' });
-      const buttons = q.options.map((opt, i) => {
+      const buttons = new Array(q.options.length); // indexed by the ORIGINAL option index
+      displayOrder(q).forEach((i, pos) => {
         const b = h('button', { class: 'opt', type: 'button', 'aria-pressed': 'false' },
-          h('span', { class: 'opt-key' }, letters[i]),
-          h('span', { class: 'opt-text' }, RV.rich(opt)));
+          h('span', { class: 'opt-key' }, letters[pos]),
+          h('span', { class: 'opt-text' }, RV.rich(q.options[i])));
         b.addEventListener('click', () => pick(i));
         list.appendChild(b);
-        return b;
+        buttons[i] = b;
       });
 
       const checkBtn = multi ? h('button', { class: 'btn btn-primary q-check', type: 'button', disabled: true }, RV.i18n.ui('check')) : null;

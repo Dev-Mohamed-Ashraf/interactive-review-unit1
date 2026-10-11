@@ -760,9 +760,9 @@ RV.lessons.add('1-1', {
           q: { widget: 'mcq', prompt: { ar: 'اختر أنسب وصف لخصائص شبكات التواصل الاجتماعي:', en: 'Choose the best description of SNS:' },
             options: [
               { ar: 'خدمة للتواصل ونشر ومشاركة المعلومات، وفعّالة جدًا في نشرها بسرعة.', en: 'A service to connect, post and share info; spreads it rapidly.' },
-              { ar: 'خدمة لبيع وشراء السلع عبر الإنترنت.', en: 'A service for buying/selling goods online.' },
-              { ar: 'نمط عمل من المنزل أو مكان بعيد.', en: 'A style of working from home.' },
-              { ar: 'نظام دفع بالنقود الإلكترونية أو QR.', en: 'A payment system using e-money or QR.' },
+              { ar: 'خدمة لبيع وشراء السلع والخدمات عبر الإنترنت، زي أمازون وإي باي.', en: 'A service for buying and selling goods and services online, like Amazon.' },
+              { ar: 'نمط شغل بتعمل فيه مهامك من البيت أو أي مكان بعيد بالإنترنت.', en: 'A way of working from home or any remote place using the Internet.' },
+              { ar: 'نظام للدفع بالنقود الإلكترونية أو رموز QR من غير ما تستخدم كاش.', en: 'A system for paying with e-money or QR codes without using cash.' },
             ], answer: 0 },
         },
       ],
@@ -917,10 +917,10 @@ RV.lessons.add('1-1', {
           { ar: 'الحوسبة الطرفية', en: 'Edge computing' }, { ar: 'قانون مور', en: "Moore's Law" }, { ar: 'الواقع المعزز', en: 'Augmented reality' }, { ar: 'الحوسبة الكمومية', en: 'Quantum computing' },
         ], answer: 1 } },
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '3. أيّ هذه مثال صحيح على التجارة الإلكترونية؟', en: '3. Which is a correct example of e-commerce?' }, options: [
-          { ar: 'الدفع كاش في محل حقيقي', en: 'Paying cash in a physical shop' }, { ar: 'الشراء من متجر إنترنت مثل أمازون', en: 'Buying from an online store like Amazon' }, { ar: 'التعلّم عن بُعد', en: 'Distance learning' }, { ar: 'القيادة الذاتية', en: 'Autonomous driving' },
+          { ar: 'شراء هدوم بالكاش من محل في المول', en: 'Buying clothes with cash in a mall shop' }, { ar: 'الشراء من متجر إنترنت مثل أمازون', en: 'Buying from an online store like Amazon' }, { ar: 'حضور حصة أونلاين مع مدرس من البيت', en: 'Attending an online lesson from home' }, { ar: 'دفع الفطار بالموبايل بـ QR في المدرسة', en: 'Paying for breakfast by QR at school' },
         ], answer: 1 } },
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '4. لماذا تستخدم القيادة الذاتية الحوسبة الطرفية بدل السحابة؟', en: '4. Why does autonomous driving use edge computing instead of the cloud?' }, options: [
-          { ar: 'لتوفير المال', en: 'To save money' }, { ar: 'لتقليل استهلاك الإنترنت', en: 'To reduce Internet usage' }, { ar: 'لأن القرار يجب أن يُتّخذ في أقل من 0.1 ثانية', en: 'Because the decision must be taken in under 0.1 s' }, { ar: 'لأن السحابة غير متاحة', en: 'Because the cloud is unavailable' },
+          { ar: 'لأن الحوسبة الطرفية أرخص بكثير من السحابة', en: 'Because edge computing is much cheaper than the cloud' }, { ar: 'لتقليل كمية بيانات الإنترنت التي تستهلكها العربية', en: 'To cut down how much Internet data the car uses' }, { ar: 'لأن القرار يجب أن يُتّخذ في أقل من 0.1 ثانية', en: 'Because the decision must be taken in under 0.1 s' }, { ar: 'لأن السحابة لا تستطيع تحليل صور الكاميرات', en: 'Because the cloud cannot analyse camera images' },
         ], answer: 2 } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '5. الحوسبة الطرفية ترسل كل البيانات للسحابة أولًا قبل اتخاذ أي قرار.', en: '5. Edge computing sends all data to the cloud first.' }, answer: false }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '6. الواقع المعزّز (AR) يستبدل العالم الحقيقي بالكامل ببيئة افتراضية.', en: '6. AR completely replaces the real world.' }, answer: false }] } },

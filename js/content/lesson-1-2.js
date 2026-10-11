@@ -309,7 +309,7 @@ RV.lessons.add('1-2', {
         {
           type: 'quiz', title: { ar: 'تمرين 2 (2)', en: 'Try 2 (2)' },
           q: { widget: 'mcq', prompt: { ar: 'اختار اللي __مش__ مثال على الذكاء التوليدي:', en: 'Choose the one that is NOT generative AI:' },
-            options: [{ ar: 'ChatGPT', en: 'ChatGPT' }, { ar: 'ذكاء لتوليد الصور', en: 'Image-generation AI' }, { ar: 'فلتر الرسائل المزعجة', en: 'Spam filter' }, { ar: 'ذكاء لتوليد الصوت', en: 'Audio-generation AI' }], answer: 2, explain: { ar: 'فلتر السبام بيصنّف، مش بيولّد.', en: 'A spam filter classifies; it does not generate.' } },
+            options: [{ ar: 'ChatGPT لما يكتبلك موضوع تعبير', en: 'ChatGPT writing an essay for you' }, { ar: 'ذكاء بيرسم صورة من وصف مكتوب', en: 'AI that draws a picture from a description' }, { ar: 'فلتر الرسائل المزعجة في الإيميل', en: 'The spam filter in your email' }, { ar: 'ذكاء بيولّد صوت شبه صوت الإنسان', en: 'AI that generates a human-like voice' }], answer: 2, explain: { ar: 'فلتر السبام بيصنّف، مش بيولّد.', en: 'A spam filter classifies; it does not generate.' } },
         },
         {
           type: 'quiz', title: { ar: 'تدريب 2 — املأ الفراغات', en: 'Exercise 2 — fill the blanks' },
@@ -337,9 +337,9 @@ RV.lessons.add('1-2', {
           q: { widget: 'mcq', prompt: { ar: 'اختار أنسب وصف للعلاقة:', en: 'Choose the best description of the relationship:' },
             options: [
               { ar: 'التعلّم الآلي نوع من الـ AI، والتعلّم العميق نوع من التعلّم الآلي.', en: 'ML is a type of AI, and DL is a type of ML.' },
-              { ar: 'الـ AI نوع من التعلّم الآلي، والتوليدي نوع من الـ AI.', en: 'AI is a type of ML, and GenAI is a type of AI.' },
-              { ar: 'التعلّم العميق والتعلّم الآلي تقنيتين مختلفتين تمامًا.', en: 'DL and ML are completely different.' },
-              { ar: 'التوليدي بيولّد بيانات من غير ما يستخدم التعلّم الآلي.', en: 'GenAI generates data without using ML.' },
+              { ar: 'الـ AI نوع من التعلّم الآلي، والتعلّم العميق نوع من الذكاء التوليدي.', en: 'AI is a type of ML, and DL is a type of generative AI.' },
+              { ar: 'التعلّم العميق والتعلّم الآلي تقنيتين منفصلتين ومالهمش علاقة ببعض.', en: 'DL and ML are two separate technologies with no relation.' },
+              { ar: 'الذكاء التوليدي بيولّد بيانات جديدة من غير ما يستخدم التعلّم الآلي.', en: 'GenAI creates new data without using machine learning at all.' },
             ], answer: 0 },
         },
       ],
@@ -478,7 +478,7 @@ RV.lessons.add('1-2', {
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '1. أيّ ترتيب متداخل صحيح؟', en: '1. Which nested order is correct?' }, options: [
           { ar: 'AI ⊃ تعلم عميق ⊃ تعلّم آلي ⊃ توليدي', en: 'AI ⊃ DL ⊃ ML ⊃ GenAI' }, { ar: 'AI ⊃ تعلّم آلي ⊃ تعلم عميق ⊃ توليدي', en: 'AI ⊃ ML ⊃ DL ⊃ GenAI' }, { ar: 'توليدي ⊃ تعلم عميق ⊃ تعلّم آلي ⊃ AI', en: 'GenAI ⊃ DL ⊃ ML ⊃ AI' }, { ar: 'تعلّم آلي ⊃ AI ⊃ توليدي ⊃ تعلم عميق', en: 'ML ⊃ AI ⊃ GenAI ⊃ DL' },
         ], answer: 1 } },
-        { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '2. أيّ دول مش ذكاء توليدي؟', en: '2. Which is NOT generative AI?' }, options: [{ ar: 'ChatGPT', en: 'ChatGPT' }, { ar: 'أداة توليد صور', en: 'Image generator' }, { ar: 'فلتر الرسائل المزعجة', en: 'Spam filter' }, { ar: 'أداة توليد صوت', en: 'Audio generator' }], answer: 2 } },
+        { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '2. أيّ دول مش ذكاء توليدي؟', en: '2. Which is NOT generative AI?' }, options: [{ ar: 'ChatGPT وهو بيجاوب أسئلتك', en: 'ChatGPT answering your questions' }, { ar: 'أداة بترسم صورة من جملة بتكتبها', en: 'A tool that makes a picture from a sentence' }, { ar: 'فلتر السبام في الإيميل', en: 'The spam (junk mail) filter' }, { ar: 'أداة بتألّف موسيقى جديدة', en: 'A tool that composes new music' }], answer: 2 } },
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '3. «تستخدم الشبكات العصبية لتعلّم أنماط معقّدة من بيانات ضخمة»:', en: '3. "Uses neural networks to learn complex patterns from big data":' }, options: [{ ar: 'الذكاء الاصطناعي', en: 'AI' }, { ar: 'التعلّم الآلي', en: 'Machine learning' }, { ar: 'التعلّم العميق', en: 'Deep learning' }, { ar: 'الذكاء التوليدي', en: 'Generative AI' }], answer: 2 } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '4. التعلّم الآلي جوّه الـ AI، والتعلّم العميق جوّه التعلّم الآلي.', en: '4. ML sits inside AI; DL sits inside ML.' }, answer: true }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '5. الذكاء التوليدي بيستخدم تعلّم آلي عادي مش تعلّم عميق.', en: '5. Generative AI uses ordinary ML, not deep learning.' }, answer: false }] } },

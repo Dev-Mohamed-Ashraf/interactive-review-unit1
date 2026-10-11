@@ -35,6 +35,17 @@
   RV.lessons = makeRegistry('lesson');
   RV.screens = makeRegistry('screen');
   RV.unit = null; // set by js/content/unit1.js
+  /**
+   * Extra steps for a station, from a separate content file (e.g. js/content/checks-1-1.js —
+   * "check yourself" questions). Inserted just before the station's summary step, so a lesson
+   * file never has to be edited to add questions.
+   */
+  RV.addSteps = (lessonId, stationId, steps) => {
+    const st = RV.lessons.get(lessonId).stations.find((s) => s.id === stationId);
+    if (!st) throw new Error(`addSteps: no station "${stationId}" in lesson ${lessonId}`);
+    const at = st.steps.findIndex((s) => s.type === 'summary');
+    st.steps.splice(at === -1 ? st.steps.length : at, 0, ...steps);
+  };
   /** Lessons of the unit that are actually loaded (missing ones are reported by tests). */
   RV.availableLessons = () => (RV.unit ? RV.unit.lessons.filter((id) => RV.lessons.has(id)) : []);
 })();

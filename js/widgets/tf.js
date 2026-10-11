@@ -24,23 +24,26 @@
       const rows = [];
 
       const list = h('div', { class: 'tf-list' });
-      q.items.forEach((it, i) => {
+      // statements appear in a new random order each time → no "T, F, T, F" rhythm to guess from
+      const order = q.fixedOrder ? q.items.map((_, i) => i) : RV.dom.shuffle(q.items.map((_, i) => i));
+      order.forEach((i, pos) => {
+        const it = q.items[i];
         const yes = h('button', { class: 'tf-btn tf-yes', type: 'button' }, RV.icon('check'), RV.i18n.ui('tf_true'));
         const no = h('button', { class: 'tf-btn tf-no', type: 'button' }, RV.icon('x'), RV.i18n.ui('tf_false'));
         const note = h('p', { class: 'tf-note' });
         const row = h('div', { class: 'tf-row' },
-          q.items.length > 1 ? h('span', { class: 'tf-num' }, String(i + 1)) : null,
+          q.items.length > 1 ? h('span', { class: 'tf-num' }, String(pos + 1)) : null,
           h('p', { class: 'tf-text' }, RV.rich(it.text)),
           h('div', { class: 'tf-btns' }, yes, no),
           note);
         yes.addEventListener('click', () => answer(i, true));
         no.addEventListener('click', () => answer(i, false));
-        rows.push({ row, yes, no, note });
+        rows[i] = { row, yes, no, note };
         list.appendChild(row);
       });
 
       el.append(W.header(Object.assign({}, q, { prompt: q.prompt || DEFAULT_PROMPT })), list);
-      gsap.from(rows.map((r) => r.row), { x: 30, opacity: 0, stagger: 0.08, duration: 0.45, ease: 'power2.out', clearProps: 'all' });
+      gsap.from(order.map((i) => rows[i].row), { x: 30, opacity: 0, stagger: 0.08, duration: 0.45, ease: 'power2.out', clearProps: 'all' });
 
       function answer(i, val) {
         if (state[i] !== null) return;

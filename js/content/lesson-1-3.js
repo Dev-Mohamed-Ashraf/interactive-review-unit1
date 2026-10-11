@@ -287,7 +287,7 @@ RV.lessons.add('1-3', {
         {
           type: 'quiz', title: { ar: 'تمرين 2 (1)', en: 'Try 2 (1)' },
           q: { widget: 'mcq', prompt: { ar: 'اختار اللي __مش__ من «اللي محتاج حذر»:', en: 'Choose the one NOT among "requires caution":' },
-            options: [{ ar: 'الأحكام الأخلاقية', en: 'Ethical judgments' }, { ar: 'إيجاد وتصنيف الأنماط', en: 'Finding & classifying patterns' }, { ar: 'أحكام الخصوصية', en: 'Privacy judgments' }, { ar: 'القرار النهائي', en: 'Final decision-making' }], answer: 1 },
+            options: [{ ar: 'الأحكام الأخلاقية (تمييز وتحيّز)', en: 'Ethical judgments (discrimination, bias)' }, { ar: 'إيجاد وتصنيف الأنماط في الصور', en: 'Finding and classifying patterns in images' }, { ar: 'المعلومات الشخصية والخصوصية', en: 'Personal information and privacy' }, { ar: 'القرار النهائي ومين المسؤول عنه', en: 'The final decision and who is responsible' }], answer: 1 },
         },
         {
           type: 'quiz', title: { ar: 'تدريب 2 — املأ الفراغات', en: 'Exercise 2 — fill the blanks' },
@@ -455,7 +455,7 @@ RV.lessons.add('1-3', {
       steps: [
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '1. «يتنبّأ بالتفضيلات من السلوك السابق ويعرض توصيات»:', en: '1. "Predicts preferences from past behaviour and recommends":' }, options: [{ ar: 'المساعد الصوتي', en: 'Voice assistant' }, { ar: 'نظام الترشيح', en: 'Recommendation system' }, { ar: 'الترجمة الآلية', en: 'Machine translation' }, { ar: 'التعرف على الوجه', en: 'Face recognition' }], answer: 1 } },
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '2. الصيانة التنبؤية مثال على الـAI في أنهي صناعة؟', en: '2. Predictive maintenance belongs to which industry?' }, options: [{ ar: 'الرعاية الصحية', en: 'Healthcare' }, { ar: 'الزراعة', en: 'Agriculture' }, { ar: 'التصنيع', en: 'Manufacturing' }, { ar: 'الخدمات اللوجستية', en: 'Logistics' }], answer: 2 } },
-        { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '3. أيّ دول __مش__ من اللي محتاج حذر؟', en: '3. Which is NOT a caution item?' }, options: [{ ar: 'الأحكام الأخلاقية', en: 'Ethical judgments' }, { ar: 'إيجاد وتصنيف الأنماط', en: 'Finding & classifying patterns' }, { ar: 'القرار النهائي', en: 'Final decision' }, { ar: 'الخصوصية', en: 'Privacy' }], answer: 1 } },
+        { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '3. أيّ دول __مش__ من اللي محتاج حذر؟', en: '3. Which is NOT a caution item?' }, options: [{ ar: 'الأحكام الأخلاقية زي التمييز', en: 'Ethical judgments such as discrimination' }, { ar: 'إيجاد الأنماط في البيانات', en: 'Finding patterns in data' }, { ar: 'القرار النهائي في حالة مهمة', en: 'The final decision in a serious case' }, { ar: 'حماية البيانات الشخصية', en: 'Protecting personal data' }], answer: 1 } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '4. ينفع نسيب الأحكام الأخلاقية للـAI بالكامل بلا مشكلة.', en: '4. Ethical judgments can be left entirely to AI.' }, answer: false }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '5. أحكام الـAI ممكن تبقى غير دقيقة لما بيانات التدريب تكون متحيزة.', en: '5. Biased training data can make AI judgments inaccurate.' }, answer: true }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '6. «مشكلة الصندوق الأسود» = مش واضح إزاي الـAI وصل لحكمه.', en: '6. The black-box problem = unclear how the AI reached its judgment.' }, answer: true }] } },
