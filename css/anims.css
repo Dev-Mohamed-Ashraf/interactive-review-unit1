@@ -67,3 +67,6 @@ html[lang="en"] .hotspot-label { direction: ltr; }
 .stage-ambient i { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: var(--lesson); box-shadow: 0 0 8px var(--lesson); opacity: .7; }
 :where(.stage) > :where(:not(.stage-ambient)) { z-index: 1; } /* zero specificity: anim layers keep their own z-index */
 .fit-inner { flex: none; } /* see kit.fitBox */
+/* cinema: tap-to-play (only when the device blocks autoplay, e.g. iPad Low Power Mode) */
+.cn-tap { position: absolute; z-index: 6; left: 50%; top: 50%; translate: -50% -50%; display: grid; justify-items: center; gap: 8px; padding: 16px 22px; border-radius: 20px; border: 1px solid rgba(255,255,255,.25); background: rgba(6,11,28,.72); color: #fff; font: inherit; font-weight: 800; cursor: pointer; backdrop-filter: blur(8px); }
+.cn-tap-ico { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-size: 28px; background: var(--lesson); color: var(--accent-ink); box-shadow: 0 0 0 10px color-mix(in srgb, var(--lesson) 30%, transparent); }

@@ -48,13 +48,12 @@
     ro.observe(frame);
     const stopRo = () => ro.disconnect();
 
-    // 1) cinematic entrance: the picture unfolds from its centre, then breathes gently
+    // 1) cinematic entrance: the picture unfolds from its centre, then stays perfectly still and sharp.
+    //    (A slow endless zoom on a detailed picture shimmers/"shakes" on iPad Safari — the life comes from
+    //    the light sweep, particles and the drifting backdrop instead.)
     function enter() {
       gsap.fromTo(pic, { clipPath: 'inset(48% 48% 48% 48% round 18px)' }, { clipPath: 'inset(0% 0% 0% 0% round 14px)', duration: 1.1, ease: 'expo.inOut' });
-      gsap.fromTo(box, { scale: 0.92, rotateX: 8, opacity: 0 }, { scale: 1, rotateX: 0, opacity: 1, duration: 1.1, ease: 'power3.out' });
-      const motion = props.motion || opts.motion || 'in';
-      const drift = { in: { scale: 1.03, y: -4 }, out: { scale: 0.985, y: 3 }, pan: { x: 8, y: -3 } }[motion] || { scale: 1.03 };
-      gsap.to(img, Object.assign({ duration: 9, ease: 'sine.inOut', repeat: -1, yoyo: true, delay: 1.1 }, drift));
+      gsap.fromTo(box, { scale: 0.92, rotateX: 8, opacity: 0 }, { scale: 1, rotateX: 0, opacity: 1, duration: 1.1, ease: 'power3.out', clearProps: 'transform' });
     }
     // ambient fill behind: slow Ken Burns on the blurred copy (cropping it is fine — it's only light)
     gsap.fromTo(bg, { scale: 1.15, xPercent: -2 }, { scale: 1.3, xPercent: 2, duration: 16, ease: 'sine.inOut', repeat: -1, yoyo: true });
@@ -78,14 +77,11 @@
     const bx = gsap.quickTo(bg, 'x', { duration: 1.2, ease: 'power3' });
     function move(nx, ny) { qx(nx * -6); qy(ny * -5); rx(nx * 4); ry(ny * -3); bx(nx * 24); }
     api.on(stage, 'pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return; // touch/pen: no parallax (it looked like shaking on iPad)
       const b = stage.getBoundingClientRect();
       move((e.clientX - b.left) / b.width - 0.5, (e.clientY - b.top) / b.height - 0.5);
     });
     api.on(stage, 'pointerleave', () => move(0, 0));
-    api.on(window, 'deviceorientation', (e) => {
-      if (e.gamma == null) return;
-      move(Math.max(-1, Math.min(1, e.gamma / 30)) / 2, Math.max(-1, Math.min(1, (e.beta - 45) / 30)) / 2);
-    });
 
     if (props.credit) frame.appendChild(h('div', { class: 'lp-credit' }, '📷 ' + props.credit)); // licence attribution (CC BY-SA)
     if (props.caption) {

@@ -19,8 +19,19 @@
     const clips = (props.clips || []).map((c, i) => Object.assign({ beat: i }, c));
 
     function makeVideo() {
-      const v = h('video', { class: 'cn-video', muted: true, playsinline: true, loop: true, preload: 'metadata' });
-      v.muted = true; v.playsInline = true; v.setAttribute('webkit-playsinline', '');
+      const v = h('video', { class: 'cn-video', loop: true, preload: 'auto' });
+      // iPhone/iPad only autoplay a video that is muted + inline — set as attributes AND properties
+      v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', ''); v.setAttribute('autoplay', '');
+      v.muted = true; v.defaultMuted = true; v.playsInline = true; v.autoplay = true;
+      // a file that fails (e.g. offline and not downloaded in this size) → try the other size once
+      v.addEventListener('error', () => {
+        const src = v.getAttribute('src') || '';
+        if (!src || v.dataset.retried) { showTap(true); return; }
+        v.dataset.retried = '1';
+        v.src = src.endsWith('-480.mp4') ? src.replace('-480.mp4', '.mp4') : src.replace(/\.mp4$/, '-480.mp4');
+        play(v);
+      });
+      v.addEventListener('playing', () => showTap(false));
       return v;
     }
     const layers = [makeVideo(), makeVideo()];
@@ -31,14 +42,16 @@
     const rec = h('div', { class: 'cn-rec' }, h('span', { class: 'cn-dot' }), 'LIVE');
     const lower = h('div', { class: 'cn-lower' });
     const bar = h('div', { class: 'cn-progress' }, clips.map(() => h('i')));
-    const frame = h('div', { class: 'cn-frame' }, mover, grade, vignette, corners, rec, lower, bar);
+    // shown when the device refuses to autoplay (Low Power Mode, data saver…): one tap starts it
+    const tap = h('button', { class: 'cn-tap', type: 'button', hidden: true }, h('span', { class: 'cn-tap-ico' }, '▶'), h('span', null, api.t({ ar: 'اضغط لتشغيل الفيديو', en: 'Tap to play the video' })));
+    const frame = h('div', { class: 'cn-frame' }, mover, grade, vignette, corners, rec, lower, bar, tap);
     stage.appendChild(frame);
 
     // gentle camera drift + pointer/tilt parallax
     gsap.fromTo(mover, { scale: 1.06 }, { scale: 1.16, xPercent: -2, duration: 12, repeat: -1, yoyo: true, ease: 'sine.inOut' });
     const qx = gsap.quickTo(mover, 'x', { duration: 0.9, ease: 'power3' });
     const qy = gsap.quickTo(mover, 'y', { duration: 0.9, ease: 'power3' });
-    api.on(stage, 'pointermove', (e) => { const b = stage.getBoundingClientRect(); qx(((e.clientX - b.left) / b.width - 0.5) * -24); qy(((e.clientY - b.top) / b.height - 0.5) * -18); });
+    api.on(stage, 'pointermove', (e) => { if (e.pointerType !== 'mouse') return; const b = stage.getBoundingClientRect(); qx(((e.clientX - b.left) / b.width - 0.5) * -24); qy(((e.clientY - b.top) / b.height - 0.5) * -18); });
     api.on(stage, 'pointerleave', () => { qx(0); qy(0); });
     gsap.to(rec.firstChild, { opacity: 0.2, duration: 0.6, repeat: -1, yoyo: true });
     gsap.from(corners.children, { scale: 1.6, opacity: 0, stagger: 0.08, duration: 0.6, ease: 'power3.out' });
@@ -55,7 +68,23 @@
 
     let front = 0;
     let currentClip = -1;
-    function play(v) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+    function showTap(on) { if (tap.hidden === !on) return; tap.hidden = !on; if (on) gsap.fromTo(tap, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(2)' }); }
+    let active = null; // the <video> that should be playing now
+    let check = null;
+    function play(v) {
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {}); // blocked / interrupted: handled by the check below
+      // whatever the reason (Low Power Mode, data saver, power-saving pause…): if it is not
+      // running shortly after, offer a big ▶ button — a tap always may start a video
+      clearTimeout(check);
+      check = setTimeout(() => { if (v === active && v.paused && v.getAttribute('src')) showTap(true); }, 1600);
+    }
+    api.on(tap, 'click', () => { if (!active) return; active.muted = true; active.play().then(() => showTap(false)).catch(() => {}); });
+    // any touch on the stage also wakes up a paused video
+    api.on(stage, 'pointerdown', () => { if (active && active.paused && active.getAttribute('src')) active.play().then(() => showTap(false)).catch(() => {}); });
+    // still not playing a few seconds after a clip starts → nudge it (slow networks)
+    let nudge = null;
+    function watch(v) { clearTimeout(nudge); nudge = setTimeout(() => { if (v === active && v.readyState < 2) { v.load(); play(v); } }, 5000); } // stuck loading → reload once
 
     function showClip(ci) {
       if (ci === currentClip || !clips[ci]) return;
@@ -66,8 +95,11 @@
       const prev = layers[front];
       next.poster = c.src.replace(/\.mp4$/, '.jpg');
       next.src = RV.perf.video(c.src); // 480p on phones / weak devices
-      next.currentTime = 0;
+      delete next.dataset.retried;
+      active = next;
+      showTap(false);
       play(next);
+      watch(next);
       if (!first) {
         gsap.set(next, { zIndex: 2 }); gsap.set(prev, { zIndex: 1 });
         gsap.fromTo(next, { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 0.9, ease: 'power2.out', onComplete: () => prev.pause() });
@@ -105,7 +137,7 @@
           else if (!show) gsap.set(x.el, { opacity: 0 });
         });
       },
-      destroy() { layers.forEach((v) => { v.pause(); v.removeAttribute('src'); v.load(); }); },
+      destroy() { clearTimeout(nudge); clearTimeout(check); layers.forEach((v) => { v.pause(); v.removeAttribute('src'); v.load(); }); },
     };
   });
 })();

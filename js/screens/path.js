@@ -52,7 +52,7 @@
       root.append(h('div', { class: 'screen path' }, top, hero, h('div', { class: 'path-tools' }, wheelBtn), h('div', { class: 'path-layout' }, objectives, road), nav));
 
       const tl = gsap.timeline();
-      tl.from('.path-hero-img img', { scale: 1.15, duration: 1.6, ease: 'power2.out' })
+      tl.from('.path-hero-img', { opacity: 0, duration: 0.8, ease: 'power2.out' }) // (the <img> itself is moved by the CSS Ken Burns — never by GSAP too, or Safari shakes)
         .from('.path-hero-text > *', { y: 30, opacity: 0, stagger: 0.08, duration: 0.6, ease: 'power3.out' }, 0.1)
         .from('.path-objectives', { y: 30, opacity: 0, duration: 0.5 }, 0.4)
         .fromTo('.road-line', { strokeDashoffset: 3000 }, { strokeDashoffset: 0, duration: 2, ease: 'power2.inOut' }, 0.4)

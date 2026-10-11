@@ -1,8 +1,8 @@
 /* =========================================================
  * css/screens.css — layout of home, lesson path, player, results.
  * ========================================================= */
-#app { min-height: 100dvh; }
-.screen { min-height: 100dvh; padding: calc(var(--safe-top) + 10px) var(--gutter) calc(var(--safe-bottom) + 24px); max-width: 1400px; margin: 0 auto; }
+#app { min-height: 100vh; min-height: 100svh; }
+.screen { min-height: 100vh; min-height: 100svh; padding: calc(var(--safe-top) + 10px) var(--gutter) calc(var(--safe-bottom) + 24px); max-width: 1400px; margin: 0 auto; }
 
 /* ---------- top bar ---------- */
 .topbar { display: flex; align-items: center; gap: 12px; min-height: 60px; }
@@ -105,7 +105,7 @@
 }
 
 /* ---------- player ---------- */
-.player { display: flex; flex-direction: column; height: 100dvh; padding-bottom: 0; }
+.player { display: flex; flex-direction: column; height: 100vh; height: 100svh; padding-bottom: 0; }
 .player-top { flex: none; }
 .player-count { color: var(--muted); font-size: var(--fs-0); margin-inline-start: auto; }
 .player-station { font-size: var(--fs-1); }
@@ -224,7 +224,7 @@
  * The stage takes the whole screen; the current beat becomes a subtitle bar under it. */
 .player.is-present { max-width: none; }
 .player.is-present .step-scene .split,
-.player.is-present .step-intro .split { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; gap: 10px; height: calc(100dvh - 170px - var(--safe-top) - var(--safe-bottom)); min-height: 420px; }
+.player.is-present .step-intro .split { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; gap: 10px; height: calc(100vh - 170px - var(--safe-top) - var(--safe-bottom)); height: calc(100svh - 170px - var(--safe-top) - var(--safe-bottom)); min-height: 420px; }
 .player.is-present .step-scene .stage,
 .player.is-present .step-intro .stage { min-height: 0; height: 100%; max-height: none; aspect-ratio: auto; }
 .player.is-present .step-scene .panel,
@@ -316,7 +316,7 @@
 @media (min-width: 1101px), (min-width: 901px) and (orientation: landscape) {
   .split:not(.no-visual) > .stage {
     position: sticky; top: 0; align-self: start;
-    height: min(calc(100dvh - 180px - var(--safe-top) - var(--safe-bottom)), 820px);
+    height: min(calc(100vh - 180px - var(--safe-top) - var(--safe-bottom)), 820px); height: min(calc(100svh - 180px - var(--safe-top) - var(--safe-bottom)), 820px);
     min-height: 360px;
   }
 }
