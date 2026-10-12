@@ -1,0 +1,14 @@
+/* =========================================================
+ * anims-movies-ch34.css — chapter 3–4 movie pieces not covered by the
+ * shared components (anims-movies.css). Positions are inline (logical).
+ * ========================================================= */
+.mv-board.mv-l31 .head { background: linear-gradient(90deg, #bae6fd, #38bdf8); }
+.mv-board.mv-l32 .head { background: linear-gradient(90deg, #c7d2fe, #818cf8); }
+.mv-board.mv-l33 .head { background: linear-gradient(90deg, #fbcfe8, #f472b6); }
+.mv-board.mv-l41 .head { background: linear-gradient(90deg, #fde68a, #f59e0b); }
+.mv-board.mv-l42 .head { background: linear-gradient(90deg, #a7f3d0, #10b981); }
+.mv-board.mv-l43 .head { background: linear-gradient(90deg, #ddd6fe, #8b5cf6); }
+.mv-board.mv-l44 .head { background: linear-gradient(90deg, #fecaca, #f87171); }
+.mv-board .art text { font-family: 'Cairo', 'Segoe UI Emoji', sans-serif; }
+/* SVG coordinates are drawn left-to-right: keep text runs anchored the same way in Arabic */
+.mv-board .art text { direction: ltr; }

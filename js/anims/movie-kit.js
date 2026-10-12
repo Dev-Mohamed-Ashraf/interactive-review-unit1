@@ -78,6 +78,20 @@
   /* bubble anchored by its bottom edge: B(left, bottomY, width) */
   const B = (l, y, w) => `style="left:${l}px;bottom:${880 - y}px;width:${w}px"`;
 
+  /* logical position: inset-inline-start, so every layout mirrors itself in Arabic (RTL) */
+  const SL = (l, t, w, h) => `style="inset-inline-start:${l}px;top:${t}px;${w ? `width:${w}px;` : ''}${h ? `height:${h}px;` : ''}"`;
+  /* the same builders with mirrored (logical) positions — used by the chapter 3–4 movies */
+  const uiL = (P) => ({
+    box: (id, x, y, w, th, p) => `<div id="${P}${id}" class="box ${th || ''} later" ${SL(x, y, w)}>${p.ic ? `<span class="ic">${p.ic}</span>` : ''}${p.y ? `<span class="y">${p.y}</span>` : ''}${p.h ? `<span class="h">${p.h}</span>` : ''}${p.p ? `<span class="p">${p.p}</span>` : ''}${p.s ? `<span class="s">${p.s}</span>` : ''}</div>`,
+    pill: (id, x, y, txt, th) => `<div id="${P}${id}" class="pill ${th || ''} later" ${SL(x, y)}>${txt}</div>`,
+    hd: (k, txt) => `<div id="${P}hd${k}" class="head later">${txt}</div>`,
+    nt: (k, txt, cls) => `<div id="${P}n${k}" class="note ${cls || ''} later">${txt}</div>`,
+    ch: (id, x, y, size) => `<div id="${P}${id}" class="char ${size || ''} later" ${SL(x, y)}></div>`,
+    art: (id, x, y, w, h, vb, inner) => `<svg id="${P}${id}" class="art later" ${SL(x, y, w, h)} viewBox="${vb}">${inner}</svg>`,
+    emo: (id, x, y, w, size, txt) => `<div id="${P}${id}" class="emo later" style="inset-inline-start:${x}px;top:${y}px;width:${w}px;font-size:${size}px">${txt}</div>`,
+    xc: (id, x, y, ok) => `<div id="${P}${id}" class="xc ${ok ? 'ok' : ''} later" ${SL(x, y)}>${ok ? '✓' : '✕'}</div>`,
+  });
+
   /* HTML builders for one movie (ids are prefixed with P) */
   const ui = (P) => ({
     box: (id, x, y, w, th, p) => `<div id="${P}${id}" class="box ${th || ''} later" ${S(x, y, w)}>${p.ic ? `<span class="ic">${p.ic}</span>` : ''}${p.y ? `<span class="y">${p.y}</span>` : ''}${p.h ? `<span class="h">${p.h}</span>` : ''}${p.p ? `<span class="p">${p.p}</span>` : ''}${p.s ? `<span class="s">${p.s}</span>` : ''}</div>`,
@@ -174,8 +188,8 @@
         destroy() { ro.disconnect(); idle.forEach((x) => x.kill()); tl.kill(); },
       };
     }
-    return { board, q, Q, tl, at, IN, POP, OUT, SND, PULSE, L, done, frame, hop, walk, shake, mood, rtl: RTL() };
+    return { board, q, Q, tl, at, IN, POP, OUT, SND, PULSE, L, done, frame, hop, walk, shake, mood, rtl: RTL(), sx: RTL() ? -1 : 1 };
   }
 
-  RV.movieKit = { person, CAST, RACK, PC, S, B, RTL, ui, create };
+  RV.movieKit = { person, CAST, RACK, PC, S, B, SL, RTL, ui, uiL, create };
 })();
