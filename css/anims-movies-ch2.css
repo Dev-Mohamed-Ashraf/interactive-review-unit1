@@ -1,0 +1,228 @@
+/* =========================================================
+ * anims-movies-ch2.css — mfaMovie · networkMovie · incidentMovie:
+ * chapter-2 teacher-driven movies (shell: js/anims/movie-kit.js).
+ * They reuse the httpsMovie board classes (.hm-board .char/.tag/.bubble/
+ * .head/.rc …) on the same fixed 1920×880 board; every position below was
+ * audited frame by frame (no unintended overlap, text ≥ 26px).
+ * ========================================================= */
+.mv-board .mv-bg { position: absolute; inset: 0;
+  background: radial-gradient(1100px 700px at 85% -10%, rgba(56,189,248,.16), transparent 60%),
+              radial-gradient(900px 650px at -5% 110%, rgba(167,139,250,.15), transparent 60%),
+              linear-gradient(180deg, #081029 0%, #0b1533 60%, #0a1230 100%); }
+.mv-board .mv-grid { position: absolute; inset: 0; opacity: .22;
+  background-image: linear-gradient(rgba(148,163,184,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.13) 1px, transparent 1px);
+  background-size: 64px 64px; }
+.mv-board .mv-vig { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, transparent 58%, rgba(0,0,0,.5) 100%); }
+.mv-board .head { top: 24px; font-size: 44px; line-height: 1.45; white-space: nowrap; }
+.mv-board .tag { line-height: 1.45; }
+.mv-board .sub-tag { font-size: 26px; }
+.mv-board .bubble.mv-bub { white-space: normal; width: 440px; text-align: center; font-size: 30px; line-height: 1.35; }
+.mv-board .rc { top: 136px; width: 540px; height: 310px; padding: 20px; }
+.mv-board .rc .ic { font-size: 90px; }
+.mv-board .rc .h { font-size: 44px; line-height: 1.4; }
+.mv-board .rc .p { font-size: 32px; line-height: 1.4; }
+.mv-board .rc .x { display: block; font-size: 30px; line-height: 1.4; opacity: .8; }
+.mv-board .rp { position: absolute; left: 0; right: 0; margin: auto; width: fit-content; font-size: 40px; font-weight: 900; line-height: 1.45; padding: 10px 44px;
+  border-radius: 60px; white-space: nowrap; }
+.mv-board .chip { position: absolute; top: 462px; font-size: 28px; font-weight: 900; line-height: 1.45; padding: 4px 20px; border-radius: 26px;
+  background: #fef3c7; color: #78350f; white-space: nowrap; }
+
+/* ───────────── mfaMovie ───────────── */
+.mv-mfa #mf-stage, .mv-mfa #mf-recap { position: absolute; inset: 0; }
+.mv-mfa .head { background: linear-gradient(90deg, #e9d5ff, #a78bfa); }
+.mv-mfa #mf-ch-ahmed { left: 110px; top: 372px; }
+.mv-mfa #mf-ch-bank { left: 1460px; top: 372px; }
+.mv-mfa #mf-ch-hacker { left: 850px; top: 575px; width: 220px; height: 286px; }
+.mv-mfa #mf-rack { position: absolute; left: 1730px; top: 276px; width: 165px; height: 430px; }
+.mv-mfa #mf-t-ahmed { left: 90px; top: 724px; background: rgba(56,189,248,.16); border: 3px solid #38bdf8; color: #bae6fd; }
+.mv-mfa #mf-t-bank { left: 1440px; top: 724px; background: rgba(52,211,153,.16); border: 3px solid #34d399; color: #a7f3d0; }
+.mv-mfa #mf-t-hacker { left: 1080px; top: 780px; width: 220px; font-size: 30px; background: rgba(248,113,113,.16); border: 3px solid #f87171; color: #fecaca; }
+.mv-mfa #mf-login { position: absolute; left: 620px; top: 132px; width: 600px; padding: 14px 20px 18px; border-radius: 24px; background: rgba(15,23,42,.94);
+  border: 3px solid #a78bfa; box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+.mv-mfa #mf-login .ttl { width: fit-content; font-size: 30px; font-weight: 900; line-height: 1.5; color: #e9d5ff; }
+.mv-mfa #mf-login .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 72px; margin-top: 12px; padding: 0 14px;
+  border-radius: 14px; background: #1e293b; border: 2px solid #334155; font-size: 28px; font-weight: 800; color: #cbd5e1; line-height: 1.45; white-space: nowrap; }
+.mv-mfa #mf-login .row b { direction: ltr; unicode-bidi: isolate; color: #f8fafc; letter-spacing: 2px; }
+.mv-mfa #mf-login .fac { font-size: 26px; font-weight: 900; line-height: 1.4; padding: 2px 14px; border-radius: 20px; white-space: nowrap; }
+.mv-mfa #mf-login .fac.k { background: rgba(167,139,250,.22); color: #ddd6fe; border: 2px solid #a78bfa; }
+.mv-mfa #mf-login .fac.p { background: rgba(56,189,248,.2); color: #bae6fd; border: 2px solid #38bdf8; }
+.mv-mfa #mf-login .st { position: absolute; inset-inline-end: 16px; top: 4px; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 30px; font-weight: 900; }
+.mv-mfa #mf-login .st.ok { background: #10b981; color: #fff; border: 4px solid #d1fae5; box-shadow: 0 0 30px rgba(16,185,129,.8); }
+.mv-mfa #mf-login .st.bad, .mv-mfa #mf-login .st.no { background: #fee2e2; border: 4px solid #f87171; box-shadow: 0 0 30px rgba(248,113,113,.8); }
+.mv-mfa #mf-b-ahmed1, .mv-mfa #mf-b-ahmed2 { left: 130px; bottom: 456px; }
+.mv-mfa #mf-b-bank1, .mv-mfa #mf-b-bank2, .mv-mfa #mf-b-bank3, .mv-mfa #mf-b-bank4 { left: 1240px; bottom: 456px; }
+.mv-mfa #mf-b-bank2 .aside { display: block; font-size: 28px; color: #b91c1c; }
+.mv-mfa #mf-b-hack1, .mv-mfa #mf-b-hack2 { left: 1080px; bottom: 240px; width: 360px; white-space: normal; text-align: center; font-size: 30px; line-height: 1.35; }
+.mv-mfa #mf-b-hack3 { left: 1080px; bottom: 240px; width: 470px; }
+.mv-mfa #mf-b-hack2, .mv-mfa #mf-b-hack3 { background: #fee2e2; }
+.mv-mfa #mf-b-hack2::after, .mv-mfa #mf-b-hack3::after { border-top-color: #fee2e2; }
+.mv-mfa #mf-pw0 { left: 400px; }
+.mv-mfa #mf-pw { left: 450px; background: #fecaca; color: #7f1d1d; direction: ltr; }
+.mv-mfa #mf-code { left: 1150px; background: #bae6fd; color: #0c4a6e; }
+.mv-mfa #mf-leak { position: absolute; left: 430px; top: 560px; width: 380px; padding: 12px 18px; border-radius: 14px; background: #fffbeb; color: #78350f;
+  border: 3px solid #f59e0b; box-shadow: 0 16px 36px rgba(0,0,0,.45); font-weight: 900; line-height: 1.45; text-align: center; }
+.mv-mfa #mf-leak .t { font-size: 28px; }
+.mv-mfa #mf-leak .l { font-size: 28px; direction: ltr; font-family: Consolas, monospace; color: #b91c1c; border-radius: 8px; }
+.mv-mfa #mf-leak .s { font-size: 26px; color: #a16207; font-weight: 700; }
+.mv-mfa #mf-phone { position: absolute; left: 400px; top: 522px; width: 108px; height: 180px; overflow: visible; }
+.mv-mfa #mf-block { position: absolute; left: 610px; top: 640px; font-size: 40px; font-weight: 900; line-height: 1.4; padding: 6px 30px; border-radius: 40px;
+  background: #dc2626; color: #fff; box-shadow: 0 0 40px rgba(220,38,38,.6); white-space: nowrap; }
+.mv-mfa .cmp { position: absolute; top: 132px; width: 640px; height: 370px; border-radius: 30px; padding: 18px 24px; text-align: center; font-weight: 900; }
+.mv-mfa .cmp .ic { font-size: 64px; line-height: 1.25; }
+.mv-mfa .cmp .h { font-size: 40px; line-height: 1.4; }
+.mv-mfa .cmp .f { font-size: 32px; line-height: 1.4; opacity: .9; }
+.mv-mfa .cmp .v { display: inline-block; margin-top: 14px; font-size: 32px; line-height: 1.4; padding: 6px 22px; border-radius: 30px; }
+.mv-mfa .cmp.no { left: 1020px; background: rgba(248,113,113,.1); border: 4px solid #f87171; color: #fecaca; }
+.mv-mfa .cmp.no .v { background: #dc2626; color: #fff; }
+.mv-mfa .cmp.yes { left: 260px; background: rgba(52,211,153,.1); border: 4px solid #34d399; color: #a7f3d0; }
+.mv-mfa .cmp.yes .v { background: #059669; color: #fff; }
+.mv-mfa #mf-rc1 { left: 1290px; background: rgba(167,139,250,.14); border: 4px solid #a78bfa; color: #ddd6fe; }
+.mv-mfa #mf-rc2 { left: 690px; background: rgba(56,189,248,.13); border: 4px solid #38bdf8; color: #bae6fd; }
+.mv-mfa #mf-rc3 { left: 90px; background: rgba(52,211,153,.12); border: 4px solid #34d399; color: #a7f3d0; }
+html[dir="ltr"] .mv-mfa #mf-rc1 { left: 90px; }
+html[dir="ltr"] .mv-mfa #mf-rc3 { left: 1290px; }
+html[dir="ltr"] .mv-mfa .cmp.no { left: 260px; }
+html[dir="ltr"] .mv-mfa .cmp.yes { left: 1020px; }
+.mv-mfa #mf-rule { position: absolute; left: 0; right: 0; margin: auto; width: fit-content; top: 496px; font-size: 48px; font-weight: 900; line-height: 1.45;
+  padding: 12px 50px; border-radius: 70px; background: linear-gradient(90deg, #6d28d9, #a78bfa); color: #fff; box-shadow: 0 0 70px rgba(167,139,250,.5); white-space: nowrap; }
+.mv-mfa #mf-rule2 { position: absolute; left: 0; right: 0; margin: auto; width: fit-content; top: 640px; font-size: 32px; font-weight: 900; line-height: 1.45;
+  padding: 10px 34px; border-radius: 40px; background: rgba(248,113,113,.14); border: 3px solid #f87171; color: #fecaca; white-space: nowrap; }
+
+/* ───────────── networkMovie ───────────── */
+.mv-net #nw-stage, .mv-net #nw-recap { position: absolute; inset: 0; }
+.mv-net .head { background: linear-gradient(90deg, #a7f3d0, #34d399); }
+.mv-net .zone { position: absolute; top: 128px; height: 562px; border-radius: 26px; border: 3px dashed rgba(148,163,184,.55); background: rgba(148,163,184,.06); }
+.mv-net #nw-zout { left: 24px; width: 476px; }
+.mv-net #nw-zdmz { left: 572px; width: 520px; border-color: #38bdf8; background: rgba(56,189,248,.07); }
+.mv-net #nw-zin { left: 1164px; width: 732px; border: 3px solid #a78bfa; background: rgba(167,139,250,.08); }
+.mv-net .zl { position: absolute; left: 0; right: 0; top: 10px; margin: auto; width: fit-content; font-size: 28px; font-weight: 900; line-height: 1.45; padding: 2px 18px;
+  border-radius: 20px; background: rgba(15,23,42,.75); color: #e2e8f0; white-space: nowrap; }
+.mv-net .door { position: absolute; top: 128px; width: 44px; height: 562px; border-radius: 10px; border: 3px solid #fb923c;
+  background: repeating-linear-gradient(180deg, #c2410c 0 28px, #7c2d12 28px 32px); box-shadow: 0 0 24px rgba(251,146,60,.35); }
+.mv-net #nw-door1 { left: 514px; }
+.mv-net #nw-door2 { left: 1106px; }
+.mv-net .dl { position: absolute; top: 700px; width: 280px; text-align: center; font-size: 28px; font-weight: 900; line-height: 1.45; padding: 2px 0; border-radius: 16px;
+  background: rgba(251,146,60,.16); border: 3px solid #fb923c; color: #fed7aa; }
+.mv-net #nw-dl1 { left: 396px; }
+.mv-net #nw-dl2 { left: 988px; }
+.mv-net #nw-web, .mv-net #nw-mail { position: absolute; top: 248px; width: 72px; height: 188px; }
+.mv-net #nw-web { left: 900px; }
+.mv-net #nw-mail { left: 1012px; }
+.mv-net .rl { position: absolute; top: 196px; width: 110px; text-align: center; font-size: 26px; font-weight: 900; line-height: 1.4; color: #bae6fd; white-space: nowrap; }
+.mv-net #nw-wl { left: 880px; }
+.mv-net #nw-ml { left: 994px; }
+.mv-net #nw-vault { position: absolute; left: 1700px; top: 228px; width: 160px; height: 200px; overflow: visible; }
+.mv-net #nw-vlabel { position: absolute; left: 1636px; top: 438px; width: 250px; text-align: center; font-size: 28px; font-weight: 900; line-height: 1.45; color: #ddd6fe; white-space: nowrap; }
+.mv-net .pc { position: absolute; top: 596px; width: 108px; height: 90px; }
+.mv-net .pc svg, .mv-inc .pc svg { display: block; width: 100%; height: 100%; }
+.mv-net #nw-pc1 { left: 1430px; }
+.mv-net #nw-pc2 { left: 1580px; }
+.mv-net .char { width: 180px; height: 234px; top: 452px; }
+.mv-net #nw-ch-guard { left: 330px; }
+.mv-net #nw-ch-vis, .mv-net #nw-ch-hack { left: 60px; }
+.mv-net #nw-ch-emp { left: 1190px; }
+.mv-net #nw-ch-cafe { left: 50px; }
+.mv-net #nw-ch-spy { left: 320px; top: 262px; width: 150px; height: 195px; }
+.mv-net .bubble.mv-bub { width: 400px; bottom: 448px; }
+.mv-net #nw-b-emp1, .mv-net #nw-b-emp2 { left: 1190px; width: 420px; }
+.mv-net #nw-b-vis, .mv-net #nw-b-hack1 { left: 30px; width: 380px; }
+.mv-net #nw-b-guard1, .mv-net #nw-b-guard2 { left: 330px; width: 420px; }
+.mv-net #nw-b-hack2 { left: 590px; width: 300px; }
+.mv-net #nw-b-hack3 { left: 1180px; width: 420px; }
+.mv-net #nw-b-hack1, .mv-net #nw-b-hack2, .mv-net #nw-b-hack3 { background: #fee2e2; }
+.mv-net #nw-b-hack1::after, .mv-net #nw-b-hack2::after, .mv-net #nw-b-hack3::after { border-top-color: #fee2e2; }
+.mv-net .note { position: absolute; left: 0; right: 0; margin: auto; width: fit-content; top: 772px; font-size: 30px; font-weight: 900; line-height: 1.45; padding: 8px 30px;
+  border-radius: 40px; background: rgba(15,23,42,.88); border: 3px solid #38bdf8; color: #e0f2fe; white-space: nowrap; }
+.mv-net .note.ok { border-color: #34d399; color: #d1fae5; }
+.mv-net .note.bad { border-color: #f87171; color: #fee2e2; }
+.mv-net .xc { position: absolute; width: 100px; height: 100px; border-radius: 50%; background: #dc2626; color: #fff; font-size: 56px; font-weight: 900; line-height: 1;
+  display: flex; align-items: center; justify-content: center; border: 5px solid #fecaca; box-shadow: 0 0 40px rgba(220,38,38,.7); }
+.mv-net #nw-x1 { left: 516px; top: 470px; }
+.mv-net #nw-x2 { left: 1078px; top: 470px; }
+.mv-net #nw-deny { left: 1610px; top: 500px; background: #fee2e2; }
+.mv-net #nw-cafe { position: absolute; left: 44px; top: 200px; width: 436px; text-align: center; font-size: 28px; font-weight: 900; line-height: 1.45; padding: 2px 0;
+  border-radius: 18px; background: rgba(251,191,36,.14); border: 3px solid #fbbf24; color: #fde68a; }
+.mv-net #nw-scr { position: absolute; left: 44px; top: 290px; width: 260px; height: 90px; border-radius: 20px; background: #1f2937; border: 3px solid #f87171; }
+.mv-net #nw-scr span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 900; color: #fca5a5;
+  direction: ltr; font-family: Consolas, monospace; }
+.mv-net #nw-tunnel { position: absolute; left: 232px; top: 566px; width: 950px; height: 56px; border-radius: 28px; border: 4px solid #34d399;
+  background: repeating-linear-gradient(90deg, rgba(52,211,153,.28) 0 40px, rgba(56,189,248,.22) 40px 80px); }
+.mv-net #nw-tl { position: absolute; left: 610px; top: 504px; font-size: 28px; font-weight: 900; line-height: 1.45; color: #a7f3d0; white-space: nowrap; }
+.mv-net #nw-pkt { position: absolute; left: 252px; top: 572px; font-size: 26px; font-weight: 900; line-height: 1.4; padding: 2px 16px; border-radius: 20px;
+  background: #a7f3d0; color: #064e3b; white-space: nowrap; }
+.mv-net .lay { position: absolute; top: 766px; width: 450px; height: 104px; border-radius: 20px; padding: 8px 12px; text-align: center; background: rgba(15,23,42,.92);
+  border: 3px solid #34d399; color: #d1fae5; }
+.mv-net .lay b { display: block; font-size: 30px; line-height: 1.4; }
+.mv-net .lay span { display: block; font-size: 26px; line-height: 1.4; font-weight: 800; color: #a7f3d0; }
+.mv-net #nw-L1 { left: 1446px; }
+.mv-net #nw-L2 { left: 972px; }
+.mv-net #nw-L3 { left: 498px; }
+.mv-net #nw-L4 { left: 24px; }
+html[dir="ltr"] .mv-net #nw-L1 { left: 24px; }
+html[dir="ltr"] .mv-net #nw-L2 { left: 498px; }
+html[dir="ltr"] .mv-net #nw-L3 { left: 972px; }
+html[dir="ltr"] .mv-net #nw-L4 { left: 1446px; }
+.mv-net .sh { position: absolute; top: 532px; width: 64px; height: 60px; font-size: 44px; line-height: 60px; text-align: center; }
+.mv-net #nw-sh1 { left: 1452px; }
+.mv-net #nw-sh2 { left: 1602px; }
+.mv-net #nw-boom { position: absolute; left: 476px; top: 290px; width: 124px; height: 120px; font-size: 84px; line-height: 120px; text-align: center; }
+.mv-net #nw-badge { position: absolute; left: 1180px; top: 378px; font-size: 28px; font-weight: 900; line-height: 1.45; padding: 2px 18px; border-radius: 22px;
+  background: #d1fae5; color: #064e3b; white-space: nowrap; }
+.mv-net .ck { position: absolute; width: 70px; height: 70px; border-radius: 50%; background: #1e293b; border: 4px solid #fbbf24; font-size: 36px;
+  display: flex; align-items: center; justify-content: center; }
+.mv-net #nw-ck1 { left: 1093px; top: 300px; }
+.mv-net #nw-ck2 { left: 1620px; top: 290px; }
+.mv-net #nw-rc1 { left: 1290px; background: rgba(251,146,60,.13); border: 4px solid #fb923c; color: #fed7aa; }
+.mv-net #nw-rc2 { left: 690px; background: rgba(52,211,153,.12); border: 4px solid #34d399; color: #a7f3d0; }
+.mv-net #nw-rc3 { left: 90px; background: rgba(56,189,248,.13); border: 4px solid #38bdf8; color: #bae6fd; }
+html[dir="ltr"] .mv-net #nw-rc1 { left: 90px; }
+html[dir="ltr"] .mv-net #nw-rc3 { left: 1290px; }
+.mv-net #nw-r1 { top: 500px; background: rgba(52,211,153,.14); border: 3px solid #34d399; color: #d1fae5; }
+.mv-net #nw-r2 { top: 630px; background: rgba(167,139,250,.14); border: 3px solid #a78bfa; color: #ede9fe; }
+
+/* ───────────── incidentMovie ───────────── */
+.mv-inc #ir-stage, .mv-inc #ir-recap { position: absolute; inset: 0; }
+.mv-inc .head { background: linear-gradient(90deg, #fecdd3, #fb7185); }
+.mv-inc .sc { position: absolute; top: 24px; width: 215px; text-align: center; font-size: 26px; font-weight: 900; line-height: 1.45; padding: 8px 0; border-radius: 18px;
+  background: rgba(148,163,184,.12); border: 3px solid #64748b; color: #e2e8f0; white-space: nowrap; }
+.mv-inc #ir-net { position: absolute; inset: 0; width: 1920px; height: 880px; overflow: visible; }
+.mv-inc #ir-hub { position: absolute; left: 930px; top: 136px; width: 280px; height: 90px; display: flex; align-items: center; justify-content: center; font-size: 28px;
+  font-weight: 900; line-height: 1.45; border-radius: 20px; background: #0f172a; border: 3px solid #38bdf8; color: #bae6fd; white-space: nowrap; }
+.mv-inc .pc { position: absolute; top: 430px; width: 180px; height: 150px; }
+.mv-inc #ir-pc1 { left: 700px; }
+.mv-inc #ir-pc2 { left: 980px; }
+.mv-inc #ir-pc3 { left: 1260px; }
+.mv-inc .bug { position: absolute; top: 404px; width: 84px; height: 84px; border-radius: 50%; background: #dc2626; border: 4px solid #fecaca; font-size: 44px; line-height: 1;
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px rgba(220,38,38,.7); }
+.mv-inc #ir-bug1 { left: 836px; }
+.mv-inc #ir-bug2 { left: 1116px; }
+.mv-inc #ir-bug3 { left: 1396px; }
+.mv-inc #ir-ch-it { left: 70px; top: 372px; }
+.mv-inc #ir-ch-clerk { left: 1590px; top: 372px; }
+.mv-inc #ir-t-it { left: 40px; top: 724px; width: 340px; background: rgba(167,139,250,.16); border: 3px solid #a78bfa; color: #ddd6fe; }
+.mv-inc #ir-t-clerk { left: 1570px; top: 724px; background: rgba(251,191,36,.14); border: 3px solid #fbbf24; color: #fde68a; }
+.mv-inc .prop { position: absolute; top: 120px; text-align: center; font-size: 28px; font-weight: 900; line-height: 1.4; padding: 8px 10px; border-radius: 20px;
+  background: rgba(251,191,36,.12); border: 3px solid #fbbf24; color: #fde68a; white-space: nowrap; }
+.mv-inc .prop .ic { display: block; font-size: 52px; line-height: 1.2; }
+.mv-inc #ir-plan { left: 60px; width: 300px; }
+.mv-inc #ir-team { left: 380px; width: 220px; }
+.mv-inc #ir-backup { left: 620px; width: 280px; background: rgba(52,211,153,.14); border-color: #34d399; color: #a7f3d0; }
+.mv-inc #ir-b-it0, .mv-inc #ir-b-it1, .mv-inc #ir-b-it2, .mv-inc #ir-b-it3, .mv-inc #ir-b-it5, .mv-inc #ir-b-it6 { left: 90px; bottom: 468px; width: 460px; }
+.mv-inc #ir-b-clerk1, .mv-inc #ir-b-clerk4 { left: 1350px; bottom: 468px; width: 460px; }
+.mv-inc .slot { position: absolute; left: 600px; top: 612px; width: 940px; text-align: center; font-size: 30px; font-weight: 900; line-height: 1.45; padding: 8px 16px;
+  border-radius: 22px; background: rgba(15,23,42,.9); border: 3px solid #38bdf8; color: #e0f2fe; white-space: nowrap; }
+.mv-inc .slot.bad { border-color: #f87171; background: rgba(127,29,29,.88); color: #fee2e2; }
+.mv-inc .plug { position: absolute; top: 293px; width: 70px; height: 70px; border-radius: 50%; background: #fef3c7; border: 4px solid #f59e0b; font-size: 38px; line-height: 1;
+  display: flex; align-items: center; justify-content: center; }
+.mv-inc #ir-plug1 { left: 895px; }
+.mv-inc #ir-plug2 { left: 1035px; }
+.mv-inc .fix { position: absolute; top: 136px; font-size: 30px; font-weight: 900; line-height: 1.45; padding: 6px 22px; border-radius: 30px; background: rgba(52,211,153,.16);
+  border: 3px solid #34d399; color: #a7f3d0; white-space: nowrap; }
+.mv-inc #ir-patch { left: 1240px; }
+.mv-inc #ir-train { left: 1560px; }
+.mv-inc .rcs { position: absolute; width: 560px; height: 228px; border-radius: 26px; padding: 14px 18px; text-align: center; background: rgba(251,113,133,.1); border: 3px solid #fb7185; }
+.mv-inc .rcs b { display: block; font-size: 40px; line-height: 1.4; color: #fecdd3; }
+.mv-inc .rcs span { display: block; font-size: 30px; line-height: 1.4; font-weight: 800; color: #e2e8f0; }
+.mv-inc #ir-r1 { top: 630px; font-size: 34px; background: rgba(251,191,36,.14); border: 3px solid #fbbf24; color: #fde68a; }
+.mv-inc #ir-r2 { top: 736px; font-size: 34px; background: rgba(251,191,36,.14); border: 3px solid #fbbf24; color: #fde68a; }

@@ -39,6 +39,23 @@ RV.lessons.add('2-2', {
         },
         {
           type: 'scene', wide: true,
+          title: { ar: '🎞️ الأنيميشن الكامل: قلعة الشركة مشهد بمشهد', en: '🎞️ Full animation: the company fortress scene by scene' },
+          enTitle: 'Network security design, scene by scene',
+          terms: ['firewall', 'DMZ', 'VPN', 'defense in depth', 'zero trust'],
+          visual: { anim: 'networkMovie' },
+          beats: [
+            { ar: '🏰 تخيّل شبكة الشركة __قلعة__: بره = الإنترنت (زوار… ومهاجمين)، الاستقبال = __DMZ__، وجوّه = __المكتب الداخلي__ وفيه الكنز: __بيانات العملاء__.', en: '🏰 Picture the company network as a __fortress__: outside = the Internet (visitors… and attackers), reception = the __DMZ__, inside = the __inner office__ with the treasure: __customer data__.' },
+            { ar: '**① جدار الحماية** = __حارس على البوابة__ عند نقطة دخول/خروج الشبكة، معاه __قواعد مضبوطة مسبقًا__: الزائر اللي عايز الموقع ✅ يعدّي، والمهاجم اللي عايز قاعدة البيانات على طول ⛔ يتمنع.', en: '**① Firewall** = __a guard at the gate__ at the network’s entry/exit point, with __preset rules__: a visitor who wants the website ✅ passes; an attacker heading straight for the database ⛔ is denied.' },
+            { ar: '**② DMZ** = __صالة استقبال منفصلة__ فيها __الخوادم العامة__ (ويب وبريد). حتى لو المهاجم ضرب خادم الويب، __جدار الحماية التاني__ بيمنعه يوصل للشبكة الداخلية.', en: '**② DMZ** = __a separate reception hall__ holding the __public servers__ (web, mail). Even if the attacker hits the web server, __the second firewall__ keeps him out of the internal network.' },
+            { ar: '**③ VPN** = __نفق مشفّر__ عبر الإنترنت: الموظف من الكافيه (واي فاي عام) يوصل لشبكة الشركة بأمان، والمتنصّت شايف __رموز ملهاش معنى__. استخداماته: __العمل عن بُعد__ و__ربط الفروع__.', en: '**③ VPN** = __an encrypted tunnel__ over the Internet: staff in a café (public Wi-Fi) reach the company network safely; the eavesdropper sees __meaningless symbols__. Uses: __remote work__ and __linking branches__.' },
+            { ar: '**④ الدفاع في العمق** = __طبقات ورا بعض__: مدخل الشبكة (جدار حماية) · مسار الاتصال (VPN) · وضع الخوادم (DMZ) · الأجهزة الطرفية (مكافح فيروسات + تحديث). لو طبقة وقعت، __اللي بعدها تحمي__.', en: '**④ Defense in depth** = __layer after layer__: network entry (firewall) · communication path (VPN) · server placement (DMZ) · endpoints (antivirus + updates). If one layer falls, __the next protects__.' },
+            { ar: '**⑤ انعدام الثقة** = النظام __مابيثقش تلقائيًا في أي اتصال__ — حتى من جوّه الشبكة — وبيتحقّق من __الهوية والصلاحيات في كل مرة__. المهاجم اللي بقى «جوّه» برضه بيتمنع.', en: '**⑤ Zero trust** = the system __trusts no communication automatically__ — even from inside the network — and checks __identity and permissions every time__. An attacker already "inside" is still stopped.' },
+            { ar: '📌 **الخلاصة:** جدار الحماية = __بوابة__ (يفلتر بقواعد) · VPN = __خط__ (نفق مشفّر) · DMZ = __منطقة__ (معزولة للخوادم العامة) — والطبقات مع بعض + التحقّق من كل وصول.', en: '📌 **The point:** firewall = __a gate__ (filters by rules) · VPN = __a line__ (encrypted tunnel) · DMZ = __an area__ (isolated for public servers) — layers together + verify every access.' },
+          ],
+          notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
+        },
+        {
+          type: 'scene', wide: true,
           title: { ar: '🎬 قصة متحركة: شبكة الشركة = قلعة', en: '🎬 Animated story: the company network = a fortress' },
           enTitle: 'Firewall · DMZ · VPN · defense in depth · zero trust',
           visual: { anim: 'fortressStory' },

@@ -218,6 +218,23 @@ RV.lessons.add('2-1', {
         },
         {
           type: 'scene', wide: true,
+          title: { ar: '🎞️ الأنيميشن الكامل: المصادقة متعددة العوامل مشهد بمشهد', en: '🎞️ Full animation: multi-factor authentication scene by scene' },
+          enTitle: 'Multi-factor authentication, scene by scene',
+          terms: ['knowledge', 'possession', 'biometric', 'multi-factor authentication'],
+          visual: { anim: 'mfaMovie' },
+          beats: [
+            { ar: '🧠 حساب أحمد في البنك محمي بـ__كلمة سر بس__ — يعني __عامل واحد__ (المعرفة). أحمد شايف إن ده كفاية… تعالوا نشوف.', en: '🧠 Ahmed’s bank account is protected by __a password only__ — __one factor__ (knowledge). Ahmed thinks that is enough… let’s see.' },
+            { ar: '🚨 موقع تاني اتسرّق وكلمة سر أحمد بقت في __قايمة مسرّبة__ — المهاجم دخل بيها على طول، لأن __العامل الوحيد اتكسر__.', en: '🚨 Another site was breached and Ahmed’s password ended up in a __leaked list__ — the attacker walks right in, because __the only factor broke__.' },
+            { ar: '🔐 أحمد فعّل **المصادقة متعددة العوامل (MFA)**: كلمة السر 🧠 (__معرفة__) + __كود بيوصل على موبايله__ 📱 (__حيازة__).', en: '🔐 Ahmed turns on **multi-factor authentication (MFA)**: password 🧠 (__knowledge__) + __a code sent to his phone__ 📱 (__possession__).' },
+            { ar: '⛔ المهاجم جرّب تاني: كلمة السر صح… بس البنك طلب الكود، والكود راح __لموبايل أحمد__ مش للمهاجم — فـ__اتمنع__.', en: '⛔ The attacker tries again: the password is right… but the bank asks for the code, and it goes __to Ahmed’s phone__, not the attacker — __blocked__.' },
+            { ar: '✅ أحمد بيدخل عادي: كلمة السر + الكود من موبايله — __عاملين من نوعين مختلفين__.', en: '✅ Ahmed signs in normally: password + the code from his phone — __two different kinds of factor__.' },
+            { ar: '⚠️ **فخ الامتحان:** __كلمتين سر__ = نفس العامل (معرفة) مرتين ⇒ __مش__ MFA — المهاجم ممكن يسرق الاتنين من نفس القايمة.', en: '⚠️ **Exam trap:** __two passwords__ = the same factor (knowledge) twice ⇒ __not__ MFA — the attacker can steal both from the same list.' },
+            { ar: '📌 **الخلاصة:** عوامل المصادقة التلاتة: **المعرفة** (حاجة إنت عارفها) · **الحيازة** (حاجة معاك) · **الحيوية** (حاجة هي إنت). **MFA** = اتنين أو أكتر من __عوامل مختلفة__.', en: '📌 **The point:** the three factors: **knowledge** (something you know) · **possession** (something you have) · **biometric** (something you are). **MFA** = two or more __different factors__.' },
+          ],
+          notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
+        },
+        {
+          type: 'scene', wide: true,
           title: { ar: '🎬 قصة متحركة: كلمة سر أحمد اتسرّبت!', en: '🎬 Animated story: Ahmed’s password leaked!' },
           enTitle: 'Why one factor is not enough',
           terms: ['knowledge', 'possession', 'multi-factor authentication'],

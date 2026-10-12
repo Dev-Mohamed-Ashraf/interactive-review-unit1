@@ -154,5 +154,6 @@
 .hm-board #hm-win .page { padding: 36px 70px; }
 .hm-board #hm-skeytag { top: 192px; }
 /* the movie gets the full width (bigger characters and text); the explanation sits under it */
-.split.split-wide:has(> .stage.anim-httpsMovie) { grid-template-columns: minmax(0, 1fr); }
-.stage.stage-wide.anim-httpsMovie { min-height: 0; height: auto; aspect-ratio: 1920 / 880; max-height: 74vh; }
+/* (generalized: every teacher-driven movie anim — httpsMovie, mfaMovie, networkMovie, incidentMovie… — is named *Movie) */
+.split.split-wide:has(> .stage.anim-httpsMovie), .split.split-wide:has(> .stage[class*="Movie"]) { grid-template-columns: minmax(0, 1fr); }
+.stage.stage-wide.anim-httpsMovie, .stage.stage-wide[class*="Movie"] { min-height: 0; height: auto; aspect-ratio: 1920 / 880; max-height: 74vh; }
