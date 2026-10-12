@@ -1,0 +1,51 @@
+/* =========================================================
+ * anims-movies.css — shared components for every teacher-driven *Movie
+ * built on js/anims/movie-kit.js (board 1920×880). Positions come inline
+ * from each anim (MK.S / MK.B), so these rules stay general.
+ * Text is never smaller than 26px on the board.
+ * ========================================================= */
+.mv-board .note { position: absolute; left: 0; right: 0; margin: auto; width: fit-content; max-width: 1840px; top: 772px; font-size: 30px; font-weight: 900;
+  line-height: 1.45; padding: 8px 30px; border-radius: 40px; background: rgba(15,23,42,.88); border: 3px solid #38bdf8; color: #e0f2fe; white-space: nowrap; }
+.mv-board .note.ok { border-color: #34d399; color: #d1fae5; }
+.mv-board .note.bad { border-color: #f87171; color: #fee2e2; }
+.mv-board .note.warn { border-color: #fbbf24; color: #fef3c7; }
+.mv-board .char.md { width: 220px; height: 286px; }
+.mv-board .char.sm { width: 180px; height: 234px; }
+.mv-board .bubble.red { background: #fee2e2; }
+.mv-board .bubble.red::after { border-top-color: #fee2e2; }
+
+/* boxes: icon + heading + text */
+.mv-board .box { position: absolute; border-radius: 24px; padding: 14px 18px; text-align: center; font-weight: 900; line-height: 1.4;
+  background: rgba(15,23,42,.9); border: 3px solid #38bdf8; color: #e0f2fe; }
+.mv-board .box .ic { display: block; font-size: 64px; line-height: 1.2; }
+.mv-board .box .y { display: block; font-size: 30px; color: #fde68a; }
+.mv-board .box .h { display: block; font-size: 36px; }
+.mv-board .box .p { display: block; font-size: 28px; font-weight: 800; opacity: .92; }
+.mv-board .box .s { display: block; font-size: 26px; font-weight: 700; opacity: .85; }
+.mv-board .pill { position: absolute; font-size: 30px; font-weight: 900; line-height: 1.45; padding: 6px 24px; border-radius: 30px; white-space: nowrap;
+  background: rgba(15,23,42,.9); border: 3px solid #38bdf8; color: #e0f2fe; }
+.mv-board .pill.solid { background: #fef3c7; border-color: #f59e0b; color: #78350f; }
+.mv-board .xc { position: absolute; width: 100px; height: 100px; border-radius: 50%; background: #dc2626; color: #fff; font-size: 56px; font-weight: 900; line-height: 1;
+  display: flex; align-items: center; justify-content: center; border: 5px solid #fecaca; box-shadow: 0 0 40px rgba(220,38,38,.7); }
+.mv-board .xc.ok { background: #10b981; border-color: #d1fae5; box-shadow: 0 0 40px rgba(16,185,129,.7); }
+.mv-board .emo { position: absolute; text-align: center; line-height: 1.15; }
+.mv-board .art { position: absolute; overflow: visible; }
+.mv-board .tchip { position: absolute; text-align: center; font-size: 26px; font-weight: 900; line-height: 1.45; padding: 8px 0; border-radius: 18px;
+  background: rgba(148,163,184,.12); border: 3px solid #64748b; color: #e2e8f0; white-space: nowrap; }
+.mv-board .code { direction: ltr; unicode-bidi: isolate; font-family: Consolas, monospace; }
+
+/* colour themes (border · tint · text) */
+.mv-board .t-blue { border-color: #38bdf8; background: rgba(56,189,248,.12); color: #e0f2fe; }
+.mv-board .t-green { border-color: #34d399; background: rgba(52,211,153,.12); color: #d1fae5; }
+.mv-board .t-amber { border-color: #fbbf24; background: rgba(251,191,36,.12); color: #fef3c7; }
+.mv-board .t-red { border-color: #f87171; background: rgba(248,113,113,.12); color: #fee2e2; }
+.mv-board .t-violet { border-color: #a78bfa; background: rgba(167,139,250,.13); color: #ede9fe; }
+.mv-board .t-pink { border-color: #f472b6; background: rgba(244,114,182,.12); color: #fce7f3; }
+.mv-board .t-slate { border-color: #64748b; background: rgba(15,23,42,.9); color: #e2e8f0; }
+
+/* head pill colour per lesson */
+.mv-board.mv-l11 .head { background: linear-gradient(90deg, #bae6fd, #38bdf8); }
+.mv-board.mv-l12 .head { background: linear-gradient(90deg, #e9d5ff, #a78bfa); }
+.mv-board.mv-l13 .head { background: linear-gradient(90deg, #a7f3d0, #34d399); }
+.mv-board.mv-l14 .head { background: linear-gradient(90deg, #fde68a, #fbbf24); }
+.mv-board .mv-stage, .mv-board .mv-recap { position: absolute; inset: 0; }

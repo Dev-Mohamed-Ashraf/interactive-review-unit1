@@ -30,6 +30,23 @@ RV.lessons.add('1-1', {
         { type: 'intro' },
         {
           type: 'scene', wide: true,
+          title: { ar: '🎞️ الأنيميشن الكامل: رحلة تكنولوجيا المعلومات مشهد بمشهد', en: '🎞️ Full animation: the journey of IT scene by scene' },
+          enTitle: 'The stages of IT, scene by scene',
+          terms: ['ENIAC', 'personal computer', 'Internet', 'smartphone', 'cloud computing'],
+          visual: { anim: 'eraMovie' },
+          beats: [
+            { ar: '📅 يوم عادي لطالب: بيقرا رسايله على __شبكات التواصل__، بيدفع فطاره __من غير كاش__، بيحضر حصة __أونلاين__، وبيطلب كتاب من __متجر إلكتروني__. من 20 سنة أغلب ده ماكانش موجود!', en: '📅 A normal day for a student: messages on __social networks__, breakfast paid __without cash__, an __online__ class, a book from an __online shop__. Twenty years ago most of this did not exist!' },
+            { ar: '**① الأربعينيات–الستينيات:** __ميلاد الحاسب (ENIAC)__ بالصمامات المفرغة — كان بيملا أوضة كاملة (حوالي 30 طن)، واستخدامه __عسكري وعلمي__ بس.', en: '**① 1940s–60s:** __birth of the computer (ENIAC)__ with vacuum tubes — it filled a whole room (about 30 tonnes) and was used for __military and scientific__ work only.' },
+            { ar: '**② السبعينيات–الثمانينيات:** انتشار __الحواسب الشخصية (PCs)__ — لأول مرة __الأفراد__ يستخدموا الحاسب.', en: '**② 1970s–80s:** __personal computers (PCs)__ spread — for the first time __individuals__ use computers.' },
+            { ar: '**③ التسعينيات:** الإنترنت بقى __تجاري__ وظهر __الويب__ ← __عولمة المعلومات__ وانتشار البريد الإلكتروني.', en: '**③ 1990s:** the Internet goes __commercial__ and the __Web__ appears → __globalization of information__ and email.' },
+            { ar: '**④ الألفينات (2000s):** ظهور __الهواتف الذكية__ ← انتشار __سريع وواسع__ لإنترنت الموبايل.', en: '**④ 2000s:** __smartphones__ appear → an __explosive__ spread of mobile Internet.' },
+            { ar: '**⑤ من 2010 فصاعدًا:** __الحوسبة السحابية__ = موارد تكنولوجيا المعلومات (تخزين، معالجة، برامج) __كخدمة عبر الإنترنت__ ← بيانات ضخمة، ذكاء اصطناعي، و«IT كخدمة».', en: '**⑤ 2010s onward:** __cloud computing__ = IT resources (storage, processing, software) __as a service over the Internet__ → big data, AI and "IT as a service".' },
+            { ar: '📌 **الخلاصة:** حاسب ← PC ← إنترنت ← موبايل ← سحابة — وكل مرحلة جابت تقنية جديدة و__غيّرت طريقة التواصل والشغل والتجارة__.', en: '📌 **The point:** computer → PC → Internet → smartphone → cloud — each stage brought a new technology and __changed how we communicate, work and trade__.' },
+          ],
+          notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
+        },
+        {
+          type: 'scene', wide: true,
           title: { ar: 'يوم في حياة طالب… كله تكنولوجيا', en: 'A student’s day… all technology' },
           visual: { anim: 'cinema', props: { tint: 'blue', clips: [
               { src: 'media/mx-14669.mp4', beat: 0, title: { ar: 'شبكات التواصل', en: 'Social networks' }, sub: { ar: 'رسايل وصور في ثانية', en: 'messages & photos in a second' }, icon: 'share' },
@@ -164,6 +181,23 @@ RV.lessons.add('1-1', {
       id: 'moore', kind: 'learn',
       title: { ar: 'قانون مور ومشاكله', en: "Moore's Law and its limits" },
       steps: [
+        {
+          type: 'scene', wide: true,
+          title: { ar: '🎞️ الأنيميشن الكامل: قانون مور مشهد بمشهد', en: '🎞️ Full animation: Moore’s Law scene by scene' },
+          enTitle: 'Moore’s Law, scene by scene',
+          terms: ['transistor', 'integrated circuit', 'Moore’s Law', 'quantum tunnelling', 'leakage current'],
+          visual: { anim: 'mooreMovie' },
+          beats: [
+            { ar: '🔬 جوّه كل موبايل ولابتوب __شريحة (دائرة متكاملة)__ فيها مليارات __الترانزستورات__ — والترانزستور = __مفتاح صغير جدًا__: شغّال/مقفول = 1/0.', en: '🔬 Inside every phone and laptop is a __chip (integrated circuit)__ with billions of __transistors__ — a transistor = __a tiny switch__: on/off = 1/0.' },
+            { ar: '📈 **قانون مور:** عدد الترانزستورات في الدائرة المتكاملة __بيتضاعف كل سنتين تقريبًا__ — من 2,300 (Intel 4004 سنة 1971) لأكتر من __100 مليار__ النهارده.', en: '📈 **Moore’s Law:** the number of transistors in an integrated circuit __doubles about every two years__ — from 2,300 (Intel 4004, 1971) to over __100 billion__ today.' },
+            { ar: '⚠️ القانون بيتكلم عن __عدد الترانزستورات__ — مش سرعة الإنترنت ولا سرعة المعالج مباشرةً. وهو __«ملاحظة تجريبية»__ مش قانون فيزيائي.', en: '⚠️ The law is about the __number of transistors__ — not Internet speed nor CPU speed directly. And it is an __"empirical observation"__, not a law of physics.' },
+            { ar: '🧱 **المشكلة ①: الحد الفيزيائي** — الترانزستور بقى __أصغر من 10 نانومتر__، يعني عرضه كام ذرة بس! مش هينفع نصغّر للأبد.', en: '🧱 **Problem ①: the physical limit** — transistors are now __under 10 nanometres__, only a few atoms wide! We cannot shrink forever.' },
+            { ar: '🔥 **المشكلة ②: تأثير النفق الكمومي** (الإلكترون بيعدّي الحاجز العازل) و**③: تيار التسرّب** (تيار بيهرب والمفتاح مقفول) ← __حرارة وطاقة أعلى__.', en: '🔥 **Problem ②: quantum tunnelling** (electrons pass through the insulating barrier) and **③: leakage current** (current escapes while off) → __more heat and power__.' },
+            { ar: '🚀 **الحلول:** __المعالجة المتوازية__ (أنوية كتير بتقسّم الشغل في نفس الوقت) و__الحواسب الكمومية__ (حساب مبني على مبادئ ميكانيكا الكم).', en: '🚀 **Solutions:** __parallel processing__ (many cores share the work at the same time) and __quantum computers__ (computing based on quantum mechanics).' },
+            { ar: '📌 **الخلاصة:** `N = N₀ × 2^n` و n = عدد السنين ÷ 2 — والقانون بيقرّب من حدّ فيزيائي (نفق كمومي + تيار تسرّب).', en: '📌 **The point:** `N = N₀ × 2^n` with n = years ÷ 2 — and the law is nearing a physical limit (tunnelling + leakage).' },
+          ],
+          notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
+        },
         {
           type: 'scene', wide: true,
           title: { ar: 'جوّه كل جهاز… شريحة', en: 'Inside every device… a chip' },
@@ -438,6 +472,24 @@ RV.lessons.add('1-1', {
               { emoji: '💳', text: { ar: 'الدفع غير النقدي', en: 'Cashless payment' } },
             ],
             after: { ar: 'مفيش إجابة غلط هنا — المهم تعرف تبرّر اختيارك 💡', en: 'No wrong answer — what matters is justifying your choice 💡' } },
+        },
+        {
+          type: 'scene', wide: true,
+          title: { ar: '🎞️ الأنيميشن الكامل: التحولات الاجتماعية والتقنيات الناشئة', en: '🎞️ Full animation: social change and emerging technologies' },
+          enTitle: 'Social change & emerging tech, scene by scene',
+          terms: ['SNS', 'e-commerce', 'cashless payment', 'self-driving', 'edge computing', 'AR', 'VR', 'quantum computing'],
+          visual: { anim: 'societyMovie' },
+          beats: [
+            { ar: '💬 **شبكات التواصل الاجتماعي (SNS):** خدمات بيتواصل فيها المستخدمين وينشروا ويشاركوا المعلومات — و__فعّالة جدًا في نشر المعلومة بسرعة__.', en: '💬 **Social networking services (SNS):** services where users connect, post and share information — __very effective at spreading information fast__.' },
+            { ar: '🛒 **التجارة الإلكترونية (EC):** بيع وشراء __عبر الإنترنت__ (Amazon · eBay). 💳 **الدفع غير النقدي:** تدفع __من غير كاش__ (كارت · QR · تطبيق) — وممكن يحصل في __محل حقيقي__.', en: '🛒 **E-commerce (EC):** buying and selling __online__ (Amazon · eBay). 💳 **Cashless payment:** paying __without cash__ (card · QR · app) — it can happen in a __real shop__ too.' },
+            { ar: '🏠 **العمل عن بُعد:** تعمل مهامك من البيت أو أي مكان بالإنترنت. 🎓 **التعلّم عبر الإنترنت:** الدروس والمواد بتتقدّم عن طريق الإنترنت.', en: '🏠 **Remote work:** do your tasks from home or anywhere via the Internet. 🎓 **Online learning:** lessons and materials are delivered over the Internet.' },
+            { ar: '🚗 **القيادة الذاتية:** الذكاء الاصطناعي بيسوق العربية من غير سواق: __تشوف__ (كاميرات وحسّاسات) ← __تفكّر__ (تتعرّف وتقرّر) ← __تتصرّف__ (دريكسيون وفرامل وبنزين).', en: '🚗 **Self-driving:** AI drives the car with no driver: it __sees__ (cameras, sensors) → __thinks__ (recognises, decides) → __acts__ (steering, brakes, accelerator).' },
+            { ar: '⚡ شخص طلع قدام العربية فجأة! السحابة: حوالي __0.8 ثانية__ (العربية تمشي حوالي 13 متر) ❌ — __الحوسبة الطرفية__: القرار جوّه العربية في حوالي __0.05 ثانية__ ✅.', en: '⚡ Someone steps out in front of the car! Via the cloud: about __0.8 s__ (the car travels about 13 m) ❌ — with __edge computing__ the car decides inside itself in about __0.05 s__ ✅.' },
+            { ar: '🥽 **الواقع المعزز (AR)** __يضيف__ معلومات رقمية فوق العالم الحقيقي (Pokémon GO) · **الواقع الافتراضي (VR)** __يستبدل__ الحقيقي بعالم افتراضي كامل (نظارة VR).', en: '🥽 **Augmented reality (AR)** __adds__ digital info on top of the real world (Pokémon GO) · **virtual reality (VR)** __replaces__ it with a whole virtual world (VR headset).' },
+            { ar: '⚛️ **الحوسبة الكمومية:** البِت = 0 __أو__ 1 · الكيوبت = 0 __و__ 1 مع بعض (__التراكب__) ← تسرّع بشكل هائل حسابات صعبة على الحاسب التقليدي.', en: '⚛️ **Quantum computing:** a bit = 0 __or__ 1 · a qubit = 0 __and__ 1 together (__superposition__) → hugely speeds up calculations that are hard for classical computers.' },
+            { ar: '📌 **الخلاصة:** خمس تحولات (SNS · تجارة إلكترونية · عمل عن بُعد · تعلّم أونلاين · دفع غير نقدي) + تقنيات ناشئة (قيادة ذاتية · AR/VR · كمومية).', en: '📌 **The point:** five social changes (SNS · e-commerce · remote work · online learning · cashless payment) + emerging tech (self-driving · AR/VR · quantum).' },
+          ],
+          notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
         },
         {
           type: 'scene',

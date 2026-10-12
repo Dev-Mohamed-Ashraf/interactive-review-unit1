@@ -47,6 +47,11 @@
     visitor: { skin: '#eac09a', hair: '#7c2d12', brow: '#7c2d12', shirt: '#0891b2' },
     it: { skin: '#e0b088', hair: '#111827', brow: '#111827', shirt: '#7c3aed', glasses: true, headset: true },
     clerk: { skin: '#d9a87e', hair: '#57534e', brow: '#44403c', shirt: '#b45309', tie: '#7c2d12', beard: '#57534e' },
+    student: { skin: '#f1c7a5', hair: '#1f2937', brow: '#1f2937', shirt: '#0ea5e9' },
+    studentL: { skin: '#f1c7a5', hair: '#1f2937', brow: '#1f2937', shirt: '#0ea5e9', laptop: true },
+    engineer: { skin: '#e0b088', hair: '#3f3f46', brow: '#27272a', shirt: '#475569', glasses: true, beard: '#3f3f46' },
+    doctor: { skin: '#e8b98f', hair: '#9ca3af', brow: '#6b7280', shirt: '#f8fafc', tie: '#0284c7', glasses: true },
+    applicant: { skin: '#c99b74', hair: '#111827', brow: '#111827', shirt: '#16a34a', tie: '#14532d' },
   };
 
   const RACK = (attrs) => `<svg ${attrs || ''} viewBox="0 0 165 430">
@@ -66,6 +71,25 @@
    * RV.movieKit.create(stage, api, { cls, prefix, beats, html, cast: {id: role} })
    * → { board, q, Q, tl, at, IN, POP, OUT, SND, PULSE, L, done() }
    */
+  const RTL = () => !(RV.i18n && RV.i18n.lang === 'en');
+  /* inline position helper: S(left, top, width?, height?) → style="…" */
+  const S = (l, t, w, h) => `style="left:${l}px;top:${t}px;${w ? `width:${w}px;` : ''}${h ? `height:${h}px;` : ''}"`;
+  /* bubble anchored by its bottom edge: B(left, bottomY, width) */
+  const B = (l, y, w) => `style="left:${l}px;bottom:${880 - y}px;width:${w}px"`;
+
+  /* HTML builders for one movie (ids are prefixed with P) */
+  const ui = (P) => ({
+    box: (id, x, y, w, th, p) => `<div id="${P}${id}" class="box ${th || ''} later" ${S(x, y, w)}>${p.ic ? `<span class="ic">${p.ic}</span>` : ''}${p.y ? `<span class="y">${p.y}</span>` : ''}${p.h ? `<span class="h">${p.h}</span>` : ''}${p.p ? `<span class="p">${p.p}</span>` : ''}${p.s ? `<span class="s">${p.s}</span>` : ''}</div>`,
+    pill: (id, x, y, txt, th) => `<div id="${P}${id}" class="pill ${th || ''} later" ${S(x, y)}>${txt}</div>`,
+    hd: (k, txt) => `<div id="${P}hd${k}" class="head later">${txt}</div>`,
+    nt: (k, txt, cls) => `<div id="${P}n${k}" class="note ${cls || ''} later">${txt}</div>`,
+    bub: (id, x, yb, w, txt, cls) => `<div id="${P}${id}" class="bubble ${cls || 'tl'} mv-bub later" ${B(x, yb, w)}>${txt}</div>`,
+    ch: (id, x, y, size) => `<div id="${P}${id}" class="char ${size || ''} later" ${S(x, y)}></div>`,
+    art: (id, x, y, w, h, vb, inner) => `<svg id="${P}${id}" class="art later" ${S(x, y, w, h)} viewBox="${vb}">${inner}</svg>`,
+    emo: (id, x, y, w, size, txt) => `<div id="${P}${id}" class="emo later" style="left:${x}px;top:${y}px;width:${w}px;font-size:${size}px">${txt}</div>`,
+    rp: (id, y, txt, th) => `<div id="${P}${id}" class="rp ${th || 't-green'} later" style="top:${y}px">${txt}</div>`,
+  });
+
   function create(stage, api, o) {
     const { h } = api;
     const L = (ar, en) => api.t({ ar, en });
@@ -114,6 +138,21 @@
     const at = (n, k) => n * SLOT + (k || 0);
     for (let n = 1; n < N; n++) tl.addPause(at(n) - 0.05);
 
+    /* per-beat head pill (#<p>hd<k>) and bottom note (#<p>n<k>): the old ones leave, the new ones arrive */
+    function frame(k, c, noteAt) {
+      const prev = [q('hd' + (k - 1)), q('n' + (k - 1))].filter(Boolean);
+      if (k > 0 && prev.length) OUT(prev, c, 0.3);
+      if (q('hd' + k)) IN(q('hd' + k), c + 0.3, 0.5, { y: -30 });
+      if (q('n' + k)) IN(q('n' + k), c + (noteAt == null ? 1 : noteAt), 0.5, { y: 20 });
+    }
+    const hop = (el, t, d) => tl.to(el, { y: -10, duration: 0.15, yoyo: true, repeat: 2 * Math.max(1, Math.round(d / 0.3)) - 1, ease: 'sine.inOut' }, t);
+    const walk = (el, t, x, d) => { tl.to(el, { x, duration: d, ease: 'none' }, t); hop(el, t, d); };
+    const shake = (el, t, a) => tl.fromTo(el, { x: 0 }, { x: a || 7, duration: 0.06, yoyo: true, repeat: 7 }, t);
+    const mood = (id, sad, t) => {
+      tl.to(board.querySelector('#' + P + id + ' .m-smile'), { opacity: sad ? 0 : 1, duration: 0.1 }, t);
+      tl.to(board.querySelector('#' + P + id + ' .m-sad'), { opacity: sad ? 1 : 0, duration: 0.1 }, t);
+    };
+
     function done() {
       for (let n = 0; n < N; n++) dots.appendChild(h('i'));
       let cur = 0;
@@ -131,8 +170,8 @@
         destroy() { ro.disconnect(); idle.forEach((x) => x.kill()); tl.kill(); },
       };
     }
-    return { board, q, Q, tl, at, IN, POP, OUT, SND, PULSE, L, done };
+    return { board, q, Q, tl, at, IN, POP, OUT, SND, PULSE, L, done, frame, hop, walk, shake, mood, rtl: RTL() };
   }
 
-  RV.movieKit = { person, CAST, RACK, PC, create };
+  RV.movieKit = { person, CAST, RACK, PC, S, B, RTL, ui, create };
 })();

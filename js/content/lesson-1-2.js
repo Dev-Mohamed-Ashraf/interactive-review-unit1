@@ -29,6 +29,23 @@ RV.lessons.add('1-2', {
         { type: 'intro' },
         {
           type: 'scene', wide: true,
+          title: { ar: '🎞️ الأنيميشن الكامل: الطالب بيعلّم الحاسب — من القواعد للتعلّم', en: '🎞️ Full animation: the student teaches the computer — from rules to learning' },
+          enTitle: 'AI and machine learning, scene by scene',
+          terms: ['AI', 'machine learning', 'training data', 'model', 'prediction'],
+          visual: { anim: 'aiMovie' },
+          beats: [
+            { ar: '📜 زمان الحاسب كان بينفّذ بس __القواعد اللي اتكتبت له__: «لو الإيميل فيه free يبقى سبام». المحتال كتب fr€e ← __القاعدة فشلت__!', en: '📜 Computers used to follow only __the rules written for them__: "if the email has free, it is spam". The scammer wrote fr€e → __the rule failed__!' },
+            { ar: '🤖 **الذكاء الاصطناعي (AI):** مصطلح عام لتقنيات بتخلّي الحاسب __يعيد إنتاج أو ينفّذ سلوك إنساني ذكي__ (تعلّم، استدلال، حكم) — زي التعرّف على الكلام والصور والترجمة.', en: '🤖 **Artificial intelligence (AI):** a general term for technologies that let a computer __reproduce or carry out intelligent human behaviour__ (learning, reasoning, judgement) — e.g. speech and image recognition, translation.' },
+            { ar: '📚 **التعلّم الآلي:** بدل القواعد، الطالب بيدّي الحاسب __أمثلة كتير متعلّم عليها__ (سبام / سليم) — دي __البيانات__.', en: '📚 **Machine learning:** instead of rules, the student gives the computer __many labelled examples__ (spam / OK) — that is the __data__.' },
+            { ar: '⚙️ في __التدريب__ الحاسب بيكتشف __الأنماط بنفسه__: كلمات زي «جايزة» و«فلوس» بتزوّد احتمال السبام ← ويطلع __النموذج__.', en: '⚙️ During __training__ the computer finds __the patterns itself__: words like "prize" and "money" raise the chance of spam → out comes the __model__.' },
+            { ar: '🔮 النموذج __بيتنبّأ ويحكم__ على إيميلات جديدة __ماشافهاش قبل كده__ — ده بالظبط تعريف التعلّم الآلي (زي فلتر السبام وتوصية المنتجات).', en: '🔮 The model __predicts and judges__ new emails __it has never seen__ — exactly the definition of machine learning (like spam filters and product recommendations).' },
+            { ar: '⭕ الدوائر المتداخلة: `AI ⊃ ML ⊃ DL ⊃ GenAI` — **التعلّم العميق** جوّه التعلّم الآلي (شبكات عصبية)، و**التوليدي** جوّه العميق (بيولّد محتوى جديد).', en: '⭕ Nested circles: `AI ⊃ ML ⊃ DL ⊃ GenAI` — **deep learning** sits inside machine learning (neural networks), **generative AI** inside deep learning (it creates new content).' },
+            { ar: '⚠️ **فخاخ:** «AI و ML نفس المعنى» ← __غلط__ · «DL منفصل عن ML» ← __غلط__ · وكل AI النهارده __شاطر في مهمة واحدة__ — مش ذكاء عام زي الإنسان.', en: '⚠️ **Traps:** "AI and ML mean the same" → __false__ · "DL is separate from ML" → __false__ · and every AI today is __good at one task__ — not a general intelligence like a human.' },
+          ],
+          notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
+        },
+        {
+          type: 'scene', wide: true,
           title: { ar: 'من الأوامر… للتعلّم… للإبداع', en: 'From commands… to learning… to creating' },
           visual: { anim: 'cinema', props: { tint: 'violet', clips: [
               { src: 'media/mx-22760.mp4', beat: 0, title: { ar: 'زمان: كود وقواعد', en: 'Before: code & rules' }, sub: { ar: 'المبرمج بيكتب كل قاعدة بإيده', en: 'every rule written by hand' }, icon: 'code' },
@@ -126,6 +143,22 @@ RV.lessons.add('1-2', {
       steps: [
         {
           type: 'scene', wide: true,
+          title: { ar: '🎞️ الأنيميشن الكامل: الشبكة العصبية والتعلّم العميق', en: '🎞️ Full animation: neural networks and deep learning' },
+          enTitle: 'Neural networks & deep learning, scene by scene',
+          terms: ['neural network', 'layers', 'weights', 'training', 'deep learning'],
+          visual: { anim: 'dlMovie' },
+          beats: [
+            { ar: '🧠 **الشبكة العصبية:** نظام مستوحى من __خلايا المخ (العصبونات)__ — مكوّنات بسيطة كتير متوصّلة في طبقات: __إدخال ← مخفية ← إخراج__.', en: '🧠 **Neural network:** a system inspired by __brain cells (neurons)__ — many simple units linked in layers: __input → hidden → output__.' },
+            { ar: '⚡ الإشارات بتمشي __من طبقة للي بعدها__، و__كل وصلة ليها وزن__ بيحدّد قوتها.', en: '⚡ Signals travel __from one layer to the next__, and __every link has a weight__ that sets its strength.' },
+            { ar: '🏋️ **التدريب:** الأوزان __بتتغيّر شوية شوية__ لحد ما الشبكة تتعلّم من البيانات وتاخد أحكام معقّدة: قطة ولا كلب؟ ← قطة 96%.', en: '🏋️ **Training:** the weights __change little by little__ until the network learns from the data and makes complex judgements: cat or dog? → cat 96%.' },
+            { ar: '📚 **التعلّم العميق** = شبكات بـ__طبقات مخفية كتير__ + __بيانات ضخمة__ — وده التقنية الأساسية ورا التقدّم الكبير في الذكاء الاصطناعي.', en: '📚 **Deep learning** = networks with __many hidden layers__ + __huge data__ — the core technology behind recent AI progress.' },
+            { ar: '🩻 مثال: عشان يميّز الأشعة السليمة من المريضة لازم يتدرّب على __آلاف الصور المتعلّم عليها__ — ولو ظهر __مرض نادر__ مااتدرّبش عليه، __ممكن يغلط__.', en: '🩻 Example: to tell healthy from sick X-rays it must train on __thousands of labelled images__ — and a __rare disease__ it never trained on __may fool it__.' },
+            { ar: '📌 **الخلاصة:** شبكة عصبية بطبقات · أوزان بتتظبط بالتدريب · التعلّم العميق = طبقات كتير + بيانات ضخمة · الحاجة النادرة ← غالبًا بيغلط فيها.', en: '📌 **The point:** a layered neural network · weights tuned by training · deep learning = many layers + huge data · rare cases → it often errs.' },
+          ],
+          notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
+        },
+        {
+          type: 'scene', wide: true,
           title: { ar: 'الشبكة العصبية: مستوحاة من خلايا المخ', en: 'Neural networks: inspired by brain cells' },
           terms: ['neural network', 'neuron', 'deep learning'],
           visual: { anim: 'neuralNet' },
@@ -162,6 +195,23 @@ RV.lessons.add('1-2', {
       id: 'genai', kind: 'learn',
       title: { ar: 'الذكاء الاصطناعي التوليدي والهلوسة', en: 'Generative AI & hallucination' },
       steps: [
+        {
+          type: 'scene', wide: true,
+          title: { ar: '🎞️ الأنيميشن الكامل: الذكاء التوليدي والهلوسة', en: '🎞️ Full animation: generative AI and hallucination' },
+          enTitle: 'Generative AI & hallucination, scene by scene',
+          terms: ['generative AI', 'prompt', 'hallucination', 'verify'],
+          visual: { anim: 'genaiMovie' },
+          beats: [
+            { ar: '✨ **الذكاء الاصطناعي التوليدي:** بيستخدم التعلّم العميق عشان __يولّد بيانات جديدة__ — نكتبله __طلب (prompt)__ فيكتب نص جديد.', en: '✨ **Generative AI:** uses deep learning to __generate new data__ — we write a __prompt__ and it writes new text.' },
+            { ar: '🎨 ومش نص بس: كمان __صور وصوت وبرامج__. مثال: ChatGPT وأدوات توليد الصور.', en: '🎨 Not only text: also __images, audio and programs__. Examples: ChatGPT and image generators.' },
+            { ar: '🔤 بيكتب __كلمة ورا كلمة__: في كل خطوة بيسأل «إيه الكلمة الجاية الأنسب؟» — ولكل كلمة __نسبة احتمال__ اتعلّمها من ملايين النصوص.', en: '🔤 It writes __word by word__: each step asks "what is the most fitting next word?" — every word has a __probability__ learned from millions of texts.' },
+            { ar: '😵 **الهلوسة:** اختار «1890» ← كلام __مقنع جدًا لكنه غلط__! برج القاهرة اتفتح فعليًا سنة __1961__. النموذج مابيتحقّقش من الحقيقة.', en: '😵 **Hallucination:** it picked "1890" → __very convincing but wrong__! The Cairo Tower actually opened in __1961__. The model does not check facts.' },
+            { ar: '🧩 **أشكال الهلوسة:** حقيقة مزيفة · مرجع أو مصدر __مش موجود أصلًا__ · رقم أو حساب غلط — وبتزيد لما المعلومة __نادرة أو مش في بيانات التدريب__.', en: '🧩 **Forms of hallucination:** a fake fact · a source that __does not exist__ · a wrong number or sum — more likely when the info is __rare or missing from the training data__.' },
+            { ar: '🛡️ **تحمي نفسك:** ① راجع مصدر موثوق ② اطلب المرجع واتأكد منه ③ قارن مصدرين ④ استخدمه للأفكار مش للحقيقة النهائية ⑤ افهم واكتب بأسلوبك.', en: '🛡️ **Protect yourself:** ① check a reliable source ② ask for the source and verify it ③ compare two sources ④ use it for ideas, not final facts ⑤ understand and write it yourself.' },
+            { ar: '⚠️ **فخاخ:** فلتر السبام __مش__ ذكاء توليدي (بيصنّف مش بيولّد) · وماتحطّش إجابته في تقرير المدرسة زي ما هي — __اتحقّق واكتب بفهمك__.', en: '⚠️ **Traps:** a spam filter is __not__ generative AI (it classifies, it does not create) · and never paste its answer into a school report as-is — __verify and write it yourself__.' },
+          ],
+          notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
+        },
         {
           type: 'scene', wide: true,
           title: { ar: 'من طلب صغير… محتوى جديد كامل', en: 'From a short prompt… brand-new content' },

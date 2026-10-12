@@ -38,6 +38,22 @@ RV.lessons.add('1-4', {
         },
         {
           type: 'scene', wide: true,
+          title: { ar: '🎞️ الأنيميشن الكامل: التحيز الخوارزمي مشهد بمشهد', en: '🎞️ Full animation: algorithmic bias scene by scene' },
+          enTitle: 'Algorithmic bias, scene by scene',
+          terms: ['algorithmic bias', 'training data', 'balanced data', 'proxy variable'],
+          visual: { anim: 'biasMovie' },
+          beats: [
+            { ar: '🏢 شركة درّبت ذكاء توظيف على __قرارات التعيين القديمة__ — والبيانات بتقول إن المجموعة ▲ __اتظلمت زمان__ رغم إن المهارات واحدة.', en: '🏢 A company trained a hiring AI on __old hiring decisions__ — and the data shows group ▲ was __treated unfairly__ even with the same skills.' },
+            { ar: '🤖 **التحيز الخوارزمي:** تحيّز في أحكام الـAI __سببه تحيّز في بيانات التدريب__ — النموذج اتعلّم الظلم وكرّره: __70% مقابل 18%__ لنفس المهارات!', en: '🤖 **Algorithmic bias:** bias in AI judgements __caused by bias in the training data__ — the model learned the unfairness and repeated it: __70% vs 18%__ for the same skills!' },
+            { ar: '🔧 نقلّله إزاي؟ نخلّي البيانات __متوازنة وممثّلة لكل المجموعات__، و__نختبر نتائج النموذج لكل مجموعة__ قبل ما نستخدمه.', en: '🔧 How to reduce it? Make the data __balanced and representative of every group__, and __test the model’s results per group__ before using it.' },
+            { ar: '🕵️ **فخ المتغيّر الوسيط:** حتى لو شلنا عمود «المجموعة»، متغيّر تاني __مرتبط بيه__ (زي اسم النادي أو الحي) ممكن __يرجّع التحيز__ — والتحيز ممكن يدخل كمان من اختيار المتغيرات أو تصميم النموذج.', en: '🕵️ **The proxy-variable trap:** even after removing the "group" column, another variable __linked to it__ (like a club’s name or the area) can __bring the bias back__ — bias can also enter through variable choice or model design.' },
+            { ar: '🌍 **أمثلة حقيقية:** ذكاء توظيف بيقيّم __جنس معيّن__ بشكل غير عادل لأن قرارات الماضي كانت كده · والتعرّف على الوجه بيغلط أكتر مع __مجموعات عرقية__ صورها كانت قليلة في التدريب.', en: '🌍 **Real examples:** a hiring AI rating __one gender__ unfairly because past decisions did · face recognition erring more with __ethnic groups__ whose photos were few in training.' },
+            { ar: '📌 **الخلاصة:** السبب = __تحيّز بيانات التدريب__ (ناقصة أو فيها تمييز قديم) — __مش__ بطء الحاسب ولا ضعف الإنترنت. العلاج: بيانات متوازنة + اختبار لكل مجموعة.', en: '📌 **The point:** the cause = __biased training data__ (missing or old discrimination) — __not__ a slow computer or weak Internet. The fix: balanced data + testing per group.' },
+          ],
+          notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
+        },
+        {
+          type: 'scene', wide: true,
           title: { ar: 'تجربة: ذكاء توظيف اتعلّم من الماضي', en: 'Experiment: a hiring AI that learned from the past' },
           enTitle: 'Algorithmic Bias',
           terms: ['algorithmic bias', 'training data', 'proxy variable'],
@@ -78,6 +94,21 @@ RV.lessons.add('1-4', {
       id: 'privacy', kind: 'learn',
       title: { ar: 'قضايا الخصوصية', en: 'Privacy issues' },
       steps: [
+        {
+          type: 'scene', wide: true,
+          title: { ar: '🎞️ الأنيميشن الكامل: قضايا الخصوصية مشهد بمشهد', en: '🎞️ Full animation: privacy issues scene by scene' },
+          enTitle: 'Privacy issues, scene by scene',
+          terms: ['face-recognition surveillance', 'mass data collection', 'privacy protection'],
+          visual: { anim: 'privacyMovie' },
+          beats: [
+            { ar: '📹 **المراقبة بتقنية التعرّف على الوجه:** كاميرات في الأماكن العامة تقدر __تتعرّف على الأفراد وتتبّعهم__ — مين، فين، وإمتى.', en: '📹 **Face-recognition surveillance:** cameras in public places can __identify and track people__ — who, where and when.' },
+            { ar: '🗂️ **الجمع الضخم للبيانات الشخصية:** كميات ضخمة من بيانات سلوكك على الإنترنت (__لايكات، بحث، مكان، مشتريات__) بتتجمع وتتحلّل.', en: '🗂️ **Mass collection of personal data:** huge amounts of your online behaviour (__likes, searches, location, purchases__) are collected and analysed.' },
+            { ar: '⚖️ الكاميرات بتزوّد __الأمان والراحة__… بس بتهدد __الخصوصية__. التوازن محتاج قواعد: __مين يشوف البيانات؟ ولحد إمتى تتخزّن؟__', en: '⚖️ Cameras add __safety and convenience__… but threaten __privacy__. The balance needs rules: __who may see the data? How long is it kept?__' },
+            { ar: '🔒 **حماية الخصوصية:** نتعامل مع البيانات __بشكل مناسب__ — يتشارك __بس اللي لازم__ و__لغرض واضح__.', en: '🔒 **Privacy protection:** handle data __properly__ — share __only what is needed__, for __a clear purpose__.' },
+            { ar: '⚠️ **فخ الامتحان:** التتبّع بالتعرّف على الوجه + جمع البيانات الضخم = __قضايا خصوصية__ · لكن «الـAI بيعمل أعمال إبداعية» أو «سرعته زادت» = __مش__ قضايا خصوصية.', en: '⚠️ **Exam trap:** face-recognition tracking + mass data collection = __privacy issues__ · but "AI makes creative works" or "it got faster" = __not__ privacy issues.' },
+          ],
+          notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
+        },
         {
           type: 'scene', wide: true,
           title: { ar: 'الكاميرا بتشوف… والبيانات بتتجمع', en: 'The camera watches… the data piles up' },
@@ -133,6 +164,22 @@ RV.lessons.add('1-4', {
       id: 'xai', kind: 'learn',
       title: { ar: 'الذكاء القابل للتفسير والمسؤولية', en: 'Explainable AI & responsibility' },
       steps: [
+        {
+          type: 'scene', wide: true,
+          title: { ar: '🎞️ الأنيميشن الكامل: الذكاء القابل للتفسير (XAI) والمسؤولية', en: '🎞️ Full animation: explainable AI (XAI) and responsibility' },
+          enTitle: 'XAI & responsibility, scene by scene',
+          terms: ['black box', 'XAI', 'transparency', 'responsibility'],
+          visual: { anim: 'xaiMovie' },
+          beats: [
+            { ar: '⬛ **الصندوق الأسود:** طلب الوظيفة اترفض… ومحدش يعرف __ليه__. وحتى لو النتيجة طلعت صح بالصدفة، الغموض __بيمنع التحقّق__.', en: '⬛ **The black box:** the job application was rejected… and nobody knows __why__. Even if the result is right by chance, the mystery __blocks checking__.' },
+            { ar: '🔍 **XAI (الذكاء القابل للتفسير):** تقنية بتخلّي البشر __يفهموا ليه__ الـAI أخد حكم معيّن — فنكتشف إنه رفض بسبب __«الحي»__ ونصلّح التحيز!', en: '🔍 **XAI (explainable AI):** lets humans __understand why__ the AI made a judgement — so we find it rejected because of __"the area"__ and fix the bias!' },
+            { ar: '① **أهمية كل عامل:** XAI بيوضّح كل عامل __أثّر قد إيه__ في القرار. لو لقينا «الحي اللي ساكن فيه» مأثّر — ده __تحيّز لازم يتشال__!', en: '① **Factor importance:** XAI shows __how much each factor__ weighed in the decision. If "the area you live in" matters — that is __bias to remove__!' },
+            { ar: '② **«لو كان… كان اتقبل»:** بيقولك __أصغر تغيير__ كان هيقلب النتيجة — «لو خبرتك 3 سنين كنت اتقبلت». كده الشخص فاهم ويقدر يتحسّن.', en: '② **"What if…":** it tells you __the smallest change__ that flips the result — "with 3 years of experience you would be hired". Now the person understands and can improve.' },
+            { ar: '③ **الخريطة الحرارية:** في الصور الطبية بيلوّن __المكان اللي بنى عليه التشخيص__ — والطبيب يتأكد بعينه إنه مكان منطقي.', en: '③ **Heat map:** in medical images it colours __the area the diagnosis relied on__ — and the doctor checks it makes sense.' },
+            { ar: '⚖️ **المسؤولية:** لو الـAI غلط… مين المسؤول؟ المطوّر ولا المستخدِم ولا المشغِّل — __ولسه مفيش معيار واضح متّفق عليه__. وXAI بيحقّق الشفافية ويساعد العدالة والمساءلة.', en: '⚖️ **Responsibility:** if AI is wrong… who answers? The developer, the user or the operator — __there is still no clear agreed standard__. XAI delivers transparency and helps fairness and accountability.' },
+          ],
+          notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
+        },
         {
           type: 'scene', wide: true,
           title: { ar: 'نفتح الصندوق الأسود: XAI', en: 'Opening the black box: XAI' },
@@ -196,6 +243,21 @@ RV.lessons.add('1-4', {
       id: 'principles', kind: 'learn',
       title: { ar: 'المبادئ الأربعة لأخلاقيات الذكاء الاصطناعي', en: 'The four principles of AI ethics' },
       steps: [
+        {
+          type: 'scene', wide: true,
+          title: { ar: '🎞️ الأنيميشن الكامل: المبادئ الأربعة مشهد بمشهد', en: '🎞️ Full animation: the four principles scene by scene' },
+          enTitle: 'The four principles, scene by scene',
+          terms: ['fairness', 'transparency', 'privacy protection', 'accountability'],
+          visual: { anim: 'principlesMovie' },
+          beats: [
+            { ar: '⚖️ **العدالة (Fairness):** __عدم التمييز ظلمًا__ ضد أي شخص أو مجموعة — زي ذكاء توظيف يقيّم بعدل بغضّ النظر عن الجنس.', en: '⚖️ **Fairness:** __no unjust discrimination__ against any person or group — like a hiring AI that rates fairly regardless of gender.' },
+            { ar: '👁️ **الشفافية (Transparency):** __إظهار عملية اتخاذ القرار__ وطريقة الشغل الداخلية بوضوح — زي الإفصاح للمستخدمين عن إزاي النظام بيقرّر.', en: '👁️ **Transparency:** __showing how decisions are made__ and how it works inside — like telling users how the system decides.' },
+            { ar: '🛡️ **حماية الخصوصية:** التعامل __المناسب__ مع المعلومات الشخصية — ماتستخدمش البيانات __لغرض غير اللي اتجمعت عشانه__.', en: '🛡️ **Privacy protection:** __proper__ handling of personal information — never use data __for a purpose other than the one it was collected for__.' },
+            { ar: '🙋 **المساءلة (Accountability):** إن يكون فيه __حد مسؤول وقابل للمحاسبة__ عن قرارات الـAI — زي المحاسبة لما تشخيص الـAI يطلع غلط.', en: '🙋 **Accountability:** there must be __someone responsible and answerable__ for AI decisions — like accountability when an AI diagnosis is wrong.' },
+            { ar: '📌 **الخلاصة:** المبادئ الأربعة = __عدالة · شفافية · خصوصية · مساءلة__ — وسرّ الحفظ «عَشْخَم» 😄.', en: '📌 **The point:** the four principles = __fairness · transparency · privacy · accountability__.' },
+          ],
+          notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
+        },
         {
           type: 'scene',
           title: { ar: 'أربع مبادئ لازم تحفظها', en: 'Four principles to memorise' },
