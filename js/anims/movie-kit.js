@@ -68,7 +68,8 @@
     </svg>`;
 
   /**
-   * RV.movieKit.create(stage, api, { cls, prefix, beats, html, cast: {id: role} })
+   * RV.movieKit.create(stage, api, { props, cls, prefix, beats, html, cast: {id: role} })
+   *   props.scenes = [first, last] shows only that range of scenes (beat i → scene first + i)
    * → { board, q, Q, tl, at, IN, POP, OUT, SND, PULSE, L, done() }
    */
   const RTL = () => !(RV.i18n && RV.i18n.lang === 'en');
@@ -154,11 +155,14 @@
     };
 
     function done() {
-      for (let n = 0; n < N; n++) dots.appendChild(h('i'));
-      let cur = 0;
+      // props.scenes = [first, last]: a station can show only part of a movie (beat 0 → scene `first`)
+      const R = (o.props && o.props.scenes) || [0, N - 1];
+      const first = Math.max(0, R[0]), last = Math.min(N - 1, R[1]);
+      for (let n = first; n <= last; n++) dots.appendChild(h('i'));
+      let cur = first;
       function go(n) {
-        cur = Math.max(0, Math.min(N - 1, n));
-        dots.querySelectorAll('i').forEach((d, k) => d.classList.toggle('on', k === cur));
+        cur = Math.max(first, Math.min(last, first + n));
+        dots.querySelectorAll('i').forEach((d, k) => d.classList.toggle('on', k === cur - first));
         tl.pause();
         tl.seek(at(cur), true);
         tl.play();

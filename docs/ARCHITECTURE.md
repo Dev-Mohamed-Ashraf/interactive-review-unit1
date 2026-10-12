@@ -97,9 +97,10 @@ The board lines, doubling ladder, bars and the final count-up are all computed.
 4. `node tests/run.js` → must be ✅. Then `node tools/build.js`.
 
 ## Animations available
-`hero` `photo` (`credit` for licensed photos) · `cinema` (real video montage: `clips: [{ src, beat, title, sub, icon }]`) · `eraTimeline` · `iconCards` · `mooreChip` `mooreLimit` `mooreParallel` · `mooreFormula` `mooreSolver` `mooreLab` ·
-`selfDriving` `edgeVsCloud` · `arVr` · `bitQubit` · `nestedCircles` `spamTrainer` `neuralNet` `genAI` ·
-`dailyAI` `industries` `goodVsCaution` `blackBox` · `biasSim` `privacyCam` `responsibility`
+One explanation per topic (duplicates were removed on 2026-10-12):
+- **Teacher-driven movies** (`js/anims/movie-kit.js`, 1920×880 board, one scene per beat, ⟲ replay): `eraMovie` `mooreMovie` `societyMovie` · `aiMovie` `dlMovie` `genaiMovie` · `aiLifeMovie` `cautionMovie` · `biasMovie` `privacyMovie` `xaiMovie` `principlesMovie` · `httpsMovie` `mfaMovie` `networkMovie` `incidentMovie`. `props: { scenes: [first, last] }` shows part of a movie (e.g. `aiLifeMovie` 0–2 in *daily*, 3–5 in *industry*).
+- **Topic visuals**: `hero` `photo` (`credit` for licensed photos) · `mooreFormula` `mooreSolver` `mooreLab` `mooreSymbols` · `selfDriving` `edgeVsCloud` · `arVr` · `bitQubit` · `commonKey` `keyPair` `signCert` `securityStack` · `defenseDepth` `zeroTrust` · `incidentTypes` `riskMatrix`.
+- `tools/prune-steps.js` removes scene steps by rule (dry run by default).
 
 ## Quality gates
 | command | checks |

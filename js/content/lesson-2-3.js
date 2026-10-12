@@ -39,6 +39,20 @@ RV.lessons.add('2-3', {
         },
         {
           type: 'scene', wide: true,
+          title: { ar: 'يعني إيه «حادث أمني»؟', en: 'What is a "security incident"?' },
+          enTitle: 'Security incident',
+          terms: ['information leak', 'data tampering', 'service outage'],
+          visual: { anim: 'incidentTypes' },
+          beats: [
+            { ar: '**الحادث الأمني:** موقف بيحصل فيه __ضرر فعلي__ بسبب مشكلة في أمن المعلومات. النوع الأول: **تسرّب المعلومات** — معلومات شخصية أو سرّية بتتسرّب لبره.', en: '**Security incident:** a situation where __actual damage__ occurs due to an information-security problem. Type 1: **information leak** — personal or confidential information leaks outside.' },
+            { ar: 'النوع التاني: **التلاعب بالبيانات** — بيانات جوّه النظام __بتتعدّل من غير تصريح__ (رصيد 500 بقى 5,000!).', en: 'Type 2: **data tampering** — data inside the system is __altered without authorization__ (a balance of 500 becomes 5,000!).' },
+            { ar: 'النوع التالت: **توقّف الخدمة** — الخدمة __مابقتش متاحة__ بسبب هجوم على الخادم ونحوه.', en: 'Type 3: **service outage** — a service __becomes unavailable__ due to an attack on the server, etc.' },
+            { ar: '✋ **مش حادث:** تحديث برمجي لإضافة ميزات جديدة — __مفيش ضرر__، فمش حادث أمني.', en: '✋ **Not an incident:** a software update adding new features — __no damage__, so not a security incident.' },
+          ],
+          notes: [{ kind: 'exam', text: { ar: '«تحديث برمجي لإضافة ميزات جديدة» ← __ليس__ حادثًا أمنيًا. أما تشفير الملفات ببرنامج فدية، تسريب بيانات العملاء، توقّف خدمة بهجوم ← حوادث.', en: '"A software update adding features" → __not__ an incident. Ransomware encryption, a customer-data leak, an outage from an attack → incidents.' } }],
+        },
+        {
+          type: 'scene', wide: true,
           title: { ar: '🎞️ الأنيميشن الكامل: الاستجابة لبرنامج فدية مشهد بمشهد', en: '🎞️ Full animation: responding to ransomware scene by scene' },
           enTitle: 'Incident response, scene by scene',
           terms: ['preparation', 'detection', 'containment', 'eradication', 'recovery', 'prevention of recurrence'],
@@ -54,70 +68,6 @@ RV.lessons.add('2-3', {
             { ar: '📌 **الخلاصة:** تحضير ← اكتشاف ← احتواء ← إزالة ← استعادة ← منع التكرار. الاحتواء __قبل__ الإزالة، والإزالة __قبل__ الاستعادة.', en: '📌 **The point:** preparation → detection → containment → eradication → recovery → prevention. Contain __before__ eradicating, eradicate __before__ recovering.' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
-        },
-        {
-          type: 'scene', wide: true,
-          title: { ar: '🎬 قصة متحركة: برنامج فدية في المدرسة!', en: '🎬 Animated story: ransomware at school!' },
-          enTitle: 'Incident Response: 6 Phases',
-          terms: ['preparation', 'detection', 'containment', 'eradication', 'recovery', 'prevention of recurrence'],
-          visual: { anim: 'incidentStory' },
-          beats: [
-            { ar: '**① التحضير:** قبل أي حادث — __خطة استجابة مكتوبة__ + فريق + __نسخ احتياطية__ جاهزة.', en: '**① Preparation:** before anything happens — a __written response plan__ + a team + ready __backups__.' },
-            { ar: '**② الاكتشاف:** __اكتشاف وقوع الحادث وتأكيده__ — الملفات اتشفّرت ومكتوب «ادفع الفدية» 😱.', en: '**② Detection:** __discover and confirm__ the incident — files encrypted with a "pay the ransom" note 😱.' },
-            { ar: '**③ الاحتواء:** __نحدّ من نطاق التأثير__ علشان الضرر مايتنشرش — __نفصل الأجهزة المصابة عن الشبكة__.', en: '**③ Containment:** __limit the scope of impact__ so the damage does not spread — __disconnect infected PCs__.' },
-            { ar: '**④ الإزالة (الاستئصال):** __نشيل سبب الحادث__ نفسه — نمسح البرنامج الخبيث.', en: '**④ Eradication:** __remove the cause__ itself — delete the malware.' },
-            { ar: '**⑤ الاستعادة:** __نرجّع الأنظمة والخدمات لحالتها الطبيعية__ — من نسخة احتياطية نضيفة.', en: '**⑤ Recovery:** __return systems and services to normal__ — from a clean backup.' },
-            { ar: '**⑥ منع التكرار:** __نحلّل السبب__ وناخد تدابير علشان __نفس الحادث مايتكررش__ (تحديث + تدريب).', en: '**⑥ Prevention of recurrence:** __analyse the cause__ and act so __the same incident never repeats__ (patch + training).' },
-            { ar: '❌ **لو الترتيب اتلخبط:** الاستعادة __قبل__ الإزالة = السبب لسه موجود ← __الحادث يرجع تاني__.', en: '❌ **Out of order:** recovery __before__ eradication = the cause is still there → __the incident returns__.' },
-          ],
-          notes: [{ kind: 'tip', text: { ar: 'القصة دي فيها المراحل الست كاملة — وتحتها هنفصّلها بأنيميشن الشبكة خطوة بخطوة 👇', en: 'This story walks through all six stages — below, each is detailed step by step on the network 👇' } }],
-        },
-        {
-          type: 'scene', wide: true,
-          title: { ar: 'يعني إيه «حادث أمني»؟', en: 'What is a "security incident"?' },
-          enTitle: 'Security incident',
-          terms: ['information leak', 'data tampering', 'service outage'],
-          visual: { anim: 'incidentTypes' },
-          beats: [
-            { ar: '**الحادث الأمني:** موقف بيحصل فيه __ضرر فعلي__ بسبب مشكلة في أمن المعلومات. النوع الأول: **تسرّب المعلومات** — معلومات شخصية أو سرّية بتتسرّب لبره.', en: '**Security incident:** a situation where __actual damage__ occurs due to an information-security problem. Type 1: **information leak** — personal or confidential information leaks outside.' },
-            { ar: 'النوع التاني: **التلاعب بالبيانات** — بيانات جوّه النظام __بتتعدّل من غير تصريح__ (رصيد 500 بقى 5,000!).', en: 'Type 2: **data tampering** — data inside the system is __altered without authorization__ (a balance of 500 becomes 5,000!).' },
-            { ar: 'النوع التالت: **توقّف الخدمة** — الخدمة __مابقتش متاحة__ بسبب هجوم على الخادم ونحوه.', en: 'Type 3: **service outage** — a service __becomes unavailable__ due to an attack on the server, etc.' },
-            { ar: '✋ **مش حادث:** تحديث برمجي لإضافة ميزات جديدة — __مفيش ضرر__، فمش حادث أمني.', en: '✋ **Not an incident:** a software update adding new features — __no damage__, so not a security incident.' },
-          ],
-          notes: [{ kind: 'exam', text: { ar: '«تحديث برمجي لإضافة ميزات جديدة» ← __ليس__ حادثًا أمنيًا. أما تشفير الملفات ببرنامج فدية، تسريب بيانات العملاء، توقّف خدمة بهجوم ← حوادث.', en: '"A software update adding features" → __not__ an incident. Ransomware encryption, a customer-data leak, an outage from an attack → incidents.' } }],
-        },
-        {
-          type: 'scene', wide: true,
-          title: { ar: 'المراحل الست على الشبكة — خطوة بخطوة', en: 'The six stages on the network — step by step' },
-          enTitle: 'The flow of incident response',
-          terms: ['containment', 'eradication', 'recovery'],
-          visual: { anim: 'incidentResponse' },
-          beats: [
-            { ar: '**١ التحضير:** وضع إجراءات وهياكل الاستجابة __مسبقًا__ استعدادًا للحوادث (خطة + فريق + نسخ احتياطية).', en: '**1 Preparation:** establish response procedures and structures __in advance__ (plan + team + backups).' },
-            { ar: '**٢ الاكتشاف:** اكتشاف إن فيه حادث __وتأكيده__ — إنذار 🚨 على جهاز مصاب.', en: '**2 Detection:** discover and __confirm__ an incident — an alarm 🚨 on an infected PC.' },
-            { ar: '**٣ الاحتواء:** الحد من نطاق التأثير __حتى لا ينتشر الضرر أكتر__ — الجهاز اتعزل (الكابل اتفصل 🔌).', en: '**3 Containment:** limit the scope __so damage does not spread further__ — the PC is isolated (cable unplugged 🔌).' },
-            { ar: '**٤ الإزالة:** إزالة __سبب__ الحادث (مثل حذف البرمجيات الخبيثة) 🧹.', en: '**4 Eradication:** remove the __cause__ of the incident (e.g. delete the malware) 🧹.' },
-            { ar: '**٥ الاستعادة:** إعادة الأنظمة والخدمات __لحالتها الطبيعية__ — نسخة نضيفة ♻️.', en: '**5 Recovery:** return systems and services __to normal__ — a clean copy ♻️.' },
-            { ar: '**٦ منع التكرار:** __تحليل السبب__ واتخاذ تدابير علشان نفس الحادث ماييجيش تاني 🛡️.', en: '**6 Prevention of recurrence:** __analyse the cause__ and take measures so the same incident does not recur 🛡️.' },
-            { ar: '**ليه الترتيب مهم؟** الاحتواء __قبل__ الإزالة (وإلا البرنامج ينتشر وإنت بتنظّف)، والإزالة __قبل__ الاستعادة (وإلا الحادث يتكرر فورًا).', en: '**Why order matters:** containment __before__ eradication (or it spreads while you clean), and eradication __before__ recovery (or it repeats at once).' },
-          ],
-          notes: [
-            { kind: 'exam', text: { ar: 'الترتيب الصحيح: __تحضير ← اكتشاف ← احتواء ← إزالة ← استعادة ← منع التكرار__. والمرحلة الأخيرة = __منع التكرار__.', en: 'Correct order: __preparation → detection → containment → eradication → recovery → prevention of recurrence__. The final stage = __prevention of recurrence__.' } },
-            { kind: 'confuse', title: { ar: 'فرق بيلخبط — الاحتواء مقابل الإزالة', en: 'Easily confused — containment vs eradication' }, text: { ar: '**الاحتواء** = تمنع الضرر من __الانتشار__ (تعزل الجهاز). **الإزالة** = تشيل __السبب نفسه__ (البرنامج الخبيث). الاحتواء الأول، ثم الإزالة، ثم الاستعادة.', en: '**Containment** = stop the damage __spreading__ (isolate the PC). **Eradication** = remove __the cause itself__ (the malware). Contain → eradicate → recover.' } },
-          ],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'الاستعادة: نسخة نضيفة بترجّع كل حاجة', en: 'Recovery: a clean copy brings everything back' },
-          visual: { anim: 'photo', props: { img: 'img/cy-recover.webp', hotspots: [
-            { x: 20, y: 62, icon: 'bug', label: { ar: 'البرنامج الخبيث محبوس ومتشال', en: 'malware contained and removed' }, beat: 0 },
-            { x: 50, y: 45, icon: 'backup', label: { ar: 'نسخة احتياطية نضيفة', en: 'clean backup' }, beat: 1 },
-            { x: 80, y: 66, icon: 'check', label: { ar: 'النظام رجع طبيعي', en: 'system back to normal' }, beat: 1 },
-          ] } },
-          beats: [
-            { ar: 'الأول __نحبس__ البرنامج الخبيث ونشيله (احتواء ثم إزالة).', en: 'First we __trap__ and remove the malware (containment, then eradication).' },
-            { ar: 'وبعدين نرجّع النظام من __نسخة احتياطية نضيفة__ — والتحضير هو اللي خلّى النسخة دي موجودة أصلًا.', en: 'Then we restore from a __clean backup__ — and preparation is what made that backup exist.' },
-          ],
         },
         {
           type: 'quiz', title: { ar: '✋ اختبر فهمك (1)', en: '✋ Check yourself (1)' },
@@ -189,18 +139,6 @@ RV.lessons.add('2-3', {
           ],
           notes: [
             { kind: 'exam', text: { ar: '«حجم المخاطرة بيتحدّد بالتأثير لوحده» ← __غلط__ (التأثير × الاحتمالية). و«لازم نعالج كل المخاطر في نفس الوقت» ← __غلط__.', en: '"Risk size depends on impact alone" → __false__ (impact × likelihood). "All risks must be fixed at once" → __false__.' } },
-          ],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'الخريطة بتقولك تبدأ منين', en: 'The map tells you where to start' },
-          visual: { anim: 'photo', props: { img: 'img/cy-risk.webp', hotspots: [
-            { x: 86, y: 18, icon: 'siren', label: { ar: 'تأثير عالي + احتمال عالي = الأول', en: 'high impact + high likelihood = first' }, beat: 0 },
-            { x: 20, y: 80, icon: 'check', label: { ar: 'تأثير قليل + احتمال قليل = الأخير', en: 'low + low = last' }, beat: 1 },
-          ] } },
-          beats: [
-            { ar: 'الركن اللي فوق على اليمين (__تأثير عالي واحتمال عالي__) = أخطر حاجة، تتعالج __الأول__.', en: 'The top corner (__high impact, high likelihood__) = the most dangerous, handled __first__.' },
-            { ar: 'والركن اللي تحت (__قليل وقليل__) = آخر الأولويات.', en: 'The bottom corner (__low and low__) = last priority.' },
           ],
         },
         {

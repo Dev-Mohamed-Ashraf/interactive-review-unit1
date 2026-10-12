@@ -53,35 +53,6 @@ RV.lessons.add('1-4', {
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
         },
         {
-          type: 'scene', wide: true,
-          title: { ar: 'تجربة: ذكاء توظيف اتعلّم من الماضي', en: 'Experiment: a hiring AI that learned from the past' },
-          enTitle: 'Algorithmic Bias',
-          terms: ['algorithmic bias', 'training data', 'proxy variable'],
-          visual: { anim: 'biasSim' },
-          beats: [
-            { ar: 'شركة درّبت ذكاء توظيف على قرارات التعيين __القديمة__. بص على البيانات: المجموعة ▲ __اتظلمت__ زمان رغم إن المهارات واحدة.', en: 'A company trained a hiring AI on its __past__ hiring decisions. Look at the data: group ▲ was __treated unfairly__ even with equal skills.' },
-            { ar: '**التحيز الخوارزمي:** تحيّز في أحكام الـAI __سببه تحيّز في بيانات التدريب__. النموذج اتعلّم الظلم وكرّره: 70% مقابل 18% لنفس المهارات!', en: '**Algorithmic bias:** bias in AI judgments __caused by bias in the training data__. The model learned the unfairness and repeated it: 70% vs 18% for equal skills!' },
-            { ar: '**نقلّله إزاي؟** نفحص البيانات ونخليها __متوازنة وممثّلة لكل المجموعات__، ونختبر نتائج النموذج __لكل مجموعة__ قبل ما نستخدمه.', en: '**How to reduce it?** Make the data __balanced and representative__, and test the model\'s results __for every group__ before using it.' },
-            { ar: '**فخ المتغيّر الوسيط:** حتى لو شلنا عمود «المجموعة»، متغيّر تاني __مرتبط بيه__ (زي اسم النادي أو الحي) ممكن يرجّع التحيز. والتحيز ممكن يدخل كمان من __اختيار المتغيرات__ أو __تصميم النموذج__.', en: '**The proxy trap:** even after removing "group", another variable __correlated with it__ (club name, neighbourhood) can bring the bias back. Bias can also enter through __variable choice__ or __model design__.' },
-          ],
-          notes: [
-            { kind: 'exam', text: { ar: 'سبب التحيز الخوارزمي = __تحيّز بيانات التدريب__ (بيانات ناقصة عن سمات معينة، أو نزعات تمييزية قديمة) — __مش__ بطء الحاسب ولا ضعف الإنترنت.', en: 'Algorithmic bias comes from __biased training data__ (missing data on some attributes, or past discrimination) — __not__ slow computers or weak Internet.' } },
-            { kind: 'tip', text: { ar: 'جرّب الزرارين تحت المشهد: «بيانات متحيزة» و«بيانات متوازنة» وشوف النتيجة بتتغيّر إزاي.', en: 'Try the two buttons under the scene: "biased data" and "balanced data", and watch the result change.' } },
-          ],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'أمثلة حقيقية على التحيز', en: 'Real examples of bias' },
-          visual: { anim: 'photo', props: { img: 'img/bias.webp', motion: 'pan', hotspots: [
-            { x: 30, y: 40, icon: 'database', label: { ar: 'بيانات متحيزة', en: 'Biased data' }, beat: 0 },
-            { x: 66, y: 50, icon: 'scale', label: { ar: 'حكم غير عادل', en: 'Unfair judgment' }, beat: 1 },
-          ] } },
-          beats: [
-            { ar: 'ذكاء توظيف بيقيّم __جنس معين__ بشكل غير عادل لأن قرارات الماضي كانت كده.', en: 'A hiring AI unfairly rating __one gender__ lower because past decisions did.' },
-            { ar: 'ذكاء التعرف على الوجه __بيغلط أكتر__ مع مجموعات عرقية معينة لأن صورها كانت __قليلة__ في بيانات التدريب.', en: 'A face-recognition AI that __misidentifies__ some ethnic groups more because they were __under-represented__ in its training data.' },
-          ],
-        },
-        {
           type: 'quiz',
           q: { widget: 'mcq', prompt: { ar: 'إيه اللي __مش__ سبب مناسب للتحيز الخوارزمي؟', en: 'Which is NOT a cause of algorithmic bias?' },
             options: [{ ar: 'بيانات التدريب متحيزة', en: 'Biased training data' }, { ar: 'نزعات تمييزية قديمة في البيانات', en: 'Past discrimination in the data' }, { ar: 'سرعة معالجة الحاسب بطيئة', en: 'Slow computer processing' }, { ar: 'بيانات ناقصة عن سمات معينة', en: 'Insufficient data on some attributes' }], answer: 2 },
@@ -108,48 +79,6 @@ RV.lessons.add('1-4', {
             { ar: '⚠️ **فخ الامتحان:** التتبّع بالتعرّف على الوجه + جمع البيانات الضخم = __قضايا خصوصية__ · لكن «الـAI بيعمل أعمال إبداعية» أو «سرعته زادت» = __مش__ قضايا خصوصية.', en: '⚠️ **Exam trap:** face-recognition tracking + mass data collection = __privacy issues__ · but "AI makes creative works" or "it got faster" = __not__ privacy issues.' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
-        },
-        {
-          type: 'scene', wide: true,
-          title: { ar: 'الكاميرا بتشوف… والبيانات بتتجمع', en: 'The camera watches… the data piles up' },
-          visual: { anim: 'cinema', props: { tint: 'amber', clips: [
-              { src: 'media/mx-48922.mp4', beat: 0, title: { ar: 'كاميرا مراقبة بتتبّع', en: 'A tracking camera' }, sub: { ar: 'بتلف وراك أوتوماتيك', en: 'turns to follow you automatically' }, icon: 'camera' },
-              { src: 'media/mx-22997.mp4', beat: 1, title: { ar: 'غرفة المراقبة', en: 'The control room' }, sub: { ar: 'شاشات بتعرض كل الكاميرات', en: 'screens showing every camera' }, icon: 'eye' },
-              { src: 'media/mx-12742.mp4', beat: 2, title: { ar: 'بياناتك حوالين العالم', en: 'Your data, worldwide' }, sub: { ar: 'كل نقرة بتتسجّل في مكان ما', en: 'every click is stored somewhere' }, icon: 'globe' },
-          ] } },
-          beats: [
-            { ar: 'الكاميرات الذكية __بتتعرّف على الوشوش وبتتبّع__ الشخص من مكان لمكان.', en: 'Smart cameras __recognise faces and follow__ a person from place to place.' },
-            { ar: 'في غرف المراقبة، كل ده بيتسجّل ويتحلّل — مين، فين، وإمتى.', en: 'In control rooms it is all recorded and analysed — who, where, when.' },
-            { ar: 'ومش الكاميرات بس: كل __لايك وبحث ومكان__ بتتجمع عنك بكميات ضخمة. هنا بتيجي **الخصوصية**.', en: 'Not just cameras: every __like, search and location__ is collected in bulk. That is where **privacy** comes in.' },
-          ],
-        },
-        {
-          type: 'scene', wide: true,
-          title: { ar: 'مين بيتفرّج عليك؟', en: 'Who is watching you?' },
-          enTitle: 'Privacy Issues',
-          terms: ['privacy', 'surveillance', 'personal data'],
-          visual: { anim: 'privacyCam' },
-          beats: [
-            { ar: '**المراقبة بتقنية التعرف على الوجه:** كاميرات في الأماكن العامة تقدر __تتعرّف على الأفراد وتتتبّعهم__ — مين، فين، وإمتى.', en: '**Surveillance through face recognition:** cameras in public places can __identify and track individuals__ — who, where and when.' },
-            { ar: '**الجمع الضخم للبيانات الشخصية:** كميات ضخمة من __بيانات سلوكك على الإنترنت__ (لايكات، بحث، مكان، مشتريات) بتتجمع وتتحلّل.', en: '**Mass collection of personal data:** huge amounts of your __online behaviour data__ (likes, searches, location, purchases) are collected and analysed.' },
-          ],
-          notes: [
-            { kind: 'exam', text: { ar: 'تتبّع الأفراد بالتعرف على الوجه + جمع البيانات بكميات ضخمة = __قضايا خصوصية__. لكن «الـAI بيعمل أعمال إبداعية» أو «سرعته زادت» = __مش__ قضايا خصوصية.', en: 'Face-recognition tracking + mass data collection = __privacy issues__. "AI creates artworks" or "AI got faster" = __not__ privacy issues.' } },
-            { kind: 'think', text: { ar: 'الكاميرات في الشارع بتزوّد الأمان والراحة… بس بتهدد الخصوصية. التوازن محتاج قواعد: مين يشوف البيانات؟ ولحد إمتى تتخزّن؟', en: 'Street cameras add safety and convenience… but threaten privacy. Balance needs rules: who sees the data, and for how long is it kept?' } },
-          ],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'حماية الخصوصية: إنت اللي تتحكّم', en: 'Privacy protection: you are in control' },
-          visual: { anim: 'photo', props: { img: 'img/privacy.webp', motion: 'in', hotspots: [
-            { x: 20, y: 70, icon: 'phone', label: { ar: 'بياناتك الشخصية', en: 'your personal data' }, beat: 0 },
-            { x: 46, y: 45, icon: 'shield', label: { ar: 'درع الخصوصية', en: 'the privacy shield' }, beat: 1 },
-            { x: 80, y: 45, icon: 'user', label: { ar: 'يوصل بس اللي لازم', en: 'only what is needed passes' }, beat: 1 },
-          ] } },
-          beats: [
-            { ar: 'موبايلك فيه __صورك ومكانك وبياناتك__ — كنز لأي شركة.', en: 'Your phone holds your __photos, location and data__ — a treasure for any company.' },
-            { ar: '**حماية الخصوصية** = نتعامل مع البيانات دي بشكل مناسب: __يتشارك بس اللي لازم__ ولغرض واضح.', en: '**Privacy protection** = handling that data properly: __only what is needed is shared__, for a clear purpose.' },
-          ],
         },
         {
           type: 'quiz',
@@ -181,59 +110,10 @@ RV.lessons.add('1-4', {
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
         },
         {
-          type: 'scene', wide: true,
-          title: { ar: 'نفتح الصندوق الأسود: XAI', en: 'Opening the black box: XAI' },
-          enTitle: 'Explainable AI (XAI)',
-          terms: ['explainable AI (XAI)', 'black-box problem'],
-          visual: { anim: 'blackBox', props: { open: true, openAt: 1 } },
-          beats: [
-            { ar: 'لما عملية القرار __مش واضحة (صندوق أسود)__، بيبقى __صعب نتحقّق__ إن النتيجة صح — حتى لو طلعت صح بالصدفة.', en: 'When the decision process is __opaque (a black box)__, it is __hard to verify__ the result — even if it happens to be right.' },
-            { ar: '**الذكاء الاصطناعي القابل للتفسير (XAI):** تقنية بتخلّي البشر __يفهموا ليه__ الـAI أخد حكم معين — فنكتشف إنه رفض بسبب «الحي» ونصلّح التحيز!', en: '**Explainable AI (XAI):** technology that lets humans __understand why__ an AI made a judgment — so we discover it rejected because of "neighbourhood" and fix the bias!' },
-          ],
-          notes: [{ kind: 'exam', text: { ar: '«مادام النتيجة صح، مفيش مشكلة إن عملية القرار مش واضحة» ← __غلط__؛ الغموض بيمنع التحقق.', en: '"If the result is right, an opaque process is fine" → __false__; opacity prevents verification.' } }],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'صندوق شفاف بدل الصندوق الأسود', en: 'A glass box instead of a black box' },
-          visual: { anim: 'photo', props: { img: 'img/xai.webp', motion: 'in', hotspots: [
-            { x: 60, y: 65, icon: 'blackbox', label: { ar: 'نموذج شفاف = XAI', en: 'a transparent model = XAI' }, beat: 0 },
-            { x: 45, y: 28, icon: 'userCheck', label: { ar: 'فاهم ليه النظام قرّر', en: 'understands why it decided' }, beat: 1 },
-          ] } },
-          beats: [
-            { ar: '**XAI** بيحوّل الصندوق الأسود لـ__صندوق شفاف__: نشوف جوّه إزاي الحكم اتاخد.', en: '**XAI** turns the black box into a __glass box__: we can see how the judgment was made.' },
-            { ar: 'ولما نفهم «ليه»، نقدر __نتحقّق ونكتشف التحيّز ونحاسب__ — وده أساس الثقة في الذكاء الاصطناعي.', en: 'Once we understand "why", we can __verify, detect bias and hold someone accountable__ — the basis of trust in AI.' },
-          ],
-        },
-        {
-          type: 'scene', wide: true,
-          title: { ar: 'إزاي XAI بيشرح القرار؟ 3 طرق', en: 'How does XAI explain a decision? 3 ways' },
-          enTitle: 'Explainable AI in practice',
-          terms: ['explainable AI (XAI)', 'feature importance', 'counterfactual', 'heat-map'],
-          visual: { anim: 'xaiExplain' },
-          beats: [
-            { ar: '**1. أهمية كل عامل:** XAI بيوضّح كل عامل أثّر قد إيه في القرار. لو لقينا «الحي اللي ساكن فيه» مأثّر — ده __تحيّز__ لازم يتشال!', en: '**1. Factor importance:** XAI shows how much each factor counted. If "neighbourhood" mattered — that is __bias__ to remove!' },
-            { ar: '**2. «لو كان… كان اتقبل»:** بيقولك أصغر تغيير كان هيقلب النتيجة — «لو خبرتك 3 سنين كنت اتقبلت». كده الشخص __فاهم ويقدر يتحسّن__.', en: '**2. "If…, then accepted":** it shows the smallest change that flips the result — "with 3 years of experience you would be accepted". Now the person __understands and can improve__.' },
-            { ar: '**3. الخريطة الحرارية:** في الصور الطبية، بيلوّن __المكان اللي بنى عليه التشخيص__ — والطبيب يتأكد بعينه إنه مكان منطقي.', en: '**3. Heat-map:** on medical images it colours __the area the diagnosis was based on__ — the doctor checks with their own eyes that it makes sense.' },
-          ],
-          notes: [{ kind: 'tip', text: { ar: 'XAI = بيحقّق مبدأ **الشفافية**، وبيساعد في **العدالة** (نكتشف التحيّز) و**المساءلة** (نعرف مين المسؤول عن إيه).', en: 'XAI delivers **transparency**, and supports **fairness** (spotting bias) and **accountability** (knowing who answers for what).' } }],
-        },
-        {
           type: 'quiz', title: { ar: 'فكّر لحظة', en: 'Pause & think' },
           q: { widget: 'mcq', prompt: { ar: 'لو محدش يقدر يشرح ليه ذكاء اصطناعي رفض طلب وظيفة لشخص… أنهي مبدأ من مبادئ الأخلاقيات ناقص هنا؟', en: 'If no one can explain why an AI rejected someone’s job application… which ethics principle is missing?' },
             options: [{ ar: 'الشفافية', en: 'Transparency' }, { ar: 'السرعة', en: 'Speed' }, { ar: 'التجارة الإلكترونية', en: 'E-commerce' }, { ar: 'الحوسبة السحابية', en: 'Cloud computing' }], answer: 0,
             explain: { ar: 'الشفافية = إظهار عملية اتخاذ القرار. ومن غيرها مانقدرش نتأكد إن الرفض كان عادل.', en: 'Transparency = showing how the decision was made. Without it we cannot check the rejection was fair.' } },
-        },
-        {
-          type: 'scene', wide: true,
-          title: { ar: 'لو الـAI غلط… مين المسؤول؟', en: 'If the AI is wrong… who is responsible?' },
-          enTitle: 'Responsibility',
-          terms: ['responsibility', 'developer', 'user', 'operator'],
-          visual: { anim: 'responsibility' },
-          beats: [
-            { ar: '**المسؤولية:** سؤال «مين المسؤول لما الـAI ياخد حكم غلط؟» — زي تشخيص طبي غلط.', en: '**Responsibility:** "who is responsible when an AI makes a wrong judgment?" — e.g. a wrong medical diagnosis.' },
-            { ar: 'الآراء __بتختلف__ حسب الدور: __المطوّر__ ولا __المستخدِم__ ولا __المشغِّل__… و__لسه مفيش معيار واضح__ متّفق عليه.', en: 'Views __differ__ by role: __developer__, __user__ or __operator__… and __no clear standard__ has been agreed yet.' },
-          ],
-          notes: [{ kind: 'exam', text: { ar: '«تحديد المسؤول عن خطأ الـAI محسوم بوضوح» ← __غلط__.', en: '"Responsibility for AI errors is clearly settled" → __false__.' } }],
         },
       ],
     },
@@ -257,25 +137,6 @@ RV.lessons.add('1-4', {
             { ar: '📌 **الخلاصة:** المبادئ الأربعة = __عدالة · شفافية · خصوصية · مساءلة__ — وسرّ الحفظ «عَشْخَم» 😄.', en: '📌 **The point:** the four principles = __fairness · transparency · privacy · accountability__.' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'أربع مبادئ لازم تحفظها', en: 'Four principles to memorise' },
-          enTitle: 'Basic Principles of AI Ethics',
-          terms: ['fairness', 'transparency', 'privacy protection', 'accountability'],
-          visual: { anim: 'iconCards', props: { cards: [
-            { icon: 'scale', motion: 'pulse', title: { ar: 'العدالة', en: 'Fairness' }, sub: { ar: 'Fairness', en: 'no unjust discrimination' } },
-            { icon: 'eye', motion: 'scan', title: { ar: 'الشفافية', en: 'Transparency' }, sub: { ar: 'Transparency', en: 'show how it decides' } },
-            { icon: 'shield', motion: 'float', title: { ar: 'حماية الخصوصية', en: 'Privacy protection' }, sub: { ar: 'Privacy protection', en: 'handle personal data well' } },
-            { icon: 'userCheck', motion: 'network', title: { ar: 'المساءلة', en: 'Accountability' }, sub: { ar: 'Accountability', en: 'answerable for decisions' } },
-          ] } },
-          beats: [
-            { ar: '**العدالة (Fairness):** __عدم التمييز ظلمًا__ ضد أي شخص أو مجموعة. مثال: ذكاء توظيف يقيّم بعدل بغضّ النظر عن الجنس.', en: '**Fairness:** __no unjust discrimination__ against any person or group. e.g. a hiring AI rating fairly regardless of gender.' },
-            { ar: '**الشفافية (Transparency):** __إظهار عملية اتخاذ القرار__ وطريقة الشغل الداخلية بوضوح. مثال: الإفصاح للمستخدمين عن إزاي النظام بيقرّر.', en: '**Transparency:** __showing the decision process__ and inner workings clearly. e.g. explaining to users how the system decides.' },
-            { ar: '**حماية الخصوصية (Privacy protection):** __التعامل المناسب مع المعلومات الشخصية__. مثال: ماتستخدمش البيانات لغرض غير اللي اتجمعت عشانه.', en: '**Privacy protection:** __handling personal information appropriately__. e.g. not using data for purposes other than those it was collected for.' },
-            { ar: '**المساءلة (Accountability):** إن يكون فيه حد __مسؤول وقابل للمحاسبة__ عن قرارات الـAI. مثال: المحاسبة لما تشخيص الـAI يطلع غلط.', en: '**Accountability:** someone is __answerable__ for the AI\'s decisions. e.g. being accountable when an AI diagnosis is wrong.' },
-          ],
-          notes: [{ kind: 'tip', text: { ar: 'سرّ الحفظ: «**ع**دالة · **ش**فافية · **خ**صوصية · **م**ساءلة» = __عَشْخَم__ 😄', en: 'Memory trick: **F**airness · **T**ransparency · **P**rivacy · **A**ccountability = "FTPA".' } }],
         },
         {
           type: 'quiz', title: { ar: 'وصّل', en: 'Match' },

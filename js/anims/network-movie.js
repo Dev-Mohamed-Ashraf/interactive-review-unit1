@@ -27,7 +27,7 @@
     <path d="M10 78 Q80 106 150 78 M10 122 Q80 150 150 122" fill="none" stroke="#ddd6fe" stroke-width="4" opacity=".7"/>`;
 
   K.defineAnim('networkMovie', (stage, props, api) => {
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-net', prefix: 'nw-', beats: 7,
       cast: { 'ch-guard': 'guard', 'ch-vis': 'visitor', 'ch-hack': 'hacker', 'ch-emp': 'server', 'ch-cafe': 'user', 'ch-spy': 'hacker' },
       html: (L) => `

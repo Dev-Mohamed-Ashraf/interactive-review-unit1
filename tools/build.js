@@ -22,6 +22,7 @@ function listAssets() {
   const out = [...INCLUDE_FILES];
   INCLUDE_DIRS.forEach((d) => {
     (function walk(dir) {
+      if (!fs.existsSync(path.join(ROOT, dir))) return; // (e.g. no videos left in media/)
       fs.readdirSync(path.join(ROOT, dir)).sort().forEach((f) => {
         const rel = `${dir}/${f}`;
         if (fs.statSync(path.join(ROOT, rel)).isDirectory()) walk(rel);
@@ -39,6 +40,7 @@ function version(assets) {
 }
 
 function listVideos() {
+  if (!fs.existsSync(path.join(ROOT, 'media'))) return [];
   return fs.readdirSync(path.join(ROOT, 'media')).filter((f) => RUNTIME_ONLY.test(f)).sort().map((f) => `media/${f}`);
 }
 

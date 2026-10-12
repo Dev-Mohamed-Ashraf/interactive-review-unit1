@@ -2,9 +2,6 @@
  * anims/incident.js — lesson 2-3 (incident response & risk management)
  *   incidentTypes    : information leak · data tampering · service outage
  *                      (+ what is NOT an incident)
- *   incidentResponse : ransomware in an office network, handled in the six
- *                      ordered stages; last beat shows what goes wrong when
- *                      recovery comes before eradication
  *   riskMatrix       : risk = impact × likelihood on a 3×3 grid, the textbook
  *                      risks a–d scored and ranked, then a live calculator
  * ========================================================= */
@@ -47,102 +44,7 @@
   });
 
   /* ───────────────────────── incidentResponse ───────────────────────── */
-  K.defineAnim('incidentResponse', (stage, props, api) => {
-    const { s } = api;
-    const t = api.t;
-    const C = RV.cyberKit(api);
-    const svg = K.svgCanvas(stage, 820, 480);
-    const STAGES = [
-      { ar: 'التحضير', en: 'Preparation' }, { ar: 'الاكتشاف', en: 'Detection' }, { ar: 'الاحتواء', en: 'Containment' },
-      { ar: 'الإزالة', en: 'Eradication' }, { ar: 'الاستعادة', en: 'Recovery' }, { ar: 'منع التكرار', en: 'Prevention' },
-    ];
-    const chips = STAGES.map((st, k) => {
-      const g = s('g', { class: 'ir-chip' }, s('rect', { x: -58, y: -20, width: 116, height: 40, rx: 12 }), s('text', { x: 0, y: 6, 'text-anchor': 'middle' }, `${k + 1}. ${t(st)}`));
-      gsap.set(g, { x: 75 + k * 134, y: 36 });
-      return g;
-    });
-    // office network: a switch + 5 PCs + the records server + a backup
-    const SW = { x: 410, y: 250 };
-    const pcsAt = [{ x: 150, y: 160 }, { x: 150, y: 330 }, { x: 410, y: 390 }, { x: 670, y: 160 }, { x: 670, y: 330 }];
-    const wires = pcsAt.map((p) => C.link(SW, p, 'cy-wire ir-wire'));
-    const sw = C.node(SW.x, SW.y, 'network', { ar: 'الشبكة', en: 'Network' }, '', 70);
-    const pcs = pcsAt.map((p, k) => C.node(p.x, p.y, k === 2 ? 'database' : 'monitor', k === 2 ? { ar: 'سجلات الطلاب', en: 'Student records' } : null, 'is-good', 66));
-    const bug = api.svgIcon('bug', pcsAt[0].x + 30, pcsAt[0].y - 30, 30, { class: 'svg-ico ir-bug' });
-    const backup = C.node(735, 430, 'backup', { ar: 'نسخة احتياطية', en: 'Backup' }, 'is-ca', 54);
-    const book = C.node(90, 430, 'book', { ar: 'خطة الاستجابة', en: 'Response plan' }, 'is-ca', 54);
-    const shield = api.svgIcon('shield', SW.x, SW.y - 74, 40, { class: 'svg-ico ir-shield' });
-    const alarm = api.svgIcon('siren', pcsAt[0].x, pcsAt[0].y - 72, 34, { class: 'svg-ico ir-alarm' });
-    const say = C.tag(410, 462, '', 'is-good');
-    svg.append(...wires, sw, ...pcs, bug, backup, book, shield, alarm, ...chips, say);
-    gsap.set([bug, backup, book, shield, alarm, say], { autoAlpha: 0 });
 
-    function tell(txt, cls) {
-      say.lastChild.textContent = t(txt);
-      const w = Math.max(60, t(txt).length * 9.5 + 30);
-      say.firstChild.setAttribute('x', -w / 2); say.firstChild.setAttribute('width', w);
-      say.setAttribute('class', 'cy-tag ' + cls);
-      gsap.fromTo(say, { autoAlpha: 0, scale: 0.7, transformOrigin: '50% 50%' }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: 'back.out(2)' });
-    }
-    const infect = (list) => pcs.forEach((p, k) => { p.classList.toggle('is-bad', list.includes(k)); p.classList.toggle('is-good', !list.includes(k)); });
-    const loops = [];
-    const kill = () => loops.splice(0).forEach((l) => l.kill());
-    return {
-      beat(i) {
-        kill();
-        const step = Math.min(i, 5);
-        chips.forEach((c, k) => { c.classList.toggle('is-done', i <= 5 && k < step); c.classList.toggle('is-current', i <= 5 && k === step); });
-        gsap.set([bug, shield, alarm, say], { autoAlpha: 0 });
-        wires[0].classList.toggle('is-cut', i >= 2 && i <= 5);
-        gsap.set(pcs[0], { x: pcsAt[0].x });
-        gsap.to([backup, book], { autoAlpha: 1, duration: 0.4 });
-        if (i === 0) {
-          infect([]);
-          tell({ ar: '📘 قبل أي حادث: خطة استجابة + فريق + نسخ احتياطية جاهزة', en: '📘 Before anything happens: a response plan + a team + ready backups' }, 'is-good');
-          loops.push(gsap.fromTo([book, backup], { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.12, duration: 0.6, yoyo: true, repeat: -1 }));
-        } else if (i === 1) {
-          infect([0]);
-          gsap.set(bug, { autoAlpha: 1 });
-          tell({ ar: '🚨 اكتشفنا وأكّدنا: جهاز مصاب ببرنامج فدية', en: '🚨 Detected and confirmed: a PC infected with ransomware' }, 'is-bad');
-          loops.push(gsap.fromTo(alarm, { autoAlpha: 1, rotation: -15, svgOrigin: `${pcsAt[0].x} ${pcsAt[0].y - 72}` }, { rotation: 15, duration: 0.15, yoyo: true, repeat: -1 }));
-          api.sound.play('bad');
-        } else if (i === 2) {
-          infect([0]);
-          gsap.set(bug, { autoAlpha: 1 });
-          gsap.to(pcs[0], { x: pcsAt[0].x - 40, duration: 0.6 });
-          tell({ ar: '🔌 عزلنا الجهاز عن الشبكة — الضرر مابقاش بينتشر', en: '🔌 We isolated the PC from the network — the damage stops spreading' }, 'is-warn');
-        } else if (i === 3) {
-          infect([0]);
-          gsap.set(pcs[0], { x: pcsAt[0].x - 40 });
-          gsap.fromTo(bug, { autoAlpha: 1, scale: 1, transformOrigin: '50% 50%' }, { scale: 0, rotation: 180, autoAlpha: 0, duration: 0.9, delay: 0.4, ease: 'back.in(2)', onComplete: () => { infect([]); api.sound.play('ok'); } });
-          tell({ ar: '🧹 شلنا السبب نفسه: البرنامج الخبيث اتمسح', en: '🧹 We removed the cause itself: the malware is deleted' }, 'is-good');
-        } else if (i === 4) {
-          infect([]);
-          gsap.set(pcs[0], { x: pcsAt[0].x - 40 });
-          const disk = C.packet({ ar: '💾 نسخة نضيفة', en: '💾 clean copy' }, 'is-ok');
-          svg.appendChild(disk);
-          loops.push(gsap.timeline({ repeat: -1, repeatDelay: 1 }).add(C.fly(disk, { x: 735, y: 430 }, { x: 410, y: 390 }, { duration: 1.2 })).to(disk, { autoAlpha: 0, duration: 0.3 }), { kill: () => disk.remove() });
-          tell({ ar: '♻️ رجّعنا الأنظمة والخدمات لحالتها الطبيعية من نسخة نضيفة', en: '♻️ Systems and services restored to normal from a clean copy' }, 'is-good');
-        } else if (i === 5) {
-          infect([]);
-          gsap.to(pcs[0], { x: pcsAt[0].x, duration: 0.6 });
-          loops.push(gsap.fromTo(shield, { autoAlpha: 0, scale: 0.4, transformOrigin: '50% 50%' }, { autoAlpha: 1, scale: 1, duration: 0.6, ease: 'back.out(2)' }));
-          tell({ ar: '🛡️ حلّلنا السبب: ثغرة + رسالة احتيال ← تحديث + تدريب الموظفين', en: '🛡️ Cause analysed: a hole + a phishing mail → patch + staff training' }, 'is-good');
-        } else {
-          // what happens out of order: recovery BEFORE eradication
-          chips.forEach((c, k) => c.classList.toggle('is-wrong', k === 4));
-          infect([0]);
-          gsap.set(bug, { autoAlpha: 1 });
-          const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.2 })
-            .add(() => { infect([0]); tell({ ar: '❌ رجّعنا النسخة الاحتياطية والبرنامج الخبيث لسه موجود…', en: '❌ We restored the backup while the malware was still there…' }, 'is-bad'); })
-            .to({}, { duration: 1.4 });
-          [1, 3, 4, 2].forEach((k, n) => tl.add(() => { infect([0, ...[1, 3, 4, 2].slice(0, n + 1)]); api.sound.play('beep'); }, `+=${0.5}`));
-          tl.add(() => tell({ ar: '💥 الحادث رجع تاني! لازم الإزالة قبل الاستعادة', en: '💥 The incident came back! Eradicate before you recover' }, 'is-bad'), '+=0.4')
-            .to({}, { duration: 1.6 });
-          loops.push(tl, { kill: () => chips.forEach((c) => c.classList.remove('is-wrong')) });
-        }
-      },
-    };
-  });
 
   /* ───────────────────────── riskMatrix ───────────────────────── */
   K.defineAnim('riskMatrix', (stage, props, api) => {

@@ -1,17 +1,11 @@
 /* =========================================================
  * anims/crypto.js — lesson 2-1 (cryptography & authentication)
- *   threatsDemo  : what goes wrong WITHOUT HTTPS — eavesdropping, tampering,
- *                  impersonation — then HTTPS blocks all three
  *   commonKey    : one shared key locks AND unlocks (live cipher with a key
  *                  slider) · very fast · but how do we send the key safely?
  *   keyPair      : public key (open padlock, given to everyone) + private key
  *                  (kept secret) · the eavesdropper can't open the box · slow
- *   tlsHandshake : the 3 stages: certificate + public key → session key
- *                  exchange → fast data with the common key
  *   signCert     : digital signature (private key signs, public key verifies,
  *                  tampering detected, non-repudiation) + digital certificate
- *   mfaDemo      : the 3 factors · password leaked → break-in · + phone OTP →
- *                  blocked · two passwords are NOT multi-factor
  *   securityStack: online shopping — 4 threats, 4 technologies, all at once
  * ========================================================= */
 (function () {
@@ -19,82 +13,7 @@
   const K = RV.kit;
 
   /* ───────────────────────── threatsDemo ───────────────────────── */
-  K.defineAnim('threatsDemo', (stage, props, api) => {
-    const { s } = api;
-    const t = api.t;
-    const C = RV.cyberKit(api);
-    const svg = K.svgCanvas(stage, 800, 460);
-    const A = { x: 110, y: 170 }, B = { x: 690, y: 170 }, H = { x: 400, y: 345 };
-    const wire = C.link(A, B, 'cy-wire');
-    const lockMid = api.svgIcon('lock', 400, 170, 42, { class: 'svg-ico cy-midlock' });
-    const you = C.node(A.x, A.y, 'monitor', { ar: 'إنت', en: 'You' }, 'is-you');
-    const bank = C.node(B.x, B.y, 'building', { ar: 'البنك الحقيقي', en: 'Real bank' }, 'is-good');
-    const fake = C.node(B.x, B.y, 'building', { ar: 'بنك مزيّف!', en: 'Fake bank!' }, 'is-bad');
-    const hacker = C.node(H.x, H.y, 'hacker', { ar: 'المهاجم', en: 'Attacker' }, 'is-bad', 76);
-    const tap = C.link({ x: 400, y: 170 }, { x: 400, y: 305 }, 'cy-tap');
-    const pkt = C.packet('', 'is-plain');
-    const copy = C.packet('', 'is-plain');
-    const title = s('text', { x: 400, y: 52, 'text-anchor': 'middle', class: 'cy-title' }, '');
-    const verdict = C.tag(400, 425, '', 'is-bad');
-    svg.append(wire, tap, lockMid, you, fake, bank, hacker, copy, pkt, title, verdict);
-    gsap.set([fake, lockMid, verdict], { autoAlpha: 0 });
 
-    const loops = [];
-    const kill = () => loops.splice(0).forEach((l) => l.kill());
-    function setTitle(txt, cls) { title.textContent = t(txt); title.setAttribute('class', 'cy-title ' + (cls || '')); gsap.fromTo(title, { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }); }
-    function say(txt, cls) {
-      verdict.lastChild.textContent = t(txt);
-      verdict.setAttribute('class', 'cy-tag ' + cls);
-      const w = Math.max(60, t(txt).length * 9.5 + 30);
-      verdict.firstChild.setAttribute('x', -w / 2); verdict.firstChild.setAttribute('width', w);
-      gsap.fromTo(verdict, { autoAlpha: 0, scale: 0.6, transformOrigin: '50% 50%' }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' });
-    }
-
-    function story(i) {
-      const secure = i >= 3;
-      gsap.to(lockMid, { autoAlpha: secure ? 1 : 0, duration: 0.4 });
-      wire.classList.toggle('is-secure', secure);
-      gsap.to(fake, { autoAlpha: !secure && i === 2 ? 1 : 0, duration: 0.4 });
-      gsap.to(bank, { autoAlpha: !secure && i === 2 ? 0 : 1, duration: 0.4 });
-      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.2 });
-      loops.push(tl);
-      if (i === 0) {
-        setTitle({ ar: '١) التنصّت: حد بيقرا رسالتك', en: '1) Eavesdropping: someone reads your message' }, 'bad');
-        tl.add(() => { pkt.setText({ ar: 'كلمة السر: 1234', en: 'password: 1234' }); copy.setText({ ar: 'كلمة السر: 1234', en: 'password: 1234' }); pkt.setAttribute('class', 'cy-packet is-plain'); copy.setAttribute('class', 'cy-packet is-plain'); })
-          .add(C.fly(pkt, A, B, { duration: 2 }), 0)
-          .add(C.fly(copy, { x: 400, y: 170 }, H, { duration: 0.8 }), 1)
-          .add(() => { say({ ar: '👀 المهاجم قرا كلمة السر!', en: '👀 The attacker read your password!' }, 'is-bad'); api.sound.play('bad'); }, 1.8)
-          .to([pkt, copy], { opacity: 0, duration: 0.3 }, '+=1.4');
-      } else if (i === 1) {
-        setTitle({ ar: '٢) التلاعب: حد بيغيّر الرسالة في السكة', en: '2) Tampering: someone changes the message on the way' }, 'bad');
-        gsap.set(copy, { opacity: 0 });
-        tl.add(() => { pkt.setText({ ar: 'حوّل 100 جنيه', en: 'send EGP 100' }); pkt.setAttribute('class', 'cy-packet is-plain'); })
-          .add(C.fly(pkt, A, { x: 400, y: 170 }, { duration: 1 }), 0)
-          .to(pkt, { y: 250, duration: 0.4 })
-          .add(() => { pkt.setText({ ar: 'حوّل 10,000 جنيه', en: 'send EGP 10,000' }); pkt.setAttribute('class', 'cy-packet is-bad'); api.sound.play('beep'); })
-          .to(pkt, { y: 170, duration: 0.4, delay: 0.3 })
-          .to(pkt, { x: B.x, duration: 1 })
-          .add(() => say({ ar: '✏️ الرسالة اتغيّرت والبنك مش واخد باله!', en: '✏️ The message was changed and the bank never noticed!' }, 'is-bad'))
-          .to(pkt, { opacity: 0, duration: 0.3 }, '+=1.4');
-      } else if (i === 2) {
-        setTitle({ ar: '٣) انتحال الهوية: موقع بيدّعي إنه البنك', en: '3) Impersonation: a site pretends to be the bank' }, 'bad');
-        gsap.set(copy, { opacity: 0 });
-        tl.add(() => { pkt.setText({ ar: 'كلمة السر: 1234', en: 'password: 1234' }); pkt.setAttribute('class', 'cy-packet is-plain'); })
-          .add(C.fly(pkt, A, B, { duration: 2 }), 0)
-          .add(() => { say({ ar: '🎭 بعتّ كلمة السر لبنك مزيّف!', en: '🎭 You sent your password to a fake bank!' }, 'is-bad'); api.sound.play('bad'); })
-          .to(pkt, { opacity: 0, duration: 0.3 }, '+=1.4');
-      } else {
-        setTitle({ ar: '🔒 HTTPS: تشفير + كشف تلاعب + تحقق من الطرف التاني', en: '🔒 HTTPS: encryption + tamper detection + partner verification' }, 'good');
-        tl.add(() => { pkt.setText(C.scramble('password 1234')); copy.setText(C.scramble('password 1234')); pkt.setAttribute('class', 'cy-packet is-cipher'); copy.setAttribute('class', 'cy-packet is-cipher'); })
-          .add(C.fly(pkt, A, B, { duration: 2 }), 0)
-          .add(C.fly(copy, { x: 400, y: 170 }, H, { duration: 0.8 }), 1)
-          .add(() => { say({ ar: '✅ المهاجم شايف رموز مالهاش معنى — والبنك اتأكّد إنه الحقيقي', en: '✅ The attacker sees meaningless symbols — and the bank is verified as real' }, 'is-good'); api.sound.play('ok'); }, 1.8)
-          .to([pkt, copy], { opacity: 0, duration: 0.3 }, '+=1.6');
-      }
-    }
-
-    return { beat(i) { kill(); gsap.set(verdict, { autoAlpha: 0 }); story(Math.min(i, 3)); } };
-  });
 
   /* ───────────────────────── commonKey ───────────────────────── */
   K.defineAnim('commonKey', (stage, props, api) => {
@@ -270,106 +189,7 @@
    *   3 ② session key locked with the public key · 4 ② opened with the private key
    *   5 ③ fast data with the common key · 6 the division of roles
    */
-  K.defineAnim('tlsHandshake', (stage, props, api) => {
-    const { s } = api;
-    const t = api.t;
-    const C = RV.cyberKit(api);
-    const svg = K.svgCanvas(stage, 800, 540);
-    const BX = 130, SX = 670, CX = 400;
-    const bn = C.banner(svg, 34);
-    const lifeB = s('line', { x1: BX, y1: 160, x2: BX, y2: 525, class: 'cy-lifeline' });
-    const lifeS = s('line', { x1: SX, y1: 160, x2: SX, y2: 525, class: 'cy-lifeline' });
-    const lifeC = s('line', { x1: CX, y1: 150, x2: CX, y2: 290, class: 'cy-lifeline' });
-    const browser = C.node(BX, 112, 'monitor', { ar: 'المتصفح', en: 'Browser' }, 'is-you', 74);
-    const server = C.node(SX, 112, 'server', { ar: 'خادم الويب', en: 'Web server' }, 'is-good', 74);
-    const ca = C.node(CX, 112, 'stamp', { ar: 'جهة الشهادات CA', en: 'Certificate authority' }, 'is-ca', 64);
-    svg.insertBefore(lifeC, svg.firstChild); svg.insertBefore(lifeS, svg.firstChild); svg.insertBefore(lifeB, svg.firstChild);
-    const keyPubS = api.svgIcon('unlock', SX + 58, 112, 30, { class: 'svg-ico tls-pub' });
-    const keyPrivS = api.svgIcon('key', SX + 58, 150, 28, { class: 'svg-ico tls-priv' });
-    const sessB = api.svgIcon('key', BX - 54, 330, 34, { class: 'svg-ico tls-k' });
-    const sessS = api.svgIcon('key', SX + 54, 330, 34, { class: 'svg-ico tls-k' });
-    // the arrows (rows go down the lifelines)
-    const T = {
-      cert: C.trail({ x: SX - 8, y: 190 }, { x: BX + 8, y: 190 }, { ar: '① 📜 شهادة رقمية + 🔓 مفتاح عام', en: '① 📜 certificate + 🔓 public key' }, 'pub'),
-      ask: C.trail({ x: BX + 8, y: 238 }, { x: CX - 8, y: 238 }, { ar: 'الشهادة دي سليمة؟', en: 'is this certificate valid?' }, 'ok'),
-      yes: C.trail({ x: CX - 8, y: 274 }, { x: BX + 8, y: 274 }, { ar: '✅ أيوه — الموقع حقيقي', en: '✅ yes — the site is genuine' }, 'ok'),
-      sess: C.trail({ x: BX + 8, y: 330 }, { x: SX - 8, y: 330 }, { ar: '② 🔒 مفتاح الجلسة (مقفول بالمفتاح العام)', en: '② 🔒 session key (locked with the public key)' }, 'pub'),
-      d1: C.trail({ x: BX + 8, y: 420 }, { x: SX - 8, y: 420 }, { ar: '③ بيانات مشفّرة ⚡', en: '③ encrypted data ⚡' }, 'common'),
-      d2: C.trail({ x: SX - 8, y: 460 }, { x: BX + 8, y: 460 }, { ar: '③ صفحة الموقع مشفّرة ⚡', en: '③ encrypted web page ⚡' }, 'common'),
-      d3: C.trail({ x: BX + 8, y: 500 }, { x: SX - 8, y: 500 }, { ar: '③ كلمة السر مشفّرة ⚡', en: '③ encrypted password ⚡' }, 'common'),
-    };
-    const opened = C.tag(SX - 120, 372, { ar: '🔑 فكّه بمفتاحه الخاص', en: '🔑 opened with its private key' }, 'is-pub');
-    const same = C.tag(400, 372, { ar: '🤝 نفس المفتاح مع الاتنين', en: '🤝 both hold the same key' }, 'is-good');
-    const spy = C.node(400, 470, 'hacker', null, 'is-bad', 48);
-    const spyTag = C.tag(400, 520, { ar: 'المتنصّت شايف رموز بس', en: 'the eavesdropper sees only symbols' }, 'is-bad');
-    const legend = s('g', { class: 'tls-legend' });
-    legend.append(
-      s('rect', { x: 150, y: 382, width: 500, height: 110, rx: 16, class: 'fw-card' }),
-      s('text', { x: 400, y: 418, 'text-anchor': 'middle', class: 'cy-trail-t pub' }, t({ ar: 'بنفسجي = مفتاح عام ← مشاركة المفتاح بأمان (بطيء)', en: 'purple = public-key → share the key safely (slow)' })),
-      s('text', { x: 400, y: 452, 'text-anchor': 'middle', class: 'cy-trail-t common' }, t({ ar: 'أزرق = مفتاح متناظر ← البيانات الكتير بسرعة', en: 'blue = common-key → lots of data, fast' })),
-      s('text', { x: 400, y: 480, 'text-anchor': 'middle', class: 'cy-trail-t ok' }, t({ ar: 'النتيجة: أمان + سرعة مع بعض', en: 'result: security + speed together' })));
-    svg.append(keyPubS, keyPrivS, sessB, sessS, ...Object.values(T).map((x) => x.g), opened, same, spy, spyTag, legend);
-    gsap.set([keyPubS, keyPrivS, sessB, sessS, opened, same, spy, spyTag, legend], { autoAlpha: 0 });
 
-    const ROWS = [[], ['cert'], ['ask', 'yes'], ['sess'], [], ['d1', 'd2', 'd3'], []];
-    const BANNERS = [
-      ['', { ar: 'مصافحة TLS: 3 مراحل بين المتصفح والخادم', en: 'TLS handshake: 3 stages between browser and server' }, ''],
-      [1, { ar: 'الاتصال: الخادم يبعت شهادته الرقمية + مفتاحه العام', en: 'Connection: the server sends its certificate + public key' }, ''],
-      [1, { ar: 'الاتصال: المتصفح يتحقق من الخادم عن طريق CA', en: 'Connection: the browser verifies the server via the CA' }, 'is-good'],
-      [2, { ar: 'تبادل المفتاح: المتصفح يقفل مفتاح الجلسة بالمفتاح العام', en: 'Key exchange: the browser locks the session key with the public key' }, ''],
-      [2, { ar: 'تبادل المفتاح: الخادم يفتحه بمفتاحه الخاص', en: 'Key exchange: the server opens it with its private key' }, 'is-good'],
-      [3, { ar: 'تبادل البيانات: كل حاجة مشفّرة بالمفتاح المتناظر ⚡', en: 'Data: everything encrypted with the common key ⚡' }, ''],
-      ['', { ar: 'العام لمشاركة المفتاح · المتناظر للبيانات', en: 'public-key shares the key · common-key moves the data' }, 'is-good'],
-    ];
-    const loops = [];
-    const kill = () => loops.splice(0).forEach((l) => l.kill());
-    return {
-      beat(i) {
-        kill();
-        const b = BANNERS[Math.min(i, BANNERS.length - 1)];
-        bn.set(b[0], b[1], b[2]);
-        // earlier rows stay drawn; the current row draws itself now
-        Object.entries(T).forEach(([k, tr]) => {
-          const row = ROWS.findIndex((r) => r.includes(k));
-          if (row < i && i < 6) tr.show(); else if (row !== i || i >= 6) tr.hide();
-        });
-        gsap.set(keyPubS, { autoAlpha: i >= 1 ? 1 : 0 });
-        gsap.set(keyPrivS, { autoAlpha: i >= 1 ? 1 : 0 });
-        gsap.set([sessB], { autoAlpha: i >= 3 && i < 6 ? 1 : 0 });
-        gsap.set([sessS, same], { autoAlpha: i >= 5 && i < 6 ? 1 : 0 });
-        gsap.set([opened], { autoAlpha: 0 });
-        gsap.set([spy, spyTag], { autoAlpha: 0 });
-        gsap.set(legend, { autoAlpha: i >= 6 ? 1 : 0 });
-        const tl = gsap.timeline();
-        loops.push(tl);
-        if (i === 0) {
-          tl.add(C.pop(browser)).add(C.pop(server), 0.25).add(C.pop(ca), 0.5);
-        } else if (i === 1) {
-          tl.add(T.cert.play()).fromTo(keyPubS, { scale: 1.6, transformOrigin: '50% 50%' }, { scale: 1, duration: 0.4 }, 0);
-          api.sound.play('whoosh');
-        } else if (i === 2) {
-          tl.add(T.ask.play()).add(() => api.sound.play('pop')).fromTo(ca, { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.15, duration: 0.3, yoyo: true, repeat: 1 }).add(T.yes.play()).add(() => api.sound.play('ok'));
-        } else if (i === 3) {
-          tl.fromTo(sessB, { autoAlpha: 0, scale: 0.3, transformOrigin: '50% 50%' }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'back.out(2.5)' })
-            .add(() => api.sound.play('pop'))
-            .add(T.sess.play(), '+=0.3');
-        } else if (i === 4) {
-          T.sess.show();
-          tl.to(keyPrivS, { x: -6, duration: 0.15, yoyo: true, repeat: 3 })
-            .fromTo(opened, { autoAlpha: 0, scale: 0.6, transformOrigin: '50% 50%' }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: 'back.out(2)' })
-            .fromTo(sessS, { autoAlpha: 0, scale: 0.3, transformOrigin: '50% 50%' }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'back.out(2.5)' })
-            .fromTo(same, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4 })
-            .add(() => api.sound.play('ok'));
-          loops.push(gsap.to([sessB, sessS], { scale: 1.15, transformOrigin: '50% 50%', duration: 0.6, yoyo: true, repeat: -1, delay: 1.4 }));
-        } else if (i === 5) {
-          tl.add(T.d1.play()).add(T.d2.play(), '-=0.6').add(T.d3.play(), '-=0.6')
-            .to([spy, spyTag], { autoAlpha: 1, duration: 0.4 });
-        } else {
-          tl.fromTo(legend, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.5 });
-        }
-      },
-    };
-  });
 
   /* ───────────────────────── signCert ───────────────────────── */
   K.defineAnim('signCert', (stage, props, api) => {
@@ -469,65 +289,7 @@
   });
 
   /* ───────────────────────── mfaDemo ───────────────────────── */
-  K.defineAnim('mfaDemo', (stage, props, api) => {
-    const { h } = api;
-    const t = api.t;
-    const F = [
-      { id: 'know', icon: 'brain', title: { ar: 'المعرفة', en: 'Knowledge' }, sub: { ar: 'حاجة إنت عارفها', en: 'something you know' }, ex: { ar: 'كلمة السر · PIN', en: 'password · PIN' } },
-      { id: 'have', icon: 'phone', title: { ar: 'الحيازة', en: 'Possession' }, sub: { ar: 'حاجة معاك', en: 'something you have' }, ex: { ar: 'موبايل (OTP / SMS) · كارت ذكي', en: 'phone (OTP / SMS) · smart card' } },
-      { id: 'are', icon: 'fingerprint', title: { ar: 'الحيوية', en: 'Biometric' }, sub: { ar: 'حاجة هي إنت', en: 'something you are' }, ex: { ar: 'بصمة الإصبع · الوجه', en: 'fingerprint · face' } },
-    ];
-    const cards = F.map((f) => h('div', { class: 'mf-card mf-' + f.id }, h('span', { class: 'mf-ico' }, api.icon(f.icon)), h('b', null, t(f.title)), h('small', null, t(f.sub)), h('em', null, t(f.ex))));
-    const factors = h('div', { class: 'mf-factors' }, cards);
-    // login simulation
-    const pw = h('div', { class: 'mf-field' }, api.icon('key'), h('span', { class: 'mono' }, '••••••'));
-    const otp = h('div', { class: 'mf-field mf-otp' }, api.icon('sms'), h('span', { class: 'mono' }, t({ ar: 'الكود اتبعت لموبايلك', en: 'code sent to your phone' })));
-    const result = h('div', { class: 'mf-result' });
-    const thief = h('div', { class: 'mf-thief' }, api.icon('hacker'), h('span', null, t({ ar: 'المهاجم عرف كلمة السر', en: 'the attacker knows the password' })));
-    const login = h('div', { class: 'mf-login' }, h('div', { class: 'mf-screen' }, h('b', null, '🏦 ', t({ ar: 'تسجيل الدخول', en: 'Sign in' })), pw, otp, result), thief);
-    // two passwords trap + services table
-    const trap = h('div', { class: 'mf-trap' },
-      h('div', { class: 'mf-combo bad' }, h('span', null, '🧠 + 🧠'), h('b', null, t({ ar: 'كلمتين سر = مش MFA', en: 'two passwords = NOT MFA' })), h('small', null, t({ ar: 'نفس العامل (معرفة) مرتين', en: 'the same factor (knowledge) twice' }))),
-      h('div', { class: 'mf-combo ok' }, h('span', null, '🧠 + 📱'), h('b', null, t({ ar: 'كلمة سر + OTP = MFA ✓', en: 'password + OTP = MFA ✓' })), h('small', null, t({ ar: 'عاملين مختلفين', en: 'two different factors' }))));
-    const services = h('div', { class: 'mf-services' }, [
-      [{ ar: '🏦 البنك أونلاين', en: '🏦 Online banking' }, { ar: 'كلمة سر + كلمة سر لمرة واحدة (OTP)', en: 'password + one-time password' }, '🧠📱'],
-      [{ ar: '💬 تسجيل دخول السوشيال', en: '💬 SNS login' }, { ar: 'كلمة سر + رسالة SMS', en: 'password + SMS' }, '🧠📱'],
-      [{ ar: '💻 لابتوب الشركة', en: '💻 Company laptop' }, { ar: 'كارت ذكي + بصمة', en: 'smart card + fingerprint' }, '📱👆'],
-      [{ ar: '🛒 التسوّق أونلاين', en: '🛒 Online shopping' }, { ar: 'كلمة سر + كود 3-D Secure', en: 'password + 3-D Secure code' }, '🧠📱'],
-    ].map(([a, b, c]) => h('div', { class: 'mf-svc' }, h('b', null, t(a)), h('span', null, t(b)), h('i', null, c))));
-    const wrap = h('div', { class: 'mf-wrap' }, factors, login, trap, services);
-    stage.appendChild(wrap);
 
-    function show(el, on) { el.hidden = !on; }
-    function res(txt, cls) { result.className = 'mf-result ' + cls; result.textContent = t(txt); gsap.fromTo(result, { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(2)' }); }
-    const loops = [];
-    const kill = () => loops.splice(0).forEach((l) => l.kill());
-    return {
-      beat(i) {
-        kill();
-        show(factors, i === 0 || i === 3);
-        show(login, i === 1 || i === 2);
-        show(trap, i === 3);
-        show(services, i >= 4);
-        if (i === 0) gsap.from(cards, { y: 30, opacity: 0, rotateX: -50, stagger: 0.2, duration: 0.6, ease: 'back.out(1.6)' });
-        if (i === 1 || i === 2) {
-          otp.hidden = i === 1;
-          result.textContent = '';
-          loops.push(gsap.timeline({ repeat: -1, repeatDelay: 1.6 })
-            .fromTo(thief, { x: RV.i18n.lang === 'ar' ? -80 : 80, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5 })
-            .fromTo(pw.lastChild, { opacity: 0 }, { opacity: 1, duration: 0.4 })
-            .add(() => {
-              if (i === 1) { res({ ar: '🚨 دخل! كلمة السر لوحدها اتكسرت', en: '🚨 Broke in! The password alone was broken' }, 'bad'); api.sound.play('bad'); }
-              else { gsap.fromTo(otp, { scale: 0.9 }, { scale: 1, duration: 0.3 }); }
-            })
-            .add(() => { if (i === 2) { res({ ar: '⛔ اتمنع: معندوش موبايلك (عامل الحيازة)', en: '⛔ Blocked: he does not have your phone (possession)' }, 'ok'); api.sound.play('ok'); } }, '+=0.8')
-            .to([thief, result], { opacity: 0, duration: 0.3 }, '+=1.6'));
-        }
-        if (i === 3) gsap.from(trap.children, { y: 20, opacity: 0, stagger: 0.3, duration: 0.5 });
-        if (i >= 4) gsap.from(services.children, { x: RV.i18n.lang === 'ar' ? 30 : -30, opacity: 0, stagger: 0.15, duration: 0.45 });
-      },
-    };
-  });
 
   /* ───────────────────────── securityStack ───────────────────────── */
   K.defineAnim('securityStack', (stage, props, api) => {

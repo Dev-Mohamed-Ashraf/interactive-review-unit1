@@ -32,7 +32,7 @@
       ['🛡️', 'منع التكرار', 'Prevention', 'نحلّل السبب: تحديث + تدريب', 'analyse the cause: patch + training'],
     ];
     const NUM = '①②③④⑤⑥';
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-inc', prefix: 'ir-', beats: 8,
       cast: { 'ch-it': 'it', 'ch-clerk': 'clerk' },
       html: (L) => `

@@ -24,7 +24,7 @@
   /* ═════════════════════════ biasMovie ═════════════════════════ */
   K.defineAnim('biasMovie', (stage, props, api) => {
     const U = MK.ui('bi-');
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-bias mv-l14', prefix: 'bi-', beats: 6, cast: { 'ch-en': 'engineer', 'ch-a1': 'applicant', 'ch-a2': 'visitor' },
       html: (L) => `
   <div id="bi-stage" class="mv-stage">
@@ -128,7 +128,7 @@
   K.defineAnim('privacyMovie', (stage, props, api) => {
     const U = MK.ui('pv-');
     const d = MK.RTL() ? 720 : 0; // RTL: the first of a pair sits on the right
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-priv mv-l14', prefix: 'pv-', beats: 5, cast: { 'ch-st': 'student' },
       html: (L) => `
   <div id="pv-stage" class="mv-stage">
@@ -217,7 +217,7 @@
   /* ═════════════════════════ xaiMovie ═════════════════════════ */
   K.defineAnim('xaiMovie', (stage, props, api) => {
     const U = MK.ui('xa-');
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-xai mv-l14', prefix: 'xa-', beats: 6, cast: { 'ch-ap': 'applicant', 'ch-dr': 'doctor' },
       html: (L) => `
   <div id="xa-stage" class="mv-stage">
@@ -323,7 +323,7 @@
   /* ═════════════════════════ principlesMovie ═════════════════════════ */
   K.defineAnim('principlesMovie', (stage, props, api) => {
     const U = MK.ui('pr-');
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-prin mv-l14', prefix: 'pr-', beats: 5, cast: { 'ch-a1': 'applicant', 'ch-a2': 'visitor', 'ch-dr': 'doctor' },
       html: (L) => `
   <div id="pr-stage" class="mv-stage">

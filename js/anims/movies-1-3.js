@@ -28,7 +28,7 @@
   K.defineAnim('aiLifeMovie', (stage, props, api) => {
     const U = MK.ui('lf-');
     const d = MK.RTL() ? 720 : 0; // RTL: the first of a pair sits on the right
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-life mv-l13', prefix: 'lf-', beats: 6, cast: { 'ch-st': 'studentL' },
       html: (L) => `
   <div id="lf-stage" class="mv-stage">
@@ -142,7 +142,7 @@
     const rtl = MK.RTL(); // RTL: the first item sits on the right
     const CAUTION = [['⚖️', 'الأحكام الأخلاقية', 'ethical judgements'], ['🔒', 'الخصوصية', 'privacy'], ['👤', 'القرار النهائي (مين المسؤول؟)', 'the final decision (who is responsible?)'],
       ['📊', 'البيانات المتحيزة', 'biased data'], ['😵', 'الهلوسة', 'hallucination'], ['©️', 'حقوق النشر', 'copyright'], ['⬛', 'الصندوق الأسود', 'the black box']];
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-caution mv-l13', prefix: 'ca-', beats: 6, cast: { 'ch-dr': 'doctor' },
       html: (L) => `
   <div id="ca-stage" class="mv-stage">

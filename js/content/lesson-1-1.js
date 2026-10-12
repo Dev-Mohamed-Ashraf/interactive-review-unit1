@@ -46,22 +46,6 @@ RV.lessons.add('1-1', {
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
         },
         {
-          type: 'scene', wide: true,
-          title: { ar: 'يوم في حياة طالب… كله تكنولوجيا', en: 'A student’s day… all technology' },
-          visual: { anim: 'cinema', props: { tint: 'blue', clips: [
-              { src: 'media/mx-14669.mp4', beat: 0, title: { ar: 'شبكات التواصل', en: 'Social networks' }, sub: { ar: 'رسايل وصور في ثانية', en: 'messages & photos in a second' }, icon: 'share' },
-              { src: 'media/mx-4915.mp4', beat: 1, title: { ar: 'دفع من غير كاش', en: 'Cashless payment' }, sub: { ar: 'الموبايل بقى محفظة', en: 'the phone is a wallet' }, icon: 'qr' },
-              { src: 'media/mx-1781.mp4', beat: 2, title: { ar: 'حصة أونلاين', en: 'Online lesson' }, sub: { ar: 'الفصل جوه اللابتوب', en: 'the classroom in a laptop' }, icon: 'cap' },
-              { src: 'media/mx-20770.mp4', beat: 3, title: { ar: 'طلب أونلاين', en: 'Online order' }, sub: { ar: 'الطلب بيتشحن لحد البيت', en: 'shipped to your door' }, icon: 'cart' },
-          ] } },
-          beats: [
-            { ar: 'الصبح: بيقرا رسايله على **شبكات التواصل** — المعلومة بتوصل لآلاف في ثانية.', en: 'Morning: reads messages on **SNS** — information reaches thousands in a second.' },
-            { ar: 'بيدفع فطاره بـ**الموبايل** من غير كاش — ده **الدفع غير النقدي**.', en: 'Pays for breakfast with his **phone**, no cash — **cashless payment**.' },
-            { ar: 'بيحضر حصته من البيت — **التعلّم عبر الإنترنت**.', en: 'Attends class from home — **online learning**.' },
-            { ar: 'وبيطلب كتاب يتشحن له — **التجارة الإلكترونية**. من 20 سنة أغلب ده ماكانش موجود!', en: 'Orders a book that ships to him — **e-commerce**. Twenty years ago most of this did not exist!' },
-          ],
-        },
-        {
           type: 'quiz', optional: true,
           q: { widget: 'poll', prompt: { ar: 'استكشف: من غير ما تقرا — أنهي مرحلة تفتكر غيّرت الحياة اليومية أكتر؟', en: 'Explore: before reading on — which stage changed daily life the most?' },
             options: [
@@ -74,57 +58,6 @@ RV.lessons.add('1-1', {
         },
         {
           type: 'scene',
-          title: { ar: 'خمس مراحل غيّرت العالم', en: 'Five stages that changed the world' },
-          enTitle: 'The History of Information Technology',
-          visual: {
-            anim: 'eraTimeline',
-            props: {
-              eras: [
-                { year: '1940s–60s', icon: 'server', title: { ar: 'ميلاد الحاسب (ENIAC)', en: 'Birth of the computer (ENIAC)' }, impact: { ar: 'استخدام عسكري وعلمي', en: 'Military & scientific computation' } },
-                { year: '1970s–80s', icon: 'monitor', title: { ar: 'الحواسب الشخصية (PC)', en: 'Personal computers (PCs)' }, impact: { ar: 'الأفراد بدأوا يستخدموا الحاسب', en: 'Individuals start using computers' } },
-                { year: '1990s', icon: 'globe', title: { ar: 'الإنترنت تجاريًا + الويب', en: 'Commercial Internet + the Web' }, impact: { ar: 'عولمة المعلومات + البريد الإلكتروني', en: 'Globalization of information + email' } },
-                { year: '2000s', icon: 'phone', title: { ar: 'الهواتف الذكية (iPhone)', en: 'Smartphones (iPhone)' }, impact: { ar: 'انفجار إنترنت الموبايل', en: 'Explosive spread of mobile Internet' } },
-                { year: '2010s →', icon: 'cloud', title: { ar: 'الحوسبة السحابية', en: 'Cloud computing' }, impact: { ar: 'بيانات ضخمة + ذكاء اصطناعي + «IT كخدمة»', en: 'Big data + AI + "IT as a service"' } },
-              ],
-            },
-          },
-          beats: [
-            { ar: '**الأربعينيات–الستينيات:** ميلاد الحاسب (ENIAC) بالصمامات المفرغة — كان بيملا أوضة كاملة، واستخدامه __عسكري وعلمي__ بس.', en: '**1940s–60s:** birth of the computer (ENIAC, vacuum tubes) — it filled a whole room and was used for __military and scientific__ work only.' },
-            { ar: '**السبعينيات–الثمانينيات:** انتشار **الحواسب الشخصية (PCs)** — لأول مرة __الأفراد__ يستخدموا الحاسب.', en: '**1970s–80s:** spread of **personal computers (PCs)** — for the first time __individuals__ use computers.' },
-            { ar: '**التسعينيات:** الإنترنت بقى __تجاري__ وظهر الويب → **عولمة المعلومات** وانتشار البريد الإلكتروني.', en: '**1990s:** the Internet goes __commercial__ and the Web appears → **globalization of information** and email.' },
-            { ar: '**العقد الأول من الألفية (2000s):** ظهور **الهواتف الذكية** → انتشار __سريع وواسع__ لإنترنت الموبايل.', en: '**2000s:** rise of **smartphones** → __explosive__ spread of mobile Internet.' },
-            { ar: '**من 2010 فصاعدًا:** انتشار **الحوسبة السحابية** → تحليل بيانات ضخمة، ذكاء اصطناعي، و«تكنولوجيا المعلومات __كخدمة__».', en: '**2010s onward:** spread of **cloud computing** → big-data analysis, AI, and "IT __as a service__".' },
-          ],
-          notes: [{ kind: 'exam', text: { ar: 'الترتيب الزمني: ميلاد الحاسب ← الإنترنت تجاريًا ← الهواتف الذكية ← الحوسبة السحابية.', en: 'Chronological order: computer → commercial Internet → smartphones → cloud computing.' } }],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'من أوضة كاملة… لحد جيبك', en: 'From a whole room… to your pocket' },
-          visual: { anim: 'photo', props: { img: 'img/eras.webp', motion: 'in', hotspots: [
-            { x: 12, y: 45, icon: 'server', label: { ar: '1940s: حاسب بحجم أوضة', en: '1940s: a room-sized computer' }, beat: 0 },
-            { x: 37, y: 55, icon: 'monitor', label: { ar: '1970s: كمبيوتر شخصي', en: '1970s: personal computer' }, beat: 0 },
-            { x: 62, y: 62, icon: 'phone', label: { ar: '2000s: لابتوب وموبايل', en: '2000s: laptop & phone' }, beat: 1 },
-            { x: 86, y: 35, icon: 'cloud', label: { ar: '2010s: السحابة', en: '2010s: the cloud' }, beat: 1 },
-          ] } },
-          beats: [
-            { ar: 'بص على الرحلة: الأجهزة بتصغر وبتقرب من الإنسان — من **حاسب بيملا أوضة** لـ**كمبيوتر على المكتب**.', en: 'Look at the journey: devices shrink and come closer — from a **room-sized computer** to a **desktop PC**.' },
-            { ar: 'وبعدين **اللابتوب والموبايل**… ولحد **السحابة** اللي مش شايفينها بس شغّالة لنا طول الوقت.', en: 'Then **laptops and phones**… all the way to **the cloud** we never see but use all the time.' },
-          ],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'أول حاسب كان بيملا أوضة!', en: 'The first computers filled a whole room!' },
-          visual: { anim: 'photo', props: { img: 'img/real-eniac.webp', credit: 'ENIAC, Univ. of Pennsylvania · Wikimedia Commons · CC BY-SA 3.0', hotspots: [
-            { x: 42, y: 30, icon: 'server', label: { ar: 'ENIAC الحقيقي — محفوظ في متحف', en: 'The real ENIAC — kept in a museum' }, beat: 0 },
-            { x: 58, y: 66, icon: 'wrench', label: { ar: 'كان بيتبرمج بالأسلاك والمفاتيح', en: 'Programmed with cables & switches' }, beat: 1 },
-          ] } },
-          beats: [
-            { ar: 'ENIAC كان وزنه حوالي __30 طن__ وبيملا أوضة كاملة.', en: 'ENIAC weighed about __30 tonnes__ and filled an entire room.' },
-            { ar: 'النهارده موبايلك أقوى منه __ملايين المرات__ — والسر في **قانون مور** اللي جاي.', en: 'Today your phone is __millions of times__ more powerful — the secret is **Moore\'s Law**, coming next.' },
-          ],
-        },
-        {
-          type: 'scene',
           title: { ar: 'ENIAC زي ما الكتاب رسمه', en: 'ENIAC as the textbook draws it' },
           visual: { anim: 'photo', props: { img: 'img/eniac.webp', motion: 'pan', hotspots: [
             { x: 66, y: 30, icon: 'server', label: { ar: 'آلاف الصمامات المفرغة', en: 'thousands of vacuum tubes' }, beat: 0 },
@@ -133,31 +66,6 @@ RV.lessons.add('1-1', {
           beats: [
             { ar: 'دواليب ورا دواليب من __الصمامات المفرغة__ — كل الأوضة دي = كمبيوتر واحد!', en: 'Cabinet after cabinet of __vacuum tubes__ — this whole room = one computer!' },
             { ar: 'ومافيش كيبورد ولا شاشة: كان __بيتبرمج بالأسلاك والمفاتيح__ بإيد المشغّلين.', en: 'No keyboard, no screen: it was __programmed with cables and switches__ by hand.' },
-          ],
-        },
-        {
-          type: 'scene',
-          title: { ar: '«السحابة» = أجهزة حقيقية في مكان حقيقي', en: '"The cloud" = real machines in a real place' },
-          wide: true,
-          visual: { anim: 'cinema', props: { tint: 'blue', clips: [
-            { src: 'media/mx-23219.mp4', beat: 0, title: { ar: 'مركز بيانات حقيقي', en: 'A real data center' }, sub: { ar: 'ممرات طويلة من السيرفرات', en: 'corridors of servers' }, icon: 'server' },
-            { src: 'media/mx-7887.mp4', beat: 1, title: { ar: 'هنا بتتخزّن صورك', en: 'Your photos live here' }, sub: { ar: 'Google Drive · iCloud · YouTube', en: 'Google Drive · iCloud · YouTube' }, icon: 'database' },
-          ] } },
-          beats: [
-            { ar: '**الحوسبة السحابية:** تقديم موارد تكنولوجيا المعلومات (تخزين، معالجة، برامج) __كخدمة عبر الإنترنت__.', en: '**Cloud computing:** delivering IT resources (storage, processing, software) __as a service over the Internet__.' },
-            { ar: 'لما ترفع صورة على Google Drive، هي فعلًا بتتخزّن على سيرفر في __مركز بيانات__ زي ده.', en: 'When you upload a photo to Google Drive, it is really stored on a server in a __data center__ like this one.' },
-          ],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'جوّه مركز البيانات', en: 'Inside a data center' },
-          visual: { anim: 'photo', props: { img: 'img/datacenter.webp', motion: 'in', hotspots: [
-            { x: 15, y: 40, icon: 'server', label: { ar: 'صفوف سيرفرات شغّالة 24 ساعة', en: 'rows of servers running 24/7' }, beat: 0 },
-            { x: 50, y: 48, icon: 'database', label: { ar: 'هنا بتتخزّن بياناتنا', en: 'our data lives here' }, beat: 1 },
-          ] } },
-          beats: [
-            { ar: 'مراكز البيانات فيها __آلاف السيرفرات__ شغّالة ليل ونهار — هي «جسم» السحابة.', en: 'Data centers hold __thousands of servers__ running day and night — the "body" of the cloud.' },
-            { ar: 'ولما تستخدم خدمة سحابية، أنت __بتستأجر جزء__ من الأجهزة دي عبر الإنترنت — ده معنى **IT كخدمة**.', en: 'Using a cloud service means __renting part__ of these machines over the Internet — that is **IT as a service**.' },
           ],
         },
         {
@@ -199,20 +107,6 @@ RV.lessons.add('1-1', {
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
         },
         {
-          type: 'scene', wide: true,
-          title: { ar: 'جوّه كل جهاز… شريحة', en: 'Inside every device… a chip' },
-          visual: { anim: 'cinema', props: { tint: 'green', clips: [
-              { src: 'media/mx-47051.mp4', beat: 0, title: { ar: 'الشريحة = المخ', en: 'The chip = the brain' }, sub: { ar: 'معالج على لوحة إلكترونية', en: 'a processor on a circuit board' }, icon: 'cpu' },
-              { src: 'media/mx-46965.mp4', beat: 1, title: { ar: 'مصنع الشرائح', en: 'Chip factory' }, sub: { ar: 'آلات بتركّب ملايين القطع', en: 'machines placing millions of parts' }, icon: 'factory' },
-              { src: 'media/mx-47048.mp4', beat: 2, title: { ar: 'مسارات الكهربا', en: 'Electric pathways' }, sub: { ar: 'الإشارة بتجري بين الترانزستورات', en: 'signals racing between transistors' }, icon: 'bolt' },
-          ] } },
-          beats: [
-            { ar: 'موبايلك ولابتوبك جوّاهم **شريحة (دائرة متكاملة)** — هي المخ اللي بيحسب كل حاجة.', en: 'Your phone and laptop contain a **chip (integrated circuit)** — the brain that computes everything.' },
-            { ar: 'الشرائح بتتصنع بآلات دقيقة جدًا بتحط __ملايين__ القطع الصغيرة في مكانها.', en: 'Chips are built by ultra-precise machines placing __millions__ of tiny parts.' },
-            { ar: 'جوّه الشريحة __مليارات الترانزستورات__ متوصّلة بمسارات — وعددهم ده هو موضوع **قانون مور**.', en: 'Inside are __billions of transistors__ linked by pathways — and their number is what **Moore’s Law** is about.' },
-          ],
-        },
-        {
           type: 'quiz', optional: true,
           q: { widget: 'poll', prompt: { ar: 'أول معالج سنة 1971 كان فيه 2,300 ترانزستور. تفتكر سنة 2021 بقوا كام؟', en: 'The first processor (1971) had 2,300 transistors. How many by 2021?' },
             options: [
@@ -224,21 +118,6 @@ RV.lessons.add('1-1', {
         },
         {
           type: 'scene',
-          title: { ar: 'قانون مور: «اتنين في كل سنتين»', en: "Moore's Law: \"×2 every two years\"" },
-          enTitle: "Moore's Law",
-          terms: ["Moore's Law", 'transistor', 'integrated circuit'],
-          visual: { anim: 'mooreChip' },
-          beats: [
-            { ar: '**الترانزستور** = مفتاح صغير جدًا (شغّال/مقفول = 1/0). الشريحة (الدائرة المتكاملة) فيها __مليارات__ منه.', en: 'A **transistor** is a tiny switch (on/off = 1/0). A chip (integrated circuit) holds __billions__ of them.' },
-            { ar: '**قانون مور:** ملاحظة تجريبية بتقول إن __عدد الترانزستورات__ في الدائرة المتكاملة __بيتضاعف كل سنتين تقريبًا__.', en: "**Moore's Law:** the empirical observation that the __number of transistors__ on an integrated circuit __doubles about every two years__." },
-            { ar: 'فضل صحيح سنين طويلة: من __2,300__ ترانزستور (Intel 4004 — 1971) لأكتر من __100 مليار__ النهارده → قدرة الحوسبة زادت بشكل هائل.', en: 'It held for decades: from __2,300__ transistors (Intel 4004, 1971) to over __100 billion__ today → computing power grew dramatically.' },
-          ],
-          notes: [
-            { kind: 'exam', text: { ar: 'قانون مور بيتكلم عن __عدد الترانزستورات__ — مش سرعة الإنترنت ولا سرعة المعالج مباشرةً. وهو «ملاحظة» مش قانون فيزيائي.', en: "Moore's Law is about __transistor count__ — not Internet speed or CPU speed directly. It is an observation, not a law of physics." } },
-          ],
-        },
-        {
-          type: 'scene',
           title: { ar: 'أول معالج في التاريخ: Intel 4004', en: 'The first microprocessor: Intel 4004' },
           visual: { anim: 'photo', props: { img: 'img/real-intel4004.webp', credit: 'Intel C4004 · Fouky / Wikimedia Commons · CC BY-SA 4.0', hotspots: [
             { x: 45, y: 30, icon: 'cpu', label: { ar: 'سنة 1971', en: 'Year 1971' }, beat: 0 },
@@ -247,41 +126,6 @@ RV.lessons.add('1-1', {
           beats: [
             { ar: 'ده **Intel 4004** الحقيقي — أول معالج دقيق في التاريخ، اتعمل سنة __1971__.', en: 'This is the real **Intel 4004** — the first microprocessor, made in __1971__.' },
             { ar: 'كان فيه __2,300 ترانزستور__ بس. موبايلك النهارده فيه أكتر من __15 مليار__ — وده بالظبط اللي قانون مور اتوقّعه.', en: 'It had only __2,300 transistors__. Your phone today has over __15 billion__ — exactly what Moore’s Law predicted.' },
-          ],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'الشرائح بتتولد على رقائق السيليكون', en: 'Chips are born on silicon wafers' },
-          visual: { anim: 'photo', props: { img: 'img/real-wafer.webp', credit: 'Silicon wafers 2"–8" · Wikimedia Commons · CC BY-SA 3.0', hotspots: [
-            { x: 68, y: 35, icon: 'cpu', label: { ar: 'كل مربع = شريحة', en: 'each square = one chip' }, beat: 0 },
-            { x: 25, y: 78, icon: 'target', label: { ar: 'الرقاقة بتكبر = شرائح أكتر', en: 'bigger wafer = more chips' }, beat: 1 },
-          ] } },
-          beats: [
-            { ar: 'الشرائح بتتصنع على __رقائق سيليكون (Wafers)__ — كل مربع صغير فيها = شريحة كاملة.', en: 'Chips are made on __silicon wafers__ — every little square is a complete chip.' },
-            { ar: 'ومع الوقت الترانزستورات بتصغر، فـ__نفس المساحة بتشيل ترانزستورات أكتر__ — ده محرّك قانون مور.', en: 'Over time transistors shrink, so __the same area holds more of them__ — the engine of Moore’s Law.' },
-          ],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'ليه قانون مور قرّب يوقف؟ المشاكل واحدة واحدة', en: "Why is Moore's Law slowing? The problems, one by one" },
-          terms: ['physical limit', 'quantum tunneling', 'leakage current'],
-          visual: { anim: 'mooreLimit' },
-          beats: [
-            { ar: '**المشكلة 1 — الحدّ الفيزيائي:** الترانزستور صغر لحد ما بقى أصغر من __10 نانومتر__ — يعني عرضه __كام ذرة بس__! مش هينفع نصغّر للأبد.', en: '**Problem 1 — the physical limit:** transistors shrank below __10 nm__ — only __a few atoms__ wide! We cannot shrink forever.' },
-            { ar: '**المشكلة 2 — تأثير النفق الكمومي:** الإلكترونات __بتتسرّب عبر الحاجز__ العازل كأنها بتعدّي من خلاله بدل ما تقف → المفتاح مابقاش «مقفول» بشكل موثوق.', en: '**Problem 2 — quantum tunneling:** electrons __slip through the barrier__ instead of being stopped → the switch is no longer reliably "off".' },
-            { ar: '**المشكلة 3 — تيار التسرّب:** جزء من التيار __بيهرب بدون قصد__ حتى والترانزستور مقفول → طاقة ضايعة.', en: '**Problem 3 — leakage current:** some current __escapes unintentionally__ even when the transistor is off → wasted energy.' },
-            { ar: '**النتيجة:** حرارة واستهلاك طاقة أعلى → صعب نجمع بين __أداء أعلى__ و__استهلاك طاقة أقل__ في نفس الوقت.', en: '**Result:** more heat and power use → hard to get __higher performance__ and __lower power__ at the same time.' },
-          ],
-          notes: [{ kind: 'tip', text: { ar: 'احفظ المشكلتين بالاسم: **تأثير النفق الكمومي** (الإلكترون يعدّي الحاجز) و**تيار التسرّب** (التيار يهرب).', en: 'Memorize both by name: **quantum tunneling** (electron passes the barrier) and **leakage current** (current escapes).' } }],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'الحلول: اتجاهات جديدة لزيادة الأداء', en: 'The fixes: new directions for performance' },
-          terms: ['parallel processing', 'multi-core', 'quantum computer'],
-          visual: { anim: 'mooreParallel' },
-          beats: [
-            { ar: '**المعالجة المتوازية:** بدل نواة واحدة بتعمل المهام ورا بعض، نستخدم __أنوية كتير__ بتقسّم الشغل وتشتغل __في نفس الوقت__.', en: '**Parallel processing:** instead of one core doing tasks one after another, __many cores__ split the work and run __at the same time__.' },
-            { ar: '**الحواسب الكمومية:** فكرة حساب مختلفة تمامًا مبنية على __مبادئ ميكانيكا الكم__ — هنشوفها بالتفصيل في التقنيات الناشئة.', en: '**Quantum computers:** a completely different way of computing based on __quantum mechanics__ — more in Emerging Technologies.' },
           ],
         },
         {
@@ -475,44 +319,16 @@ RV.lessons.add('1-1', {
         },
         {
           type: 'scene', wide: true,
-          title: { ar: '🎞️ الأنيميشن الكامل: التحولات الاجتماعية والتقنيات الناشئة', en: '🎞️ Full animation: social change and emerging technologies' },
-          enTitle: 'Social change & emerging tech, scene by scene',
-          terms: ['SNS', 'e-commerce', 'cashless payment', 'self-driving', 'edge computing', 'AR', 'VR', 'quantum computing'],
-          visual: { anim: 'societyMovie' },
+          title: { ar: '🎞️ الأنيميشن: خمس تحولات اجتماعية', en: '🎞️ Animation: five social changes' },
+          enTitle: 'Five social changes',
+          terms: ['SNS', 'e-commerce', 'remote work', 'online learning', 'cashless payment'],
+          visual: { anim: 'societyMovie', props: { scenes: [0, 2] } },
           beats: [
             { ar: '💬 **شبكات التواصل الاجتماعي (SNS):** خدمات بيتواصل فيها المستخدمين وينشروا ويشاركوا المعلومات — و__فعّالة جدًا في نشر المعلومة بسرعة__.', en: '💬 **Social networking services (SNS):** services where users connect, post and share information — __very effective at spreading information fast__.' },
             { ar: '🛒 **التجارة الإلكترونية (EC):** بيع وشراء __عبر الإنترنت__ (Amazon · eBay). 💳 **الدفع غير النقدي:** تدفع __من غير كاش__ (كارت · QR · تطبيق) — وممكن يحصل في __محل حقيقي__.', en: '🛒 **E-commerce (EC):** buying and selling __online__ (Amazon · eBay). 💳 **Cashless payment:** paying __without cash__ (card · QR · app) — it can happen in a __real shop__ too.' },
             { ar: '🏠 **العمل عن بُعد:** تعمل مهامك من البيت أو أي مكان بالإنترنت. 🎓 **التعلّم عبر الإنترنت:** الدروس والمواد بتتقدّم عن طريق الإنترنت.', en: '🏠 **Remote work:** do your tasks from home or anywhere via the Internet. 🎓 **Online learning:** lessons and materials are delivered over the Internet.' },
-            { ar: '🚗 **القيادة الذاتية:** الذكاء الاصطناعي بيسوق العربية من غير سواق: __تشوف__ (كاميرات وحسّاسات) ← __تفكّر__ (تتعرّف وتقرّر) ← __تتصرّف__ (دريكسيون وفرامل وبنزين).', en: '🚗 **Self-driving:** AI drives the car with no driver: it __sees__ (cameras, sensors) → __thinks__ (recognises, decides) → __acts__ (steering, brakes, accelerator).' },
-            { ar: '⚡ شخص طلع قدام العربية فجأة! السحابة: حوالي __0.8 ثانية__ (العربية تمشي حوالي 13 متر) ❌ — __الحوسبة الطرفية__: القرار جوّه العربية في حوالي __0.05 ثانية__ ✅.', en: '⚡ Someone steps out in front of the car! Via the cloud: about __0.8 s__ (the car travels about 13 m) ❌ — with __edge computing__ the car decides inside itself in about __0.05 s__ ✅.' },
-            { ar: '🥽 **الواقع المعزز (AR)** __يضيف__ معلومات رقمية فوق العالم الحقيقي (Pokémon GO) · **الواقع الافتراضي (VR)** __يستبدل__ الحقيقي بعالم افتراضي كامل (نظارة VR).', en: '🥽 **Augmented reality (AR)** __adds__ digital info on top of the real world (Pokémon GO) · **virtual reality (VR)** __replaces__ it with a whole virtual world (VR headset).' },
-            { ar: '⚛️ **الحوسبة الكمومية:** البِت = 0 __أو__ 1 · الكيوبت = 0 __و__ 1 مع بعض (__التراكب__) ← تسرّع بشكل هائل حسابات صعبة على الحاسب التقليدي.', en: '⚛️ **Quantum computing:** a bit = 0 __or__ 1 · a qubit = 0 __and__ 1 together (__superposition__) → hugely speeds up calculations that are hard for classical computers.' },
-            { ar: '📌 **الخلاصة:** خمس تحولات (SNS · تجارة إلكترونية · عمل عن بُعد · تعلّم أونلاين · دفع غير نقدي) + تقنيات ناشئة (قيادة ذاتية · AR/VR · كمومية).', en: '📌 **The point:** five social changes (SNS · e-commerce · remote work · online learning · cashless payment) + emerging tech (self-driving · AR/VR · quantum).' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
-        },
-        {
-          type: 'scene',
-          title: { ar: 'إزاي تكنولوجيا المعلومات غيّرت حياتنا؟', en: 'How did IT change our lives?' },
-          enTitle: 'Social Changes Resulting from IT',
-          visual: { anim: 'iconCards', props: { cards: [
-            { icon: 'share', motion: 'network', title: { ar: 'شبكات التواصل (SNS)', en: 'SNS' }, sub: { ar: 'Facebook · WhatsApp', en: 'Facebook · WhatsApp' } },
-            { icon: 'cart', motion: 'cart', title: { ar: 'التجارة الإلكترونية (EC)', en: 'E-commerce (EC)' }, sub: { ar: 'Amazon · eBay', en: 'Amazon · eBay' } },
-            { icon: 'laptopHome', motion: 'pulse', title: { ar: 'العمل عن بُعد', en: 'Remote work' }, sub: { ar: 'من البيت', en: 'From home' } },
-            { icon: 'cap', motion: 'float', title: { ar: 'التعلّم عبر الإنترنت', en: 'Online learning' }, sub: { ar: 'حصص أونلاين', en: 'Online classes' } },
-            { icon: 'qr', motion: 'scan', title: { ar: 'الدفع غير النقدي', en: 'Cashless payment' }, sub: { ar: 'كارت · QR · تطبيق', en: 'Card · QR · app' } },
-          ] } },
-          beats: [
-            { ar: '**شبكات التواصل الاجتماعي (SNS):** خدمات بتخلّي المستخدمين __يتواصلوا وينشروا ويشاركوا__ المعلومات — وفعّالة جدًا في __نشر المعلومة بسرعة__.', en: '**SNS:** services that let users __connect, post and share__ information — highly effective at __spreading information rapidly__.' },
-            { ar: '**التجارة الإلكترونية (EC):** __بيع وشراء__ السلع والخدمات __عبر الإنترنت__. مثال: Amazon و eBay.', en: '**E-commerce (EC):** __buying and selling__ goods and services __through the Internet__. e.g. Amazon, eBay.' },
-            { ar: '**العمل عن بُعد:** نمط شغل بتعمل فيه مهامك من __البيت أو أي مكان بعيد__ باستخدام الإنترنت.', en: '**Remote work:** working from __home or another remote location__ using the Internet.' },
-            { ar: '**التعلّم عبر الإنترنت:** الدروس والمواد الدراسية بتتقدّم __عن طريق الإنترنت__.', en: '**Online learning:** classes and study materials delivered __over the Internet__.' },
-            { ar: '**الدفع غير النقدي:** الدفع بـ__نقود إلكترونية أو رموز QR__ من غير كاش. مثال: كروت ائتمان/خصم، تطبيقات دفع.', en: '**Cashless payment:** paying with __e-money or QR codes__ without cash. e.g. credit/debit cards, payment apps.' },
-          ],
-          notes: [
-            { kind: 'confuse', title: { ar: 'فرق بيلخبط — التجارة الإلكترونية ≠ الدفع غير النقدي', en: 'Easily confused — e-commerce ≠ cashless payment' }, text: { ar: 'التجارة الإلكترونية = __عملية الشراء نفسها__ أونلاين. الدفع غير النقدي = تدفع __من غير كاش__ — وممكن يحصل في محل حقيقي (كارت أو QR).', en: 'E-commerce = the __purchase itself__ happens online. Cashless = paying __without cash__ — can happen in a physical shop (card or QR).' } },
-            { kind: 'exam', text: { ar: '«التجارة الإلكترونية = شراء بالكاش من محل حقيقي» ← عبارة __خاطئة__.', en: '"E-commerce = paying cash in a physical shop" is __false__.' } },
-          ],
         },
         {
           type: 'quiz', title: { ar: 'وصّل', en: 'Match' },
@@ -539,20 +355,6 @@ RV.lessons.add('1-1', {
       id: 'emerging', kind: 'learn',
       title: { ar: 'التقنيات الناشئة: قيادة ذاتية · AR/VR · كمومية', en: 'Emerging tech: self-driving · AR/VR · quantum' },
       steps: [
-        {
-          type: 'scene', wide: true,
-          title: { ar: 'الطريق مليان مفاجآت', en: 'The road is full of surprises' },
-          visual: { anim: 'cinema', props: { tint: 'amber', clips: [
-              { src: 'media/mx-42367.mp4', beat: 0, title: { ar: 'طريق سريع', en: 'Highway' }, sub: { ar: '60 كم/س = 16.7 متر كل ثانية', en: '60 km/h = 16.7 m every second' }, icon: 'car' },
-              { src: 'media/mx-42039.mp4', beat: 1, title: { ar: 'زحمة بالليل', en: 'Night traffic' }, sub: { ar: 'عربيات + ناس + إشارات', en: 'cars + people + signals' }, icon: 'eye' },
-              { src: 'media/mx-50998.mp4', beat: 2, title: { ar: 'تقاطع ضخم من فوق', en: 'A huge junction from above' }, sub: { ar: 'آلاف القرارات كل ثانية', en: 'thousands of decisions per second' }, icon: 'route' },
-          ] } },
-          beats: [
-            { ar: 'السواق بيشوف ويقرّر طول الوقت: أكمّل؟ أهدّي؟ أقف؟ — وبسرعة 60 كم/س العربية بتمشي __16.7 متر كل ثانية__.', en: 'A driver sees and decides constantly: go? slow? stop? — at 60 km/h the car covers __16.7 m every second__.' },
-            { ar: 'بالليل وفي الزحمة: عربيات، ناس بتعدّي، إشارات… أي __تأخير في القرار__ ممكن يبقى حادثة.', en: 'At night in traffic: cars, people crossing, lights… any __delay in deciding__ can mean an accident.' },
-            { ar: 'السؤال: ينفع **ذكاء اصطناعي** يسوق بدل الإنسان؟ تعالى نشوف إزاي.', en: 'The question: can **AI** drive instead of a human? Let’s see how.' },
-          ],
-        },
         {
           type: 'scene', wide: true,
           title: { ar: 'القيادة الذاتية: العربية بتشوف وتفكّر وتتصرّف', en: 'Autonomous driving: the car sees, thinks and acts' },
@@ -604,18 +406,6 @@ RV.lessons.add('1-1', {
           notes: [
             { kind: 'exam', text: { ar: 'الحوسبة الطرفية __لا ترسل__ البيانات للسحابة أولًا قبل اتخاذ القرار.', en: 'Edge computing does __not__ send data to the cloud first before deciding.' } },
             { kind: 'think', text: { ar: 'فكّر: عربية سرعتها 60 كم/س ماشية كام متر في 0.1 ثانية؟ (الإجابة: حوالي 1.7 متر — ده طول إنسان!)', en: 'Think: how far does a car at 60 km/h travel in 0.1 s? (About 1.7 m — the height of a person!)' } },
-          ],
-        },
-        {
-          type: 'scene', wide: true,
-          title: { ar: 'نظارة… وعالم كامل', en: 'A headset… and a whole world' },
-          visual: { anim: 'cinema', props: { tint: 'violet', clips: [
-              { src: 'media/mx-263.mp4', beat: 0, title: { ar: 'بيلبس نظارة VR', en: 'Putting on a VR headset' }, sub: { ar: 'العالم الحقيقي بيختفي', en: 'the real world disappears' }, icon: 'vr' },
-              { src: 'media/mx-43563.mp4', beat: 1, title: { ar: 'جوّه العالم الافتراضي', en: 'Inside the virtual world' }, sub: { ar: 'إيده بتتحكم في أشياء مش موجودة', en: 'his hands control things that aren’t there' }, icon: 'sparkle' },
-          ] } },
-          beats: [
-            { ar: 'أول ما يلبس النظارة، __العالم الحقيقي بيختفي__ ويشوف عالم كامل الحاسب عمله.', en: 'Once the headset is on, __the real world disappears__ and he sees a computer-made world.' },
-            { ar: 'بيتحرك ويمسك حاجات __افتراضية__ بإيده — ده **الانغماس** اللي بيميّز الـ VR.', en: 'He moves and grabs __virtual__ objects — that **immersion** is what defines VR.' },
           ],
         },
         {

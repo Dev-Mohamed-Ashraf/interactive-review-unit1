@@ -32,7 +32,7 @@
   /* ═════════════════════════ aiMovie ═════════════════════════ */
   K.defineAnim('aiMovie', (stage, props, api) => {
     const U = MK.ui('ai-');
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-ai mv-l12', prefix: 'ai-', beats: 7, cast: { 'ch-st': 'student' },
       html: (L) => `
   <div id="ai-stage" class="mv-stage">
@@ -175,7 +175,7 @@
   /* ═════════════════════════ dlMovie ═════════════════════════ */
   K.defineAnim('dlMovie', (stage, props, api) => {
     const U = MK.ui('dl-');
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-dl mv-l12', prefix: 'dl-', beats: 6, cast: { 'ch-st': 'student' },
       html: (L) => `
   <div id="dl-stage" class="mv-stage">
@@ -287,7 +287,7 @@
     const rtl = MK.RTL(); // RTL: the prompt (first) sits on the right
     const W1 = ['النيل', 'نهر', 'طويل', 'بيجري', 'من', 'الجنوب', 'للشمال', 'وبيدّي', 'مصر', 'الحياة…'];
     const E1 = ['The', 'Nile', 'is', 'a', 'long', 'river', 'flowing', 'north', 'and', 'giving', 'Egypt', 'life…'];
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-gn mv-l12', prefix: 'gn-', beats: 7, cast: { 'ch-st': 'studentL' },
       html: (L) => `
   <div id="gn-stage" class="mv-stage">

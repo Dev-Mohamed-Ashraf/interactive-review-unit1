@@ -22,7 +22,7 @@
     <text class="code" x="45" y="70" text-anchor="middle" font-size="22" font-weight="900" fill="#fde68a" opacity="0" font-family="Consolas, monospace"><tspan x="45">482</tspan><tspan x="45" dy="26">913</tspan></text></svg>`;
 
   K.defineAnim('mfaMovie', (stage, props, api) => {
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-mfa', prefix: 'mf-', beats: 7,
       cast: { 'ch-ahmed': 'user', 'ch-bank': 'server', 'ch-hacker': 'hacker' },
       html: (L) => `

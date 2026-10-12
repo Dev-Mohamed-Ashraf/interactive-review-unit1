@@ -44,7 +44,7 @@
     ];
     const chipX = (k) => 182 + (rtl ? 4 - k : k) * 314;
     const recX = (k) => 91 + (rtl ? 4 - k : k) * 352;
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-era mv-l11', prefix: 'er-', beats: 7, cast: { 'ch-st': 'student' },
       html: (L) => `
   <div id="er-stage" class="mv-stage">
@@ -156,7 +156,7 @@
 
   K.defineAnim('mooreMovie', (stage, props, api) => {
     const U = MK.ui('mo-');
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-moore mv-l11', prefix: 'mo-', beats: 7, cast: { 'ch-en': 'engineer' },
       html: (L) => `
   <div id="mo-stage" class="mv-stage">
@@ -310,7 +310,7 @@
   K.defineAnim('societyMovie', (stage, props, api) => {
     const U = MK.ui('so-');
     const d = MK.RTL() ? 720 : 0; // RTL: the first of a pair sits on the right
-    const M = MK.create(stage, api, {
+    const M = MK.create(stage, api, { props,
       cls: 'mv-soc mv-l11', prefix: 'so-', beats: 8, cast: { 'ch-st': 'studentL' },
       html: (L) => `
   <div id="so-stage" class="mv-stage">

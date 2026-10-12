@@ -219,7 +219,7 @@ console.log('▶ Checking every media file is used');
 {
   const code = allJs.map((f) => fs.readFileSync(path.join(ROOT, f), 'utf8')).join('\n');
   fs.readdirSync(path.join(ROOT, 'img')).forEach((f) => { if (!code.includes(`img/${f}`)) fail(`img/${f} is not shown anywhere`); else ok(); });
-  fs.readdirSync(path.join(ROOT, 'media')).filter((f) => /^mx-\d+\.mp4$/.test(f)).forEach((f) => { if (!code.includes(`media/${f}`)) fail(`media/${f} is not shown anywhere`); else ok(); });
+  if (fs.existsSync(path.join(ROOT, 'media'))) fs.readdirSync(path.join(ROOT, 'media')).filter((f) => /^mx-\d+\.mp4$/.test(f)).forEach((f) => { if (!code.includes(`media/${f}`)) fail(`media/${f} is not shown anywhere`); else ok(); });
 }
 
 // ---------- offline layer is in sync with the files ----------
