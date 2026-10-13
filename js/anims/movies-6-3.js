@@ -67,7 +67,7 @@
   <div id="v3-stage" class="mv-stage">
     ${U.art('tab', 90, 170, 560, 360, '0 0 560 360', TAB(L))}
     ${U.art('line', 700, 170, 560, 340, '0 0 560 340', LINE)}
-    ${U.pill('jump', 760, 530, '👀 ' + L('النمط بيقفز قدّامك: الجمعة أعلى يوم', 'The pattern jumps out: Friday is highest'), 'solid')}
+    ${U.pill('jump', 90, 610, '👀 ' + L('النمط بيقفز قدّامك: الجمعة أعلى يوم', 'The pattern jumps out: Friday is highest'), 'solid')}
     ${U.box('r1', 1310, 170, 520, 't-violet', { ic: '🧠', h: L('دور ١: فهم المحلّل نفسه', 'Role 1: the analyst’s own understanding'), p: L('التوزيع والاتجاه والقيم الشاذة', 'distribution, trends, outliers') })}
     ${U.box('r2', 1310, 420, 520, 't-green', { ic: '📣', h: L('دور ٢: توصيل للآخرين', 'Role 2: communicating to others'), p: L('ننقل النتيجة بسهولة فهم', 'convey results understandably') })}
 
