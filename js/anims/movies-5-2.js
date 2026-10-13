@@ -16,26 +16,30 @@
 
   /* the raw survey table: name · date · screen hours (5 rows, 4 problems) */
   function table(L) {
+    /* columns read right-to-left in Arabic: mirror x positions inside the SVG */
+    const R = MK.RTL();
+    const cx = (x) => (R ? 880 - x : x);
+    const rx = (x, w) => (R ? 880 - x - w : x);
     const names = [L('عمر', 'Omar'), L('علي', 'Ali'), L('كريم', 'Karim'), L('عمر', 'Omar'), L('يوسف', 'Youssef')];
     const dates = ['2026/4/1', '01 Apr 2026', '2026-04-02', '2026/4/1', '3-4-2026'];
     const fixedD = ['2026-04-01', '2026-04-01', '2026-04-02', '2026-04-01', '2026-04-03'];
     const hours = ['3', '', '9999', '3', '"4"'];
     return `<rect x="2" y="2" width="876" height="466" rx="22" fill="#0b1222" stroke="#475569" stroke-width="4"/>
       <rect x="2" y="2" width="876" height="70" rx="22" fill="#1e293b"/>
-      ${T(130, 48, L('الاسم', 'Name'), '', '#93c5fd')}${T(440, 48, L('التاريخ', 'Date'), '', '#93c5fd')}${T(750, 48, L('ساعات الشاشة', 'Screen hours'), '', '#93c5fd', 30)}
-      <path d="M260 8 V462 M620 8 V462" stroke="#334155" stroke-width="3"/>
-      <rect class="hl-miss" x="626" y="${RY(1)}" width="248" height="70" rx="12" fill="rgba(248,113,113,.25)" stroke="#f87171" stroke-width="4" opacity="0"/>
-      <rect class="hl-out" x="626" y="${RY(2)}" width="248" height="70" rx="12" fill="rgba(251,191,36,.22)" stroke="#fbbf24" stroke-width="4" opacity="0"/>
+      ${T(cx(130), 48, L('الاسم', 'Name'), '', '#93c5fd')}${T(cx(440), 48, L('التاريخ', 'Date'), '', '#93c5fd')}${T(cx(750), 48, L('ساعات الشاشة', 'Screen hours'), '', '#93c5fd', 30)}
+      <path d="M${cx(260)} 8 V462 M${cx(620)} 8 V462" stroke="#334155" stroke-width="3"/>
+      <rect class="hl-miss" x="${rx(626, 248)}" y="${RY(1)}" width="248" height="70" rx="12" fill="rgba(248,113,113,.25)" stroke="#f87171" stroke-width="4" opacity="0"/>
+      <rect class="hl-out" x="${rx(626, 248)}" y="${RY(2)}" width="248" height="70" rx="12" fill="rgba(251,191,36,.22)" stroke="#fbbf24" stroke-width="4" opacity="0"/>
       ${[0, 3].map((i) => `<rect class="hl-dup" x="8" y="${RY(i)}" width="864" height="70" rx="12" fill="rgba(167,139,250,.2)" stroke="#a78bfa" stroke-width="4" opacity="0"/>`).join('')}
-      <rect class="hl-fmt" x="266" y="${RY(0)}" width="348" height="374" rx="12" fill="rgba(56,189,248,.16)" stroke="#38bdf8" stroke-width="4" opacity="0"/>
+      <rect class="hl-fmt" x="${rx(266, 348)}" y="${RY(0)}" width="348" height="374" rx="12" fill="rgba(56,189,248,.16)" stroke="#38bdf8" stroke-width="4" opacity="0"/>
       ${range(5).map((i) => `<g class="row r${i}">
         ${i ? `<path d="M10 ${RY(i) - 3} H870" stroke="#1e293b" stroke-width="2"/>` : ''}
-        ${T(130, RY(i) + 48, names[i])}
-        ${T(440, RY(i) + 48, dates[i], 'd-raw', '#e2e8f0', 32)}${T(440, RY(i) + 48, fixedD[i], 'd-new', '#7dd3fc', 32).replace('<text ', '<text opacity="0" ')}
-        ${i === 1 ? T(750, RY(i) + 48, '3', 'v-imp', '#34d399').replace('<text ', '<text opacity="0" ') : ''}
-        ${i === 2 ? T(750, RY(i) + 48, '9999', 'v-out', '#fde68a') + T(750, RY(i) + 48, '9', 'v-fix', '#34d399').replace('<text ', '<text opacity="0" ') : ''}
-        ${i === 4 ? T(750, RY(i) + 48, '"4"', 'h-txt', '#fca5a5') + T(750, RY(i) + 48, '4', 'h-num', '#34d399').replace('<text ', '<text opacity="0" ') : ''}
-        ${i === 0 || i === 3 ? T(750, RY(i) + 48, hours[i]) : ''}
+        ${T(cx(130), RY(i) + 48, names[i])}
+        ${T(cx(440), RY(i) + 48, dates[i], 'd-raw', '#e2e8f0', 32)}${T(cx(440), RY(i) + 48, fixedD[i], 'd-new', '#7dd3fc', 32).replace('<text ', '<text opacity="0" ')}
+        ${i === 1 ? T(cx(750), RY(i) + 48, '3', 'v-imp', '#34d399').replace('<text ', '<text opacity="0" ') : ''}
+        ${i === 2 ? T(cx(750), RY(i) + 48, '9999', 'v-out', '#fde68a') + T(cx(750), RY(i) + 48, '9', 'v-fix', '#34d399').replace('<text ', '<text opacity="0" ') : ''}
+        ${i === 4 ? T(cx(750), RY(i) + 48, '"4"', 'h-txt', '#fca5a5') + T(cx(750), RY(i) + 48, '4', 'h-num', '#34d399').replace('<text ', '<text opacity="0" ') : ''}
+        ${i === 0 || i === 3 ? T(cx(750), RY(i) + 48, hours[i]) : ''}
       </g>`).join('')}`;
   }
   /* daily sales with one spike */
