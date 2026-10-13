@@ -1,6 +1,6 @@
 /* =========================================================
  * screens/player.js — runs one station: navigation, transitions,
- * keyboard/swipe input, scoring, and the completion screen.
+ * keyboard input, scoring, and the completion screen.
  * Content rendering is delegated to RV.steps[type].
  * ========================================================= */
 (function () {
@@ -60,7 +60,7 @@
       prevBtn.addEventListener('click', prev);
       nextBtn.addEventListener('click', next);
 
-      // ---------- input: keyboard + swipe ----------
+      // ---------- input: keyboard (buttons above) ----------
       function onKey(e) {
         if (e.target.closest && e.target.closest('textarea, input')) return;
         const rtl = RV.i18n.lang === 'ar';
@@ -70,21 +70,9 @@
         else if (e.key === 'PageUp') { e.preventDefault(); prev(); }
         else if (e.key === 'Escape') location.hash = backHref;
       }
-      let sx = null, sy = null;
-      function onTouchStart(e) { if (e.touches.length !== 1) return; sx = e.touches[0].clientX; sy = e.touches[0].clientY; }
-      function onTouchEnd(e) {
-        if (sx === null) return;
-        const dx = e.changedTouches[0].clientX - sx;
-        const dy = e.changedTouches[0].clientY - sy;
-        sx = null;
-        if (Math.abs(dx) < 70 || Math.abs(dy) > Math.abs(dx) * 0.6) return;
-        if (e.target.closest('.q-card, .anim-toolbar, input, textarea, .no-swipe')) return;
-        const forward = RV.i18n.lang === 'ar' ? dx > 0 : dx < 0;
-        forward ? next() : prev();
-      }
+      // (no swipe: on the iPad a finger on the board must never change the step —
+      //  only the Next / Back buttons or the keyboard move between steps)
       document.addEventListener('keydown', onKey);
-      body.addEventListener('touchstart', onTouchStart, { passive: true });
-      body.addEventListener('touchend', onTouchEnd);
 
       // ---------- step lifecycle ----------
       function mount(index, opts) {
