@@ -169,6 +169,17 @@
     IN(q('t1'), c + 0.7, 0.5, { y: 30 }); SND('bad', c + 0.7);
     IN(q('t2'), c + 1.9, 0.5, { y: 30 }); SND('bad', c + 1.9);
     IN(q('t3'), c + 3.1, 0.5, { y: 30 }); SND('pop', c + 3.1);
+
+    /* living loops */
+    M.loop(0, 6.6, () => M.breathe(q('v2'), 1.12, 0.9));
+    M.loop(2, 4.0, () => gsap.timeline().to(Q('d0 d1 d2 d3 d4 d5'), { y: '-=8', duration: 1.2, ease: 'sine.inOut', stagger: { each: 0.2, repeat: -1, yoyo: true } }));
+    M.loop(3, 7.6, () => M.breathe(q('s3'), 1.05, 1.4));
+    M.loop(4, 5.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 })
+      .fromTo(q('m1'), { x: 0, opacity: 1 }, { x: 560, duration: 1.2, ease: 'power1.in' }, 0).to(q('m1'), { opacity: 0, duration: 0.2 }, 1.2)
+      .fromTo(q('p1'), { scale: 1 }, { scale: 1.12, duration: 0.25, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 1.3)
+      .fromTo(q('m2'), { x: 0, opacity: 1 }, { x: 560, duration: 1.2, ease: 'power1.in' }, 2.2).to(q('m2'), { opacity: 0, duration: 0.2 }, 3.4)
+      .fromTo(q('p2'), { scale: 1 }, { scale: 1.12, duration: 0.25, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 3.5));
+    M.loop(5, 6.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).to(M.board.querySelectorAll('#ai-rings circle'), { strokeWidth: 14, duration: 0.45, stagger: 0.45, yoyo: true, repeat: 1, ease: 'sine.inOut' }));
     return M.done();
   });
 
@@ -278,6 +289,21 @@
     IN(q('hd5'), c + 0.6, 0.5, { y: -30 });
     Q('r1 r2 r3').forEach((r, i) => { IN(r, c + 1.0 + i * 0.6, 0.6, { y: 30 }); SND('pop', c + 1.0 + i * 0.6); });
     POP(q('rp1'), c + 3.2, 0.6);
+
+    /* living loops: signals keep flowing through the network */
+    const flow = (id, n) => () => {
+      const x = gsap.timeline({ repeat: -1, repeatDelay: 0.4 });
+      range(n).forEach((j) => {
+        x.fromTo(all(`#dl-${id} .L${j}`), { opacity: 0.45, stroke: '#7dd3fc' }, { opacity: 1, stroke: '#fde68a', duration: 0.35, yoyo: true, repeat: 1 }, j * 0.45);
+        x.fromTo(all(`#dl-${id} .N${j + 1}`), { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.25, duration: 0.3, yoyo: true, repeat: 1 }, j * 0.45 + 0.3);
+      });
+      return x;
+    };
+    M.loop(0, 4.6, flow('net', 3));
+    M.loop(1, 4.4, flow('net', 3));
+    M.loop(2, 6.0, () => gsap.timeline().to(all('#dl-net .lk'), { opacity: 0.9, duration: 0.8, ease: 'sine.inOut', stagger: { each: 0.02, from: 'random', repeat: -1, yoyo: true } }));
+    M.loop(3, 3.4, flow('deep', 6));
+    M.loop(4, 5.2, () => M.breathe(q('x3'), 1.04, 1.4));
     return M.done();
   });
 
@@ -395,6 +421,12 @@
     OUT(Q('s0 s1 s2 s3 s4'), c, 0.4);
     IN(q('t1'), c + 0.7, 0.5, { y: 30 }); SND('bad', c + 0.7);
     IN(q('t2'), c + 2.0, 0.5, { y: 30 }); SND('pop', c + 2.0);
+
+    /* living loops */
+    M.loop(0, 6.8, () => gsap.timeline({ repeat: -1, repeatDelay: 1.2 }).to(all('#gn-out .wd'), { opacity: 0.15, duration: 0.3, stagger: 0.05 }).to(all('#gn-out .wd'), { opacity: 1, duration: 0.15, stagger: 0.22 }, '+=0.3'));
+    M.loop(1, 4.4, () => gsap.timeline().to(Q('o0 o1 o2 o3'), { y: '-=8', duration: 1.1, ease: 'sine.inOut', stagger: { each: 0.25, repeat: -1, yoyo: true } }));
+    M.loop(2, 4.4, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('blank'), { opacity: 1 }, { opacity: 0.2, duration: 0.6, ease: 'sine.inOut' }));
+    M.loop(3, 4.4, () => gsap.timeline({ repeat: -1, repeatDelay: 1.4 }).fromTo(q('wrong'), { x: 0 }, { x: 6, duration: 0.07, yoyo: true, repeat: 7 }));
     return M.done();
 
     function rtlOrigin() { return M.rtl ? '100% 50%' : '0% 50%'; }

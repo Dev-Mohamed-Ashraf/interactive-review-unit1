@@ -164,6 +164,16 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd8'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops */
+    M.loop(0, 4.6, () => gsap.timeline({ repeat: -1 }).fromTo(sel('tv', 'w0'), { opacity: 0 }, { opacity: 0.9, duration: 0.4 }, 0).to(sel('tv', 'w0'), { opacity: 0, duration: 0.4 }, 0.4)
+      .fromTo(sel('tv', 'w1'), { opacity: 0 }, { opacity: 0.9, duration: 0.4 }, 0.3).to(sel('tv', 'w1'), { opacity: 0, duration: 0.4 }, 0.7)
+      .fromTo(sel('tv', 'w2'), { opacity: 0 }, { opacity: 0.9, duration: 0.4 }, 0.6).to(sel('tv', 'w2'), { opacity: 0, duration: 0.4 }, 1.0));
+    M.loop(2, 4.8, () => M.breathe(q('sh'), 1.12, 0.9));
+    M.loop(3, 5.0, () => M.cycle(Q('c0 c1 c2 c3 c4'), 'rgba(56,189,248,.85)', 0.45));
+    M.loop(4, 5.2, () => M.cycle(Q('s0 s1 s2 s3 s4'), 'rgba(52,211,153,.85)', 0.45));
+    M.loop(5, 4.4, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('br', 'off'), { opacity: 1 }, { opacity: 0.45, duration: 1.0, ease: 'sine.inOut' }));
+    M.loop(6, 6.6, () => M.cycle(Q('pr0 pr1 pr2 pr3'), 'rgba(251,191,36,.85)', 0.5));
+    M.loop(7, 5.6, () => M.cycle(Q('ctv cweb csns'), 'rgba(251,191,36,.85)', 0.6));
     return M.done();
   });
 })();

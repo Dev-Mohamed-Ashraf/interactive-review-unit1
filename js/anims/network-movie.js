@@ -244,6 +244,17 @@
     POP(q('r1'), c + 3.2, 0.6); SND('ok', c + 3.2);
     POP(q('r2'), c + 4.2, 0.6); SND('ok', c + 4.2);
 
+    /* living loops */
+    M.loop(0, 5.4, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('vault'), { filter: 'drop-shadow(0 0 0px rgba(251,191,36,0))' }, { filter: 'drop-shadow(0 0 28px rgba(251,191,36,.9))', duration: 1.2, ease: 'sine.inOut' }));
+    M.loop(1, 8.8, () => M.breathe(q('x1'), 1.12, 0.9));
+    M.loop(1, 8.8, () => gsap.timeline({ repeat: -1, repeatDelay: 2.4 }).fromTo(q('door1'), { x: 0 }, { x: 7, duration: 0.06, yoyo: true, repeat: 7 }));
+    M.loop(2, 7.2, () => M.breathe(q('x2'), 1.12, 0.9));
+    M.loop(3, 6.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.4 })
+      .fromTo(q('pkt'), { x: 0, opacity: 1 }, { x: 760, duration: 2.6, ease: 'none' }, 0)
+      .to(q('pkt'), { opacity: 0, duration: 0.2 }, 2.6));
+    M.loop(4, 7.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.5 }).fromTo(Q('L2 L3 L4'), { boxShadow: '0 0 0 rgba(0,0,0,0)' }, { boxShadow: '0 0 40px rgba(52,211,153,.95)', duration: 0.6, stagger: 0.35, yoyo: true, repeat: 1 }));
+    M.loop(5, 7.6, () => M.breathe(q('deny'), 1.12, 0.9));
+    M.loop(5, 7.6, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(Q('ck1 ck2'), { boxShadow: '0 0 4px rgba(0,0,0,0)' }, { boxShadow: '0 0 42px rgba(248,113,113,.95)', duration: 1.2, ease: 'sine.inOut' }));
     return M.done();
   });
 })();

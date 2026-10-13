@@ -183,6 +183,17 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd7'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops */
+    M.loop(0, 6.4, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('cur'), { opacity: 1 }, { opacity: 0, duration: 0.5, ease: 'steps(1)' }));
+    /* the model keeps re-predicting the next word: the bars re-grow, the top one wins */
+    M.loop(0, 6.4, () => { const x = gsap.timeline({ repeat: -1, repeatDelay: 1.2 }); sel('prob', 'pb').forEach((r, k) => { const W = +r.getAttribute('data-w'); x.fromTo(r, { attr: { width: 0, x: R ? 860 : 200 } }, { attr: { width: W, x: R ? 860 - W : 200 }, duration: 0.7, ease: 'power2.out' }, k * 0.2); }); return x.fromTo(sel('prob', 'top'), { opacity: 1 }, { opacity: 0.4, duration: 0.2, yoyo: true, repeat: 3 }); });
+    M.loop(1, 6.0, () => gsap.timeline({ repeat: -1, repeatDelay: 1.6 }).fromTo(q('xx'), { scale: 1, rotation: 0 }, { scale: 1.15, rotation: -8, duration: 0.3, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }));
+    M.loop(2, 5.6, () => M.bob(Q('ab0 ab1 ab2 ab3'), 6, 1.0));
+    M.loop(3, 5.8, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).fromTo(Q('ra rb'), { scale: 1 }, { scale: 1.12, duration: 0.3, stagger: 0.6, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }).add(M.cycle(Q('r0 r1 r2'), 'rgba(52,211,153,.85)', 0.5).repeat(0)));
+    M.loop(4, 3.6, () => M.cycle(Q('yes no'), 'rgba(251,191,36,.85)', 0.8));
+    M.loop(5, 5.0, () => M.glowLoop(q('mm'), 'rgba(167,139,250,.95)', 1.0));
+    M.loop(5, 5.0, () => M.bob(Q('md0 md1 md2 md3'), 7, 1.2));
+    M.loop(6, 4.6, () => M.glowLoop(q('rule'), 'rgba(251,191,36,.85)'));
     return M.done();
   });
 })();

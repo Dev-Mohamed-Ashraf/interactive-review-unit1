@@ -218,6 +218,30 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops */
+    M.loop(0, 5.6, () => M.cycle(Q('cv1 cv2 ml1 ml2'), 'rgba(167,139,250,.85)', 0.5));
+    M.loop(1, 4.6, () => M.bob(Q('u0 u1 u2'), 6, 1.2));
+    M.loop(2, 4.6, () => M.cycle(Q('t0 t1 t2'), 'rgba(251,191,36,.85)', 0.6));
+    /* new emails keep arriving and get classified */
+    M.loop(3, 5.8, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 })
+      .fromTo(sel('cls', 'nw'), { attr: { fill: '#94a3b8' }, scale: 1.6, transformOrigin: '50% 50%' }, { scale: 1, duration: 0.5, ease: 'back.out(2)' })
+      .to(sel('cls', 'nw'), { attr: { fill: '#38bdf8' }, duration: 0.4 }, '+=0.5'));
+    M.loop(4, 4.0, () => M.cycle(Q('f0 f1 f2'), 'rgba(167,139,250,.85)', 0.5));
+    M.loop(5, 5.0, () => gsap.timeline().to(sel('clu', 'up'), { y: '-=5', duration: 1.0, ease: 'sine.inOut', stagger: { each: 0.06, from: 'random', repeat: -1, yoyo: true } }));
+    /* the robot keeps trying: falls in the hole sometimes, reaches the flag more and more */
+    M.loop(6, 6.4, () => {
+      const BX = (n) => n * 112 * sx, BY = (n) => n * 108;
+      return gsap.timeline({ repeat: -1, repeatDelay: 0.8 })
+        .set(q('bot'), { x: 0, y: 0 })
+        .to(q('bot'), { x: BX(1), y: BY(-1), duration: 0.5 }).to(q('bot'), { x: BX(2), y: BY(-1), duration: 0.5 })
+        .fromTo(q('rw1'), { scale: 1 }, { scale: 1.15, duration: 0.25, yoyo: true, repeat: 1, transformOrigin: '50% 50%' })
+        .to(q('bot'), { x: 0, y: 0, duration: 0.4 })
+        .to(q('bot'), { x: BX(4), y: 0, duration: 1.2 })
+        .fromTo(q('rw2'), { scale: 1 }, { scale: 1.15, duration: 0.25, yoyo: true, repeat: 1, transformOrigin: '50% 50%' });
+    });
+    M.loop(7, 5.0, () => M.glowLoop(q('bs'), 'rgba(248,113,113,.85)'));
+    M.loop(8, 4.4, () => gsap.timeline({ repeat: -1, repeatDelay: 1.4 }).fromTo(q('bx'), { rotation: -4 }, { rotation: 4, duration: 0.15, yoyo: true, repeat: 5 }));
+    M.loop(8, 4.4, () => M.glowLoop(q('hl'), 'rgba(52,211,153,.85)'));
     return M.done();
   });
 })();

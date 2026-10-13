@@ -172,6 +172,20 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd6'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops: signals keep flowing through the network */
+    const flow = () => { const x = gsap.timeline({ repeat: -1, repeatDelay: 0.4 }); [0, 1, 2].forEach((i) => { x.to(sel('net', 'c' + i), { stroke: '#fbbf24', duration: 0.3, yoyo: true, repeat: 1 }, i * 0.5); x.fromTo(sel('net', 'l' + (i + 1)), { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.2, duration: 0.3, yoyo: true, repeat: 1 }, i * 0.5 + 0.3); }); return x; };
+    M.loop(0, 5.2, flow);
+    M.loop(1, 5.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 })
+      .fromTo(sel('neu', 'wl'), { opacity: 0.2 }, { opacity: 1, duration: 0.35, stagger: 0.25 })
+      .fromTo(sel('neu', 'sum'), { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.12, duration: 0.3, yoyo: true, repeat: 1 })
+      .fromTo(sel('neu', 'o'), { scale: 0.3, transformOrigin: '50% 50%' }, { scale: 1, duration: 0.4, ease: 'back.out(2)' }));
+    M.loop(2, 5.0, () => gsap.timeline({ repeat: -1, repeatDelay: 1.0 }).fromTo(sel('acc', 'af'), { attr: { width: 216 } }, { attr: { width: 1026 }, duration: 2.4, ease: 'power1.inOut' }));
+    M.loop(3, 5.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 })
+      .fromTo(sel('ed', 'eg'), { opacity: 0.2 }, { opacity: 1, duration: 0.1, stagger: 0.07 })
+      .fromTo(sel('pa', 'pp'), { scale: 0.6, transformOrigin: '50% 50%' }, { scale: 1, duration: 0.4, stagger: 0.2 })
+      .fromTo(q('wh'), { filter: 'drop-shadow(0 0 0px rgba(52,211,153,0))' }, { filter: 'drop-shadow(0 0 22px rgba(52,211,153,.9))', duration: 0.5, yoyo: true, repeat: 1 }));
+    M.loop(4, 4.6, () => M.cycle(Q('bd gp'), 'rgba(251,191,36,.85)', 0.7));
+    M.loop(5, 4.6, () => M.cycle(Q('f0 f1 f2'), 'rgba(167,139,250,.85)', 0.6));
     return M.done();
   });
 })();

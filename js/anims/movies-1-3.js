@@ -133,6 +133,13 @@
     IN(q('hd5'), c + 0.6, 0.5, { y: -30 });
     IN(q('r0'), c + 1.0, 0.6, { y: 30 }); SND('pop', c + 1.0);
     range(4).forEach((k) => { IN(q('m' + k), c + 2.0 + k * 0.6, 0.4, { x: 30 }); SND('pop', c + 2.0 + k * 0.6); });
+
+    /* living loops */
+    M.loop(0, 5.4, () => M.breathe(q('rec'), 1.04, 1.4));
+    M.loop(1, 6.2, () => gsap.timeline().to(Q('v1 v2 v3'), { y: '-=6', duration: 1, ease: 'sine.inOut', stagger: { each: 0.3, repeat: -1, yoyo: true } }));
+    M.loop(2, 4.4, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(all('#lf-ph .beam'), { y: 0 }, { y: 200, duration: 1.6, ease: 'sine.inOut' }));
+    M.loop(4, 6.6, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(all('#lf-route .short'), { strokeDasharray: '0 700' }, { strokeDasharray: '700 0', duration: 1.6, ease: 'power1.inOut' }));
+    M.loop(4, 6.6, () => gsap.timeline({ repeat: -1 }).to(q('gear'), { rotation: 360, duration: 6, ease: 'none' }));
     return M.done();
   });
 
@@ -234,6 +241,14 @@
     frame(5, c, 5.0);
     OUT(Q('bx nums res'), c, 0.4);
     range(4).forEach((k) => { IN(q('h' + k), c + 0.7 + k * 0.8, 0.5, { y: 30 }); SND('bad', c + 0.7 + k * 0.8); });
+
+    /* living loops */
+    M.loop(2, 5.6, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('mark'), { boxShadow: '0 0 6px rgba(248,113,113,.3)' }, { boxShadow: '0 0 44px rgba(248,113,113,.95)', duration: 1.2, ease: 'sine.inOut' }));
+    M.loop(3, 5.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 })
+      .fromTo(q('in'), { x: 0, opacity: 1 }, { x: 360, opacity: 0, duration: 1.2, ease: 'power2.in' }, 0)
+      .fromTo(q('bx'), { rotation: 0 }, { rotation: 2, duration: 0.08, yoyo: true, repeat: 7, transformOrigin: '50% 100%' }, 1.2)
+      .fromTo(q('qm'), { scale: 1 }, { scale: 1.2, duration: 0.3, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 1.3));
+    M.loop(4, 3.6, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('nums'), { opacity: 1 }, { opacity: 0.6, duration: 1.4, ease: 'sine.inOut' }));
     return M.done();
   });
 })();

@@ -189,6 +189,24 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd8'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2 x3 x4').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops: requests and responses keep travelling */
+    const trip = (a, dxA, b, dxB, mid) => () => {
+      const x = gsap.timeline({ repeat: -1, repeatDelay: 0.7 })
+        .fromTo(q(a), { x: 0, opacity: 1 }, { x: dxA * sx, duration: 1.1, ease: 'power1.inOut' }).to(q(a), { opacity: 0, duration: 0.2 });
+      if (mid) x.add(mid());
+      return x.fromTo(q(b), { x: 0, opacity: 1 }, { x: dxB * sx, duration: 1.0, ease: 'power1.inOut' }).to(q(b), { opacity: 0, duration: 0.2 });
+    };
+    const svPulse = () => gsap.timeline().to(q('sv'), { boxShadow: '0 0 40px rgba(52,211,153,.9)', duration: 0.3, yoyo: true, repeat: 1 });
+    M.loop(0, 6.0, () => { const x = gsap.timeline({ repeat: -1, repeatDelay: 0.8 }); range(3).forEach((k) => { x.fromTo(q('q' + k), { x: 0, opacity: 1 }, { x: 920 * sx, duration: 1.1, ease: 'power1.inOut' }, k * 0.35).to(q('q' + k), { opacity: 0, duration: 0.2 }, k * 0.35 + 1.1).fromTo(q('r' + k), { x: 0, opacity: 1 }, { x: -920 * sx, duration: 1.1, ease: 'power1.inOut' }, 1.6 + k * 0.35).to(q('r' + k), { opacity: 0, duration: 0.2 }, 2.7 + k * 0.35); }); return x; });
+    M.loop(1, 5.6, trip('req', 500, 'res', -720, svPulse));
+    M.loop(2, 5.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(q('pw'), { x: 0, opacity: 1 }, { x: 380 * sx, duration: 1.0, ease: 'power1.inOut' }).fromTo(q('see'), { scale: 1 }, { scale: 1.15, duration: 0.3, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }).to(q('pw'), { x: 740 * sx, duration: 0.8, ease: 'power1.inOut' }).to(q('pw'), { opacity: 0, duration: 0.2 }));
+    M.loop(3, 5.6, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(q('pw2'), { x: 0, opacity: 1 }, { x: 380 * sx, duration: 1.0, ease: 'power1.inOut' }).fromTo(q('cant'), { scale: 1 }, { scale: 1.15, duration: 0.3, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }).to(q('pw2'), { x: 740 * sx, duration: 0.8, ease: 'power1.inOut' }).to(q('pw2'), { opacity: 0, duration: 0.2 }));
+    M.loop(4, 5.8, trip('g1', 520, 'g2', -280));
+    M.loop(4, 5.8, () => gsap.timeline().to(M.board.querySelectorAll('#w2-bw .hit'), { opacity: 0.4, duration: 0.8, ease: 'sine.inOut', stagger: { each: 0.25, repeat: -1, yoyo: true } }));
+    M.loop(5, 5.4, trip('p1', 520, 'p2', -280));
+    M.loop(6, 5.6, () => M.cycle(Q('s200 s404 s500'), 'rgba(251,191,36,.85)', 0.7));
+    M.loop(7, 5.4, () => M.ping(q('at'), 600 * sx, 0, 1.0));
+    M.loop(7, 5.4, () => M.glowLoop(q('json'), 'rgba(251,191,36,.85)'));
     return M.done();
   });
 })();

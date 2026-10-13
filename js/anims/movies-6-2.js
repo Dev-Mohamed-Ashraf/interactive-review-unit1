@@ -199,6 +199,16 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd7'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops */
+    M.loop(0, 6.2, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('sc', 'pred'), { opacity: 1 }, { opacity: 0.35, duration: 1.0, ease: 'sine.inOut' }));
+    M.loop(1, 5.0, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('sc', 'res'), { opacity: 1 }, { opacity: 0.25, duration: 0.8, stagger: 0.08, ease: 'sine.inOut' }));
+    M.loop(2, 5.0, () => M.cycle(Q('in0 in1 in2'), 'rgba(56,189,248,.85)', 0.5));
+    M.loop(2, 5.0, () => M.glowLoop(q('eq2'), 'rgba(167,139,250,.85)'));
+    M.loop(3, 5.0, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('rm', 'mfill'), { attr: { width: 437 } }, { attr: { width: 400 }, duration: 1.4, ease: 'sine.inOut' }));
+    M.loop(4, 5.0, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('er', 'big'), { opacity: 1 }, { opacity: 0.4, duration: 0.7, ease: 'sine.inOut' }));
+    M.loop(5, 6.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(sel('t1', 'tw'), { strokeDasharray: 1400, strokeDashoffset: 1400 }, { strokeDashoffset: 0, duration: 1.2, ease: 'power1.inOut' }, 0).fromTo(sel('t2', 'tw'), { strokeDasharray: 1400, strokeDashoffset: 1400 }, { strokeDashoffset: 0, duration: 1.2, ease: 'power1.inOut' }, 0));
+    M.loop(5, 6.4, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('sun'), { rotation: -8 }, { rotation: 8, duration: 2.0, ease: 'sine.inOut', transformOrigin: '50% 50%' }));
+    M.loop(6, 6.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(sel('ov', 'wig'), { strokeDasharray: 1400, strokeDashoffset: 1400 }, { strokeDashoffset: 0, duration: 1.6, ease: 'power1.inOut' }));
     return M.done();
   });
 })();

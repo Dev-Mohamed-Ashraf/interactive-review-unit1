@@ -166,6 +166,16 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
     Q('y0 y1 y2 y3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops */
+    M.loop(0, 5.2, () => M.breathe(q('fix'), 1.08, 1.0));
+    M.loop(1, 5.4, () => M.cycle(Q('f0 f1 f2 f3'), 'rgba(52,211,153,.85)', 0.45));
+    M.loop(2, 5.6, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('wf', 'col'), { opacity: 1 }, { opacity: 0.25, duration: 1.4, ease: 'sine.inOut' }));
+    M.loop(3, 4.8, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).fromTo(sel('wf', 'pri'), { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.08, duration: 0.35, stagger: 0.35, yoyo: true, repeat: 1 }));
+    ['c', 'r', 'a', 'p'].forEach((k, i) => M.loop(4 + i, 4.4, () => gsap.timeline({ repeat: -1, repeatDelay: 1.0 })
+      .fromTo(q('b' + k), { opacity: 1 }, { opacity: 0.5, duration: 0.5 }).to(q('arr'), { boxShadow: '0 0 30px rgba(251,191,36,.8)', duration: 0.3, yoyo: true, repeat: 1 }, '<')
+      .fromTo(q('f' + k), { scale: 1 }, { scale: 1.05, duration: 0.4, yoyo: true, repeat: 1, transformOrigin: '50% 50%' })
+      .to(q('b' + k), { opacity: 1, duration: 0.5 })));
+    M.loop(8, 5.4, () => gsap.timeline({ repeat: -1 }).to(q('loop'), { rotation: '+=360', duration: 4, ease: 'none', transformOrigin: '50% 50%' }));
     return M.done();
   });
 })();

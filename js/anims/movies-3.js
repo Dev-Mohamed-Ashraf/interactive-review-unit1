@@ -199,6 +199,25 @@
     IN(q('hd8'), c + 0.6, 0.5, { y: -30 });
     Q('r0 r1 r2').forEach((r, i) => { IN(r, c + 1.0 + i * 0.6, 0.5, { y: 30 }); SND('pop', c + 1.0 + i * 0.6); });
     POP(q('eq'), c + 3.2, 0.6); SND('ok', c + 3.2);
+    /* living loops: the request keeps travelling through the tiers */
+    const B = 'rgba(56,189,248,.9)', V = 'rgba(167,139,250,.9)', G = 'rgba(52,211,153,.9)';
+    M.loop(0, 5.2, () => M.bob([0, 1, 2, 3].map(tile), 6));
+    M.loop(1, 5.0, () => M.cycle(Q('fe be db'), V, 0.6));
+    M.loop(2, 5.2, () => M.cycle(Q('fe be db'), G, 0.6));
+    M.loop(3, 6.6, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 })
+      .fromTo(q('q0'), { x: 0, y: 0, opacity: 1 }, { x: 300 * sx, y: -90, duration: 0.9, ease: 'power2.inOut' })
+      .to(q('nfe'), { boxShadow: '0 0 40px ' + B, duration: 0.3, yoyo: true, repeat: 1 })
+      .to(q('q0'), { x: 790 * sx, duration: 1.1, ease: 'power1.inOut' })
+      .to(q('nbe'), { boxShadow: '0 0 40px ' + V, duration: 0.3, yoyo: true, repeat: 1 })
+      .to(q('q0'), { opacity: 0, duration: 0.25 }));
+    M.loop(4, 5.8, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 })
+      .fromTo(q('k2'), { x: 0, opacity: 1 }, { x: 500 * sx, duration: 1.1, ease: 'power1.inOut' }).to(q('k2'), { opacity: 0, duration: 0.2 })
+      .to(q('ndb'), { boxShadow: '0 0 40px ' + G, duration: 0.3, yoyo: true, repeat: 1 })
+      .fromTo(q('k3'), { x: 0, opacity: 1 }, { x: -500 * sx, duration: 1.1, ease: 'power1.inOut' }).to(q('k3'), { opacity: 0, duration: 0.2 }));
+    M.loop(5, 5.4, () => M.ping(q('k4'), -500 * sx, 0, 1.1));
+    M.loop(5, 5.4, () => M.breathe(q('res'), 1.05, 1.2));
+    M.loop(6, 6.4, () => M.bob(Q('cf0 cb0 cd0 cf1 cb1 cd1 cf2 cb2 cd2'), 5, 1.4));
+    M.loop(7, 6.0, () => M.glowLoop(Q('dbe ddb'), 'rgba(248,113,113,.9)'));
     return M.done();
   });
 })();

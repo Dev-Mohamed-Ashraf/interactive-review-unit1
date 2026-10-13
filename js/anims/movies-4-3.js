@@ -181,6 +181,16 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops */
+    M.loop(0, 4.2, () => M.cycle(Q('ql qn'), 'rgba(167,139,250,.85)', 0.7));
+    M.loop(1, 5.2, () => M.cycle(Q('ut iv'), 'rgba(167,139,250,.85)', 0.6));
+    M.loop(2, 5.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.4 }).to(sel('dash', 'bar'), { scaleY: 0.75, transformOrigin: '50% 100%', duration: 0.5, stagger: 0.12, yoyo: true, repeat: 1, ease: 'sine.inOut' }));
+    M.loop(3, 4.2, () => M.breathe(q('both'), 1.06, 1.1));
+    M.loop(4, 4.6, () => M.bob(V([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]), 5, 0.9));
+    M.loop(5, 4.0, () => M.breathe(q('bp'), 1.08, 1.0));
+    M.loop(6, 4.4, () => M.breathe(Q('cp cart'), 1.08, 1.0));
+    M.loop(7, 5.0, () => M.cycle(Q('h0 h1 h2'), 'rgba(167,139,250,.85)', 0.5));
+    M.loop(8, 5.0, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('shop', 'ring'), { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.25, duration: 0.8, ease: 'sine.inOut' }));
     return M.done();
   });
 })();

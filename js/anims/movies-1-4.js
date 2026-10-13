@@ -121,6 +121,11 @@
     IN(q('hd5'), c + 0.6, 0.5, { y: -30 });
     Q('r1 r2 r3').forEach((r, i) => { IN(r, c + 1.0 + i * 0.6, 0.6, { y: 30 }); SND('pop', c + 1.0 + i * 0.6); });
     POP(q('rp1'), c + 3.2, 0.6); SND('bad', c + 3.2);
+
+    /* living loops */
+    M.loop(1, 5.0, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(Q('bar1 bar2'), { boxShadow: '0 0 6px rgba(248,113,113,.25)' }, { boxShadow: '0 0 44px rgba(248,113,113,.95)', duration: 1.2, ease: 'sine.inOut' }));
+    M.loop(2, 4.6, () => M.breathe(q('eq'), 1.06, 1.2));
+    M.loop(3, 5.2, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(Q('c2 c3'), { boxShadow: '0 0 6px rgba(248,113,113,.25)' }, { boxShadow: '0 0 44px rgba(248,113,113,.95)', duration: 1.2, ease: 'sine.inOut' }));
     return M.done();
   });
 
@@ -211,6 +216,12 @@
     OUT(Q('pr o1 o2 o3 ch-st'), c, 0.4);
     IN(q('y1'), c + 0.7, 0.5, { y: 30 }); SND('ok', c + 0.7);
     IN(q('y2'), c + 2.0, 0.5, { y: 30 }); SND('bad', c + 2.0);
+
+    /* living loops */
+    M.loop(0, 7.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).fromTo(Q('lg0 lg1 lg2'), { scale: 1 }, { scale: 1.15, duration: 0.35, stagger: 0.5, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }));
+    M.loop(1, 5.8, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('pf'), { boxShadow: '0 0 6px rgba(248,113,113,.25)' }, { boxShadow: '0 0 44px rgba(248,113,113,.95)', duration: 1.2, ease: 'sine.inOut' }));
+    M.loop(1, 5.8, () => gsap.timeline().to(Q('dt0 dt1 dt2 dt3'), { x: '+=8', duration: 1, ease: 'sine.inOut', stagger: { each: 0.25, repeat: -1, yoyo: true } }));
+    M.loop(2, 4.6, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('scale'), { rotation: -5 }, { rotation: 5, duration: 1.6, ease: 'sine.inOut', transformOrigin: '50% 30%' }));
     return M.done();
   });
 
@@ -317,6 +328,14 @@
     OUT(Q('xr m3 b4 ch-dr'), c, 0.4);
     range(3).forEach((k) => { IN(q('w' + k), c + 0.7 + k * 0.6, 0.5, { y: 30 }); SND('pop', c + 0.7 + k * 0.6); });
     POP(q('nw'), c + 3.0, 0.5);
+
+    /* living loops */
+    M.loop(0, 5.2, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 })
+      .fromTo(q('in'), { x: 0, opacity: 1 }, { x: 360, opacity: 0, duration: 1.2, ease: 'power2.in' }, 0)
+      .fromTo(q('qm'), { scale: 1 }, { scale: 1.2, duration: 0.3, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }, 1.2));
+    M.loop(2, 4.8, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('fb3'), { boxShadow: '0 0 6px rgba(248,113,113,.25)' }, { boxShadow: '0 0 44px rgba(248,113,113,.95)', duration: 1.2, ease: 'sine.inOut' }));
+    M.loop(4, 4.6, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(all('#xa-xr .heat'), { attr: { r: 70 } }, { attr: { r: 95 }, duration: 1.2, ease: 'sine.inOut' }));
+    M.loop(5, 3.8, () => M.breathe(q('nw'), 1.06, 1.2));
     return M.done();
   });
 
@@ -393,6 +412,10 @@
     IN(q('hd4'), c + 0.6, 0.5, { y: -30 });
     range(4).forEach((k) => { IN(q('r' + k), c + 1.0 + k * 0.5, 0.5, { y: 30 }); SND('pop', c + 1.0 + k * 0.5); });
     POP(q('rp1'), c + 3.4, 0.6); SND('ok', c + 3.4);
+
+    /* living loops */
+    M.loop(0, 3.6, () => M.breathe(Q('ok1 ok2'), 1.12, 1.0));
+    M.loop(2, 4.0, () => M.breathe(q('dd'), 1.08, 1.2));
     return M.done();
   });
 })();

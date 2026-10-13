@@ -217,6 +217,21 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops */
+    M.loop(0, 6.2, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).fromTo(Q('ar1 ar2'), { boxShadow: '0 0 0 rgba(0,0,0,0)' }, { boxShadow: '0 0 36px rgba(251,191,36,.85)', duration: 0.6, stagger: 0.6, yoyo: true, repeat: 1 }));
+    M.loop(0, 6.2, () => gsap.timeline().to(sel('pop', 'pick'), { scale: 1.3, transformOrigin: '50% 50%', duration: 0.7, ease: 'sine.inOut', stagger: { each: 0.15, repeat: -1, yoyo: true } }));
+    M.loop(1, 5.2, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('nl', 'brk'), { scaleX: 1, transformOrigin: '50% 50%' }, { scaleX: 1.12, duration: 1.2, ease: 'sine.inOut' }));
+    M.loop(1, 5.2, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('nl', 'pin'), { y: 0 }, { y: -10, duration: 0.9, ease: 'sine.inOut' }));
+    /* new intervals keep arriving: ~19 of 20 catch the true mean */
+    M.loop(2, 5.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).to(sel('ci', 'civ'), { opacity: 0.25, duration: 0.2, stagger: 0.03 }).to(sel('ci', 'civ'), { opacity: 1, duration: 0.25, stagger: 0.09 }));
+    M.loop(3, 5.0, () => M.cycle(Q('h0 h1'), 'rgba(167,139,250,.85)', 0.7));
+    M.loop(4, 5.0, () => M.cycle(Q('s0 s1 s2 s3'), 'rgba(251,191,36,.85)', 0.5));
+    /* the p marker keeps sliding across α: reject ↔ do not reject */
+    M.loop(5, 5.4, () => gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 0.8 }).fromTo(sel('g', 'pm'), { x: PX(0.08) - PX(0.02) }, { x: 0, duration: 2.2, ease: 'sine.inOut' }));
+    M.loop(6, 4.6, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).fromTo(sel('tbar', 'tb'), { scaleY: 0.85, transformOrigin: '50% 100%' }, { scaleY: 1, duration: 0.5, stagger: 0.2, ease: 'back.out(1.6)' }));
+    M.loop(6, 4.6, () => gsap.timeline().to(sel('cgr', 'cg'), { opacity: 0.35, duration: 0.9, ease: 'sine.inOut', stagger: { each: 0.1, from: 'random', repeat: -1, yoyo: true } }));
+    M.loop(7, 5.8, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('saw', 'plank'), { rotation: 12, svgOrigin: '400 113' }, { rotation: -12, svgOrigin: '400 113', duration: 1.8, ease: 'sine.inOut' }));
+    M.loop(8, 4.6, () => M.breathe(q('ex'), 1.03, 1.3));
     return M.done();
   });
 })();

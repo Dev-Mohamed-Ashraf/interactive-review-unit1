@@ -377,12 +377,43 @@
     IN(q('r-url'), c + 4.4, 0.6, { y: 30 });
     tl.fromTo(q('r-url'), { boxShadow: '0 0 0 rgba(52,211,153,0)' }, { boxShadow: '0 0 60px rgba(52,211,153,.75)', duration: 0.6, yoyo: true, repeat: 3 }, c + 5.0);
 
+    /* ---------- living loops: after a scene plays, its key things keep moving slowly ---------- */
+    const live = [];
+    const calm = RV.fx && RV.fx.reduced && RV.fx.reduced();
+    const loop = (n, t, build) => { if (!calm) tl.call(() => { const x = build(); if (x) live.push(x); }, null, at(n, t)); };
+    const stopLoops = () => { while (live.length) live.pop().progress(0).kill(); };
+    const breathe = (els, s, d) => gsap.timeline({ repeat: -1, yoyo: true }).to(els, { scale: s || 1.08, duration: d || 1.1, ease: 'sine.inOut', transformOrigin: '50% 50%' });
+    const glow = (els, col) => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(els, { boxShadow: '0 0 4px rgba(0,0,0,0)' }, { boxShadow: `0 0 46px ${col}`, duration: 1.1, ease: 'sine.inOut' });
+    loop(0, 4.2, () => breathe(q('hlock'), 1.25, 0.9));
+    loop(1, 4.8, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(q('tp'), { x: 0, opacity: 1 }, { x: 420, duration: 1.2, ease: 'power1.inOut' }).fromTo(q('th1'), { scale: 1 }, { scale: 1.08, duration: 0.25, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }));
+    loop(2, 4.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(q('tp2'), { x: 0, opacity: 1 }, { x: 420, duration: 1.0, ease: 'power1.inOut' }).to(board.querySelector('#hm-tp2 b'), { color: '#ef4444', scale: 1.4, duration: 0.2, yoyo: true, repeat: 1 }).to(q('tp2'), { opacity: 0, duration: 0.25 }));
+    loop(3, 2.0, () => glow(q('shield'), 'rgba(52,211,153,.8)'));
+    loop(3, 2.0, () => breathe(Q('xm1 xm2 xm3'), 1.15, 0.8));
+    loop(4, 4.8, () => gsap.timeline({ repeat: -1, repeatDelay: 1.2 }).to(q('stamp'), { y: '-=16', duration: 0.18, yoyo: true, repeat: 1 }));
+    loop(5, 6.8, () => gsap.timeline({ repeat: -1, repeatDelay: 1.4 }).fromTo(q('priv'), { rotation: 0 }, { rotation: -12, duration: 0.25, yoyo: true, repeat: 3, transformOrigin: '30% 50%' }));
+    loop(6, 4.6, () => glow(q('cert'), 'rgba(251,191,36,.95)'));
+    loop(7, 4.2, () => breathe(q('skey'), 1.12, 1.0));
+    loop(8, 5.4, () => breathe(q('boxlock'), 1.2, 0.8));
+    loop(9, 4.4, () => gsap.timeline({ repeat: -1, repeatDelay: 1.6 }).fromTo(q('boxg'), { rotation: 0 }, { rotation: 9, duration: 0.09, yoyo: true, repeat: 11, transformOrigin: '50% 50%' }).fromTo(q('xbox'), { scale: 1 }, { scale: 1.2, duration: 0.25, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }));
+    loop(10, 5.4, () => breathe(Q('skeyB skey2'), 1.12, 0.9));
+    loop(11, 7.2, () => {
+      const x = gsap.timeline({ repeat: -1, repeatDelay: 0.4 });
+      Q('pk1 pk2 pk3 pk4 pk5').forEach((p, i) => {
+        const back = i % 2 === 1, t0 = i * 0.7;
+        x.fromTo(p, { opacity: 1, x: back ? 690 : 0 }, { x: back ? 0 : 690, duration: 1.15, ease: 'power1.inOut' }, t0).to(p, { opacity: 0, duration: 0.2 }, t0 + 1.1);
+      });
+      return x;
+    });
+    loop(11, 7.2, () => { const x = gsap.timeline({ repeat: -1 }); Q('s1 s2 s3 s4').forEach((sEl, i) => x.set(Q('s1 s2 s3 s4'), { opacity: 0 }, i * 0.45).set(sEl, { opacity: 1 }, i * 0.45)); return x.to({}, { duration: 0.45 }); });
+    loop(12, 7.6, () => glow(q('r-url'), 'rgba(52,211,153,.75)'));
+
     /* ---------- beat control ---------- */
     for (let n = 0; n < N; n++) dots.appendChild(h('i'));
     let cur = 0;
     function go(n) {
       cur = Math.max(0, Math.min(N - 1, n));
       dots.querySelectorAll('i').forEach((d, k) => d.classList.toggle('on', k === cur));
+      stopLoops();
       tl.pause();
       tl.seek(at(cur), true);
       tl.play();
@@ -392,7 +423,7 @@
 
     return {
       beat(i) { go(i); },
-      destroy() { ro.disconnect(); idle.forEach((x) => x.kill()); tl.kill(); },
+      destroy() { ro.disconnect(); idle.forEach((x) => x.kill()); live.forEach((x) => x.kill()); tl.kill(); },
     };
   });
 })();

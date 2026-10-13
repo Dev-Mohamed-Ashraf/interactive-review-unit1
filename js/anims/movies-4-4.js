@@ -176,6 +176,19 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops: the PDCA ring keeps turning */
+    const beat = (k) => () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(node(k), { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.15, duration: 0.8, ease: 'sine.inOut' });
+    M.loop(0, 4.2, () => M.cycle(Q('v1 fb pd'), 'rgba(248,113,113,.8)', 0.6));
+    M.loop(1, 4.0, beat(0)); M.loop(2, 4.0, beat(1)); M.loop(3, 3.4, beat(2));
+    M.loop(2, 4.0, () => M.breathe(q('hp1'), 1.05, 1.1));
+    M.loop(4, 5.0, () => gsap.timeline({ repeat: -1 }).to(M.board.querySelectorAll('#i4-ring .spin'), { rotation: '+=360', svgOrigin: '280 280', duration: 8, ease: 'none' }));
+    M.loop(4, 5.0, () => { const x = gsap.timeline({ repeat: -1 }); [0, 1, 2, 3].forEach((k) => x.fromTo(node(k), { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.18, duration: 0.5, yoyo: true, repeat: 1, ease: 'sine.inOut' }, k * 1.0)); return x; });
+    M.loop(5, 5.4, () => M.cycle(Q('dt0 dt1 dt2 dt3 dt4'), 'rgba(248,113,113,.8)', 0.45));
+    M.loop(6, 5.0, () => M.breathe(q('ideas'), 1.12, 0.9));
+    M.loop(6, 5.0, () => M.cycle(Q('id pt ts'), 'rgba(248,113,113,.8)', 0.6));
+    M.loop(7, 5.2, () => M.bob(Q('ua ub'), 6, 1.0));
+    M.loop(7, 5.2, () => M.breathe(q('win'), 1.1, 0.9));
+    M.loop(8, 4.0, () => M.cycle(Q('r1 r2'), 'rgba(52,211,153,.8)', 0.7));
     return M.done();
   });
 })();

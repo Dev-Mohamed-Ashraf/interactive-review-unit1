@@ -224,6 +224,22 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops */
+    M.loop(0, 5.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(sel('line', 'ln'), { strokeDasharray: 1400, strokeDashoffset: 1400 }, { strokeDashoffset: 0, duration: 1.8, ease: 'power1.inOut' }));
+    M.loop(1, 4.8, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 })
+      .fromTo(sel('g1', 'cb'), { scaleY: 0.6, transformOrigin: '50% 100%' }, { scaleY: 1, duration: 0.4, stagger: 0.1 })
+      .fromTo(sel('g2', 'cl'), { strokeDasharray: 1400, strokeDashoffset: 1400 }, { strokeDashoffset: 0, duration: 0.9 })
+      .fromTo(sel('g3', 'cs'), { scale: 0.4, transformOrigin: '50% 50%' }, { scale: 1, duration: 0.2, stagger: 0.04 }));
+    M.loop(2, 5.0, () => gsap.timeline().to(sel('dens', 'dc'), { scale: 0.85, transformOrigin: '50% 50%', duration: 0.9, ease: 'sine.inOut', stagger: { each: 0.03, from: 'center', repeat: -1, yoyo: true } }));
+    M.loop(3, 4.8, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).fromTo(sel('heat', 'hc'), { scale: 1, transformOrigin: '50% 50%' }, { scale: 0.9, duration: 0.25, stagger: 0.04, yoyo: true, repeat: 1 }));
+    M.loop(4, 4.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).fromTo(sel('mos', 'mz'), { opacity: 0.85 }, { opacity: 0.4, duration: 0.4, stagger: 0.25, yoyo: true, repeat: 1 }));
+    M.loop(5, 4.0, () => M.breathe(q('ttl'), 1.05, 1.1));
+    M.loop(6, 3.6, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('st', 'key'), { scaleY: 1, transformOrigin: '50% 100%' }, { scaleY: 1.06, duration: 0.9, ease: 'sine.inOut' }));
+    /* the axis keeps switching 96 ↔ 0: the same numbers, a different impression */
+    M.loop(8, 5.6, () => gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 1.2 })
+      .to(sel('mis', 'm1'), { attr: { y: 180, height: 150 }, duration: 0.9, ease: 'power2.inOut' }, 0)
+      .to(sel('mis', 'm2'), { attr: { fill: '#f87171' }, duration: 0.9 }, 0)
+      .to(sel('mis', 'ax0'), { opacity: 0, duration: 0.3 }, 0).to(sel('mis', 'ax96'), { opacity: 1, duration: 0.3 }, 0.3));
     return M.done();
   });
 })();

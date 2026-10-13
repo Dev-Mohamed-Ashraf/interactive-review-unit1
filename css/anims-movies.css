@@ -49,3 +49,17 @@
 .mv-board.mv-l13 .head { background: linear-gradient(90deg, #a7f3d0, #34d399); }
 .mv-board.mv-l14 .head { background: linear-gradient(90deg, #fde68a, #fbbf24); }
 .mv-board .mv-stage, .mv-board .mv-recap { position: absolute; inset: 0; }
+
+/* the board never goes fully still: pictures and emoji drift slowly, box icons breathe,
+   the scene title glows softly. CSS `translate` / `scale` compose with GSAP's `transform`,
+   so these never fight the scene timeline. */
+@media (prefers-reduced-motion: no-preference) {
+  .mv-board .art, .mv-board .emo { animation: mv-drift 5.2s ease-in-out infinite alternate; }
+  .mv-board .art:nth-of-type(2n), .mv-board .emo:nth-of-type(2n) { animation-duration: 6.4s; animation-delay: -2.1s; }
+  .mv-board .art:nth-of-type(3n), .mv-board .emo:nth-of-type(3n) { animation-duration: 7.3s; animation-delay: -3.7s; }
+  .mv-board .box .ic { animation: mv-breathe 3.4s ease-in-out infinite alternate; }
+  .mv-board .head { animation: mv-glow 3.6s ease-in-out infinite alternate; }
+}
+@keyframes mv-drift { from { translate: 0 -6px; } to { translate: 0 6px; } }
+@keyframes mv-breathe { from { scale: 1; } to { scale: 1.08; } }
+@keyframes mv-glow { from { filter: brightness(1); } to { filter: brightness(1.15) drop-shadow(0 0 14px rgba(255,255,255,.18)); } }

@@ -258,6 +258,20 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops */
+    M.loop(0, 4.6, () => M.cycle(Q('p0 p1 p2 p3'), 'rgba(56,189,248,.85)', 0.5));
+    M.loop(1, 5.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.4 }).fromTo(sel('tb', 'hl-miss'), { opacity: 0 }, { opacity: 1, duration: 0.4, yoyo: true, repeat: 1 }).fromTo(sel('tb', 'hl-out'), { opacity: 0 }, { opacity: 1, duration: 0.4, yoyo: true, repeat: 1 }).fromTo(sel('tb', 'hl-dup'), { opacity: 0 }, { opacity: 1, duration: 0.4, yoyo: true, repeat: 1 }).fromTo(sel('tb', 'hl-fmt'), { opacity: 0 }, { opacity: 1, duration: 0.4, yoyo: true, repeat: 1 }));
+    M.loop(2, 5.0, () => M.cycle(Q('del imp flg'), 'rgba(251,191,36,.85)', 0.6));
+    M.loop(3, 6.2, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('spk', 'spk'), { opacity: 1 }, { opacity: 0.4, duration: 0.8, ease: 'sine.inOut' }));
+    M.loop(4, 5.0, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('tb', 'hl-dup')[0], { opacity: 0.2 }, { opacity: 1, duration: 1.0, ease: 'sine.inOut' }));
+    M.loop(5, 4.8, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('tb', 'd-new'), { opacity: 1 }, { opacity: 0.45, duration: 1.0, ease: 'sine.inOut', stagger: 0.15 }));
+    /* the dots keep sliding from cm to the 0–1 scale */
+    M.loop(6, 5.6, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(sel('nl', 'nd'), { y: 0 }, { y: 210, duration: 1.0, ease: 'power2.inOut', stagger: 0.35 }));
+    M.loop(7, 5.0, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('bell', 'zdot'), { x: 0 }, { x: 210, duration: 1.8, ease: 'sine.inOut' }));
+    M.loop(8, 6.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 })
+      .fromTo(sel('pv', 'pg'), { opacity: 0, scale: 0.4, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, duration: 0.3, stagger: 0.1 })
+      .fromTo(sel('jn', 'jc'), { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15 })
+      .fromTo(sel('ag', 'am'), { scaleY: 0, transformOrigin: '50% 100%' }, { scaleY: 1, duration: 0.6, ease: 'back.out(1.5)' }));
     return M.done();
   });
 })();

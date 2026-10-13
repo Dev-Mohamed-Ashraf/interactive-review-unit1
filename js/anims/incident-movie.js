@@ -198,6 +198,14 @@
     POP(q('r1'), c + 4.0, 0.6); SND('ok', c + 4.0);
     POP(q('r2'), c + 4.9, 0.6); SND('ok', c + 4.9);
 
+    /* living loops */
+    M.loop(0, 5.4, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(Q('plan team backup'), { boxShadow: '0 0 4px rgba(0,0,0,0)' }, { boxShadow: '0 0 42px rgba(251,191,36,.95)', duration: 1.2, ease: 'sine.inOut' }));
+    M.loop(1, 7.4, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(Q('bug1 bug2'), { rotation: -8 }, { rotation: 8, duration: 0.9, ease: 'sine.inOut', transformOrigin: '50% 50%' }));
+    M.loop(2, 4.0, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('pc3'), { boxShadow: '0 0 4px rgba(0,0,0,0)' }, { boxShadow: '0 0 42px rgba(52,211,153,.95)', duration: 1.2, ease: 'sine.inOut' }));
+    M.loop(3, 4.4, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('note'), { boxShadow: '0 0 4px rgba(0,0,0,0)' }, { boxShadow: '0 0 42px rgba(248,113,113,.95)', duration: 1.2, ease: 'sine.inOut' }));
+    M.loop(4, 6.0, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(Q('pc1 pc2'), { filter: 'drop-shadow(0 0 0px rgba(52,211,153,0))' }, { filter: 'drop-shadow(0 0 18px rgba(52,211,153,.9))', duration: 1.2, ease: 'sine.inOut' }));
+    M.loop(5, 6.6, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(Q('pc1 pc2 pc3'), { filter: 'drop-shadow(0 0 0px rgba(52,211,153,0))' }, { filter: 'drop-shadow(0 0 18px rgba(52,211,153,.9))', duration: 1.2, ease: 'sine.inOut' }));
+    M.loop(6, 7.4, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(Q('bug1 bug2 bug3'), { rotation: -8 }, { rotation: 8, duration: 0.9, ease: 'sine.inOut', transformOrigin: '50% 50%' }));
     return M.done();
   });
 })();

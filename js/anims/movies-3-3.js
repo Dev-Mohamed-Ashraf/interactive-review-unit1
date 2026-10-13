@@ -189,6 +189,25 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd8'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops */
+    M.loop(0, 4.6, () => M.bob(Q('h0 c0 j0'), 8, 1.3));
+    M.loop(1, 4.6, () => gsap.timeline({ repeat: -1, repeatDelay: 1.0 }).fromTo(sel('house', 'fr'), { strokeDasharray: '0 2400' }, { strokeDasharray: '2400 0', duration: 2.2, ease: 'power1.inOut' }));
+    M.loop(2, 4.0, () => gsap.timeline().to(sel('house', 'dec'), { opacity: 0.45, duration: 1.0, ease: 'sine.inOut', stagger: { each: 0.3, repeat: -1, yoyo: true } }));
+    M.loop(3, 6.4, () => {
+      const x = gsap.timeline({ repeat: -1, repeatDelay: 0.6 });
+      [0, 1, 2].forEach((k) => {
+        const n = (k + 1) % 3; // the counter keeps counting: 2 → 0 → 1 → 2 …
+        x.to(q('cur'), { y: '-=20', duration: 0.15, yoyo: true, repeat: 1 }, k * 1.3)
+          .to(sel('pg', 'cnt' + ((k + 2) % 3)), { opacity: 0, duration: 0.1 }, k * 1.3 + 0.2)
+          .to(sel('pg', 'cnt' + n), { opacity: 1, duration: 0.1 }, k * 1.3 + 0.2)
+          .fromTo(sel('house', 'pow'), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, k * 1.3 + 0.2);
+      });
+      return x;
+    });
+    M.loop(4, 5.0, () => M.breathe(q('ym'), 1.08, 1.1));
+    M.loop(5, 5.2, () => M.glowLoop(q('sem'), 'rgba(167,139,250,.85)'));
+    M.loop(6, 5.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.5 }).fromTo(Q('pc tab ph'), { filter: 'drop-shadow(0 0 0px rgba(56,189,248,0))' }, { filter: 'drop-shadow(0 0 22px rgba(56,189,248,.9))', duration: 0.5, stagger: 0.5, yoyo: true, repeat: 1 }));
+    M.loop(7, 6.6, () => M.cycle(Q('k0 k1 k2 k3'), 'rgba(251,191,36,.85)', 0.45));
     return M.done();
   });
 })();

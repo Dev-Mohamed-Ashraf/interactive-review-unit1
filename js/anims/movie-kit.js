@@ -160,6 +160,27 @@
       if (q('hd' + k)) IN(q('hd' + k), c + 0.3, 0.5, { y: -30 });
       if (q('n' + k)) IN(q('n' + k), c + (noteAt == null ? 1 : noteAt), 0.5, { y: 20 });
     }
+    /* living loops: once a scene has played, the things that mean something keep moving slowly
+       (a switch keeps flipping 0 ↔ 1, packets keep flowing…) until the scene changes.
+       loop(n, t, build): at scene n, t s in, start build() → a repeating gsap timeline. */
+    const live = [];
+    const calm = RV.fx && RV.fx.reduced && RV.fx.reduced();
+    function loop(n, t, build) {
+      if (calm) return;
+      tl.call(() => { const x = build(); if (x) live.push(x); }, null, at(n, t));
+    }
+    function stopLoops() { while (live.length) { const x = live.pop(); x.progress(0).kill(); } }
+    /* a ready-made loop: gently pulse elements (scale) forever */
+    const breathe = (els, s, d) => gsap.timeline({ repeat: -1, yoyo: true }).to(els, { scale: s || 1.06, duration: d || 1.6, ease: 'sine.inOut', transformOrigin: '50% 50%' });
+    /* soft glow that comes and goes */
+    const glowLoop = (els, color, d) => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(els, { boxShadow: '0 0 4px rgba(0,0,0,0)' }, { boxShadow: `0 0 42px ${color || 'rgba(56,189,248,.9)'}`, duration: d || 1.2, ease: 'sine.inOut' });
+    /* a glow that travels along a list, again and again (a flow / a sequence) */
+    const cycle = (els, color, d) => gsap.timeline({ repeat: -1, repeatDelay: 0.5 }).fromTo(els, { boxShadow: '0 0 0 rgba(0,0,0,0)' }, { boxShadow: `0 0 40px ${color || 'rgba(56,189,248,.9)'}`, duration: d || 0.5, stagger: d || 0.5, yoyo: true, repeat: 1, ease: 'sine.inOut' });
+    /* gentle float up and down, each item on its own phase */
+    const bob = (els, dy, d) => gsap.timeline().to(els, { y: '-=' + (dy || 7), duration: d || 1.2, ease: 'sine.inOut', stagger: { each: 0.25, repeat: -1, yoyo: true } });
+    /* something travels from where it is by (dx, dy), fades, and starts again */
+    const ping = (el, dx, dy, d, gap) => gsap.timeline({ repeat: -1, repeatDelay: gap == null ? 0.7 : gap })
+      .fromTo(el, { x: 0, y: 0, opacity: 1 }, { x: dx, y: dy || 0, duration: d || 1.2, ease: 'power1.inOut' }).to(el, { opacity: 0, duration: 0.25 });
     const hop = (el, t, d) => tl.to(el, { y: -10, duration: 0.15, yoyo: true, repeat: 2 * Math.max(1, Math.round(d / 0.3)) - 1, ease: 'sine.inOut' }, t);
     const walk = (el, t, x, d) => { tl.to(el, { x, duration: d, ease: 'none' }, t); hop(el, t, d); };
     const shake = (el, t, a) => tl.fromTo(el, { x: 0 }, { x: a || 7, duration: 0.06, yoyo: true, repeat: 7 }, t);
@@ -177,6 +198,7 @@
       function go(n) {
         cur = Math.max(first, Math.min(last, first + n));
         dots.querySelectorAll('i').forEach((d, k) => d.classList.toggle('on', k === cur - first));
+        stopLoops();
         tl.pause();
         tl.seek(at(cur), true);
         tl.play();
@@ -185,10 +207,10 @@
       board.__tl = tl; // (QA: the layout audit seeks through every scene)
       return {
         beat(i) { go(i); },
-        destroy() { ro.disconnect(); idle.forEach((x) => x.kill()); tl.kill(); },
+        destroy() { ro.disconnect(); idle.forEach((x) => x.kill()); live.forEach((x) => x.kill()); tl.kill(); },
       };
     }
-    return { board, q, Q, tl, at, IN, POP, OUT, SND, PULSE, L, done, frame, hop, walk, shake, mood, rtl: RTL(), sx: RTL() ? -1 : 1 };
+    return { board, q, Q, tl, at, IN, POP, OUT, SND, PULSE, L, done, frame, hop, walk, shake, mood, loop, breathe, glowLoop, cycle, bob, ping, rtl: RTL(), sx: RTL() ? -1 : 1 };
   }
 
   RV.movieKit = { person, CAST, RACK, PC, S, B, SL, RTL, ui, uiL, create };

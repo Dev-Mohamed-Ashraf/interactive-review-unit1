@@ -189,6 +189,13 @@
     POP(q('rule'), c + 3.0, 0.7); SND('ok', c + 3.0);
     IN(q('rule2'), c + 4.2, 0.5, { y: 20 });
 
+    /* living loops */
+    M.loop(0, 7.0, () => M.breathe(q('st-ok'), 1.1, 1.0));
+    M.loop(1, 7.2, () => gsap.timeline({ repeat: -1, repeatDelay: 2.4 }).fromTo(q('login'), { x: 0 }, { x: 7, duration: 0.06, yoyo: true, repeat: 7 }));
+    M.loop(2, 4.0, () => gsap.timeline({ repeat: -1, repeatDelay: 1.6 }).fromTo(q('phone'), { rotation: 0 }, { rotation: -8, duration: 0.12, yoyo: true, repeat: 5, transformOrigin: '50% 90%' }));
+    M.loop(3, 7.2, () => M.breathe(Q('block st-no'), 1.1, 1.0));
+    M.loop(4, 6.0, () => M.breathe(q('st-ok'), 1.1, 1.0));
+    M.loop(5, 7.0, () => M.breathe(M.board.querySelector('#mf-cmpB .v'), 1.12, 1.0));
     return M.done();
   });
 })();

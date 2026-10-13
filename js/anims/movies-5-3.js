@@ -187,6 +187,20 @@
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
     Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    /* living loops */
+    M.loop(0, 5.4, () => M.cycle(Q('w0 w1 w2'), 'rgba(56,189,248,.85)', 0.5));
+    M.loop(1, 4.6, () => M.cycle(Q('wb un kg'), 'rgba(167,139,250,.85)', 0.6));
+    M.loop(2, 4.8, () => M.breathe(q('fast'), 1.05, 1.1));
+    /* the request keeps travelling to the endpoint */
+    M.loop(3, 5.2, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).fromTo(q('req'), { x: 0, opacity: 1 }, { x: 860 * sx, duration: 1.6, ease: 'power1.inOut' }).to(q('req'), { opacity: 0, duration: 0.25 }));
+    M.loop(4, 4.4, () => M.glowLoop(q('json'), 'rgba(52,211,153,.85)'));
+    M.loop(5, 4.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(sel('chart', 'cb'), { scaleY: 0.2, transformOrigin: '50% 100%' }, { scaleY: 1, duration: 0.4, stagger: 0.12, ease: 'back.out(1.6)' }));
+    M.loop(6, 5.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 })
+      .fromTo(Q('pk0 pk1 pk2 pk3 pk4 pk5'), { x: 0, opacity: 1 }, { x: 160 * sx, duration: 0.5, stagger: 0.06 })
+      .fromTo(q('stop'), { scale: 1 }, { scale: 1.2, duration: 0.25, yoyo: true, repeat: 1, transformOrigin: '50% 50%' })
+      .to(Q('pk0 pk1 pk2 pk3 pk4 pk5'), { x: 0, opacity: 0.25, duration: 0.5 }));
+    M.loop(7, 4.0, () => M.cycle(Q('lic0 lic1 lic2'), 'rgba(251,191,36,.85)', 0.6));
+    M.loop(8, 5.6, () => M.cycle(Q('ct0 ct1 ct2 ct3'), 'rgba(56,189,248,.85)', 0.45));
     return M.done();
   });
 })();

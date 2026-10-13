@@ -127,6 +127,14 @@
       IN(q('i' + k), c + 1.6, 0.5, { x: 40 }); SND('pop', c + 1.6);
       IN(q('b' + k), c + 3.6, 0.4, { y: 14 });
     }
+    /* living: each era’s machine keeps working after its scene plays */
+    const R = { stagger: { each: 0.05, from: 'random', repeat: -1, yoyo: true } };
+    M.loop(1, 5.6, () => gsap.timeline().to(sub('#er-d1 .tube'), Object.assign({ opacity: 0.3, duration: 0.9, ease: 'sine.inOut' }, R)));
+    M.loop(2, 5.6, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).to(sub('#er-d2 .ln'), { scaleX: 0, transformOrigin: '0% 50%', duration: 0.5, stagger: 0.12, ease: 'power1.in' }).to(sub('#er-d2 .ln'), { scaleX: 1, duration: 0.6, stagger: 0.35, ease: 'power1.out' }));
+    M.loop(3, 5.6, () => gsap.timeline().to(sub('#er-d3 .env'), { y: '-=10', duration: 1.4, ease: 'sine.inOut', stagger: { each: 0.3, repeat: -1, yoyo: true } }));
+    M.loop(4, 5.6, () => gsap.timeline({ repeat: -1 }).fromTo(sub('#er-d4 .wv'), { opacity: 0.15 }, { opacity: 1, duration: 0.6, stagger: 0.3, ease: 'sine.inOut' }).to(sub('#er-d4 .wv'), { opacity: 0.15, duration: 0.6 }));
+    M.loop(5, 5.6, () => gsap.timeline({ repeat: -1 }).fromTo(sub('#er-d5 .up'), { strokeDashoffset: 72 }, { strokeDashoffset: 0, duration: 1.4, ease: 'none' }));
+    M.loop(5, 5.6, () => gsap.timeline().to(sub('#er-d5 .led'), Object.assign({ opacity: 0.25, duration: 0.6 }, R)));
 
     /* 6 — recap */
     c = at(6);
@@ -230,6 +238,14 @@
     OUT(q('s0'), c + 4.6, 0.15); IN(q('s1'), c + 4.7, 0.2);
     IN(q('b0'), c + 5.2, 0.4, { y: 14 });
     SND('pop', c + 4.6);
+    /* living: the switch keeps flipping on ↔ off slowly, and the chip’s transistors twinkle */
+    M.loop(0, 6.4, () => gsap.timeline({ repeat: -1 })
+      .to(sub('#mo-sw .knob'), { attr: { cx: 50 }, fill: '#94a3b8', duration: 0.7, ease: 'power2.inOut' }, 1.6)
+      .to(q('s1'), { opacity: 0, duration: 0.35 }, 1.6).to(q('s0'), { opacity: 1, duration: 0.35 }, 1.85)
+      .to(sub('#mo-sw .knob'), { attr: { cx: 150 }, fill: '#34d399', duration: 0.7, ease: 'power2.inOut' }, 3.8)
+      .to(q('s0'), { opacity: 0, duration: 0.35 }, 3.8).to(q('s1'), { opacity: 1, duration: 0.35 }, 4.05)
+      .to({}, { duration: 1.6 }, 4.5));
+    M.loop(0, 6.4, () => gsap.timeline().to(sub('#mo-chip .tr'), { opacity: 0.3, duration: 1.1, ease: 'sine.inOut', stagger: { each: 0.04, from: 'random', repeat: -1, yoyo: true } }));
 
     /* 1 — Moore's law: doubling */
     c = at(1);
@@ -286,6 +302,15 @@
     IN(q('i5a'), c + 1.0, 0.5, { y: 30 });
     IN(q('i5b'), c + 4.0, 0.5, { y: 30 }); SND('ok', c + 4.0);
     IN(q('b5'), c + 5.2, 0.4, { y: 14 });
+
+    /* living loops for scenes 1–5 */
+    M.loop(1, 7.6, () => gsap.timeline({ repeat: -1, repeatDelay: 1 }).to(Q('bar0 bar1 bar2 bar3 bar4 bar5'), { filter: 'brightness(1.6)', duration: 0.35, stagger: 0.35, yoyo: true, repeat: 1 }));
+    M.loop(3, 4.2, () => gsap.timeline().to(sub('#mo-atoms circle'), { y: '-=6', duration: 0.8, ease: 'sine.inOut', stagger: { each: 0.12, repeat: -1, yoyo: true } }));
+    M.loop(4, 6.4, () => gsap.timeline({ repeat: -1 })
+      .to(sub('#mo-tun .e0, #mo-tun .e2'), { attr: { cx: 150 }, duration: 0.9, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 0)
+      .fromTo(sub('#mo-tun .e1'), { attr: { cx: 60 } }, { attr: { cx: 270 }, duration: 1.8, ease: 'power1.inOut' }, 0.2));
+    M.loop(4, 6.4, () => gsap.timeline({ repeat: -1 }).fromTo(sub('#mo-leak .drop'), { y: 0, opacity: 1 }, { y: 22, opacity: 0, duration: 1.1, stagger: 0.35, ease: 'power1.in' }));
+    M.loop(5, 6.0, () => gsap.timeline({ repeat: -1 }).to(sub('#mo-core4 rect'), { attr: { fill: '#065f46' }, duration: 0.4, stagger: 0.15, yoyo: true, repeat: 1 }).to({}, { duration: 0.8 }));
 
     /* 6 — recap */
     c = at(6);
@@ -429,6 +454,15 @@
     IN(q('vr'), c + 3.0, 0.5, { y: 30 }); IN(q('i5b'), c + 3.5, 0.4); SND('whoosh', c + 3.0);
     IN(q('i5c'), c + 4.8, 0.5, { x: 40 });
 
+    /* living loops for scenes 0–5 */
+    M.loop(0, 4.8, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).to(sub('#so-sns .nd'), { fill: '#e0f2fe', duration: 0.3, stagger: 0.2, yoyo: true, repeat: 1 }));
+    M.loop(1, 6.2, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 })
+      .fromTo(q('pkg'), { x: 0 }, { x: 320, duration: 2.2, ease: 'power1.inOut' }, 0)
+      .fromTo(q('qr'), { x: 0 }, { x: 290, duration: 1.8, ease: 'power1.inOut' }, 0.6));
+    M.loop(3, 5.2, () => gsap.timeline({ repeat: -1 }).fromTo(sub('#so-car .wv'), { opacity: 0.1 }, { opacity: 1, duration: 0.5, stagger: 0.25, ease: 'sine.inOut' }).to(sub('#so-car .wv'), { opacity: 0.1, duration: 0.5 }));
+    M.loop(4, 5.4, () => M.breathe(q('k4'), 1.12, 0.9));
+    M.loop(5, 5.6, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sub('#so-ar path')[1], { opacity: 0.2 }, { opacity: 1, duration: 1.2, ease: 'sine.inOut' }));
+
     /* 6 — quantum: bit vs qubit */
     c = at(6);
     frame(6, c);
@@ -440,6 +474,12 @@
     IN(q('i6b'), c + 3.4, 0.5, { y: 30 });
     POP(q('qb'), c + 4.4, 0.5); SND('ok', c + 4.4);
     tl.fromTo(q('qb'), { boxShadow: '0 0 0 rgba(167,139,250,0)' }, { boxShadow: '0 0 50px rgba(167,139,250,.9)', duration: 0.5, yoyo: true, repeat: 3 }, c + 5.0);
+    /* living: the classic bit keeps flipping 0 ↔ 1 (one at a time); the qubit glows as both */
+    M.loop(6, 7.2, () => gsap.timeline({ repeat: -1 })
+      .to(q('bit'), { opacity: 1, duration: 0.4 }, 0).to(q('bit1'), { opacity: 0, duration: 0.4 }, 0)
+      .to(q('bit'), { opacity: 0, duration: 0.4 }, 1.6).to(q('bit1'), { opacity: 1, duration: 0.4 }, 1.6)
+      .to({}, { duration: 1.2 }, 2.0));
+    M.loop(6, 7.2, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('qb'), { boxShadow: '0 0 10px rgba(167,139,250,.3)' }, { boxShadow: '0 0 60px rgba(167,139,250,.95)', duration: 1.6, ease: 'sine.inOut' }));
 
     /* 7 — recap */
     c = at(7);
