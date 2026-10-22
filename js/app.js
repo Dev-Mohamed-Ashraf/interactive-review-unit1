@@ -27,7 +27,8 @@
   function render() {
     if (current && current.destroy) current.destroy();
     current = null;
-    gsap.killTweensOf('*');
+    // stop the old screen's tweens — but not the rewards that float over every screen (+XP, combo, badge card)
+    gsap.killTweensOf([...document.querySelectorAll('body *')].filter((el) => !el.closest('.xp-float, .celebrate')));
     RV.dom.clear(root);
     window.scrollTo(0, 0);
     const r = parse();

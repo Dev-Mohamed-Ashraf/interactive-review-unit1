@@ -72,6 +72,7 @@
     gsap.set(el, { left: r.left + r.width / 2, top: r.top });
     gsap.fromTo(el, { y: 0, opacity: 0, scale: 0.6 }, { y: -70, opacity: 1, scale: 1.1, duration: 0.6, ease: 'back.out(2)' });
     gsap.to(el, { opacity: 0, y: -110, duration: 0.5, delay: 0.9, onComplete: () => el.remove() });
+    setTimeout(() => el.remove(), 2200); // safety net: never leave a number stuck on the screen
   }
 
   /** Full-screen celebration card (badge / level up). */
@@ -83,7 +84,7 @@
         h('p', null, t(sub)),
         h('button', { class: 'btn btn-primary', type: 'button' }, '👍')));
     document.body.appendChild(card);
-    const close = () => gsap.to(card, { opacity: 0, duration: 0.25, onComplete: () => card.remove() });
+    const close = () => { gsap.to(card, { opacity: 0, duration: 0.25, onComplete: () => card.remove() }); setTimeout(() => card.remove(), 600); };
     card.addEventListener('click', close);
     gsap.from(card.querySelector('.celebrate-card'), { scale: 0.4, rotate: -8, opacity: 0, duration: 0.6, ease: 'back.out(2)' });
     gsap.from(card.querySelector('.celebrate-icon'), { scale: 0, rotate: 200, duration: 0.8, delay: 0.15, ease: 'back.out(2.5)' });
