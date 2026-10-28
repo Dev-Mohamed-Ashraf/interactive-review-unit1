@@ -108,7 +108,7 @@
 .mv-l12 .l12-pr { display: flex; align-items: center; gap: 16px; margin-top: 22px; font-size: 30px; font-weight: 900; color: #e2e8f0; }
 .mv-l12 .l12-pr b { flex: none; width: 300px; text-align: start; white-space: nowrap; }
 .mv-l12 .l12-pr .l12-bar { position: relative; flex: 1; }
-.mv-l12 .l12-pr em { flex: none; width: 110px; font-style: normal; text-align: start; }
+.mv-l12 .l12-pr em { flex: none; width: 110px; font-style: normal; text-align: start; white-space: nowrap; }
 .mv-dl .l12-pr { margin-top: 18px; gap: 12px; }
 .mv-dl .l12-pr b { width: 130px; font-size: 28px; } .mv-dl .l12-pr em { width: 80px; }
 .mv-l12 .l12-tiles { display: flex; justify-content: center; gap: 22px; margin-top: 14px; }
@@ -133,3 +133,48 @@
   .mv-l12 .l12-svg.drift, .mv-l12 .l12-big.drift { animation: mv-drift 5.6s ease-in-out infinite alternate; }
   .mv-l12 .l12-card .ic { animation: mv-breathe 3.4s ease-in-out infinite alternate; }
 }
+
+/* ───────── lesson 2-1 movies (keysMovie · signMovie · mfaUseMovie · stackMovie) ───────── */
+/* a chest that travels; .lk.o / .lk.c = open / closed padlock on its front */
+.mv-l12 .l12-boxw { position: absolute; }
+.mv-l12 .l12-boxw svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.mv-l12 .l12-boxw .lk { position: absolute; top: 56px; left: calc(50% - 34px); width: 68px; text-align: center; font-size: 56px; line-height: 1; }
+.mv-l12 .l12-boxw .lk.c { opacity: 0; }
+/* a paper document (order / message) */
+.mv-l12 .l12-doc { position: absolute; border-radius: 18px; padding: 14px 22px; background: linear-gradient(180deg, #ffffff, #e2e8f0); color: #0f172a; font-size: 30px; font-weight: 900; line-height: 1.45;
+  border: 3px solid #cbd5e1; box-shadow: 0 18px 34px -16px rgba(0,0,0,.9); }
+.mv-l12 .l12-doc small { display: block; font-size: 26px; font-weight: 800; color: #475569; }
+.mv-l12 .l12-doc .amt { display: inline-block; padding: 0 10px; border-radius: 10px; background: #dbeafe; color: #1e3a8a; direction: ltr; }
+.mv-l12 .l12-doc .amt.bad { background: #fee2e2; color: #b91c1c; }
+.mv-l12 .l12-doc .seal { position: absolute; bottom: -30px; inset-inline-end: -26px; width: 92px; height: 92px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 44px; background: radial-gradient(circle at 35% 30%, #f87171, #991b1b); border: 5px solid #fecaca; box-shadow: 0 8px 18px -6px rgba(0,0,0,.8); }
+/* a browser window */
+.mv-l12 .l12-win { position: absolute; border-radius: 24px; overflow: hidden; background: #f8fafc; border: 3px solid #94a3b8; box-shadow: 0 30px 60px -28px rgba(0,0,0,.95); color: #0f172a; }
+.mv-l12 .l12-win .wbar { height: 76px; display: flex; align-items: center; gap: 12px; padding: 0 20px; background: #e2e8f0; }
+.mv-l12 .l12-win .wbar i { flex: none; width: 18px; height: 18px; border-radius: 50%; background: #f87171; } .mv-l12 .l12-win .wbar i + i { background: #fbbf24; } .mv-l12 .l12-win .wbar i + i + i { background: #34d399; }
+.mv-l12 .l12-win .url { flex: 1; height: 52px; display: flex; align-items: center; gap: 10px; padding: 0 18px; border-radius: 26px; background: #fff; font-size: 30px; font-weight: 900; direction: ltr; unicode-bidi: isolate; }
+.mv-l12 .l12-win .wbody { padding: 22px 28px; font-size: 30px; font-weight: 900; line-height: 1.45; }
+.mv-l12 .l12-win.fake { border-color: #ef4444; } .mv-l12 .l12-win.fake .url { color: #b91c1c; }
+/* a login form field */
+.mv-l12 .l12-field { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 16px; padding: 10px 18px; border-radius: 16px; border: 3px solid #cbd5e1; background: #fff;
+  font-size: 30px; font-weight: 900; color: #0f172a; }
+.mv-l12 .l12-field b { direction: ltr; unicode-bidi: isolate; letter-spacing: 3px; color: #334155; }
+/* the journey stepper (stackMovie) */
+.mv-l12 .l12-step { position: absolute; display: flex; align-items: center; gap: 16px; padding: 10px 18px; border-radius: 22px; background: rgba(15,23,42,.92); border: 3px solid #475569; }
+.mv-l12 .l12-step .num { flex: none; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: 900; background: #334155; color: #e2e8f0; }
+.mv-l12 .l12-step .tx { display: block; min-width: 0; font-weight: 900; line-height: 1.35; }
+.mv-l12 .l12-step .tx b { display: block; font-size: 30px; color: #f1f5f9; }
+.mv-l12 .l12-step .tx em { display: block; font-style: normal; font-size: 26px; color: #fca5a5; }
+.mv-l12 .l12-step .tx u { display: block; text-decoration: none; font-size: 26px; color: #6ee7b7; }
+.mv-l12 .l12-step .st { margin-inline-start: auto; flex: none; font-size: 44px; line-height: 1; }
+/* MFA factors: k = knowledge · p = possession · b = biometric */
+.mv-l12 .l12-facts { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 14px; }
+.mv-l12 .l12-facts .f { display: inline-flex; flex-direction: column; align-items: center; white-space: nowrap; padding: 8px 18px; border-radius: 18px; font-size: 30px; font-weight: 900; line-height: 1.3; border: 3px solid; }
+.mv-l12 .l12-facts .f i { font-style: normal; font-size: 26px; font-weight: 800; opacity: .9; }
+.mv-l12 .l12-facts .plus { font-size: 44px; font-weight: 900; color: #cbd5e1; }
+.mv-l12 .f.k, .mv-l12 .l12-key.k { border-color: #fbbf24; background: rgba(251,191,36,.14); color: #fef3c7; }
+.mv-l12 .f.p, .mv-l12 .l12-key.p { border-color: #38bdf8; background: rgba(56,189,248,.14); color: #e0f2fe; }
+.mv-l12 .f.b, .mv-l12 .l12-key.b { border-color: #f472b6; background: rgba(244,114,182,.14); color: #fce7f3; }
+.mv-l12 .l12-key { display: inline-block; padding: 0 12px; border-radius: 14px; border: 2px solid; }
+.mv-l12 .l12-step .st { position: relative; width: 52px; height: 52px; }
+.mv-l12 .l12-step .st span { position: absolute; inset: 0; text-align: center; }
