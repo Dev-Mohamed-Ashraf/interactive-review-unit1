@@ -1,212 +1,225 @@
 /* =========================================================
- * anims/movies-3-2.js — lesson 3-2 teacher-driven movie (shell:
- * movie-kit.js; each beat plays, then FREEZES; logical/mirrored layout).
- *   webCommMovie : client/server · request → response · HTTP readable ·
- *                  HTTPS encrypted · GET · POST · status codes · API + JSON
+ * anims/movies-3-2.js — lesson 3-2 teacher-driven movie, drawn in the lesson
+ * 1-2 look (MK.look · css/anims-movies-l12.css).
+ *   webCommMovie (stations client 0–3 · messages 4–8): many clients, one server ·
+ *     request → response · HTTP travels readable · HTTPS travels locked ·
+ *     GET brings data back · POST sends data · status codes 200/404/500 ·
+ *     API + JSON · recap
+ * Positions are LOGICAL (inset-inline-start): every layout mirrors itself in Arabic.
  * ========================================================= */
 (function () {
   'use strict';
   const K = RV.kit;
   const MK = RV.movieKit;
+  const { kit, stampIn, glow, glowCycle } = MK.look;
   const range = (n) => Array.from({ length: n }, (_, i) => i);
-  const BROWSER = (w, h, inner) => `<rect x="4" y="4" width="${w - 8}" height="${h - 8}" rx="22" fill="#0f172a" stroke="#475569" stroke-width="4"/>
-    <path d="M4 26 Q4 4 26 4 H${w - 26} Q${w - 4} 4 ${w - 4} 26 V62 H4Z" fill="#1e293b"/>
-    <circle cx="30" cy="33" r="8" fill="#f87171"/><circle cx="56" cy="33" r="8" fill="#fbbf24"/><circle cx="82" cy="33" r="8" fill="#34d399"/>
-    <rect x="112" y="16" width="${w - 140}" height="34" rx="17" fill="#0b1222"/>${inner || ''}`;
-  const RACKIN = MK.RACK('').replace(/^\s*<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+
+  const RACK = `<rect x="10" y="10" width="220" height="310" rx="22" fill="#1e293b" stroke="#64748b" stroke-width="5"/>
+    ${range(4).map((k) => `<rect x="30" y="${34 + k * 70}" width="180" height="52" rx="10" fill="#0f172a"/><circle class="led" cx="52" cy="${60 + k * 70}" r="8" fill="${['#34d399', '#38bdf8', '#34d399', '#fbbf24'][k]}"/><rect x="76" y="${54 + k * 70}" width="110" height="12" rx="6" fill="#334155"/>`).join('')}`;
+  const WIRE = (W) => `<path d="M0 20 H${W}" stroke="#475569" stroke-width="8" stroke-dasharray="20 14" stroke-linecap="round"/>`;
 
   K.defineAnim('webCommMovie', (stage, props, api) => {
-    const U = MK.uiL('w2-');
+    const P = 'w2-', U = MK.ui(P), B = kit(P, MK.RTL());
     const M = MK.create(stage, api, { props,
-      cls: 'mv-web mv-l32', prefix: 'w2-', beats: 9, cast: { 'ch-s': 'server', 'ch-h': 'hacker' },
-      html: (L) => `
-  <div id="w2-stage" class="mv-stage">
-    ${U.art('rack', 1700, 170, 165, 430, '0 0 165 430', RACKIN)}
-    ${U.ch('ch-s', 1470, 300, 'sm')}
-    ${U.pill('sv', 1450, 548, '🖧 ' + L('خادم واحد', 'one server'), 't-green')}
-    ${U.pill('cl1', 80, 200, '🌐 ' + L('متصفح', 'Browser'), 't-blue')}
-    ${U.pill('cl2', 80, 330, '📱 ' + L('تطبيق موبايل', 'Mobile app'), 't-blue')}
-    ${U.pill('cl3', 80, 460, '💻 ' + L('عميل تاني', 'Another client'), 't-blue')}
-    ${range(3).map((k) => U.emo('q' + k, 420, 196 + k * 130, 84, 40, '✉️') + U.emo('r' + k, 1340, 236 + k * 130, 84, 40, '📄')).join('')}
-    ${U.box('dc', 80, 610, 640, 't-blue', { h: '🙋 ' + L('العميل', 'Client'), p: L('بيطلب بيانات أو معالجة من الخادم', 'requests data or processing from the server') })}
-    ${U.box('ds', 1180, 610, 640, 't-green', { h: '🖧 ' + L('الخادم', 'Server'), p: L('بيستقبل الطلب ويعالجه ويرجّع استجابة', 'receives, processes and returns a response') })}
-
-    ${U.pill('req', 330, 290, '📨 ' + L('طلب: «عايز الصفحة الرئيسية»', 'Request: "the home page, please"'), 'solid')}
-    ${U.pill('res', 1050, 400, '📄 ' + L('استجابة: الصفحة', 'Response: the page'), 't-green')}
-    ${U.pill('one', 520, 530, L('طلب واحد ← استجابة واحدة مطابقة', 'one request → one matching response'), 't-slate')}
-
-    ${U.pill('pw', 330, 300, '<span class="code">user=ali&amp;pass=1234</span>', 'solid')}
-    ${U.ch('ch-h', 840, 450, 'sm')}
-    ${U.pill('see', 1040, 500, '👀 ' + L('«1234»… قريتها!', '"1234"… I read it!'), 't-red')}
-    ${U.pill('url', 620, 180, '🔒 <span class="code">https://bank.com</span>', 't-green')}
-    ${U.pill('pw2', 330, 300, '🔐 <span class="code">✱✱✱✱✱✱✱✱✱✱</span>', 't-green')}
-    ${U.pill('cant', 1040, 500, '🤯 ' + L('رموز ملهاش معنى!', 'meaningless symbols!'), 't-red')}
-    ${U.box('dhs', 80, 470, 640, 't-green', { h: 'HTTPS = HTTP + ' + L('تشفير TLS', 'TLS encryption'), p: L('خطر القراءة من طرف تالت بيقلّ', 'less risk of third parties reading') })}
-
-    ${U.art('bw', 80, 170, 560, 360, '0 0 560 360', BROWSER(560, 360, `<rect x="40" y="96" width="480" height="54" rx="27" fill="#1e293b"/><text x="280" y="132" text-anchor="middle" font-size="28" fill="#cbd5e1">🔍 ${L('كتب برمجة', 'coding books')}</text>
-      ${range(3).map((k) => `<rect class="hit" x="40" y="${172 + k * 58}" width="480" height="44" rx="12" fill="#1e293b" opacity="0"/><text class="hit" x="280" y="${202 + k * 58}" text-anchor="middle" font-size="26" fill="#a7f3d0" opacity="0">📘 ${L('نتيجة', 'result')} ${k + 1}</text>`).join('')}`))}
-    ${U.pill('g1', 680, 250, '<span class="code">GET /search?q=books</span>', 'solid')}
-    ${U.pill('g2', 1000, 350, '200 ✅ + 📄 ' + L('النتايج', 'results'), 't-green')}
-    ${U.box('dget', 700, 480, 620, 't-blue', { h: 'GET = ' + L('استرجاع', 'retrieve'), p: L('عرض صفحة ويب · نتايج البحث', 'showing a page · search results') })}
-    ${U.box('form', 80, 190, 560, 't-slate', { ic: '📝', h: L('نموذج الدخول', 'Login form'), p: L('الاسم: ali · كلمة السر: ••••', 'name: ali · password: ••••') })}
-    ${U.pill('p1', 680, 250, '<span class="code">POST /login</span> 📦', 'solid')}
-    ${U.pill('p2', 1000, 350, '200 ✅ ' + L('أهلًا يا علي', 'Welcome, Ali'), 't-green')}
-    ${U.box('dpost', 700, 480, 620, 't-amber', { h: 'POST = ' + L('إرسال', 'send'), p: L('بيانات الدخول · محتويات نموذج', 'login details · form contents') })}
-
-    ${U.box('s200', 120, 210, 520, 't-green', { ic: '✅', h: '200', p: L('نجاح — الطلب اتعالج', 'success — request processed'), s: L('كل حاجة تمام', 'all good') })}
-    ${U.box('s404', 700, 210, 520, 't-amber', { ic: '❓', h: '404', p: L('الصفحة مش موجودة', 'page not found'), s: L('العنوان غلط — من جهة العميل', 'wrong URL — the client’s side') })}
-    ${U.box('s500', 1280, 210, 520, 't-red', { ic: '💥', h: '500', p: L('خطأ في الخادم', 'server error'), s: L('المشكلة عند الخادم', 'the problem is on the server') })}
-
-    ${U.box('app', 120, 210, 500, 't-blue', { ic: '📱', h: L('تطبيق الطقس', 'Weather app'), p: L('برنامج (الأمامية)', 'one program (frontend)') })}
-    ${U.box('svc', 1300, 210, 500, 't-violet', { ic: '⚙️', h: L('خدمة الطقس', 'Weather service'), p: L('برنامج تاني (الخلفية)', 'another program (backend)') })}
-    ${U.pill('apil', 790, 250, '🔌 API', 't-amber')}
-    ${U.emo('at', 640, 330, 84, 40, '✉️')}
-    ${U.box('json', 620, 460, 680, 't-slate', { y: 'JSON', p: '<span class="code">{ "city": "Cairo", "temp": 31 }</span>' })}
-
-    ${U.hd(0, '🙋 ' + L('العميل والخادم', 'Client and server'))}
-    ${U.hd(1, '📨 ' + L('طلب ← استجابة', 'Request → response'))}
-    ${U.hd(2, 'HTTP ' + L('— المحتوى بيمشي مقروء', '— the content travels readable'))}
-    ${U.hd(3, '🔒 HTTPS ' + L('— المحتوى مشفّر', '— the content is encrypted'))}
-    ${U.hd(4, 'GET ' + L('— استرجاع', '— retrieve'))}
-    ${U.hd(5, 'POST ' + L('— إرسال', '— send'))}
-    ${U.hd(6, L('رموز الحالة', 'Status codes'))}
-    ${U.hd(7, '🔌 API ' + L('و', 'and') + ' JSON')}
-    ${U.nt(0, L('عملاء كتير بيطلبوا… وخادم واحد بيستجيب', 'Many clients request… one server responds'), 'ok')}
-    ${U.nt(1, '📜 ' + L('البروتوكول = قواعد مشتركة بتحكم التبادل ده', 'A protocol = shared rules for this exchange'), 'ok')}
-    ${U.nt(2, L('HTTP = بروتوكول تبادل البيانات بين العملاء والخوادم', 'HTTP = the protocol for exchanging data between clients and servers'), 'warn')}
-    ${U.nt(3, '🔑 ' + L('صفحة تسجيل الدخول لازم تكون HTTPS', 'A login page must use HTTPS'), 'ok')}
-    ${U.nt(5, '⚠️ ' + L('«GET لإرسال البيانات» ← غلط: GET بيسترجع · POST بيبعت', '"GET sends data" → false: GET retrieves · POST sends'), 'warn')}
-    ${U.nt(6, '⚠️ ' + L('«500 = نجاح» ← غلط: النجاح 200', '"500 = success" → false: success is 200'), 'warn')}
-    ${U.nt(7, L('JSON سهل القراءة للبشر + سهل المعالجة للحاسب', 'JSON is easy for humans to read + easy for computers to process'), 'ok')}
+      cls: 'mv-web mv-l12 mv-l32', prefix: P, beats: 9, cast: { sv: 'server', hk: 'hacker' },
+      html: (L) => {
+        const env = (id, txt, c, y) => B.chip(id, 520, y || 368, txt, c + ' l12-env');
+        return `
+  <div id="w2-base" class="mv-stage">
+    <div id="w2-cl" class="l12u l12-win later" style="${B.at(70, 220, 420, 320)}"><div class="wbar"><i></i><i></i><i></i><span class="url" id="w2-url">🌐 shop.com</span></div>
+      <div class="wbody l12-lay">
+        <div class="ly l0">💻 ${L('العميل', 'The client')}<div class="l12-field">🛒 ${L('صفحة المنتجات', 'products page')}</div></div>
+        <div class="ly l1"><div class="l12-field">👤 ${L('اسم المستخدم', 'username')} <b>ahmed</b></div><div class="l12-field">🔑 ${L('كلمة السر', 'password')} <b>••••</b></div></div>
+        <div class="ly l2">☀️ ${L('الطقس', 'Weather')}<div class="l12-big2">${L('القاهرة', 'Cairo')} <bdi>31°</bdi></div></div></div></div>
+    ${B.svg('wire', 500, 360, 920, 40, '0 0 920 40', WIRE(920))}
+    ${B.svg('rk', 1440, 200, 240, 330, '0 0 240 330', RACK)}
+    ${B.ch('sv', 1690, 300, 'sm')}
+    ${B.chip('slb', 1420, 128, '🖥️ ' + L('الخادم', 'The server'), 'c-green', 290)}
   </div>
-  <div id="w2-recap" class="mv-recap">
-    ${U.hd(8, '💡 ' + L('الخلاصة', 'The point'))}
-    ${U.pill('x0', 140, 200, '🙋 ' + L('العميل يطلب', 'The client asks') + ' ← 🖧 ' + L('الخادم يستجيب', 'the server responds'), 't-blue')}
-    ${U.pill('x1', 140, 300, 'HTTP · HTTPS 🔒 = HTTP + ' + L('تشفير SSL/TLS', 'SSL/TLS encryption'), 't-green')}
-    ${U.pill('x2', 140, 400, 'GET 🔎 ' + L('استرجاع', 'retrieve') + ' · POST 📦 ' + L('إرسال', 'send'), 't-amber')}
-    ${U.pill('x3', 140, 500, '200 ✅ · 404 ❓ · 500 💥', 't-violet')}
-    ${U.pill('x4', 140, 600, '🔌 API ' + L('بيبادل البيانات', 'exchanges data') + ' — ' + L('غالبًا', 'often') + ' JSON', 't-slate')}
-  </div>`,
+
+  <div id="w2-s0" class="mv-stage">
+    ${['💻', '📱', '📲'].map((e, k) => B.card('d' + k, 70, 150 + k * 170, 300, 150, 'c-blue', { ic: e, h: [L('متصفح', 'browser'), L('تطبيق موبايل', 'mobile app'), L('تطبيق تابلت', 'tablet app')][k] })).join('')}
+    ${range(3).map((k) => B.big('rq' + k, 400, 200 + k * 170, 70, 46, '📨')).join('')}
+    ${B.svg('rk0', 1440, 200, 240, 330, '0 0 240 330', RACK)}
+    ${B.card('cd', 520, 590, 640, 0, 'c-blue', { row: true, ic: '💻', h: L('العميل', 'Client'), p: L('بيطلب بيانات أو معالجة — زي المتصفحات وتطبيقات الموبايل', 'asks for data or processing — browsers, mobile apps') })}
+    ${B.card('sd', 1200, 590, 660, 0, 'c-green', { row: true, ic: '🖥️', h: L('الخادم', 'Server'), p: L('بيستقبل الطلبات ويعالجها ويرجّع الاستجابات', 'receives requests, processes them and responds') })}
+  </div>
+
+  <div id="w2-s1" class="mv-stage">
+    ${env('rq', '📨 ' + L('طلب: صفحة المنتجات', 'request: products page'), 'c-amber')}
+    ${env('rs', '📬 ' + L('استجابة: الصفحة', 'response: the page'), 'c-green')}
+    ${B.mid('one', 140, '1️⃣ ' + L('طلب واحد ← استجابة واحدة مطابقة', 'one request → one matching response'), 'c-amber big')}
+    ${B.mid('pro', 230, '📜 ' + L('والتبادل ده بتحكمه قواعد مشتركة اسمها «بروتوكولات»', 'the exchange follows shared rules called “protocols”'), 'c-slate')}
+  </div>
+
+  <div id="w2-s2" class="mv-stage">
+    ${B.ch('hk', 860, 140, 'sm')}
+    ${env('h1', '📨 ' + L('كلمة السر:', 'password:') + ' <bdi class="code">1234</bdi>', 'c-red')}
+    ${B.chip('rd', 1060, 160, '👀 «' + L('كلمة السر', 'password') + ' <bdi>1234</bdi>»', 'c-red big')}
+    ${B.card('hd', 520, 600, 1340, 0, 'c-red', { row: true, ic: '📖', h: 'HTTP — HyperText Transfer Protocol', p: L('بروتوكول لتبادل البيانات بين العملاء والخوادم — بس المحتوى بيمشي مقروء', 'a protocol between clients and servers — but content travels readable') })}
+  </div>
+
+  <div id="w2-s3" class="mv-stage">
+    ${env('h2', '🔒 <bdi class="code">x7#q@!</bdi>', 'c-green')}
+    ${B.chip('cf', 1060, 160, '😵 ' + L('«مش فاهم حاجة!»', '“I can’t read it!”'), 'c-slate big')}
+    ${B.card('hs', 520, 600, 1340, 0, 'c-green', { row: true, ic: '🔒', h: 'HTTPS = HTTP + ' + L('تشفير', 'encryption') + ' TLS (SSL/TLS)', p: L('المحتوى مشفّر فخطر قراءته بيقلّ — والعنوان بيبدأ بـ https:// — وصفحة الدخول لازم HTTPS', 'encrypted, so reading risk drops — the address starts with https:// — login pages must be HTTPS') })}
+  </div>
+
+  <div id="w2-s4" class="mv-stage">
+    ${env('g1', '📨 <bdi class="code">GET /products</bdi>', 'c-blue')}
+    ${env('g2', '📦 ' + L('بيانات الصفحة', 'page data'), 'c-green')}
+    ${B.mid('gd', 140, '⬇️ <bdi>GET</bdi> = ' + L('استرجاع بيانات من الخادم', 'retrieve data from the server'), 'c-blue big')}
+    ${B.chip('gx', 520, 600, '🧪 ' + L('أمثلة: عرض صفحة ويب · استرجاع نتايج البحث', 'e.g. showing a web page · getting search results'), 'c-blue')}
+  </div>
+
+  <div id="w2-s5" class="mv-stage">
+    ${env('p1', '📨 <bdi class="code">POST /login</bdi> + ' + L('بياناتك', 'your data'), 'c-violet')}
+    ${env('p2', '✅ ' + L('اتسجّلت', 'logged in'), 'c-green')}
+    ${B.mid('pd', 140, '⬆️ <bdi>POST</bdi> = ' + L('إرسال بيانات للخادم عشان يعالجها', 'send data to the server to process'), 'c-violet big')}
+    ${B.chip('px', 520, 600, '🧪 ' + L('أمثلة: معلومات تسجيل الدخول · محتويات نموذج', 'e.g. login details · form contents'), 'c-violet')}
+    ${B.chip('pt', 520, 690, '⚠️ ' + L('فخ: «GET لإرسال البيانات» ← غلط', 'trap: “GET is for sending data” → false'), 'c-red')}
+  </div>
+
+  <div id="w2-s6" class="mv-stage">
+    ${[['200', '✅', L('نجاح', 'success'), L('كله تمام', 'all good'), 'c-green'], ['404', '❓', L('الصفحة مش موجودة', 'page not found'), L('العنوان غلط — من جهة العميل', 'wrong address — the client side'), 'c-amber'], ['500', '💥', L('خطأ في الخادم', 'server error'), L('المشكلة عند الخادم', 'the problem is on the server'), 'c-red']]
+      .map(([n, ic, h, p, c], k) => B.card('c' + k, 70 + k * 610, 150, 580, 0, c, { html: `<div class="l12-code3"><bdi>${n}</bdi> ${ic}</div>`, h, p })).join('')}
+    ${B.mid('cdx', 600, '📨 ' + L('كل استجابة فيها «رمز حالة» بيبلّغ بالنتيجة', 'every response carries a status code reporting the result'), 'c-slate big')}
+  </div>
+
+  <div id="w2-s7" class="mv-stage">
+    ${env('a1', '🔌 API: ' + L('عايز طقس القاهرة', 'Cairo weather please'), 'c-amber')}
+    <div id="w2-js" class="l12u l12-doc l12-json later" style="${B.at(900, 130, 480)}"><div class="code ltr">{<br>&nbsp;&nbsp;"city": "Cairo",<br>&nbsp;&nbsp;"temp": 31,<br>&nbsp;&nbsp;"sky": "sunny"<br>}</div></div>
+    ${B.card('ad', 520, 580, 660, 0, 'c-amber', { row: true, ic: '🔌', h: 'API', p: L('نظام لتبادل البيانات بين برامج مختلفة — والأمامية بتطلب من الخلفية عن طريقه', 'a system for exchanging data between programs — the frontend asks the backend through it') })}
+    ${B.card('jd', 1220, 580, 640, 0, 'c-blue', { row: true, ic: '📄', h: 'JSON', p: L('سهلة القراءة للبشر وسهلة المعالجة للحاسب', 'easy for humans to read, easy for computers to process') })}
+  </div>
+
+  <div id="w2-s8" class="mv-stage">
+    <div id="w2-flow" class="l12u l12-flow later" style="${B.at(70, 160, 1790, 300)}">
+      <span class="n c-blue">💻 ${L('العميل يطلب', 'client asks')}</span><i>${B.arrow}</i><span class="n c-violet"><bdi>GET / POST</bdi><br><small>${L('عبر HTTP / HTTPS', 'over HTTP / HTTPS')}</small></span><i>${B.arrow}</i><span class="n c-green">🖥️ ${L('الخادم يستجيب', 'server responds')}</span><i>${B.arrow}</i><span class="n c-amber"><bdi>200 · 404 · 500</bdi><br><small>${L('رمز الحالة', 'status code')}</small></span></div>
+    ${B.mid('fj', 510, '🔌 ' + L('وغالبًا API بيرجّع البيانات بصيغة JSON', 'and usually an API returns the data as JSON'), 'c-amber big')}
+    ${B.mid('ft', 610, '⚠️ ' + L('الـAPI مش بروتوكول ولا تقنية تشفير ولا لضبط مظهر الصفحة', 'an API is not a protocol, not encryption, not page styling'), 'c-red')}
+  </div>
+    ${U.hd(0, '💻 ' + L('العميل والخادم', 'Client and server'))}
+    ${U.hd(1, '📨 ' + L('طلب ← استجابة', 'Request → response'))}
+    ${U.hd(2, '📖 ' + L('HTTP: المحتوى بيمشي مقروء', 'HTTP: content travels readable'))}
+    ${U.hd(3, '🔒 ' + L('HTTPS: المحتوى بيمشي مشفّر', 'HTTPS: content travels encrypted'))}
+    ${U.hd(4, '⬇️ ' + L('طريقة GET', 'The GET method'))}
+    ${U.hd(5, '⬆️ ' + L('طريقة POST', 'The POST method'))}
+    ${U.hd(6, '🔢 ' + L('رموز الحالة', 'Status codes'))}
+    ${U.hd(7, '🔌 ' + L('API و JSON', 'API and JSON'))}
+    ${U.hd(8, '📌 ' + L('الخلاصة', 'Recap'))}`;
+      },
     });
-    const { q, Q, tl, at, IN, POP, OUT, SND, PULSE, frame, sx } = M;
-    const hits = () => M.board.querySelectorAll('#w2-bw .hit');
-    const fly = (el, t, dx, d) => tl.to(el, { x: dx * sx, duration: d || 1.0, ease: 'power1.inOut' }, t);
+    const { q, Q, tl, IN, POP, OUT, SND, frame, sx } = M;
+    const all = (sel) => M.board.querySelectorAll(sel);
+    const at = M.at;
+    const lay = (n, t) => { tl.to(all('#w2-cl .ly'), { opacity: 0, duration: 0.2 }, t); tl.to(all('#w2-cl .ly.l' + n), { opacity: 1, duration: 0.3 }, t + 0.2); };
+    /* a message rides the wire: dir +1 = client → server, -1 = server → client */
+    const ride = (id, t, dir, stopMid) => {
+      const from = dir > 0 ? 0 : 720, to = stopMid ? 360 : (dir > 0 ? 720 : 0);
+      tl.fromTo(q(id), { opacity: 0, x: from * sx, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.25 }, t);
+      tl.to(q(id), { x: to * sx, duration: stopMid ? 0.8 : 1.4, ease: 'power1.inOut' }, t + 0.25);
+      if (!stopMid) tl.to(q(id), { opacity: 0, duration: 0.2 }, t + 1.7);
+    };
+    const flash = (t) => tl.fromTo(all('#w2-rk .led'), { opacity: 1 }, { opacity: 0.2, duration: 0.12, yoyo: true, repeat: 5, stagger: 0.05 }, t);
 
     /* 0 — many clients, one server */
     let c = at(0);
-    frame(0, c, 6.0);
-    IN(q('rack'), c + 0.3, 0.5, { x: 60 * sx }); IN(q('ch-s'), c + 0.5, 0.5, { x: 60 * sx }); IN(q('sv'), c + 0.8, 0.4);
-    Q('cl1 cl2 cl3').forEach((e, i) => IN(e, c + 0.6 + i * 0.3, 0.4, { x: -40 * sx }));
+    frame(0, c);
+    range(3).forEach((k) => { IN(q('d' + k), c + 0.3 + k * 0.4, 0.4, { x: -30 * sx }); });
+    IN(q('rk0'), c + 1.0, 0.5, { y: 30 });
     range(3).forEach((k) => {
-      IN(q('q' + k), c + 1.8 + k * 0.3, 0.2); fly(q('q' + k), c + 1.8 + k * 0.3, 920, 1.0);
-      tl.to(q('q' + k), { opacity: 0, duration: 0.2 }, c + 2.8 + k * 0.3);
-      IN(q('r' + k), c + 3.3 + k * 0.3, 0.2); fly(q('r' + k), c + 3.3 + k * 0.3, -920, 1.0);
-      tl.to(q('r' + k), { opacity: 0, duration: 0.2 }, c + 4.3 + k * 0.3);
+      tl.fromTo(q('rq' + k), { opacity: 0, x: 0, y: 0 }, { opacity: 1, duration: 0.2 }, c + 2.0 + k * 0.4);
+      tl.to(q('rq' + k), { x: 1000 * sx, y: (1 - k) * 170 + 20, duration: 1.0, ease: 'power1.in' }, c + 2.2 + k * 0.4);
+      tl.to(q('rq' + k), { opacity: 0, duration: 0.1 }, c + 3.2 + k * 0.4);
     });
-    SND('whoosh', c + 1.8); SND('pop', c + 3.3);
-    IN(q('dc'), c + 4.0, 0.5, { y: 20 }); IN(q('ds'), c + 4.6, 0.5, { y: 20 });
+    SND('whoosh', c + 2.2);
+    IN(q('cd'), c + 4.4, 0.5, { y: 24 }); IN(q('sd'), c + 5.2, 0.5, { y: 24 });
 
-    /* 1 — one request, one response */
+    /* 1 — request → response */
     c = at(1);
-    frame(1, c, 5.6);
-    OUT(Q('cl2 cl3 dc ds'), c, 0.3);
-    POP(q('req'), c + 0.6, 0.4);
-    fly(q('req'), c + 1.2, 500, 1.2); SND('whoosh', c + 1.2);
-    PULSE(q('sv'), c + 2.5, 'rgba(52,211,153,.9)', 2);
-    OUT(q('req'), c + 2.6, 0.3);
-    POP(q('res'), c + 3.0, 0.4);
-    fly(q('res'), c + 3.4, -720, 1.2); SND('ok', c + 4.6);
-    IN(q('one'), c + 4.8, 0.4, { y: 20 });
+    frame(1, c);
+    OUT(q('s0'), c, 0.4);
+    IN(Q('cl wire rk sv slb'), c + 0.4, 0.5, { y: 20 }); lay(0, c + 0.6);
+    ride('rq', c + 1.4, 1); flash(c + 3.0);
+    ride('rs', c + 3.6, -1); SND('ok', c + 5.0);
+    POP(q('one'), c + 5.4, 0.5); IN(q('pro'), c + 6.4, 0.4, { y: 12 });
 
-    /* 2 — HTTP: readable on the way */
+    /* 2 — HTTP: readable */
     c = at(2);
-    frame(2, c, 5.0);
-    OUT(Q('res one'), c, 0.3);
-    IN(q('ch-h'), c + 0.5, 0.5, { y: 40 });
-    POP(q('pw'), c + 1.2, 0.4);
-    fly(q('pw'), c + 1.8, 380, 1.0);
-    POP(q('see'), c + 2.9, 0.4); SND('bad', c + 2.9);
-    fly(q('pw'), c + 3.6, 740, 0.8);
+    frame(2, c);
+    OUT(q('s1'), c, 0.3); lay(1, c + 0.3);
+    IN(q('hk'), c + 0.5, 0.5, { y: -30 });
+    ride('h1', c + 1.2, 1, true);
+    POP(q('rd'), c + 2.4, 0.4); SND('bad', c + 2.4);
+    IN(q('hd'), c + 3.6, 0.5, { y: 24 });
 
     /* 3 — HTTPS: encrypted */
     c = at(3);
-    frame(3, c, 5.6);
-    OUT(Q('pw see'), c, 0.3);
-    POP(q('url'), c + 0.5, 0.45); SND('ok', c + 0.5);
-    POP(q('pw2'), c + 1.3, 0.4);
-    fly(q('pw2'), c + 1.9, 380, 1.0);
-    POP(q('cant'), c + 3.0, 0.4); SND('bad', c + 3.0);
-    M.mood('ch-h', true, c + 3.0);
-    fly(q('pw2'), c + 3.7, 740, 0.8);
-    IN(q('dhs'), c + 4.4, 0.5, { y: 20 });
+    frame(3, c);
+    OUT(Q('h1 rd hd'), c, 0.3);
+    tl.set(q('url'), { textContent: '🔒 https://bank.com' }, c + 0.3);
+    glow(M, q('cl'), c + 0.4, 'rgba(52,211,153,.95)');
+    ride('h2', c + 1.0, 1, true);
+    POP(q('cf'), c + 2.2, 0.4); M.mood('hk', true, c + 2.2); SND('ok', c + 2.2);
+    IN(q('hs'), c + 3.4, 0.5, { y: 24 });
 
     /* 4 — GET */
     c = at(4);
     frame(4, c);
-    OUT(Q('pw2 cant url dhs ch-h cl1'), c, 0.3);
-    IN(q('bw'), c + 0.5, 0.5, { y: 30 });
-    POP(q('g1'), c + 1.4, 0.4);
-    fly(q('g1'), c + 1.9, 520, 1.0); SND('whoosh', c + 1.9);
-    OUT(q('g1'), c + 3.0, 0.3);
-    POP(q('g2'), c + 3.2, 0.4);
-    fly(q('g2'), c + 3.6, -280, 0.8);
-    tl.to(hits(), { opacity: 1, duration: 0.3, stagger: 0.2 }, c + 4.3); SND('ok', c + 4.3);
-    IN(q('dget'), c + 5.0, 0.5, { y: 20 });
+    OUT(q('s2'), c, 0.3); OUT(q('s3'), c, 0.3);
+    tl.set(q('url'), { textContent: '🌐 shop.com' }, c + 0.3); lay(0, c + 0.3);
+    POP(q('gd'), c + 0.5, 0.5);
+    ride('g1', c + 1.2, 1); flash(c + 2.8);
+    ride('g2', c + 3.4, -1); SND('ok', c + 4.8);
+    glow(M, q('cl'), c + 5.0, 'rgba(56,189,248,.95)');
+    IN(q('gx'), c + 5.6, 0.4, { y: 12 });
 
     /* 5 — POST */
     c = at(5);
-    frame(5, c, 5.4);
-    OUT(Q('bw g2 dget'), c, 0.3);
-    IN(q('form'), c + 0.5, 0.5, { y: 30 });
-    POP(q('p1'), c + 1.4, 0.4);
-    fly(q('p1'), c + 1.9, 520, 1.0); SND('whoosh', c + 1.9);
-    OUT(q('p1'), c + 3.0, 0.3);
-    POP(q('p2'), c + 3.2, 0.4); SND('ok', c + 3.2);
-    fly(q('p2'), c + 3.6, -280, 0.8);
-    IN(q('dpost'), c + 4.4, 0.5, { y: 20 });
+    frame(5, c);
+    OUT(q('s4'), c, 0.3); lay(1, c + 0.3);
+    POP(q('pd'), c + 0.5, 0.5);
+    ride('p1', c + 1.3, 1); flash(c + 2.9);
+    ride('p2', c + 3.5, -1); SND('ok', c + 4.9);
+    IN(q('px'), c + 5.4, 0.4, { y: 12 }); IN(q('pt'), c + 6.2, 0.4, { y: 12 });
 
     /* 6 — status codes */
     c = at(6);
-    frame(6, c, 5.6);
-    OUT(Q('form p2 dpost rack ch-s sv'), c, 0.3);
-    POP(q('s200'), c + 0.7, 0.5); SND('ok', c + 0.7);
-    POP(q('s404'), c + 2.0, 0.5); SND('pop', c + 2.0);
-    POP(q('s500'), c + 3.3, 0.5); SND('bad', c + 3.3);
+    frame(6, c);
+    OUT(q('s5'), c, 0.3); OUT(q('base'), c, 0.4);
+    range(3).forEach((k) => { IN(q('c' + k), c + 0.6 + k * 1.0, 0.5, { y: 30 }); SND(['ok', 'pop', 'bad'][k], c + 0.6 + k * 1.0); });
+    IN(q('cdx'), c + 4.0, 0.4, { y: 12 });
 
     /* 7 — API + JSON */
     c = at(7);
-    frame(7, c, 5.4);
-    OUT(Q('s200 s404 s500'), c, 0.3);
-    IN(q('app'), c + 0.5, 0.5, { x: -40 * sx }); IN(q('svc'), c + 0.8, 0.5, { x: 40 * sx });
-    POP(q('apil'), c + 1.5, 0.45); SND('pop', c + 1.5);
-    IN(q('at'), c + 2.0, 0.2); fly(q('at'), c + 2.0, 600, 0.9);
-    OUT(q('at'), c + 2.9, 0.2);
-    IN(q('json'), c + 3.4, 0.6, { y: 30 }); SND('ok', c + 3.4);
-    PULSE(q('json'), c + 4.0, 'rgba(251,191,36,.85)', 2);
+    frame(7, c);
+    OUT(q('s6'), c, 0.3); IN(q('base'), c + 0.3, 0.4); lay(2, c + 0.3);
+    tl.set(q('url'), { textContent: '☀️ weather-app' }, c + 0.3);
+    ride('a1', c + 1.0, 1); flash(c + 2.6);
+    IN(q('js'), c + 3.0, 0.5, { y: 20 }); SND('pop', c + 3.0);
+    tl.to(q('js'), { x: -560 * sx, y: 90, scale: 0.4, opacity: 0, duration: 0.8, ease: 'power2.in' }, c + 4.4);
+    tl.fromTo(all('#w2-cl .l12-big2'), { scale: 0.5 }, { scale: 1, duration: 0.4, ease: 'back.out(2)' }, c + 5.2); SND('ok', c + 5.2);
+    IN(q('ad'), c + 5.6, 0.5, { y: 20 }); IN(q('jd'), c + 6.2, 0.5, { y: 20 });
 
     /* 8 — recap */
     c = at(8);
-    tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
-    IN(q('hd8'), c + 0.6, 0.5, { y: -30 });
-    Q('x0 x1 x2 x3 x4').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
-    /* living loops: requests and responses keep travelling */
-    const trip = (a, dxA, b, dxB, mid) => () => {
-      const x = gsap.timeline({ repeat: -1, repeatDelay: 0.7 })
-        .fromTo(q(a), { x: 0, opacity: 1 }, { x: dxA * sx, duration: 1.1, ease: 'power1.inOut' }).to(q(a), { opacity: 0, duration: 0.2 });
-      if (mid) x.add(mid());
-      return x.fromTo(q(b), { x: 0, opacity: 1 }, { x: dxB * sx, duration: 1.0, ease: 'power1.inOut' }).to(q(b), { opacity: 0, duration: 0.2 });
-    };
-    const svPulse = () => gsap.timeline().to(q('sv'), { boxShadow: '0 0 40px rgba(52,211,153,.9)', duration: 0.3, yoyo: true, repeat: 1 });
-    M.loop(0, 6.0, () => { const x = gsap.timeline({ repeat: -1, repeatDelay: 0.8 }); range(3).forEach((k) => { x.fromTo(q('q' + k), { x: 0, opacity: 1 }, { x: 920 * sx, duration: 1.1, ease: 'power1.inOut' }, k * 0.35).to(q('q' + k), { opacity: 0, duration: 0.2 }, k * 0.35 + 1.1).fromTo(q('r' + k), { x: 0, opacity: 1 }, { x: -920 * sx, duration: 1.1, ease: 'power1.inOut' }, 1.6 + k * 0.35).to(q('r' + k), { opacity: 0, duration: 0.2 }, 2.7 + k * 0.35); }); return x; });
-    M.loop(1, 5.6, trip('req', 500, 'res', -720, svPulse));
-    M.loop(2, 5.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(q('pw'), { x: 0, opacity: 1 }, { x: 380 * sx, duration: 1.0, ease: 'power1.inOut' }).fromTo(q('see'), { scale: 1 }, { scale: 1.15, duration: 0.3, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }).to(q('pw'), { x: 740 * sx, duration: 0.8, ease: 'power1.inOut' }).to(q('pw'), { opacity: 0, duration: 0.2 }));
-    M.loop(3, 5.6, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(q('pw2'), { x: 0, opacity: 1 }, { x: 380 * sx, duration: 1.0, ease: 'power1.inOut' }).fromTo(q('cant'), { scale: 1 }, { scale: 1.15, duration: 0.3, yoyo: true, repeat: 1, transformOrigin: '50% 50%' }).to(q('pw2'), { x: 740 * sx, duration: 0.8, ease: 'power1.inOut' }).to(q('pw2'), { opacity: 0, duration: 0.2 }));
-    M.loop(4, 5.8, trip('g1', 520, 'g2', -280));
-    M.loop(4, 5.8, () => gsap.timeline().to(M.board.querySelectorAll('#w2-bw .hit'), { opacity: 0.4, duration: 0.8, ease: 'sine.inOut', stagger: { each: 0.25, repeat: -1, yoyo: true } }));
-    M.loop(5, 5.4, trip('p1', 520, 'p2', -280));
-    M.loop(6, 5.6, () => M.cycle(Q('s200 s404 s500'), 'rgba(251,191,36,.85)', 0.7));
-    M.loop(7, 5.4, () => M.ping(q('at'), 600 * sx, 0, 1.0));
-    M.loop(7, 5.4, () => M.glowLoop(q('json'), 'rgba(251,191,36,.85)'));
+    frame(8, c);
+    OUT(Q('s7 base'), c, 0.4);
+    IN(q('flow'), c + 0.5, 0.5, { y: 30 });
+    tl.fromTo(all('#w2-flow .n'), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.35, stagger: 0.45, ease: 'back.out(2)' }, c + 0.9);
+    IN(q('fj'), c + 3.0, 0.4, { y: 12 }); IN(q('ft'), c + 3.8, 0.4, { y: 12 });
+
+    /* living loops */
+    M.loop(0, 6.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.4 }).fromTo(Q('rq0 rq1 rq2'), { opacity: 1, x: 0, y: 0 }, { x: 1000 * sx, y: (k) => (1 - k) * 170 + 20, duration: 1.2, ease: 'power1.in', stagger: 0.3 }).to(Q('rq0 rq1 rq2'), { opacity: 0, duration: 0.1 }));
+    const pingPong = (a, b) => () => gsap.timeline({ repeat: -1, repeatDelay: 0.5 }).fromTo(q(a), { opacity: 1, x: 0 }, { x: 720 * sx, duration: 1.2, ease: 'power1.inOut' }).to(q(a), { opacity: 0, duration: 0.1 }).fromTo(q(b), { opacity: 1, x: 720 * sx }, { x: 0, duration: 1.2, ease: 'power1.inOut' }).to(q(b), { opacity: 0, duration: 0.1 });
+    M.loop(1, 7.0, pingPong('rq', 'rs'));
+    M.loop(2, 4.6, () => M.breathe(q('rd'), 1.06, 0.8));
+    M.loop(3, 4.4, () => gsap.timeline({ repeat: -1, yoyo: true }).to(q('h2'), { y: -8, duration: 0.8, ease: 'sine.inOut' }));
+    M.loop(4, 6.2, pingPong('g1', 'g2'));
+    M.loop(5, 7.0, pingPong('p1', 'p2'));
+    M.loop(6, 5.0, () => glowCycle(Q('c0 c1 c2'), 'rgba(255,255,255,.7)', 0.5));
+    M.loop(8, 4.4, () => glowCycle(all('#w2-flow .n'), 'rgba(167,139,250,.9)', 0.4));
     return M.done();
   });
 })();

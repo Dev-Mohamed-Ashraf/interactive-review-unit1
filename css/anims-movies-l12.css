@@ -237,3 +237,12 @@
 .mv-l12 .l12-grid .h { font-size: 32px; font-weight: 900; color: var(--ct); background: var(--cb); border: 3px solid var(--c); }
 .mv-l12 .l12-grid .r { font-size: 32px; font-weight: 900; background: rgba(148,163,184,.12); border: 3px solid #475569; color: #f1f5f9; }
 .mv-l12 .l12-grid span { background: rgba(15,23,42,.9); border: 2px solid #334155; color: #e2e8f0; }
+
+/* ───────── lesson 3-2 (webCommMovie) ───────── */
+.mv-l12 .l12-env { box-shadow: 0 12px 26px -12px rgba(0,0,0,.9); }
+.mv-l12 .l12-big2 { margin-top: 20px; text-align: center; font-size: 56px; font-weight: 900; color: #b45309; }
+.mv-l12 .l12-code3 { font-size: 84px; font-weight: 900; line-height: 1.1; color: var(--ct); direction: ltr; }
+.mv-l12 .l12-json { background: #0b1222; border-color: #fbbf24; color: #fde68a; } .mv-l12 .l12-json .code { font-size: 32px; line-height: 1.6; }
+.mv-l12 .l12-flow { position: absolute; display: flex; align-items: center; justify-content: center; gap: 18px; }
+.mv-l12 .l12-flow .n { padding: 22px 26px; border-radius: 24px; text-align: center; font-size: 34px; font-weight: 900; line-height: 1.35; color: var(--ct); background: var(--cb); border: 3px solid var(--c); }
+.mv-l12 .l12-flow .n small { font-size: 26px; opacity: .9; } .mv-l12 .l12-flow i { font-style: normal; font-size: 48px; color: #fde68a; }
