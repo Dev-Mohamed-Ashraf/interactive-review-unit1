@@ -297,3 +297,28 @@
 .mv-l12 .l12-load { display: grid; gap: 18px; margin-top: 24px; } .mv-l12 .l12-load span { display: flex; align-items: center; gap: 14px; font-size: 40px; }
 .mv-l12 .l12-load i { position: relative; flex: 1; height: 26px; border-radius: 13px; background: rgba(148,163,184,.2); overflow: hidden; }
 .mv-l12 .l12-load i::after { content: ''; position: absolute; inset: 0; } .mv-l12 .l12-load .f { background: linear-gradient(90deg, #34d399, #34d399) no-repeat; } .mv-l12 .l12-load .s { background: linear-gradient(90deg, #fb923c, #fb923c) no-repeat; flex: 0 0 auto; }
+
+/* ───────── lesson 4-2 (designMovie) ───────── */
+.mv-l12 .l12-clutter { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.mv-l12 .l12-clutter span { display: flex; align-items: center; justify-content: center; height: 140px; font-size: 64px; border-radius: 12px; background: hsl(calc(var(--i, 1) * 40), 80%, 85%); }
+.mv-l12 .l12-clutter span:nth-child(3n) { background: #fde68a; } .mv-l12 .l12-clutter span:nth-child(3n+1) { background: #fecaca; } .mv-l12 .l12-clutter span:nth-child(3n+2) { background: #bfdbfe; }
+.mv-l12 .l12-kv { display: grid; grid-template-columns: 200px 1fr; gap: 12px 18px; margin-top: 16px; text-align: start; font-size: 30px; }
+.mv-l12 .l12-kv b { color: #6ee7b7; } .mv-l12 .l12-kv span { font-weight: 800; color: #f1f5f9; }
+.mv-l12 .l12-wire { position: absolute; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 90px 1fr 80px; gap: 16px; padding: 20px; border-radius: 22px; border: 4px dashed #94a3b8; }
+.mv-l12 .l12-wire b { display: flex; align-items: center; justify-content: center; border-radius: 14px; background: #475569; color: #e2e8f0; font-size: 30px; }
+.mv-l12 .l12-wire .hd, .mv-l12 .l12-final .hd { grid-column: 1 / 3; } .mv-l12 .l12-wire .bt, .mv-l12 .l12-final .bt { grid-column: 2; }
+.mv-l12 .l12-final { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 80px 1fr 70px; gap: 16px; height: 400px; }
+.mv-l12 .l12-final b { display: flex; align-items: center; justify-content: center; border-radius: 14px; font-size: 32px; }
+.mv-l12 .l12-final .hd { background: #1e3a8a; color: #fff; } .mv-l12 .l12-final .im { background: #e0f2fe; font-size: 100px; } .mv-l12 .l12-final .bt { background: #ec4899; color: #fff; }
+.mv-l12 .l12-final .tx { display: grid; align-content: center; gap: 8px; font-size: 30px; color: #0f172a; }
+.mv-l12 .l12-prod { position: relative; height: 444px; color: #0f172a; }
+.mv-l12 .l12-prod .t { display: block; font-size: 30px; color: #64748b; }
+.mv-l12 .l12-prod .row { display: flex; gap: 30px; margin-top: 24px; padding: 14px; border-radius: 18px; outline: 4px dashed rgba(52,211,153,0); }
+.mv-l12 .l12-prod .im { display: inline-block; font-size: 130px; line-height: 1.1; }
+.mv-l12 .l12-prod .info { display: grid; align-content: start; gap: 14px; }
+.mv-l12 .l12-prod .nm, .mv-l12 .l12-prod .pr { font-size: 36px; } .mv-l12 .l12-prod .pr { color: #059669; }
+.mv-l12 .l12-prod .bt { display: inline-block; width: fit-content; padding: 10px 34px; border-radius: 20px; font-size: 32px; background: #cbd5e1; color: #475569; }
+.mv-l12 .l12-prod .ds { margin: 22px 0 0; font-size: 28px; color: #475569; }
+.mv-l12 .l12-minis { position: absolute; display: flex; gap: 20px; }
+.mv-l12 .l12-minis span { flex: 1; display: grid; gap: 8px; padding: 14px 18px; border-radius: 16px; background: #f8fafc; }
+.mv-l12 .l12-minis b { color: #94a3b8; } .mv-l12 .l12-minis i { font-style: normal; font-size: 26px; color: #94a3b8; }

@@ -1,181 +1,198 @@
 /* =========================================================
- * anims/movies-4-2.js — lesson 4-2 teacher-driven movie (shell:
- * movie-kit.js; each beat plays, then FREEZES; logical/mirrored layout).
- *   designMovie : start from the user · persona · wireframe · why the
- *                 wireframe comes first · contrast · repetition · alignment ·
- *                 proximity (before → after) · user-centered design
+ * anims/movies-4-2.js — lesson 4-2 teacher-driven movie, drawn in the lesson
+ * 1-2 look (MK.look · css/anims-movies-l12.css).
+ *   designMovie (stations plan 0–3 · crap 4–9): visitors lost on a designer’s
+ *     page · a persona card · grey wireframe boxes that grow into a design ·
+ *     why wireframes before colours · one messy product page fixed principle by
+ *     principle (contrast, repetition, alignment, proximity) · UCD · recap
+ * Positions are LOGICAL (inset-inline-start): every layout mirrors itself in Arabic.
  * ========================================================= */
 (function () {
   'use strict';
   const K = RV.kit;
   const MK = RV.movieKit;
+  const { kit, stampIn, glow, glowCycle } = MK.look;
   const range = (n) => Array.from({ length: n }, (_, i) => i);
-  const PAGE = '<rect x="4" y="4" width="512" height="412" rx="18" fill="#f8fafc" stroke="#94a3b8" stroke-width="4"/>';
-  const LINES = (x, y, n, w) => range(n).map((k) => `<rect x="${x}" y="${y + k * 34}" width="${w - (k % 2) * 60}" height="18" rx="9" fill="#cbd5e1"/>`).join('');
 
   K.defineAnim('designMovie', (stage, props, api) => {
-    const U = MK.uiL('d2-');
+    const P = 'd2-', U = MK.ui(P), B = kit(P, MK.RTL());
     const M = MK.create(stage, api, { props,
-      cls: 'mv-media mv-l42', prefix: 'd2-', beats: 10, cast: { 'ch-d': 'engineer', 'ch-p': 'applicant', 'ch-u': 'studentL' },
-      html: (L) => {
-        const MESS = `${PAGE}<rect x="60" y="40" width="200" height="40" rx="6" fill="#f472b6" transform="rotate(-6 160 60)"/><rect x="300" y="90" width="170" height="110" rx="6" fill="#38bdf8" transform="rotate(8 385 145)"/>
-          <rect x="40" y="170" width="140" height="30" rx="6" fill="#fbbf24"/><rect x="220" y="250" width="240" height="26" rx="6" fill="#a78bfa" transform="rotate(-10 340 263)"/>
-          <rect x="70" y="320" width="120" height="50" rx="25" fill="#34d399"/><rect x="330" y="330" width="150" height="30" rx="6" fill="#f87171" transform="rotate(12 405 345)"/><text x="400" y="60" font-size="44">❓</text><text x="120" y="290" font-size="44">❓</text>`;
-        const WF = `<rect x="4" y="4" width="752" height="512" rx="18" fill="#e2e8f0" stroke="#94a3b8" stroke-width="4"/>
-          <rect x="30" y="28" width="700" height="70" rx="8" fill="#94a3b8"/><rect x="30" y="122" width="330" height="220" rx="8" fill="#94a3b8"/>
-          ${range(5).map((k) => `<rect x="390" y="${130 + k * 44}" width="${330 - (k % 2) * 80}" height="22" rx="11" fill="#94a3b8"/>`).join('')}
-          <rect x="30" y="370" width="700" height="60" rx="8" fill="#94a3b8"/><rect x="540" y="450" width="190" height="48" rx="24" fill="#94a3b8"/>
-          ${[[60, 72, 1], [70, 238, 2], [420, 118, 3], [580, 482, 4]].map(([x, y, n]) => `<g class="pri"><circle cx="${x}" cy="${y}" r="22" fill="#0f172a"/><text x="${x}" y="${y + 10}" text-anchor="middle" font-size="28" font-weight="900" fill="#fff">${n}</text></g>`).join('')}
-          <g class="col" opacity="0"><rect x="30" y="28" width="700" height="70" rx="8" fill="#10b981"/><rect x="30" y="122" width="330" height="220" rx="8" fill="#38bdf8"/>
-            ${range(5).map((k) => `<rect x="390" y="${130 + k * 44}" width="${330 - (k % 2) * 80}" height="22" rx="11" fill="#475569"/>`).join('')}
-            <rect x="30" y="370" width="700" height="60" rx="8" fill="#fde68a"/><rect x="540" y="450" width="190" height="48" rx="24" fill="#f97316"/></g>`;
-        const pair = (bef, aft) => [bef, aft];
-        const C = pair(`${PAGE}<text x="40" y="70" font-size="26" fill="#64748b">${L('سماعات لاسلكية', 'Wireless headphones')}</text>${LINES(40, 100, 5, 420)}<rect x="40" y="300" width="160" height="56" rx="10" fill="#cbd5e1"/><text x="120" y="336" text-anchor="middle" font-size="26" fill="#64748b">${L('اشترِ', 'Buy')}</text>`,
-          `${PAGE}<text x="40" y="78" font-size="48" font-weight="900" fill="#0f172a">${L('سماعات لاسلكية', 'Wireless headphones')}</text>${LINES(40, 110, 5, 420)}<rect x="40" y="296" width="220" height="70" rx="35" fill="#f97316"/><text x="150" y="342" text-anchor="middle" font-size="34" font-weight="900" fill="#fff">🛒 ${L('اشترِ', 'Buy')}</text>`);
-        const R = pair(`${range(3).map((k) => `<rect x="${10 + k * 170}" y="20" width="150" height="380" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/><rect x="${24 + k * 170}" y="40" width="${[110, 80, 120][k]}" height="${[20, 40, 14][k]}" rx="4" fill="${['#ef4444', '#22c55e', '#3b82f6'][k]}"/>${LINES(24 + k * 170, 110, 5, 120)}`).join('')}`,
-          `${range(3).map((k) => `<rect x="${10 + k * 170}" y="20" width="150" height="380" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/><rect x="${24 + k * 170}" y="40" width="110" height="30" rx="6" fill="#db2777"/>${LINES(24 + k * 170, 110, 5, 120)}`).join('')}`);
-        const A = pair(`${PAGE}${[[40, 40, 300], [110, 110, 260], [60, 180, 340], [140, 250, 220], [80, 320, 280]].map(([x, y, w]) => `<rect x="${x}" y="${y}" width="${w}" height="44" rx="8" fill="#a78bfa"/>`).join('')}`,
-          `${PAGE}<path d="M48 24 V396" stroke="#ef4444" stroke-width="4" stroke-dasharray="10 8"/>${[[40, 300], [110, 260], [180, 340], [250, 220], [320, 280]].map(([y, w]) => `<rect x="60" y="${y}" width="${w}" height="44" rx="8" fill="#a78bfa"/>`).join('')}`);
-        const P = pair(`${PAGE}<rect x="40" y="40" width="170" height="130" rx="12" fill="#38bdf8"/><text x="125" y="122" text-anchor="middle" font-size="60">🎧</text>
-            <text x="320" y="300" font-size="30" font-weight="800" fill="#0f172a">${L('سماعة', 'Headset')}</text><text x="60" y="380" font-size="30" font-weight="900" fill="#ea580c">500 ${L('ج', 'EGP')}</text>
-            <rect x="300" y="60" width="170" height="130" rx="12" fill="#a78bfa"/><text x="385" y="142" text-anchor="middle" font-size="60">📱</text><text x="250" y="230" font-size="30" font-weight="900" fill="#ea580c">900 ${L('ج', 'EGP')}</text><text x="40" y="250" font-size="30" font-weight="800" fill="#0f172a">${L('موبايل', 'Phone')}</text>`,
-          `${PAGE}${[[30, '🎧', '#38bdf8', L('سماعة', 'Headset'), 500], [280, '📱', '#a78bfa', L('موبايل', 'Phone'), 900]].map(([x, e, col, n, p]) => `<rect x="${x}" y="40" width="210" height="330" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="3"/>
-            <rect x="${x + 20}" y="60" width="170" height="130" rx="12" fill="${col}"/><text x="${x + 105}" y="142" text-anchor="middle" font-size="60">${e}</text>
-            <text x="${x + 105}" y="240" text-anchor="middle" font-size="30" font-weight="800" fill="#0f172a">${n}</text><text x="${x + 105}" y="290" text-anchor="middle" font-size="32" font-weight="900" fill="#ea580c">${p} ${L('ج', 'EGP')}</text>`).join('')}`);
-        const pairs = [['c', C, 't-amber', '🔆', L('① التباين', '① Contrast'), L('يبرز الأهم ويوضّح الأولوية فورًا', 'highlights the most important at once'), L('عنوان كبير غامق · زرار بلون مميّز', 'large bold heading · accent button')],
-          ['r', R, 't-pink', '🔁', L('② التكرار', '② Repetition'), L('نفس الخصائص ← تصميم متّسق', 'same features → a consistent design'), L('نفس خط ولون العناوين في كل صفحة', 'same heading font and color on every page')],
-          ['a', A, 't-violet', '📏', L('③ المحاذاة', '③ Alignment'), L('كل عنصر على خط أساس مشترك', 'every element on a common baseline'), L('حواف النص والصور على خط واحد', 'text and image edges on one line')],
-          ['p', P, 't-green', '🧲', L('④ التقارب', '④ Proximity'), L('المرتبط قريب ← مجموعة واحدة', 'related items close → one group'), L('الصورة والاسم والسعر مع بعض + مسافات', 'image, name, price together + spacing')]];
-        return `
-  <div id="d2-stage" class="mv-stage">
-    ${U.ch('ch-d', 80, 420, 'md')}
-    ${U.pill('dsay', 60, 300, '😎 ' + L('المصمّم: «واضح جدًا!»', 'Designer: "Crystal clear!"'), 'solid')}
-    ${U.art('mess', 560, 190, 520, 420, '0 0 520 420', MESS)}
-    ${U.emo('lost', 1180, 300, 560, 80, '😵 🤔 😵')}
-    ${U.pill('lostp', 1180, 440, L('الزوّار تايهين!', 'Visitors are lost!'), 't-red')}
-    ${U.pill('fix', 560, 650, '✅ ' + L('نبدأ من المستخدم… مش من المصمّم', 'Start from the user… not the designer'), 't-green')}
-
-    ${U.ch('ch-p', 90, 400, 'md')}
-    ${U.box('pc', 380, 180, 720, 't-blue', { ic: '🪪', h: L('شخصية المستخدم (Persona)', 'Persona'), p: L('موظف في التلاتينات · عايز يقارن منتجات من الموبايل في المواصلات', 'office worker in his 30s · compares products on his phone while commuting'), s: L('عايز المعلومة في وقت قصير', 'wants the information quickly') })}
-    ${[['🎂', L('العمر', 'age')], ['💼', L('المهنة', 'occupation')], ['🎯', L('الهدف', 'purpose')], ['😓', L('التحديات', 'challenges')]].map(([e, t], k) => U.pill('f' + k, 1180, 190 + k * 90, e + ' ' + t, 't-slate')).join('')}
-    ${U.pill('pb', 380, 560, '🧭 ' + L('«المستخدم ده محتاج إيه؟» ← التصميم مايتوهش', '"What does this user need?" → the design does not drift'), 't-green')}
-
-    ${U.art('wf', 100, 170, 760, 520, '0 0 760 520', WF)}
-    ${U.box('wfb', 980, 190, 860, 't-slate', { ic: '🔲', h: L('الإطار السلكي (Wireframe)', 'Wireframe'), p: L('مخطّط من غير ألوان ولا زخرفة', 'a blueprint with no color or decoration'), s: L('يحدّد مكان المعلومات وأولويتها (1، 2، 3…)', 'fixes placement and priority (1, 2, 3…)') })}
-    ${U.pill('grow', 980, 520, '➡️ ' + L('وبعدين بيكبر لتصميم نهائي', 'later it grows into a final design'), 't-blue')}
-    ${U.pill('taste', 980, 200, '🎨 ' + L('«أنا بحب الأزرق!» «لأ، الأخضر!» ← مابيخلصش', '"I like blue!" "No, green!" → never ends'), 't-red')}
-    ${U.pill('prio', 980, 310, '📐 ' + L('«السعر فوق، الوصف تحته» ← اتفاق', '"Price on top, description below" → agreement'), 't-green')}
-    ${U.box('stk', 980, 420, 860, 't-green', { h: '🤝 ' + L('أصحاب المصلحة يتفقوا أسهل', 'Stakeholders agree more easily'), p: L('النقاش على احتياج المستخدم مش على الذوق', 'the discussion is about user needs, not taste') })}
-
-    ${pairs.map(([k, [bef, aft], th, ic, h, p, s]) => U.art('b' + k, 80, 200, 520, 420, '0 0 520 420', bef) + U.art('f' + k, 700, 200, 520, 420, '0 0 520 420', aft)
-      + U.box('x' + k, 1300, 210, 540, th, { ic, h, p, s })).join('')}
-    ${U.emo('arr', 600, 360, 100, 64, MK.RTL() ? '⬅️' : '➡️')}
-    ${U.pill('bl', 230, 640, L('قبل', 'Before'), 't-red')}${U.pill('al', 880, 640, L('بعد', 'After'), 't-green')}
-
-    ${U.box('u1', 90, 190, 600, 't-blue', { ic: '🧭', h: L('التصميم المتمحور حول المستخدم (UCD)', 'User-centered design (UCD)'), p: L('من منظور المستخدم… مش راحة المصمّم', 'the user’s perspective… not the creator’s convenience') })}
-    ${U.pill('u2', 90, 470, '❓ ' + L('المستخدم محتاج إيه؟', 'What does the user need?'), 't-slate')}
-    ${U.pill('u3', 90, 550, '📍 ' + L('هيستخدمه في أنهي موقف؟', 'In what situation?'), 't-slate')}
-    ${U.pill('u4', 90, 630, '🪪 ' + L('الشخصية = طريقة لتطبيقه', 'A persona is one way to practice it'), 't-slate')}
-    ${U.ch('ch-u', 860, 330, 'md')}
-    ${U.emo('loop', 900, 196, 140, 76, '🔄')}
-    ${U.box('g1', 1290, 200, 560, 't-green', { ic: '👍', h: L('قابلية الاستخدام', 'Usability'), p: L('سهل في الاستخدام', 'easy to use') })}
-    ${U.box('g2', 1290, 440, 560, 't-violet', { ic: '♿', h: L('إمكانية الوصول', 'Accessibility'), p: L('ينفع لفئات واسعة', 'usable by a wide range of people') })}
-
-    ${U.hd(0, '🤔 ' + L('واضح للمصمّم… ومُلخبط للزوّار', 'Clear to the designer… confusing to visitors'))}
-    ${U.hd(1, '🪪 ' + L('شخصية المستخدم', 'Persona'))}
-    ${U.hd(2, '🔲 ' + L('الإطار السلكي', 'Wireframe'))}
-    ${U.hd(3, '💬 ' + L('ليه الإطار السلكي قبل الألوان؟', 'Why the wireframe before colors?'))}
-    ${U.hd(4, '🔆 ' + L('التباين', 'Contrast'))}
-    ${U.hd(5, '🔁 ' + L('التكرار', 'Repetition'))}
-    ${U.hd(6, '📏 ' + L('المحاذاة', 'Alignment'))}
-    ${U.hd(7, '🧲 ' + L('التقارب', 'Proximity'))}
-    ${U.hd(8, '🧭 ' + L('التصميم المتمحور حول المستخدم', 'User-centered design'))}
-    ${U.nt(3, '⚠️ ' + L('الإطار السلكي مش تصميم نهائي ومافيهوش ألوان', 'A wireframe is not a final design and has no colors'), 'warn')}
+      cls: 'mv-design mv-l12 mv-l42', prefix: P, beats: 10, cast: { ds: 'engineer', v1: 'student', v2: 'visitor', ps: 'applicant', ps2: 'applicant', k1: 'clerk', k2: 'server' },
+      html: (L) => `
+  <div id="d2-s0" class="mv-stage">
+    <div id="d2-mess" class="l12u l12-win later" style="${B.at(560, 140, 800, 420)}"><div class="wbar"><i></i><i></i><i></i><span class="url">my-site.com</span></div>
+      <div class="wbody l12-clutter">${['📢', '🎁', '⭐', '📞', '🛒', '📰', '🔥', '❓', '📍', '💬', '🎵', '📷'].map((e, k) => `<span style="transform:rotate(${(k % 5) * 6 - 12}deg)">${e}</span>`).join('')}</div></div>
+    ${B.ch('ds', 120, 340, 'md')}
+    ${B.chip('dsa', 70, 250, '😎 ' + L('«واضح جدًا!»', '“crystal clear!”'), 'c-slate big')}
+    ${B.ch('v1', 1460, 340, 'md')}${B.ch('v2', 1660, 360, 'sm')}
+    ${B.big('qa', 1440, 220, 90, 70, '❓')}${B.big('qb', 1700, 240, 90, 70, '❓')}
+    ${B.mid('fu', 640, '🧭 ' + L('التصميم الكويس بيبدأ من المستخدم… مش من المصمّم', 'good design starts from the user… not the creator'), 'c-green big')}
   </div>
-  <div id="d2-recap" class="mv-recap">
-    ${U.hd(9, '💡 ' + L('الخلاصة: من المستخدم للداخل', 'The point: from the user inward'))}
-    ${U.pill('y0', 120, 200, '🪪 ' + L('شخصية = مين', 'Persona = who'), 't-blue')}
-    ${U.pill('y1', 120, 300, '🔲 ' + L('إطار سلكي = فين (من غير لون)', 'Wireframe = where (no color)'), 't-slate')}
-    ${U.pill('y2', 120, 400, '✨ CRAP: ' + L('تباين يبرز · تكرار يوحّد · محاذاة تنظّم · تقارب يجمّع', 'contrast highlights · repetition unifies · alignment orders · proximity groups'), 't-amber')}
-    ${U.pill('y3', 120, 500, '🧭 UCD = ' + L('قرّر للمستخدم (قابلية استخدام + إمكانية وصول)', 'decide for the user (usability + accessibility)'), 't-green')}
-  </div>`;
-      },
-    });
-    const { q, Q, tl, at, IN, POP, OUT, SND, PULSE, frame, sx } = M;
-    const sel = (id, c) => M.board.querySelectorAll('#d2-' + id + ' .' + c);
+  <div id="d2-s1" class="mv-stage">
+    ${B.ch('ps', 120, 220, 'md')}
+    <div id="d2-pc" class="l12u l12-card c-green later" style="${B.at(420, 150, 900, 0)}"><span class="h">🪪 ${L('شخصية المستخدم (Persona)', 'Persona')}</span>
+      <div class="l12-kv"><b>👤 ${L('الاسم', 'name')}</b><span>${L('أحمد · 32 سنة', 'Ahmed · 32')}</span><b>💼 ${L('المهنة', 'job')}</b><span>${L('موظف', 'office worker')}</span><b>🎯 ${L('الهدف', 'goal')}</b><span>${L('يقارن منتجات من الموبايل في المواصلات', 'compare products on his phone while commuting')}</span><b>⏱️ ${L('التحدي', 'challenge')}</b><span>${L('عايز المعلومة في وقت قصير', 'needs information fast')}</span></div></div>
+    ${B.big('bus', 1380, 180, 320, 110, '🚌📱')}
+    ${B.card('pd', 1380, 420, 480, 0, 'c-amber', { ic: '🎯', p: L('نفكّر في «المستخدم ده محتاج إيه» — فالتصميم مايتوهش', 'we think “what does THIS user need” — so the design stays on track') })}
+  </div>
+  <div id="d2-s2" class="mv-stage">
+    <div id="d2-wf" class="l12u l12-wire later" style="${B.at(120, 140, 820, 500)}"><b class="hd">${L('الهيدر', 'header')}</b><b class="im">${L('صورة', 'image')}</b><b class="tx">${L('نص', 'text')}</b><b class="bt">${L('زرار', 'button')}</b></div>
+    <div id="d2-fin" class="l12u l12-win later" style="${B.at(1040, 140, 820, 500)}"><div class="wbar"><i></i><i></i><i></i><span class="url">shop.com</span></div>
+      <div class="wbody l12-final"><b class="hd">🛍️ Nile Shop</b><b class="im">👟</b><div class="tx"><b>${L('حذاء رياضي', 'Running shoe')}</b><span><bdi>450</bdi> ${L('جنيه', 'EGP')}</span></div><b class="bt">${L('اشترِ', 'Buy')}</b></div></div>
+    ${B.big('grow', 940, 330, 100, 70, B.arrow, 'l12-gold')}
+    ${B.mid('wd', 680, '🔲 ' + L('مخطّط تقريبي من غير ألوان ولا زخرفة — يحدّد مكان المعلومات وأولويتها', 'a rough plan with no colour or decoration — it fixes where information goes and its priority'), 'c-slate')}
+  </div>
+  <div id="d2-s3" class="mv-stage">
+    ${B.ch('k1', 120, 330, 'md')}${B.ch('k2', 420, 330, 'md')}
+    ${B.chip('b1', 60, 220, '🔵 «' + L('أنا بحب الأزرق!', 'I love blue!') + '»', 'c-blue big')}
+    ${B.chip('b2', 380, 150, '🟢 «' + L('لأ، الأخضر!', 'no, green!') + '»', 'c-green big')}
+    ${B.stamp('nx', 160, 640, '✗ ' + L('ذوق شخصي… مابيخلصش', 'personal taste… endless'))}
+    ${B.card('need', 1000, 160, 860, 0, 'c-green', { ic: '🔲', h: L('نثبّت مكان المعلومات وأولويتها الأول', 'fix the placement & priority first'), p: L('النقاش يبقى عن احتياج المستخدم — فأصحاب المصلحة يتفقوا أسهل', 'the talk is about the user’s need — stakeholders agree more easily') })}
+    ${B.chip('trap', 1000, 520, '⚠️ ' + L('الإطار السلكي مش تصميم نهائي ومافيهوش ألوان', 'a wireframe is not a final design and has no colour'), 'c-red', 860)}
+  </div>
 
-    /* 0 — clear to the designer, confusing to visitors */
+  <div id="d2-pgw" class="mv-stage">
+    <div id="d2-pg" class="l12u l12-win later" style="${B.at(70, 140, 940, 520)}"><div class="wbar"><i></i><i></i><i></i><span class="url">shop.com/shoe</span></div>
+      <div class="wbody l12-prod"><b class="t">${L('حذاء رياضي جديد', 'New running shoe')}</b><div class="row"><span class="im">👟</span><div class="info"><b class="nm">${L('حذاء الجري X', 'Runner X')}</b><b class="pr"><bdi>450</bdi> ${L('جنيه', 'EGP')}</b><b class="bt">${L('اشترِ', 'Buy')}</b></div></div><p class="ds">${L('خفيف ومريح للجري اليومي', 'light and comfy for daily runs')}</p></div></div>
+    ${B.svg('guide', 140, 250, 40, 380, '0 0 40 380', '<path d="M20 0 V380" stroke="#38bdf8" stroke-width="6" stroke-dasharray="14 10"/>')}
+    ${[['🎯', L('① التباين', '① Contrast'), L('نبرز أهم العناصر فورًا — عنوان كبير وغامق، ولون مميّز لزرار «اشترِ»', 'highlight the key elements — big bold heading, an accent colour for “Buy”'), 'c-pink'],
+      ['🔁', L('② التكرار', '② Repetition'), L('نفس لون وحجم وخط العناوين في كل صفحة — تصميم متّسق والمستخدم مايتوهش', 'same heading colour, size and font on every page — consistent, users don’t get lost'), 'c-blue'],
+      ['📏', L('③ المحاذاة', '③ Alignment'), L('كل عنصر على خط أساس مشترك — الشاشة يبقى ليها نظام', 'every element on a shared baseline — the screen gets order'), 'c-amber'],
+      ['🧲', L('④ التقارب', '④ Proximity'), L('المعلومات المرتبطة قريبة — صورة واسم وسعر المنتج مجموعة واحدة', 'related info together — the product’s image, name and price form one group'), 'c-green']]
+      .map(([ic, h, p, c], k) => B.card('cr' + k, 1060, 150, 800, 0, c, { ic, h, p })).join('')}
+    <div id="d2-minis" class="l12u l12-minis later" style="${B.at(1060, 450, 800, 200)}">${range(3).map((k) => `<span><b>${[L('الرئيسية', 'Home'), L('المنتجات', 'Products'), L('اتصل بينا', 'Contact')][k]}</b><i>• ─────</i><i>• ────</i></span>`).join('')}</div>
+  </div>
+
+  <div id="d2-s8" class="mv-stage">
+    ${B.ch('ps2', 820, 300, 'md')}
+    ${B.chip('u1', 470, 190, '🤔 ' + L('المستخدم محتاج إيه؟', 'what does the user need?'), 'c-green big')}
+    ${B.chip('u2', 1100, 190, '📍 ' + L('هيستخدمه في أنهي موقف؟', 'in which situation?'), 'c-blue big')}
+    ${B.chip('u3', 470, 620, '🪪 ' + L('شخصية المستخدم = طريقة لتطبيقه', 'personas are one way to apply it'), 'c-amber')}
+    ${B.chip('u4', 1100, 620, '🎯 ' + L('قابلية الاستخدام · إمكانية الوصول', 'usability · accessibility'), 'c-violet')}
+    ${B.card('ucd', 70, 300, 640, 0, 'c-green', { ic: '🧭', h: L('التصميم المتمحور حول المستخدم (UCD)', 'User-Centred Design (UCD)'), p: L('من منظور المستخدم — مش راحة المصمّم', 'from the user’s view — not the designer’s comfort') })}
+  </div>
+  <div id="d2-s9" class="mv-stage">
+    ${[['🪪', L('شخصية', 'Persona'), L('مين؟', 'who?'), 'c-green'], ['🔲', L('إطار سلكي', 'Wireframe'), L('فين؟ (من غير لون)', 'where? (no colour)'), 'c-slate'], ['🎨', 'CRAP', L('وضّحها', 'make it clear'), 'c-pink'], ['🧭', 'UCD', L('قرّر للمستخدم', 'decide for the user'), 'c-blue']]
+      .map(([ic, h, p, c], k) => B.card('rc' + k, 70 + k * 455, 150, 400, 260, c, { ic, h: `<bdi>${h}</bdi>`, k: p })).join('')}
+    ${range(3).map((k) => B.big('ra' + k, 470 + k * 455, 250, 55, 50, B.arrow, 'l12-gold')).join('')}
+    ${B.mid('crap', 480, '🎯 ' + L('التباين يبرز · 🔁 التكرار يوحّد · 📏 المحاذاة تنظّم · 🧲 التقارب يجمّع', 'contrast highlights · repetition unifies · alignment orders · proximity groups'), 'c-amber big')}
+  </div>
+    ${U.hd(0, '🤔 ' + L('واضح للمصمّم… تايه للزوّار', 'Clear to its designer… lost visitors'))}
+    ${U.hd(1, '🪪 ' + L('شخصية المستخدم (Persona)', 'The persona'))}
+    ${U.hd(2, '🔲 ' + L('الإطار السلكي (Wireframe)', 'The wireframe'))}
+    ${U.hd(3, '💬 ' + L('ليه الإطار السلكي قبل الألوان؟', 'Why a wireframe before colours?'))}
+    ${U.hd(4, '🎯 ' + L('① التباين (Contrast)', '① Contrast'))}
+    ${U.hd(5, '🔁 ' + L('② التكرار (Repetition)', '② Repetition'))}
+    ${U.hd(6, '📏 ' + L('③ المحاذاة (Alignment)', '③ Alignment'))}
+    ${U.hd(7, '🧲 ' + L('④ التقارب (Proximity)', '④ Proximity'))}
+    ${U.hd(8, '🧭 ' + L('التصميم المتمحور حول المستخدم', 'User-centred design'))}
+    ${U.hd(9, '📌 ' + L('الخلاصة', 'Recap'))}`,
+    });
+    const { q, Q, tl, IN, POP, OUT, SND, frame, sx } = M;
+    const all = (sel) => M.board.querySelectorAll(sel);
+    const at = M.at;
+    const leave = (k, c) => { if (k > 0) OUT(q('s' + (k - 1)), c, 0.4); };
+    const sel = (s) => all('#d2-pg ' + s);
+    /* the messy page: every part starts off its line; principles bring it home */
+    const MESS = { '.t': { x: 40, y: 0 }, '.im': { x: -30, y: 40 }, '.nm': { x: 50, y: 50 }, '.pr': { x: -40, y: 90 }, '.bt': { x: 70, y: 60 }, '.ds': { x: -50, y: 0 } };
+    const card = (k, t) => { if (k > 0) OUT(q('cr' + (k - 1)), t, 0.3); IN(q('cr' + k), t + 0.3, 0.5, { x: 40 * sx }); };
+
+    /* 0 — lost visitors */
     let c = at(0);
     frame(0, c);
-    IN(q('ch-d'), c + 0.3, 0.6, { x: -60 * sx }); IN(q('dsay'), c + 0.9, 0.4, { y: 14 }); SND('pop', c + 0.9);
-    IN(q('mess'), c + 1.6, 0.5, { y: 30 });
-    IN(q('lost'), c + 2.6, 0.5, { x: 30 * sx }); IN(q('lostp'), c + 3.0, 0.4); SND('bad', c + 3.0);
-    POP(q('fix'), c + 4.4, 0.5); SND('ok', c + 4.4);
+    IN(q('mess'), c + 0.3, 0.5, { y: 30 });
+    tl.fromTo(all('#d2-mess .l12-clutter span'), { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.25, stagger: 0.08, ease: 'back.out(2)' }, c + 0.7);
+    IN(q('ds'), c + 1.8, 0.5, { x: -30 * sx }); POP(q('dsa'), c + 2.4, 0.4);
+    IN(Q('v1 v2'), c + 3.2, 0.5, { x: 30 * sx });
+    POP(q('qa'), c + 4.0, 0.4); POP(q('qb'), c + 4.3, 0.4); SND('bad', c + 4.0);
+    M.mood('v1', true, c + 4.2); M.mood('v2', true, c + 4.4);
+    POP(q('fu'), c + 5.4, 0.5);
 
     /* 1 — persona */
     c = at(1);
     frame(1, c);
-    OUT(Q('ch-d dsay mess lost lostp fix'), c, 0.4);
-    IN(q('ch-p'), c + 0.5, 0.6, { x: -60 * sx });
-    IN(q('pc'), c + 1.2, 0.5, { y: 30 }); SND('pop', c + 1.2);
-    range(4).forEach((k) => { IN(q('f' + k), c + 2.4 + k * 0.5, 0.4, { x: 30 * sx }); SND('pop', c + 2.4 + k * 0.5); });
-    IN(q('pb'), c + 4.8, 0.4, { y: 20 }); SND('ok', c + 4.8);
+    leave(1, c);
+    IN(q('ps'), c + 0.4, 0.5, { x: -30 * sx });
+    IN(q('pc'), c + 0.8, 0.5, { y: 30 });
+    tl.fromTo(all('#d2-pc .l12-kv > *'), { opacity: 0, x: 20 * sx }, { opacity: 1, x: 0, duration: 0.25, stagger: 0.2 }, c + 1.3); SND('pop', c + 1.3);
+    POP(q('bus'), c + 3.4, 0.5);
+    IN(q('pd'), c + 4.4, 0.5, { y: 24 });
 
     /* 2 — wireframe */
     c = at(2);
     frame(2, c);
-    OUT(Q('ch-p pc f0 f1 f2 f3 pb'), c, 0.4);
-    IN(q('wf'), c + 0.6, 0.5, { y: 30 });
-    tl.fromTo(sel('wf', 'pri'), { opacity: 0, scale: 0.4, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, duration: 0.35, stagger: 0.35, ease: 'back.out(2)' }, c + 1.4);
-    IN(q('wfb'), c + 2.6, 0.5, { x: 40 * sx }); SND('ok', c + 2.6);
-    tl.to(sel('wf', 'col'), { opacity: 1, duration: 1.0 }, c + 4.4); IN(q('grow'), c + 4.4, 0.4, { y: 20 });
+    leave(2, c);
+    IN(q('wf'), c + 0.4, 0.3);
+    tl.fromTo(all('#d2-wf b'), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.35, stagger: 0.35, ease: 'back.out(2)' }, c + 0.6); SND('pop', c + 0.6);
+    IN(q('grow'), c + 2.4, 0.3);
+    IN(q('fin'), c + 2.8, 0.6, { scale: 0.9 }); SND('ok', c + 3.2);
+    IN(q('wd'), c + 4.4, 0.4, { y: 12 });
 
-    /* 3 — why the wireframe comes first */
+    /* 3 — why wireframe first */
     c = at(3);
-    frame(3, c, 5.4);
-    OUT(Q('wfb grow'), c, 0.3);
-    tl.to(sel('wf', 'col'), { opacity: 0, duration: 0.5 }, c);
-    IN(q('taste'), c + 0.8, 0.4, { x: 30 * sx }); SND('bad', c + 0.8);
-    IN(q('prio'), c + 2.2, 0.4, { x: 30 * sx }); SND('ok', c + 2.2);
-    IN(q('stk'), c + 3.6, 0.5, { y: 20 });
+    frame(3, c);
+    leave(3, c);
+    IN(Q('k1 k2'), c + 0.4, 0.5, { y: 30 });
+    POP(q('b1'), c + 1.0, 0.4); POP(q('b2'), c + 1.6, 0.4); SND('bad', c + 1.6);
+    tl.fromTo(Q('b1 b2'), { rotation: 0 }, { rotation: 3, duration: 0.1, yoyo: true, repeat: 7 }, c + 2.2);
+    stampIn(M, q('nx'), c + 3.0);
+    IN(q('need'), c + 3.8, 0.5, { x: 40 * sx }); SND('ok', c + 3.8);
+    M.mood('k1', false, c + 4.4);
+    IN(q('trap'), c + 5.4, 0.4, { y: 12 });
 
-    /* 4–7 — CRAP: before → after */
-    ['c', 'r', 'a', 'p'].forEach((k, i) => {
-      c = at(4 + i);
-      frame(4 + i, c);
-      if (i === 0) { OUT(Q('wf taste prio stk'), c, 0.4); IN(Q('arr bl al'), c + 1.6, 0.3); }
-      else OUT(Q(`b${'crap'[i - 1]} f${'crap'[i - 1]} x${'crap'[i - 1]}`), c, 0.3);
-      IN(q('b' + k), c + 0.6, 0.5, { y: 30 }); SND('bad', c + 0.9);
-      PULSE(q('arr'), c + 2.0, 'rgba(251,191,36,.8)', 1);
-      POP(q('f' + k), c + 2.4, 0.6); SND('ok', c + 2.6);
-      IN(q('x' + k), c + 3.6, 0.5, { x: 40 * sx });
-    });
+    /* 4–7 — one messy page, fixed principle by principle */
+    c = at(4);
+    frame(4, c);
+    leave(4, c);
+    Object.entries(MESS).forEach(([s, o]) => tl.set(sel(s), { x: o.x * sx, y: o.y }, c));
+    IN(q('pg'), c + 0.4, 0.5, { y: 30 });
+    card(0, c + 0.8);
+    tl.fromTo(sel('.t'), { fontSize: '30px', color: '#64748b' }, { fontSize: '50px', color: '#0f172a', duration: 0.7 }, c + 2.0);
+    tl.fromTo(sel('.bt'), { backgroundColor: '#cbd5e1', color: '#475569' }, { backgroundColor: '#ec4899', color: '#ffffff', duration: 0.6 }, c + 2.8); SND('pop', c + 2.8);
+    glow(M, sel('.bt'), c + 3.4, 'rgba(236,72,153,.95)');
 
-    /* 8 — user-centered design */
+    c = at(5);
+    frame(5, c);
+    card(1, c + 0.3);
+    IN(q('minis'), c + 1.2, 0.5, { y: 24 });
+    tl.fromTo(all('#d2-minis b'), { color: '#94a3b8', fontSize: '24px' }, { color: '#0f172a', fontSize: '30px', duration: 0.4, stagger: 0.3 }, c + 1.8);
+    tl.to(all('#d2-minis i'), { color: '#2563eb', duration: 0.3, stagger: 0.1 }, c + 3.0); SND('ok', c + 3.4);
+
+    c = at(6);
+    frame(6, c);
+    OUT(q('minis'), c, 0.3); card(2, c + 0.3);
+    IN(q('guide'), c + 1.0, 0.3); tl.fromTo(all('#d2-guide path'), { drawSVG: '0%' }, { drawSVG: '100%', duration: 0.6 }, c + 1.0);
+    Object.keys(MESS).forEach((s, k) => tl.to(sel(s), { x: 0, duration: 0.5, ease: 'back.out(1.6)' }, c + 1.8 + k * 0.2)); SND('tap', c + 1.8);
+
+    c = at(7);
+    frame(7, c);
+    OUT(q('guide'), c, 0.3); card(3, c + 0.3);
+    Object.keys(MESS).forEach((s, k) => tl.to(sel(s), { y: 0, duration: 0.5, ease: 'power2.inOut' }, c + 1.2 + k * 0.15)); SND('tap', c + 1.2);
+    tl.to(sel('.row'), { outlineColor: 'rgba(52,211,153,1)', duration: 0.4 }, c + 2.6); SND('ok', c + 2.8);
+
+    /* 8 — UCD */
     c = at(8);
     frame(8, c);
-    OUT(Q('bp fp xp arr bl al'), c, 0.4);
-    IN(q('u1'), c + 0.5, 0.5, { y: 30 });
-    IN(q('ch-u'), c + 1.0, 0.5, { y: 30 }); POP(q('loop'), c + 1.4, 0.5);
-    tl.to(q('loop'), { rotation: 360, duration: 2.4, ease: 'none', transformOrigin: '50% 50%' }, c + 1.6);
-    Q('u2 u3 u4').forEach((u, i) => { IN(u, c + 2.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 2.0 + i * 0.6); });
-    IN(q('g1'), c + 4.2, 0.5, { x: 40 * sx }); IN(q('g2'), c + 4.8, 0.5, { x: 40 * sx }); SND('ok', c + 4.8);
+    OUT(q('pgw'), c, 0.4);
+    IN(q('ps2'), c + 0.4, 0.5, { y: 30 });
+    IN(q('ucd'), c + 1.0, 0.5, { x: -30 * sx });
+    ['u1', 'u2', 'u3', 'u4'].forEach((u, k) => POP(q(u), c + 2.0 + k * 0.6, 0.4));
 
     /* 9 — recap */
     c = at(9);
-    tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
-    IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
-    Q('y0 y1 y2 y3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
-    /* living loops */
-    M.loop(0, 5.2, () => M.breathe(q('fix'), 1.08, 1.0));
-    M.loop(1, 5.4, () => M.cycle(Q('f0 f1 f2 f3'), 'rgba(52,211,153,.85)', 0.45));
-    M.loop(2, 5.6, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('wf', 'col'), { opacity: 1 }, { opacity: 0.25, duration: 1.4, ease: 'sine.inOut' }));
-    M.loop(3, 4.8, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).fromTo(sel('wf', 'pri'), { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.08, duration: 0.35, stagger: 0.35, yoyo: true, repeat: 1 }));
-    ['c', 'r', 'a', 'p'].forEach((k, i) => M.loop(4 + i, 4.4, () => gsap.timeline({ repeat: -1, repeatDelay: 1.0 })
-      .fromTo(q('b' + k), { opacity: 1 }, { opacity: 0.5, duration: 0.5 }).to(q('arr'), { boxShadow: '0 0 30px rgba(251,191,36,.8)', duration: 0.3, yoyo: true, repeat: 1 }, '<')
-      .fromTo(q('f' + k), { scale: 1 }, { scale: 1.05, duration: 0.4, yoyo: true, repeat: 1, transformOrigin: '50% 50%' })
-      .to(q('b' + k), { opacity: 1, duration: 0.5 })));
-    M.loop(8, 5.4, () => gsap.timeline({ repeat: -1 }).to(q('loop'), { rotation: '+=360', duration: 4, ease: 'none', transformOrigin: '50% 50%' }));
+    frame(9, c);
+    OUT(q('s8'), c, 0.4);
+    range(4).forEach((k) => { IN(q('rc' + k), c + 0.4 + k * 0.5, 0.5, { y: 30 }); SND('pop', c + 0.4 + k * 0.5); if (k < 3) IN(q('ra' + k), c + 0.7 + k * 0.5, 0.3); });
+    POP(q('crap'), c + 2.8, 0.5);
+
+    M.loop(0, 6.4, () => gsap.timeline({ repeat: -1, yoyo: true }).to(all('#d2-mess .l12-clutter span'), { rotation: '+=8', duration: 0.6, stagger: { each: 0.05, from: 'random' } }));
+    M.loop(1, 5.4, () => M.bob(q('bus'), 6, 0.6));
+    M.loop(2, 5.2, () => gsap.timeline({ repeat: -1, yoyo: true }).to(q('grow'), { x: 14 * sx, duration: 0.6 }));
+    M.loop(3, 6.2, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(Q('b1 b2'), { rotation: 0 }, { rotation: 3, duration: 0.1, yoyo: true, repeat: 5 }));
+    M.loop(4, 4.2, () => M.glowLoop(sel('.bt'), 'rgba(236,72,153,.95)', 0.9));
+    M.loop(7, 3.6, () => M.glowLoop(sel('.row'), 'rgba(52,211,153,.8)', 1.0));
+    M.loop(8, 4.6, () => M.bob(Q('u1 u2 u3 u4'), 7, 1.2));
+    M.loop(9, 3.6, () => glowCycle(Q('rc0 rc1 rc2 rc3'), 'rgba(16,185,129,.9)', 0.4));
     return M.done();
   });
 })();
