@@ -70,9 +70,9 @@
     <rect class="am" x="410" y="30" width="90" height="220" rx="10" fill="#34d399"/>${T(455, 290, 'Σ', 'am', '#d1fae5', 40)}`;
 
   K.defineAnim('cleanMovie', (stage, props, api) => {
-    const U = MK.uiL('c2-');
+    const U = MK.uiL12('c2-'), B = MK.look.kit('c2-', MK.RTL());
     const M = MK.create(stage, api, { props,
-      cls: 'mv-data mv-l52', prefix: 'c2-', beats: 10,
+      cls: 'mv-data mv-l52 mv-l12', prefix: 'c2-', beats: 10,
       html: (L) => `
   <div id="c2-stage" class="mv-stage">
     ${[['📥', L('١ الجمع', '1 Collect'), L('استطلاعات · مفتوحة · API', 'surveys · open data · API'), 't-blue'],
@@ -109,6 +109,7 @@
     ${U.pill('dom', 100, 270, '⚠️ ' + L('الأرقام الأكبر بتسيطر على النتيجة', 'Bigger numbers dominate the result'), 't-red')}
     ${U.art('nl', 1100, 170, 720, 400, '0 0 720 400', NL)}
     ${U.pill('nf', 100, 420, '🧮 ' + L('(القيمة − الأصغر) ÷ (الأكبر − الأصغر)', '(value − min) ÷ (max − min)'), 'solid')}
+    ${B.card('cmp', 1100, 610, 720, 0, 'c-green', { row: true, ic: '⚖️', h: L('70 كجم ← 0.5 · 170 سم ← 0.5', '70 kg → 0.5 · 170 cm → 0.5'), p: L('دلوقتي الاتنين على نفس المقياس', 'now both sit on the same scale') })}
     ${U.box('nb', 100, 520, 900, 't-green', { h: L('التحويل الكمي (Min‑Max)', 'Normalization (Min‑Max)'), p: L('من 0 لـ 1 ← نقارن متغيرات بوحدات مختلفة', '0 to 1 → compare variables with different units') })}
 
     ${U.art('bell', 1080, 170, 760, 400, '0 0 760 400', BELL)}
@@ -141,10 +142,11 @@
   </div>
   <div id="c2-recap" class="mv-recap">
     ${U.hd(9, '💡 ' + L('الخلاصة', 'The point'))}
-    ${U.pill('x0', 120, 180, '🧹 ' + L('التنظيف: مفقودة (حذف/تعويض/علامة) · شاذة (حسب السبب) · مكررة (لو فعلية)', 'Clean: missing (delete/impute/flag) · outliers (by cause) · duplicates (if real)'), 't-amber')}
-    ${U.pill('x1', 120, 290, '🔢 ' + L('تحويل النوع: نص ← رقم · تاريخ موحّد · كتابة موحّدة', 'Type conversion: text → number · one date format · one notation'), 't-blue')}
-    ${U.pill('x2', 120, 400, '📏 ' + L('كمي = 0 لـ 1 · 🔔 قياسي = متوسط 0 وانحراف 1', 'Normalization = 0 to 1 · standardization = mean 0, SD 1'), 't-violet')}
-    ${U.pill('x3', 120, 510, '🧩 ' + L('محوري · ربط · تجميع — والغرض هو اللي بيقرّر', 'Pivot · join · aggregate — the purpose decides'), 't-green')}
+    ${B.card('x0', 70, 170, 410, 400, 'c-amber', { ic: '🧹', h: L('التنظيف', 'Cleaning'), p: L('مفقودة: حذف/تعويض/علامة · شاذة: حسب السبب · مكررة: لو فعلية', 'missing: delete/impute/flag · outliers: by cause · duplicates: if real') })}
+    ${B.card('x1', 530, 170, 410, 400, 'c-blue', { ic: '🔢', h: L('تحويل النوع', 'Type conversion'), p: L('نص ← رقم · تاريخ موحّد · كتابة موحّدة', 'text → number · one date format · one notation') })}
+    ${B.card('x2', 990, 170, 410, 400, 'c-violet', { ic: '📏🔔', h: L('المقياس', 'Scaling'), p: L('كمي = من 0 لـ 1 · قياسي = متوسط 0 وانحراف 1', 'normalization = 0 to 1 · standardization = mean 0, SD 1') })}
+    ${B.card('x3', 1450, 170, 410, 400, 'c-green', { ic: '🧩', h: L('إعادة التشكيل', 'Reshaping'), p: L('محوري · ربط · تجميع', 'pivot · join · aggregate') })}
+    ${B.mid('xb', 620, '🎯 ' + L('كل خطوة قرار بيقوده الغرض — مش قاعدة ثابتة', 'every step is a decision led by the purpose — not a fixed rule'), 'c-amber big')}
   </div>`,
     });
     const { q, Q, tl, at, IN, POP, OUT, SND, frame, sx } = M;
@@ -228,11 +230,12 @@
     SND('pop', c + 2.6);
     POP(q('nf'), c + 4.0, 0.45);
     IN(q('nb'), c + 4.8, 0.5, { y: 20 }); SND('ok', c + 4.8);
+    IN(q('cmp'), c + 5.6, 0.5, { y: 20 });
 
     /* 7 — standardization */
     c = at(7);
     frame(7, c, 5.6);
-    OUT(Q('raw dom nl nf nb'), c, 0.4);
+    OUT(Q('raw dom nl nf nb cmp'), c, 0.4);
     IN(q('bell'), c + 0.5, 0.5, { y: 30 });
     tl.fromTo(sel('bell', 'bell'), { scaleY: 0, transformOrigin: '50% 100%' }, { scaleY: 1, duration: 0.8, ease: 'back.out(1.4)' }, c + 0.7);
     POP(q('zf'), c + 1.8, 0.45);
@@ -257,7 +260,9 @@
     c = at(9);
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
-    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.5, 0.5, { y: 30 }); SND('pop', c + 1.0 + i * 0.5); });
+    POP(q('xb'), c + 3.2, 0.5); SND('ok', c + 3.2);
+    M.loop(9, 3.8, () => MK.look.glowCycle(Q('x0 x1 x2 x3'), 'rgba(251,191,36,.8)', 0.5));
     /* living loops */
     M.loop(0, 4.6, () => M.cycle(Q('p0 p1 p2 p3'), 'rgba(56,189,248,.85)', 0.5));
     M.loop(1, 5.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.4 }).fromTo(sel('tb', 'hl-miss'), { opacity: 0 }, { opacity: 1, duration: 0.4, yoyo: true, repeat: 1 }).fromTo(sel('tb', 'hl-out'), { opacity: 0 }, { opacity: 1, duration: 0.4, yoyo: true, repeat: 1 }).fromTo(sel('tb', 'hl-dup'), { opacity: 0 }, { opacity: 1, duration: 0.4, yoyo: true, repeat: 1 }).fromTo(sel('tb', 'hl-fmt'), { opacity: 0 }, { opacity: 1, duration: 0.4, yoyo: true, repeat: 1 }));

@@ -92,6 +92,13 @@
     xc: (id, x, y, ok) => `<div id="${P}${id}" class="xc ${ok ? 'ok' : ''} later" ${SL(x, y)}>${ok ? '✓' : '✕'}</div>`,
   });
 
+  /* uiL drawn in the lesson 1-2 look (glass cards + chips · css/anims-movies-l12.css; the board needs .mv-l12) */
+  const th12 = (th) => (th || '').split(' ').map((c) => (c === 'solid' ? 'c-amber solid' : c.replace(/^t-/, 'c-'))).join(' ');
+  const uiL12 = (P) => Object.assign(uiL(P), {
+    box: (id, x, y, w, th, p) => `<div id="${P}${id}" class="l12-card ${th12(th)} later" ${SL(x, y, w)}>${p.ic ? `<span class="ic">${p.ic}</span>` : ''}${p.y ? `<span class="k">${p.y}</span>` : ''}${p.h ? `<span class="h">${p.h}</span>` : ''}${p.p ? `<span class="p">${p.p}</span>` : ''}${p.s ? `<span class="s">${p.s}</span>` : ''}</div>`,
+    pill: (id, x, y, txt, th) => `<div id="${P}${id}" class="l12-chip ${th12(th)} later" ${SL(x, y)}>${txt}</div>`,
+  });
+
   /* HTML builders for one movie (ids are prefixed with P) */
   const ui = (P) => ({
     box: (id, x, y, w, th, p) => `<div id="${P}${id}" class="box ${th || ''} later" ${S(x, y, w)}>${p.ic ? `<span class="ic">${p.ic}</span>` : ''}${p.y ? `<span class="y">${p.y}</span>` : ''}${p.h ? `<span class="h">${p.h}</span>` : ''}${p.p ? `<span class="p">${p.p}</span>` : ''}${p.s ? `<span class="s">${p.s}</span>` : ''}</div>`,
@@ -213,5 +220,5 @@
     return { board, q, Q, tl, at, IN, POP, OUT, SND, PULSE, L, done, frame, hop, walk, shake, mood, loop, breathe, glowLoop, cycle, bob, ping, rtl: RTL(), sx: RTL() ? -1 : 1 };
   }
 
-  RV.movieKit = { person, CAST, RACK, PC, S, B, SL, RTL, ui, uiL, create };
+  RV.movieKit = { person, CAST, RACK, PC, S, B, SL, RTL, ui, uiL, uiL12, create };
 })();
