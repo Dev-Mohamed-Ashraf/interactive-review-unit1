@@ -39,9 +39,9 @@
     <rect x="60" y="40" width="150" height="64" rx="12" fill="#f87171"/>${T(135, 84, 'I', '#fff', 40)}<rect x="590" y="40" width="150" height="64" rx="12" fill="#fbbf24"/>${T(665, 84, 'II', '#0f172a', 40)}</g>`;
 
   K.defineAnim('inferMovie', (stage, props, api) => {
-    const U = MK.uiL('f1-');
+    const U = MK.uiL12('f1-'), B = MK.look.kit('f1-', MK.RTL());
     const M = MK.create(stage, api, { props,
-      cls: 'mv-data mv-l61', prefix: 'f1-', beats: 10,
+      cls: 'mv-data mv-l61 mv-l12', prefix: 'f1-', beats: 10,
       html: (L) => `
   <div id="f1-stage" class="mv-stage">
     ${U.art('pop', 90, 160, 520, 420, '0 0 520 420', POPC)}
@@ -68,7 +68,7 @@
     ${U.box('h1', 1010, 180, 820, 't-violet', { ic: '1️⃣', h: L('الفرضية البديلة H₁', 'Alternative hypothesis H₁'), p: L('بنعتمدها لو رفضنا H₀: «فيه فرق/علاقة»', 'adopted if H₀ is rejected: "there is a difference"') })}
     ${U.pill('lg', 160, 460, '🤔 ' + L('نفترض H₀ صح… البيانات اللي معانا كانت هتبقى بعيدة الاحتمال؟', 'Assume H₀ is true… would our data be unlikely?'), 'solid')}
     ${U.pill('rj', 160, 580, '❌ ' + L('بعيدة الاحتمال ← نرفض H₀', 'unlikely → reject H₀'), 't-red')}
-    ${U.pill('nr', 1010, 580, '🤷 ' + L('مش بعيدة ← مانرفضش H₀', 'not unlikely → do not reject H₀'), 't-slate')}
+    ${U.pill('nr', 1010, 580, '🤷‍♂️ ' + L('مش بعيدة ← مانرفضش H₀', 'not unlikely → do not reject H₀'), 't-slate')}
 
     ${[['① ' + L('الفرضيات', 'Hypotheses'), L('H₀: مفيش فرق · H₁: الجديدة أعلى', 'H₀: no difference · H₁: new is higher'), 't-slate'],
        ['② ' + L('مستوى الدلالة', 'Significance level'), L('α = 0.05 قبل ما نشوف النتيجة', 'α = 0.05, before seeing results'), 't-amber'],
@@ -111,10 +111,10 @@
   </div>
   <div id="f1-recap" class="mv-recap">
     ${U.hd(9, '💡 ' + L('الخلاصة', 'The point'))}
-    ${U.pill('x0', 120, 180, '📏 ' + L('نقطي = قيمة · فاصل = مدى + مستوى ثقة (جملة عن الطريقة)', 'Point = a value · interval = a range + a confidence level (about the method)'), 't-amber')}
-    ${U.pill('x1', 120, 290, '🪜 ' + L('H₀ و H₁ ← α مسبقًا ← p ← نرفض H₀ لو p < α', 'H₀ & H₁ → α first → p → reject H₀ if p < α'), 't-violet')}
-    ${U.pill('x2', 120, 400, '🚨 ' + L('النوع الأول = إنذار كاذب · النوع التاني = تفويت', 'Type I = false alarm · Type II = a miss'), 't-red')}
-    ${U.pill('x3', 120, 510, '⚠️ ' + L('دالّة إحصائيًا ≠ مهمة عمليًا', 'Statistically significant ≠ practically important'), 't-green')}
+    ${B.card('x0', 70, 170, 410, 420, 'c-amber rc', { ic: '📏', p: L('نقطي = قيمة · فاصل = مدى + مستوى ثقة (جملة عن الطريقة)', 'Point = a value · interval = a range + a confidence level (about the method)') })}
+    ${B.card('x1', 530, 170, 410, 420, 'c-violet rc', { ic: '🪜', p: L('H₀ و H₁ ← α مسبقًا ← p ← نرفض H₀ لو p < α', 'H₀ & H₁ → α first → p → reject H₀ if p < α') })}
+    ${B.card('x2', 990, 170, 410, 420, 'c-red rc', { ic: '🚨', p: L('النوع الأول = إنذار كاذب · النوع التاني = تفويت', 'Type I = false alarm · Type II = a miss') })}
+    ${B.card('x3', 1450, 170, 410, 420, 'c-green rc', { ic: '⚠️', p: L('دالّة إحصائيًا ≠ مهمة عمليًا', 'Statistically significant ≠ practically important') })}
   </div>`,
     });
     const { q, Q, tl, at, IN, POP, OUT, SND, frame, sx } = M;
@@ -216,7 +216,8 @@
     c = at(9);
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
-    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.5, 0.5, { y: 30 }); SND('pop', c + 1.0 + i * 0.5); });
+    M.loop(9, 3.4, () => MK.look.glowCycle(Q('x0 x1 x2 x3'), 'rgba(251,191,36,.8)', 0.5));
     /* living loops */
     M.loop(0, 6.2, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).fromTo(Q('ar1 ar2'), { boxShadow: '0 0 0 rgba(0,0,0,0)' }, { boxShadow: '0 0 36px rgba(251,191,36,.85)', duration: 0.6, stagger: 0.6, yoyo: true, repeat: 1 }));
     M.loop(0, 6.2, () => gsap.timeline().to(sel('pop', 'pick'), { scale: 1.3, transformOrigin: '50% 50%', duration: 0.7, ease: 'sine.inOut', stagger: { each: 0.15, repeat: -1, yoyo: true } }));

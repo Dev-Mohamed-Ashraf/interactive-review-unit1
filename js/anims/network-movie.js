@@ -69,7 +69,7 @@
     <div id="nw-n5" class="note bad later">⛔ ${L('مفيش «جوّه موثوق»: الهوية + الصلاحيات بتتفحص في كل مرة', 'No "trusted inside": identity + permissions are checked every time')}</div>
 
     <div id="nw-b-emp1" class="bubble tl mv-bub later">${L('إحنا شغالين هنا… والبيانات دي سرّية جدًا', 'We work here… and this data is top secret')} 🤫</div>
-    <div id="nw-b-vis" class="bubble tl mv-bub later">🙋 ${L('عايز أشوف موقعكم', 'I want to see your website')}</div>
+    <div id="nw-b-vis" class="bubble tl mv-bub later">🙋‍♂️ ${L('عايز أشوف موقعكم', 'I want to see your website')}</div>
     <div id="nw-b-guard1" class="bubble tl mv-bub later">✅ ${L('مسموح — اتفضل على الاستقبال', 'Allowed — go to reception')}</div>
     <div id="nw-b-hack1" class="bubble tl mv-bub later">😈 ${L('عايز أدخل على الخزنة على طول!', 'I want to go straight to the vault!')}</div>
     <div id="nw-b-guard2" class="bubble tl mv-bub later">⛔ ${L('ممنوع — مفيش دخول مباشر لقاعدة البيانات', 'Denied — no direct access to the database')}</div>

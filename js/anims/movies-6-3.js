@@ -60,9 +60,9 @@
     <g class="ax96">${T(36, 336, '96', '#fca5a5', 26)}</g><g class="ax0" opacity="0">${T(36, 336, '0', '#a7f3d0', 26)}</g>`;
 
   K.defineAnim('vizMovie', (stage, props, api) => {
-    const U = MK.uiL('v3-');
+    const U = MK.uiL12('v3-'), B = MK.look.kit('v3-', MK.RTL());
     const M = MK.create(stage, api, { props,
-      cls: 'mv-data mv-l63', prefix: 'v3-', beats: 10,
+      cls: 'mv-data mv-l63 mv-l12', prefix: 'v3-', beats: 10,
       html: (L) => `
   <div id="v3-stage" class="mv-stage">
     ${U.art('tab', 90, 170, 560, 360, '0 0 560 360', TAB(L))}
@@ -121,10 +121,10 @@
   </div>
   <div id="v3-recap" class="mv-recap">
     ${U.hd(9, '💡 ' + L('الخلاصة', 'The point'))}
-    ${U.pill('x0', 120, 180, '🧠📣 ' + L('دورين: فهم المحلّل نفسه + التوصيل للآخرين', 'Two roles: the analyst’s understanding + communicating'), 't-violet')}
-    ${U.pill('x1', 120, 290, '📈 ' + L('متغير/اتنين ← أعمدة · خطوط · مبعثر', 'One or two variables → bar · line · scatter'), 't-blue')}
-    ${U.pill('x2', 120, 400, '🌡️ ' + L('خريطة حرارية = لون عبر محورين · 🧩 مستطيلات = مساحة لفئتين', 'Heatmap = colour on two axes · mosaic = area for two categories'), 't-amber')}
-    ${U.pill('x3', 120, 510, '📝 ' + L('رسالة واحدة · عناصر بتخدمها · تسميات صادقة', 'One message · serving elements · honest labels'), 't-green')}
+    ${B.card('x0', 70, 170, 410, 420, 'c-violet rc', { ic: '🧠📣', p: L('دورين: فهم المحلّل نفسه + التوصيل للآخرين', 'Two roles: the analyst’s understanding + communicating') })}
+    ${B.card('x1', 530, 170, 410, 420, 'c-blue rc', { ic: '📈', p: L('متغير/اتنين ← أعمدة · خطوط · مبعثر', 'One or two variables → bar · line · scatter') })}
+    ${B.card('x2', 990, 170, 410, 420, 'c-amber rc', { ic: '🌡️', p: L('خريطة حرارية = لون عبر محورين · 🧩 مستطيلات = مساحة لفئتين', 'Heatmap = colour on two axes · mosaic = area for two categories') })}
+    ${B.card('x3', 1450, 170, 410, 420, 'c-green rc', { ic: '📝', p: L('رسالة واحدة · عناصر بتخدمها · تسميات صادقة', 'One message · serving elements · honest labels') })}
   </div>`,
     });
     const { q, Q, tl, at, IN, POP, OUT, SND, frame, sx } = M;
@@ -223,7 +223,8 @@
     c = at(9);
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
-    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.5, 0.5, { y: 30 }); SND('pop', c + 1.0 + i * 0.5); });
+    M.loop(9, 3.4, () => MK.look.glowCycle(Q('x0 x1 x2 x3'), 'rgba(251,191,36,.8)', 0.5));
     /* living loops */
     M.loop(0, 5.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(sel('line', 'ln'), { strokeDasharray: 1400, strokeDashoffset: 1400 }, { strokeDashoffset: 0, duration: 1.8, ease: 'power1.inOut' }));
     M.loop(1, 4.8, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 })

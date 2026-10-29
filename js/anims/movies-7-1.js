@@ -30,9 +30,9 @@
     <text x="${C(2) + 52}" y="${24 + 1 * 108 + 66}" text-anchor="middle" font-size="52">🕳️</text>`; };
 
   K.defineAnim('mlMovie', (stage, props, api) => {
-    const U = MK.uiL('l1-');
+    const U = MK.uiL12('l1-'), B = MK.look.kit('l1-', MK.RTL());
     const M = MK.create(stage, api, { props,
-      cls: 'mv-data mv-l71', prefix: 'l1-', beats: 10, cast: { 'ch-t': 'engineer' },
+      cls: 'mv-data mv-l71 mv-l12', prefix: 'l1-', beats: 10, cast: { 'ch-t': 'engineer' },
       html: (L) => `
   <div id="l1-stage" class="mv-stage">
     ${U.pill('cvh', 90, 170, '🧑‍💻 ' + L('البرمجة التقليدية', 'Conventional programming'), 't-slate')}
@@ -105,10 +105,10 @@
   </div>
   <div id="l1-recap" class="mv-recap">
     ${U.hd(9, '💡 ' + L('الخلاصة', 'The point'))}
-    ${U.pill('x0', 120, 180, '🤖 ' + L('تعلّم الآلة بيلاقي القواعد من البيانات بدل ما نكتبها', 'ML finds the rules from data instead of us writing them'), 't-violet')}
-    ${U.pill('x1', 120, 290, '🏷️ ' + L('إشراف (أوسمة ← تصنيف بسمات) · 📦 غير إشراف (تجميع)', 'Supervised (labels → classification) · unsupervised (clustering)'), 't-blue')}
-    ${U.pill('x2', 120, 400, '🎮 ' + L('معزَّز: حالة · فعل · مكافأة', 'Reinforcement: state · action · reward'), 't-amber')}
-    ${U.pill('x3', 120, 510, '⚖️ ' + L('تحيّز + صندوق أسود ← يدعم الإنسان مش يستبدله', 'Bias + black box → it supports humans, not replaces them'), 't-red')}
+    ${B.card('x0', 70, 170, 410, 420, 'c-violet rc', { ic: '🤖', p: L('تعلّم الآلة بيلاقي القواعد من البيانات بدل ما نكتبها', 'ML finds the rules from data instead of us writing them') })}
+    ${B.card('x1', 530, 170, 410, 420, 'c-blue rc', { ic: '🏷️', p: L('إشراف (أوسمة ← تصنيف بسمات) · 📦 غير إشراف (تجميع)', 'Supervised (labels → classification) · unsupervised (clustering)') })}
+    ${B.card('x2', 990, 170, 410, 420, 'c-amber rc', { ic: '🎮', p: L('معزَّز: حالة · فعل · مكافأة', 'Reinforcement: state · action · reward') })}
+    ${B.card('x3', 1450, 170, 410, 420, 'c-red rc', { ic: '⚖️', p: L('تحيّز + صندوق أسود ← يدعم الإنسان مش يستبدله', 'Bias + black box → it supports humans, not replaces them') })}
   </div>`,
     });
     const { q, Q, tl, at, IN, POP, OUT, SND, frame, sx } = M;
@@ -170,7 +170,7 @@
     const ups = sel('clu', 'up');
     ups.forEach((el, k) => {
       const p = CL3[k], [cx, cy] = CEN[p.g];
-      const a = k * 2.1, r = 22 + (k % 3) * 16;
+      const j = Math.floor(k / 3), a = j * 1.05 + p.g, r = 30 + (j % 2) * 30;
       tl.to(el, { attr: { cx: cx + Math.cos(a) * r, cy: cy + Math.sin(a) * r, fill: ['#38bdf8', '#34d399', '#fbbf24'][p.g] }, duration: 1.0, ease: 'power2.inOut' }, c + 1.4 + (k % 6) * 0.05);
     });
     SND('pop', c + 1.4);
@@ -217,7 +217,8 @@
     c = at(9);
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
-    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.5, 0.5, { y: 30 }); SND('pop', c + 1.0 + i * 0.5); });
+    M.loop(9, 3.4, () => MK.look.glowCycle(Q('x0 x1 x2 x3'), 'rgba(251,191,36,.8)', 0.5));
     /* living loops */
     M.loop(0, 5.6, () => M.cycle(Q('cv1 cv2 ml1 ml2'), 'rgba(167,139,250,.85)', 0.5));
     M.loop(1, 4.6, () => M.bob(Q('u0 u1 u2'), 6, 1.2));

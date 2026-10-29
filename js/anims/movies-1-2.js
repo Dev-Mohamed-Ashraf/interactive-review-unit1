@@ -569,7 +569,7 @@
     ${B.card('nw1', 320, 590, 164, 168, 'c-slate tile', { html: LEAF('#a3a33a', '#78350f') + `<span class="k">${L('جديدة', 'new')}</span>` })}
     ${B.card('nw2', 320, 590, 164, 168, 'c-slate tile', { html: LEAF('#22c55e', '#c026d3') + `<span class="k">${L('جديدة', 'new')}</span>` })}
     ${B.card('ra', 1420, 170, 440, 360, 'c-green', { ic: LEAF('#a3a33a', '#78350f'), h: L('الحكم: مريضة', 'Verdict: sick'), k: '✅ <bdi>94%</bdi>' })}
-    ${B.card('rb', 1420, 170, 440, 360, 'c-red', { ic: LEAF('#22c55e', '#c026d3'), h: L('مرض نادر! 🤷', 'A rare disease! 🤷'), p: L('مريضة 52% · سليمة 48%', 'sick 52% · healthy 48%'), k: '❓ ' + L('محتار', 'unsure') })}
+    ${B.card('rb', 1420, 170, 440, 360, 'c-red', { ic: LEAF('#22c55e', '#c026d3'), h: L('مرض نادر! 🤷‍♂️', 'A rare disease! 🤷‍♂️'), p: L('مريضة 52% · سليمة 48%', 'sick 52% · healthy 48%'), k: '❓ ' + L('محتار', 'unsure') })}
     ${B.stamp('oops', 1360, 566, '⚠️ ' + L('ممكن يغلط!', 'it may be wrong!'))}
 
     ${U.hd(0, '🧠 ' + L('الشبكة العصبية: مستوحاة من خلايا المخ', 'Neural network: modelled on brain cells'))}

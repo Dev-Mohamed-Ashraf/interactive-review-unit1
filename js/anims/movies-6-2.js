@@ -42,9 +42,9 @@
     <path class="wig" d="M60 250 C80 180 100 200 110 205 S150 260 160 230 S200 150 210 170 S250 220 260 190 S300 110 310 130 S350 170 360 150 S400 80 410 100 S450 140 460 120 S500 50 510 70" fill="none" stroke="#f87171" stroke-width="5"/>`;
 
   K.defineAnim('regressMovie', (stage, props, api) => {
-    const U = MK.uiL('g2-');
+    const U = MK.uiL12('g2-'), B = MK.look.kit('g2-', MK.RTL());
     const M = MK.create(stage, api, { props,
-      cls: 'mv-data mv-l62', prefix: 'g2-', beats: 8,
+      cls: 'mv-data mv-l62 mv-l12', prefix: 'g2-', beats: 8,
       html: (L) => `
   <div id="g2-stage" class="mv-stage">
     ${U.art('sc', 90, 160, 900, 560, '0 0 900 560', SCAT)}
@@ -105,10 +105,10 @@
   </div>
   <div id="g2-recap" class="mv-recap">
     ${U.hd(7, '💡 ' + L('الخلاصة', 'The point'))}
-    ${U.pill('x0', 120, 180, '📈 ' + L('بسيط: y = ax + b (متغير واحد) · متعدد: مجموع موزون + b', 'Simple: y = ax + b (one x) · multiple: weighted sum + b'), 't-amber')}
-    ${U.pill('x1', 120, 290, '📏 ' + L('المربعات الصغرى بتقلّل مجموع مربعات المتبقيات', 'Least squares minimizes the sum of squared residuals'), 't-pink')}
-    ${U.pill('x2', 120, 400, '🎯 ' + L('R² + RMSE + MAE مع بعض — مش R² لوحده', 'R² + RMSE + MAE together — never R² alone'), 't-green')}
-    ${U.pill('x3', 120, 510, '🕵️ ' + L('ملاءمة كويسة = ارتباط… مش سببية', 'A good fit = correlation… not causation'), 't-red')}
+    ${B.card('x0', 70, 170, 410, 420, 'c-amber rc', { ic: '📈', p: L('بسيط: <bdi>y = ax + b</bdi> (متغير واحد) · متعدد: مجموع موزون + b', 'Simple: y = ax + b (one x) · multiple: weighted sum + b') })}
+    ${B.card('x1', 530, 170, 410, 420, 'c-pink rc', { ic: '📏', p: L('المربعات الصغرى بتقلّل مجموع مربعات المتبقيات', 'Least squares minimizes the sum of squared residuals') })}
+    ${B.card('x2', 990, 170, 410, 420, 'c-green rc', { ic: '🎯', p: L('R² + RMSE + MAE مع بعض — مش R² لوحده', 'R² + RMSE + MAE together — never R² alone') })}
+    ${B.card('x3', 1450, 170, 410, 420, 'c-red rc', { ic: '🕵️', p: L('ملاءمة كويسة = ارتباط… مش سببية', 'A good fit = correlation… not causation') })}
   </div>`,
     });
     const { q, Q, tl, at, IN, POP, OUT, SND, frame, sx } = M;
@@ -198,7 +198,8 @@
     c = at(7);
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd7'), c + 0.6, 0.5, { y: -30 });
-    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.5, 0.5, { y: 30 }); SND('pop', c + 1.0 + i * 0.5); });
+    M.loop(7, 3.4, () => MK.look.glowCycle(Q('x0 x1 x2 x3'), 'rgba(251,191,36,.8)', 0.5));
     /* living loops */
     M.loop(0, 6.2, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('sc', 'pred'), { opacity: 1 }, { opacity: 0.35, duration: 1.0, ease: 'sine.inOut' }));
     M.loop(1, 5.0, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(sel('sc', 'res'), { opacity: 1 }, { opacity: 0.25, duration: 0.8, stagger: 0.08, ease: 'sine.inOut' }));

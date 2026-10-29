@@ -80,7 +80,7 @@
     ${[['📺', L('إعلان تلفزيوني', 'a TV ad'), L('يوجّه الناس…', 'points people…'), 'c-blue'], ['🌐', L('الموقع', 'the website'), L('التفاصيل… ويشجّع النشر', 'the details… and encourages sharing'), 'c-green'], ['💬', L('التواصل الاجتماعي', 'SNS'), L('الناس بتنشر وتشارك', 'people post and share'), 'c-violet']]
       .map(([ic, h, p, c], k) => B.card('ch' + k, 70 + k * 640, 160, 520, 300, c, { ic, h, p })).join('')}
     ${range(2).map((k) => B.big('ca' + k, 600 + k * 640, 270, 100, 64, B.arrow, 'l12-gold')).join('')}
-    ${B.card('aud', 70, 520, 1790, 0, 'c-amber', { row: true, ic: '👨‍👩‍👦', h: L('فكّر في الجمهور', 'Think of the audience'), p: L('عيلة من غير إنترنت مش هيوصلها الموقع — يوصلها راديو أو ملصق مطبوع', 'a family with no Internet will not get the website — radio or a printed poster will') })}
+    ${B.card('aud', 70, 520, 1790, 0, 'c-amber', { row: true, ic: '👨‍👦‍👦', h: L('فكّر في الجمهور', 'Think of the audience'), p: L('عيلة من غير إنترنت مش هيوصلها الموقع — يوصلها راديو أو ملصق مطبوع', 'a family with no Internet will not get the website — radio or a printed poster will') })}
   </div>
   <div id="m1-s8" class="mv-stage">
     ${B.mid('nb', 150, '🏆 ' + L('مفيش وسيط أحسن في كل حاجة', 'no medium is best for everything'), 'c-amber big')}

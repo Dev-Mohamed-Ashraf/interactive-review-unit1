@@ -135,7 +135,7 @@ RV.lessons.add('2-1', {
             options: [
               { emoji: '🔁', text: { ar: 'كلمة سر تانية جنب الأولى', en: 'A second password' } },
               { emoji: '📱', text: { ar: 'كود بيوصل على موبايلي', en: 'A code sent to my phone' } },
-              { emoji: '🤷', text: { ar: 'مفيش حاجة تحميه', en: 'Nothing can protect it' } },
+              { emoji: '🤷‍♂️', text: { ar: 'مفيش حاجة تحميه', en: 'Nothing can protect it' } },
             ],
             after: { ar: 'خلّي إجابتك في دماغك… وشوف التجربة 👇', en: 'Keep your answer in mind… and watch the experiment 👇' } },
         },
@@ -221,7 +221,7 @@ RV.lessons.add('2-1', {
             { ar: '✍️ **التوقيع الرقمي:** أحمد __بيوقّع__ طلب الشراء بـ__مفتاحه الخاص__ — والاتجاه هنا __معكوس عن التشفير__: الخاص بيوقّع والعام بيتحقّق.', en: '✍️ **Digital signature:** Ahmed __signs__ the order with __his private key__ — the direction is __reversed vs encryption__: the private key signs, the public key verifies.' },
             { ar: '✅ المتجر __يتحقّق__ بـ__مفتاح أحمد العام__: التوقيع سليم ⇒ الطلب __ماتغيّرش__ واللي بعته __أحمد فعلًا__.', en: '✅ The shop __verifies__ with __Ahmed’s public key__: a valid signature ⇒ the order is __unchanged__ and __Ahmed really sent it__.' },
             { ar: '✏️ المهاجم غيّر المبلغ __100 ← 900__ في السكة ⇒ التحقق __فشل__. التوقيع الرقمي __بيكشف التلاعب__ في البيانات و__انتحال هوية المرسِل__.', en: '✏️ The attacker changed the amount __100 → 900__ on the way ⇒ verification __fails__. A digital signature __detects tampering__ and __sender impersonation__.' },
-            { ar: '🙅 **عدم الإنكار:** أحمد قال «مابعتّش الطلب ده» — بس التوقيع __ماطلعش غير من مفتاحه الخاص__ ⇒ __مايقدرش ينكر__.', en: '🙅 **Non-repudiation:** Ahmed says “I never sent that order” — but only __his private key__ could make the signature ⇒ __he cannot deny it__.' },
+            { ar: '🙅‍♂️ **عدم الإنكار:** أحمد قال «مابعتّش الطلب ده» — بس التوقيع __ماطلعش غير من مفتاحه الخاص__ ⇒ __مايقدرش ينكر__.', en: '🙅‍♂️ **Non-repudiation:** Ahmed says “I never sent that order” — but only __his private key__ could make the signature ⇒ __he cannot deny it__.' },
             { ar: '📜 **الشهادة الرقمية:** بتثبت إن __الطرف التاني حقيقي__ — __جهة إصدار الشهادات (CA)__ بتضمن الموقع الحقيقي (bank.com.eg 🔒)، والموقع المزيّف من غير شهادة سليمة __بيتكشف__.', en: '📜 **Digital certificate:** proves __the other side is genuine__ — a __certificate authority (CA)__ vouches for the real site (bank.com.eg 🔒), and a fake site without a valid certificate __is exposed__.' },
           ],
           notes: [

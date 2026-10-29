@@ -189,7 +189,7 @@
       <div class="l12-field">📷 ${L('الكاميرا ← للتطبيق ده بس', 'camera → this app only')} <b class="tg on">✓</b></div>
       <div class="l12-field">👥 ${L('جهات الاتصال ← مش محتاجها', 'contacts → not needed')} <b class="tg off">✗</b></div></div></div>
     ${B.card('prot', 1010, 140, 850, 0, 'c-green', { ic: '🔒', h: L('حماية الخصوصية', 'Privacy protection'), p: L('نتعامل مع البيانات بشكل مناسب: يتشارك بس اللي لازم، ولغرض واضح', 'handle data properly: share only what is needed, for a clear purpose') })}
-    ${B.chip('you', 1010, 520, '🙋 ' + L('إنت اللي تتحكّم', 'you are in control'), 'c-green big')}
+    ${B.chip('you', 1010, 520, '🙋‍♂️ ' + L('إنت اللي تتحكّم', 'you are in control'), 'c-green big')}
   </div>
   <div id="pv-s4" class="mv-stage">
     ${B.card('yes', 70, 140, 860, 470, 'c-red', { ic: '✅', h: L('قضايا خصوصية', 'Privacy issues') })}
@@ -419,18 +419,18 @@
     ${B.card('err', 70, 150, 520, 0, 'c-red', { ic: '🩺', h: L('تشخيص الـAI طلع غلط', 'The AI diagnosis was wrong') })}
     ${B.big('arw', 620, 230, 90, 60, B.arrow, 'l12-gold')}
     ${B.ch('en', 760, 330, 'md')}
-    ${B.chip('me', 640, 650, '🙋 ' + L('«أنا المسؤول… وهصلّح»', '“I am responsible… I will fix it”'), 'c-amber big')}
-    ${B.card('p3', 1160, 160, 700, 0, 'c-amber', { ic: '🙋', h: L('المساءلة (Accountability)', 'Accountability'), p: L('إن يكون فيه حد مسؤول وقابل للمحاسبة عن قرارات الـAI', 'someone is responsible and answerable for AI decisions') })}
+    ${B.chip('me', 640, 650, '🙋‍♂️ ' + L('«أنا المسؤول… وهصلّح»', '“I am responsible… I will fix it”'), 'c-amber big')}
+    ${B.card('p3', 1160, 160, 700, 0, 'c-amber', { ic: '🙋‍♂️', h: L('المساءلة (Accountability)', 'Accountability'), p: L('إن يكون فيه حد مسؤول وقابل للمحاسبة عن قرارات الـAI', 'someone is responsible and answerable for AI decisions') })}
   </div>
   <div id="pr-s4" class="mv-stage">
-    ${[['⚖️', L('العدالة', 'Fairness'), 'c-blue'], ['👁️', L('الشفافية', 'Transparency'), 'c-violet'], ['🛡️', L('الخصوصية', 'Privacy'), 'c-green'], ['🙋', L('المساءلة', 'Accountability'), 'c-amber']]
+    ${[['⚖️', L('العدالة', 'Fairness'), 'c-blue'], ['👁️', L('الشفافية', 'Transparency'), 'c-violet'], ['🛡️', L('الخصوصية', 'Privacy'), 'c-green'], ['🙋‍♂️', L('المساءلة', 'Accountability'), 'c-amber']]
       .map(([ic, h, c], k) => B.card('r' + k, 70 + k * 450, 160, 420, 260, c, { ic, h })).join('')}
     ${B.mid('mn', 500, '🧠 ' + L('سرّ الحفظ: عدالة · شفافية · خصوصية · مساءلة = «عَشْخَم» 😄', 'the four principles: fairness · transparency · privacy · accountability'), 'c-amber big')}
   </div>
     ${U.hd(0, '⚖️ ' + L('المبدأ ①: العدالة', 'Principle ①: fairness'))}
     ${U.hd(1, '👁️ ' + L('المبدأ ②: الشفافية', 'Principle ②: transparency'))}
     ${U.hd(2, '🛡️ ' + L('المبدأ ③: حماية الخصوصية', 'Principle ③: privacy protection'))}
-    ${U.hd(3, '🙋 ' + L('المبدأ ④: المساءلة', 'Principle ④: accountability'))}
+    ${U.hd(3, '🙋‍♂️ ' + L('المبدأ ④: المساءلة', 'Principle ④: accountability'))}
     ${U.hd(4, '🏆 ' + L('المبادئ الأربعة لأخلاقيات الذكاء الاصطناعي', 'The four principles of AI ethics'))}`,
     });
     const { q, Q, tl, IN, POP, OUT, SND, frame, sx } = M;

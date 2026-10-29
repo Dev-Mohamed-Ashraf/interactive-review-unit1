@@ -23,9 +23,9 @@
   };
 
   K.defineAnim('llmMovie', (stage, props, api) => {
-    const U = MK.uiL('lm-');
+    const U = MK.uiL12('lm-'), B = MK.look.kit('lm-', MK.RTL());
     const M = MK.create(stage, api, { props,
-      cls: 'mv-data mv-l73', prefix: 'lm-', beats: 8, cast: { 'ch-q': 'student', 'ch-r': 'engineer', 'ch-c': 'studentL' },
+      cls: 'mv-data mv-l73 mv-l12', prefix: 'lm-', beats: 8, cast: { 'ch-q': 'student', 'ch-r': 'engineer', 'ch-c': 'studentL' },
       html: (L) => `
   <div id="lm-stage" class="mv-stage">
     <div id="lm-sent" class="box t-violet later" style="inset-inline-start:160px;top:170px;width:1600px;font-size:54px;padding:22px 30px">
@@ -86,10 +86,10 @@
   </div>
   <div id="lm-recap" class="mv-recap">
     ${U.hd(7, '💡 ' + L('الخلاصة', 'The point'))}
-    ${U.pill('x0', 120, 180, '🔮 ' + L('بيتنبّأ بالكلمة المحتملة… مش المؤكدة ← هلوسة', 'Predicts the likely word… not the sure one → hallucination'), 't-violet')}
-    ${U.pill('x1', 120, 290, '🏔️ ' + L('LLM = بيانات هائلة + مليارات المعلمات', 'LLM = vast data + billions of parameters'), 't-blue')}
-    ${U.pill('x2', 120, 400, '👍 ' + L('RLHF بيحسّن الأسلوب… مش بيضمن الحقيقة', 'RLHF improves style… does not guarantee truth'), 't-amber')}
-    ${U.pill('x3', 120, 510, '🎛️ ' + L('تعدّد الوسائط: نص + صورة + صوت في نموذج واحد', 'Multimodality: text + image + audio in one model'), 't-green')}
+    ${B.card('x0', 70, 170, 410, 420, 'c-violet rc', { ic: '🔮', p: L('بيتنبّأ بالكلمة المحتملة… مش المؤكدة ← هلوسة', 'Predicts the likely word… not the sure one → hallucination') })}
+    ${B.card('x1', 530, 170, 410, 420, 'c-blue rc', { ic: '🏔️', p: L('LLM = بيانات هائلة + مليارات المعلمات', 'LLM = vast data + billions of parameters') })}
+    ${B.card('x2', 990, 170, 410, 420, 'c-amber rc', { ic: '👍', p: L('RLHF بيحسّن الأسلوب… مش بيضمن الحقيقة', 'RLHF improves style… does not guarantee truth') })}
+    ${B.card('x3', 1450, 170, 410, 420, 'c-green rc', { ic: '🎛️', p: L('تعدّد الوسائط: نص + صورة + صوت في نموذج واحد', 'Multimodality: text + image + audio in one model') })}
   </div>`,
     });
     const { q, Q, tl, at, IN, POP, OUT, SND, frame, sx } = M;
@@ -182,7 +182,8 @@
     c = at(7);
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd7'), c + 0.6, 0.5, { y: -30 });
-    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.5, 0.5, { y: 30 }); SND('pop', c + 1.0 + i * 0.5); });
+    M.loop(7, 3.4, () => MK.look.glowCycle(Q('x0 x1 x2 x3'), 'rgba(251,191,36,.8)', 0.5));
     /* living loops */
     M.loop(0, 6.4, () => gsap.timeline({ repeat: -1, yoyo: true }).fromTo(q('cur'), { opacity: 1 }, { opacity: 0, duration: 0.5, ease: 'steps(1)' }));
     /* the model keeps re-predicting the next word: the bars re-grow, the top one wins */

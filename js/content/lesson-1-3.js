@@ -99,7 +99,7 @@ RV.lessons.add('1-3', {
           q: { widget: 'poll', prompt: { ar: 'لو مستشفى عندها ذكاء اصطناعي بيقرا الأشعة بسرعة… تسيبه يقرّر التشخيص لوحده؟', en: 'If a hospital AI reads X-rays fast… should it decide the diagnosis alone?' },
             options: [
               { emoji: '🤖', text: { ar: 'أيوه، هو أسرع', en: 'Yes, it is faster' } },
-              { emoji: '👩‍⚕️', text: { ar: 'لأ، لازم طبيب يراجع', en: 'No, a doctor must review' } },
+              { emoji: '👨‍⚕️', text: { ar: 'لأ، لازم طبيب يراجع', en: 'No, a doctor must review' } },
               { emoji: '⚖️', text: { ar: 'على حسب', en: 'It depends' } },
             ],
             after: { ar: 'تعالى نشوف هو شاطر في إيه… وفين لازم ناخد بالنا 👇', en: 'Let’s see what it is good at… and where to be careful 👇' } },

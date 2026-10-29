@@ -94,7 +94,7 @@
 
   <div id="c1-s7" class="mv-stage">
     ${B.card('bdef', 70, 140, 1790, 0, 'c-red', { row: true, ic: '⚠️', h: L('تحيّز المعاينة', 'Sampling bias'), p: L('طريقة الاختيار متحيّزة ← العينة ماتعكسش المجتمع ← مانقدرش نعمّم', 'a biased way of choosing → the sample misses the population → no generalizing') })}
-    ${B.card('b0', 70, 300, 560, 400, 'c-red', { ic: '🙋', h: L('الاختيار الذاتي', 'Self-selection'), p: L('اللي عايز يرد بس هو اللي بيرد', 'only those who want to reply do'), html: `<div class="l51-mini">🌐 <span class="hs">🙋🙋</span><span class="qs">😶😶😶</span></div>` })}
+    ${B.card('b0', 70, 300, 560, 400, 'c-red', { ic: '🙋‍♂️', h: L('الاختيار الذاتي', 'Self-selection'), p: L('اللي عايز يرد بس هو اللي بيرد', 'only those who want to reply do'), html: `<div class="l51-mini">🌐 <span class="hs">🙋‍♂️🙋‍♂️</span><span class="qs">😶😶😶</span></div>` })}
     ${B.card('b1', 680, 300, 560, 400, 'c-amber', { ic: '🎭', h: L('تحيّز الاستجابة', 'Response bias'), p: L('الإجابة «المرغوبة» مش الدقيقة — خطأ قياس', 'the “desired” answer, not the accurate one — a measurement error'), html: `<div class="l51-mini">💬 «<bdi>5</bdi> ${L('ساعات', 'hours')}» <s>⏱️ <bdi>2</bdi></s></div>` })}
     ${B.card('b2', 1290, 300, 570, 400, 'c-violet', { ic: '🚉', h: L('تحيّز الزمان/المكان', 'Time/location bias'), p: L('مسح قدّام محطة الضهر أيام الشغل', 'a survey at a station at noon on workdays'), html: `<div class="l51-mini">🕛 <span class="gone">👔 🎒</span></div>` })}
   </div>

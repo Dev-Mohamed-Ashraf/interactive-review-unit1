@@ -42,9 +42,9 @@
   const P_WHOLE = `<rect x="4" y="4" width="292" height="232" rx="18" fill="#0b1222" stroke="#475569" stroke-width="4"/><circle cx="110" cy="78" r="40" fill="none" stroke="#34d399" stroke-width="13"/><circle cx="110" cy="166" r="48" fill="none" stroke="#34d399" stroke-width="13"/>${T(225, 150, '= 8', '#fde68a', 50)}`;
 
   K.defineAnim('nnMovie', (stage, props, api) => {
-    const U = MK.uiL('nn-');
+    const U = MK.uiL12('nn-'), B = MK.look.kit('nn-', MK.RTL());
     const M = MK.create(stage, api, { props,
-      cls: 'mv-data mv-l72', prefix: 'nn-', beats: 7,
+      cls: 'mv-data mv-l72 mv-l12', prefix: 'nn-', beats: 7,
       html: (L) => `
   <div id="nn-stage" class="mv-stage">
     ${U.art('net', 90, 150, 1740, 400, '0 0 1740 400', NET())}
@@ -94,10 +94,10 @@
   </div>
   <div id="nn-recap" class="mv-recap">
     ${U.hd(6, '💡 ' + L('الخلاصة', 'The point'))}
-    ${U.pill('x0', 120, 180, '🧠 ' + L('إدخال ← مخفية (سمات) ← إخراج', 'Input → hidden (features) → output'), 't-violet')}
-    ${U.pill('x1', 120, 290, '⚪ ' + L('الخلية: أوزان × مدخلات ← مجموع ← دالة تنشيط', 'A neuron: weights × inputs → sum → activation'), 't-blue')}
-    ${U.pill('x2', 120, 400, '🔧 ' + L('التدريب بيظبط الأوزان: عشوائية ← مضبوطة', 'Training tunes weights: random → tuned'), 't-amber')}
-    ${U.pill('x3', 120, 510, '🪜 ' + L('عميق = طبقات كتير: خطوط ← أجزاء ← الكل', 'Deep = many layers: lines → parts → whole'), 't-green')}
+    ${B.card('x0', 70, 170, 410, 420, 'c-violet rc', { ic: '🧠', p: L('إدخال ← مخفية (سمات) ← إخراج', 'Input → hidden (features) → output') })}
+    ${B.card('x1', 530, 170, 410, 420, 'c-blue rc', { ic: '⚪', p: L('الخلية: أوزان × مدخلات ← مجموع ← دالة تنشيط', 'A neuron: weights × inputs → sum → activation') })}
+    ${B.card('x2', 990, 170, 410, 420, 'c-amber rc', { ic: '🔧', p: L('التدريب بيظبط الأوزان: عشوائية ← مضبوطة', 'Training tunes weights: random → tuned') })}
+    ${B.card('x3', 1450, 170, 410, 420, 'c-green rc', { ic: '🪜', p: L('عميق = طبقات كتير: خطوط ← أجزاء ← الكل', 'Deep = many layers: lines → parts → whole') })}
   </div>`,
     });
     const { q, Q, tl, at, IN, POP, OUT, SND, frame, sx } = M;
@@ -171,7 +171,8 @@
     c = at(6);
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd6'), c + 0.6, 0.5, { y: -30 });
-    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.5, 0.5, { y: 30 }); SND('pop', c + 1.0 + i * 0.5); });
+    M.loop(6, 3.4, () => MK.look.glowCycle(Q('x0 x1 x2 x3'), 'rgba(251,191,36,.8)', 0.5));
     /* living loops: signals keep flowing through the network */
     const flow = () => { const x = gsap.timeline({ repeat: -1, repeatDelay: 0.4 }); [0, 1, 2].forEach((i) => { x.to(sel('net', 'c' + i), { stroke: '#fbbf24', duration: 0.3, yoyo: true, repeat: 1 }, i * 0.5); x.fromTo(sel('net', 'l' + (i + 1)), { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.2, duration: 0.3, yoyo: true, repeat: 1 }, i * 0.5 + 0.3); }); return x; };
     M.loop(0, 5.2, flow);

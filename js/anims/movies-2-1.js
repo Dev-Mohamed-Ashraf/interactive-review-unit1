@@ -274,7 +274,7 @@
     ${U.hd(0, '✍️ ' + L('التوقيع الرقمي: أحمد بيوقّع بمفتاحه الخاص', 'Digital signature: Ahmed signs with his private key'))}
     ${U.hd(1, '✅ ' + L('المتجر بيتحقّق بالمفتاح العام بتاع أحمد', 'The shop verifies with Ahmed’s public key'))}
     ${U.hd(2, '✏️ ' + L('لو حد غيّر رقم واحد في السكة…', 'If someone changes one digit on the way…'))}
-    ${U.hd(3, '🙅 ' + L('عدم الإنكار', 'Non-repudiation'))}
+    ${U.hd(3, '🙅‍♂️ ' + L('عدم الإنكار', 'Non-repudiation'))}
     ${U.hd(4, '📜 ' + L('الشهادة الرقمية: الموقع ده حقيقي؟', 'The digital certificate: is this site genuine?'))}
     ${U.nt(2, L('التوقيع الرقمي بيكشف التلاعب في البيانات وانتحال هوية المرسِل', 'a digital signature detects data tampering and sender impersonation'), 'ok')}
     ${U.nt(3, L('عدم الإنكار = المرسِل مايقدرش ينكر بعد كده إنه بعت', 'non-repudiation = the sender cannot later deny having sent it'), 'ok')}

@@ -17,9 +17,9 @@
     ${range(8).map((k) => { const v = [210, 120, 170, 90, 240, 150, 190, 110][k]; return `<rect class="cb${k ? ' more' : ' first'}" x="${56 + k * 58}" y="${310 - v}" width="40" height="${v}" rx="6" fill="${k ? '#38bdf8' : '#fbbf24'}"/>`; }).join('')}`;
 
   K.defineAnim('apiMovie', (stage, props, api) => {
-    const U = MK.uiL('c3-');
+    const U = MK.uiL12('c3-'), B = MK.look.kit('c3-', MK.RTL());
     const M = MK.create(stage, api, { props,
-      cls: 'mv-data mv-l53', prefix: 'c3-', beats: 10, cast: { 'ch-u': 'studentL' },
+      cls: 'mv-data mv-l53 mv-l12', prefix: 'c3-', beats: 10, cast: { 'ch-u': 'studentL' },
       html: (L) => `
   <div id="c3-stage" class="mv-stage">
     ${U.emo('gift', 160, 200, 260, 190, '🎁')}
@@ -57,8 +57,9 @@
 
     ${['✔ ' + L('استخدمه حسب شروط المزوّد', 'Use it under the provider’s terms'), '✔ ' + L('ماتبعتش طلبات كتير في وقت قصير', 'No excessive requests in a short time'), '✔ ' + L('اتأكّد من نطاق الاستخدام المسموح', 'Confirm the permitted scope of use')]
       .map((t, k) => U.pill('c' + k, 90, 200 + k * 110, t, 't-green')).join('')}
-    ${range(6).map((k) => U.emo('pk' + k, 560 + (k % 3) * 70, 560 + Math.floor(k / 3) * 70, 60, 46, '📨')).join('')}
-    ${U.emo('stop', 820, 540, 120, 90, '🚦')}
+    ${U.emo('cl6', 90, 540, 120, 90, '💻')}${U.emo('sv6', 960, 540, 120, 90, '🗄️')}
+    ${range(6).map((k) => U.emo('pk' + k, 230 + (k % 3) * 80, 540 + Math.floor(k / 3) * 66, 70, 54, '📨')).join('')}
+    ${U.emo('stop', 820, 540, 120, 100, '🚦')}
     ${U.box('lim', 1050, 220, 780, 't-amber', { ic: '🚦', h: L('حد الطلبات', 'Request limit'), p: L('ماتتقّلش على الخادم', 'do not overload the server') })}
 
     ${[['📗', L('استخدام حر مع ذكر المصدر', 'Free use with attribution'), 't-green'], ['📙', L('ممنوع الاستخدام التجاري', 'No commercial use'), 't-amber'], ['📕', L('ممنوع إعادة النشر', 'No redistribution'), 't-red']]
@@ -86,10 +87,11 @@
   </div>
   <div id="c3-recap" class="mv-recap">
     ${U.hd(9, '💡 ' + L('الخلاصة', 'The point'))}
-    ${U.pill('x0', 120, 180, '🏦 World Bank · 🌐 UN Data · 🏆 Kaggle — ' + L('اختار الموثوق المناسب للغرض', 'pick the reliable one that fits'), 't-blue')}
-    ${U.pill('x1', 120, 290, '🔌 ' + L('العميل ← نقطة النهاية · الخادم ← JSON · البرنامج يستخدم', 'Client → endpoint · server → JSON · the program uses it'), 't-green')}
-    ${U.pill('x2', 120, 400, '📜 ' + L('شروط الاستخدام لكل مجموعة — حتى المجانية', 'Terms of use for every dataset — even free ones'), 't-amber')}
-    ${U.pill('x3', 120, 510, '🏷️ ' + L('ذكر المصدر: مزوّد · اسم · تاريخ · رابط', 'Cite the source: provider · name · date · URL'), 't-violet')}
+    ${B.card('x0', 70, 170, 410, 400, 'c-blue', { ic: '🏦', h: L('المزوّدين', 'Providers'), p: 'World Bank · UN Data · Kaggle — ' + L('اختار الموثوق المناسب للغرض', 'pick the reliable one that fits') })}
+    ${B.card('x1', 530, 170, 410, 400, 'c-green', { ic: '🔌', h: 'API', p: L('العميل ← نقطة النهاية · الخادم ← JSON · البرنامج يستخدم', 'client → endpoint · server → JSON · the program uses it') })}
+    ${B.card('x2', 990, 170, 410, 400, 'c-amber', { ic: '📜', h: L('شروط الاستخدام', 'Terms of use'), p: L('لكل مجموعة — حتى المجانية', 'for every dataset — even free ones') })}
+    ${B.card('x3', 1450, 170, 410, 400, 'c-violet', { ic: '🏷️', h: L('ذكر المصدر', 'Cite the source'), p: L('مزوّد · اسم · تاريخ · رابط', 'provider · name · date · URL') })}
+    ${B.mid('xb', 620, '🎁 ' + L('مفتوحة ومجانية… بس بقواعد', 'open and free… but with rules'), 'c-amber big')}
   </div>`,
     });
     const { q, Q, tl, at, IN, POP, OUT, SND, frame, sx } = M;
@@ -159,8 +161,9 @@
     frame(6, c, 5.4);
     OUT(Q('cli use rep chart'), c, 0.4);
     range(3).forEach((k) => { IN(q('c' + k), c + 0.6 + k * 0.7, 0.4, { x: 30 * sx }); SND('pop', c + 0.6 + k * 0.7); });
+    IN(Q('cl6 sv6'), c + 2.6, 0.3);
     range(6).forEach((k) => IN(q('pk' + k), c + 2.8 + k * 0.08, 0.2));
-    tl.to(Q('pk0 pk1 pk2 pk3 pk4 pk5'), { x: 160 * sx, duration: 0.5, stagger: 0.06 }, c + 3.2);
+    tl.to(Q('pk0 pk1 pk2 pk3 pk4 pk5'), { x: 330 * sx, duration: 0.5, stagger: 0.06 }, c + 3.2);
     POP(q('stop'), c + 3.6, 0.4); SND('bad', c + 3.6);
     tl.to(Q('pk0 pk1 pk2 pk3 pk4 pk5'), { x: 0, opacity: 0.25, duration: 0.5 }, c + 4.0);
     IN(q('lim'), c + 4.4, 0.5, { x: 40 * sx });
@@ -168,7 +171,7 @@
     /* 7 — terms of use */
     c = at(7);
     frame(7, c);
-    OUT(Q('c0 c1 c2 pk0 pk1 pk2 pk3 pk4 pk5 stop lim'), c, 0.4);
+    OUT(Q('c0 c1 c2 cl6 sv6 pk0 pk1 pk2 pk3 pk4 pk5 stop lim'), c, 0.4);
     range(3).forEach((k) => { IN(q('lic' + k), c + 0.6 + k * 0.8, 0.5, { y: 30 }); SND('pop', c + 0.6 + k * 0.8); });
     POP(q('chk'), c + 3.4, 0.5); SND('ok', c + 3.4);
 
@@ -186,7 +189,9 @@
     c = at(9);
     tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
     IN(q('hd9'), c + 0.6, 0.5, { y: -30 });
-    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.5, 0.5, { y: 30 }); SND('pop', c + 1.0 + i * 0.5); });
+    POP(q('xb'), c + 3.2, 0.5); SND('ok', c + 3.2);
+    M.loop(9, 3.8, () => MK.look.glowCycle(Q('x0 x1 x2 x3'), 'rgba(251,191,36,.8)', 0.5));
     /* living loops */
     M.loop(0, 5.4, () => M.cycle(Q('w0 w1 w2'), 'rgba(56,189,248,.85)', 0.5));
     M.loop(1, 4.6, () => M.cycle(Q('wb un kg'), 'rgba(167,139,250,.85)', 0.6));
@@ -196,7 +201,7 @@
     M.loop(4, 4.4, () => M.glowLoop(q('json'), 'rgba(52,211,153,.85)'));
     M.loop(5, 4.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(sel('chart', 'cb'), { scaleY: 0.2, transformOrigin: '50% 100%' }, { scaleY: 1, duration: 0.4, stagger: 0.12, ease: 'back.out(1.6)' }));
     M.loop(6, 5.4, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 })
-      .fromTo(Q('pk0 pk1 pk2 pk3 pk4 pk5'), { x: 0, opacity: 1 }, { x: 160 * sx, duration: 0.5, stagger: 0.06 })
+      .fromTo(Q('pk0 pk1 pk2 pk3 pk4 pk5'), { x: 0, opacity: 1 }, { x: 330 * sx, duration: 0.5, stagger: 0.06 })
       .fromTo(q('stop'), { scale: 1 }, { scale: 1.2, duration: 0.25, yoyo: true, repeat: 1, transformOrigin: '50% 50%' })
       .to(Q('pk0 pk1 pk2 pk3 pk4 pk5'), { x: 0, opacity: 0.25, duration: 0.5 }));
     M.loop(7, 4.0, () => M.cycle(Q('lic0 lic1 lic2'), 'rgba(251,191,36,.85)', 0.6));

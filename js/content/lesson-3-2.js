@@ -33,7 +33,7 @@ RV.lessons.add('3-2', {
             options: [
               { emoji: '🔓', text: { ar: 'http://', en: 'http://' } },
               { emoji: '🔒', text: { ar: 'https://', en: 'https://' } },
-              { emoji: '🤷', text: { ar: 'مش فارقة', en: 'No difference' } },
+              { emoji: '🤷‍♂️', text: { ar: 'مش فارقة', en: 'No difference' } },
             ],
             after: { ar: 'تعالى نشوف الفرق بين الاتنين في السكة 👇', en: 'Let’s see the difference between them on the way 👇' } },
         },

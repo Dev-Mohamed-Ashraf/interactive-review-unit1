@@ -32,7 +32,7 @@ RV.lessons.add('4-2', {
           q: { widget: 'poll', prompt: { ar: 'هتصمّم موقع لعيادة… تبدأ بإيه؟', en: 'You are designing a clinic website… where do you start?' },
             options: [
               { emoji: '🎨', text: { ar: 'أختار الألوان والخطوط', en: 'Choose colors and fonts' } },
-              { emoji: '🙋', text: { ar: 'أفهم مين هيستخدمه وعايز إيه', en: 'Understand who will use it and what they need' } },
+              { emoji: '🙋‍♂️', text: { ar: 'أفهم مين هيستخدمه وعايز إيه', en: 'Understand who will use it and what they need' } },
               { emoji: '🖼️', text: { ar: 'أدوّر على صور حلوة', en: 'Look for nice pictures' } },
             ],
             after: { ar: 'تعالى نشوف المصمّمين المحترفين بيبدأوا منين 👇', en: 'Let’s see where professional designers start 👇' } },

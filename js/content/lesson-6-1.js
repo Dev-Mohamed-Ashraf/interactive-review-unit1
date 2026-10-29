@@ -33,7 +33,7 @@ RV.lessons.add('6-1', {
             options: [
               { emoji: '🎯', text: { ar: 'بالظبط 168 سم', en: 'Exactly 168 cm' } },
               { emoji: '↔️', text: { ar: 'حوالي 166 لـ 170 سم', en: 'Around 166 to 170 cm' } },
-              { emoji: '🤷', text: { ar: 'مقدرش أقول حاجة', en: 'I can’t say anything' } },
+              { emoji: '🤷‍♂️', text: { ar: 'مقدرش أقول حاجة', en: 'I can’t say anything' } },
             ],
             after: { ar: 'الإجابتين الأولانيين ليهم أسماء… يلا نشوف 👇', en: 'The first two answers have names… let’s see 👇' } },
         },

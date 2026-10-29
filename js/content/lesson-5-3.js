@@ -33,7 +33,7 @@ RV.lessons.add('5-3', {
             options: [
               { emoji: '👍', text: { ar: 'أيوه، شكله احترافي', en: 'Yes, it looks professional' } },
               { emoji: '🤔', text: { ar: 'لأ، لازم أعرف المصدر', en: 'No, I need the source' } },
-              { emoji: '🤷', text: { ar: 'مش فارقة', en: 'It doesn’t matter' } },
+              { emoji: '🤷‍♂️', text: { ar: 'مش فارقة', en: 'It doesn’t matter' } },
             ],
             after: { ar: 'المصدر هو اللي بيفرّق… يلا نشوف 👇', en: 'The source makes the difference… let’s see 👇' } },
         },
