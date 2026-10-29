@@ -387,3 +387,21 @@
 .mv-l44 .l44-pair { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 16px; font-size: 32px; font-weight: 900; }
 .mv-l44 .l44-pair b { color: #94a3b8; } .mv-l44 .l44-pair em { font-style: normal; color: #6ee7b7; }
 .mv-l44 .l44-pair .smp { font-size: 40px; color: #e0f2fe; } .mv-l44 .l44-pair .e1 { color: #fde68a; }
+
+/* ───────── lesson 5-1 (collectMovie) ───────── */
+.mv-c51 .l51-lane { position: absolute; border-radius: 50px; border: 4px dashed rgba(148,163,184,.45); background: rgba(15,23,42,.6); }
+.mv-c51 .l51-lane .l51pk { position: absolute; top: 14px; inset-inline-start: 20px; font-size: 60px; line-height: 1; opacity: 0; }
+.mv-c51 .l51-doc { position: absolute; display: flex; flex-direction: column; gap: 22px; padding: 26px 30px; border-radius: 18px; background: #f8fafc; border: 3px solid #cbd5e1; box-shadow: 0 30px 60px -28px rgba(0,0,0,.95); color: #0f172a; }
+.mv-c51 .l51-doc .hd { font-size: 36px; font-weight: 900; }
+.mv-c51 .l51-doc .r { height: 26px; border-radius: 8px; background: #cbd5e1; } .mv-c51 .l51-doc .r:nth-child(odd) { width: 78%; }
+.mv-c51 .l51-doc .by { margin-top: auto; font-size: 28px; font-weight: 900; color: #475569; }
+.mv-c51 .l51-rt { position: absolute; display: grid; grid-template-columns: 220px 1fr 60px 1fr; gap: 12px 14px; align-items: center; font-size: 32px; font-weight: 900; color: #e2e8f0; text-align: center; }
+.mv-c51 .l51-rt .th { font-size: 28px; color: #94a3b8; }
+.mv-c51 .l51-rt .sw { padding: 6px 0; border-radius: 16px; color: #0b1222; }
+.mv-c51 .l51-rt .v { padding: 4px 0; border-radius: 16px; background: rgba(148,163,184,.14); } .mv-c51 .l51-rt .v.s { background: rgba(45,212,191,.18); color: #ccfbf1; }
+.mv-c51 .l51-rt .ar { color: #94a3b8; }
+.mv-c51 .l51-mini { margin-top: 18px; padding: 12px; border-radius: 18px; background: rgba(148,163,184,.12); font-size: 44px; line-height: 1.3; }
+.mv-c51 .l51-mini s { text-decoration: none; margin-inline-start: 12px; padding: 0 12px; border-radius: 12px; background: rgba(248,113,113,.25); font-size: 36px; }
+.mv-c51 #c1-b1 .l51-mini { font-size: 34px; }
+.mv-c51 .l51-sv { display: flex; flex-direction: column; gap: 20px; } .mv-c51 .l51-sv b { font-size: 34px; }
+.mv-c51 .l51-sv .resp { display: flex; flex-wrap: wrap; gap: 10px; font-size: 50px; }
