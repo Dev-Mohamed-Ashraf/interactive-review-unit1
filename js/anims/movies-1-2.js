@@ -901,5 +901,5 @@
   });
 
   /* the same builders for the other movies drawn in this look (movies-2-1.js) */
-  MK.look = { kit, stampIn, flipAt, glow, glowCycle };
+  MK.look = { kit, stampIn, flipAt, glow, glowCycle, art: { ROBOT, BELT, GAUGE, NET, wave, LEAF, DOC, HEAD } };
 })();
