@@ -1,213 +1,207 @@
 /* =========================================================
- * anims/movies-3-3.js — lesson 3-3 teacher-driven movie (shell:
- * movie-kit.js; each beat plays, then FREEZES; logical/mirrored layout).
- *   frontendMovie : HTML/CSS/JS built like a house · semantic HTML and
- *                   its benefits · responsive design · frameworks
+ * anims/movies-3-3.js — lesson 3-3 teacher-driven movie, drawn in the lesson
+ * 1-2 look (MK.look · css/anims-movies-l12.css).
+ *   frontendMovie (stations trio 0–3 · modern 4–8): a code editor beside a live
+ *     page and a house: HTML builds the frame · CSS paints it · JavaScript wires
+ *     the lights · semantic tags · accessibility + SEO · one page on three
+ *     screens · frameworks · recap
+ * Positions are LOGICAL (inset-inline-start): every layout mirrors itself in Arabic.
  * ========================================================= */
 (function () {
   'use strict';
   const K = RV.kit;
   const MK = RV.movieKit;
-  const range = (n) => Array.from({ length: n }, (_, i) => i);
-  const MONO = 'font-family="Consolas, monospace"';
+  const { kit, stampIn, glow, glowCycle } = MK.look;
+
+  const HOUSE = `<g class="frm" fill="none" stroke="#94a3b8" stroke-width="8" stroke-linejoin="round"><path d="M40 150 L200 30 L360 150"/><rect x="70" y="140" width="260" height="200"/><rect x="170" y="240" width="60" height="100"/><rect x="100" y="180" width="50" height="50"/><rect x="250" y="180" width="50" height="50"/></g>
+    <g class="paint" opacity="0"><path d="M40 150 L200 30 L360 150Z" fill="#ef4444"/><rect x="70" y="140" width="260" height="200" fill="#fbbf24"/><rect x="170" y="240" width="60" height="100" fill="#92400e"/><rect x="100" y="180" width="50" height="50" fill="#bae6fd"/><rect x="250" y="180" width="50" height="50" fill="#bae6fd"/></g>
+    <g class="lights" opacity="0"><rect x="100" y="180" width="50" height="50" fill="#fde047"/><rect x="250" y="180" width="50" height="50" fill="#fde047"/><circle cx="200" cy="110" r="16" fill="#fde047"/></g>`;
 
   K.defineAnim('frontendMovie', (stage, props, api) => {
-    const U = MK.uiL('w3-');
+    const P = 'f3-', U = MK.ui(P), B = kit(P, MK.RTL());
     const M = MK.create(stage, api, { props,
-      cls: 'mv-web mv-l33', prefix: 'w3-', beats: 9,
-      html: (L) => {
-        const PAGE = `<rect x="4" y="4" width="852" height="552" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="4"/>
-          <g class="raw" fill="none" stroke="#9ca3af" stroke-width="3" stroke-dasharray="10 8">
-            <rect x="40" y="40" width="780" height="76" rx="8"/><rect x="40" y="146" width="480" height="34" rx="6"/><rect x="40" y="196" width="480" height="34" rx="6"/>
-            <rect x="40" y="246" width="400" height="34" rx="6"/><rect x="560" y="146" width="260" height="170" rx="8"/><rect x="40" y="320" width="260" height="44" rx="6"/><rect x="40" y="420" width="260" height="80" rx="8"/></g>
-          <g class="raw" fill="#475569" font-size="28" font-weight="700" ${MONO}>
-            <text x="64" y="88">&lt;h1&gt;</text><text x="64" y="172">&lt;p&gt;</text><text x="600" y="240">&lt;img&gt;</text><text x="64" y="351">&lt;a&gt;</text><text x="64" y="470">&lt;button&gt;</text></g>
-          <g class="sty" opacity="0">
-            <rect x="40" y="40" width="780" height="76" rx="14" fill="#db2777"/><text x="430" y="90" text-anchor="middle" font-size="34" font-weight="900" fill="#fff">📚 ${L('مكتبة المدرسة', 'School library')}</text>
-            <rect x="40" y="146" width="480" height="34" rx="17" fill="#cbd5e1"/><rect x="40" y="196" width="480" height="34" rx="17" fill="#cbd5e1"/><rect x="40" y="246" width="400" height="34" rx="17" fill="#cbd5e1"/>
-            <rect x="560" y="146" width="260" height="170" rx="16" fill="#93c5fd"/><path d="M580 300 L650 220 L700 270 L740 230 L800 300Z" fill="#2563eb"/><circle cx="760" cy="190" r="18" fill="#fde68a"/>
-            <text x="64" y="352" font-size="30" font-weight="800" fill="#2563eb" text-decoration="underline">🔗 ${L('اقرا المزيد', 'Read more')}</text>
-            <rect x="40" y="420" width="260" height="80" rx="40" fill="#2563eb"/><text x="170" y="472" text-anchor="middle" font-size="32" font-weight="900" fill="#fff">👍 ${L('أعجبني', 'Like')}</text></g>
-          ${range(3).map((k) => `<text class="cnt cnt${k}" x="350" y="474" font-size="44" font-weight="900" fill="#0f172a" opacity="0" ${MONO}>${k}</text>`).join('')}`;
-        const HOUSE = `<g class="fr" fill="none" stroke="#94a3b8" stroke-width="6" stroke-linejoin="round"><path d="M60 390 V190 L220 60 L380 190 V390 Z"/><path d="M60 190 H380 M220 60 V390 M60 290 H380"/></g>
-          <g class="dec" opacity="0"><rect x="60" y="190" width="320" height="200" fill="#f9a8d4"/><path d="M36 200 L220 48 L404 200Z" fill="#be185d"/>
-            <rect x="100" y="230" width="80" height="70" rx="6" fill="#fef3c7" stroke="#fff" stroke-width="4"/><rect x="260" y="290" width="70" height="100" rx="6" fill="#7c2d12"/></g>
-          <g class="pow" opacity="0"><circle cx="140" cy="265" r="34" fill="#fde047" opacity=".55"/><circle cx="140" cy="265" r="16" fill="#facc15"/>
-            <path d="M400 390 V330 H350" fill="none" stroke="#38bdf8" stroke-width="10" stroke-linecap="round"/><path d="M350 330 q-6 16 0 22 q6 -6 0 -22Z" fill="#38bdf8"/>
-            <path d="M380 300 L400 260 L392 290 L412 290 L390 332 L398 302Z" fill="#facc15"/></g>`;
-        const BLOCKS = (sem) => [['header', 20, 20, 80, '#38bdf8'], ['nav', 20, 115, 60, '#a78bfa'], ['main', 20, 190, 240, '#34d399'], ['footer', 20, 445, 55, '#fbbf24']]
-          .map(([t, x, y, hh, col]) => `<rect x="${x}" y="${y}" width="520" height="${hh}" rx="12" fill="${sem ? col : '#334155'}" stroke="${sem ? '#0f172a' : '#64748b'}" stroke-width="3"/>
-            <text x="280" y="${y + hh / 2 + 10}" text-anchor="middle" font-size="30" font-weight="900" fill="${sem ? '#0f172a' : '#cbd5e1'}" ${MONO}>&lt;${sem ? t : 'div'}&gt;</text>`).join('');
-        const DEVICE = (w, h, cols, frame) => {
-          const pad = 26, top = 30, gw = (w - pad * 2 - (cols - 1) * 14) / cols;
-          return `<rect x="4" y="4" width="${w - 8}" height="${h - 8}" rx="${frame}" fill="#0f172a" stroke="#94a3b8" stroke-width="6"/>
-            <rect x="${pad}" y="${top}" width="${w - pad * 2}" height="40" rx="8" fill="#db2777"/>
-            ${range(cols * (cols === 1 ? 4 : 2)).map((i) => `<rect x="${pad + (i % cols) * (gw + 14)}" y="${top + 56 + Math.floor(i / cols) * 92}" width="${gw}" height="78" rx="10" fill="${['#38bdf8', '#34d399', '#fbbf24', '#a78bfa', '#f472b6', '#60a5fa'][i % 6]}"/>`).join('')}`;
-        };
-        return `
-  <div id="w3-stage" class="mv-stage">
-    ${U.box('h0', 120, 220, 520, 't-blue', { ic: '🏗️', y: 'HTML', h: L('البنية', 'Structure'), p: L('هيكل المبنى', 'the frame') })}
-    ${U.box('c0', 700, 220, 520, 't-pink', { ic: '🎨', y: 'CSS', h: L('المظهر', 'Appearance'), p: L('الديكور الداخلي والخارجي', 'interior and exterior') })}
-    ${U.box('j0', 1280, 220, 520, 't-amber', { ic: '💡', y: 'JavaScript', h: L('السلوك', 'Behavior'), p: L('الكهربا والسباكة', 'electricity and plumbing') })}
-
-    ${U.art('pg', 60, 160, 860, 560, '0 0 860 560', PAGE)}
-    ${U.art('house', 980, 180, 440, 420, '0 0 440 420', HOUSE)}
-    ${U.emo('cur', MK.RTL() ? 640 : 230, 610, 90, 60, '👆')}
-    ${U.box('i1', 1460, 190, 400, 't-blue', { y: 'HTML', h: L('البنية (الهيكل)', 'Structure'), p: L('عناوين · فقرات · صور · لينكات', 'headings · paragraphs · images · links'), s: '🏗️ ' + L('هيكل المبنى', 'the frame') })}
-    ${U.box('i2', 1460, 190, 400, 't-pink', { y: 'CSS', h: L('المظهر', 'Appearance'), p: L('ألوان · تخطيط · حجم · خطوط', 'colors · layout · size · fonts'), s: '🎨 ' + L('الديكور', 'the decoration') })}
-    ${U.box('i3', 1460, 190, 400, 't-amber', { y: 'JavaScript', h: L('السلوك والتفاعل', 'Behavior'), p: L('يرد على الضغط · يحدّث جزء من الشاشة', 'reacts to clicks · updates part of the screen'), s: '💡 ' + L('الكهربا والسباكة', 'electricity and plumbing') })}
-
-    ${U.art('soup', 80, 170, 560, 520, '0 0 560 520', BLOCKS(false))}
-    ${U.art('sem', 700, 170, 560, 520, '0 0 560 520', BLOCKS(true))}
-    ${U.pill('nm', 150, 700, '❓ ' + L('صناديق ملهاش معنى', 'meaningless boxes'), 't-red')}
-    ${U.pill('ym', 790, 700, '✅ ' + L('كل جزء بمعناه', 'each part named by meaning'), 't-green')}
-    ${U.box('sx', 1320, 190, 520, 't-violet', { ic: '🏷️', h: L('HTML الدلالية', 'Semantic HTML'), p: L('وسوم بتدل على معنى كل جزء', 'tags that indicate meaning') })}
-    ${U.emo('rd', 220, 230, 160, 110, '🔊')}
-    ${U.pill('rdb', 90, 380, '«' + L('شريط تنقّل… المحتوى الرئيسي…', 'navigation… main content…') + '»', 'solid')}
-    ${U.box('b1', 1320, 190, 520, 't-blue', { ic: '♿', h: L('① إمكانية الوصول', '① Accessibility'), p: L('برامج قراءة الشاشة تفهم البنية', 'screen readers understand it'), s: L('المعلومة توصل لذوي الإعاقة البصرية', 'reaches visually impaired users') })}
-    ${U.box('b2', 1320, 470, 520, 't-green', { ic: '🔎', h: L('② SEO', '② SEO'), p: L('محركات البحث تفهم المحتوى صح', 'search engines understand it') })}
-
-    ${U.art('pc', 60, 200, 640, 420, '0 0 640 420', DEVICE(640, 420, 3, 18))}
-    ${U.art('tab', 760, 190, 380, 460, '0 0 380 460', DEVICE(380, 460, 2, 30))}
-    ${U.art('ph', 1190, 200, 240, 440, '0 0 240 440', DEVICE(240, 440, 1, 34))}
-    ${U.box('rsp', 1480, 220, 380, 't-pink', { ic: '📱', h: L('التصميم المتجاوب', 'Responsive design'), p: L('صفحة واحدة… بتتظبط على كل شاشة', 'one page… fits every screen') })}
-
-    ${U.art('pf', 660, 190, 500, 420, '0 0 500 420', `<rect x="4" y="4" width="492" height="412" rx="20" fill="none" stroke="#94a3b8" stroke-width="4" stroke-dasharray="14 10"/>${range(4).map((k) => `<rect x="40" y="${36 + k * 92}" width="420" height="72" rx="14" fill="none" stroke="#475569" stroke-width="3" stroke-dasharray="8 8"/>`).join('')}`)}
-    ${U.box('kit', 80, 190, 520, 't-violet', { ic: '🧰', h: L('إطار العمل', 'Framework'), p: L('وظائف ومكوّنات جاهزة', 'ready-made functions and parts'), s: L('تطوير أكفأ — مش من الصفر', 'efficient — not from scratch') })}
-    ${[['🔘', L('زرار', 'button')], ['🧭', L('قايمة', 'menu')], ['🃏', L('كارت', 'card')], ['📝', L('نموذج', 'form')]].map(([e, t], k) => U.pill('k' + k, 80 + (k % 2) * 260, 470 + Math.floor(k / 2) * 90, e + ' ' + t, 't-slate')).join('')}
-    ${U.box('fw1', 1220, 190, 640, 't-blue', { h: '⚛️ React', p: L('من Meta · بيحدّث جزء من الشاشة · للتطبيقات الكبيرة', 'by Meta · updates part of the screen · large apps') })}
-    ${U.box('fw2', 1220, 350, 640, 't-green', { h: '🟩 Vue', p: L('بنية بسيطة · تبني تدريجيًا من ميزات صغيرة', 'simple · build up from small features') })}
-    ${U.box('fw3', 1220, 510, 640, 't-slate', { h: '▲ Next.js', p: L('مزايا React + تسريع عرض الصفحة', 'React’s features + faster display') })}
-
-    ${U.hd(0, '🏠 ' + L('صفحة الويب = تلات تقنيات', 'A web page = three technologies'))}
-    ${U.hd(1, '🏗️ HTML ' + L('— البنية', '— structure'))}
-    ${U.hd(2, '🎨 CSS ' + L('— المظهر', '— appearance'))}
-    ${U.hd(3, '💡 JavaScript ' + L('— السلوك', '— behavior'))}
-    ${U.hd(4, '🏷️ ' + L('HTML الدلالية', 'Semantic HTML'))}
-    ${U.hd(5, L('فوايد HTML الدلالية', 'Why semantic HTML helps'))}
-    ${U.hd(6, '📱 ' + L('التصميم المتجاوب', 'Responsive design'))}
-    ${U.hd(7, '🧰 ' + L('الأطر', 'Frameworks'))}
-    ${U.nt(0, L('تلات أدوار مستقلة… والصفحة بتتعمل بيهم مع بعض', 'Three independent roles… combined into one page'), 'ok')}
-    ${U.nt(3, '⚠️ ' + L('«CSS بيضيف السلوك» ← غلط: السلوك JavaScript', '"CSS adds behavior" → false: behavior is JavaScript'), 'warn')}
-    ${U.nt(5, '⚠️ ' + L('مش بالضرورة بتخلّي الصفحة أسرع!', 'It does not necessarily make the page faster!'), 'warn')}
-    ${U.nt(6, '📱 ' + L('الأولوية للموبايل (mobile-first): نبدأ التصميم من الشاشة الصغيرة', 'Mobile-first: design starts from the small screen'), 'ok')}
+      cls: 'mv-web mv-l12 mv-l33', prefix: P, beats: 9,
+      html: (L) => `
+  <div id="f3-s0" class="mv-stage">
+    ${[['🏗️', 'HTML', L('البنية (الهيكل)', 'structure'), 'c-amber'], ['🎨', 'CSS', L('المظهر', 'appearance'), 'c-blue'], ['💡', 'JavaScript', L('السلوك والتفاعل', 'behaviour'), 'c-violet']]
+      .map(([ic, h, p, c], k) => B.card('t' + k, 70 + k * 420, 170, 390, 300, c, { ic, h: `<bdi>${h}</bdi>`, p })).join('')}
+    ${B.svg('h0', 1380, 150, 420, 380, '0 0 400 360', HOUSE)}
+    ${B.mid('tog', 560, '🧩 ' + L('كل تقنية ليها دور مستقل… والصفحة بتتعمل بيهم مع بعض', 'each has its own role… the page is made with all of them together'), 'c-slate big')}
   </div>
-  <div id="w3-recap" class="mv-recap">
-    ${U.hd(8, '💡 ' + L('الخلاصة', 'The point'))}
-    ${U.pill('x0', 140, 200, '🏗️ HTML ' + L('يبني', 'structures') + ' · 🎨 CSS ' + L('ينسّق', 'styles') + ' · 💡 JavaScript ' + L('يتصرّف', 'behaves'), 't-blue')}
-    ${U.pill('x1', 140, 310, '🏷️ ' + L('HTML الدلالية', 'Semantic HTML') + ' = ' + L('إمكانية وصول + SEO', 'accessibility + SEO'), 't-violet')}
-    ${U.pill('x2', 140, 420, '📱 ' + L('المتجاوب = أي شاشة', 'Responsive = any screen') + ' (mobile-first)', 't-pink')}
-    ${U.pill('x3', 140, 530, '🧰 ' + L('الأطر = بناء أكفأ', 'Frameworks = efficient building') + ' (React · Vue · Next.js)', 't-green')}
-  </div>`;
-      },
+
+  <div id="f3-ed" class="mv-stage">
+    <div id="f3-code" class="l12u l12-editor later" style="${B.at(70, 140, 700, 440)}"><div class="tabs"><span class="tb t0">index.html</span><span class="tb t1">style.css</span><span class="tb t2">app.js</span></div>
+      <pre class="c c0"><span>&lt;h1&gt;Nile Shop&lt;/h1&gt;</span><span>&lt;p&gt;Best prices&lt;/p&gt;</span><span>&lt;img src="bag.png"&gt;</span><span>&lt;button&gt;Add to cart&lt;/button&gt;</span></pre>
+      <pre class="c c1"><span>h1 { color: #2563eb; }</span><span>body { background: #fef3c7; }</span><span>button { border-radius: 20px; }</span></pre>
+      <pre class="c c2"><span>button.onclick = () =&gt; {</span><span>  cart.count += 1;</span><span>  show(cart);</span><span>}</span></pre></div>
+    <div id="f3-pg" class="l12u l12-win l12-page later" style="${B.at(820, 140, 600, 440)}"><div class="wbar"><i></i><i></i><i></i><span class="url">nile-shop.com</span><span class="cart">🛒 <bdi class="n0">0</bdi><bdi class="n1">1</bdi></span></div>
+      <div class="wbody"><h4 class="ttl">Nile Shop</h4><p class="sub">Best prices</p><div class="pic">👜</div><button class="btn">Add to cart</button><span class="cur">👆</span></div></div>
+    ${B.svg('hs', 1460, 170, 400, 360, '0 0 400 360', HOUSE)}
+    ${B.chip('an0', 1460, 560, '🏗️ ' + L('HTML = هيكل المبنى', 'HTML = the frame'), 'c-amber', 400)}
+    ${B.chip('an1', 1460, 560, '🎨 ' + L('CSS = الديكور', 'CSS = the decoration'), 'c-blue', 400)}
+    ${B.chip('an2', 1460, 560, '💡 ' + L('JS = الكهربا والسباكة', 'JS = electricity & plumbing'), 'c-violet', 400)}
+    ${B.chip('d0', 70, 620, 'HTML: ' + L('بيوصف العناصر: عناوين · فقرات · صور · لينكات', 'describes elements: headings · paragraphs · images · links'), 'c-amber big')}
+    ${B.chip('d1', 70, 620, 'CSS: ' + L('الألوان · التخطيط · الحجم · الخطوط', 'colours · layout · size · fonts'), 'c-blue big')}
+    ${B.chip('d2', 70, 620, 'JS: ' + L('بيرد على الضغط وبيحدّث جزء بس من الشاشة', 'responds to clicks and updates only part of the screen'), 'c-violet big')}
+    ${B.chip('trp', 70, 700, '⚠️ ' + L('فخ: «CSS بيضيف السلوك» ← غلط', 'trap: “CSS adds behaviour” → false'), 'c-red')}
+  </div>
+
+  <div id="f3-s4" class="mv-stage">
+    <div id="f3-sem" class="l12u l12-blocks later" style="${B.at(70, 140, 820, 460)}"><b class="hd">&lt;header&gt; ${L('أعلى الصفحة', 'top')}</b><b class="nv">&lt;nav&gt; ${L('التنقّل', 'navigation')}</b><b class="mn">&lt;main&gt; ${L('المتن', 'main content')}</b><b class="ft">&lt;footer&gt; ${L('أسفل الصفحة', 'bottom')}</b></div>
+    <div id="f3-div" class="l12u l12-blocks gray later" style="${B.at(1040, 140, 820, 460)}"><b>&lt;div&gt;</b><b>&lt;div&gt;</b><b class="mn">&lt;div&gt;</b><b>&lt;div&gt;</b></div>
+    ${B.stamp('ok', 260, 630, '✓ ' + L('بتدل على المعنى', 'they mean something'), true)}
+    ${B.stamp('no', 1240, 630, '✗ ' + L('صناديق ملهاش معنى', 'meaningless boxes'))}
+  </div>
+  <div id="f3-s5" class="mv-stage">
+    ${B.card('acc', 70, 150, 860, 380, 'c-green', { ic: '🔊', h: L('① إمكانية الوصول', '① Accessibility'), p: L('برامج قراءة الشاشة بتفهم بنية الصفحة — فالمعلومة توصل لذوي الإعاقة البصرية', 'screen readers understand the structure — information reaches visually impaired users'), html: `<div class="l12-say">«header… nav… main…» 🔊</div>` })}
+    ${B.card('seo', 990, 150, 870, 380, 'c-blue', { ic: '🔎', h: L('② SEO — تحسين محركات البحث', '② SEO'), p: L('محركات البحث تفهم المحتوى صح فتظهر الصفحة بشكل مناسب', 'search engines understand the content and show the page properly'), html: `<div class="l12-rank"><span class="me">1. nile-shop.com ✓</span><span>2. ...</span></div>` })}
+    ${B.mid('fast', 590, '⚠️ ' + L('مش بالضرورة بتخلّي الصفحة أسرع!', 'it does NOT necessarily make the page faster!'), 'c-red big')}
+  </div>
+  <div id="f3-s6" class="mv-stage">
+    <div id="f3-dev" class="l12u l12-dev later" style="${B.at(500, 150, 920, 420)}"><div class="g"><span>🛍️</span><span>👟</span><span>🎧</span><span>⌚</span><span>📱</span><span>🎒</span></div></div>
+    ${B.chip('w0', 160, 250, '🖥️ ' + L('كمبيوتر', 'PC'), 'c-blue big', 260)}${B.chip('w1', 160, 350, '📟 ' + L('تابلت', 'tablet'), 'c-blue big', 260)}${B.chip('w2', 160, 450, '📱 ' + L('موبايل', 'phone'), 'c-blue big', 260)}
+    ${B.chip('one', 1480, 250, '1️⃣ ' + L('صفحة واحدة', 'one page'), 'c-green big', 380)}
+    ${B.chip('mf', 160, 620, '📱 ' + L('الأولوية للموبايل (mobile-first): نبدأ التصميم من الشاشات الصغيرة', 'mobile-first: start designing from small screens'), 'c-amber big')}
+  </div>
+  <div id="f3-s7" class="mv-stage">
+    ${B.card('box', 70, 150, 600, 420, 'c-slate', { ic: '🧰', h: L('مكوّنات جاهزة', 'Ready-made parts'), html: `<div class="l12-parts"><span>🔘 Button</span><span>🧾 Card</span><span>☰ Navbar</span><span>📝 Form</span></div>` })}
+    ${[['⚛️', 'React', L('من Meta: بيحدّث جزء من الشاشة بكفاءة — للتطبيقات الكبيرة', 'by Meta: updates part of the screen efficiently — big apps'), 'c-blue'],
+      ['🟩', 'Vue', L('بسيط: تبني تدريجيًا من ميزات صغيرة', 'simple: build up gradually from small features'), 'c-green'],
+      ['▲', 'Next.js', L('مزايا React + تسريع عرض الصفحة', 'React’s strengths + faster page display'), 'c-slate']]
+      .map(([ic, h, p, c], k) => B.card('fw' + k, 720, 150 + k * 150, 1140, 0, c, { row: true, ic, h: `<bdi>${h}</bdi>`, p })).join('')}
+    ${B.mid('fd', 640, '🧱 ' + L('الإطار = وظائف ومكوّنات جاهزة ← تطوير أكفأ من غير ما تكتب كل حاجة من الصفر', 'a framework = ready functions and parts → efficient building, not everything from scratch'), 'c-amber')}
+  </div>
+  <div id="f3-s8" class="mv-stage">
+    ${[['🏗️', 'HTML', L('يبني', 'structures'), 'c-amber'], ['🎨', 'CSS', L('ينسّق', 'styles'), 'c-blue'], ['💡', 'JavaScript', L('يتصرّف', 'behaves'), 'c-violet']]
+      .map(([ic, h, p, c], k) => B.card('r' + k, 70 + k * 600, 150, 570, 240, c, { ic, h: `<bdi>${h}</bdi>`, k: p })).join('')}
+    ${[['🏷️', L('HTML الدلالية: وصول + SEO', 'semantic HTML: access + SEO')], ['📱', L('المتجاوب: أي شاشة', 'responsive: any screen')], ['🧰', L('الأطر: بناء أكفأ', 'frameworks: efficient building')]]
+      .map(([ic, t], k) => B.chip('m' + k, 70 + k * 600, 450, ic + ' ' + t, 'c-green big', 570)).join('')}
+  </div>
+    ${U.hd(0, '🧱 ' + L('الصفحة = تلات تقنيات', 'A page = three technologies'))}
+    ${U.hd(1, '🏗️ ' + L('HTML: البنية', 'HTML: structure'))}
+    ${U.hd(2, '🎨 ' + L('CSS: المظهر', 'CSS: appearance'))}
+    ${U.hd(3, '💡 ' + L('JavaScript: السلوك والتفاعل', 'JavaScript: behaviour'))}
+    ${U.hd(4, '🏷️ ' + L('HTML الدلالية', 'Semantic HTML'))}
+    ${U.hd(5, '🎯 ' + L('فوايد HTML الدلالية', 'Why semantic HTML?'))}
+    ${U.hd(6, '📱 ' + L('التصميم المتجاوب', 'Responsive design'))}
+    ${U.hd(7, '🧰 ' + L('الأطر (Frameworks)', 'Frameworks'))}
+    ${U.hd(8, '📌 ' + L('الخلاصة', 'Recap'))}`,
     });
-    const { q, Q, tl, at, IN, POP, OUT, SND, PULSE, frame, sx } = M;
-    const sel = (id, c) => M.board.querySelectorAll('#w3-' + id + ' .' + c);
+    const { q, Q, tl, IN, POP, OUT, SND, frame, sx } = M;
+    const all = (sel) => M.board.querySelectorAll(sel);
+    const at = M.at;
+    const tab = (k, t) => { tl.to(all('#f3-code .c'), { opacity: 0, duration: 0.2 }, t); tl.to(all('#f3-code .tb'), { opacity: 0.45, duration: 0.2 }, t); tl.to(all('#f3-code .t' + k), { opacity: 1, duration: 0.2 }, t + 0.1); tl.to(all('#f3-code .c' + k), { opacity: 1, duration: 0.1 }, t + 0.2);
+      tl.fromTo(all(`#f3-code .c${k} span`), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.25, stagger: 0.35 }, t + 0.3); };
+    const swap = (o, n, t) => { if (o) OUT(q(o), t, 0.2); IN(q(n), t + 0.2, 0.4, { y: 12 }); };
 
     /* 0 — three technologies */
     let c = at(0);
-    frame(0, c, 4.6);
-    Q('h0 c0 j0').forEach((e, i) => { IN(e, c + 0.6 + i * 1.0, 0.5, { y: 40 }); SND('pop', c + 0.6 + i * 1.0); });
+    frame(0, c);
+    [0, 1, 2].forEach((k) => { IN(q('t' + k), c + 0.4 + k * 0.6, 0.5, { y: 30 }); SND('pop', c + 0.4 + k * 0.6); });
+    IN(q('h0'), c + 2.4, 0.4);
+    tl.fromTo(all('#f3-h0 .frm *'), { drawSVG: '0%' }, { drawSVG: '100%', duration: 0.8, stagger: 0.1 }, c + 2.5);
+    tl.to(all('#f3-h0 .paint'), { opacity: 1, duration: 0.6 }, c + 3.8);
+    tl.to(all('#f3-h0 .lights'), { opacity: 1, duration: 0.3 }, c + 4.6);
+    POP(q('tog'), c + 5.4, 0.5);
 
-    /* 1 — HTML: the structure */
+    /* 1 — HTML builds the structure */
     c = at(1);
     frame(1, c);
-    OUT(Q('h0 c0 j0'), c, 0.4);
-    IN(q('pg'), c + 0.6, 0.5, { y: 30 });
-    tl.fromTo(sel('pg', 'raw'), { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.3 }, c + 1.0);
-    IN(q('house'), c + 1.6, 0.5, { x: 40 * sx });
-    tl.fromTo(sel('house', 'fr'), { strokeDasharray: '0 2400' }, { strokeDasharray: '2400 0', duration: 1.6, ease: 'power1.inOut' }, c + 1.8);
-    IN(q('i1'), c + 3.6, 0.5, { x: 40 * sx }); SND('ok', c + 3.6);
+    OUT(q('s0'), c, 0.4);
+    IN(Q('code pg hs'), c + 0.4, 0.5, { y: 24 });
+    tab(0, c + 0.8);
+    tl.fromTo(all('#f3-pg .ttl, #f3-pg .sub, #f3-pg .pic, #f3-pg .btn'), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.35 }, c + 1.2);
+    tl.fromTo(all('#f3-hs .frm *'), { drawSVG: '0%' }, { drawSVG: '100%', duration: 0.9, stagger: 0.12 }, c + 1.4); SND('pop', c + 1.4);
+    swap(null, 'an0', c + 3.4); swap(null, 'd0', c + 4.0);
 
-    /* 2 — CSS: the appearance */
+    /* 2 — CSS paints it */
     c = at(2);
     frame(2, c);
-    OUT(q('i1'), c, 0.3);
-    tl.to(sel('pg', 'sty'), { opacity: 1, duration: 1.2, ease: 'power1.inOut' }, c + 0.8); SND('whoosh', c + 0.8);
-    tl.to(sel('pg', 'raw'), { opacity: 0.12, duration: 1.0 }, c + 0.8);
-    tl.to(sel('house', 'dec'), { opacity: 1, duration: 1.2 }, c + 1.6);
-    IN(q('i2'), c + 3.0, 0.5, { x: 40 * sx }); SND('ok', c + 3.0);
+    tab(1, c + 0.4);
+    tl.to(all('#f3-pg .wbody'), { backgroundColor: '#fef3c7', duration: 0.6 }, c + 1.3);
+    tl.to(all('#f3-pg .ttl'), { color: '#2563eb', fontSize: '52px', duration: 0.6 }, c + 1.6);
+    tl.to(all('#f3-pg .btn'), { borderRadius: '24px', backgroundColor: '#2563eb', color: '#fff', duration: 0.6 }, c + 2.0);
+    tl.to(all('#f3-hs .paint'), { opacity: 1, duration: 0.8 }, c + 1.6); SND('ok', c + 2.4);
+    swap('an0', 'an1', c + 3.2); swap('d0', 'd1', c + 3.6);
 
-    /* 3 — JavaScript: the behavior */
+    /* 3 — JavaScript wires the behaviour */
     c = at(3);
-    frame(3, c, 6.4);
-    OUT(q('i2'), c, 0.3);
-    tl.to(sel('pg', 'cnt0'), { opacity: 1, duration: 0.2 }, c + 0.6);
-    IN(q('cur'), c + 0.8, 0.4, { y: 40 });
-    [1, 2].forEach((k) => {
-      const t = c + 1.6 + (k - 1) * 1.2;
-      tl.to(q('cur'), { y: -20, duration: 0.15, yoyo: true, repeat: 1 }, t);
-      tl.to(sel('pg', 'cnt' + (k - 1)), { opacity: 0, duration: 0.1 }, t + 0.2);
-      tl.to(sel('pg', 'cnt' + k), { opacity: 1, duration: 0.1 }, t + 0.2);
-      SND('pop', t + 0.2);
-    });
-    tl.to(sel('house', 'pow'), { opacity: 1, duration: 0.6 }, c + 4.2); SND('ok', c + 4.2);
-    IN(q('i3'), c + 4.6, 0.5, { x: 40 * sx });
+    frame(3, c);
+    tab(2, c + 0.4);
+    tl.fromTo(all('#f3-pg .cur'), { opacity: 0, x: 60, y: 60 }, { opacity: 1, x: 0, y: 0, duration: 0.6 }, c + 1.8);
+    tl.fromTo(all('#f3-pg .btn'), { scale: 1 }, { scale: 0.9, duration: 0.12, yoyo: true, repeat: 1 }, c + 2.5); SND('tap', c + 2.5);
+    tl.to(all('#f3-pg .n0'), { opacity: 0, duration: 0.1 }, c + 2.7); tl.fromTo(all('#f3-pg .n1'), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.3 }, c + 2.7);
+    tl.fromTo(all('#f3-pg .cart'), { backgroundColor: 'rgba(52,211,153,0)' }, { backgroundColor: 'rgba(52,211,153,.6)', duration: 0.3, yoyo: true, repeat: 3 }, c + 2.7); SND('ok', c + 2.8);
+    tl.to(all('#f3-hs .lights'), { opacity: 1, duration: 0.3 }, c + 2.9);
+    swap('an1', 'an2', c + 3.6); swap('d1', 'd2', c + 4.0);
+    IN(q('trp'), c + 5.2, 0.4, { y: 12 });
 
     /* 4 — semantic HTML */
     c = at(4);
     frame(4, c);
-    OUT(Q('pg house cur i3'), c, 0.4);
-    IN(q('soup'), c + 0.6, 0.5, { y: 30 }); IN(q('nm'), c + 1.4, 0.4, { y: 20 }); SND('bad', c + 1.4);
-    IN(q('sem'), c + 2.4, 0.5, { y: 30 }); IN(q('ym'), c + 3.2, 0.4, { y: 20 }); SND('ok', c + 3.2);
-    IN(q('sx'), c + 4.0, 0.5, { x: 40 * sx });
+    OUT(q('ed'), c, 0.4);
+    IN(q('sem'), c + 0.5, 0.5, { x: -30 * sx });
+    tl.fromTo(all('#f3-sem b'), { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.3, stagger: 0.4 }, c + 0.9); SND('pop', c + 0.9);
+    IN(q('div'), c + 2.8, 0.5, { x: 30 * sx });
+    stampIn(M, q('ok'), c + 4.0); SND('ok', c + 4.0);
+    stampIn(M, q('no'), c + 4.8); SND('bad', c + 4.8);
 
-    /* 5 — benefits */
+    /* 5 — accessibility + SEO */
     c = at(5);
-    frame(5, c, 5.2);
-    OUT(Q('soup nm ym sx'), c, 0.4);
-    POP(q('rd'), c + 0.6, 0.5); IN(q('rdb'), c + 1.2, 0.4, { y: 20 }); SND('pop', c + 0.6);
-    PULSE(q('sem'), c + 1.4, 'rgba(167,139,250,.85)', 2);
-    IN(q('b1'), c + 2.4, 0.5, { x: 40 * sx }); SND('ok', c + 2.4);
-    IN(q('b2'), c + 3.6, 0.5, { x: 40 * sx }); SND('ok', c + 3.6);
+    frame(5, c);
+    OUT(q('s4'), c, 0.4);
+    IN(q('acc'), c + 0.5, 0.5, { y: 30 });
+    tl.fromTo(all('#f3-acc .l12-say'), { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 1.4, ease: 'none' }, c + 1.2);
+    IN(q('seo'), c + 2.6, 0.5, { y: 30 });
+    tl.fromTo(all('#f3-seo .me'), { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.6)' }, c + 3.3); SND('ok', c + 3.4);
+    POP(q('fast'), c + 4.8, 0.5); SND('bad', c + 4.8);
 
-    /* 6 — responsive design */
+    /* 6 — responsive: one page, three screens */
     c = at(6);
-    frame(6, c, 5.0);
-    OUT(Q('rd rdb sem b1 b2'), c, 0.4);
-    IN(q('pc'), c + 0.6, 0.5, { y: 30 }); SND('pop', c + 0.6);
-    IN(q('tab'), c + 1.6, 0.5, { y: 30 }); SND('pop', c + 1.6);
-    IN(q('ph'), c + 2.6, 0.5, { y: 30 }); SND('pop', c + 2.6);
-    IN(q('rsp'), c + 3.6, 0.5, { x: 40 * sx }); SND('ok', c + 3.6);
+    frame(6, c);
+    OUT(q('s5'), c, 0.4);
+    IN(q('dev'), c + 0.4, 0.5);
+    IN(q('one'), c + 0.8, 0.4, { x: 30 * sx });
+    const sizes = [[920, 3], [620, 2], [320, 1]];
+    sizes.forEach(([w, n], k) => {
+      const t = c + 1.2 + k * 1.6;
+      IN(q('w' + k), t, 0.3, { x: -20 * sx });
+      tl.to(q('dev'), { width: w, duration: 0.8, ease: 'power2.inOut' }, t);
+      tl.set(all('#f3-dev .g'), { gridTemplateColumns: `repeat(${n}, 1fr)` }, t + 0.4);
+      SND('whoosh', t);
+    });
+    IN(q('mf'), c + 6.2, 0.4, { y: 12 });
 
     /* 7 — frameworks */
     c = at(7);
     frame(7, c);
-    OUT(Q('pc tab ph rsp'), c, 0.4);
-    IN(q('kit'), c + 0.5, 0.5, { y: 30 });
-    IN(q('pf'), c + 0.8, 0.5);
-    range(4).forEach((k) => IN(q('k' + k), c + 1.0 + k * 0.2, 0.3, { y: 20 }));
-    range(4).forEach((k) => {
-      const t = c + 2.0 + k * 0.5;
-      tl.to(q('k' + k), { x: (620 - (k % 2) * 260) * sx, y: 226 + k * 92 - (470 + Math.floor(k / 2) * 90) + 8, duration: 0.6, ease: 'power2.inOut' }, t);
-      SND('pop', t + 0.6);
-    });
-    Q('fw1 fw2 fw3').forEach((e, i) => IN(e, c + 4.4 + i * 0.6, 0.5, { x: 40 * sx }));
+    OUT(q('s6'), c, 0.4);
+    IN(q('box'), c + 0.4, 0.5, { y: 30 });
+    tl.fromTo(all('#f3-box .l12-parts span'), { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.25, ease: 'bounce.out' }, c + 0.9);
+    [0, 1, 2].forEach((k) => { IN(q('fw' + k), c + 2.4 + k * 0.7, 0.5, { x: 40 * sx }); SND('pop', c + 2.4 + k * 0.7); });
+    IN(q('fd'), c + 4.8, 0.4, { y: 12 });
 
     /* 8 — recap */
     c = at(8);
-    tl.to(q('stage'), { opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.in', transformOrigin: '50% 50%' }, c);
-    IN(q('hd8'), c + 0.6, 0.5, { y: -30 });
-    Q('x0 x1 x2 x3').forEach((x, i) => { IN(x, c + 1.0 + i * 0.6, 0.4, { x: 30 * sx }); SND('pop', c + 1.0 + i * 0.6); });
+    frame(8, c);
+    OUT(q('s7'), c, 0.4);
+    [0, 1, 2].forEach((k) => { IN(q('r' + k), c + 0.5 + k * 0.5, 0.5, { y: 30 }); SND('pop', c + 0.5 + k * 0.5); });
+    [0, 1, 2].forEach((k) => IN(q('m' + k), c + 2.4 + k * 0.4, 0.4, { y: 16 }));
+
     /* living loops */
-    M.loop(0, 4.6, () => M.bob(Q('h0 c0 j0'), 8, 1.3));
-    M.loop(1, 4.6, () => gsap.timeline({ repeat: -1, repeatDelay: 1.0 }).fromTo(sel('house', 'fr'), { strokeDasharray: '0 2400' }, { strokeDasharray: '2400 0', duration: 2.2, ease: 'power1.inOut' }));
-    M.loop(2, 4.0, () => gsap.timeline().to(sel('house', 'dec'), { opacity: 0.45, duration: 1.0, ease: 'sine.inOut', stagger: { each: 0.3, repeat: -1, yoyo: true } }));
-    M.loop(3, 6.4, () => {
+    M.loop(0, 6.0, () => gsap.timeline({ repeat: -1, yoyo: true }).to(all('#f3-h0 .lights'), { opacity: 0.4, duration: 0.9 }));
+    M.loop(1, 4.6, () => gsap.timeline({ repeat: -1, yoyo: true }).to(all('#f3-code .c0 span:last-child'), { opacity: 0.4, duration: 0.6 }));
+    M.loop(3, 5.8, () => gsap.timeline({ repeat: -1, repeatDelay: 0.8 }).fromTo(all('#f3-pg .btn'), { scale: 1 }, { scale: 0.92, duration: 0.12, yoyo: true, repeat: 1 }).fromTo(all('#f3-pg .cart'), { backgroundColor: 'rgba(52,211,153,0)' }, { backgroundColor: 'rgba(52,211,153,.6)', duration: 0.25, yoyo: true, repeat: 1 }));
+    M.loop(3, 5.8, () => gsap.timeline({ repeat: -1, yoyo: true }).to(all('#f3-hs .lights'), { opacity: 0.5, duration: 0.8 }));
+    M.loop(4, 5.6, () => glowCycle(all('#f3-sem b'), 'rgba(52,211,153,.9)', 0.4));
+    M.loop(5, 5.6, () => gsap.timeline({ repeat: -1, repeatDelay: 0.6 }).fromTo(all('#f3-acc .l12-say'), { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 1.6, ease: 'none' }));
+    M.loop(6, 6.8, () => {
       const x = gsap.timeline({ repeat: -1, repeatDelay: 0.6 });
-      [0, 1, 2].forEach((k) => {
-        const n = (k + 1) % 3; // the counter keeps counting: 2 → 0 → 1 → 2 …
-        x.to(q('cur'), { y: '-=20', duration: 0.15, yoyo: true, repeat: 1 }, k * 1.3)
-          .to(sel('pg', 'cnt' + ((k + 2) % 3)), { opacity: 0, duration: 0.1 }, k * 1.3 + 0.2)
-          .to(sel('pg', 'cnt' + n), { opacity: 1, duration: 0.1 }, k * 1.3 + 0.2)
-          .fromTo(sel('house', 'pow'), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, k * 1.3 + 0.2);
-      });
+      sizes.concat([[620, 2]]).forEach(([w, n], k) => { x.to(q('dev'), { width: w, duration: 0.8, ease: 'power2.inOut' }, k * 1.6); x.set(all('#f3-dev .g'), { gridTemplateColumns: `repeat(${n}, 1fr)` }, k * 1.6 + 0.4); });
       return x;
     });
-    M.loop(4, 5.0, () => M.breathe(q('ym'), 1.08, 1.1));
-    M.loop(5, 5.2, () => M.glowLoop(q('sem'), 'rgba(167,139,250,.85)'));
-    M.loop(6, 5.0, () => gsap.timeline({ repeat: -1, repeatDelay: 0.5 }).fromTo(Q('pc tab ph'), { filter: 'drop-shadow(0 0 0px rgba(56,189,248,0))' }, { filter: 'drop-shadow(0 0 22px rgba(56,189,248,.9))', duration: 0.5, stagger: 0.5, yoyo: true, repeat: 1 }));
-    M.loop(7, 6.6, () => M.cycle(Q('k0 k1 k2 k3'), 'rgba(251,191,36,.85)', 0.45));
+    M.loop(7, 5.4, () => M.bob(all('#f3-box .l12-parts span'), 8, 1.1));
+    M.loop(8, 3.6, () => glowCycle(Q('r0 r1 r2'), 'rgba(244,114,182,.9)', 0.5));
     return M.done();
   });
 })();
