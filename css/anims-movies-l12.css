@@ -222,3 +222,18 @@
 .mv-l12 .l12-verdict { position: relative; height: 110px; margin-top: 40px; font-size: 56px; font-weight: 900; }
 .mv-l12 .l12-verdict span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; } .mv-l12 .l12-verdict .v0 { color: #fca5a5; } .mv-l12 .l12-verdict .v1 { color: #6ee7b7; opacity: 0; }
 .mv-l12 .l12-field .tg { font-size: 30px; padding: 0 14px; border-radius: 12px; color: #fff; letter-spacing: 0; } .mv-l12 .l12-field .tg.on { background: #10b981; } .mv-l12 .l12-field .tg.off { background: #ef4444; }
+
+/* ───────── lesson 3-1 (webTiersMovie) ───────── */
+.mv-l12 .l12-win .url .u { position: absolute; opacity: 0; } .mv-l12 .l12-win .url { position: relative; }
+.mv-l12 .l12-win .url .u0 { opacity: 1; position: static; }
+.mv-l12 .l12-apps { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.mv-l12 .l12-apps .a { display: flex; align-items: center; justify-content: center; height: 120px; border-radius: 20px; background: #e2e8f0; font-size: 34px; font-weight: 900; color: #0f172a; opacity: .6; }
+.mv-l12 .l12-lay { position: relative; height: 230px; }
+.mv-l12 .l12-lay .ly { position: absolute; inset: 22px 28px; opacity: 0; }
+.mv-l12 .l12-lay .tq { color: #0f172a; letter-spacing: 0; } .mv-l12 .l12-lay .tq span { display: inline-block; }
+.mv-l12 .l12-lay .empty { margin-top: 26px; text-align: center; font-size: 32px; color: #b91c1c; opacity: 0; }
+.mv-l12 .l12-grid { position: absolute; display: grid; grid-template-columns: 300px 1fr 1fr 1fr; gap: 14px; }
+.mv-l12 .l12-grid > * { display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px; border-radius: 18px; font-size: 28px; font-weight: 800; line-height: 1.4; }
+.mv-l12 .l12-grid .h { font-size: 32px; font-weight: 900; color: var(--ct); background: var(--cb); border: 3px solid var(--c); }
+.mv-l12 .l12-grid .r { font-size: 32px; font-weight: 900; background: rgba(148,163,184,.12); border: 3px solid #475569; color: #f1f5f9; }
+.mv-l12 .l12-grid span { background: rgba(15,23,42,.9); border: 2px solid #334155; color: #e2e8f0; }
