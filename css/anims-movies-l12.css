@@ -202,3 +202,23 @@
 .mv-l12 .l12-gen { margin-top: 30px; font-size: 30px; } .mv-l12 .l12-gen i { font-style: normal; color: #c4b5fd; }
 .mv-l12 .l12-mat { overflow: hidden; background: #0b1222; border-color: #334155; } .mv-l12 .l12-mat .code { font-size: 30px; line-height: 1.6; color: #7dd3fc; }
 .mv-l12.mv-l13 .head { background: linear-gradient(90deg, #a7f3d0, #34d399); }
+
+/* ───────── lesson 1-4 (bias · privacy · XAI · principles) ───────── */
+.mv-l12.mv-l14 .head { background: linear-gradient(90deg, #fde68a, #fbbf24); }
+.mv-l12 .l12-trow { display: flex; align-items: center; gap: 18px; margin-top: 14px; padding: 10px 18px; border-radius: 16px; background: rgba(148,163,184,.1); border: 2px solid rgba(148,163,184,.25); font-size: 30px; font-weight: 900; }
+.mv-l12 .l12-trow b { font-size: 36px; width: 50px; } .mv-l12 .l12-trow span { flex: 1; text-align: start; color: #e2e8f0; }
+.mv-l12 .l12-trow em { font-style: normal; } .mv-l12 .l12-trow.ok em { color: #6ee7b7; } .mv-l12 .l12-trow.no em { color: #fca5a5; display: inline-block; }
+.mv-l12 .l12-pop { display: grid; gap: 18px; margin-top: 18px; }
+.mv-l12 .l12-pop div { display: flex; align-items: center; gap: 8px; font-size: 44px; }
+.mv-l12 .l12-pop i { font-style: normal; width: 60px; font-size: 40px; color: #fde68a; } .mv-l12 .l12-pop b { font-weight: 400; }
+.mv-l12 .l12-cols { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 16px; }
+.mv-l12 .l12-cols span { padding: 12px 20px; border-radius: 16px; border: 3px solid #475569; background: rgba(148,163,184,.12); font-size: 30px; font-weight: 900; }
+.mv-l12 .l12-cv, .mv-l12 .l12-faces { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 20px; }
+.mv-l12 .l12-cv span { font-size: 40px; padding: 10px 16px; border-radius: 14px; background: rgba(148,163,184,.12); }
+.mv-l12 .l12-faces span { font-size: 54px; padding: 4px 10px; border-radius: 14px; border: 3px solid transparent; }
+.mv-l12 .l12-count { margin-top: 18px; font-size: 52px; color: #fde68a; }
+.mv-l12 .l12-slide { display: flex; align-items: center; gap: 18px; margin-top: 30px; font-size: 30px; font-weight: 900; }
+.mv-l12 .l12-slide .l12-bar { position: relative; flex: 1; } .mv-l12 .l12-slide b { font-size: 48px; color: #fde68a; width: 60px; }
+.mv-l12 .l12-verdict { position: relative; height: 110px; margin-top: 40px; font-size: 56px; font-weight: 900; }
+.mv-l12 .l12-verdict span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; } .mv-l12 .l12-verdict .v0 { color: #fca5a5; } .mv-l12 .l12-verdict .v1 { color: #6ee7b7; opacity: 0; }
+.mv-l12 .l12-field .tg { font-size: 30px; padding: 0 14px; border-radius: 12px; color: #fff; letter-spacing: 0; } .mv-l12 .l12-field .tg.on { background: #10b981; } .mv-l12 .l12-field .tg.off { background: #ef4444; }
