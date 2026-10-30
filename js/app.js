@@ -5,6 +5,8 @@
  *   #/l/<lessonId>/s/<sid>  → station player
  *   #/challenge             → chapter 1 challenge (random test)
  *   #/challenge/<n>         → chapter n challenge
+ *   #/study                 → mistakes notebook + mastery per lesson
+ *   #/study/review[/<id>]   → review the notebook (all, or one lesson)
  *   #/selftest              → mounts every step (QA)
  * ========================================================= */
 (function () {
@@ -17,6 +19,8 @@
     if (parts[0] === 'l' && parts[1] && parts[2] === 's' && parts[3]) return { screen: 'player', lessonId: parts[1], stationId: parts[3] };
     if (parts[0] === 'l' && parts[1]) return { screen: 'path', lessonId: parts[1] };
     if (parts[0] === 'challenge') return { screen: 'challenge', chapter: +parts[1] || 1 };
+    if (parts[0] === 'study' && parts[1] === 'review') return { screen: 'review', lessonId: parts[2] };
+    if (parts[0] === 'study') return { screen: 'study' };
     if (parts[0] === 'selftest') return { screen: 'selftest' };
     if (parts[0] === 'audit') return { screen: 'audit' };
     if (parts[0] === 'badges') return { screen: 'badges' };
@@ -43,6 +47,10 @@
       } else if (r.screen === 'challenge') {
         const ch = RV.chapters.find((c) => c.number === r.chapter) || RV.chapters[0];
         current = RV.screens.get('player').render(root, { lesson: challengeLesson(ch), station: challengeStation(ch) });
+      } else if (r.screen === 'review') {
+        const station = RV.study.reviewStation(r.lessonId);
+        if (!station.steps.length) { location.replace('#/study'); return; }
+        current = RV.screens.get('player').render(root, { lesson: RV.study.reviewLesson(r.lessonId), station });
       } else if (r.screen === 'path') {
         current = RV.screens.get('path').render(root, { lessonId: r.lessonId });
       } else {
@@ -66,7 +74,7 @@
       RV.lessons.get(id).stations.forEach((st) => {
         if (st.kind !== 'test' && st.kind !== 'practice') return;
         st.steps.forEach((step) => {
-          if (step.type === 'quiz' && ['mcq', 'tf', 'match', 'fill', 'order', 'classify'].includes(step.q.widget)) pool.push(Object.assign({}, step, { title: { ar: `من درس ${id}`, en: `From lesson ${id}` } }));
+          if (step.type === 'quiz' && ['mcq', 'tf', 'match', 'fill', 'order', 'classify'].includes(step.q.widget)) pool.push(Object.assign({}, step, { source: { lesson: id, station: st.id, step: st.steps.indexOf(step) }, title: { ar: `من درس ${id}`, en: `From lesson ${id}` } }));
         });
       });
     });

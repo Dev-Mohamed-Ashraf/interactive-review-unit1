@@ -10,6 +10,7 @@
     settings: { lang: 'ar', sound: true, teacher: false, theme: 'dark', present: false, tts: false, calm: false },
     stations: {}, // "1-1/learn-1": { done: true, stars: 3, best: 9, max: 10 }
     game: { xp: 0, badges: [] },
+    answers: {}, // "1-1/test/4": { w: wrong answers, r: correct in a row, ok: last answer right, t: when }
   };
 
   let data = load();
@@ -23,6 +24,7 @@
         settings: Object.assign({}, DEFAULT.settings, parsed.settings),
         stations: parsed.stations || {},
         game: Object.assign({ xp: 0, badges: [] }, parsed.game),
+        answers: parsed.answers || {},
       };
     } catch (e) {
       return clone(DEFAULT);
@@ -67,6 +69,17 @@
       if (data.settings.teacher || index === 0) return true;
       const prev = lesson.stations[index - 1];
       return !!this.station(lesson.id, prev.id);
+    },
+    /** Answers per question — read through core/study.js. */
+    answers() { return data.answers; },
+    recordAnswer(key, ok) {
+      const a = data.answers[key] || { w: 0, r: 0 };
+      a.w += ok ? 0 : 1;
+      a.r = ok ? a.r + 1 : 0;
+      a.ok = ok ? 1 : 0;
+      a.t = Date.now();
+      data.answers[key] = a;
+      save();
     },
     /** Rewards state (XP, badges) — owned by core/game.js. */
     game() { return data.game; },

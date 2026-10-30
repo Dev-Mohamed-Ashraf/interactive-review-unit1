@@ -12,6 +12,7 @@ flowchart TD
     i18n[i18n.js<br/>language + UI strings]
     rich[rich.js<br/>**term** __kw__ `math` x^y]
     store[store.js<br/>progress + settings]
+    study[study.js<br/>mistakes notebook · mastery per lesson]
     sound[sound.js<br/>WebAudio tones]
     fx[fx.js<br/>confetti · toast · countUp]
     icons[icons.js]

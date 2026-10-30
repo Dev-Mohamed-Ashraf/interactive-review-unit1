@@ -21,7 +21,7 @@
       let busy = false;
 
       RV.chrome.lessonTheme(root, lesson.color ? lesson : null);
-      const backHref = lesson.isChallenge ? '#/' : `#/l/${lesson.id}`;
+      const backHref = lesson.backHref || (lesson.isChallenge ? '#/' : `#/l/${lesson.id}`);
 
       // ---------- chrome ----------
       const bar = h('div', { class: 'player-progress' }, h('i'));
@@ -29,7 +29,7 @@
       const top = h('div', { class: 'topbar player-top' },
         h('a', { class: 'icon-btn', href: backHref, title: RV.i18n.ui('back') }, RV.icon('close')),
         h('div', { class: 'topbar-title' },
-          h('span', { class: 'chip mono' }, lesson.isChallenge ? '★' : lesson.id),
+          h('span', { class: 'chip mono' }, lesson.isReview ? '📒' : lesson.isChallenge ? '★' : lesson.id),
           h('span', { class: 'player-station' }, t(station.title)), counter),
         RV.game.pill(),
         ttsBtn(),
@@ -88,7 +88,10 @@
           lesson, station,
           mode: isTest ? 'test' : 'practice',
           onAnswer(res) {
-            if (!results[i]) RV.game.answer(res, nextBtn); // only the first answer earns XP (no farming by retrying)
+            if (!results[i]) { // only the first answer counts (no farming by retrying)
+              RV.game.answer(res, nextBtn);
+              RV.study.record(steps[i].source || { lesson: lesson.id, station: station.id, step: i }, steps[i], res);
+            }
             if (!results[i] || !isTest) results[i] = results[i] || res;
           },
           onReady() { updateNav(); pulseNext(); },
@@ -165,11 +168,12 @@
       // ---------- finish ----------
       function finish() {
         let result = null;
-        if (isTest) {
+        if (isTest || lesson.isReview) {
           const max = results.reduce((n, r, k) => n + (r ? r.max : stepMax(steps[k])), 0);
           const score = results.reduce((n, r) => n + (r ? r.score : 0), 0);
           result = { score, max };
         }
+        if (lesson.isReview) { showComplete(result, { stars: RV.store.starsFor(result.score, result.max) }); return; }
         const rec = RV.store.complete(lesson.id, station.id, result);
         showComplete(result, rec);
         RV.game.stationDone(lesson, station, result);
@@ -185,6 +189,18 @@
         return 1;
       }
 
+      /** Where the missed questions went: the notebook. */
+      function notebookNote() {
+        if (lesson.isReview) {
+          const n = lesson.left(), all = RV.study.summary().mistakes;
+          return h('p', { class: 'done-note muted' }, t(n ? { ar: `📒 لسه ${n} سؤال — كل سؤال بيخرج لما تجاوبه صح مرتين ورا بعض`, en: `📒 ${n} questions left — each leaves after two correct answers in a row` }
+            : all ? { ar: `🎉 خلصت أخطاء الدرس ده — لسه ${all} سؤال في دروس تانية`, en: `🎉 This lesson is clear — ${all} questions left in other lessons` }
+              : { ar: '🎉 الكشكول فضي!', en: '🎉 The notebook is clear!' }));
+        }
+        const missed = results.filter((r, k) => r && !r.correct && RV.study.graded(steps[k])).length;
+        return missed ? h('a', { class: 'btn btn-sm done-note', href: '#/study' }, t({ ar: `📒 ${missed} سؤال اتحفظ في كشكول الأخطاء`, en: `📒 ${missed} questions saved to your notebook` })) : null;
+      }
+
       function showComplete(result, rec) {
         if (cur) { cur.destroy(); cur = null; }
         RV.dom.clear(body);
@@ -195,7 +211,7 @@
         const nextSt = idx >= 0 ? stationsList[idx + 1] : null;
         const starsN = rec.stars || 0;
 
-        let headline = RV.i18n.ui('stationDone');
+        let headline = lesson.isReview ? t({ ar: 'خلّصت المراجعة!', en: 'Review finished!' }) : RV.i18n.ui('stationDone');
         let msg = '';
         if (result) {
           const r = result.score / result.max;
@@ -205,8 +221,8 @@
         const reviewDots = result ? h('div', { class: 'done-review' }, results.map((r, k) => h('span', { class: r && r.score === r.max ? 'ok' : r && r.score > 0 ? 'part' : 'bad', title: String(k + 1) }, String(k + 1)))) : null;
 
         const actions = h('div', { class: 'done-actions' },
-          result ? h('button', { class: 'btn', type: 'button', onClick: () => RV.app.rerender() }, RV.icon('refresh'), RV.i18n.ui('retake')) : null,
-          h('a', { class: 'btn' + (nextSt ? '' : ' btn-primary'), href: backHref }, RV.icon(lesson.isChallenge ? 'home' : 'flag'), RV.i18n.ui(lesson.isChallenge ? 'home' : 'backToPath')),
+          result && !(lesson.isReview && !lesson.left()) ? h('button', { class: 'btn', type: 'button', onClick: () => RV.app.rerender() }, RV.icon('refresh'), lesson.isReview ? t({ ar: 'راجع تاني', en: 'Review again' }) : RV.i18n.ui('retake')) : null,
+          h('a', { class: 'btn' + (nextSt ? '' : ' btn-primary'), href: backHref }, RV.icon(lesson.isChallenge ? 'home' : 'flag'), lesson.isReview ? t(lesson.title) : RV.i18n.ui(lesson.isChallenge ? 'home' : 'backToPath')),
           nextSt ? h('a', { class: 'btn btn-primary', href: `#/l/${lesson.id}/s/${nextSt.id}` }, RV.i18n.ui('nextStation'), RV.icon('arrowNext', 'flip-rtl')) : null);
 
         const card = h('div', { class: 'done card' },
@@ -214,7 +230,7 @@
           h('h2', null, headline),
           h('p', { class: 'muted' }, t(station.title)),
           RV.chrome.stars(starsN),
-          scoreEl, msg ? h('p', { class: 'done-msg' }, msg) : null, reviewDots, actions);
+          scoreEl, msg ? h('p', { class: 'done-msg' }, msg) : null, reviewDots, notebookNote(), actions);
         body.appendChild(h('div', { class: 'done-wrap' }, card));
 
         const tl = gsap.timeline();

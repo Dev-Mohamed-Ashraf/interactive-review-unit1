@@ -1,0 +1,55 @@
+/* =========================================================
+ * study.css — "My study": the mistakes notebook + mastery per lesson.
+ * ========================================================= */
+.study { max-width: 980px; margin: 0 auto; padding: 0 var(--gutter) calc(32px + var(--safe-bottom)); }
+.study h2 { margin: 28px 0 12px; font-size: var(--fs-2); }
+.study-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+.study-tile { display: grid; gap: 2px; padding: 14px 16px; text-align: center; }
+.study-tile b { font-size: var(--fs-3); color: var(--accent); }
+.study-cta { display: flex; align-items: center; gap: 16px; margin-top: 14px; padding: 18px 20px; }
+.study-cta > div { flex: 1; min-width: 0; }
+.study-cta h3, .study-cta p { margin: 0; }
+.study-cta.is-hot { border-color: var(--warn); }
+.study-weak-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.study-weak-item { display: flex; align-items: center; gap: 10px; padding: 12px 14px; text-decoration: none; color: inherit; border-inline-start: 4px solid var(--lesson); }
+.study-weak-item b { flex: 1; min-width: 0; }
+.study-row { display: grid; grid-template-columns: 54px minmax(0, 1fr) minmax(90px, 200px) 62px 136px 52px; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--radius-sm); background: var(--surface); text-decoration: none; color: inherit; cursor: pointer; }
+.study-chapter > .study-row, .study-row-wrap { display: grid; margin-bottom: 8px; }
+.study-chapter > a.study-row { display: grid; }
+.study-row-wrap { display: block; }
+.study-row-wrap > summary { list-style: none; }
+.study-row-wrap > summary::-webkit-details-marker { display: none; }
+.study-row-wrap[open] > summary { background: var(--surface-2); }
+.study-name { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.study-bar { position: relative; height: 10px; border-radius: 5px; background: var(--surface-2); overflow: hidden; }
+.study-bar i { position: absolute; top: 0; bottom: 0; inset-inline-start: 0; border-radius: 5px; background: var(--faint); }
+.study-bar i.is-weak { background: var(--bad); }
+.study-bar i.is-mid { background: var(--gold); }
+.study-bar i.is-strong { background: var(--ok); }
+.study-count { font-size: var(--fs-0); }
+.study-level { font-size: var(--fs-0); font-weight: 700; white-space: nowrap; color: var(--muted); }
+.study-level.is-weak { color: var(--bad); }
+.study-level.is-mid { color: var(--gold); }
+.study-level.is-strong { color: var(--ok); }
+.study-mistakes { font-size: var(--fs-0); font-weight: 700; white-space: nowrap; }
+.study-detail { padding: 12px 14px; }
+.study-qs { margin: 0 0 12px; padding-inline-start: 22px; display: grid; gap: 10px; }
+.study-q { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.study-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.study-note { margin-top: 22px; font-size: var(--fs-0); }
+.study-home { display: flex; align-items: center; gap: 14px; margin: 18px 0 0; padding: 16px 18px; text-decoration: none; color: inherit; border-color: var(--warn); }
+.study-home > div { display: grid; flex: 1; min-width: 0; }
+.done-note { margin: 8px 0 0; }
+@media (max-width: 640px) {
+  .study .xp-pill { display: none; }
+  .study .topbar .icon-btn { flex: none; }
+  .study-stats { gap: 8px; }
+  .study-tile { padding: 10px 6px; }
+  .study-tile b { font-size: var(--fs-2); white-space: nowrap; }
+  .study-row { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .study-bar { grid-column: 1 / -1; grid-row: 2; }
+  .study-count { display: none; }
+  .study-mistakes { grid-column: 1 / -1; }
+  .study-cta { flex-direction: column; align-items: stretch; }
+  .study-cta > .btn { justify-content: center; }
+}

@@ -43,7 +43,7 @@
         h('a', { class: 'extra-card card', href: '#/certificate' }, h('span', { class: 'extra-ico' }, '🎓'),
           h('div', null, h('b', null, t({ ar: 'شهادتك', en: 'Your certificate' })), h('small', { class: 'muted' }, t({ ar: 'اكتب اسمك واطبعها', en: 'Add your name and print' })))),
         offlineCard());
-      root.append(h('div', { class: 'screen home' }, top, hero, chapters, extras));
+      root.append(h('div', { class: 'screen home' }, top, hero, studyCard(), chapters, extras));
 
       gsap.timeline()
         .from('.home-kicker, .home-title, .home-sub, .home-by', { y: 30, opacity: 0, stagger: 0.08, duration: 0.7, ease: 'power3.out' })
@@ -53,6 +53,17 @@
       gsap.to('.orbit-node', { opacity: 0.35, duration: 1.6, repeat: -1, yoyo: true, stagger: 0.4, ease: 'sine.inOut' });
     },
   });
+
+  /** The way into the mistakes notebook, with what is waiting there. */
+  function studyCard() {
+    const S = RV.study.summary();
+    const sub = S.mistakes ? { ar: `${S.mistakes} سؤال مستنيك تراجعه`, en: `${S.mistakes} questions waiting for review` }
+      : S.answered ? { ar: `نسبة إتقانك ${Math.round(S.mastery * 100)}%`, en: `Your mastery: ${Math.round(S.mastery * 100)}%` }
+        : { ar: 'هيبدأ يشتغل لما تحل أسئلة', en: 'Starts working once you answer questions' };
+    return h('a', { class: 'study-home card', href: '#/study' }, h('span', { class: 'extra-ico' }, '📒'),
+      h('div', null, h('b', null, t({ ar: 'كشكول الأخطاء ونقاط ضعفي', en: 'Mistakes notebook & weak spots' })), h('small', { class: 'muted' }, t(sub))),
+      h('span', { class: 'challenge-go' }, RV.icon('arrowNext', 'flip-rtl')));
+  }
 
   /** "Download for offline": one tap with internet → the whole review works with no internet (videos too). */
   function offlineCard() {

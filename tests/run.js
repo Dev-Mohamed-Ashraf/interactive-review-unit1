@@ -215,6 +215,31 @@ RV.availableLessons().forEach((id) => RV.lessons.get(id).stations.forEach((st) =
 })));
 
 // ---------- "nothing gets lost": every image / video in the project is shown somewhere ----------
+console.log('▶ Checking the mistakes notebook');
+{
+  const S = RV.study, lesson = RV.availableLessons()[0];
+  const qs = S.questions(lesson), q = qs[0];
+  const check = (cond, msg) => (cond ? ok() : fail(`study: ${msg}`));
+  RV.availableLessons().forEach((id) => S.questions(id).forEach((x) => check(S.label(x.step) && S.label(x.step).ar, `${x.key} has no label`)));
+  check(qs.length > 0 && !S.mistakes().length, 'a fresh student has an empty notebook');
+  S.record(q.source, q.step, { correct: false });
+  check(S.mistakes().length === 1, 'a wrong answer enters the notebook');
+  S.record(q.source, q.step, { correct: true });
+  check(S.mistakes().length === 1, 'one right answer is not enough to leave');
+  S.record(q.source, q.step, { correct: false });
+  S.record(q.source, q.step, { correct: true });
+  check(S.mistakes().length === 1, 'a wrong answer restarts the count');
+  S.record(q.source, q.step, { correct: true });
+  check(S.mistakes().length === 0, `${S.OUT_AFTER} right answers in a row clear it`);
+  check(S.lessonStats(lesson).answered === 1 && S.lessonStats(lesson).right === 1, 'lesson stats follow the latest answer');
+  S.record({ lesson, station: 'x', step: 0 }, { type: 'quiz', q: { widget: 'poll' } }, { correct: false });
+  check(!S.mistakes().length, 'polls are not graded');
+  qs.slice(0, S.SESSION + 3).forEach((x) => S.record(x.source, x.step, { correct: false }));
+  const review = S.reviewStation();
+  check(review.steps.length === Math.min(S.SESSION, qs.length) && review.steps[0].source.lesson === lesson, 'a review is capped and keeps each source');
+  RV.store.resetAll();
+}
+
 console.log('▶ Checking every media file is used');
 {
   const code = allJs.map((f) => fs.readFileSync(path.join(ROOT, f), 'utf8')).join('\n');
