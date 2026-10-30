@@ -83,3 +83,29 @@ RV.termLinks = {
   overfitting: ['training'],
   'language-model': ['large-language-model-llm'],
 };
+
+/* The Arabic textbook's own wording for a term, keyed by its English name: printable sheets show this. */
+RV.bookTerms = {
+  'Recommendation system': 'نظام التوصية',
+  'Common-key cryptography': 'التشفير المتماثل',
+  'Multi-factor authentication': 'المصادقة الثنائية / متعددة العوامل',
+  'Non-repudiation': 'عدم التنصل',
+  VPN: 'الشبكة الافتراضية الخاصة (VPN)',
+  DMZ: 'المنطقة المعزولة (DMZ)',
+  'Zero trust': 'نهج انعدام الثقة',
+  Perimeter: 'المحيط الأمني',
+  Eradication: 'الاستئصال',
+  'Prevention of recurrence': 'الدروس المستفادة والتحسين',
+  'Three-tier architecture': 'بنية الطبقات الثلاث',
+  'HTTP method': 'طريقة طلب HTTP',
+  'Status code': 'رمز حالة HTTP',
+  'Mobile-first': 'نهج الأولوية للجوال',
+  Wireframe: 'المخطط الهيكلي',
+  'Normalization (Min‑Max)': 'تحجيم Min–Max (التحويل الكمي)',
+  'Pivot · join · aggregation': 'تحويل محوري · ربط · تجميع',
+  'Source citation': 'الإشارة إلى المصدر',
+  'Data visualization': 'تصور البيانات',
+  'Mosaic plot': 'مخطط المستطيلات (الفسيفساء)',
+  'Data storytelling': 'سرد قصص البيانات',
+  'Machine learning': 'التعلّم الآلي',
+};

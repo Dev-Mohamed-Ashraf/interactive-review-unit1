@@ -262,6 +262,11 @@ console.log('▶ Checking the summaries, glossary and search');
     check(RV.sheets[id], `lesson ${id} has no printable sheet`);
     if (RV.sheets[id]) walkSheet(id, RV.sheets[id], 'sheet');
   });
+  const cardNames = new Set();
+  RV.availableLessons().forEach((id) => RV.lessons.get(id).stations.forEach((st) => st.steps.forEach((s) => {
+    if (s.q && s.q.cards) s.q.cards.forEach((c) => cardNames.add(c.front.en));
+  })));
+  Object.keys(RV.bookTerms).forEach((en) => check(cardNames.has(en), `book term "${en}" matches no flash card`));
   const L = RV.lexicon, terms = L.terms();
   check(terms.length > 150, `glossary has only ${terms.length} terms`);
   check(new Set(terms.map((x) => x.key)).size === terms.length, 'glossary keys are unique');

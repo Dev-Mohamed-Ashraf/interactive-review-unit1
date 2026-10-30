@@ -127,7 +127,10 @@
     lesson.stations.forEach((st) => st.steps.forEach((s) => { if (s.q && s.q.cards) cards.push(...s.q.cards); }));
     if (!cards.length) return null;
     return h('section', { class: 'sh-block is-terms' }, h('h3', { class: 'sh-h' }, '📖 ', t({ ar: 'مصطلحات الدرس', en: 'Lesson terms' })),
-      h('div', { class: 'sh-terms' }, cards.map((c) => h('span', null, h('b', null, t(c.front)), h('i', { dir: 'auto' }, RV.i18n.alt(c.front))))));
+      h('div', { class: 'sh-terms' }, cards.map((c) => {
+        const name = { ar: RV.bookTerms[c.front.en] || c.front.ar, en: c.front.en };
+        return h('span', null, h('b', null, t(name)), h('i', { dir: 'auto' }, RV.i18n.alt(name)));
+      })));
   }
 
   function neighbour(lesson) {
@@ -213,10 +216,19 @@
     /** ids: lessons in order · cover: optional { heading, sub, rows: [{ id, title, cover, color }] } */
     render(paper, ids, cover) {
       RV.dom.clear(paper);
-      const fonts = ['400 15px Cairo', '700 15px Cairo', '800 15px Cairo', '900 15px Cairo', '400 15px Plex', '600 15px Plex', '700 15px Plex', '600 15px Mono'].map((f) => document.fonts.load(f, 'ابج abc 123'));
-      return Promise.all(fonts).catch(() => null).then(() => {
+      const fonts = ['400 15px Cairo', '600 15px Cairo', '700 15px Cairo', '800 15px Cairo', '900 15px Cairo', '400 15px Plex', '600 15px Plex', '700 15px Plex', '600 15px Mono'].map((f) => document.fonts.load(f, 'ابج abc 123'));
+      const lay = () => {
+        RV.dom.clear(paper);
         if (cover) coverPage(paper, cover);
         ids.forEach((id) => sheetPages(paper, RV.lessons.get(id)));
+      };
+      return Promise.all(fonts).catch(() => null).then(() => {
+        lay();
+        /* a late font can make a row taller after it was measured: lay out again */
+        return document.fonts.ready.then(() => {
+          const over = [...paper.querySelectorAll('.sh-body')].some((b) => b.scrollHeight > b.clientHeight + 1);
+          if (over) lay();
+        });
       });
     },
   };

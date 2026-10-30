@@ -49,7 +49,7 @@
     },
     edge() {
       return svg(290, 124, `${tag(10, 40, 84, 44, '🚗', '#d1fae5', 20)}${tag(196, 40, 84, 44, '☁️', '#e0f2fe', 20)}<path d="M102 62H188" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6 5"/>${txt(145, 54, T('بطيء', 'slow'), 11)}
-        ${txt(52, 26, T('طرفية: قرار فوري', 'edge: instant'), 11.5)}${txt(238, 26, T('سحابة: بعيدة', 'cloud: far'), 11.5)}${txt(145, 112, T('القيادة الذاتية بتقرّر على الجهاز نفسه', 'A self-driving car decides on the device'), 11.5)}`);
+        ${txt(52, 26, T('طرفية: قرار فوري', 'edge: instant'), 11.5)}${txt(238, 26, T('سحابة: بعيدة', 'cloud: far'), 11.5)}${txt(145, 112, T('بتعالج بعض البيانات محليًا على المركبة', 'A self-driving car decides on the device'), 11.5)}`);
     },
     nn() {
       const L = [[40, 3], [130, 4], [220, 4], [300, 2]], ys = (n, k) => 80 - ((n - 1) * 30) / 2 + k * 30;
@@ -67,7 +67,7 @@
     },
     keys() {
       const K = (x, y, c) => `<circle cx="${x}" cy="${y}" r="9" fill="none" stroke="${c}" stroke-width="4"/><path d="M${x + 9} ${y}h26m-9 0v8m-8-8v6" stroke="${c}" stroke-width="4" fill="none"/>`;
-      return svg(300, 150, `${txt(150, 15, T('متناظر: نفس المفتاح في الناحيتين', 'Symmetric: the same key both ways'), 12)}${K(44, 42, '#d97706')}${tag(106, 26, 88, 32, '🔒', '#f1f5f9', 16)}${K(226, 42, '#d97706')}
+      return svg(300, 150, `${txt(150, 15, T('متماثل: نفس المفتاح في الناحيتين', 'Common-key: the same key both ways'), 12)}${K(44, 42, '#d97706')}${tag(106, 26, 88, 32, '🔒', '#f1f5f9', 16)}${K(226, 42, '#d97706')}
         ${txt(150, 88, T('عام: العام يقفل · الخاص يفتح', 'Public-key: public locks · private opens'), 12)}${K(44, 116, '#0284c7')}${tag(106, 100, 88, 32, '🔒', '#f1f5f9', 16)}${K(226, 116, '#dc2626')}${txt(56, 144, T('عام', 'public'), 11)}${txt(240, 144, T('خاص', 'private'), 11)}`);
     },
     network() {
@@ -99,7 +99,7 @@
       return svg(290, 150, `<path d="M145 6V128" stroke="#d97706" stroke-width="2.5" stroke-dasharray="6 5"/>${seq(10, (k) => { const miss = k === 6, o = [-22, 14, -8, 20, -14, 6, 62, -18, 10, -4][k], w = [72, 78, 66, 74, 70, 80, 60, 76, 68, 74][k], x = 145 + o - w / 2, y = 12 + k * 11.5; return `<path d="M${x} ${y}h${w}" stroke="${miss ? '#dc2626' : '#059669'}" stroke-width="4.5" stroke-linecap="round"/>`; })}${txt(145, 144, T('الخط = القيمة الحقيقية · الأحمر فاتها', 'Line = true value · red misses it'), 11.5)}`);
     },
     pvalue() {
-      return svg(290, 86, `<rect x="16" y="26" width="258" height="18" rx="9" fill="#e2e8f0"/><rect x="16" y="26" width="129" height="18" rx="9" fill="#34d399"/><path d="M145 16V54" stroke="#d97706" stroke-width="3"/>${txt(145, 70, 'α = 0.05', 12.5)}${txt(80, 18, T('p < α ← نرفض H₀', 'p < α → reject H₀'), 11.5)}${txt(214, 18, T('p ≥ α ← مانرفضش', 'p ≥ α → keep H₀'), 11.5)}`);
+      return svg(290, 86, `<rect x="16" y="26" width="258" height="18" rx="9" fill="#e2e8f0"/><rect x="16" y="26" width="129" height="18" rx="9" fill="#34d399"/><path d="M145 16V54" stroke="#d97706" stroke-width="3"/>${txt(145, 70, 'α = 0.05', 12.5)}${txt(80, 18, T('p ≤ α ← نرفض H₀', 'p < α → reject H₀'), 11.5)}${txt(214, 18, T('p > α ← مانرفضش', 'p ≥ α → do not reject H₀'), 11.5)}`);
     },
     balance() {
       return svg(250, 110, `<path d="M28 34L222 66" stroke="#64748b" stroke-width="5" stroke-linecap="round"/><path d="M125 50l-14 40h28z" fill="#94a3b8"/>${tag(8, 8, 92, 28, T('النوع الأول', 'Type I'), '#fecaca', 11.5)}${tag(150, 66, 92, 28, T('النوع التاني', 'Type II'), '#fde68a', 11.5)}${txt(125, 106, T('نقلّل α ← الأول يقلّ والتاني يزيد', 'Lower α → I falls, II rises'), 11.5)}`);
@@ -145,7 +145,7 @@
     },
     hub() {
       const n = [[50, 26, T('📝 نص', '📝 Text')], [240, 26, T('🖼️ صورة', '🖼️ Image')], [50, 110, T('🔊 صوت', '🔊 Audio')], [240, 110, T('🎬 فيديو', '🎬 Video')]];
-      return svg(290, 136, `${n.map(([x, y, s]) => `${tag(x - 44, y - 16, 88, 32, s, '#e0f2fe', 12)}<path d="M${x < 145 ? x + 44 : x - 44} ${y}L${x < 145 ? 104 : 186} ${y < 68 ? 58 : 80}" stroke="currentColor" stroke-width="2.5"/>`).join('')}${tag(100, 48, 90, 42, T('🤖 نموذج واحد', '🤖 One model'), '#ede9fe', 11.5)}`);
+      return svg(290, 136, `${n.map(([x, y, s]) => `${tag(x - 44, y - 16, 88, 32, s, '#e0f2fe', 12)}<path d="M${x < 145 ? x + 44 : x - 44} ${y}L${x < 145 ? 104 : 186} ${y < 68 ? 58 : 80}" stroke="currentColor" stroke-width="2.5"/>`).join('')}${tag(100, 48, 90, 42, T('🤖 نموذج أو نظام', '🤖 One model'), '#ede9fe', 11.5)}`);
     },
     house() {
       return svg(250, 140, `<path d="M20 62L125 8L230 62" fill="none" stroke="#64748b" stroke-width="5" stroke-linejoin="round"/><rect x="38" y="62" width="174" height="66" fill="#f8fafc" stroke="#64748b" stroke-width="4"/>${tag(52, 74, 62, 42, '🏗️', '#fed7aa', 18)}${tag(136, 74, 62, 42, '💡', '#fef3c7', 18)}${txt(83, 136, '', 11)}`);

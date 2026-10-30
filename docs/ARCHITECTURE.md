@@ -118,3 +118,9 @@ One explanation per topic (duplicates were removed on 2026-10-12):
 - `gsap.from` / `timeline.from` are guarded: previous finite tweens on the same targets are finished first, so fast tapping never leaves text half-transparent. `api.after` timers started by a beat are flushed when the next beat starts.
 - QA: `#/audit` (all visuals) and `#/audit/<lesson>/<station>/<step>/<beat>` (one step, frozen). Run at 1180×820, 820×1180 and 390×844; result in `window.__audit`.
 - Motion level is the user's choice (✨ in the top bar → setting `calm`); the OS "reduce motion" flag is not used because animation is the lesson itself.
+
+## Printable summaries
+
+`js/content/sheets-N.js` holds one sheet per lesson (`RV.addSheet`); `js/screens/sheet.js` lays it out on A4 pages.
+The Arabic and English textbooks are not plain translations of each other, so each language of a sheet follows its own book.
+`RV.bookTerms` (in `js/content/glossary-links.js`) gives the Arabic textbook’s wording for the term chips.
