@@ -405,7 +405,7 @@
 .mv-c51 .l51-mini s { text-decoration: none; margin-inline-start: 12px; padding: 0 12px; border-radius: 12px; background: rgba(248,113,113,.25); font-size: 36px; }
 .mv-c51 #c1-b1 .l51-mini { font-size: 34px; }
 .mv-c51 .l51-sv { display: flex; flex-direction: column; gap: 20px; } .mv-c51 .l51-sv b { font-size: 34px; }
-.mv-c51 .l51-sv .resp { display: flex; flex-wrap: wrap; gap: 10px; font-size: 50px; }
+.mv-c51 .l51-sv .resp { display: flex; gap: 6px; font-size: 46px; }
 /* recap cards (chapters 5–7) */
 .mv-l12 .l12-card.rc { display: flex; flex-direction: column; justify-content: center; gap: 14px; }
 .mv-l12 .l12-card.rc .ic { font-size: 76px; }

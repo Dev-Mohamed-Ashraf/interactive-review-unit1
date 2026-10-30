@@ -63,9 +63,9 @@
     ${U.box('b2', 1280, 180, 570, 't-green', { ic: '✅', h: L('بعد التدريب', 'After training'), p: L('إجابات صح حتى على بيانات جديدة', 'correct answers even on new data') })}
     ${U.pill('accl', 90, 480, '🎯 ' + L('الدقة', 'Accuracy'), 't-slate')}
     ${U.art('acc', 360, 470, 1100, 100, '0 0 1100 100', ACC)}
-    ${U.pill('accv', 1500, 480, '20% ← 95%', 'solid')}
+    ${U.pill('accv', 1500, 480, L('20% ← 95%', '20% → 95%'), 'solid')}
 
-    ${[['in', P_IN, L('صورة المدخل', 'Input image')], ['ed', P_EDGE, L('ضحلة: خطوط وتغيّر لون', 'Shallow: lines and colour changes')], ['pa', P_PART, L('وسطى: أجزاء (حلقات)', 'Middle: parts (loops)')], ['wh', P_WHOLE, L('عميقة: الشكل كله ← «8»', 'Deep: the whole → "8"')]]
+    ${[['in', P_IN, L('صورة المدخل', 'Input image')], ['ed', P_EDGE, L('ضحلة: خطوط وتغيّر لون', 'Shallow: lines, colour')], ['pa', P_PART, L('وسطى: أجزاء (حلقات)', 'Middle: parts (loops)')], ['wh', P_WHOLE, L('عميقة: الشكل كله ← «8»', 'Deep: the whole → "8"')]]
       .map(([id, svg, t], k) => U.art(id, 90 + k * 450, 190, 300, 240, '0 0 300 240', svg) + U.pill(id + 'l', 60 + k * 450, 460, t, ['t-slate', 't-blue', 't-violet', 't-green'][k])).join('')}
     ${U.box('dl', 360, 580, 1200, 't-violet', { h: L('التعلّم العميق = طبقات مخفية كتير متكدّسة', 'Deep learning = many stacked hidden layers'), p: L('كل ما الطبقة أعمق ← سمات أعقد', 'deeper layers → more complex features') })}
 
