@@ -39,11 +39,11 @@
     ${U.box('cv1', 90, 250, 520, 't-slate', { h: '📜 ' + L('قواعد', 'Rules') + ' + 📥 ' + L('بيانات', 'Data'), p: L('الإنسان بيكتب القواعد', 'humans write the rules') })}
     ${U.emo('cva', 640, 270, 120, 70, L('⬅', '➜'))}
     ${U.box('cv2', 790, 250, 420, 't-slate', { ic: '💻', h: L('← إجابات', '→ answers') })}
-    ${U.pill('mlh', 90, 460, '🤖 ' + L('تعلّم الآلة', 'Machine learning'), 't-violet')}
+    ${U.pill('mlh', 90, 460, '🤖 ' + L('التعلّم الآلي', 'Machine learning'), 't-violet')}
     ${U.box('ml1', 90, 540, 520, 't-violet', { h: '📥 ' + L('بيانات', 'Data') + ' + ✅ ' + L('إجابات', 'Answers'), p: L('أمثلة كتير', 'lots of examples') })}
     ${U.emo('mla', 640, 560, 120, 70, L('⬅', '➜'))}
     ${U.box('ml2', 790, 540, 420, 't-violet', { ic: '💻', h: L('← يلاقي القواعد بنفسه', '→ finds the rules itself') })}
-    ${U.box('mld', 1290, 300, 540, 't-amber', { ic: '🧠', h: L('تعلّم الآلة', 'Machine learning'), p: L('يتعلّم أنماط من بيانات كتير عشان يحكم على بيانات جديدة', 'learns patterns from big data to judge new data'), s: L('أشهر طريقة لتشغيل الذكاء الاصطناعي', 'the most common way AI works') })}
+    ${U.box('mld', 1290, 300, 540, 't-amber', { ic: '🧠', h: L('التعلّم الآلي', 'Machine learning'), p: L('يتعلّم أنماط من بيانات كتير عشان يحكم على بيانات جديدة', 'learns patterns from big data to judge new data'), s: L('أشهر طريقة لتشغيل الذكاء الاصطناعي', 'the most common way AI works') })}
 
     ${[['🐶🐱', L('الصورة كلب ولا قطة؟', 'Dog or cat in the photo?')], ['📧', L('الإيميل مزعج؟', 'Is the email spam?')], ['🎙️', L('صوت ← نص', 'Speech → text')]]
       .map(([e, t], k) => U.box('u' + k, 90 + k * 420, 190, 380, 't-green', { ic: e, p: t })).join('')}
@@ -68,7 +68,7 @@
 
     ${U.art('clu', 90, 170, 600, 400, '0 0 600 400', CLU)}
     ${U.box('cub', 760, 180, 1060, 't-green', { h: L('التجميع (Clustering)', 'Clustering'), p: L('يجمّع المتشابه في مجموعات — من غير أوسمة؛ الجهاز بيلاقي «إيه المتشابه» بنفسه', 'groups similar items — no labels; the computer finds "what is similar" itself') })}
-    ${[['🛒', L('عملاء متجر باتجاهات شراء متشابهة', 'Shoppers with similar buying habits')], ['🎧', L('مستمعين بأذواق متشابهة ← ترشيحات', 'Listeners with similar tastes → recommendations')], ['📰', L('مقالات أخبار متشابهة', 'Similar news articles')]]
+    ${[['🛒', L('عملاء متجر باتجاهات شراء متشابهة', 'Shoppers with similar buying habits')], ['🎧', L('مستمعين بأذواق متشابهة ← توصيات', 'Listeners with similar tastes → recommendations')], ['📰', L('مقالات أخبار متشابهة', 'Similar news articles')]]
       .map(([e, t], k) => U.pill('ce' + k, 760, 360 + k * 90, e + ' ' + t, 't-slate')).join('')}
 
     ${U.art('grid', 90, 170, 600, 360, '0 0 600 360', GRID())}
@@ -92,7 +92,7 @@
     ${U.pill('hl2', 90, 560, L('خصوصًا في القرارات اللي غلطتها مكلّفة', 'especially in decisions where mistakes are costly'), 't-slate')}
 
     ${U.hd(0, '🤖 ' + L('ماتكتبش القاعدة… ورّيه أمثلة', 'Don’t write the rule… show examples'))}
-    ${U.hd(1, '🎯 ' + L('تعلّم الآلة بينفع فين؟', 'Where does ML fit?'))}
+    ${U.hd(1, '🎯 ' + L('التعلّم الآلي بينفع فين؟', 'Where does ML fit?'))}
     ${U.hd(2, '🧭 ' + L('تلات أنواع للتعلّم', 'Three kinds of learning'))}
     ${U.hd(3, '🏷️ ' + L('التصنيف', 'Classification'))}
     ${U.hd(4, '🔤 ' + L('السمات', 'Features'))}
@@ -105,7 +105,7 @@
   </div>
   <div id="l1-recap" class="mv-recap">
     ${U.hd(9, '💡 ' + L('الخلاصة', 'The point'))}
-    ${B.card('x0', 70, 170, 410, 420, 'c-violet rc', { ic: '🤖', p: L('تعلّم الآلة بيلاقي القواعد من البيانات بدل ما نكتبها', 'ML finds the rules from data instead of us writing them') })}
+    ${B.card('x0', 70, 170, 410, 420, 'c-violet rc', { ic: '🤖', p: L('التعلّم الآلي بيلاقي القواعد من البيانات بدل ما نكتبها', 'ML finds the rules from data instead of us writing them') })}
     ${B.card('x1', 530, 170, 410, 420, 'c-blue rc', { ic: '🏷️', p: L('إشراف (أوسمة ← تصنيف بسمات) · 📦 غير إشراف (تجميع)', 'Supervised (labels → classification) · unsupervised (clustering)') })}
     ${B.card('x2', 990, 170, 410, 420, 'c-amber rc', { ic: '🎮', p: L('معزَّز: حالة · فعل · مكافأة', 'Reinforcement: state · action · reward') })}
     ${B.card('x3', 1450, 170, 410, 420, 'c-red rc', { ic: '⚖️', p: L('تحيّز + صندوق أسود ← يدعم الإنسان مش يستبدله', 'Bias + black box → it supports humans, not replaces them') })}

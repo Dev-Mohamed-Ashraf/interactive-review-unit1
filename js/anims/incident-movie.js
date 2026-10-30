@@ -27,9 +27,9 @@
       ['📘', 'التحضير', 'Preparation', 'خطة + فريق + نسخ احتياطية قبل أي حادث', 'plan + team + backups before anything happens'],
       ['🚨', 'الاكتشاف', 'Detection', 'اكتشاف الحادث وتأكيده', 'discover and confirm the incident'],
       ['🔌', 'الاحتواء', 'Containment', 'نحدّ من نطاق التأثير: نفصل الجهاز', 'limit the impact: isolate the PC'],
-      ['🧹', 'الإزالة', 'Eradication', 'نشيل السبب: نمسح البرنامج الخبيث', 'remove the cause: delete the malware'],
+      ['🧹', 'الاستئصال', 'Eradication', 'نشيل السبب: نمسح البرنامج الخبيث', 'remove the cause: delete the malware'],
       ['♻️', 'الاستعادة', 'Recovery', 'نرجّع الأنظمة لطبيعتها من نسخة نضيفة', 'back to normal from a clean backup'],
-      ['🛡️', 'منع التكرار', 'Prevention', 'نحلّل السبب: تحديث + تدريب', 'analyse the cause: patch + training'],
+      ['🛡️', 'الدروس والتحسين', 'Prevention', 'نحلّل السبب: تحديث + تدريب', 'analyse the cause: patch + training'],
     ];
     const NUM = '①②③④⑤⑥';
     const M = MK.create(stage, api, { props,
@@ -66,15 +66,15 @@
     <div id="ir-patch" class="fix later">🛡️ ${L('تحديث الأجهزة', 'Patch the PCs')}</div>
     <div id="ir-train" class="fix later">🎓 ${L('تدريب الموظفين', 'Train the staff')}</div>
     <div id="ir-b-it5" class="bubble tl mv-bub later">${L('هندرّب الكل ونحدّث الأجهزة — علشان مايتكررش', 'We’ll train everyone and patch — so it never repeats')}</div>
-    <div id="ir-wrong" class="slot bad later">❌ ${L('الاستعادة قبل الإزالة ← السبب لسه موجود ← الحادث يرجع!', 'Recovery before eradication → the cause remains → it returns!')}</div>
-    <div id="ir-b-it6" class="bubble tl mv-bub later">${L('غلطة! لازم الإزالة قبل الاستعادة', 'Mistake! Eradicate before you recover')} 😖</div>
+    <div id="ir-wrong" class="slot bad later">❌ ${L('الاستعادة قبل الاستئصال ← السبب لسه موجود ← الحادث يرجع!', 'Recovery before eradication → the cause remains → it returns!')}</div>
+    <div id="ir-b-it6" class="bubble tl mv-bub later">${L('غلطة! لازم الاستئصال قبل الاستعادة', 'Mistake! Eradicate before you recover')} 😖</div>
   </div>
 
   <div id="ir-recap">
     <div id="ir-r-title" class="head later">💡 ${L('الترتيب الصح للمراحل الست', 'The six stages, in the right order')}</div>
     ${STAGES.map((s, k) => `<div id="ir-rc${k + 1}" class="rcs later" style="left:${[1290, 680, 70][rtl ? k % 3 : 2 - (k % 3)]}px;top:${k < 3 ? 120 : 368}px"><b>${NUM[k]} ${s[0]} ${L(s[1], s[2])}</b><span>${L(s[3], s[4])}</span></div>`).join('')}
-    <div id="ir-r1" class="rp later">⚡ ${L('الاحتواء قبل الإزالة ← وإلا الضرر ينتشر وإنت بتنظّف', 'Contain before eradicating → or it spreads while you clean')}</div>
-    <div id="ir-r2" class="rp later">⚡ ${L('الإزالة قبل الاستعادة ← وإلا الحادث يتكرر فورًا', 'Eradicate before recovering → or the incident repeats at once')}</div>
+    <div id="ir-r1" class="rp later">⚡ ${L('الاحتواء قبل الاستئصال ← وإلا الضرر ينتشر وإنت بتنظّف', 'Contain before eradicating → or it spreads while you clean')}</div>
+    <div id="ir-r2" class="rp later">⚡ ${L('الاستئصال قبل الاستعادة ← وإلا الحادث يتكرر فورًا', 'Eradicate before recovering → or the incident repeats at once')}</div>
   </div>`,
     });
     const { q, Q, tl, at, IN, POP, OUT, SND, PULSE } = M;

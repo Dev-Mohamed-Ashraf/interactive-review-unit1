@@ -5,7 +5,7 @@
 RV.addChapter({
   id: 'u7',
   number: 7,
-  title: { ar: 'تعلّم الآلة والذكاء الاصطناعي', en: 'Machine Learning and Artificial Intelligence' },
+  title: { ar: 'التعلّم الآلي والذكاء الاصطناعي', en: 'Machine Learning and Artificial Intelligence' },
   subtitle: {
     ar: 'الجهاز بيلاقي القواعد من البيانات، والشبكات العصبية العميقة بتبني السمات طبقة طبقة، ونماذج اللغة الكبيرة بتتنبّأ بالكلمة الجاية — بقوتها وحدودها.',
     en: 'Computers find rules from data, deep neural networks build features layer by layer, and large language models predict the next word — with their power and limits.',

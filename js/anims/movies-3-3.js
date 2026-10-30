@@ -61,7 +61,7 @@
     <div id="f3-dev" class="l12u l12-dev later" style="${B.at(500, 150, 920, 420)}"><div class="g"><span>🛍️</span><span>👟</span><span>🎧</span><span>⌚</span><span>📱</span><span>🎒</span></div></div>
     ${B.chip('w0', 160, 250, '🖥️ ' + L('كمبيوتر', 'PC'), 'c-blue big', 260)}${B.chip('w1', 160, 350, '📟 ' + L('تابلت', 'tablet'), 'c-blue big', 260)}${B.chip('w2', 160, 450, '📱 ' + L('موبايل', 'phone'), 'c-blue big', 260)}
     ${B.chip('one', 1480, 250, '1️⃣ ' + L('صفحة واحدة', 'one page'), 'c-green big', 380)}
-    ${B.chip('mf', 160, 620, '📱 ' + L('الأولوية للموبايل (mobile-first): نبدأ التصميم من الشاشات الصغيرة', 'mobile-first: start designing from small screens'), 'c-amber big')}
+    ${B.chip('mf', 160, 620, '📱 ' + L('نهج الأولوية للجوال (mobile-first): نبدأ التصميم من الشاشات الصغيرة', 'mobile-first: start designing from small screens'), 'c-amber big')}
   </div>
   <div id="f3-s7" class="mv-stage">
     ${B.card('box', 70, 150, 600, 420, 'c-slate', { ic: '🧰', h: L('مكوّنات جاهزة', 'Ready-made parts'), html: `<div class="l12-parts"><span>🔘 Button</span><span>🧾 Card</span><span>☰ Navbar</span><span>📝 Form</span></div>` })}

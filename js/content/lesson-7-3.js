@@ -10,13 +10,13 @@ RV.lessons.add('7-3', {
   title: { ar: 'نماذج اللغة الكبيرة (LLM) والذكاء التوليدي', en: 'Large Language Models (LLM) and Generative AI' },
   guiding: { ar: 'نموذج اللغة بيولّد النص إزاي، ويعني إيه «كبير»، وليه ممكن يغلط في الحقايق برضه؟', en: 'How does a language model generate text, what makes a model "large", and why can it still get facts wrong?' },
   hook: {
-    ar: 'لما روبوت محادثة يكتب فقرة سلسة، هو __مش بيدوّر على إجابة__ — هو __بيخمّن الكلمة الجاية__، وبعدين اللي بعدها، بأنماط اتعلّمها من كميات هائلة من النصوص. الحيلة البسيطة دي، لما تتكبّر لـ__مليارات المعلمات__، بتدّي **نماذج اللغة الكبيرة** قدرتها على الترجمة والتلخيص والمحادثة. بس لأن كل كلمة __بتتختار عشان محتملة إحصائيًا مش عشان أكيد صح__، النماذج دي ممكن __تقول معلومة غلط بثقة__ — عيب اسمه **الهلوسة**.',
+    ar: 'لما روبوت محادثة يكتب فقرة سلسة، هو __مش بيدوّر على إجابة__ — هو __بيخمّن الرمز التالي__، وبعدين اللي بعدها، بأنماط اتعلّمها من كميات هائلة من النصوص. الحيلة البسيطة دي، لما تتكبّر لـ__مليارات المعلمات__، بتدّي **نماذج اللغة الكبيرة** قدرتها على الترجمة والتلخيص والمحادثة. بس لأن كل كلمة __بتتختار عشان محتملة إحصائيًا مش عشان أكيد صح__، النماذج دي ممكن __تقول معلومة غلط بثقة__ — عيب اسمه **الهلوسة**.',
     en: 'When a chatbot writes a smooth paragraph, it is __not looking up an answer__ — it is __guessing the next word__, then the next, using patterns learned from vast amounts of text. That simple trick, scaled to __billions of parameters__, gives **large language models** their power to translate, summarize and converse. But because each word is chosen __for being statistically likely, not certainly true__, these models can __state wrong information confidently__ — a flaw called **hallucination**.',
   },
-  keyFact: { ar: 'نموذج اللغة بيولّد النص __بالتنبّؤ بالكلمة الجاية مرة ورا مرة__ — بيختار المحتمل إحصائيًا مش المؤكد صحّته (سبب __الهلوسة__). النماذج الكبيرة بتكبّر ده ببيانات هائلة و__مليارات لتريليونات المعلمات__، وبتتظبط بـ__RLHF__ عشان تبقى مفيدة، وبتتعامل عن طريق __تعدّد الوسائط__ مع نص وصورة وصوت مع بعض.', en: 'A language model generates text by __predicting the next word again and again__ — choosing the statistically likely, not the surely correct (the cause of __hallucination__). Large models scale this with vast data and __billions to trillions of parameters__, are tuned with __RLHF__ to be helpful, and through __multimodality__ handle text, images and audio together.' },
+  keyFact: { ar: 'نموذج اللغة بيولّد النص __بالتنبّؤ بالرمز التالي مرة ورا مرة__ — بيختار المحتمل إحصائيًا مش المؤكد صحّته (سبب __الهلوسة__). النماذج الكبيرة بتكبّر ده ببيانات هائلة و__مليارات لتريليونات المعلمات__، وبتتظبط بـ__RLHF__ عشان تبقى مفيدة، وبتتعامل عن طريق __تعدّد الوسائط__ مع نص وصورة وصوت مع بعض.', en: 'A language model generates text by __predicting the next word again and again__ — choosing the statistically likely, not the surely correct (the cause of __hallucination__). Large models scale this with vast data and __billions to trillions of parameters__, are tuned with __RLHF__ to be helpful, and through __multimodality__ handle text, images and audio together.' },
   concepts: ['language model', 'next-word prediction', 'hallucination', 'large language model (LLM)', 'parameters', 'RLHF', 'multimodality', 'modality'],
   objectives: [
-    { ar: 'أشرح إزاي نموذج اللغة بيولّد نص بالتنبّؤ بالكلمة الجاية، وليه ده بيسبّب الهلوسة.', en: 'Explain how a language model generates text by predicting the next word, and why this causes hallucination.' },
+    { ar: 'أشرح إزاي نموذج اللغة بيولّد نص بالتنبّؤ بالرمز التالي، وليه ده بيسبّب الهلوسة.', en: 'Explain how a language model generates text by predicting the next word, and why this causes hallucination.' },
     { ar: 'أوصف إيه اللي بيخلّي نموذج اللغة «كبير»، وأشرح دور الضبط بـ RLHF وتعدّد الوسائط.', en: 'Describe what makes a language model large, and explain the roles of RLHF tuning and multimodality.' },
   ],
 
@@ -24,7 +24,7 @@ RV.lessons.add('7-3', {
     /* ───────────── 1 · generation, hallucination, scale ───────────── */
     {
       id: 'generate', kind: 'learn',
-      title: { ar: 'الكلمة الجاية… الهلوسة… ويعني إيه كبير', en: 'The next word… hallucination… and what "large" means' },
+      title: { ar: 'الرمز التالي… الهلوسة… ويعني إيه كبير', en: 'The next word… hallucination… and what "large" means' },
       steps: [
         { type: 'intro' },
         {
@@ -32,7 +32,7 @@ RV.lessons.add('7-3', {
           q: { widget: 'poll', prompt: { ar: 'لما تسأل روبوت محادثة سؤال… تفتكر بيعمل إيه؟', en: 'When you ask a chatbot a question… what do you think it does?' },
             options: [
               { emoji: '🔎', text: { ar: 'بيدوّر على الإجابة في قاعدة بيانات', en: 'Looks the answer up in a database' } },
-              { emoji: '🔮', text: { ar: 'بيخمّن الكلمة الجاية كلمة كلمة', en: 'Guesses the next word, one at a time' } },
+              { emoji: '🔮', text: { ar: 'بيخمّن الرمز التالي كلمة كلمة', en: 'Guesses the next word, one at a time' } },
               { emoji: '🧠', text: { ar: 'بيفهم ويفكّر زي الإنسان بالظبط', en: 'Understands and thinks exactly like a person' } },
             ],
             after: { ar: 'التاني هو الصح… ومن هنا بييجي غلطه 👇', en: 'The second is right… and that is where its mistakes come from 👇' } },
@@ -44,9 +44,9 @@ RV.lessons.add('7-3', {
           terms: ['language model', 'next-word prediction', 'hallucination', 'large language model (LLM)', 'parameters'],
           visual: { anim: 'llmMovie', props: { scenes: [0, 2] } },
           beats: [
-            { ar: '🔮 **نموذج اللغة:** نموذج __بيتعلّم من نصوص كتير ويتنبّأ أنهي كلمة غالبًا هتيجي بعد كده__ في الجملة، وبالتدريب بيكتسب أنماط استخدام الكلمات والصياغة حسب السياق. **توليد النص** = __تكرار التنبّؤ بالكلمة الجاية__: «طقس اليوم» ← «مشمس» ← «و» ← «دافئ». لكل كلمة مرشّحة بيحسب __احتمال إنها تيجي بعد كده__ ويختار حسب الاحتمال — والاحتمالات جاية من الأنماط اللي اتعلّمها، فيقدر يتعامل حتى مع __صياغات ماظهرتش حرفيًا__ في بيانات التدريب.', en: '🔮 **A language model:** a model that __learns from lots of text and predicts which word is likely to come next__ in a sentence; training gives it patterns of word use and phrasing by context. **Text generation** = __repeating next-word prediction__: "Today’s weather is" → "sunny" → "and" → "warm". For each candidate word it computes __the probability of coming next__ and picks by that probability — learned from patterns, so it can handle even __wording that never appeared verbatim__ in its training data.' },
+            { ar: '🔮 **نموذج اللغة:** نموذج __بيتعلّم من نصوص كتير ويتنبّأ أنهي كلمة غالبًا هتيجي بعد كده__ في الجملة، وبالتدريب بيكتسب أنماط استخدام الكلمات والصياغة حسب السياق. **توليد النص** = __تكرار التنبّؤ بالرمز التالي__: «طقس اليوم» ← «مشمس» ← «و» ← «دافئ». لكل كلمة مرشّحة بيحسب __احتمال إنها تيجي بعد كده__ ويختار حسب الاحتمال — والاحتمالات جاية من الأنماط اللي اتعلّمها، فيقدر يتعامل حتى مع __صياغات ماظهرتش حرفيًا__ في بيانات التدريب.', en: '🔮 **A language model:** a model that __learns from lots of text and predicts which word is likely to come next__ in a sentence; training gives it patterns of word use and phrasing by context. **Text generation** = __repeating next-word prediction__: "Today’s weather is" → "sunny" → "and" → "warm". For each candidate word it computes __the probability of coming next__ and picks by that probability — learned from patterns, so it can handle even __wording that never appeared verbatim__ in its training data.' },
             { ar: '🌀 **الهلوسة:** اللي النموذج بيختاره __مش الكلمة الصحيحة، لكن الكلمة المحتملة إحصائيًا__ — وعشان كده ممكن يرجّع __ردود مخالفة للحقيقة بس متصاغة بشكل مقنع__. مثال: «مسجد أحمد بن طولون اتبنى إمتى؟» — لو التاريخ الدقيق مش منتشر كفاية في بيانات التدريب، النموذج __مش بالضرورة يقول «مش عارف»__؛ ممكن يختار تاريخ شكله معقول __بثقة كاملة__. الحماية: اعتبر __كل تاريخ واسم ورقم__ ادعاء محتاج __تحقّق__.', en: '🌀 **Hallucination:** what the model picks is __not the correct word but the statistically likely one__ — so it can return __replies that differ from the facts yet are phrased convincingly__. Example: "When was the Mosque of Ibn Tulun built?" — if the exact date is not common enough in its training data, the model does __not necessarily say "I don’t know"__; it may pick a plausible-looking date __with full confidence__. Protection: treat __every date, name and number__ as a claim that needs __checking__.' },
-            { ar: '🏔️ **نموذج اللغة الكبير (LLM):** نموذج لغة مبني على __شبكة عصبية ضخمة جدًا__، متدرّب على __كميات هائلة من نصوص الإنترنت__. «كبير» = حاجتين: 📚 __كمية بيانات التدريب__ (مليارات لتريليونات كلمة أو Tokens) و⚙️ __عدد المعلمات__ (قيم الأوزان — مليارات لتريليونات). ✨ لما الحجم يعدّي مقياس معيّن، __بتظهر قدرات جديدة نوعيًا__: استدلال معقّد، تلخيص، ترجمة، توليد كود. ومن الخدمات المبنية عليه: __ChatGPT وClaude وGemini__.', en: '🏔️ **A large language model (LLM):** a language model built on __a very large neural network__, trained on __vast amounts of Internet text__. "Large" = two things: 📚 __the amount of training data__ (billions to trillions of words or tokens) and ⚙️ __the number of parameters__ (the weights — billions to trillions). ✨ Past a certain scale, __qualitatively new abilities appear__: complex reasoning, summarizing, translation, generating code. Services built on it include __ChatGPT, Claude and Gemini__.' },
+            { ar: '🏔️ **نموذج اللغة الكبير (LLM):** نموذج لغة مبني على __شبكة عصبية ضخمة جدًا__، متدرّب على __كميات هائلة من نصوص الإنترنت__. «الكبر» تلات جوانب: 🖥️ __القدرة الحاسوبية__ و📚 __كمية بيانات التدريب__ (مليارات لتريليونات كلمة أو Tokens) و⚙️ __عدد المعلمات__ (قيم الأوزان — مليارات لتريليونات). ✨ مع زيادة الحجم والبيانات والحوسبة __ممكن تتحسن قدرات كتير، ومفيش حد ثابت يضمن قدرة بعينها__: استدلال معقّد، تلخيص، ترجمة، توليد كود. ومن الخدمات المبنية عليه: __ChatGPT وClaude وGemini__.', en: '🏔️ **A large language model (LLM):** a language model built on __a very large neural network__, trained on __vast amounts of Internet text__. "Large" = two things: 📚 __the amount of training data__ (billions to trillions of words or tokens) and ⚙️ __the number of parameters__ (the weights — billions to trillions). ✨ Past a certain scale, __qualitatively new abilities appear__: complex reasoning, summarizing, translation, generating code. Services built on it include __ChatGPT, Claude and Gemini__.' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
         },
@@ -65,17 +65,17 @@ RV.lessons.add('7-3', {
         {
           type: 'quiz', title: { ar: '✋ اختبر فهمك (2)', en: '✋ Check yourself (2)' },
           q: { widget: 'tf', items: [
-            { text: { ar: 'نموذج اللغة بيولّد النص بتكرار التنبّؤ بالكلمة الجاية.', en: 'A language model generates text by repeatedly predicting the next word.' }, answer: true },
+            { text: { ar: 'نموذج اللغة بيولّد النص بتكرار التنبّؤ بالرمز التالي.', en: 'A language model generates text by repeatedly predicting the next word.' }, answer: true },
             { text: { ar: '«كبير» في LLM معناها عدد المعلمات بس.', en: '"Large" in LLM means only the number of parameters.' }, answer: false, explain: { ar: 'البيانات __و__ المعلمات — الاتنين.', en: 'Data __and__ parameters — both.' } },
-            { text: { ar: 'بعد حجم معيّن ممكن تظهر قدرات جديدة زي الترجمة وتوليد الكود.', en: 'Past a certain scale new abilities such as translation and code can appear.' }, answer: true },
+            { text: { ar: 'ممكن تتحسن قدرات زي الترجمة وتوليد الكود مع زيادة الحجم، من غير حد ثابت.', en: 'Past a certain scale new abilities such as translation and code can appear.' }, answer: true },
           ] },
         },
         {
           type: 'summary',
           points: [
-            { ar: '**نموذج اللغة:** يتنبّأ بالكلمة الجاية ويكرّر ← نص كامل.', en: '**Language model:** predicts the next word and repeats → full text.' },
+            { ar: '**نموذج اللغة:** يتنبّأ بالرمز التالي ويكرّر ← نص كامل.', en: '**Language model:** predicts the next word and repeats → full text.' },
             { ar: '**الهلوسة:** بيختار المحتمل مش الصح ← اتحقّق من التواريخ والأسماء والأرقام.', en: '**Hallucination:** it picks the likely, not the true → verify dates, names, numbers.' },
-            { ar: '**LLM:** بيانات هائلة + مليارات لتريليونات المعلمات ← قدرات جديدة.', en: '**LLM:** vast data + billions to trillions of parameters → new abilities.' },
+            { ar: '**LLM:** بيانات هائلة + مليارات لتريليونات المعلمات ← قدرات أحسن، من غير حد ثابت.', en: '**LLM:** vast data + billions to trillions of parameters → new abilities.' },
           ],
         },
       ],
@@ -148,13 +148,13 @@ RV.lessons.add('7-3', {
           q: { widget: 'tf', prompt: { ar: '(1) ضع ✓ للصحيحة و✗ للخاطئة:', en: '(1) Mark ✓ if true or ✗ if false:' }, items: [
             { text: { ar: 'A) نموذج اللغة بيتنبّأ أنهي كلمة غالبًا هتيجي بعد كده في الجملة.', en: 'A) A language model predicts which word is likely to come next in a sentence.' }, answer: true },
             { text: { ar: 'B) نموذج اللغة بيخلص بعد ما يتنبّأ بكلمة واحدة ومابيولّدش نص.', en: 'B) A language model stops after predicting one word and does not generate text.' }, answer: false },
-            { text: { ar: 'C) في LLM لما المعلمات أو البيانات تعدّي مقياس معيّن ممكن تظهر قدرات جديدة.', en: 'C) In an LLM, past a certain scale of parameters or data, new abilities may appear.' }, answer: true },
+            { text: { ar: 'C) قد تتحسن بعض القدرات مع زيادة مناسبة في الحجم والبيانات والحوسبة، لكن مفيش حد ثابت يضمن قدرة جديدة.', en: 'C) In an LLM, past a certain scale of parameters or data, new abilities may appear.' }, answer: true },
             { text: { ar: 'D) تعدّد الوسائط خاصية التعامل مع النص بس.', en: 'D) Multimodality is the ability to handle text only.' }, answer: false },
           ] },
           solution: [
             { ar: 'A) تعريف نموذج اللغة ← **✓**.', en: 'A) The definition of a language model → **✓**.' },
             { ar: 'B) التوليد بـ__تكرار__ التنبّؤ ← **✗**.', en: 'B) Generation __repeats__ the prediction → **✗**.' },
-            { ar: 'C) قدرات جديدة نوعيًا ← **✓**.', en: 'C) Qualitatively new abilities → **✓**.' },
+            { ar: 'C) ممكن تتحسن القدرات ← **✓**.', en: 'C) Qualitatively new abilities → **✓**.' },
             { ar: 'D) نص وصورة وصوت وفيديو… ← **✗**.', en: 'D) Text, image, audio, video… → **✗**.' },
           ],
         },
@@ -185,7 +185,7 @@ RV.lessons.add('7-3', {
         {
           type: 'quiz', title: { ar: 'تمرين 1', en: 'Try 1' },
           q: { widget: 'recall', prompt: { ar: 'جاوب في دماغك وبعدين اكشف:', en: 'Answer in your head, then reveal:' }, items: [
-            { q: { ar: '1. النموذج اللي بيتعلّم من نصوص كتير ويتنبّأ بالكلمة الجاية؟', en: '1. The model that learns from lots of text and predicts the next word?' }, a: { ar: 'نموذج اللغة', en: 'Language model' } },
+            { q: { ar: '1. النموذج اللي بيتعلّم من نصوص كتير ويتنبّأ بالرمز التالي؟', en: '1. The model that learns from lots of text and predicts the next word?' }, a: { ar: 'نموذج اللغة', en: 'Language model' } },
             { q: { ar: '2. نموذج لغة على شبكة ضخمة جدًا متدرّب على نصوص إنترنت هائلة؟', en: '2. A language model on a huge network trained on vast Internet text?' }, a: { ar: 'نموذج اللغة الكبير (LLM)', en: 'Large language model (LLM)' } },
             { q: { ar: '3. طريقة بتستخدم التقييم البشري كمكافأة عشان النموذج يرجّع ردود أحسن؟', en: '3. The method using human feedback as reward for better replies?' }, a: { ar: 'RLHF', en: 'RLHF' } },
             { q: { ar: '4. خاصية التعامل مع نص وصورة وصوت وفيديو بنموذج واحد؟', en: '4. Handling text, image, audio and video with one model?' }, a: { ar: 'تعدّد الوسائط', en: 'Multimodality' } },
@@ -196,7 +196,7 @@ RV.lessons.add('7-3', {
           q: { widget: 'mcq', prompt: { ar: 'اختار الأنسب لوصف عمل نموذج اللغة:', en: 'Choose the best description of how a language model works:' },
             options: [
               { ar: 'A بيحفظ الجملة المدخلة ويرجّعها زي ما هي بالظبط', en: 'A Stores the input sentence and returns it exactly' },
-              { ar: 'B بيولّد النص بتكرار التنبّؤ بالكلمة الجاية', en: 'B Generates text by repeatedly predicting the next word' },
+              { ar: 'B بيولّد النص بتكرار التنبّؤ بالرمز التالي', en: 'B Generates text by repeatedly predicting the next word' },
               { ar: 'C بيختار الأقرب من قوالب جمل متجهّزة قبل كده', en: 'C Picks the closest of some pre-prepared template sentences' },
               { ar: 'D بيفهم المعنى كامل ويرجّع الرد الصح الوحيد', en: 'D Fully understands and returns the one correct reply' },
             ],
@@ -242,16 +242,16 @@ RV.lessons.add('7-3', {
         {
           type: 'quiz', title: { ar: 'تدريب 2 — املأ الفراغات', en: 'Exercise 2 — fill the blanks' },
           q: { widget: 'fill', prompt: { ar: 'اقرا الفقرة واملأ الفراغات (a)–(f):', en: 'Read and fill blanks (a)–(f):' },
-            text: { ar: 'النموذج اللي بيتنبّأ بالكلمة الجاية اسمه {0}، والتوليد بيحصل بتكرار التنبّؤ بـ{1}. والنموذج على شبكة ضخمة جدًا متدرّب على نصوص إنترنت هائلة اسمه {2}؛ ولما عدد {3} أو البيانات يعدّي مقياس معيّن بتظهر قدرات جديدة. وعشان الردود تبقى مرغوبة بنستخدم {4} بتقييمات بشرية كمكافأة. وخاصية التعامل مع نص وصورة وصوت بنموذج واحد اسمها {5}.', en: 'The model predicting the next word is a {0}; generation repeats the prediction of {1}. A model on a huge network trained on vast Internet text is a {2}; when the number of {3} or the data passes a certain scale, new abilities appear. To make replies desirable we use {4} with human ratings as reward. Handling text, image and audio with one model is {5}.' },
-            bank: [{ ar: 'نموذج اللغة', en: 'language model' }, { ar: 'الكلمة الجاية', en: 'the next word' }, { ar: 'نموذج اللغة الكبير', en: 'large language model' }, { ar: 'المعلمات', en: 'parameters' }, { ar: 'RLHF', en: 'RLHF' }, { ar: 'تعدّد الوسائط', en: 'multimodality' }, { ar: 'الهلوسة', en: 'hallucination' }],
+            text: { ar: 'النموذج اللي بيتنبّأ بالرمز التالي اسمه {0}، والتوليد بيحصل بتكرار التنبّؤ بـ{1}. والنموذج على شبكة ضخمة جدًا متدرّب على نصوص إنترنت هائلة اسمه {2}؛ ولما عدد {3} أو البيانات يعدّي مقياس معيّن بتظهر قدرات جديدة. وعشان الردود تبقى مرغوبة بنستخدم {4} بتقييمات بشرية كمكافأة. وخاصية التعامل مع نص وصورة وصوت بنموذج واحد اسمها {5}.', en: 'The model predicting the next word is a {0}; generation repeats the prediction of {1}. A model on a huge network trained on vast Internet text is a {2}; when the number of {3} or the data passes a certain scale, new abilities appear. To make replies desirable we use {4} with human ratings as reward. Handling text, image and audio with one model is {5}.' },
+            bank: [{ ar: 'نموذج اللغة', en: 'language model' }, { ar: 'الرمز التالي', en: 'the next word' }, { ar: 'نموذج اللغة الكبير', en: 'large language model' }, { ar: 'المعلمات', en: 'parameters' }, { ar: 'RLHF', en: 'RLHF' }, { ar: 'تعدّد الوسائط', en: 'multimodality' }, { ar: 'الهلوسة', en: 'hallucination' }],
             answer: [0, 1, 2, 3, 4, 5],
-            explain: { ar: '(a) نموذج اللغة (b) الكلمة الجاية (c) LLM (d) المعلمات (e) RLHF (f) تعدّد الوسائط.', en: '(a) language model (b) the next word (c) LLM (d) parameters (e) RLHF (f) multimodality.' } },
+            explain: { ar: '(a) نموذج اللغة (b) الرمز التالي (c) LLM (d) المعلمات (e) RLHF (f) تعدّد الوسائط.', en: '(a) language model (b) the next word (c) LLM (d) parameters (e) RLHF (f) multimodality.' } },
         },
         {
           type: 'quiz', title: { ar: 'تدريب 3 (1)', en: 'Exercise 3 (1)' },
           q: { widget: 'mcq', prompt: { ar: 'اختار الأنسب لوصف آلية توليد النص:', en: 'Choose the best description of the text-generation mechanism:' },
             options: [
-              { ar: 'A بنربط نتايج تكرار التنبّؤ بالكلمة الجاية', en: 'A Linking the results of repeated next-word prediction' },
+              { ar: 'A بنربط نتايج تكرار التنبّؤ بالرمز التالي', en: 'A Linking the results of repeated next-word prediction' },
               { ar: 'B بنختار من آلاف القوالب المتجهّزة قبل كده', en: 'B Choosing from thousands of prepared templates' },
               { ar: 'C بنحدّد طول الجملة الأول وبعدين كل الكلمات مرة واحدة', en: 'C Fixing the length first, then all words at once' },
               { ar: 'D بنترجم الجملة المدخلة ترجمة آلية', en: 'D Machine-translating the input sentence' },
@@ -261,11 +261,11 @@ RV.lessons.add('7-3', {
         },
         {
           type: 'quiz', title: { ar: 'تدريب 3 (2)', en: 'Exercise 3 (2)' },
-          q: { widget: 'mcq', prompt: { ar: 'اختار الخلفية الأنسب لاكتساب LLM قدرات جديدة:', en: 'Choose the best background to LLMs gaining new abilities:' },
+          q: { widget: 'mcq', prompt: { ar: 'اختار الخلفية الأنسب لتحسّن قدرات LLM:', en: 'Choose the best background to LLMs gaining new abilities:' },
             options: [
               { ar: 'A تقليل المعلمات تحت مستوى معيّن بسّط المعالجة', en: 'A Cutting parameters below a level simplified processing' },
               { ar: 'B حصر البيانات في كمية صغيرة عالية الجودة', en: 'B Limiting data to a small high-quality amount' },
-              { ar: 'C قدرات جديدة بتظهر لما المعلمات أو البيانات تعدّي مقياس', en: 'C New abilities appear past a scale of parameters or data' },
+              { ar: 'C القدرات ممكن تتحسن مع زيادة الحجم', en: 'C New abilities appear past a scale of parameters or data' },
               { ar: 'D البشر كتبوا قواعد اللغة واحدة واحدة وعلّموها له', en: 'D Humans wrote language rules one by one and taught it' },
             ],
             fixedOrder: true, answer: 2,
@@ -313,11 +313,11 @@ RV.lessons.add('7-3', {
           q: { widget: 'essay', marks: 6, tag: { ar: 'سؤال بنمط الامتحان · 6 درجات', en: 'Exam-style · 6 marks' },
             prompt: { ar: 'اشرح ليه نموذج اللغة ممكن يدّي إجابة سلسة بس غلط في الحقيقة (الهلوسة). (أشِر إلى: اختيار كلمات محتملة إحصائيًا)', en: 'Explain why a language model can produce a fluent answer that is factually wrong (hallucination). (Refer to: choosing statistically likely words)' },
             points: [
-              { ar: 'بيولّد بتكرار التنبّؤ بالكلمة الجاية.', en: 'It generates by repeated next-word prediction.' },
+              { ar: 'بيولّد بتكرار التنبّؤ بالرمز التالي.', en: 'It generates by repeated next-word prediction.' },
               { ar: 'بيختار المحتمل إحصائيًا مش المؤكد صحّته.', en: 'It picks the statistically likely, not the surely true.' },
               { ar: 'الطلاقة ≠ الصدق ← لازم تحقّق.', en: 'Fluency ≠ truth → verification needed.' },
             ],
-            model: { ar: 'نموذج اللغة مابيدوّرش على إجابة في مرجع؛ هو بيولّد النص __بتكرار التنبّؤ بالكلمة الجاية__، ولكل كلمة مرشّحة بيحسب احتمال إنها تيجي بعد كده ويختار حسب الاحتمال اللي اتعلّمه من الأنماط. فاللي بيختاره __المحتمل إحصائيًا مش المؤكد صحّته__. لو المعلومة الدقيقة (زي تاريخ بناء مسجد) مش منتشرة كفاية في بيانات التدريب، النموذج مش بالضرورة يقول «مش عارف»؛ هيختار تاريخ شكله معقول ويصيغه بثقة وطلاقة. وده سبب __الهلوسة__: الصياغة مقنعة بس المحتوى غلط — عشان كده الطلاقة مش دليل صدق، ولازم نتحقّق من التواريخ والأسماء والأرقام.', en: 'A language model does not look up an answer in a reference; it generates text by __repeatedly predicting the next word__, computing for each candidate the probability of coming next and choosing by the probabilities it learned from patterns. So what it picks is __statistically likely, not certainly true__. If an exact fact (such as when a mosque was built) is not common enough in its training data, the model does not necessarily say "I don’t know"; it picks a plausible-looking date and phrases it confidently and fluently. That is the cause of __hallucination__: convincing wording, wrong content — so fluency is not evidence of truth, and dates, names and numbers must be checked.' } },
+            model: { ar: 'نموذج اللغة مابيدوّرش على إجابة في مرجع؛ هو بيولّد النص __بتكرار التنبّؤ بالرمز التالي__، ولكل كلمة مرشّحة بيحسب احتمال إنها تيجي بعد كده ويختار حسب الاحتمال اللي اتعلّمه من الأنماط. فاللي بيختاره __المحتمل إحصائيًا مش المؤكد صحّته__. لو المعلومة الدقيقة (زي تاريخ بناء مسجد) مش منتشرة كفاية في بيانات التدريب، النموذج مش بالضرورة يقول «مش عارف»؛ هيختار تاريخ شكله معقول ويصيغه بثقة وطلاقة. وده سبب __الهلوسة__: الصياغة مقنعة بس المحتوى غلط — عشان كده الطلاقة مش دليل صدق، ولازم نتحقّق من التواريخ والأسماء والأرقام.', en: 'A language model does not look up an answer in a reference; it generates text by __repeatedly predicting the next word__, computing for each candidate the probability of coming next and choosing by the probabilities it learned from patterns. So what it picks is __statistically likely, not certainly true__. If an exact fact (such as when a mosque was built) is not common enough in its training data, the model does not necessarily say "I don’t know"; it picks a plausible-looking date and phrases it confidently and fluently. That is the cause of __hallucination__: convincing wording, wrong content — so fluency is not evidence of truth, and dates, names and numbers must be checked.' } },
         },
         {
           type: 'quiz', optional: true,
@@ -369,7 +369,7 @@ RV.lessons.add('7-3', {
       steps: [{
         type: 'quiz', optional: true,
         q: { widget: 'speed', id: '7-3', seconds: 60, items: [
-          { text: { ar: 'نموذج اللغة بيتنبّأ بالكلمة الجاية', en: 'A language model predicts the next word' }, answer: true },
+          { text: { ar: 'نموذج اللغة بيتنبّأ بالرمز التالي', en: 'A language model predicts the next word' }, answer: true },
           { text: { ar: 'بيدوّر على الإجابة في قاعدة بيانات', en: 'It looks answers up in a database' }, answer: false },
           { text: { ar: 'بيختار الكلمة المحتملة إحصائيًا', en: 'It picks the statistically likely word' }, answer: true },
           { text: { ar: 'بيختار دايمًا الكلمة الصح', en: 'It always picks the correct word' }, answer: false },
@@ -401,7 +401,7 @@ RV.lessons.add('7-3', {
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '5. «كبير» في نموذج اللغة الكبير بيشير لكمية بيانات التدريب وعدد المعلمات.', en: '5. "Large" refers to the amount of training data and the number of parameters.' }, answer: true }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '6. RLHF بيضمن إن الردود صح في الحقيقة دايمًا.', en: '6. RLHF guarantees replies are always factually correct.' }, answer: false }] } },
         { type: 'quiz', q: { widget: 'essay', prompt: { ar: '7. اوصف إزاي نموذج اللغة بيولّد جملة كاملة خطوة بخطوة.', en: '7. Describe step by step how a language model generates a full sentence.' },
-          points: [{ ar: 'يتنبّأ بالكلمة الجاية ← يضيفها ← يكرّر.', en: 'Predict the next word → append it → repeat.' }, { ar: 'مثال طقس اليوم.', en: 'The weather example.' }],
+          points: [{ ar: 'يتنبّأ بالرمز التالي ← يضيفها ← يكرّر.', en: 'Predict the next word → append it → repeat.' }, { ar: 'مثال طقس اليوم.', en: 'The weather example.' }],
           model: { ar: 'بياخد الجملة المدخلة («طقس اليوم») ويحسب احتمال كل كلمة مرشّحة تيجي بعدها، ويختار حسب الاحتمال («مشمس»). بيضيف الكلمة للجملة («طقس اليوم مشمس») ويتنبّأ بالجاية («و»)، وبعدين («دافئ») — وهكذا يربط نتايج التنبّؤ كلمة كلمة لحد ما الجملة تكمل: «طقس اليوم مشمس ودافئ».', en: 'It takes the input ("Today’s weather is"), computes the probability of each candidate next word, and picks by probability ("sunny"). It appends the word ("Today’s weather is sunny") and predicts the next ("and"), then ("warm") — chaining predictions word by word until the sentence is complete: "Today’s weather is sunny and warm".' } } },
         { type: 'quiz', q: { widget: 'essay', prompt: { ar: '8. إيه نوعين «الحجم» اللي بيخلّوا نموذج اللغة «كبير»؟', en: '8. What two kinds of "size" make a language model "large"?' },
           points: [{ ar: 'كمية بيانات التدريب (مليارات لتريليونات كلمة).', en: 'Training data (billions to trillions of words).' }, { ar: 'عدد المعلمات (مليارات لتريليونات).', en: 'Number of parameters (billions to trillions).' }],

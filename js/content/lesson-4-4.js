@@ -223,7 +223,7 @@ RV.lessons.add('4-4', {
           type: 'quiz', title: { ar: 'تدريب 2 — املأ الفراغات', en: 'Exercise 2 — fill the blanks' },
           q: { widget: 'fill', prompt: { ar: 'اقرا الفقرة واملأ الفراغات (a)–(f):', en: 'Read and fill blanks (a)–(f):' },
             text: { ar: 'من طرق تحسين المواقع دورة {0}، وبتكرّر أربع خطوات: {1} بنحدّد فيها الأهداف؛ و{2} بننفّذ فيها الخطة؛ و{3} بنقيس فيها النتايج؛ و{4} بندرس فيها إجراءات التحسين. وكمان {5}، اللي بنجهّز فيها نمطين ونقارنهم بالبيانات، طريقة مفيدة.', en: 'One method for improving websites is the {0} cycle, repeating four steps: {1}, where goals are set; {2}, where the plan is executed; {3}, where results are measured; and {4}, where improvement measures are considered. Also {5}, preparing two patterns and comparing them with data, is useful.' },
-            bank: [{ ar: 'PDCA', en: 'PDCA' }, { ar: 'خطّط', en: 'Plan' }, { ar: 'نفّذ', en: 'Do' }, { ar: 'تحقّق', en: 'Check' }, { ar: 'تصرّف', en: 'Act' }, { ar: 'اختبار A/B', en: 'A/B testing' }, { ar: 'الإطار السلكي', en: 'wireframe' }],
+            bank: [{ ar: 'PDCA', en: 'PDCA' }, { ar: 'خطّط', en: 'Plan' }, { ar: 'نفّذ', en: 'Do' }, { ar: 'تحقّق', en: 'Check' }, { ar: 'تصرّف', en: 'Act' }, { ar: 'اختبار A/B', en: 'A/B testing' }, { ar: 'المخطط الهيكلي', en: 'wireframe' }],
             answer: [0, 1, 2, 3, 4, 5],
             explain: { ar: '(a) PDCA (b) خطّط (c) نفّذ (d) تحقّق (e) تصرّف (f) اختبار A/B.', en: '(a) PDCA (b) Plan (c) Do (d) Check (e) Act (f) A/B testing.' } },
         },
@@ -237,7 +237,7 @@ RV.lessons.add('4-4', {
               { ar: 'عمل مخطّط بيوضّح تخطيط صفحة الويب تقريبًا من غير ألوان', en: 'Creating a rough colorless blueprint of a page layout' },
             ],
             answer: 1,
-            explain: { ar: 'A كمّي · C إرشادي · D إطار سلكي · __B تفكير تصميمي__.', en: 'A quantitative · C heuristic · D wireframe · __B design thinking__.' } },
+            explain: { ar: 'A كمّي · C إرشادي · D مخطط هيكلي · __B تفكير تصميمي__.', en: 'A quantitative · C heuristic · D wireframe · __B design thinking__.' } },
         },
         {
           type: 'quiz', title: { ar: 'تدريب 3 (2)', en: 'Exercise 3 (2)' },
@@ -364,7 +364,7 @@ RV.lessons.add('4-4', {
       steps: [
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '1. «قياس معدل الارتداد بعد التغيير» بيقابل أنهي خطوة في PDCA؟', en: '1. "Measure the bounce rate after the change" = which PDCA step?' }, options: [{ ar: 'P — خطوة خطّط', en: 'P — the Plan step' }, { ar: 'D — خطوة نفّذ', en: 'D — the Do step' }, { ar: 'C — خطوة تحقّق', en: 'C — the Check step' }, { ar: 'A — خطوة تصرّف', en: 'A — the Act step' }], fixedOrder: true, answer: 2 } },
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '2. أنهي واحدة __مش__ طريقة صحيحة لاختبار A/B؟', en: '2. Which is NOT a correct A/B testing practice?' }, options: [{ ar: 'نجهّز نمطين ونقارنهم', en: 'Prepare two patterns and compare' }, { ar: 'نغيّر كذا عنصر مع بعض', en: 'Change several elements at once' }, { ar: 'نقرّر بعد بيانات كفاية', en: 'Decide after enough data' }, { ar: 'نعرض كل نمط على مستخدمين', en: 'Show each pattern to real users' }], answer: 1 } },
-        { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '3. الوصف الأنسب للتفكير التصميمي؟', en: '3. Best description of design thinking?' }, options: [{ ar: 'تحليل استخدام الموقع كله ببيانات عددية', en: 'Analyzing all site usage with numerical data' }, { ar: 'نكتشف المشاكل ونولّد حلول من منظور المستخدم', en: 'Finding problems and solutions from the user’s view' }, { ar: 'خبراء بيفحصوا واجهة المستخدم بقواعد عملية', en: 'Experts checking the user interface by rules of thumb' }, { ar: 'إنشاء إطار سلكي للصفحة كلها قبل أي ألوان', en: 'Creating a whole-page wireframe before any colors' }], answer: 1 } },
+        { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '3. الوصف الأنسب للتفكير التصميمي؟', en: '3. Best description of design thinking?' }, options: [{ ar: 'تحليل استخدام الموقع كله ببيانات عددية', en: 'Analyzing all site usage with numerical data' }, { ar: 'نكتشف المشاكل ونولّد حلول من منظور المستخدم', en: 'Finding problems and solutions from the user’s view' }, { ar: 'خبراء بيفحصوا واجهة المستخدم بقواعد عملية', en: 'Experts checking the user interface by rules of thumb' }, { ar: 'إنشاء مخطط هيكلي للصفحة كلها قبل أي ألوان', en: 'Creating a whole-page wireframe before any colors' }], answer: 1 } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '4. دورة PDCA بتكرّر خطّط ← نفّذ ← تحقّق ← تصرّف.', en: '4. PDCA repeats Plan → Do → Check → Act.' }, answer: true }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '5. دورة PDCA بتخلص بعد تنفيذ واحد.', en: '5. PDCA is complete after one execution.' }, answer: false }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '6. في اختبار A/B بنغيّر عنصر واحد بس في المرة.', en: '6. In A/B testing, change only one element at a time.' }, answer: true }] } },

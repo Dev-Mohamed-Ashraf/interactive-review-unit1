@@ -58,7 +58,7 @@
     ${B.big('ar0', 600, 280, 90, 60, B.arrow, 'l12-gold')}${B.big('ar1', 960, 280, 90, 60, B.arrow, 'l12-gold')}
     <div id="lf-ph" class="l12u l12-phone later" style="${B.at(1100, 110, 380, 600)}"><div class="scr"><div class="abar">▶️ ${L('فيديوهات', 'Videos')}</div>
       <div class="tile t0">💻 ${L('كورس برمجة', 'coding course')}<b>✨ ${L('مقترح ليك', 'for you')}</b></div><div class="tile">⚽ ${L('ملخص الماتش', 'match highlights')}</div><div class="tile">🔭 ${L('أسرار الفضاء', 'space secrets')}</div></div></div>
-    ${B.card('d0', 1540, 150, 330, 360, 'c-green', { ic: '🎯', h: L('أنظمة الترشيح', 'Recommendation systems'), p: L('بتتنبّأ بتفضيلاتك من سلوكك السابق وتعرضلك توصيات', 'predict your taste from past behaviour and show suggestions') })}
+    ${B.card('d0', 1540, 150, 330, 360, 'c-green', { ic: '🎯', h: L('أنظمة التوصية', 'Recommendation systems'), p: L('بتتنبّأ بتفضيلاتك من سلوكك السابق وتعرضلك توصيات', 'predict your taste from past behaviour and show suggestions') })}
     ${B.chip('x0', 70, 520, '🧪 ' + L('أمثلة:', 'e.g.') + ' YouTube · Amazon · Spotify', 'c-green big')}
   </div>
   <div id="lf-s1" class="mv-stage">
@@ -124,7 +124,7 @@
     ${B.mid('rp', 520, '🔧 ' + L('الصيانة التنبؤية = نتنبّأ بعطل الآلة قبل ما يحصل', 'predictive maintenance = predicting a failure before it happens'), 'c-amber big')}
   </div>
 
-    ${U.hd(0, '🎯 ' + L('أنظمة الترشيح', 'Recommendation systems'))}
+    ${U.hd(0, '🎯 ' + L('أنظمة التوصية', 'Recommendation systems'))}
     ${U.hd(1, '🎙️ ' + L('المساعد الصوتي', 'Voice assistants'))}
     ${U.hd(2, '🌐 ' + L('الترجمة الآلية', 'Machine translation'))}
     ${U.hd(3, '🙂 ' + L('التعرّف على الوجه', 'Face recognition'))}

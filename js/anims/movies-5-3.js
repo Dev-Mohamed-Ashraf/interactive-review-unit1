@@ -62,7 +62,7 @@
     ${U.emo('stop', 820, 540, 120, 100, '🚦')}
     ${U.box('lim', 1050, 220, 780, 't-amber', { ic: '🚦', h: L('حد الطلبات', 'Request limit'), p: L('ماتتقّلش على الخادم', 'do not overload the server') })}
 
-    ${[['📗', L('استخدام حر مع ذكر المصدر', 'Free use with attribution'), 't-green'], ['📙', L('ممنوع الاستخدام التجاري', 'No commercial use'), 't-amber'], ['📕', L('ممنوع إعادة النشر', 'No redistribution'), 't-red']]
+    ${[['📗', L('استخدام حر مع الإشارة إلى المصدر', 'Free use with attribution'), 't-green'], ['📙', L('ممنوع الاستخدام التجاري', 'No commercial use'), 't-amber'], ['📕', L('ممنوع إعادة النشر', 'No redistribution'), 't-red']]
       .map(([e, t, th], k) => U.box('lic' + k, 70 + k * 600, 200, 560, th, { ic: e, h: L('مجموعة ', 'Dataset ') + (k + 1), p: t })).join('')}
     ${U.pill('chk', 300, 500, '🔍 ' + L('اقرا شروط الاستخدام قبل ما تستخدم', 'Read the terms of use before using'), 'solid')}
 
@@ -80,7 +80,7 @@
     ${U.hd(5, '③ ' + L('الاستخدام', 'Using the data'))}
     ${U.hd(6, '🚦 ' + L('خد بالك وأنت بتستخدم API', 'Care when using an API'))}
     ${U.hd(7, '📜 ' + L('شروط الاستخدام', 'Terms of use'))}
-    ${U.hd(8, '🏷️ ' + L('ذكر المصدر', 'Source citation'))}
+    ${U.hd(8, '🏷️ ' + L('الإشارة إلى المصدر', 'Source citation'))}
     ${U.nt(1, L('على المنصّات دي: بحث وتنزيل من المتصفح… وفي حالات كتير API', 'On these platforms: search and download in a browser… and often an API'))}
     ${U.nt(6, '⚠️ ' + L('الخادم مابيبعتش من طرف واحد على طول، والعملاء مابيتبادلوش مباشرة', 'The server does not push data one-sidedly, and clients do not swap data directly'), 'warn')}
     ${U.nt(7, L('حتى المفتوحة: نطاق الاستخدام بيتحدّد لكل مجموعة لوحدها', 'Even open data: the scope of use is set per dataset'), 'warn')}
@@ -90,7 +90,7 @@
     ${B.card('x0', 70, 170, 410, 400, 'c-blue', { ic: '🏦', h: L('المزوّدين', 'Providers'), p: 'World Bank · UN Data · Kaggle — ' + L('اختار الموثوق المناسب للغرض', 'pick the reliable one that fits') })}
     ${B.card('x1', 530, 170, 410, 400, 'c-green', { ic: '🔌', h: 'API', p: L('العميل ← نقطة النهاية · الخادم ← JSON · البرنامج يستخدم', 'client → endpoint · server → JSON · the program uses it') })}
     ${B.card('x2', 990, 170, 410, 400, 'c-amber', { ic: '📜', h: L('شروط الاستخدام', 'Terms of use'), p: L('لكل مجموعة — حتى المجانية', 'for every dataset — even free ones') })}
-    ${B.card('x3', 1450, 170, 410, 400, 'c-violet', { ic: '🏷️', h: L('ذكر المصدر', 'Cite the source'), p: L('مزوّد · اسم · تاريخ · رابط', 'provider · name · date · URL') })}
+    ${B.card('x3', 1450, 170, 410, 400, 'c-violet', { ic: '🏷️', h: L('الإشارة إلى المصدر', 'Cite the source'), p: L('مزوّد · اسم · تاريخ · رابط', 'provider · name · date · URL') })}
     ${B.mid('xb', 620, '🎁 ' + L('مفتوحة ومجانية… بس بقواعد', 'open and free… but with rules'), 'c-amber big')}
   </div>`,
     });

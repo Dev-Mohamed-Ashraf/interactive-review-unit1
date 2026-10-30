@@ -33,7 +33,7 @@ RV.lessons.add('1-3', {
           terms: ['recommendation system', 'voice assistant', 'machine translation', 'face recognition'],
           visual: { anim: 'aiLifeMovie', props: { scenes: [0, 3] } },
           beats: [
-            { ar: '🎯 **أنظمة الترشيح:** بتجمع __سلوكك السابق__ (شفت إيه، حبّيت إيه، قعدت قد إيه) و__تتنبّأ بتفضيلاتك__ وتعرضلك توصيات — أمثلة: __YouTube · Amazon · Spotify__.', en: '🎯 **Recommendation systems:** collect __your past behaviour__ (what you watched, liked, stayed on) and __predict your preferences__ to show suggestions — e.g. __YouTube · Amazon · Spotify__.' },
+            { ar: '🎯 **أنظمة التوصية:** بتجمع __سلوكك السابق__ (شفت إيه، حبّيت إيه، قعدت قد إيه) و__تتنبّأ بتفضيلاتك__ وتعرضلك توصيات — أمثلة: __YouTube · Amazon · Spotify__.', en: '🎯 **Recommendation systems:** collect __your past behaviour__ (what you watched, liked, stayed on) and __predict your preferences__ to show suggestions — e.g. __YouTube · Amazon · Spotify__.' },
             { ar: '🎙️ **المساعد الصوتي:** ① __يتعرّف على الصوت__ ② __يفهم الأمر__ ③ __ينفّذه__ — «صحّيني 7» ← منبّه 7:00. أمثلة: __Siri · Google Assistant__.', en: '🎙️ **Voice assistants:** ① __recognise the voice__ ② __understand the command__ ③ __execute it__ — “wake me at 7” → a 7:00 alarm. e.g. __Siri · Google Assistant__.' },
             { ar: '🌐 **الترجمة الآلية:** بتترجم النصوص __تلقائيًا__ للغات مختلفة — زي منيو مطعم أجنبي. أمثلة: __Google Translate · DeepL__.', en: '🌐 **Machine translation:** translates text __automatically__ into other languages — like a foreign restaurant menu. e.g. __Google Translate · DeepL__.' },
             { ar: '🙂 **التعرّف على الوجه:** يكتشف ويتعرّف على وجوه الناس في الصور __تلقائيًا__ — زي __فتح قفل الموبايل__. ⚠️ فخ: «الترجمة الآلية = بشر بيترجموا يدويًا» ← __غلط__: هي برنامج ذكاء اصطناعي.', en: '🙂 **Face recognition:** automatically detects and identifies faces in photos — like __unlocking a phone__. ⚠️ Trap: “machine translation = people translating by hand” → __false__: it is AI software.' },
@@ -49,7 +49,7 @@ RV.lessons.add('1-3', {
               { ar: 'ترجمة موقع أجنبي للغتك', en: 'Translating a foreign website' },
               { ar: 'الكاميرا بتكتشف وش شخص', en: 'The camera detects a face' },
             ],
-            right: [{ ar: 'A أنظمة الترشيح', en: 'A Recommendation system' }, { ar: 'B المساعد الصوتي', en: 'B Voice assistant' }, { ar: 'C الترجمة الآلية', en: 'C Machine translation' }, { ar: 'D التعرف على الوجه', en: 'D Face recognition' }],
+            right: [{ ar: 'A أنظمة التوصية', en: 'A Recommendation system' }, { ar: 'B المساعد الصوتي', en: 'B Voice assistant' }, { ar: 'C الترجمة الآلية', en: 'C Machine translation' }, { ar: 'D التعرف على الوجه', en: 'D Face recognition' }],
             answer: [0, 1, 2, 3] },
         },
       ],
@@ -141,7 +141,7 @@ RV.lessons.add('1-3', {
         {
           type: 'summary',
           points: [
-            { ar: 'في حياتنا: **الترشيحات · المساعد الصوتي · الترجمة الآلية · التعرف على الوجه**.', en: 'Daily life: **recommendations · voice assistants · machine translation · face recognition**.' },
+            { ar: 'في حياتنا: **التوصيات · المساعد الصوتي · الترجمة الآلية · التعرف على الوجه**.', en: 'Daily life: **recommendations · voice assistants · machine translation · face recognition**.' },
             { ar: 'في الصناعة: **صحة** (تشخيص بالصور) · **زراعة** (حصاد/آفات) · **تصنيع** (جودة/صيانة تنبؤية) · **لوجستيات** (مسارات).', en: 'Industry: **healthcare** (image diagnosis) · **agriculture** (harvest/pests) · **manufacturing** (quality/predictive maintenance) · **logistics** (routes).' },
             { ar: 'شاطر في __الأنماط والتعرّف والتنبؤ__ · محتاج حذر في __الأخلاق والخصوصية والقرار النهائي__.', en: 'Good at __patterns, recognition, prediction__ · caution for __ethics, privacy, final decisions__.' },
             { ar: '**الصندوق الأسود** = مش واضح إزاي قرّر → لازم إنسان يراجع في المهام الحسّاسة.', en: '**Black box** = unclear how it decided → a human must review sensitive tasks.' },
@@ -164,10 +164,10 @@ RV.lessons.add('1-3', {
               { ar: 'ترجمة موقع أجنبي للغتك', en: 'Translating a foreign website' },
               { ar: 'الكاميرا تكتشف وش شخص', en: 'Camera detects a face' },
             ],
-            right: [{ ar: 'A الترشيح', en: 'A Recommendation' }, { ar: 'B المساعد الصوتي', en: 'B Voice assistant' }, { ar: 'C الترجمة الآلية', en: 'C Machine translation' }, { ar: 'D التعرف على الوجه', en: 'D Face recognition' }],
+            right: [{ ar: 'A التوصية', en: 'A Recommendation' }, { ar: 'B المساعد الصوتي', en: 'B Voice assistant' }, { ar: 'C الترجمة الآلية', en: 'C Machine translation' }, { ar: 'D التعرف على الوجه', en: 'D Face recognition' }],
             answer: [0, 1, 2, 3] },
           solution: [
-            { ar: 'a: توصيات حسب تفضيلاتك = **نظام ترشيح** ← A.', en: 'a: recommendations by preference = **recommendation system** → A.' },
+            { ar: 'a: توصيات حسب تفضيلاتك = **نظام توصية** ← A.', en: 'a: recommendations by preference = **recommendation system** → A.' },
             { ar: 'b: التشغيل بالكلام = **مساعد صوتي** ← B.', en: 'b: operating by voice = **voice assistant** → B.' },
             { ar: 'c: لغة أجنبية للغتك = **ترجمة آلية** ← C.', en: 'c: foreign language to yours = **machine translation** → C.' },
             { ar: 'd: اكتشاف الوجه = **تعرف على الوجه** ← D.', en: 'd: detecting a face = **face recognition** → D.' },
@@ -198,7 +198,7 @@ RV.lessons.add('1-3', {
         {
           type: 'quiz', title: { ar: 'تمرين 1', en: 'Try 1' },
           q: { widget: 'recall', prompt: { ar: 'قول الإجابة وبعدين اكشفها:', en: 'Say it, then reveal:' }, items: [
-            { q: { ar: 'النظام اللي بيتنبّأ بالتفضيلات من السلوك السابق ويعرض توصيات؟', en: 'System that predicts preferences from past behaviour and recommends?' }, a: { ar: 'نظام الترشيح', en: 'Recommendation system' } },
+            { q: { ar: 'النظام اللي بيتنبّأ بالتفضيلات من السلوك السابق ويعرض توصيات؟', en: 'System that predicts preferences from past behaviour and recommends?' }, a: { ar: 'نظام التوصية', en: 'Recommendation system' } },
             { q: { ar: 'تقنية بتتعرّف على الصوت وتفهم الأوامر وتنفّذها؟', en: 'Technology that recognises voice, understands and executes commands?' }, a: { ar: 'المساعد الصوتي', en: 'Voice assistant' } },
             { q: { ar: 'في أنهي صناعة بيُستخدم الذكاء الاصطناعي للتشخيص بالصور؟', en: 'Which industry uses image-diagnosis AI?' }, a: { ar: 'الرعاية الصحية', en: 'Healthcare' } },
             { q: { ar: 'في التصنيع، اسم النظام اللي بيتنبّأ بأعطال المنتج مقدّمًا؟', en: 'In manufacturing, the system that predicts failures in advance?' }, a: { ar: 'الصيانة التنبؤية', en: 'Predictive maintenance' } },
@@ -213,7 +213,7 @@ RV.lessons.add('1-3', {
           type: 'quiz', title: { ar: 'تدريب 2 — املأ الفراغات', en: 'Exercise 2 — fill the blanks' },
           q: { widget: 'fill', prompt: { ar: 'املأ الفراغات:', en: 'Fill the blanks:' },
             text: { ar: 'توصيات الفيديوهات اللي تناسب تفضيلاتك جاية من نظام {0}. وبنستخدم الـAI في {1} اللي بنكلّمه عشان يشغّل الموبايل، وفي {2} اللي بتحوّل نص أجنبي للغتنا.', en: 'Video recommendations matching your taste come from a {0} system. AI is also used in the {1} you speak to, and in {2}, which converts foreign text into your language.' },
-            bank: [{ ar: 'الترشيح', en: 'recommendation' }, { ar: 'المساعد الصوتي', en: 'voice assistant' }, { ar: 'الترجمة الآلية', en: 'machine translation' }, { ar: 'الصيانة التنبؤية', en: 'predictive maintenance' }],
+            bank: [{ ar: 'التوصية', en: 'recommendation' }, { ar: 'المساعد الصوتي', en: 'voice assistant' }, { ar: 'الترجمة الآلية', en: 'machine translation' }, { ar: 'الصيانة التنبؤية', en: 'predictive maintenance' }],
             answer: [0, 1, 2] },
         },
         {
@@ -230,7 +230,7 @@ RV.lessons.add('1-3', {
           type: 'quiz', title: { ar: 'تدريب 3 (2)', en: 'Exercise 3 (2)' },
           q: { widget: 'mcq', prompt: { ar: 'اختار الوصف __غير__ المناسب:', en: 'Choose the INAPPROPRIATE description:' },
             options: [
-              { ar: 'نظام الترشيح بيتنبّأ بالتفضيلات من السلوك السابق.', en: 'Recommenders predict preferences from past behaviour.' },
+              { ar: 'نظام التوصية بيتنبّأ بالتفضيلات من السلوك السابق.', en: 'Recommenders predict preferences from past behaviour.' },
               { ar: 'المساعد الصوتي بيتعرّف على الصوت وينفّذ الأوامر.', en: 'Voice assistants recognise and execute commands.' },
               { ar: 'الترجمة الآلية نظام بيترجم فيه البشر يدويًا.', en: 'Machine translation is humans translating manually.' },
               { ar: 'التعرف على الوجه بيكتشف الوجوه في الصور تلقائيًا.', en: 'Face recognition detects faces automatically.' },
@@ -246,7 +246,7 @@ RV.lessons.add('1-3', {
       steps: [{
         type: 'quiz',
         q: { widget: 'flash', cards: [
-          { front: { ar: 'نظام الترشيح', en: 'Recommendation system' }, back: { ar: 'يتنبّأ بالتفضيلات من بيانات السلوك السابق ويعرض توصيات.', en: 'Predicts preferences from past behaviour data and displays recommendations.' } },
+          { front: { ar: 'نظام التوصية', en: 'Recommendation system' }, back: { ar: 'يتنبّأ بالتفضيلات من بيانات السلوك السابق ويعرض توصيات.', en: 'Predicts preferences from past behaviour data and displays recommendations.' } },
           { front: { ar: 'المساعد الصوتي', en: 'Voice assistant' }, back: { ar: 'يتعرّف على الصوت ويفهم الأوامر وينفّذها.', en: 'Recognises a voice, understands commands and executes them.' } },
           { front: { ar: 'الترجمة الآلية', en: 'Machine translation' }, back: { ar: 'تترجم النصوص تلقائيًا للغات مختلفة.', en: 'Automatically translates text into different languages.' } },
           { front: { ar: 'التعرف على الوجه', en: 'Face recognition' }, back: { ar: 'يكتشف ويتعرّف على وجوه الأشخاص في الصور تلقائيًا.', en: 'Automatically detects and identifies faces in photos.' } },
@@ -285,7 +285,7 @@ RV.lessons.add('1-3', {
           type: 'quiz', optional: true,
           q: { widget: 'essay', tag: { ar: 'في سياق جديد', en: 'In a new context' },
             prompt: { ar: 'مكتبة المدرسة عايزة ذكاء اصطناعي يرشّح كتب للطلاب حسب استعارتهم السابقة. اشرح هيشتغل إزاي، واذكر تنبيه لازم المدرسة تاخد بالها منه.', en: 'A school library wants AI to recommend books from past borrowing. Explain how it works and one caution.' },
-            points: [{ ar: 'نظام ترشيح يتنبّأ من بيانات الاستعارة السابقة.', en: 'A recommender predicts from past borrowing data.' }, { ar: 'تنبيه: الخصوصية / يحصر الطالب في نوع واحد.', en: 'Caution: privacy / trapping students in one genre.' }],
+            points: [{ ar: 'نظام توصية يتنبّأ من بيانات الاستعارة السابقة.', en: 'A recommender predicts from past borrowing data.' }, { ar: 'تنبيه: الخصوصية / يحصر الطالب في نوع واحد.', en: 'Caution: privacy / trapping students in one genre.' }],
             model: { ar: 'النظام هيحلّل الكتب اللي كل طالب استعارها قبل كده، ويتنبّأ بتفضيلاته، ويرشّحله كتب شبهها. لكن لازم المدرسة تحمي خصوصية بيانات الطلاب، وتتأكد إن النظام مايحصرش الطالب في نوع واحد بس من الكتب.', en: 'It analyses each student\'s past loans, predicts preferences and suggests similar books. The school must protect students\' data privacy and make sure it does not trap a student in only one kind of book.' } },
         },
       ],
@@ -300,7 +300,7 @@ RV.lessons.add('1-3', {
           type: 'quiz', optional: true,
           q: { widget: 'poll', prompt: { ar: 'استكشف: من الخدمات اللي استخدمتها الأسبوع ده (فيديو مقترح، مساعد صوتي، ترجمة…) — أنهي واحدة لو غلطت هتفرق معاك أكتر؟', en: 'Explore: of the AI services you used this week — which one would matter most if it made a mistake?' },
             options: [
-              { emoji: '🎬', text: { ar: 'ترشيح الفيديوهات', en: 'Video recommendations' } },
+              { emoji: '🎬', text: { ar: 'توصية الفيديوهات', en: 'Video recommendations' } },
               { emoji: '🎤', text: { ar: 'المساعد الصوتي', en: 'Voice assistant' } },
               { emoji: '🌐', text: { ar: 'الترجمة', en: 'Translation' } },
               { emoji: '🔓', text: { ar: 'فتح الموبايل بالوش', en: 'Face unlock' } },
@@ -348,7 +348,7 @@ RV.lessons.add('1-3', {
       steps: [{
         type: 'quiz', optional: true,
         q: { widget: 'speed', id: '1-3', seconds: 60, items: [
-            { text: { ar: 'YouTube بيستخدم نظام ترشيح', en: 'YouTube uses a recommendation system' }, answer: true },
+            { text: { ar: 'YouTube بيستخدم نظام توصية', en: 'YouTube uses a recommendation system' }, answer: true },
             { text: { ar: 'المساعد الصوتي بيترجم القوائم الأجنبية', en: 'A voice assistant translates menus' }, answer: false },
             { text: { ar: 'فتح الموبايل بالوش = تعرّف على الوجه', en: 'Face unlock = face recognition' }, answer: true },
             { text: { ar: 'الترجمة الآلية بيعملها بشر يدويًا', en: 'Machine translation is done by hand' }, answer: false },
@@ -373,7 +373,7 @@ RV.lessons.add('1-3', {
       id: 'test', kind: 'test',
       title: { ar: 'امتحان الدرس 1-3', en: 'Lesson 1-3 test' },
       steps: [
-        { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '1. «يتنبّأ بالتفضيلات من السلوك السابق ويعرض توصيات»:', en: '1. "Predicts preferences from past behaviour and recommends":' }, options: [{ ar: 'المساعد الصوتي', en: 'Voice assistant' }, { ar: 'نظام الترشيح', en: 'Recommendation system' }, { ar: 'الترجمة الآلية', en: 'Machine translation' }, { ar: 'التعرف على الوجه', en: 'Face recognition' }], answer: 1 } },
+        { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '1. «يتنبّأ بالتفضيلات من السلوك السابق ويعرض توصيات»:', en: '1. "Predicts preferences from past behaviour and recommends":' }, options: [{ ar: 'المساعد الصوتي', en: 'Voice assistant' }, { ar: 'نظام التوصية', en: 'Recommendation system' }, { ar: 'الترجمة الآلية', en: 'Machine translation' }, { ar: 'التعرف على الوجه', en: 'Face recognition' }], answer: 1 } },
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '2. الصيانة التنبؤية مثال على الـAI في أنهي صناعة؟', en: '2. Predictive maintenance belongs to which industry?' }, options: [{ ar: 'الرعاية الصحية', en: 'Healthcare' }, { ar: 'الزراعة', en: 'Agriculture' }, { ar: 'التصنيع', en: 'Manufacturing' }, { ar: 'الخدمات اللوجستية', en: 'Logistics' }], answer: 2 } },
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '3. أيّ دول __مش__ من اللي محتاج حذر؟', en: '3. Which is NOT a caution item?' }, options: [{ ar: 'الأحكام الأخلاقية زي التمييز', en: 'Ethical judgments such as discrimination' }, { ar: 'إيجاد الأنماط في البيانات', en: 'Finding patterns in data' }, { ar: 'القرار النهائي في حالة مهمة', en: 'The final decision in a serious case' }, { ar: 'حماية البيانات الشخصية', en: 'Protecting personal data' }], answer: 1 } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '4. ينفع نسيب الأحكام الأخلاقية للـAI بالكامل بلا مشكلة.', en: '4. Ethical judgments can be left entirely to AI.' }, answer: false }] } },

@@ -56,24 +56,24 @@
     ${B.chip('no1', 540, 330, '❌ ' + L('مايقدرش يفتحه', 'cannot open it'), 'c-red')}
 
     <div id="ky-race" class="l12u l12-card c-slate later" style="${B.at(320, 150, 1280, 370)}"><span class="h">📦 ${L('نفس الملف الكبير (فيديو 1 جيجا)', 'the same big file (a 1 GB video)')}</span>
-      <div class="l12-pr"><b>🔑 ${L('متناظر', 'common key')}</b><span class="l12-bar o"><i id="ky-ra" style="width:100%"></i></span><em id="ky-sa">✅ ${L('خلص', 'done')}</em></div>
+      <div class="l12-pr"><b>🔑 ${L('متماثل', 'common key')}</b><span class="l12-bar o"><i id="ky-ra" style="width:100%"></i></span><em id="ky-sa">✅ ${L('خلص', 'done')}</em></div>
       <div class="l12-pr"><b>🔓 ${L('مفتاح عام', 'public key')}</b><span class="l12-bar s"><i id="ky-rb" style="width:18%"></i></span><em id="ky-sb">🐢 ${L('لسه…', 'still…')}</em></div></div>
-    ${B.card('cmpA', 320, 550, 620, 0, 'c-blue', { row: true, ic: '🔑', h: L('المتناظر', 'Common key'), p: L('سريع ⚡ — بس توصيل المفتاح خطر', 'fast ⚡ — but sending the key is risky') })}
+    ${B.card('cmpA', 320, 550, 620, 0, 'c-blue', { row: true, ic: '🔑', h: L('المتماثل', 'Common key'), p: L('سريع ⚡ — بس توصيل المفتاح خطر', 'fast ⚡ — but sending the key is risky') })}
     ${B.card('cmpB', 980, 550, 620, 0, 'c-violet', { row: true, ic: '🔓', h: L('المفتاح العام', 'Public key'), p: L('توصيل آمن 🔒 — بس بطيء 🐢', 'safe delivery 🔒 — but slow 🐢') })}
 
     ${B.mid('fA', 126, '🔓 ' + L('المفتاح العام ← يوصّل المفتاح بأمان', 'public key → delivers the key safely'), 'c-violet')}
-    ${B.mid('fB', 204, '🔑 ' + L('المفتاح المتناظر ← يبعت البيانات الكتير بسرعة', 'common key → sends lots of data quickly'), 'c-blue')}
+    ${B.mid('fB', 204, '🔑 ' + L('المفتاح المتماثل ← يبعت البيانات الكتير بسرعة', 'common key → sends lots of data quickly'), 'c-blue')}
     ${B.mid('fC', 282, '✅ ' + L('أمان + سرعة', 'security + speed'), 'c-green solid big')}
     ${B.big('sk', 340, 380, 80, 66, '🔑')}${B.big('skA', 360, 300, 80, 66, '🔑')}${B.big('skB', 1480, 300, 80, 66, '🔑')}
     ${range(5).map((k) => B.big('pk' + k, 330, 604, 70, 48, '📦')).join('')}
     ${B.mid('dh', 380, 'ℹ️ ' + L('إصدارات TLS الحديثة بتتفق على المفتاح المشترك بطريقة اسمها Diffie-Hellman', 'current TLS versions agree on the shared key with Diffie-Hellman instead'), 'c-slate sm')}
 
-    ${U.hd(0, '🔑 ' + L('النوع الأول: التشفير بالمفتاح المتناظر (المشترك)', 'Type 1: common-key (symmetric) cryptography'))}
+    ${U.hd(0, '🔑 ' + L('النوع الأول: التشفير المتماثل', 'Type 1: common-key (symmetric) cryptography'))}
     ${U.hd(1, '😈 ' + L('المشكلة: المفتاح نفسه لازم يسافر', 'The problem: the key itself must travel'))}
     ${U.hd(2, '🔓 ' + L('النوع التاني: التشفير بالمفتاح العام', 'Type 2: public-key cryptography'))}
     ${U.hd(3, '🐢 ' + L('بس المفتاح العام بطيء على البيانات الكتير', 'But public-key is slow on lots of data'))}
     ${U.hd(4, '🤝 ' + L('الحل: ناخد أحسن ما في الاتنين', 'The fix: take the best of both'))}
-    ${U.nt(0, L('التشفير بالمفتاح المتناظر: نفس المفتاح للتشفير وفك التشفير', 'common-key cryptography: the same key encrypts and decrypts'), 'ok')}
+    ${U.nt(0, L('التشفير المتماثل: نفس المفتاح للتشفير وفك التشفير', 'common-key cryptography: the same key encrypts and decrypts'), 'ok')}
     ${U.nt(1, L('لازم المفتاح يوصل للطرف التاني الأول بأمان — ولو اتسرق في السكة، كل حاجة تتكشف', 'the key must first reach the other side safely — stolen on the way, everything is exposed'), 'warn')}
     ${U.nt(2, L('العام بيقفل · الخاص بس بيفتح ← تبعت سر من غير ما تتفقوا على مفتاح قبل كده', 'the public key locks · only the private key unlocks → send a secret with no key agreed beforehand'), 'ok')}
     ${U.nt(4, L('ده بالظبط اللي HTTPS بيعمله — تعالى نشوفه مرحلة مرحلة 👇', 'that is exactly what HTTPS does — let’s watch it stage by stage 👇'), 'ok')}
@@ -262,7 +262,7 @@
     ${B.mid('v3', 196, '🎭 ' + L('ولو حد وقّع بمفتاح غير مفتاح أحمد ← انتحال هوية المرسِل بيتكشف', 'and a signature made with any other key → sender impersonation is caught'), 'c-red')}
     ${B.chip('bub', 300, 300, '🙄 «' + L('أنا مابعتّش الطلب ده!', 'I never sent that order!') + '»', 'c-slate big')}
     ${B.mid('v4', 206, '🗝️ ' + L('التوقيع ده ماطلعش غير من مفتاحك الخاص', 'only your private key could make this signature'), 'c-violet')}
-    ${B.stamp('nr', 760, 380, '✓ ' + L('عدم الإنكار', 'non-repudiation'), true)}
+    ${B.stamp('nr', 760, 380, '✓ ' + L('عدم التنصل', 'non-repudiation'), true)}
 
     ${B.ch('ca', 870, 140, 'sm')}
     ${B.mid('cal', 386, '🏛️ ' + L('جهة إصدار الشهادات (CA)', 'Certificate authority (CA)'), 'c-amber')}
@@ -274,10 +274,10 @@
     ${U.hd(0, '✍️ ' + L('التوقيع الرقمي: أحمد بيوقّع بمفتاحه الخاص', 'Digital signature: Ahmed signs with his private key'))}
     ${U.hd(1, '✅ ' + L('المتجر بيتحقّق بالمفتاح العام بتاع أحمد', 'The shop verifies with Ahmed’s public key'))}
     ${U.hd(2, '✏️ ' + L('لو حد غيّر رقم واحد في السكة…', 'If someone changes one digit on the way…'))}
-    ${U.hd(3, '🙅‍♂️ ' + L('عدم الإنكار', 'Non-repudiation'))}
+    ${U.hd(3, '🙅‍♂️ ' + L('عدم التنصل', 'Non-repudiation'))}
     ${U.hd(4, '📜 ' + L('الشهادة الرقمية: الموقع ده حقيقي؟', 'The digital certificate: is this site genuine?'))}
     ${U.nt(2, L('التوقيع الرقمي بيكشف التلاعب في البيانات وانتحال هوية المرسِل', 'a digital signature detects data tampering and sender impersonation'), 'ok')}
-    ${U.nt(3, L('عدم الإنكار = المرسِل مايقدرش ينكر بعد كده إنه بعت', 'non-repudiation = the sender cannot later deny having sent it'), 'ok')}
+    ${U.nt(3, L('عدم التنصل = المرسِل مايقدرش ينكر بعد كده إنه بعت', 'non-repudiation = the sender cannot later deny having sent it'), 'ok')}
   </div>`,
     });
     const { q, Q, tl, IN, POP, OUT, SND, frame, sx } = M;
@@ -393,7 +393,7 @@
     ${[['🔐', L('التشفير', 'Encryption'), L('يمنع قراءة المحتوى من أي طرف تالت', 'stops third parties reading the content'), 'c-blue'],
       ['📜', L('الشهادة الرقمية', 'Digital certificate'), L('تثبت إن الطرف التاني حقيقي', 'proves the other side is genuine'), 'c-green'],
       ['📱', L('المصادقة متعددة العوامل', 'Multi-factor authentication'), L('تمنع الدخول غير المصرّح', 'blocks unauthorized logins'), 'c-amber'],
-      ['✍️', L('التوقيع الرقمي', 'Digital signature'), L('يكشف التلاعب وانتحال المرسِل + عدم الإنكار', 'detects tampering & sender impersonation + non-repudiation'), 'c-violet']]
+      ['✍️', L('التوقيع الرقمي', 'Digital signature'), L('يكشف التلاعب وانتحال المرسِل + عدم التنصل', 'detects tampering & sender impersonation + non-repudiation'), 'c-violet']]
       .map(([ic, h, p, cc], k) => B.card('e' + k, 660 + (k % 2) * 620, 136 + Math.floor(k / 2) * 230, 590, 210, cc, { row: true, ic, h, p })).join('')}
     ${B.chip('all', 660, 610, '🛡️ ' + L('الأمان = تقنيات كتير شغّالة مع بعض — مش تقنية واحدة', 'security = many technologies working together — not one'), 'c-green big', 1210)}
 

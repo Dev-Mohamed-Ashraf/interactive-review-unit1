@@ -153,7 +153,7 @@
       [{ t: 'goal', label: T('السؤال الرئيسي', 'Guiding question'), q: T('من أين تأتي البيانات المفتوحة الموثوقة، وكيف تجلبها البرامج، وما القواعد التي تحكم استخدامها؟', 'Where does reliable open data come from, how do programs fetch it, and what rules govern its use?'),
         aimsLabel: T('هتطلع من الدرس قادر', 'By the end you can'), aims: [
           T('تشرح مفهوم البيانات المفتوحة وأهم مصادرها الموثوقة', 'Explain what open data is and its reliable sources'),
-          T('تصف الحصول عليها عبر API وأهمية الشروط وذكر المصدر', 'Describe APIs, terms of use and source citation'),
+          T('تصف الحصول عليها عبر API وأهمية الشروط والإشارة إلى المصدر', 'Describe APIs, terms of use and source citation'),
         ] }],
       [{ t: 'sec', n: '1', label: T('استخدام البيانات المفتوحة', 'Using Open Data') }],
       [{ t: 'cards', ic: '✅', title: T('قبل الاستخدام افحص 4 حاجات', 'Before you use it, know'), cols: 4, items: [
@@ -195,11 +195,11 @@
           { h: T('اتأكّد من نطاق الاستخدام المسموح', 'Check the permitted scope'), c: 'amber' },
         ] },
         { t: 'cards', ic: '📜', title: T('الترخيص وشروط الاستخدام: لكل مجموعة', 'Terms of use: per dataset'), cols: 1, items: [
-          { ic: '📗', h: T('استخدام حر مع ذكر المصدر', 'Free use with attribution'), c: 'green' },
+          { ic: '📗', h: T('استخدام حر مع الإشارة إلى المصدر', 'Free use with attribution'), c: 'green' },
           { ic: '📙', h: T('ممنوع الاستخدام التجاري', 'No commercial use'), c: 'amber' },
           { ic: '📕', h: T('ممنوع إعادة النشر', 'No redistribution'), c: 'red' },
         ] },
-        { t: 'vflow', ic: '🏷️', title: T('ذكر المصدر: دايمًا', 'Source citation: always'), items: [
+        { t: 'vflow', ic: '🏷️', title: T('الإشارة إلى المصدر: دايمًا', 'Source citation: always'), items: [
           { h: T('الجهة الناشرة · اسم المجموعة', 'Provider · data name'), c: 'violet' },
           { h: T('الإصدار أو تاريخ الوصول · الرابط', 'Date obtained · URL'), c: 'violet' },
           { h: T('غيرك يلاقيها ويقيّمها، ومايثبتش الموثوقية لوحده', 'Reliability + others can verify'), c: 'green' },
@@ -218,13 +218,13 @@
       ] }],
       [{ t: 'qa', mark: T('سؤال بنمط الامتحان · 6 درجات · نقاط الإجابة', 'Exam-style question · 6 marks · points to make'), q: T('اشرح لماذا يجب على المحلل التحقق من شروط الاستخدام والإشارة إلى المصدر حتى عندما تكون البيانات مجانية ومفتوحة.', 'Explain why an analyst must check the terms of use and cite the source even when the data is free and open.'), items: [
         T('حقك في الاستخدام بتحدده شروط كل مجموعة', 'Your right to use the data is set per dataset'),
-        T('ذكر المصدر بيساعد الآخرين يلاقوها ويقيّموها', 'Citing shows reliability'),
+        T('الإشارة إلى المصدر بيساعد الآخرين يلاقوها ويقيّموها', 'Citing shows reliability'),
         T('وبيسمح لغيرك يراجع التحليل', 'It also lets others verify the analysis'),
       ] }],
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
         { bad: T('المفتوحة من غير فحص الشروط', 'Open data needs no terms check'), good: T('لازم نفحص شروط كل مجموعة', 'Check each dataset’s terms') },
         { bad: T('مجانية يبقى مفتوحة', 'Free means no rules'), good: T('لازم ترخيص يسمح بإعادة الاستخدام', 'Scope is set per dataset') },
-        { bad: T('ذكر المصدر للمدفوعة بس', 'Citation is for paid data only'), good: T('ذكر المصدر دايمًا', 'Always cite') },
+        { bad: T('الإشارة إلى المصدر للمدفوعة بس', 'Citation is for paid data only'), good: T('الإشارة إلى المصدر دايمًا', 'Always cite') },
         { bad: T('بيانات الـAPI مالهاش شروط', 'API data has no terms'), good: T('ليها شروط وحدود', 'It has terms and limits') },
         { bad: T('الخادم بيبعت من طرف واحد على طول', 'The server just pushes data'), good: T('العميل يطلب والخادم يرد', 'The client asks, the server replies') },
         { bad: T('العملاء يتبادلوا مباشرة', 'Clients swap data directly'), good: T('عن طريق الخادم', 'Through the server') },

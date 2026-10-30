@@ -123,13 +123,13 @@
 
     <svg id="hm-spark" class="later" viewBox="0 0 200 140"><g fill="#fde68a"><path d="M30 20 l5 14 14 5 -14 5 -5 14 -5 -14 -14 -5 14 -5z"/><path d="M170 30 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z"/><path d="M160 110 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z"/><path d="M40 108 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/></g></svg>
     <svg id="hm-skey" class="later" viewBox="0 0 140 64">${GOLD}</svg>
-    <div id="hm-skeytag" class="ptag later">🔑 ${L('مفتاح الجلسة (متناظر) — جديد', 'Session key (common) — new')}</div>
+    <div id="hm-skeytag" class="ptag later">🔑 ${L('مفتاح الجلسة (متماثل) — جديد', 'Session key (common) — new')}</div>
     <div id="hm-boxg" class="later">
       <svg viewBox="0 0 160 140"><rect x="8" y="48" width="144" height="88" rx="12" fill="#92400e" stroke="#fbbf24" stroke-width="5"/><rect x="8" y="80" width="144" height="10" fill="#78350f"/>
         <g id="hm-lid"><rect x="4" y="26" width="152" height="30" rx="10" fill="#b45309" stroke="#fbbf24" stroke-width="5"/></g></svg>
       <svg id="hm-boxlock" class="later" viewBox="0 0 86 104"><path d="M22 48 V30 a21 21 0 0 1 42 0 V48" fill="none" stroke="#93c5fd" stroke-width="9" stroke-linecap="round"/>${LOCK_BODY}</svg>
     </div>
-    <div id="hm-note" class="card later"><span class="no">❌ ${L('المفتاح العام لا يتحوّل إلى مفتاح متناظر', 'The public key is NOT turned into a common key')}</span><span class="yes">✅ ${L('هو فقط القفل اللي بيوصّل مفتاح الجلسة بأمان', 'It is only the lock that delivers the session key safely')}</span></div>
+    <div id="hm-note" class="card later"><span class="no">❌ ${L('المفتاح العام لا يتحوّل إلى مفتاح متماثل', 'The public key is NOT turned into a common key')}</span><span class="yes">✅ ${L('هو فقط القفل اللي بيوصّل مفتاح الجلسة بأمان', 'It is only the lock that delivers the session key safely')}</span></div>
     <div id="hm-b-hack1" class="bubble tl later">😈 ${L('هاخد الصندوق!', 'I’ll take the box!')}</div>
     <div id="hm-b-hack2" class="bubble tl later"><span>😫 ${L('مش قادر أفتحه!', 'I can’t open it!')}</span><span>${L('معنديش المفتاح الخاص', 'I don’t have the private key')}</span></div>
     <div id="hm-xbox" class="later">✕</div>
@@ -148,7 +148,7 @@
     <div id="hm-r-title" class="later">${L('الخلاصة', 'The point')} 💡</div>
     <div id="hm-rc1" class="rc later"><span class="ic">🔓</span><span class="h">${L('المفتاح العام', 'Public key')}</span><span class="p">${L('يوصّل مفتاح الجلسة بأمان', 'delivers the session key safely')}</span></div>
     <div id="hm-r-plus" class="later">+</div>
-    <div id="hm-rc2" class="rc later"><span class="ic">🔑</span><span class="h">${L('المفتاح المتناظر', 'Common key')}</span><span class="p">${L('ينقل البيانات بسرعة', 'moves the data fast')}</span></div>
+    <div id="hm-rc2" class="rc later"><span class="ic">🔑</span><span class="h">${L('المفتاح المتماثل', 'Common key')}</span><span class="p">${L('ينقل البيانات بسرعة', 'moves the data fast')}</span></div>
     <div id="hm-r-eq" class="later">= ${L('أمان + سرعة', 'security + speed')} 🔒</div>
     <div id="hm-r-url" class="later">🔒 <span><span class="s">https</span>://www.bank.com</span></div>
   </div>

@@ -48,7 +48,7 @@
     ${B.chip('b2', 380, 150, '🟢 «' + L('لأ، الأخضر!', 'no, green!') + '»', 'c-green big')}
     ${B.stamp('nx', 160, 640, '✗ ' + L('ذوق شخصي… مابيخلصش', 'personal taste… endless'))}
     ${B.card('need', 1000, 160, 860, 0, 'c-green', { ic: '🔲', h: L('نثبّت مكان المعلومات وأولويتها الأول', 'fix the placement & priority first'), p: L('النقاش يبقى عن احتياج المستخدم — فأصحاب المصلحة يتفقوا أسهل', 'the talk is about the user’s need — stakeholders agree more easily') })}
-    ${B.chip('trap', 1000, 520, '⚠️ ' + L('الإطار السلكي مش تصميم نهائي ومافيهوش ألوان', 'a wireframe is not a final design and has no colour'), 'c-red', 860)}
+    ${B.chip('trap', 1000, 520, '⚠️ ' + L('المخطط الهيكلي مش تصميم نهائي ومافيهوش ألوان', 'a wireframe is not a final design and has no colour'), 'c-red', 860)}
   </div>
 
   <div id="d2-pgw" class="mv-stage">
@@ -72,15 +72,15 @@
     ${B.card('ucd', 70, 300, 640, 0, 'c-green', { ic: '🧭', h: L('التصميم المتمحور حول المستخدم (UCD)', 'User-Centred Design (UCD)'), p: L('من منظور المستخدم — مش راحة المصمّم', 'from the user’s view — not the designer’s comfort') })}
   </div>
   <div id="d2-s9" class="mv-stage">
-    ${[['🪪', L('شخصية', 'Persona'), L('مين؟', 'who?'), 'c-green'], ['🔲', L('إطار سلكي', 'Wireframe'), L('فين؟ (من غير لون)', 'where? (no colour)'), 'c-slate'], ['🎨', 'CRAP', L('وضّحها', 'make it clear'), 'c-pink'], ['🧭', 'UCD', L('قرّر للمستخدم', 'decide for the user'), 'c-blue']]
+    ${[['🪪', L('شخصية', 'Persona'), L('مين؟', 'who?'), 'c-green'], ['🔲', L('مخطط هيكلي', 'Wireframe'), L('فين؟ (من غير لون)', 'where? (no colour)'), 'c-slate'], ['🎨', 'CRAP', L('وضّحها', 'make it clear'), 'c-pink'], ['🧭', 'UCD', L('قرّر للمستخدم', 'decide for the user'), 'c-blue']]
       .map(([ic, h, p, c], k) => B.card('rc' + k, 70 + k * 455, 150, 400, 260, c, { ic, h: `<bdi>${h}</bdi>`, k: p })).join('')}
     ${range(3).map((k) => B.big('ra' + k, 470 + k * 455, 250, 55, 50, B.arrow, 'l12-gold')).join('')}
     ${B.mid('crap', 480, '🎯 ' + L('التباين يبرز · 🔁 التكرار يوحّد · 📏 المحاذاة تنظّم · 🧲 التقارب يجمّع', 'contrast highlights · repetition unifies · alignment orders · proximity groups'), 'c-amber big')}
   </div>
     ${U.hd(0, '🤔 ' + L('واضح للمصمّم… تايه للزوّار', 'Clear to its designer… lost visitors'))}
     ${U.hd(1, '🪪 ' + L('شخصية المستخدم (Persona)', 'The persona'))}
-    ${U.hd(2, '🔲 ' + L('الإطار السلكي (Wireframe)', 'The wireframe'))}
-    ${U.hd(3, '💬 ' + L('ليه الإطار السلكي قبل الألوان؟', 'Why a wireframe before colours?'))}
+    ${U.hd(2, '🔲 ' + L('المخطط الهيكلي (Wireframe)', 'The wireframe'))}
+    ${U.hd(3, '💬 ' + L('ليه المخطط الهيكلي قبل الألوان؟', 'Why a wireframe before colours?'))}
     ${U.hd(4, '🎯 ' + L('① التباين (Contrast)', '① Contrast'))}
     ${U.hd(5, '🔁 ' + L('② التكرار (Repetition)', '② Repetition'))}
     ${U.hd(6, '📏 ' + L('③ المحاذاة (Alignment)', '③ Alignment'))}

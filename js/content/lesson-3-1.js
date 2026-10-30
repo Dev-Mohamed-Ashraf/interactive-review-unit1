@@ -74,7 +74,7 @@ RV.lessons.add('3-1', {
         {
           type: 'summary',
           points: [
-            { ar: '**تطبيق الويب:** بيتستخدم من المتصفح من غير تسطيب (YouTube · Amazon · Gmail · خرائط جوجل).', en: '**Web app:** used through a browser with nothing to install (YouTube · Amazon · Gmail · Google Maps).' },
+            { ar: '**تطبيق الويب:** بيتستخدم عادةً من المتصفح (YouTube · Amazon · Gmail · خرائط جوجل).', en: '**Web app:** used through a browser with nothing to install (YouTube · Amazon · Gmail · Google Maps).' },
             { ar: '**الأمامية:** الشاشة · على المتصفح · بتستقبل الإدخال. **الخلفية:** على الخادم · مش ظاهرة · بتعالج وتقرّر.', en: '**Frontend:** the screen · on the browser · accepts input. **Backend:** on the server · unseen · processes and decides.' },
             { ar: '**قاعدة البيانات:** بتنظّم وتخزّن وتدير البيانات · تسترجع وتسجّل.', en: '**Database:** organizes, stores and manages data · retrieves and records.' },
           ],
@@ -273,7 +273,7 @@ RV.lessons.add('3-1', {
       steps: [{
         type: 'quiz',
         q: { widget: 'flash', cards: [
-          { front: { ar: 'تطبيق الويب', en: 'Web application' }, back: { ar: 'تطبيق بيتستخدم من المتصفح من غير تسطيب برنامج مخصّص.', en: 'An application used through a browser, with no dedicated software to install.' } },
+          { front: { ar: 'تطبيق الويب', en: 'Web application' }, back: { ar: 'تطبيق بيتستخدم عادةً من المتصفح، وبعضه ممكن يتثبّت على الجهاز.', en: 'An application used through a browser, with no dedicated software to install.' } },
           { front: { ar: 'الواجهة الأمامية', en: 'Frontend' }, back: { ar: 'الشاشة اللي المستخدم بيشوفها وبيتفاعل معاها — على المتصفح.', en: 'The screen the user sees and interacts with — on the browser.' } },
           { front: { ar: 'الواجهة الخلفية', en: 'Backend' }, back: { ar: 'المعالجة المخفية على جانب الخادم: بتعالج البيانات وتاخد القرارات.', en: 'Hidden server-side processing: processes data and makes decisions.' } },
           { front: { ar: 'قاعدة البيانات', en: 'Database' }, back: { ar: 'نظام بينظّم البيانات ويخزّنها ويديرها، ويسترجعها وقت الحاجة.', en: 'A system that organizes, stores and manages data and retrieves it when needed.' } },

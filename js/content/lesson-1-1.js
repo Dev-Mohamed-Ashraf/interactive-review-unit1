@@ -101,7 +101,7 @@ RV.lessons.add('1-1', {
             { ar: '⚠️ القانون بيتكلم عن __عدد الترانزستورات__ — مش سرعة الإنترنت ولا سرعة المعالج مباشرةً. وهو __«ملاحظة تجريبية»__ مش قانون فيزيائي.', en: '⚠️ The law is about the __number of transistors__ — not Internet speed nor CPU speed directly. And it is an __"empirical observation"__, not a law of physics.' },
             { ar: '🧱 **المشكلة ①: الحد الفيزيائي** — الترانزستور بقى __أصغر من 10 نانومتر__، يعني عرضه كام ذرة بس! مش هينفع نصغّر للأبد.', en: '🧱 **Problem ①: the physical limit** — transistors are now __under 10 nanometres__, only a few atoms wide! We cannot shrink forever.' },
             { ar: '🔥 **المشكلة ②: تأثير النفق الكمومي** (الإلكترون بيعدّي الحاجز العازل) و**③: تيار التسرّب** (تيار بيهرب والمفتاح مقفول) ← __حرارة وطاقة أعلى__.', en: '🔥 **Problem ②: quantum tunnelling** (electrons pass through the insulating barrier) and **③: leakage current** (current escapes while off) → __more heat and power__.' },
-            { ar: '🚀 **الحلول:** __المعالجة المتوازية__ (أنوية كتير بتقسّم الشغل في نفس الوقت) و__الحواسب الكمومية__ (حساب مبني على مبادئ ميكانيكا الكم).', en: '🚀 **Solutions:** __parallel processing__ (many cores share the work at the same time) and __quantum computers__ (computing based on quantum mechanics).' },
+            { ar: '🚀 **الحلول:** __تعدد الأنوية والمعالجة المتوازية__ (أنوية كتير بتقسّم الشغل في نفس الوقت) و__تصميمات متخصصة__. أما __الحوسبة الكمومية__ فنهج مختلف لفئات محددة من المسائل، مش بديل لكل الحواسيب.', en: '🚀 **Solutions:** __parallel processing__ (many cores share the work at the same time) and __quantum computers__ (computing based on quantum mechanics).' },
             { ar: '📌 **الخلاصة:** `N = N₀ × 2^n` و n = عدد السنين ÷ 2 — والقانون بيقرّب من حدّ فيزيائي (نفق كمومي + تيار تسرّب).', en: '📌 **The point:** `N = N₀ × 2^n` with n = years ÷ 2 — and the law is nearing a physical limit (tunnelling + leakage).' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
@@ -362,7 +362,7 @@ RV.lessons.add('1-1', {
           terms: ['autonomous driving', 'sensors', 'camera', 'LiDAR'],
           visual: { anim: 'selfDriving' },
           beats: [
-            { ar: '**القيادة الذاتية:** تقنية بتستخدم __الذكاء الاصطناعي__ عشان تسوق العربية __من غير سواق__.', en: '**Autonomous driving:** a technology that uses __AI__ to drive a vehicle __without a human__.' },
+            { ar: '**القيادة الذاتية:** تقنية بتستخدم __الذكاء الاصطناعي__ عشان تساعد في قيادة المركبة __بأقل تدخل بشري__ حسب مستوى الأتمتة.', en: '**Autonomous driving:** a technology that uses __AI__ to drive a vehicle __without a human__.' },
             { ar: '**بتشوف:** __كاميرات وحسّاسات__ حوالين العربية بتمسح الطريق — عربيات، ناس، إشارات.', en: '**It sees:** __cameras and sensors__ scan the surroundings — cars, people, signals.' },
             { ar: '**بتفكّر:** الذكاء الاصطناعي __بيتعرّف__ على كل حاجة ويقرّر: أكمّل؟ أهدّي؟ أقف؟', en: '**It thinks:** AI __recognizes__ everything and decides: continue? slow down? stop?' },
             { ar: '**بتتصرّف:** النظام __بيتحكم__ في الدريكسيون والفرامل والبنزين.', en: '**It acts:** the system __controls__ steering, brakes and throttle.' },

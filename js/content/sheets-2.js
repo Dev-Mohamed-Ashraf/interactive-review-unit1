@@ -89,7 +89,7 @@
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
         { bad: T('كلمتين سر = 2FA', 'Two passwords = MFA'), good: T('نفس العامل، مش 2FA', 'Two-step with the same factor, not MFA') },
         { bad: T('HTTPS = موقع موثوق وحماية مطلقة', 'HTTPS means RSA only'), good: T('بيقلّل المخاطر بس', 'Both key types are combined') },
-        { bad: T('التوقيع يحسّن سرعة الاتصال', 'A signature speeds the connection'), good: T('يكشف التلاعب + عدم الإنكار', 'Tamper detection + non-repudiation') },
+        { bad: T('التوقيع يحسّن سرعة الاتصال', 'A signature speeds the connection'), good: T('يكشف التلاعب + عدم التنصل', 'Tamper detection + non-repudiation') },
         { bad: T('كل البيانات بالمفتاح العام', 'All data by public key'), good: T('بطيء؛ البيانات بالمتماثل', 'Slow; data uses the common key') },
       ] }],
       [{ t: 'takeaway', label: T('الخلاصة', 'Key takeaway'), p: T('الأمان عبر الإنترنت مش من تقنية واحدة: بنجمع التشفير والشهادات والتوقيعات والمصادقة، فنقلّل مخاطر التنصت والتلاعب وانتحال الهوية والدخول غير المصرح به.', 'HTTPS shares a key with public-key cryptography and moves data with common-key cryptography; services stay safe by layering encryption, certificates, signatures and multi-factor authentication.') }],

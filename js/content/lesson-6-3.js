@@ -1,5 +1,5 @@
 /* =========================================================
- * content/lesson-6-3.js — تمثيل البيانات المرئي والتواصل
+ * content/lesson-6-3.js — تصور البيانات والتواصل
  * Pure data. Sources: textbook part 2, 6-3 (EN p.48–56) + memo (Arabic
  * wording, deep dive, "comes up in the exam", lesson test + answer key).
  * ========================================================= */
@@ -7,17 +7,17 @@ RV.lessons.add('6-3', {
   id: '6-3',
   color: '#10b981',
   cover: 'img/an-l3-cover.webp',
-  title: { ar: 'تمثيل البيانات المرئي والتواصل', en: 'Data Visualization and Communication' },
+  title: { ar: 'تصور البيانات والتواصل', en: 'Data Visualization and Communication' },
   guiding: { ar: 'إزاي نختار رسم بيكشف النمط بصدق، وإزاي نحوّل الرسم لرسالة غيرنا يفهمها؟', en: 'How do we choose a visualization that reveals a pattern honestly, and how do we turn a chart into a message others understand?' },
   hook: {
-    ar: 'جدول أرقام ممكن __يخبّي__ أهم حاجة محتاج تشوفها. حوّله للصورة المناسبة فالنمط __يقفز قدّامك__ — أزحم ساعة، أقوى علاقة، القيمة الشاذة. **تمثيل البيانات المرئي** ليه وظيفتين: يساعدك __تفهم__ بياناتك، ويساعدك __تشرحها__ لغيرك. لمتغير أو اتنين تكفي الأعمدة أو الخطوط أو المبعثر؛ ولتلاتة أو أكتر بنستخدم **الخرائط الحرارية** و**مخططات المستطيلات**. والرسم لوحده مش رسالة: **سرد القصص بالبيانات** هو اللي بيخلّي الجمهور يفهم فعلًا.',
+    ar: 'جدول أرقام ممكن __يخبّي__ أهم حاجة محتاج تشوفها. حوّله للصورة المناسبة فالنمط __يقفز قدّامك__ — أزحم ساعة، أقوى علاقة، القيمة الشاذة. **تصور البيانات** ليه وظيفتين: يساعدك __تفهم__ بياناتك، ويساعدك __تشرحها__ لغيرك. لمتغير أو اتنين تكفي الأعمدة أو الخطوط أو المبعثر؛ ولتلاتة أو أكتر بنستخدم **الخرائط الحرارية** و**مخططات المستطيلات**. والرسم لوحده مش رسالة: **سرد قصص البيانات** هو اللي بيخلّي الجمهور يفهم فعلًا.',
     en: 'A table of numbers can __hide__ the thing you most need to see. Turn it into the right picture and the pattern __jumps out__ — the busiest hour, the strongest link, the outlier. **Data visualization** does two jobs: it helps you __understand__ your data and helps you __explain__ it to others. For one or two variables, bar, line or scatter charts are enough; for three or more, **heatmaps** and **mosaic plots** are used. And a chart alone is not a message: **data storytelling** is what makes an audience really understand.',
   },
-  keyFact: { ar: 'التمثيل المرئي بيحوّل الأرقام لأنماط العين بتشوفها — __للمحلّل وللتواصل__. الرسوم الشائعة بتناسب __متغير أو اتنين__؛ و__الخريطة الحرارية__ و__مخطط المستطيلات__ بيتعاملوا مع توليفات أكتر. والتواصل الكويس بيستخدم __سرد القصص بالبيانات__: رسالة واضحة، وعناصر بتخدمها بس، وتسميات صادقة.', en: 'Visualization turns numbers into patterns the eye can see — __for the analyst and for communication__. Common charts suit __one or two variables__; __heatmaps__ and __mosaic plots__ handle more combinations. Good communication uses __data storytelling__: a clear message, only the elements that serve it, and honest labels.' },
+  keyFact: { ar: 'تصور البيانات بيحوّل الأرقام لأنماط العين بتشوفها — __للمحلّل وللتواصل__. الرسوم الشائعة بتناسب __متغير أو اتنين__؛ و__الخريطة الحرارية__ و__مخطط المستطيلات__ بيتعاملوا مع توليفات أكتر. والتواصل الكويس بيستخدم __سرد قصص البيانات__: رسالة واضحة، وعناصر بتخدمها بس، وتسميات صادقة.', en: 'Visualization turns numbers into patterns the eye can see — __for the analyst and for communication__. Common charts suit __one or two variables__; __heatmaps__ and __mosaic plots__ handle more combinations. Good communication uses __data storytelling__: a clear message, only the elements that serve it, and honest labels.' },
   concepts: ['data visualization', 'bar graph', 'line graph', 'scatter plot', 'overplotting', 'heatmap', 'mosaic plot', 'data storytelling'],
   objectives: [
-    { ar: 'أشرح دور تمثيل البيانات المرئي وأختار الرسوم المناسبة، ومنها للبيانات متعددة المتغيرات.', en: 'Explain the role of data visualization and select suitable graphs, including for multiple variables.' },
-    { ar: 'أستخدم سرد القصص بالبيانات عشان أوصّل رسالة واضحة وصادقة من البيانات.', en: 'Apply data storytelling to communicate a clear and honest message from data.' },
+    { ar: 'أشرح دور تصور البيانات وأختار الرسوم المناسبة، ومنها للبيانات متعددة المتغيرات.', en: 'Explain the role of data visualization and select suitable graphs, including for multiple variables.' },
+    { ar: 'أستخدم سرد قصص البيانات عشان أوصّل رسالة واضحة وصادقة من البيانات.', en: 'Apply data storytelling to communicate a clear and honest message from data.' },
   ],
 
   stations: [
@@ -44,7 +44,7 @@ RV.lessons.add('6-3', {
           terms: ['data visualization', 'bar graph', 'line graph', 'scatter plot', 'overplotting', 'heatmap', 'mosaic plot'],
           visual: { anim: 'vizMovie', props: { scenes: [0, 4] } },
           beats: [
-            { ar: '**تمثيل البيانات المرئي:** عرض البيانات __كرسوم أو أشكال__ عشان ندرك بالعين سمات __صعب نقراها من الأرقام لوحدها__. وليه **دورين**: 🧠 __تعميق فهم المحلّل نفسه__ (نشوف التوزيع والاتجاه والقيم الشاذة — زي وقت المذاكرة كخط بيبيّن تغيّرات مش باينة في الجدول) و📣 __توصيل البيانات للآخرين__ (ننقل النتيجة بسهولة — زي متوسط درجة كل فصل كأعمدة، حتى اللي بيشوفها لأول مرة يقارن بنظرة).', en: '**Data visualization:** representing data __as graphs or figures__ so features __hard to read from numbers alone__ can be grasped visually. It has **two roles**: 🧠 __deepening the analyst’s own understanding__ (seeing distribution, trends and outliers — e.g. study time as a line reveals changes a table hides) and 📣 __communicating data to others__ (conveying results easily — e.g. each class’s average score as bars, so even a first-time viewer compares at a glance).' },
+            { ar: '**تصور البيانات:** عرض البيانات __كرسوم أو أشكال__ عشان ندرك بالعين سمات __صعب نقراها من الأرقام لوحدها__. وليه **دورين**: 🧠 __تعميق فهم المحلّل نفسه__ (نشوف التوزيع والاتجاه والقيم الشاذة — زي وقت المذاكرة كخط بيبيّن تغيّرات مش باينة في الجدول) و📣 __توصيل البيانات للآخرين__ (ننقل النتيجة بسهولة — زي متوسط درجة كل فصل كأعمدة، حتى اللي بيشوفها لأول مرة يقارن بنظرة).', en: '**Data visualization:** representing data __as graphs or figures__ so features __hard to read from numbers alone__ can be grasped visually. It has **two roles**: 🧠 __deepening the analyst’s own understanding__ (seeing distribution, trends and outliers — e.g. study time as a line reveals changes a table hides) and 📣 __communicating data to others__ (conveying results easily — e.g. each class’s average score as bars, so even a first-time viewer compares at a glance).' },
             { ar: '📊 **الأعمدة** (نقارن قيم) · 📈 **الخطوط** (تغيّر مع الزمن) · ✳️ **المبعثر** (علاقة متغيرين كمّيين) — دول بيناسبوا __متغير أو اتنين__. في الدورين: اختار __رسم يناسب المحتوى__، واستخدم تمثيل __مايخلّيش الناس تفهم غلط__؛ والطريقة المناسبة بتختلف حسب __عدد المتغيرات ونوعها وغرض التحليل__.', en: '📊 **Bar** (compare values) · 📈 **line** (change over time) · ✳️ **scatter** (two quantitative variables) — these suit __one or two variables__. In both roles: pick __a graph that fits the content__ and a representation that __does not invite misunderstanding__; the right method depends on __the number and type of variables and the purpose__.' },
             { ar: '😵 **التراكب الزائد للنقاط:** في المخطط المبعثر، لما النقط __تبقى كتير__ بتتداخل و__الكثافة بتختفي__ — 5000 طالب «وقت المذاكرة قصاد الدرجة» بيبقوا كتلة صمّاء. والمبعثر كمان __مابيناسبش توليفات المتغيرات الفئوية__. الحل: **خريطة حرارية** لخلايا بتوضّح __فين معظم الطلبة فعلًا__ بنظرة.', en: '😵 **Overplotting:** in a scatter plot, when points __are many__ they overlap and __density disappears__ — 5,000 students’ "study time vs score" become one blob. Scatter plots also __do not suit combinations of categorical variables__. The fix: a **heatmap** of cells showing __where most students actually are__ at a glance.' },
             { ar: '🌡️ **الخريطة الحرارية:** عناصر على __محورين__، وحجم __قيمة تالتة رقمية__ لكل توليفة بيتمثّل __بتدرّج اللون__ أو اختلاف الدرجة — زي عدد العملاء حسب __يوم الأسبوع × الوقت__، أو متوسط الحرارة حسب مدينة × شهر. كثافة اللون بتكشف النمط بنظرة: __مسا الخميس والجمعة والسبت__ أزحم أوقات.', en: '🌡️ **Heatmap:** items on __two axes__, and the size of __a third numeric value__ for each combination shown by __colour gradient__ or shade — e.g. customers by __day of week × time__, or mean temperature by city × month. Colour intensity reveals the pattern at a glance: __Thursday, Friday and Saturday evenings__ are busiest.' },
@@ -87,7 +87,7 @@ RV.lessons.add('6-3', {
     /* ───────────── 2 · data storytelling ───────────── */
     {
       id: 'story', kind: 'learn',
-      title: { ar: 'سرد القصص بالبيانات', en: 'Data storytelling' },
+      title: { ar: 'سرد قصص البيانات', en: 'Data storytelling' },
       steps: [
         {
           type: 'scene', wide: true,
@@ -96,7 +96,7 @@ RV.lessons.add('6-3', {
           terms: ['data storytelling', 'message', 'supporting information'],
           visual: { anim: 'vizMovie', props: { scenes: [5, 9] } },
           beats: [
-            { ar: '📝 **سرد القصص بالبيانات:** نستخدم البيانات والتمثيل المرئي عشان __ننقل الرسالة المطلوبة__، مبنية __كقصة__. وعناصره الأساسية تلاتة. ① **وضّح الرسالة:** اللي عايز الرسم يقوله __يتقال في جملة واحدة__ — خلّي __عنوان__ الرسم يحمل الادعاء: «__الفصل حقّق درجات عالية في الرياضيات__».', en: '📝 **Data storytelling:** using data and visualization to __convey the intended message__, structured __like a story__. It has three basic elements. ① **Clarify the message:** what you want the graph to say __fits in one sentence__ — let the graph’s __title__ carry the claim: "__The class scored highly in mathematics__".' },
+            { ar: '📝 **سرد قصص البيانات:** نستخدم البيانات وتصور البيانات عشان __ننقل الرسالة المطلوبة__، مبنية __كقصة__. وعناصره الأساسية تلاتة. ① **وضّح الرسالة:** اللي عايز الرسم يقوله __يتقال في جملة واحدة__ — خلّي __عنوان__ الرسم يحمل الادعاء: «__الفصل حقّق درجات عالية في الرياضيات__».', en: '📝 **Data storytelling:** using data and visualization to __convey the intended message__, structured __like a story__. It has three basic elements. ① **Clarify the message:** what you want the graph to say __fits in one sentence__ — let the graph’s __title__ carry the claim: "__The class scored highly in mathematics__".' },
             { ar: '② **اختار العناصر:** __شيل اللي مالوش علاقة بالرسالة__، و__أبرز الأجزاء اللي عايز تلفت النظر ليها__ — __لوّن العنصر المهم بس__ وخلّي الباقي بألوان باهتة. ⚠️ إضافة عناصر أكتر __مابتوضّحش__ الرسالة… __بتدفنها__.', en: '② **Select the elements:** __remove what does not serve the message__ and __emphasize the parts you want noticed__ — __colour only the important element__ and keep the rest faded. ⚠️ Adding more elements does __not__ clarify the message… it __buries__ it.' },
             { ar: '③ **وفّر معلومات داعمة:** رتّب __العنوان وتسميات المحاور والوحدات والملاحظات__ صح — زي عنوان «متوسط درجات الرياضيات حسب الفصل»، ووحدة «درجة» على المحور الرأسي و«الفصل» على الأفقي. ❌ «العناوين والتسميات بتبوّظ شكل الرسم ويفضّل نشيلها» ← __غلط__.', en: '③ **Provide supporting information:** arrange __the title, axis labels, units and notes__ properly — e.g. the title "Average mathematics scores by class", with "points" on the vertical axis and "class" on the horizontal. ❌ "Titles and axis labels spoil a graph and are better removed" → __false__.' },
             { ar: '⚠️ **إزاي رسم بياناته صح يضلّل؟** ① __محور رأسي مش بادئ من صفر__ ← فرق صغير (98 قصاد 100) يبان ضخم — الإصلاح: __ابدأ المحور من صفر__ (أو وضّح الكسر) من غير ما تغيّر ولا رقم · ② __مقياس ألوان من غير مفتاح__ ← الألوان مالهاش معنى · ③ __حذف فئات__ ← صورة ناقصة. 👥 وفي الآخر: نفس النتيجة __بتوصل مختلفة حسب طريقة عرضها__ — اقعد __مكان الجمهور__ واتأكّد إن الرسالة وصلت.', en: '⚠️ **How can a chart with correct data mislead?** ① __a vertical axis not starting at zero__ → a small difference (98 vs 100) looks huge — the fix: __start the axis at zero__ (or mark the break clearly) without changing one number · ② __a colour scale with no key__ → colours mean nothing · ③ __dropped categories__ → an incomplete picture. 👥 Finally: the same result __lands differently depending on how it is shown__ — stand __in the audience’s position__ and check the message arrives.' },
@@ -154,7 +154,7 @@ RV.lessons.add('6-3', {
             { text: { ar: 'A) لتمثيل البيانات دور تعميق فهم المحلّل نفسه ودور توصيل البيانات للآخرين.', en: 'A) Visualization has a role deepening the analyst’s understanding and a role communicating data to others.' }, answer: true },
             { text: { ar: 'B) الخريطة الحرارية بتمثّل حجم قيمة تالتة لتوليفات على محورين بتدرّج اللون.', en: 'B) A heatmap shows the size of a third value for combinations on two axes by colour gradient.' }, answer: true },
             { text: { ar: 'C) مخطط المستطيلات بيمثّل العلاقة بين متغيرين فئويين بحجم مساحات مستطيلة.', en: 'C) A mosaic plot shows the relationship between two categorical variables by rectangle areas.' }, answer: true },
-            { text: { ar: 'D) في سرد القصص بالبيانات المهم نضمّن أكبر عدد ممكن من العناصر المتعلّقة بالرسم.', en: 'D) In data storytelling it is important to include as many chart-related elements as possible.' }, answer: false },
+            { text: { ar: 'D) في سرد قصص البيانات المهم نضمّن أكبر عدد ممكن من العناصر المتعلّقة بالرسم.', en: 'D) In data storytelling it is important to include as many chart-related elements as possible.' }, answer: false },
           ] },
           solution: [
             { ar: 'A) الدورين ← **✓**.', en: 'A) The two roles → **✓**.' },
@@ -193,7 +193,7 @@ RV.lessons.add('6-3', {
             { q: { ar: '1. الرسم اللي بيمثّل قيمة تالتة لتوليفات على محورين بتدرّج اللون؟', en: '1. The chart showing a third value on two axes by colour gradient?' }, a: { ar: 'الخريطة الحرارية', en: 'Heatmap' } },
             { q: { ar: '2. الرسم اللي بيمثّل علاقة متغيرين فئويين بمساحات مستطيلة؟', en: '2. The chart showing two categorical variables by rectangle areas?' }, a: { ar: 'مخطط المستطيلات', en: 'Mosaic plot' } },
             { q: { ar: '3. دور «التواصل مع الآخرين» بيتعمل لأنهي غرض؟', en: '3. What is the "communicating with others" role for?' }, a: { ar: 'ننقل النتايج أو الاستنتاجات للآخرين بسهولة فهم', en: 'To convey results or claims to others understandably' } },
-            { q: { ar: '4. استخدام البيانات والتمثيل لنقل رسالة مبنية كقصة؟', en: '4. Using data and visuals to convey a message as a story?' }, a: { ar: 'سرد القصص بالبيانات', en: 'Data storytelling' } },
+            { q: { ar: '4. استخدام البيانات والتمثيل لنقل رسالة مبنية كقصة؟', en: '4. Using data and visuals to convey a message as a story?' }, a: { ar: 'سرد قصص البيانات', en: 'Data storytelling' } },
           ] },
         },
         {
@@ -232,7 +232,7 @@ RV.lessons.add('6-3', {
         },
         {
           type: 'quiz', title: { ar: 'تمرين 2 (4)', en: 'Try 2 (4)' },
-          q: { widget: 'mcq', prompt: { ar: 'اختار الأنسب لوصف سرد القصص بالبيانات:', en: 'Choose the best description of data storytelling:' },
+          q: { widget: 'mcq', prompt: { ar: 'اختار الأنسب لوصف سرد قصص البيانات:', en: 'Choose the best description of data storytelling:' },
             options: [
               { ar: 'A حتى لو الرسالة مش واضحة هتوصل طالما الرسم حلو', en: 'A Even an unclear message lands if the chart is pretty' },
               { ar: 'B الرسالة والعناصر والمعلومات الداعمة هي الأساس', en: 'B Message, elements and supporting info are the core' },
@@ -246,7 +246,7 @@ RV.lessons.add('6-3', {
           type: 'quiz', title: { ar: 'تدريب 2 — املأ الفراغات', en: 'Exercise 2 — fill the blanks' },
           q: { widget: 'fill', prompt: { ar: 'اقرا الفقرة واملأ الفراغات (a)–(e):', en: 'Read and fill blanks (a)–(e):' },
             text: { ar: 'لتمثيل البيانات دور تعميق فهم المحلّل ودور {0} البيانات للآخرين. الرسم اللي بيمثّل قيمة تالتة على محورين بتدرّج اللون اسمه {1}، واللي بيمثّل متغيرين فئويين بمساحات مستطيلة اسمه {2}. وفي التواصل يهمّ مفهوم {3} اللي بيبني الرسالة كقصة؛ وعناصره: توضيح الرسالة واختيار العناصر وتوفير {4}.', en: 'Visualization has a role deepening the analyst’s understanding and a role {0} data to others. The chart showing a third value on two axes by colour is a {1}; the one showing two categorical variables by rectangle areas is a {2}. In communicating, {3} structures the message as a story; its elements are clarifying the message, selecting elements and providing {4}.' },
-            bank: [{ ar: 'توصيل', en: 'communicating' }, { ar: 'الخريطة الحرارية', en: 'heatmap' }, { ar: 'مخطط المستطيلات', en: 'mosaic plot' }, { ar: 'سرد القصص بالبيانات', en: 'data storytelling' }, { ar: 'معلومات داعمة', en: 'supporting information' }, { ar: 'المخطط المبعثر', en: 'scatter plot' }],
+            bank: [{ ar: 'توصيل', en: 'communicating' }, { ar: 'الخريطة الحرارية', en: 'heatmap' }, { ar: 'مخطط المستطيلات', en: 'mosaic plot' }, { ar: 'سرد قصص البيانات', en: 'data storytelling' }, { ar: 'معلومات داعمة', en: 'supporting information' }, { ar: 'المخطط المبعثر', en: 'scatter plot' }],
             answer: [0, 1, 2, 3, 4],
             explain: { ar: '(a) توصيل (b) الحرارية (c) المستطيلات (d) سرد القصص (e) معلومات داعمة.', en: '(a) communicating (b) heatmap (c) mosaic plot (d) data storytelling (e) supporting information.' } },
         },
@@ -295,11 +295,11 @@ RV.lessons.add('6-3', {
       steps: [{
         type: 'quiz',
         q: { widget: 'flash', cards: [
-          { front: { ar: 'تمثيل البيانات المرئي', en: 'Data visualization' }, back: { ar: 'عرض البيانات كرسوم لإدراك سماتها بالعين — للمحلّل وللتواصل.', en: 'Showing data as graphs to grasp it visually — for the analyst and for communication.' } },
+          { front: { ar: 'تصور البيانات', en: 'Data visualization' }, back: { ar: 'عرض البيانات كرسوم لإدراك سماتها بالعين — للمحلّل وللتواصل.', en: 'Showing data as graphs to grasp it visually — for the analyst and for communication.' } },
           { front: { ar: 'الخريطة الحرارية', en: 'Heatmap' }, back: { ar: 'شبكة ملوّنة على محورين لقيمة تالتة.', en: 'A colour grid on two axes for a third value.' } },
           { front: { ar: 'مخطط المستطيلات', en: 'Mosaic plot' }, back: { ar: 'مساحات مستطيلة لمتغيرين فئويين.', en: 'Rectangle areas for two categorical variables.' } },
           { front: { ar: 'التراكب الزائد للنقاط', en: 'Overplotting' }, back: { ar: 'نقط كتير بتتداخل فالكثافة تختفي.', en: 'Many points overlap so density is hidden.' } },
-          { front: { ar: 'سرد القصص بالبيانات', en: 'Data storytelling' }, back: { ar: 'رسالة واحدة · عناصر بتخدمها · معلومات داعمة صادقة.', en: 'One message · serving elements · honest supporting info.' } },
+          { front: { ar: 'سرد قصص البيانات', en: 'Data storytelling' }, back: { ar: 'رسالة واحدة · عناصر بتخدمها · معلومات داعمة صادقة.', en: 'One message · serving elements · honest supporting info.' } },
         ] },
       }],
     },
@@ -396,8 +396,8 @@ RV.lessons.add('6-3', {
       title: { ar: 'امتحان الدرس 6-3', en: 'Lesson 6-3 test' },
       steps: [
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '1. شبكة ملوّنة على محورين بتمثّل قيمة تالتة — أنهي رسم؟', en: '1. A colour grid on two axes for a third value — which graph?' }, options: [{ ar: 'المخطط المبعثر', en: 'Scatter plot' }, { ar: 'الخريطة الحرارية', en: 'Heatmap' }, { ar: 'مخطط المستطيلات', en: 'Mosaic plot' }, { ar: 'الخط البياني', en: 'Line graph' }], answer: 1 } },
-        { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '2. تداخل نقط المبعثر لدرجة إن الكثافة تختفي — اسمه إيه؟', en: '2. Scatter points overlapping so density is hidden — what is it?' }, options: [{ ar: 'التراكب الزائد للنقاط', en: 'Overplotting' }, { ar: 'سرد القصص بالبيانات', en: 'Storytelling' }, { ar: 'الجدولة التقاطعية للبيانات', en: 'Cross-tabulation' }, { ar: 'التوحيد القياسي', en: 'Standardization' }], answer: 0 } },
-        { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '3. أنهي واحدة __مش__ عنصر أساسي في سرد القصص بالبيانات؟', en: '3. Which is NOT a basic element of data storytelling?' }, options: [{ ar: 'توضيح الرسالة', en: 'Clarifying the message' }, { ar: 'اختيار العناصر', en: 'Selecting the elements' }, { ar: 'توفير معلومات داعمة صادقة', en: 'Providing supporting information' }, { ar: 'عناصر كتير مالهاش علاقة', en: 'Many unrelated elements' }], answer: 3 } },
+        { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '2. تداخل نقط المبعثر لدرجة إن الكثافة تختفي — اسمه إيه؟', en: '2. Scatter points overlapping so density is hidden — what is it?' }, options: [{ ar: 'التراكب الزائد للنقاط', en: 'Overplotting' }, { ar: 'سرد قصص البيانات', en: 'Storytelling' }, { ar: 'الجدولة التقاطعية للبيانات', en: 'Cross-tabulation' }, { ar: 'التوحيد القياسي', en: 'Standardization' }], answer: 0 } },
+        { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '3. أنهي واحدة __مش__ عنصر أساسي في سرد قصص البيانات؟', en: '3. Which is NOT a basic element of data storytelling?' }, options: [{ ar: 'توضيح الرسالة', en: 'Clarifying the message' }, { ar: 'اختيار العناصر', en: 'Selecting the elements' }, { ar: 'توفير معلومات داعمة صادقة', en: 'Providing supporting information' }, { ar: 'عناصر كتير مالهاش علاقة', en: 'Many unrelated elements' }], answer: 3 } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '4. مخطط المستطيلات بيمثّل العلاقة بين متغيرين فئويين بحجم المساحات.', en: '4. A mosaic plot shows two categorical variables by area.' }, answer: true }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '5. لتمثيل البيانات دور واحد بس هو التواصل مع الآخرين.', en: '5. Visualization has only one role: communicating to others.' }, answer: false }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '6. لما النقط تكتر في المبعثر ممكن تخفي الكثافة الحقيقية.', en: '6. Many scatter points can hide the true density.' }, answer: true }] } },

@@ -69,7 +69,7 @@ RV.lessons.add('7-2', {
           points: [
             { ar: '**إدخال** (يستقبل) ← **مخفية** (سمات) ← **إخراج** (إجابة).', en: '**Input** (receives) → **hidden** (features) → **output** (answer).' },
             { ar: '**الخلية:** مدخلات × أوزان ← مجموع ← **دالة تنشيط** ← الطبقة الجاية.', en: '**Neuron:** inputs × weights → sum → **activation** → next layer.' },
-            { ar: '**التدريب:** أوزان عشوائية ← تتظبط حسب الفرق ← إجابات صح حتى على الجديد.', en: '**Training:** random weights → tuned from the gap → correct even on new data.' },
+            { ar: '**التدريب:** أوزان عشوائية ← تتظبط حسب الفرق ← نقيس الأداء على بيانات منفصلة، ومفيش ضمان لكل تنبؤ.', en: '**Training:** random weights → tuned from the gap → correct even on new data.' },
           ],
         },
       ],
@@ -395,7 +395,7 @@ RV.lessons.add('7-2', {
           points: [{ ar: 'تستقبل مدخلات ← تضرب في أوزان ← تجمع ← دالة تنشيط ← تعدّي النتيجة.', en: 'Receive inputs → multiply by weights → sum → activation → pass the result on.' }],
           model: { ar: 'الخلية بتستقبل كذا مدخل، بتضرب كل مدخل في وزنه، بتجمع النتايج (ومعاها الانحياز)، بتعدّي المجموع على دالة تنشيط، وبعدين بتبعت الناتج للطبقة اللي بعدها.', en: 'The neuron receives several inputs, multiplies each by its weight, sums the results (plus the bias), passes the sum through an activation function, then sends the output to the next layer.' } } },
         { type: 'quiz', q: { widget: 'essay', prompt: { ar: '9. يعني إيه «التدريب»؟ وإيه الفرق بين حالة الأوزان قبله وبعده؟', en: '9. What is "training"? How do the weights differ before and after it?' },
-          points: [{ ar: 'ظبط الأوزان من البيانات.', en: 'Tuning the weights from data.' }, { ar: 'قبل: عشوائية · بعد: مظبوطة تجاوب صح حتى على الجديد.', en: 'Before: random · after: tuned, correct even on new data.' }],
+          points: [{ ar: 'ظبط الأوزان من البيانات.', en: 'Tuning the weights from data.' }, { ar: 'قبل: عشوائية · بعد: نقيس الأداء على بيانات منفصلة.', en: 'Before: random · after: tuned, correct even on new data.' }],
           model: { ar: 'التدريب هو ظبط الأوزان بين الخلايا باستخدام بيانات كتير، حسب الفرق بين تنبّؤ الشبكة والإجابة الصحيحة. قبل التدريب الأوزان عشوائية فالشبكة مابتتنبّأش صح؛ بعد التدريب الأوزان مظبوطة فالشبكة بتجاوب صح حتى على بيانات جديدة.', en: 'Training is adjusting the weights between neurons using lots of data, according to the gap between the network’s prediction and the correct answer. Before training the weights are random, so predictions are wrong; after training they are tuned, so the network answers correctly even on new data.' } } },
         { type: 'quiz', q: { widget: 'essay', prompt: { ar: '10. اشرح بمثال (وش أو رقم) إزاي التعلّم العميق بيبني السمات هرميًا.', en: '10. Explain with an example (a face or a digit) how deep learning builds features hierarchically.' },
           points: [{ ar: 'ضحلة: خطوط ولون.', en: 'Shallow: lines and colour.' }, { ar: 'وسطى: أجزاء.', en: 'Middle: parts.' }, { ar: 'عميقة: الكل ← الحكم.', en: 'Deep: the whole → the judgment.' }],

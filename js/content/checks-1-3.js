@@ -11,7 +11,7 @@
       prompt: { ar: 'قلت «يا Siri، اضبط منبّه الساعة 7» واتظبط فعلًا. أنهي خدمة دي؟', en: 'You said "Hey Siri, set an alarm for 7" and it did. Which service is this?' },
       options: [
         { ar: 'مساعد صوتي', en: 'Voice assistant' },
-        { ar: 'نظام ترشيح', en: 'Recommendation system' },
+        { ar: 'نظام توصية', en: 'Recommendation system' },
         { ar: 'ترجمة آلية', en: 'Machine translation' },
         { ar: 'تعرّف على الوجه', en: 'Face recognition' },
       ],
@@ -28,7 +28,7 @@
         { ar: 'إن الفيديوهات بتترتّب عشوائيًا كل مرة', en: 'Videos are ordered randomly every time' },
       ],
       answer: 0,
-      explain: { ar: 'نظام الترشيح بيتنبّأ بتفضيلاتك من __بيانات سلوكك السابق__ ويعرض حاجات شبهها.', en: 'A recommender predicts your taste from __your past behaviour data__ and shows similar items.' },
+      explain: { ar: 'نظام التوصية بيتنبّأ بتفضيلاتك من __بيانات سلوكك السابق__ ويعرض حاجات شبهها.', en: 'A recommender predicts your taste from __your past behaviour data__ and shows similar items.' },
     }),
     q(3, {
       widget: 'tf',
@@ -36,7 +36,7 @@
         { text: { ar: 'فتح قفل الموبايل بوشّك مثال على التعرف على الوجه.', en: 'Unlocking your phone with your face is face recognition.' }, answer: true },
         { text: { ar: 'الترجمة الآلية لازم مترجم إنسان يراجع كل جملة عشان تشتغل.', en: 'Machine translation needs a human to check every sentence to work.' }, answer: false, explain: { ar: 'الترجمة الآلية بتترجم __تلقائيًا__ (زي Google Translate) — وإن كان المراجعة مفيدة في الحاجات المهمة.', en: 'It translates __automatically__ (e.g. Google Translate) — though checking helps for important texts.' } },
         { text: { ar: 'المساعد الصوتي بيتعرّف على الصوت ويفهم الأمر وينفّذه.', en: 'A voice assistant recognises speech, understands and executes the command.' }, answer: true },
-        { text: { ar: 'أنظمة الترشيح بتعرض لكل المستخدمين نفس التوصيات بالظبط.', en: 'Recommenders show every user exactly the same suggestions.' }, answer: false, explain: { ar: 'التوصيات __مخصّصة لكل شخص__ حسب سلوكه.', en: 'Suggestions are __personal__, based on each user’s behaviour.' } },
+        { text: { ar: 'أنظمة التوصية بتعرض لكل المستخدمين نفس التوصيات بالظبط.', en: 'Recommenders show every user exactly the same suggestions.' }, answer: false, explain: { ar: 'التوصيات __مخصّصة لكل شخص__ حسب سلوكه.', en: 'Suggestions are __personal__, based on each user’s behaviour.' } },
       ],
     }),
   ]);

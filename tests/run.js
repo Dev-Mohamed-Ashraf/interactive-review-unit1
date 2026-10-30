@@ -276,7 +276,7 @@ console.log('▶ Checking the summaries, glossary and search');
   check(hits('RMSE').term.length > 0, 'search finds an English term');
   check(hits('الهلوسه').term.length > 0 && hits('الهَلوسة').term.length > 0, 'search ignores spelling variants');
   check(hits('xyzqq').text.length === 0, 'nonsense finds nothing');
-  check(hits('تعلم الالة').lesson.length > 0, 'search finds a lesson without hamza or shadda');
+  check(hits('التعلم الالي').lesson.length > 0, 'search finds a lesson without hamza or shadda');
 }
 
 console.log('▶ Checking every media file is used');

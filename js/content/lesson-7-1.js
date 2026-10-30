@@ -1,5 +1,5 @@
 /* =========================================================
- * content/lesson-7-1.js — أساسيات تعلّم الآلة
+ * content/lesson-7-1.js — أساسيات التعلّم الآلي
  * Pure data. Sources: textbook part 2, 7-1 (EN p.57–67) + memo (Arabic
  * wording, deep dive, "comes up in the exam", lesson test + answer key).
  * ========================================================= */
@@ -7,16 +7,16 @@ RV.lessons.add('7-1', {
   id: '7-1',
   color: '#8b5cf6',
   cover: 'img/ml-l1-cover.webp',
-  title: { ar: 'أساسيات تعلّم الآلة', en: 'The Basics of Machine Learning' },
-  guiding: { ar: 'تعلّم الآلة بيحلّ المشاكل إزاي بشكل مختلف عن البرمجة العادية، وإيه أنواعه الأساسية وحدوده؟', en: 'How does machine learning solve problems differently from ordinary programming, and what are its main types and limits?' },
+  title: { ar: 'أساسيات التعلّم الآلي', en: 'The Basics of Machine Learning' },
+  guiding: { ar: 'التعلّم الآلي بيحلّ المشاكل إزاي بشكل مختلف عن البرمجة العادية، وإيه أنواعه الأساسية وحدوده؟', en: 'How does machine learning solve problems differently from ordinary programming, and what are its main types and limits?' },
   hook: {
-    ar: 'إزاي تعلّم كمبيوتر يفرّق بين قطة وكلب من غير ما تكتب له قاعدة؟ __ماتكتبش القاعدة__ — ورّيه __آلاف الأمثلة__ وسيبه يلاقي القاعدة بنفسه. ده **تعلّم الآلة**، المحرّك ورا أغلب الذكاء الاصطناعي النهارده. بيتعلّم أنماط من البيانات عشان يحكم على بيانات جديدة. بس هو __مش سحر__: لو الأمثلة **متحيّزة** الأحكام هتبقى متحيّزة، وتفكيره ممكن يبقى **صندوق أسود** حتى لصانعيه — عشان كده بنستخدمه __يدعم__ حكم الإنسان مش __يستبدله__.',
+    ar: 'إزاي تعلّم كمبيوتر يفرّق بين قطة وكلب من غير ما تكتب له قاعدة؟ __ماتكتبش القاعدة__ — ورّيه __آلاف الأمثلة__ وسيبه يلاقي القاعدة بنفسه. ده **التعلّم الآلي**، المحرّك ورا أغلب الذكاء الاصطناعي النهارده. بيتعلّم أنماط من البيانات عشان يحكم على بيانات جديدة. بس هو __مش سحر__: لو الأمثلة **متحيّزة** الأحكام هتبقى متحيّزة، وتفكيره ممكن يبقى **صندوق أسود** حتى لصانعيه — عشان كده بنستخدمه __يدعم__ حكم الإنسان مش __يستبدله__.',
     en: 'How do you teach a computer to tell a cat from a dog without writing it a rule? __Don’t write the rule__ — show it __thousands of examples__ and let it find the rule itself. That is **machine learning**, the engine behind most AI today. It learns patterns from data to judge new data. But it is __not magic__: if the examples are **biased**, so are the judgments, and its reasoning can be a **black box** even to its makers — so it is used to __support__ human judgment, not __replace__ it.',
   },
-  keyFact: { ar: 'تعلّم الآلة __بيلاقي القواعد من البيانات__ بدل ما تتدّي له. ليه تلات أشكال — __خاضع للإشراف__ (من أمثلة موسومة)، __غير خاضع للإشراف__ (يلاقي مجموعات مستخبية)، و__معزَّز__ (يتعلّم من مكافآت) — بس نتايجه معتمدة على البيانات، فـ__التحيّز__ و__الصندوق الأسود__ بيخلّوه دعم لحكم الإنسان مش بديل.', en: 'Machine learning __finds rules from data__ instead of being given them. It has three forms — __supervised__ (learns from labelled examples), __unsupervised__ (finds hidden groups) and __reinforcement__ (learns from rewards) — but results depend on the data, so __bias__ and the __black box__ make it a support for human judgment, not a substitute.' },
+  keyFact: { ar: 'التعلّم الآلي __بيلاقي القواعد من البيانات__ بدل ما تتدّي له. ليه تلات أشكال — __خاضع للإشراف__ (من أمثلة موسومة)، __غير خاضع للإشراف__ (يلاقي مجموعات مستخبية)، و__معزَّز__ (يتعلّم من مكافآت) — بس نتايجه معتمدة على البيانات، فـ__التحيّز__ و__الصندوق الأسود__ بيخلّوه دعم لحكم الإنسان مش بديل.', en: 'Machine learning __finds rules from data__ instead of being given them. It has three forms — __supervised__ (learns from labelled examples), __unsupervised__ (finds hidden groups) and __reinforcement__ (learns from rewards) — but results depend on the data, so __bias__ and the __black box__ make it a support for human judgment, not a substitute.' },
   concepts: ['machine learning', 'supervised learning', 'unsupervised learning', 'reinforcement learning', 'label', 'classification', 'feature', 'clustering', 'state', 'action', 'reward', 'bias', 'black-box problem'],
   objectives: [
-    { ar: 'أشرح فكرة تعلّم الآلة وأفرّق بين التعلّم الخاضع للإشراف وغير الخاضع والمعزَّز.', en: 'Explain the idea of machine learning and distinguish supervised, unsupervised and reinforcement learning.' },
+    { ar: 'أشرح فكرة التعلّم الآلي وأفرّق بين التعلّم الخاضع للإشراف وغير الخاضع والمعزَّز.', en: 'Explain the idea of machine learning and distinguish supervised, unsupervised and reinforcement learning.' },
     { ar: 'أوصف التصنيف والتجميع والتعلّم المعزَّز بأمثلة، وأشرح حدود تحيّز البيانات ومشكلة الصندوق الأسود.', en: 'Describe classification, clustering and reinforcement learning with examples, and explain the limits from data bias and the black-box problem.' },
   ],
 
@@ -24,7 +24,7 @@ RV.lessons.add('7-1', {
     /* ───────────── 1 · the idea + three kinds ───────────── */
     {
       id: 'idea', kind: 'learn',
-      title: { ar: 'فكرة تعلّم الآلة وأنواعه التلاتة', en: 'The idea of ML and its three kinds' },
+      title: { ar: 'فكرة التعلّم الآلي وأنواعه التلاتة', en: 'The idea of ML and its three kinds' },
       steps: [
         { type: 'intro' },
         {
@@ -35,7 +35,7 @@ RV.lessons.add('7-1', {
               { emoji: '📚', text: { ar: 'أدّيله آلاف الإيميلات المتعلّم عليها', en: 'Give it thousands of labelled emails' } },
               { emoji: '🎲', text: { ar: 'يختار عشوائي', en: 'Let it pick at random' } },
             ],
-            after: { ar: 'الاختيار التاني هو قلب تعلّم الآلة 👇', en: 'The second choice is the heart of machine learning 👇' } },
+            after: { ar: 'الاختيار التاني هو قلب التعلّم الآلي 👇', en: 'The second choice is the heart of machine learning 👇' } },
         },
         {
           type: 'scene', wide: true,
@@ -44,8 +44,8 @@ RV.lessons.add('7-1', {
           terms: ['machine learning', 'supervised learning', 'unsupervised learning', 'reinforcement learning'],
           visual: { anim: 'mlMovie', props: { scenes: [0, 2] } },
           beats: [
-            { ar: '**تعلّم الآلة:** تقنية __بتتعلّم أنماط وانتظامات من كميات كبيرة من البيانات__ عشان __تحكم وتتنبّأ على بيانات جديدة__ — وهي __أشهر طريقة لتشغيل الذكاء الاصطناعي__. الفرق عن **البرمجة التقليدية**: في التقليدية الإنسان بيدّي __قواعد القرار + بيانات الإدخال__ والجهاز __يطلّع الإجابات__ بإتباع القواعد؛ في تعلّم الآلة الإنسان بيدّي __بيانات كتير (بإجابات صحيحة لو موجودة)__ والجهاز __يلاقي قواعد القرار بنفسه__.', en: '**Machine learning:** a technology that __learns patterns and regularities from large amounts of data__ to __judge and predict on new data__ — __the most common way AI works__. Versus **conventional programming**: there, humans provide __the decision rules + input data__ and the computer __produces answers__ by following the rules; in ML, humans provide __lots of data (with correct answers where available)__ and the computer __finds the decision rules itself__.' },
-            { ar: '🎯 تعلّم الآلة بينفع في المشاكل اللي __صعب الإنسان يعبّر عن قواعدها بالكلام__: الصورة كلب ولا قطة؟ الإيميل مزعج؟ تحويل الصوت لنص — القواعد __أعقد من إن الإنسان يكتبها كاملة__، فنخلّي الجهاز يتعلّم من الأمثلة. ❌ أما جمع رقمين = __قاعدة بسيطة__، مش محتاج تعلّم آلة. وهو __مش حل لكل حاجة__.', en: '🎯 ML suits problems where __rules are hard for humans to put into words__: is the photo a dog or a cat? is the email spam? speech-to-text — the rules are __too complex to write out in full__, so we let the computer learn from examples. ❌ Adding two numbers = __a simple rule__, no ML needed. And it is __not a solution to everything__.' },
+            { ar: '**التعلّم الآلي:** تقنية __بتتعلّم أنماط وانتظامات من كميات كبيرة من البيانات__ عشان __تحكم وتتنبّأ على بيانات جديدة__ — وهي __أشهر طريقة لتشغيل الذكاء الاصطناعي__. الفرق عن **البرمجة التقليدية**: في التقليدية الإنسان بيدّي __قواعد القرار + بيانات الإدخال__ والجهاز __يطلّع الإجابات__ بإتباع القواعد؛ في التعلّم الآلي الإنسان بيدّي __بيانات كتير (بإجابات صحيحة لو موجودة)__ والجهاز __يلاقي قواعد القرار بنفسه__.', en: '**Machine learning:** a technology that __learns patterns and regularities from large amounts of data__ to __judge and predict on new data__ — __the most common way AI works__. Versus **conventional programming**: there, humans provide __the decision rules + input data__ and the computer __produces answers__ by following the rules; in ML, humans provide __lots of data (with correct answers where available)__ and the computer __finds the decision rules itself__.' },
+            { ar: '🎯 التعلّم الآلي بينفع في المشاكل اللي __صعب الإنسان يعبّر عن قواعدها بالكلام__: الصورة كلب ولا قطة؟ الإيميل مزعج؟ تحويل الصوت لنص — القواعد __أعقد من إن الإنسان يكتبها كاملة__، فنخلّي الجهاز يتعلّم من الأمثلة. ❌ أما جمع رقمين = __قاعدة بسيطة__، مش محتاج تعلّم آلة. وهو __مش حل لكل حاجة__.', en: '🎯 ML suits problems where __rules are hard for humans to put into words__: is the photo a dog or a cat? is the email spam? speech-to-text — the rules are __too complex to write out in full__, so we let the computer learn from examples. ❌ Adding two numbers = __a simple rule__, no ML needed. And it is __not a solution to everything__.' },
             { ar: '🧭 **تلات أنواع:** 🏷️ **خاضع للإشراف** — بياناته __أزواج إدخال + إجابة صحيحة (وسم)__ ← يتعلّم قواعد يتنبّأ بيها بالإجابة · 📦 **غير خاضع للإشراف** — __الإدخال بس من غير إجابات__ ← يلاقي __بنية أو مجموعات مستخبية__ · 🎮 **معزَّز** — __أفعال ونتايجها (مكافآت)__ ← يتعلّم __يختار أفعال توصّل لنتايج أحسن__. الاختيار حسب البيانات والمشكلة: عندك إجابات قديمة؟ إشراف · مفيش إجابات وعايز مجموعات؟ غير إشراف · تجربة وخطأ؟ معزَّز.', en: '🧭 **Three kinds:** 🏷️ **supervised** — data are __input + correct answer (label) pairs__ → learns rules to predict the answer · 📦 **unsupervised** — __input only, no answers__ → finds __hidden structure or groups__ · 🎮 **reinforcement** — __actions and their results (rewards)__ → learns __to choose actions leading to better results__. Choose by the data and problem: past answers? supervised · no answers, want groups? unsupervised · trial and error? reinforcement.' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
@@ -96,14 +96,14 @@ RV.lessons.add('7-1', {
           beats: [
             { ar: '🏷️ **التصنيف:** طريقة بتتنبّأ __البيانات دي تبع أنهي نوع (فئة)__ — مثال مشهور للتعلّم الخاضع للإشراف: فرز الإيميل «مزعج» أو «عادي»، الصور الطبية «غير طبيعي» أو «طبيعي»، الحيوانات «كلب/قطة/طائر». ① __التدريب__: بندّيله بيانات كتير بإجابات صحيحة (**أوسمة**) فيلاقي قواعد التصنيف (حد فاصل) · ② __التنبّؤ__: بعد التدريب يحدّد فئة __بيانات جديدة من غير وسم__.', en: '🏷️ **Classification:** predicting __which kind (class) the input belongs to__ — a classic supervised task: sorting email into "spam" or "normal", medical images into "abnormal" or "normal", animals into "dog/cat/bird". ① __Training__: give it lots of data with correct answers (**labels**) so it finds the classification rules (a boundary) · ② __Prediction__: after training it assigns __new, unlabelled data__ to a class.' },
             { ar: '🔤 **السمة (Feature):** المعلومة في بيانات التدريب اللي __تنفع دليل للتنبّؤ__ — زي __نوع الكلمات في الإيميل، وعنوان المرسِل، وطول النص__. و__اختيار السمات بيأثّر جامد على دقة التصنيف__.', en: '🔤 **Feature:** the information in the training data that __serves as a clue for prediction__ — e.g. __the kinds of words in the email, the sender’s address, the text length__. __Choosing features greatly affects classification accuracy__.' },
-            { ar: '📦 **التجميع (Clustering):** طريقة __بتجمّع العناصر المتشابهة في مجموعات (عناقيد)__ — مثال للتعلّم غير الخاضع للإشراف: عملاء متجر باتجاهات شراء متشابهة، مستمعين موسيقى بأنماط متشابهة للترشيحات، مقالات أخبار متشابهة تلقائيًا. __الجهاز نفسه بيلاقي «إيه المتشابه»__، حتى لو __أسماء أو عدد المجموعات مش معروف__. ⚖️ الفرق عن التصنيف = __الأوسمة__: التصنيف (أوسمة مدّية ← فئة بيانات جديدة) · التجميع (من غير أوسمة ← مجموعات طبيعية) — والبشر بيفسّروا نتايجه ويستخدموها في التسويق وتطوير المنتجات.', en: '📦 **Clustering:** __grouping similar items into groups (clusters)__ — an unsupervised example: shoppers with similar buying trends, music listeners with similar patterns for recommendations, similar news articles automatically. __The computer itself finds "what is similar"__, even when __the groups’ names or number are unknown__. ⚖️ The difference from classification = __labels__: classification (labels given → class of new data) · clustering (no labels → natural groups) — humans interpret the results for marketing and product development.' },
+            { ar: '📦 **التجميع (Clustering):** طريقة __بتجمّع العناصر المتشابهة في مجموعات (عناقيد)__ — مثال للتعلّم غير الخاضع للإشراف: عملاء متجر باتجاهات شراء متشابهة، مستمعين موسيقى بأنماط متشابهة للتوصيات، مقالات أخبار متشابهة تلقائيًا. __الجهاز نفسه بيلاقي «إيه المتشابه»__، حتى لو __أسماء أو عدد المجموعات مش معروف__. ⚖️ الفرق عن التصنيف = __الأوسمة__: التصنيف (أوسمة مدّية ← فئة بيانات جديدة) · التجميع (من غير أوسمة ← مجموعات طبيعية) — والبشر بيفسّروا نتايجه ويستخدموها في التسويق وتطوير المنتجات.', en: '📦 **Clustering:** __grouping similar items into groups (clusters)__ — an unsupervised example: shoppers with similar buying trends, music listeners with similar patterns for recommendations, similar news articles automatically. __The computer itself finds "what is similar"__, even when __the groups’ names or number are unknown__. ⚖️ The difference from classification = __labels__: classification (labels given → class of new data) · clustering (no labels → natural groups) — humans interpret the results for marketing and product development.' },
             { ar: '🎮 **التعلّم المعزَّز:** بنختار __أفعال__ في موقف معيّن، ونتعلّم __نختار أفعال أحسن على أساس المكافأة__ اللي بتطلع — زي إحراز درجة عالية في لعبة بالتجربة والخطأ، روبوت يتعلّم يمشي من غير ما يقع، عربية ذاتية القيادة تتعلّم قيادة آمنة. عناصره: 📍 **الحالة** (الموقف اللي الوكيل فيه) · 🕹️ **الفعل** (الاختيارات المتاحة) · 🏆 **المكافأة** (رقم بيقيّم الفعل). بيتميّز إنه __بيتعلّم من نتايج أفعاله هو__ مش من «إدخال ← إجابة»، وبيناسب مشاكل __مالهاش إجابة معروفة بس نقدر نحكم على النتيجة__ (غالبًا في محاكيات أو ألعاب).', en: '🎮 **Reinforcement learning:** __actions__ are chosen in a situation, and __better choices are learned from the resulting reward__ — e.g. scoring high in a game by trial and error, a robot learning to walk without falling, a self-driving car learning safe driving. Elements: 📍 **state** (the agent’s situation) · 🕹️ **action** (the available choices) · 🏆 **reward** (a number scoring the action). It is distinct in __learning from the consequences of its own actions__ rather than "input → answer", and suits problems with __no known answer but a judgeable result__ (often simulators or games).' },
             { ar: '⚖️ **التحيّز:** جودة بيانات التدريب وتحيّزها بيأثّروا في النتايج — __بيانات متحيّزة ← أحكام متحيّزة__. مثال: نموذج بينبّه على الطلبة اللي محتاجين دعم، اتدرّب بس على طلبة __طلبوا مساعدة قبل كده__ ← اتعلّم نمط «__مين بيطلب__» مش «__مين محتاج__»، ففات __الطلبة الساكتين__. الإصلاح: بيانات فيها نتايج فعلية لطلبة ماطلبوش.', en: '⚖️ **Bias:** the quality and bias of training data affect results — __biased data → biased judgments__. Example: a model flagging students who need support, trained only on students __who had already asked for help__ → it learned "__who asks__", not "__who needs__", and missed __quiet students__. The fix: data including real outcomes for students who never asked.' },
-            { ar: '⬛ **مشكلة الصندوق الأسود:** __أساس حكم النموذج صعب البشر يشوفوه__. لو مدرّس اتصرّف على تنبيه من غير ما يفهم سببه، ممكن يظلم طالب. عشان كده: __خلّي إنسان في الحلقة__ — النموذج __يقترح__ والإنسان __يقرّر__، خصوصًا في القرارات اللي غلطتها مكلّفة. تعلّم الآلة __أداة بتدعم حكم الإنسان مش بديل عنه__.', en: '⬛ **The black-box problem:** __the basis of the model’s judgment is hard for humans to see__. If a teacher acted on a flag without understanding why, a student could be treated unfairly. So: __keep a human in the loop__ — the model __suggests__, the human __decides__, especially for costly decisions. ML is __a tool that supports human judgment, not a replacement for it__.' },
+            { ar: '⬛ **مشكلة الصندوق الأسود:** __أساس حكم النموذج صعب البشر يشوفوه__. لو مدرّس اتصرّف على تنبيه من غير ما يفهم سببه، ممكن يظلم طالب. عشان كده: __خلّي إنسان في الحلقة__ — النموذج __يقترح__ والإنسان __يقرّر__، خصوصًا في القرارات اللي غلطتها مكلّفة. التعلّم الآلي __أداة بتدعم حكم الإنسان مش بديل عنه__.', en: '⬛ **The black-box problem:** __the basis of the model’s judgment is hard for humans to see__. If a teacher acted on a flag without understanding why, a student could be treated unfairly. So: __keep a human in the loop__ — the model __suggests__, the human __decides__, especially for costly decisions. ML is __a tool that supports human judgment, not a replacement for it__.' },
             { ar: '📌 **الخلاصة:** الجهاز بيلاقي القواعد من البيانات · إشراف (أوسمة ← تصنيف بسمات) · غير إشراف (من غير أوسمة ← تجميع) · معزَّز (حالة · فعل · مكافأة) · والتحيّز والصندوق الأسود بيخلّوه __دعم للإنسان__.', en: '📌 **The point:** the computer finds rules from data · supervised (labels → classification with features) · unsupervised (no labels → clustering) · reinforcement (state · action · reward) · bias and the black box keep it __a support for humans__.' },
           ],
           notes: [
-            { kind: 'exam', text: { ar: '«الخاضع للإشراف بياخد بيانات من غير أوسمة» ← __غلط__ · «التجميع بيجمّع حسب أوسمة مدّية» ← __غلط__ · «تعلّم الآلة حل لكل حاجة وأحسن من الإنسان» ← __غلط__ · «أساس الحكم بيتعرض دايمًا بسهولة» ← __غلط__ (صندوق أسود). جمع رقمين ← __مش محتاج تعلّم آلة__ · روبوت يمشي بالتجربة ← __معزَّز__ · فئة مقال جديد من فئات معروفة ← __تصنيف__.', en: '"Supervised learning gets unlabelled data" → __false__ · "clustering groups by given labels" → __false__ · "ML solves everything, beating humans" → __false__ · "the basis of judgment is always shown clearly" → __false__ (black box). Adding two numbers → __no ML needed__ · a robot learning to walk by trial → __reinforcement__ · a new article into known categories → __classification__.' } },
+            { kind: 'exam', text: { ar: '«الخاضع للإشراف بياخد بيانات من غير أوسمة» ← __غلط__ · «التجميع بيجمّع حسب أوسمة مدّية» ← __غلط__ · «التعلّم الآلي حل لكل حاجة وأحسن من الإنسان» ← __غلط__ · «أساس الحكم بيتعرض دايمًا بسهولة» ← __غلط__ (صندوق أسود). جمع رقمين ← __مش محتاج تعلّم آلة__ · روبوت يمشي بالتجربة ← __معزَّز__ · فئة مقال جديد من فئات معروفة ← __تصنيف__.', en: '"Supervised learning gets unlabelled data" → __false__ · "clustering groups by given labels" → __false__ · "ML solves everything, beating humans" → __false__ · "the basis of judgment is always shown clearly" → __false__ (black box). Adding two numbers → __no ML needed__ · a robot learning to walk by trial → __reinforcement__ · a new article into known categories → __classification__.' } },
             { kind: 'fact', title: { ar: 'اشرحلي بالتفصيل — أنهي طريقة؟', en: 'Deep dive — which method?' }, text: { ar: 'ابدأ من بياناتك: عندي أمثلة بإجابات صحيحة؟ ← __خاضع للإشراف__ (ولو الهدف «أنهي فئة؟» يبقى تصنيف). مفيش إجابات وعايز أكتشف مجموعات؟ ← __غير خاضع__ (تجميع). مفيش إجابة معروفة بس أقدر أقيّم النتيجة بالتجربة؟ ← __معزَّز__. مثال: «رتّب الرسايل مزعج/عادي» ومعايا 10,000 رسالة موسومة ← تصنيف. «اكتشف أنواع الرسايل الموجودة من غير ما أعرف أساميها» ← تجميع.', en: 'Start from your data: examples with correct answers? → __supervised__ (if the goal is "which class?", it is classification). No answers and want to discover groups? → __unsupervised__ (clustering). No known answer but the result can be judged by trial? → __reinforcement__. E.g. "sort messages into spam/normal" with 10,000 labelled messages → classification. "Discover what kinds of messages exist without knowing their names" → clustering.' } },
           ],
         },
@@ -151,13 +151,13 @@ RV.lessons.add('7-1', {
         {
           type: 'example',
           q: { widget: 'tf', prompt: { ar: '(1) ضع ✓ للصحيحة و✗ للخاطئة:', en: '(1) Mark ✓ if true or ✗ if false:' }, items: [
-            { text: { ar: 'A) تعلّم الآلة تقنية بتتعلّم أنماط من بيانات كتير عشان تحكم وتتنبّأ على بيانات جديدة.', en: 'A) ML learns patterns from large data to judge and predict on new data.' }, answer: true },
+            { text: { ar: 'A) التعلّم الآلي تقنية بتتعلّم أنماط من بيانات كتير عشان تحكم وتتنبّأ على بيانات جديدة.', en: 'A) ML learns patterns from large data to judge and predict on new data.' }, answer: true },
             { text: { ar: 'B) في التعلّم الخاضع للإشراف، النموذج بيتعلّم من بيانات من غير إجابات صحيحة (أوسمة).', en: 'B) In supervised learning, the model learns from data with no correct answers (labels).' }, answer: false },
             { text: { ar: 'C) التجميع طريقة بتجمّع البيانات حسب أوسمة مدّية مسبقًا.', en: 'C) Clustering groups data according to labels given in advance.' }, answer: false },
             { text: { ar: 'D) التعلّم المعزَّز بيتعلّم يختار أفعال أحسن على أساس المكافأة الناتجة.', en: 'D) Reinforcement learning learns to choose better actions from the resulting reward.' }, answer: true },
           ] },
           solution: [
-            { ar: 'A) تعريف تعلّم الآلة ← **✓**.', en: 'A) The definition of ML → **✓**.' },
+            { ar: 'A) تعريف التعلّم الآلي ← **✓**.', en: 'A) The definition of ML → **✓**.' },
             { ar: 'B) من غير أوسمة = __غير خاضع__؛ الخاضع بتتدّي فيه الإجابات ← **✗**.', en: 'B) No labels = __unsupervised__; supervised is given the answers → **✗**.' },
             { ar: 'C) التجميع بيلاقي مجموعات __من غير أوسمة__ ← **✗**.', en: 'C) Clustering finds groups __without labels__ → **✗**.' },
             { ar: 'D) تعريف المعزَّز ← **✓**.', en: 'D) The definition of reinforcement → **✓**.' },
@@ -190,7 +190,7 @@ RV.lessons.add('7-1', {
         {
           type: 'quiz', title: { ar: 'تمرين 1', en: 'Try 1' },
           q: { widget: 'recall', prompt: { ar: 'جاوب في دماغك وبعدين اكشف:', en: 'Answer in your head, then reveal:' }, items: [
-            { q: { ar: '1. التقنية اللي بتتعلّم أنماط من بيانات كتير عشان تحكم على بيانات جديدة؟', en: '1. The technology that learns patterns from big data to judge new data?' }, a: { ar: 'تعلّم الآلة', en: 'Machine learning' } },
+            { q: { ar: '1. التقنية اللي بتتعلّم أنماط من بيانات كتير عشان تحكم على بيانات جديدة؟', en: '1. The technology that learns patterns from big data to judge new data?' }, a: { ar: 'التعلّم الآلي', en: 'Machine learning' } },
             { q: { ar: '2. المعلومة في الإدخال اللي تنفع دليل مفيد للتنبّؤ؟', en: '2. The information in the input that is a useful clue for prediction?' }, a: { ar: 'السمة', en: 'Feature' } },
             { q: { ar: '3. طريقة غير خاضعة للإشراف بتجمّع المتشابه مع بعض؟', en: '3. The unsupervised method that groups similar items?' }, a: { ar: 'التجميع', en: 'Clustering' } },
             { q: { ar: '4. في المعزَّز، الرقم اللي بيقيّم نتيجة الفعل؟', en: '4. In reinforcement learning, the number rating an action’s result?' }, a: { ar: 'المكافأة', en: 'Reward' } },
@@ -198,7 +198,7 @@ RV.lessons.add('7-1', {
         },
         {
           type: 'quiz', title: { ar: 'تمرين 2 (1)', en: 'Try 2 (1)' },
-          q: { widget: 'mcq', prompt: { ar: 'أنهي واحدة __مش__ موقف مناسب لتعلّم الآلة؟', en: 'Which is __not__ a suitable situation for machine learning?' },
+          q: { widget: 'mcq', prompt: { ar: 'أنهي واحدة __مش__ موقف مناسب لالتعلّم الآلي؟', en: 'Which is __not__ a suitable situation for machine learning?' },
             options: [
               { ar: 'A تمييز نوع الحيوان في صورة', en: 'A Telling which animal is in an image' },
               { ar: 'B تحويل الكلام لنص مكتوب', en: 'B Transcribing speech into text' },
@@ -233,7 +233,7 @@ RV.lessons.add('7-1', {
         },
         {
           type: 'quiz', title: { ar: 'تمرين 2 (4)', en: 'Try 2 (4)' },
-          q: { widget: 'mcq', prompt: { ar: 'أنهي واحدة __مش__ نقطة انتباه صحيحة لتعلّم الآلة؟', en: 'Which is __not__ a correct point of care for machine learning?' },
+          q: { widget: 'mcq', prompt: { ar: 'أنهي واحدة __مش__ نقطة انتباه صحيحة لالتعلّم الآلي؟', en: 'Which is __not__ a correct point of care for machine learning?' },
             options: [
               { ar: 'A لو بيانات التدريب متحيّزة، أحكامه ممكن تتحيّز', en: 'A Biased training data may bias its judgments' },
               { ar: 'B أساس أحكامه ممكن مايبانش، فالمهم يتراجع بشريًا', en: 'B Its basis may be hidden, so key decisions need humans' },
@@ -246,19 +246,19 @@ RV.lessons.add('7-1', {
         {
           type: 'quiz', title: { ar: 'تدريب 2 — املأ الفراغات', en: 'Exercise 2 — fill the blanks' },
           q: { widget: 'fill', prompt: { ar: 'اقرا الفقرة واملأ الفراغات (a)–(g):', en: 'Read and fill blanks (a)–(g):' },
-            text: { ar: 'تعلّم الآلة تلات أنواع: التعلّم {0} من أزواج إدخال وإجابة، والتعلّم {1} اللي بيلاقي مجموعات من بيانات من غير إجابات، والتعلّم {2} اللي بيختار أفعال أحسن على أساس {3}. وفي {4} (مثال للإشراف) اختيار {5} بيأثّر جامد في النتيجة. وفي {6} (مثال لغير الإشراف) الجهاز بيلاقي «المتشابه» بنفسه.', en: 'ML has three kinds: {0} learning from input–answer pairs, {1} learning that finds groups in data with no answers, and {2} learning that chooses better actions based on the {3}. In {4} (a supervised example) the choice of {5} greatly affects the result. In {6} (an unsupervised example) the computer finds "what is similar" itself.' },
+            text: { ar: 'التعلّم الآلي تلات أنواع: التعلّم {0} من أزواج إدخال وإجابة، والتعلّم {1} اللي بيلاقي مجموعات من بيانات من غير إجابات، والتعلّم {2} اللي بيختار أفعال أحسن على أساس {3}. وفي {4} (مثال للإشراف) اختيار {5} بيأثّر جامد في النتيجة. وفي {6} (مثال لغير الإشراف) الجهاز بيلاقي «المتشابه» بنفسه.', en: 'ML has three kinds: {0} learning from input–answer pairs, {1} learning that finds groups in data with no answers, and {2} learning that chooses better actions based on the {3}. In {4} (a supervised example) the choice of {5} greatly affects the result. In {6} (an unsupervised example) the computer finds "what is similar" itself.' },
             bank: [{ ar: 'الخاضع للإشراف', en: 'supervised' }, { ar: 'غير الخاضع للإشراف', en: 'unsupervised' }, { ar: 'المعزَّز', en: 'reinforcement' }, { ar: 'المكافأة', en: 'reward' }, { ar: 'التصنيف', en: 'classification' }, { ar: 'السمات', en: 'features' }, { ar: 'التجميع', en: 'clustering' }],
             answer: [0, 1, 2, 3, 4, 5, 6],
             explain: { ar: '(a) إشراف (b) غير إشراف (c) معزَّز (d) المكافأة (e) التصنيف (f) السمات (g) التجميع.', en: '(a) supervised (b) unsupervised (c) reinforcement (d) reward (e) classification (f) features (g) clustering.' } },
         },
         {
           type: 'quiz', title: { ar: 'تدريب 3 (1)', en: 'Exercise 3 (1)' },
-          q: { widget: 'mcq', prompt: { ar: 'اختار الأنسب لوصف الفرق بين البرمجة التقليدية وتعلّم الآلة:', en: 'Choose the best description of conventional programming vs ML:' },
+          q: { widget: 'mcq', prompt: { ar: 'اختار الأنسب لوصف الفرق بين البرمجة التقليدية والتعلّم الآلي:', en: 'Choose the best description of conventional programming vs ML:' },
             options: [
-              { ar: 'A التقليدية: الإنسان بيدّي القواعد · تعلّم الآلة: الجهاز يلاقيها', en: 'A Conventional: humans give rules · ML: the computer finds them' },
-              { ar: 'B التقليدية محتاجة بيانات كتير، وتعلّم الآلة محتاج قواعد بس', en: 'B Conventional needs much data; ML needs only rules' },
-              { ar: 'C التقليدية جزء من الذكاء الاصطناعي، وتعلّم الآلة مش منه', en: 'C Conventional is part of AI, but ML is not' },
-              { ar: 'D التقليدية بتحلّ المشاكل الجديدة، وتعلّم الآلة الثابتة بس', en: 'D Conventional handles new problems; ML only fixed ones' },
+              { ar: 'A التقليدية: الإنسان بيدّي القواعد · التعلّم الآلي: الجهاز يلاقيها', en: 'A Conventional: humans give rules · ML: the computer finds them' },
+              { ar: 'B التقليدية محتاجة بيانات كتير، والتعلّم الآلي محتاج قواعد بس', en: 'B Conventional needs much data; ML needs only rules' },
+              { ar: 'C التقليدية جزء من الذكاء الاصطناعي، والتعلّم الآلي مش منه', en: 'C Conventional is part of AI, but ML is not' },
+              { ar: 'D التقليدية بتحلّ المشاكل الجديدة، والتعلّم الآلي الثابتة بس', en: 'D Conventional handles new problems; ML only fixed ones' },
             ],
             fixedOrder: true, answer: 0,
             explain: { ar: 'A صح.', en: 'A is right.' } },
@@ -276,7 +276,7 @@ RV.lessons.add('7-1', {
         },
         {
           type: 'quiz', title: { ar: 'تدريب 3 (3)', en: 'Exercise 3 (3)' },
-          q: { widget: 'mcq', prompt: { ar: 'أنهي واحدة __مش__ وصف صح لخصائص تعلّم الآلة وحدوده؟', en: 'Which is __not__ a correct description of ML’s traits and limits?' },
+          q: { widget: 'mcq', prompt: { ar: 'أنهي واحدة __مش__ وصف صح لخصائص التعلّم الآلي وحدوده؟', en: 'Which is __not__ a correct description of ML’s traits and limits?' },
             options: [
               { ar: 'A بيتستخدم لما القواعد صعب تتقال بالكلام', en: 'A Used where rules are hard to put into words' },
               { ar: 'B نتايجه بتتأثّر بجودة بيانات التدريب وتحيّزها', en: 'B Results depend on training-data quality and bias' },
@@ -296,7 +296,7 @@ RV.lessons.add('7-1', {
       steps: [{
         type: 'quiz',
         q: { widget: 'flash', cards: [
-          { front: { ar: 'تعلّم الآلة', en: 'Machine learning' }, back: { ar: 'يتعلّم القواعد من البيانات عشان يحكم على بيانات جديدة.', en: 'Learns rules from data to judge new data.' } },
+          { front: { ar: 'التعلّم الآلي', en: 'Machine learning' }, back: { ar: 'يتعلّم القواعد من البيانات عشان يحكم على بيانات جديدة.', en: 'Learns rules from data to judge new data.' } },
           { front: { ar: 'الوسم', en: 'Label' }, back: { ar: 'الإجابة الصحيحة مع بيانات التدريب.', en: 'The correct answer attached to training data.' } },
           { front: { ar: 'التصنيف', en: 'Classification' }, back: { ar: 'نتنبّأ الإدخال تبع أنهي فئة (إشراف).', en: 'Predict which class an input belongs to (supervised).' } },
           { front: { ar: 'السمة', en: 'Feature' }, back: { ar: 'دليل في البيانات مفيد للتنبّؤ.', en: 'A clue in the data useful for prediction.' } },
@@ -316,13 +316,13 @@ RV.lessons.add('7-1', {
         {
           type: 'quiz', optional: true,
           q: { widget: 'essay', marks: 6, tag: { ar: 'سؤال بنمط الامتحان · 6 درجات', en: 'Exam-style · 6 marks' },
-            prompt: { ar: 'اشرح ليه تعلّم الآلة لازم يدعم حكم الإنسان مش يستبدله. (أشِر إلى: تحيّز البيانات ومشكلة الصندوق الأسود)', en: 'Explain why machine learning should support human judgment rather than replace it. (Refer to: data bias and the black-box problem)' },
+            prompt: { ar: 'اشرح ليه التعلّم الآلي لازم يدعم حكم الإنسان مش يستبدله. (أشِر إلى: تحيّز البيانات ومشكلة الصندوق الأسود)', en: 'Explain why machine learning should support human judgment rather than replace it. (Refer to: data bias and the black-box problem)' },
             points: [
               { ar: 'النتايج بجودة البيانات: متحيّزة ← أحكام متحيّزة (مثال).', en: 'Results follow data quality: biased → biased (example).' },
               { ar: 'الصندوق الأسود: أساس الحكم مخفي.', en: 'Black box: the basis is hidden.' },
               { ar: 'إنسان في الحلقة للقرارات المكلّفة.', en: 'A human in the loop for costly decisions.' },
             ],
-            model: { ar: 'تعلّم الآلة بيتعلّم من البيانات، فنتايجه على قد جودتها: لو البيانات __متحيّزة__ الأحكام هتبقى متحيّزة — زي نموذج اتدرّب بس على طلبة طلبوا مساعدة، فاتعلّم «مين بيطلب» وفات الطلبة الساكتين المحتاجين. كمان فيه __مشكلة الصندوق الأسود__: أساس حكم النموذج صعب البشر يشوفوه، فلو مدرّس اتصرّف على تنبيه من غير ما يفهم سببه ممكن يظلم طالب. عشان كده نخلّي __إنسان في الحلقة__: النموذج يقترح والإنسان يراجع ويقرّر، خصوصًا في القرارات اللي غلطتها مكلّفة.', en: 'ML learns from data, so its results are only as good as the data: if the data is __biased__, the judgments are biased — like a model trained only on students who asked for help, learning "who asks" and missing quiet students in need. There is also the __black-box problem__: the basis of the model’s judgment is hard for humans to see, so a teacher acting on a flag without understanding it might treat a student unfairly. So we keep __a human in the loop__: the model suggests, the human reviews and decides, especially when mistakes are costly.' } },
+            model: { ar: 'التعلّم الآلي بيتعلّم من البيانات، فنتايجه على قد جودتها: لو البيانات __متحيّزة__ الأحكام هتبقى متحيّزة — زي نموذج اتدرّب بس على طلبة طلبوا مساعدة، فاتعلّم «مين بيطلب» وفات الطلبة الساكتين المحتاجين. كمان فيه __مشكلة الصندوق الأسود__: أساس حكم النموذج صعب البشر يشوفوه، فلو مدرّس اتصرّف على تنبيه من غير ما يفهم سببه ممكن يظلم طالب. عشان كده نخلّي __إنسان في الحلقة__: النموذج يقترح والإنسان يراجع ويقرّر، خصوصًا في القرارات اللي غلطتها مكلّفة.', en: 'ML learns from data, so its results are only as good as the data: if the data is __biased__, the judgments are biased — like a model trained only on students who asked for help, learning "who asks" and missing quiet students in need. There is also the __black-box problem__: the basis of the model’s judgment is hard for humans to see, so a teacher acting on a flag without understanding it might treat a student unfairly. So we keep __a human in the loop__: the model suggests, the human reviews and decides, especially when mistakes are costly.' } },
         },
         {
           type: 'quiz', optional: true,
@@ -353,9 +353,9 @@ RV.lessons.add('7-1', {
         {
           type: 'quiz', optional: true,
           q: { widget: 'essay', tag: { ar: 'تأمّل', en: 'Reflect' },
-            prompt: { ar: 'قابلت تعلّم الآلة فين النهارده (ترشيحات، وسم صور، إدخال صوتي)؟ تفتكر كان أنهي نوع؟', en: 'Where did you meet ML today (recommendations, photo tagging, voice input)? Which kind do you think it was?' },
+            prompt: { ar: 'قابلت التعلّم الآلي فين النهارده (توصيات، وسم صور، إدخال صوتي)؟ تفتكر كان أنهي نوع؟', en: 'Where did you meet ML today (recommendations, photo tagging, voice input)? Which kind do you think it was?' },
             points: [{ ar: 'مثال + نوع مناسب.', en: 'An example + a fitting kind.' }],
-            model: { ar: '(مثال) ترشيحات الفيديوهات بتعتمد على __تجميع__ المستخدمين المتشابهين (غير إشراف)؛ والكتابة بالصوت على الموبايل __خاضع للإشراف__ لأنه اتدرّب على تسجيلات معاها النص الصحيح.', en: '(Example) video recommendations rely on __clustering__ similar users (unsupervised); voice typing on the phone is __supervised__, since it was trained on recordings paired with the correct text.' } },
+            model: { ar: '(مثال) توصيات الفيديوهات بتعتمد على __تجميع__ المستخدمين المتشابهين (غير إشراف)؛ والكتابة بالصوت على الموبايل __خاضع للإشراف__ لأنه اتدرّب على تسجيلات معاها النص الصحيح.', en: '(Example) video recommendations rely on __clustering__ similar users (unsupervised); voice typing on the phone is __supervised__, since it was trained on recordings paired with the correct text.' } },
         },
         {
           type: 'quiz', optional: true,
@@ -374,7 +374,7 @@ RV.lessons.add('7-1', {
       steps: [{
         type: 'quiz', optional: true,
         q: { widget: 'speed', id: '7-1', seconds: 60, items: [
-          { text: { ar: 'تعلّم الآلة بيلاقي القواعد من البيانات', en: 'ML finds rules from data' }, answer: true },
+          { text: { ar: 'التعلّم الآلي بيلاقي القواعد من البيانات', en: 'ML finds rules from data' }, answer: true },
           { text: { ar: 'في التقليدية الجهاز بيلاقي القواعد', en: 'In conventional programming the computer finds the rules' }, answer: false },
           { text: { ar: 'جمع رقمين محتاج تعلّم آلة', en: 'Adding two numbers needs ML' }, answer: false },
           { text: { ar: 'الإشراف = أوسمة', en: 'Supervised = labels' }, answer: true },
@@ -388,8 +388,8 @@ RV.lessons.add('7-1', {
           { text: { ar: 'بيانات متحيّزة ← أحكام متحيّزة', en: 'Biased data → biased judgments' }, answer: true },
           { text: { ar: 'أساس حكم النموذج باين دايمًا', en: 'The model’s basis is always visible' }, answer: false },
           { text: { ar: 'إنسان في الحلقة', en: 'Keep a human in the loop' }, answer: true },
-          { text: { ar: 'تعلّم الآلة حل لكل حاجة', en: 'ML solves everything' }, answer: false },
-          { text: { ar: 'تعلّم الآلة يدعم الإنسان', en: 'ML supports humans' }, answer: true },
+          { text: { ar: 'التعلّم الآلي حل لكل حاجة', en: 'ML solves everything' }, answer: false },
+          { text: { ar: 'التعلّم الآلي يدعم الإنسان', en: 'ML supports humans' }, answer: true },
         ] },
       }],
     },
@@ -404,10 +404,10 @@ RV.lessons.add('7-1', {
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '3. بيانات تدريب منحرفة بتوصّل لأحكام منحرفة — اسم المشكلة؟', en: '3. Skewed training data leading to skewed judgments — what is it?' }, options: [{ ar: 'التحيّز', en: 'Bias' }, { ar: 'الصندوق الأسود', en: 'The black box' }, { ar: 'فرط التخصيص', en: 'Overfitting' }, { ar: 'التعميم', en: 'Generalization' }], answer: 0 } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '4. التجميع بيجمّع البيانات حسب أوسمة مدّية مسبقًا.', en: '4. Clustering groups data by pre-given labels.' }, answer: false }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '5. التعلّم المعزَّز بيتعلّم من نتايج أفعاله عن طريق المكافأة.', en: '5. Reinforcement learning learns from its actions’ consequences via reward.' }, answer: true }] } },
-        { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '6. تعلّم الآلة بيتستخدم للمشاكل اللي صعب نكتب قواعدها بالكلام.', en: '6. ML is used where rules are hard to put into words.' }, answer: true }] } },
-        { type: 'quiz', q: { widget: 'essay', prompt: { ar: '7. إيه الفرق بين البرمجة التقليدية وتعلّم الآلة في «الإنسان بيدّي إيه»؟', en: '7. What is the difference between conventional programming and ML in "what humans provide"?' },
-          points: [{ ar: 'التقليدية: القواعد + البيانات.', en: 'Conventional: rules + data.' }, { ar: 'تعلّم الآلة: بيانات كتير (بإجابات) والجهاز يلاقي القواعد.', en: 'ML: lots of data (with answers); the computer finds the rules.' }],
-          model: { ar: 'في البرمجة التقليدية الإنسان بيدّي قواعد القرار (الإجراءات) وبيانات الإدخال، والجهاز بيطلّع الإجابات بإتباع القواعد. في تعلّم الآلة الإنسان بيدّي كميات كبيرة من البيانات (بإجابات صحيحة لو موجودة)، والجهاز بيلاقي قواعد القرار من البيانات بنفسه.', en: 'In conventional programming humans provide the decision rules (procedure) and the input data, and the computer produces answers by following the rules. In ML humans provide large amounts of data (with correct answers where available), and the computer finds the decision rules from the data itself.' } } },
+        { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '6. التعلّم الآلي بيتستخدم للمشاكل اللي صعب نكتب قواعدها بالكلام.', en: '6. ML is used where rules are hard to put into words.' }, answer: true }] } },
+        { type: 'quiz', q: { widget: 'essay', prompt: { ar: '7. إيه الفرق بين البرمجة التقليدية والتعلّم الآلي في «الإنسان بيدّي إيه»؟', en: '7. What is the difference between conventional programming and ML in "what humans provide"?' },
+          points: [{ ar: 'التقليدية: القواعد + البيانات.', en: 'Conventional: rules + data.' }, { ar: 'التعلّم الآلي: بيانات كتير (بإجابات) والجهاز يلاقي القواعد.', en: 'ML: lots of data (with answers); the computer finds the rules.' }],
+          model: { ar: 'في البرمجة التقليدية الإنسان بيدّي قواعد القرار (الإجراءات) وبيانات الإدخال، والجهاز بيطلّع الإجابات بإتباع القواعد. في التعلّم الآلي الإنسان بيدّي كميات كبيرة من البيانات (بإجابات صحيحة لو موجودة)، والجهاز بيلاقي قواعد القرار من البيانات بنفسه.', en: 'In conventional programming humans provide the decision rules (procedure) and the input data, and the computer produces answers by following the rules. In ML humans provide large amounts of data (with correct answers where available), and the computer finds the decision rules from the data itself.' } } },
         { type: 'quiz', q: { widget: 'essay', prompt: { ar: '8. اذكر أنواع التعلّم التلاتة والبيانات اللي بياخدها كل واحد.', en: '8. Name the three kinds of learning and the data each receives.' },
           points: [{ ar: 'إشراف: إدخال + وسم.', en: 'Supervised: input + label.' }, { ar: 'غير إشراف: إدخال بس.', en: 'Unsupervised: input only.' }, { ar: 'معزَّز: أفعال ومكافآت.', en: 'Reinforcement: actions and rewards.' }],
           model: { ar: 'الخاضع للإشراف: بياخد أزواج إدخال + إجابة صحيحة (وسم) ويتعلّم يتنبّأ بالإجابة. غير الخاضع للإشراف: بياخد الإدخال بس من غير إجابات ويلاقي بنية أو مجموعات مستخبية. المعزَّز: بياخد الأفعال ونتايجها (المكافآت) ويتعلّم يختار أفعال توصّل لنتايج أحسن.', en: 'Supervised: receives input + correct-answer (label) pairs and learns to predict the answer. Unsupervised: receives input only, no answers, and finds hidden structure or groups. Reinforcement: receives actions and their results (rewards) and learns to choose actions that lead to better results.' } } },
