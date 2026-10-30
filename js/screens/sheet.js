@@ -24,10 +24,16 @@
   const arrow = (cls) => svgEl('<path d="M2 12H38" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M29 3l11 9-11 9" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>', 'sh-ar ' + (cls || ''), '0 0 42 24');
   const arrowDown = () => svgEl('<path d="M12 2V30" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M3 21l9 11 9-11" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>', 'sh-ar-d', '0 0 24 34');
 
+  /* "a · b · c" reads better as short separate lines than as one packed sentence */
+  const para = (v) => {
+    const text = v == null ? '' : t(v);
+    if (typeof text !== 'string' || !text.includes(' · ')) return v == null ? null : rich(v);
+    return text.split(' · ').map((x) => h('span', { class: 'ln' }, rich(x)));
+  };
   const box = (b) => h('div', { class: `sh-box c-${b.c || 'l'}${b.solid ? ' is-solid' : ''}` },
     b.ic ? h('span', { class: 'ic' }, b.ic) : null,
     b.h ? h('b', null, rich(b.h)) : null,
-    b.p ? h('span', { class: 'p' }, rich(b.p)) : null,
+    b.p ? h('span', { class: 'p' }, para(b.p)) : null,
     b.list ? h('ul', null, b.list.map((x) => h('li', null, rich(x)))) : null);
 
   const BLOCK = {
@@ -83,7 +89,7 @@
       const col = [];
       b.items.forEach((it, k) => {
         if (k) col.push(arrowDown());
-        col.push(h('div', { class: `sh-layer c-${it.c || 'l'}` }, it.ic ? h('span', { class: 'ic' }, it.ic) : null, h('b', null, rich(it.h)), it.p ? h('span', { class: 'p' }, rich(it.p)) : null));
+        col.push(h('div', { class: `sh-layer c-${it.c || 'l'}` }, it.ic ? h('span', { class: 'ic' }, it.ic) : null, h('b', null, rich(it.h)), it.p ? h('span', { class: 'p' }, para(it.p)) : null));
       });
       return h('div', { class: 'sh-layers' }, col);
     },
@@ -93,7 +99,7 @@
     compare(b) {
       return h('table', { class: 'sh-cmp' },
         h('thead', null, h('tr', null, h('th', null, ''), b.cols.map((c) => h('th', { class: `c-${c.c || 'l'}` }, c.ic ? `${c.ic} ` : '', rich(c.h))))),
-        h('tbody', null, b.rows.map((row) => h('tr', null, h('th', null, rich(row.k)), row.v.map((v) => h('td', null, rich(v)))))));
+        h('tbody', null, b.rows.map((row) => h('tr', null, h('th', null, rich(row.k)), row.v.map((v) => h('td', null, para(v)))))));
     },
     formula(b) {
       return h('div', { class: 'sh-formula' },
@@ -104,7 +110,7 @@
     draw(b) {
       const art = RV.sheet.art[b.art];
       if (!art) throw new Error('Unknown sheet art: ' + b.art);
-      return h('figure', { class: 'sh-draw' }, art(b), b.cap ? h('figcaption', null, rich(b.cap)) : null);
+      return h('figure', { class: 'sh-draw' }, art(b), b.cap ? h('figcaption', null, para(b.cap)) : null);
     },
     traps(b) {
       return h('div', { class: 'sh-traps' }, b.items.map((it) => h('div', { class: 'sh-trap' },
@@ -157,7 +163,9 @@
     const inner = BLOCK[b.t](b);
     return h('section', { class: `sh-block is-${b.t}${b.big ? ' is-big' : ''}` }, b.title ? h('h3', { class: 'sh-h' }, b.ic ? `${b.ic} ` : '', rich(b.title)) : null, inner);
   }
-  const rowEl = (row) => h('div', { class: 'sh-row', style: { gridTemplateColumns: row.map((b) => `minmax(0, ${b.w || 1}fr)`).join(' ') } }, row.map(block));
+  /* every book section of a sheet has its own colour */
+  const SECTION = ['#2563eb', '#7c3aed', '#0d9488', '#ea580c', '#db2777', '#0891b2'];
+  const rowEl = (row, tint) => h('div', { class: 'sh-row', style: { gridTemplateColumns: row.map((b) => `minmax(0, ${b.w || 1}fr)`).join(' '), '--sc': tint } }, row.map(block));
 
   /** Terms of the lesson (AR + EN), from its flash cards. */
   function termsRow(lesson) {
@@ -214,15 +222,24 @@
       page.body.appendChild(el);
       if (page.body.scrollHeight > page.body.clientHeight + 1 && page.body.children.length > 1) {
         el.remove();
+        /* a section band never stays alone at the foot of a page */
+        const band = page.body.lastElementChild && page.body.lastElementChild.querySelector('.sh-sec') ? page.body.lastElementChild : null;
+        if (band) band.remove();
         page.classList.add('is-full');
         open();
+        if (band) page.body.appendChild(band);
         page.body.appendChild(el);
       }
     };
     open();
+    let tint = lesson.color, sec = 0;
     def.rows.forEach((row) => {
-      if (row[0].page && page.body.children.length) { page.classList.add('is-full'); open(); }
-      put(rowEl(row));
+      if (row[0].page && page.body.children.length) {
+        const used = (page.body.lastElementChild.getBoundingClientRect().bottom - page.body.getBoundingClientRect().top) / page.body.clientHeight;
+        if (used > 0.55) { page.classList.add('is-full'); open(); }
+      }
+      if (row[0].t === 'sec') tint = row[0].n === '✓' ? '#059669' : SECTION[sec++ % SECTION.length];
+      put(rowEl(row, tint));
     });
     const terms = termsRow(lesson);
     if (terms) put(terms);
