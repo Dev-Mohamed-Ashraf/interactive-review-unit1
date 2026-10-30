@@ -238,6 +238,13 @@ console.log('▶ Checking the mistakes notebook');
   const review = S.reviewStation();
   check(review.steps.length === Math.min(S.SESSION, qs.length) && review.steps[0].source.lesson === lesson, 'a review is capped and keeps each source');
   RV.store.resetAll();
+  RV.availableLessons().forEach((id) => check(S.quickStation(id).steps.some((x) => x.points && x.points.length), `lesson ${id} has no quick summary`));
+  S.EXAMS.forEach((x) => {
+    const exam = S.examStation(x.perLesson), n = RV.availableLessons().length * x.perLesson;
+    check(exam.steps.length === n, `${x.id} exam has ${exam.steps.length} of ${n} questions`);
+    check(new Set(exam.steps.map((st) => `${st.source.lesson}/${st.source.station}/${st.source.step}`)).size === n, `${x.id} exam repeats a question`);
+    check(exam.steps.every((st) => st.q.widget === 'mcq' && st.optional), `${x.id} exam holds optional multiple-choice questions`);
+  });
 }
 
 console.log('▶ Checking every media file is used');

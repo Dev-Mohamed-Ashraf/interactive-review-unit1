@@ -268,7 +268,7 @@
 .xp-num, .xp-float { direction: ltr; unicode-bidi: isolate; }
 
 /* ---------- wheel, home extras, certificate ---------- */
-.path-tools { display: flex; justify-content: flex-end; margin: -6px 0 14px; }
+.path-tools { display: flex; justify-content: flex-end; gap: 10px; margin: -6px 0 14px; }
 .wheel-btn { background: linear-gradient(90deg, rgba(244,114,182,.2), rgba(251,191,36,.2)); border-color: rgba(251,191,36,.5); }
 .wh-overlay { position: fixed; inset: 0; z-index: 900; overflow: auto; padding: calc(var(--safe-top) + 16px) var(--gutter) 30px; background: rgba(3,8,22,.92); display: grid; justify-items: center; align-content: start; gap: 16px; }
 .wh-overlay h2 { font-size: var(--fs-3); }

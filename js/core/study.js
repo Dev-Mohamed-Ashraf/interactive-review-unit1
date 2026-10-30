@@ -7,6 +7,8 @@
  *   RV.study.mistakes(lessonId?)         → notebook entries, most troubled first
  *   RV.study.lessonStats(id) · summary() · weakest()
  *   RV.study.reviewStation(lessonId?)    → a station made of notebook questions
+ *   RV.study.quickStation(lessonId)      → a lesson's summaries and exam traps
+ *   RV.study.examStation(perLesson)      → a timed test across every lesson
  * ========================================================= */
 (function () {
   'use strict';
@@ -15,6 +17,10 @@
   const SESSION = 12;    // questions in one review
   const MIN_ANSWERS = 3; // fewer than this says nothing about a lesson
   const WEAK = 0.6, STRONG = 0.85;
+  const EXAMS = [
+    { id: 'short', perLesson: 1, minutes: 30, title: { ar: 'امتحان قصير', en: 'Short exam' } },
+    { id: 'long', perLesson: 2, minutes: 60, title: { ar: 'امتحان كامل', en: 'Long exam' } },
+  ];
 
   const keyOf = (src) => `${src.lesson}/${src.station}/${src.step}`;
   const graded = (step) => !!(step && step.type === 'quiz' && step.q && GRADED.has(step.q.widget));
@@ -102,5 +108,45 @@
       left: () => mistakes(lessonId).length };
   }
 
-  RV.study = { OUT_AFTER, SESSION, graded, label, questions, lessonStats, summary, weakest, mistakes, record, reviewStation, reviewLesson };
+  /** Exam notes sit at any depth of a step. */
+  function examNotes(node, out) {
+    if (Array.isArray(node)) node.forEach((x) => examNotes(x, out));
+    else if (node && typeof node === 'object') {
+      if (node.kind === 'exam' && node.text) out.push(node.text);
+      else Object.keys(node).forEach((k) => examNotes(node[k], out));
+    }
+    return out;
+  }
+
+  function quickStation(lessonId) {
+    const steps = [], traps = [];
+    RV.lessons.get(lessonId).stations.forEach((st) => st.steps.forEach((step) => {
+      if (step.type === 'summary') steps.push(step);
+      examNotes(step, traps);
+    }));
+    if (traps.length) steps.push({ type: 'summary', title: { ar: '🎯 بيجي في الامتحان', en: '🎯 Comes up in the exam' }, points: traps });
+    return { id: 'quick', kind: 'learn', title: { ar: `ملخص سريع · ${lessonId}`, en: `Quick summary · ${lessonId}` }, steps };
+  }
+
+  function quickLesson() {
+    return { id: 'quick', isQuick: true, title: { ar: 'مذاكرتي', en: 'My study' }, color: '#fbbf24', stations: [], backHref: '#/study' };
+  }
+
+  /** One exam: the same number of questions from every lesson, in a shuffled order. */
+  function examStation(perLesson) {
+    const exam = EXAMS.find((x) => x.perLesson === perLesson) || EXAMS[0], steps = [];
+    RV.availableLessons().forEach((id) => {
+      const kinds = {};
+      RV.lessons.get(id).stations.forEach((st) => { kinds[st.id] = st.kind; });
+      const pool = questions(id).filter((q) => q.step.q.widget === 'mcq' && (kinds[q.source.station] === 'test' || kinds[q.source.station] === 'practice'));
+      RV.dom.shuffle(pool).slice(0, exam.perLesson).forEach((q) => steps.push(Object.assign({}, q.step, { source: q.source, optional: true, title: undefined })));
+    });
+    return { id: exam.id, kind: 'test', title: exam.title, minutes: exam.minutes, steps: RV.dom.shuffle(steps) };
+  }
+
+  function examLesson() {
+    return { id: 'exam', isExam: true, title: { ar: 'الامتحان الشامل', en: 'Full practice exam' }, color: '#a78bfa', stations: [], backHref: '#/exam' };
+  }
+
+  RV.study = { OUT_AFTER, SESSION, EXAMS, graded, label, questions, lessonStats, summary, weakest, mistakes, record, reviewStation, reviewLesson, quickStation, quickLesson, examStation, examLesson };
 })();

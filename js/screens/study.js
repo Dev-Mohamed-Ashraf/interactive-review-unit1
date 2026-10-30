@@ -30,7 +30,7 @@
       const chapters = RV.chapters.filter((c) => RV.chapterLessons(c).length).map((c) => h('section', { class: 'study-chapter' },
         h('h2', null, `${RV.i18n.ui('unit')} ${c.number} · ${t(c.title)}`),
         RV.chapterLessons(c).map((id) => lessonRow(RV.study.lessonStats(id)))));
-      root.append(h('div', { class: 'screen study' }, top, stats, notebookCard(S), weakCard(), chapters,
+      root.append(h('div', { class: 'screen study' }, top, stats, notebookCard(S), weakCard(), quickCard(), chapters,
         h('p', { class: 'study-note muted' }, t({
           ar: 'الإتقان = آخر إجابة ليك في كل سؤال حلّيته. السؤال بيخرج من الكشكول لما تجاوبه صح مرتين ورا بعض.',
           en: 'Mastery = your latest answer to each question you tried. A question leaves the notebook after two correct answers in a row.',
@@ -71,6 +71,18 @@
         return h('a', { class: 'study-weak-item card', href: s.mistakes ? `#/study/review/${s.id}` : `#/l/${s.id}`, style: { '--lesson': lesson.color } },
           h('span', { class: 'chip mono' }, s.id), h('b', null, t(lesson.title)), h('span', { class: `study-level is-${s.level}` }, pct(s.mastery)));
       })));
+  }
+
+  /** Revision close to the exam: a summary of any lesson, every station open, the full exam. */
+  function quickCard() {
+    const open = RV.store.setting('openAll');
+    const toggle = h('button', { class: 'btn btn-sm', type: 'button' }, open ? '🔒 ' : '🔓 ', t(open ? { ar: 'رجّع ترتيب المحطات', en: 'Restore station order' } : { ar: 'افتح كل المحطات', en: 'Open every station' }));
+    toggle.addEventListener('click', () => { RV.store.setSetting('openAll', !open); RV.app.rerender(); });
+    return h('section', { class: 'study-quick' },
+      h('h2', null, t({ ar: 'مراجعة سريعة', en: 'Quick revision' })),
+      h('p', { class: 'muted' }, t({ ar: 'ملخص الدرس وأهم اللي بييجي في الامتحان. اختار درس:', en: 'A lesson’s summary and what comes up in the exam. Pick a lesson:' })),
+      h('div', { class: 'study-quick-grid' }, RV.availableLessons().map((id) => h('a', { class: 'chip mono', href: `#/quick/${id}`, title: t(RV.lessons.get(id).title) }, id))),
+      h('div', { class: 'study-actions' }, toggle, h('a', { class: 'btn btn-sm', href: '#/exam' }, '📝 ', t({ ar: 'الامتحان الشامل', en: 'Full practice exam' }))));
   }
 
   function lessonRow(s) {

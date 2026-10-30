@@ -9,6 +9,7 @@
  * ctx = { mode: 'practice' | 'test' | 'worked', onAnswer(result) }
  * result = { correct: bool, score: number, max: number }
  * practice → instant feedback + retry · test → first answer locks
+ * exam     → no verdict at all, the latest choice counts (mcq only)
  * worked   → like practice, and reveal() shows the right answer.
  * ========================================================= */
 (function () {

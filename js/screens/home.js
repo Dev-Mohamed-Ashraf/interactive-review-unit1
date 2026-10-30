@@ -60,9 +60,12 @@
     const sub = S.mistakes ? { ar: `${S.mistakes} سؤال مستنيك تراجعه`, en: `${S.mistakes} questions waiting for review` }
       : S.answered ? { ar: `نسبة إتقانك ${Math.round(S.mastery * 100)}%`, en: `Your mastery: ${Math.round(S.mastery * 100)}%` }
         : { ar: 'هيبدأ يشتغل لما تحل أسئلة', en: 'Starts working once you answer questions' };
-    return h('a', { class: 'study-home card', href: '#/study' }, h('span', { class: 'extra-ico' }, '📒'),
-      h('div', null, h('b', null, t({ ar: 'كشكول الأخطاء ونقاط ضعفي', en: 'Mistakes notebook & weak spots' })), h('small', { class: 'muted' }, t(sub))),
+    const card = (href, ico, title, small) => h('a', { class: 'study-home card', href }, h('span', { class: 'extra-ico' }, ico),
+      h('div', null, h('b', null, t(title)), h('small', { class: 'muted' }, t(small))),
       h('span', { class: 'challenge-go' }, RV.icon('arrowNext', 'flip-rtl')));
+    return h('div', { class: 'study-home-row' },
+      card('#/study', '📒', { ar: 'كشكول الأخطاء ونقاط ضعفي', en: 'Mistakes notebook & weak spots' }, sub),
+      card('#/exam', '📝', { ar: 'الامتحان الشامل', en: 'Full practice exam' }, { ar: 'بمؤقت وتحليل لكل درس', en: 'Timed, with a result per lesson' }));
   }
 
   /** "Download for offline": one tap with internet → the whole review works with no internet (videos too). */

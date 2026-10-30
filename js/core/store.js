@@ -7,7 +7,7 @@
   'use strict';
   const KEY = 'rv.programming-ai.unit1.v1';
   const DEFAULT = {
-    settings: { lang: 'ar', sound: true, teacher: false, theme: 'dark', present: false, tts: false, calm: false },
+    settings: { lang: 'ar', sound: true, teacher: false, theme: 'dark', present: false, tts: false, calm: false, openAll: false },
     stations: {}, // "1-1/learn-1": { done: true, stars: 3, best: 9, max: 10 }
     game: { xp: 0, badges: [] },
     answers: {}, // "1-1/test/4": { w: wrong answers, r: correct in a row, ok: last answer right, t: when }
@@ -66,7 +66,7 @@
       return total ? done / total : 0;
     },
     isUnlocked(lesson, index) {
-      if (data.settings.teacher || index === 0) return true;
+      if (data.settings.teacher || data.settings.openAll || index === 0) return true;
       const prev = lesson.stations[index - 1];
       return !!this.station(lesson.id, prev.id);
     },

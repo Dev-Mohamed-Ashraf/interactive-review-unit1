@@ -19,6 +19,8 @@
       let beat = 0;
       let cur = null;
       let busy = false;
+      let finished = false;
+      let timer = null;
 
       RV.chrome.lessonTheme(root, lesson.color ? lesson : null);
       const backHref = lesson.backHref || (lesson.isChallenge ? '#/' : `#/l/${lesson.id}`);
@@ -29,18 +31,34 @@
       const top = h('div', { class: 'topbar player-top' },
         h('a', { class: 'icon-btn', href: backHref, title: RV.i18n.ui('back') }, RV.icon('close')),
         h('div', { class: 'topbar-title' },
-          h('span', { class: 'chip mono' }, lesson.isReview ? '📒' : lesson.isChallenge ? '★' : lesson.id),
+          h('span', { class: 'chip mono' }, lesson.isExam ? '📝' : lesson.isQuick ? '⚡' : lesson.isReview ? '📒' : lesson.isChallenge ? '★' : lesson.id),
           h('span', { class: 'player-station' }, t(station.title)), counter),
-        RV.game.pill(),
+        lesson.isExam ? examClock() : RV.game.pill(),
         ttsBtn(),
         presentBtn(),
-        RV.chrome.settingsButtons(() => updateNav()));
+        lesson.isExam ? null : RV.chrome.settingsButtons(() => updateNav())); // (a language switch would restart the exam)
       const body = h('main', { class: 'player-body' });
       const prevBtn = h('button', { class: 'btn btn-ghost nav-prev', type: 'button' }, RV.icon('arrowPrev', 'flip-rtl'), h('span', null, RV.i18n.ui('prev')));
       const nextBtn = h('button', { class: 'btn btn-primary nav-next', type: 'button' }, h('span', null, RV.i18n.ui('next')), RV.icon('arrowNext', 'flip-rtl'));
       const dots = h('div', { class: 'nav-dots' }, steps.map(() => h('i')));
       const nav = h('footer', { class: 'player-nav' }, prevBtn, dots, nextBtn);
+      if (lesson.isExam) prevBtn.hidden = true;
       const screen = h('div', { class: 'screen player' + (isTest ? ' is-test' : '') + (RV.store.setting('present') && innerWidth > 900 ? ' is-present' : '') }, top, bar, body, nav);
+
+      /** Countdown of a timed exam; time up hands it in. */
+      function examClock() {
+        const el = h('span', { class: 'exam-clock mono' });
+        const end = Date.now() + station.minutes * 60000;
+        const tick = () => {
+          const left = Math.max(0, Math.ceil((end - Date.now()) / 1000));
+          el.textContent = `${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}`;
+          el.classList.toggle('is-low', left < 300);
+          if (!left) finish();
+        };
+        tick();
+        timer = setInterval(tick, 1000);
+        return el;
+      }
 
       /** Presentation mode: the stage fills the screen, the current beat becomes a subtitle. */
       function presentBtn() {
@@ -76,6 +94,7 @@
 
       // ---------- step lifecycle ----------
       function mount(index, opts) {
+        if (finished) return;
         if (cur) cur.destroy();
         RV.dom.clear(body);
         i = index;
@@ -86,8 +105,9 @@
         if (!renderer) throw new Error('Unknown step type: ' + step.type);
         cur = renderer.render(host, step, {
           lesson, station,
-          mode: isTest ? 'test' : 'practice',
+          mode: lesson.isExam ? 'exam' : isTest ? 'test' : 'practice',
           onAnswer(res) {
+            if (lesson.isExam) { results[i] = res; return; } // the latest choice counts; verdicts wait for the end
             if (!results[i]) { // only the first answer counts (no farming by retrying)
               RV.game.answer(res, nextBtn);
               RV.study.record(steps[i].source || { lesson: lesson.id, station: station.id, step: i }, steps[i], res);
@@ -116,7 +136,7 @@
         else finish();
       }
       function prev() {
-        if (busy) return;
+        if (busy || lesson.isExam) return;
         if (beat > 0) { beat--; cur.beat(beat); updateNav(); return; }
         if (i > 0) transition(i - 1, -1, true);
       }
@@ -167,6 +187,10 @@
 
       // ---------- finish ----------
       function finish() {
+        if (finished) return;
+        finished = true;
+        clearInterval(timer);
+        if (lesson.isQuick) { location.hash = backHref; return; }
         let result = null;
         if (isTest || lesson.isReview) {
           const max = results.reduce((n, r, k) => n + (r ? r.max : stepMax(steps[k])), 0);
@@ -174,9 +198,10 @@
           result = { score, max };
         }
         if (lesson.isReview) { showComplete(result, { stars: RV.store.starsFor(result.score, result.max) }); return; }
+        if (lesson.isExam) results.forEach((r, k) => { if (r) RV.study.record(steps[k].source, steps[k], r); });
         const rec = RV.store.complete(lesson.id, station.id, result);
         showComplete(result, rec);
-        RV.game.stationDone(lesson, station, result);
+        if (!lesson.isExam) RV.game.stationDone(lesson, station, result);
       }
 
       function stepMax(step) {
@@ -187,6 +212,23 @@
         if (q.widget === 'classify') return q.items.length;
         if (q.widget === 'essay') return q.marks || 1;
         return 1;
+      }
+
+      /** After an exam: the lessons that cost marks, worst first. */
+      function examBreakdown() {
+        const per = {};
+        steps.forEach((s, k) => {
+          const p = per[s.source.lesson] = per[s.source.lesson] || { id: s.source.lesson, got: 0, of: 0 };
+          p.of++;
+          if (results[k] && results[k].correct) p.got++;
+        });
+        const weak = Object.values(per).filter((p) => p.got < p.of).sort((a, b) => a.got / a.of - b.got / b.of).slice(0, 6);
+        if (!weak.length) return null;
+        const blank = results.filter((r) => !r).length;
+        return h('div', { class: 'exam-report' },
+          h('b', null, t({ ar: 'ركّز على الدروس دي', en: 'Focus on these lessons' })),
+          weak.map((p) => h('a', { class: 'exam-report-row', href: `#/l/${p.id}` }, h('span', { class: 'chip mono' }, p.id), h('span', { class: 'exam-report-name' }, t(RV.lessons.get(p.id).title)), h('span', { class: 'mono' }, `${p.got}/${p.of}`))),
+          blank ? h('small', { class: 'muted' }, t({ ar: `${blank} سؤال ماتجاوبش`, en: `${blank} questions unanswered` })) : null);
       }
 
       /** Where the missed questions went: the notebook. */
@@ -211,7 +253,7 @@
         const nextSt = idx >= 0 ? stationsList[idx + 1] : null;
         const starsN = rec.stars || 0;
 
-        let headline = lesson.isReview ? t({ ar: 'خلّصت المراجعة!', en: 'Review finished!' }) : RV.i18n.ui('stationDone');
+        let headline = lesson.isExam ? t({ ar: 'خلّصت الامتحان!', en: 'Exam finished!' }) : lesson.isReview ? t({ ar: 'خلّصت المراجعة!', en: 'Review finished!' }) : RV.i18n.ui('stationDone');
         let msg = '';
         if (result) {
           const r = result.score / result.max;
@@ -230,7 +272,7 @@
           h('h2', null, headline),
           h('p', { class: 'muted' }, t(station.title)),
           RV.chrome.stars(starsN),
-          scoreEl, msg ? h('p', { class: 'done-msg' }, msg) : null, reviewDots, notebookNote(), actions);
+          scoreEl, msg ? h('p', { class: 'done-msg' }, msg) : null, reviewDots, lesson.isExam ? examBreakdown() : null, notebookNote(), actions);
         body.appendChild(h('div', { class: 'done-wrap' }, card));
 
         const tl = gsap.timeline();
@@ -246,6 +288,7 @@
 
       return {
         destroy() {
+          clearInterval(timer);
           RV.voice.stop();
           document.removeEventListener('keydown', onKey);
           if (cur) cur.destroy();

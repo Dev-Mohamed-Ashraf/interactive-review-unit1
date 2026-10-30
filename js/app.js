@@ -7,6 +7,9 @@
  *   #/challenge/<n>         → chapter n challenge
  *   #/study                 → mistakes notebook + mastery per lesson
  *   #/study/review[/<id>]   → review the notebook (all, or one lesson)
+ *   #/quick/<lessonId>      → a lesson's summaries and exam traps
+ *   #/exam                  → practice exam: choose a length
+ *   #/exam/run/<perLesson>  → the running exam
  *   #/selftest              → mounts every step (QA)
  * ========================================================= */
 (function () {
@@ -21,6 +24,9 @@
     if (parts[0] === 'challenge') return { screen: 'challenge', chapter: +parts[1] || 1 };
     if (parts[0] === 'study' && parts[1] === 'review') return { screen: 'review', lessonId: parts[2] };
     if (parts[0] === 'study') return { screen: 'study' };
+    if (parts[0] === 'quick' && parts[1]) return { screen: 'quick', lessonId: parts[1] };
+    if (parts[0] === 'exam' && parts[1] === 'run') return { screen: 'examRun', perLesson: +parts[2] };
+    if (parts[0] === 'exam') return { screen: 'exam' };
     if (parts[0] === 'selftest') return { screen: 'selftest' };
     if (parts[0] === 'audit') return { screen: 'audit' };
     if (parts[0] === 'badges') return { screen: 'badges' };
@@ -51,6 +57,10 @@
         const station = RV.study.reviewStation(r.lessonId);
         if (!station.steps.length) { location.replace('#/study'); return; }
         current = RV.screens.get('player').render(root, { lesson: RV.study.reviewLesson(r.lessonId), station });
+      } else if (r.screen === 'quick') {
+        current = RV.screens.get('player').render(root, { lesson: RV.study.quickLesson(), station: RV.study.quickStation(r.lessonId) });
+      } else if (r.screen === 'examRun') {
+        current = RV.screens.get('player').render(root, { lesson: RV.study.examLesson(), station: RV.study.examStation(r.perLesson) });
       } else if (r.screen === 'path') {
         current = RV.screens.get('path').render(root, { lessonId: r.lessonId });
       } else {

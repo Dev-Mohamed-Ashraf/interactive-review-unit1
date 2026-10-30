@@ -37,9 +37,25 @@
 .study-q { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 .study-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .study-note { margin-top: 22px; font-size: var(--fs-0); }
-.study-home { display: flex; align-items: center; gap: 14px; margin: 18px 0 0; padding: 16px 18px; text-decoration: none; color: inherit; border-color: var(--warn); }
+.study-home-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 18px; }
+.study-home { display: flex; align-items: center; gap: 14px; padding: 16px 18px; text-decoration: none; color: inherit; border-color: var(--warn); }
 .study-home > div { display: grid; flex: 1; min-width: 0; }
 .done-note { margin: 8px 0 0; }
+.study-quick-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.study-quick-grid .chip { text-decoration: none; padding: 6px 12px; }
+.exam-lead { margin: 12px 0 0; }
+.exam-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; }
+.exam-card { display: grid; gap: 6px; padding: 20px; text-decoration: none; color: inherit; transition: transform .2s; }
+.exam-card:hover { transform: translateY(-4px); }
+.exam-card > b { font-size: var(--fs-2); }
+.exam-size { color: var(--accent); font-weight: 700; }
+.exam-best { color: var(--gold); }
+.exam-rules { margin: 14px 0 0; padding: 16px 20px; padding-inline-start: 38px; display: grid; gap: 8px; }
+.exam-clock { font-weight: 800; font-size: var(--fs-1); padding: 4px 12px; border-radius: 20px; background: var(--surface-2); }
+.exam-clock.is-low { color: var(--bad); background: var(--bad-bg); }
+.exam-report { display: grid; gap: 6px; margin-top: 10px; text-align: start; }
+.exam-report-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 6px 10px; border-radius: var(--radius-sm); background: var(--surface); text-decoration: none; color: inherit; }
+.exam-report-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 640px) {
   .study .xp-pill { display: none; }
   .study .topbar .icon-btn { flex: none; }

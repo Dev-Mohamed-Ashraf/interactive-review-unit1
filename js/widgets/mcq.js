@@ -69,6 +69,11 @@
 
       function check() {
         const right = answers.every((a) => chosen.has(a)) && chosen.size === answers.length;
+        if (ctx.mode === 'exam') { // no verdict until the end; the choice can still change
+          buttons.forEach((b, i) => b.classList.toggle('is-selected', chosen.has(i)));
+          report({ correct: right, score: right ? 1 : 0, max: 1 });
+          return;
+        }
         buttons.forEach((b, i) => {
           b.classList.remove('is-correct', 'is-wrong');
           if (chosen.has(i)) b.classList.add(answers.includes(i) ? 'is-correct' : 'is-wrong');
