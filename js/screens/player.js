@@ -116,8 +116,8 @@
           },
           onReady() { updateNav(); pulseNext(); },
         });
-        beat = opts && opts.atEnd ? cur.beats - 1 : 0;
-        if (opts && opts.atEnd) for (let k = 0; k <= beat; k++) cur.beat(k); else cur.beat(0);
+        beat = opts && opts.atEnd ? cur.beats - 1 : Math.min((opts && opts.beat) || 0, cur.beats - 1);
+        for (let k = 0; k <= beat; k++) cur.beat(k);
         if (opts && opts.dir) gsap.from(host, { x: opts.dir * (RV.i18n.lang === 'ar' ? -60 : 60), opacity: 0, duration: 0.45, ease: 'power3.out', clearProps: 'all' });
         body.scrollTop = 0;
         updateNav();
@@ -284,7 +284,8 @@
         if (!result || result.score / result.max >= 0.6) setTimeout(() => RV.fx.confetti(), 350);
       }
 
-      mount(0);
+      const jump = params.jump;
+      if (jump) mount(Math.min(jump.step, steps.length - 1), { beat: jump.beat }); else mount(0);
 
       return {
         destroy() {

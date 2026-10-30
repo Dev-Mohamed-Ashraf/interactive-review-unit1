@@ -247,6 +247,33 @@ console.log('▶ Checking the mistakes notebook');
   });
 }
 
+console.log('▶ Checking the summaries, glossary and search');
+{
+  const check = (cond, msg) => (cond ? ok() : fail(msg));
+  const walkSheet = (id, v, where) => {
+    if (Array.isArray(v)) { v.forEach((x, k) => walkSheet(id, x, `${where}[${k}]`)); return; }
+    if (!v || typeof v !== 'object') return;
+    if ('ar' in v || 'en' in v) { check(v.ar && v.en, `sheet ${id}: ${where} needs ar and en`); return; }
+    if (v.t) check(RV.sheet.types.includes(v.t), `sheet ${id}: unknown block ${v.t}`);
+    if (v.t === 'draw') check(RV.sheet.art[v.art], `sheet ${id}: unknown drawing ${v.art}`);
+    Object.keys(v).forEach((k) => walkSheet(id, v[k], `${where}.${k}`));
+  };
+  RV.availableLessons().forEach((id) => {
+    check(RV.sheets[id], `lesson ${id} has no printable sheet`);
+    if (RV.sheets[id]) walkSheet(id, RV.sheets[id], 'sheet');
+  });
+  const L = RV.lexicon, terms = L.terms();
+  check(terms.length > 150, `glossary has only ${terms.length} terms`);
+  check(new Set(terms.map((x) => x.key)).size === terms.length, 'glossary keys are unique');
+  terms.forEach((x) => check(x.related.length && x.related.every((k) => L.term(k) && k !== x.key), `${x.key}: broken links`));
+  check(L.term('hallucination') && L.term('hallucination').lessons.length > 1, 'a term in several lessons is merged');
+  const hits = (q) => L.search(q);
+  check(hits('RMSE').term.length > 0, 'search finds an English term');
+  check(hits('الهلوسه').term.length > 0 && hits('الهَلوسة').term.length > 0, 'search ignores spelling variants');
+  check(hits('xyzqq').text.length === 0, 'nonsense finds nothing');
+  check(hits('تعلم الالة').lesson.length > 0, 'search finds a lesson without hamza or shadda');
+}
+
 console.log('▶ Checking every media file is used');
 {
   const code = allJs.map((f) => fs.readFileSync(path.join(ROOT, f), 'utf8')).join('\n');

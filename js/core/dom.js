@@ -14,7 +14,7 @@
       const val = attrs[key];
       if (val == null || val === false) continue;
       if (key === 'class') el.setAttribute('class', Array.isArray(val) ? val.filter(Boolean).join(' ') : val);
-      else if (key === 'style' && typeof val === 'object') Object.assign(el.style, val);
+      else if (key === 'style' && typeof val === 'object') Object.keys(val).forEach((k) => { if (k.startsWith('--')) el.style.setProperty(k, val[k]); else el.style[k] = val[k]; });
       else if (key === 'html') el.innerHTML = val;
       else if (key === 'dataset') Object.assign(el.dataset, val);
       else if (key.startsWith('on') && typeof val === 'function') el.addEventListener(key.slice(2).toLowerCase(), val);

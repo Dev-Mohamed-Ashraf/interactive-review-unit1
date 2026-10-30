@@ -1,0 +1,58 @@
+/* =========================================================
+ * lexicon.css — the glossary and the course search.
+ * ========================================================= */
+.gl-tools { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+.gl-input { flex: 1; min-width: 0; padding: 12px 18px; border-radius: 28px; border: 2px solid var(--line-strong); background: var(--surface); color: var(--text); font: 700 var(--fs-1) var(--font); }
+.gl-input:focus { outline: none; border-color: var(--accent); }
+.gl-count { flex: none; font-size: var(--fs-0); }
+.gl-units { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.gl-unit { cursor: pointer; border: 1px solid var(--line); padding: 5px 13px; font: inherit; font-size: var(--fs-0); font-weight: 700; color: var(--text); background: var(--surface); }
+.gl-unit.is-on { background: var(--accent); color: var(--accent-ink); }
+.gl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; }
+.gl-card { display: grid; align-content: start; gap: 3px; padding: 13px 15px; text-decoration: none; color: inherit; border-inline-start: 5px solid var(--lesson); transition: transform .2s; }
+.gl-card:hover { transform: translateY(-3px); }
+.gl-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.gl-card-top b { font-size: var(--fs-1); }
+.gl-alt { font-size: var(--fs-0); }
+.gl-card p { margin: 4px 0 0; font-size: var(--fs-0); line-height: 1.6; color: var(--muted); }
+.gl-empty { margin-top: 20px; }
+
+.gl-veil { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 16px; background: rgba(2, 6, 23, .72); overflow-y: auto; }
+.gl-panel { position: relative; width: min(760px, 100%); padding: 22px 24px; border-top: 5px solid var(--lesson); }
+.gl-close { position: absolute; top: 12px; inset-inline-end: 12px; }
+.gl-head { padding-inline-end: 48px; }
+.gl-head h2 { margin: 0; font-size: var(--fs-3); }
+.gl-head p { margin: 0; }
+.gl-def { margin: 12px 0; font-size: var(--fs-2); line-height: 1.7; }
+.gl-from { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: var(--fs-0); }
+.gl-from a.chip { text-decoration: none; }
+
+/* the map: the term on top, an arrow down to each connected term */
+.gl-map { margin-top: 18px; display: flex; flex-direction: column; align-items: center; }
+.gl-map h3 { align-self: flex-start; margin: 0 0 10px; font-size: var(--fs-1); }
+.gl-root { padding: 8px 22px; border-radius: 12px; font-weight: 900; background: var(--lesson); color: #0b1222; }
+.gl-links { position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; width: 100%; padding-top: 30px; }
+.gl-links::before { content: ''; position: absolute; top: 0; left: 50%; width: 2px; height: 13px; margin-left: -1px; background: var(--line-strong); }
+.gl-links::after { content: ''; position: absolute; top: 13px; inset-inline: 10%; height: 2px; background: var(--line-strong); }
+.gl-link { position: relative; flex: 1 1 130px; max-width: 190px; display: grid; gap: 1px; padding: 8px 10px; text-align: center; text-decoration: none; color: inherit; border-radius: 12px; background: var(--surface-2); border: 2px solid var(--lesson); }
+.gl-link::before { content: ''; position: absolute; top: -17px; left: 50%; width: 2px; height: 11px; margin-left: -1px; background: var(--line-strong); }
+.gl-link::after { content: ''; position: absolute; top: -8px; left: 50%; margin-left: -6px; border: 6px solid transparent; border-top: 7px solid var(--line-strong); border-bottom: 0; }
+.gl-link b { font-size: var(--fs-0); }
+.gl-link small { font-size: .72rem; }
+
+.se-input { font-size: var(--fs-2); }
+.se-out { margin-top: 8px; }
+.se-group h2 { font-size: var(--fs-1); margin: 22px 0 10px; }
+.se-group h2 .muted { font-weight: 400; }
+.se-list { display: grid; gap: 9px; margin-bottom: 10px; }
+.se-hit { display: grid; gap: 3px; padding: 11px 15px; text-decoration: none; color: inherit; }
+.se-hit-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.se-hit p { margin: 0; font-size: var(--fs-0); line-height: 1.65; }
+.se-hit mark { padding: 0 2px; border-radius: 4px; background: rgba(251, 191, 36, .32); color: inherit; }
+.home-search { display: flex; align-items: center; gap: 12px; margin-top: 18px; padding: 13px 20px; border-radius: 28px; border: 2px solid var(--line-strong); background: var(--surface); color: var(--muted); text-decoration: none; font-weight: 700; }
+.home-search:hover { border-color: var(--accent); }
+@media (max-width: 640px) {
+  .gl-panel { padding: 18px 16px; }
+  .gl-link { flex-basis: 40%; max-width: none; }
+  .glossary .topbar .icon-btn { flex: none; }
+}

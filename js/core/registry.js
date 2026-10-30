@@ -35,6 +35,8 @@
   RV.lessons = makeRegistry('lesson');
   RV.screens = makeRegistry('screen');
   RV.unit = null;     // the FIRST chapter (kept for older code paths)
+  RV.sheets = {};     // printable lesson summaries — js/content/sheets-*.js call RV.addSheet
+  RV.addSheet = (lessonId, sheet) => { RV.sheets[lessonId] = sheet; };
   RV.chapters = [];   // every chapter, in order — js/content/unit*.js call RV.addChapter
   RV.course = null;   // the whole review (js/content/course.js)
   RV.addChapter = (c) => { RV.chapters.push(c); if (!RV.unit) RV.unit = c; return c; };

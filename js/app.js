@@ -10,6 +10,9 @@
  *   #/quick/<lessonId>      → a lesson's summaries and exam traps
  *   #/exam                  → practice exam: choose a length
  *   #/exam/run/<perLesson>  → the running exam
+ *   #/print[/<id>|/unit/<n>|/all] → printable summaries
+ *   #/glossary[/<key>]      → the course dictionary
+ *   #/search[/<query>]      → search the whole course
  *   #/selftest              → mounts every step (QA)
  * ========================================================= */
 (function () {
@@ -19,7 +22,7 @@
 
   function parse() {
     const parts = (location.hash.replace(/^#\/?/, '') || '').split('/').filter(Boolean);
-    if (parts[0] === 'l' && parts[1] && parts[2] === 's' && parts[3]) return { screen: 'player', lessonId: parts[1], stationId: parts[3] };
+    if (parts[0] === 'l' && parts[1] && parts[2] === 's' && parts[3]) return { screen: 'player', lessonId: parts[1], stationId: parts[3], step: parts[4], beat: +parts[5] || 0 };
     if (parts[0] === 'l' && parts[1]) return { screen: 'path', lessonId: parts[1] };
     if (parts[0] === 'challenge') return { screen: 'challenge', chapter: +parts[1] || 1 };
     if (parts[0] === 'study' && parts[1] === 'review') return { screen: 'review', lessonId: parts[2] };
@@ -27,6 +30,9 @@
     if (parts[0] === 'quick' && parts[1]) return { screen: 'quick', lessonId: parts[1] };
     if (parts[0] === 'exam' && parts[1] === 'run') return { screen: 'examRun', perLesson: +parts[2] };
     if (parts[0] === 'exam') return { screen: 'exam' };
+    if (parts[0] === 'print') return { screen: 'print', what: parts[1], n: +parts[2] };
+    if (parts[0] === 'glossary') return { screen: 'glossary', key: parts[1] };
+    if (parts[0] === 'search') return { screen: 'search', query: decodeURIComponent(parts[1] || '') };
     if (parts[0] === 'selftest') return { screen: 'selftest' };
     if (parts[0] === 'audit') return { screen: 'audit' };
     if (parts[0] === 'badges') return { screen: 'badges' };
@@ -48,8 +54,9 @@
         const station = lesson.stations.find((s) => s.id === r.stationId);
         if (!station) throw new Error('No station ' + r.stationId);
         const idx = lesson.stations.indexOf(station);
-        if (!RV.store.isUnlocked(lesson, idx)) { location.replace(`#/l/${lesson.id}`); return; }
-        current = RV.screens.get('player').render(root, { lesson, station });
+        const jump = r.step === undefined ? null : { step: +r.step || 0, beat: r.beat }; // a search result opens exactly where it was found
+        if (!jump && !RV.store.isUnlocked(lesson, idx)) { location.replace(`#/l/${lesson.id}`); return; }
+        current = RV.screens.get('player').render(root, { lesson, station, jump });
       } else if (r.screen === 'challenge') {
         const ch = RV.chapters.find((c) => c.number === r.chapter) || RV.chapters[0];
         current = RV.screens.get('player').render(root, { lesson: challengeLesson(ch), station: challengeStation(ch) });

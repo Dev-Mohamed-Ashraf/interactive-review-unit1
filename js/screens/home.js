@@ -43,7 +43,8 @@
         h('a', { class: 'extra-card card', href: '#/certificate' }, h('span', { class: 'extra-ico' }, '🎓'),
           h('div', null, h('b', null, t({ ar: 'شهادتك', en: 'Your certificate' })), h('small', { class: 'muted' }, t({ ar: 'اكتب اسمك واطبعها', en: 'Add your name and print' })))),
         offlineCard());
-      root.append(h('div', { class: 'screen home' }, top, hero, studyCard(), chapters, extras));
+      const find = h('a', { class: 'home-search', href: '#/search' }, RV.icon('search'), t({ ar: 'دوّر على أي حاجة في المنهج…', en: 'Search anything in the course…' }));
+      root.append(h('div', { class: 'screen home' }, top, hero, find, studyCard(), chapters, extras));
 
       gsap.timeline()
         .from('.home-kicker, .home-title, .home-sub, .home-by', { y: 30, opacity: 0, stagger: 0.08, duration: 0.7, ease: 'power3.out' })
@@ -65,7 +66,9 @@
       h('span', { class: 'challenge-go' }, RV.icon('arrowNext', 'flip-rtl')));
     return h('div', { class: 'study-home-row' },
       card('#/study', '📒', { ar: 'كشكول الأخطاء ونقاط ضعفي', en: 'Mistakes notebook & weak spots' }, sub),
-      card('#/exam', '📝', { ar: 'الامتحان الشامل', en: 'Full practice exam' }, { ar: 'بمؤقت وتحليل لكل درس', en: 'Timed, with a result per lesson' }));
+      card('#/exam', '📝', { ar: 'الامتحان الشامل', en: 'Full practice exam' }, { ar: 'بمؤقت وتحليل لكل درس', en: 'Timed, with a result per lesson' }),
+      card('#/glossary', '📖', { ar: 'قاموس المصطلحات', en: 'Glossary' }, { ar: `${RV.lexicon.terms().length} مصطلح مترابطين`, en: `${RV.lexicon.terms().length} connected terms` }),
+      card('#/print', '🖨️', { ar: 'الملخصات للطباعة', en: 'Printable summaries' }, { ar: 'ورقة مرسومة لكل درس', en: 'A designed sheet per lesson' }));
   }
 
   /** "Download for offline": one tap with internet → the whole review works with no internet (videos too). */

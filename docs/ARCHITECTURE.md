@@ -13,6 +13,7 @@ flowchart TD
     rich[rich.js<br/>**term** __kw__ `math` x^y]
     store[store.js<br/>progress + settings]
     study[study.js<br/>mistakes notebook · mastery per lesson]
+    lexicon[lexicon.js<br/>glossary · course search]
     sound[sound.js<br/>WebAudio tones]
     fx[fx.js<br/>confetti · toast · countUp]
     icons[icons.js]

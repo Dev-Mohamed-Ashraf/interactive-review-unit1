@@ -37,7 +37,7 @@
 .study-q { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 .study-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .study-note { margin-top: 22px; font-size: var(--fs-0); }
-.study-home-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 18px; }
+.study-home-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
 .study-home { display: flex; align-items: center; gap: 14px; padding: 16px 18px; text-decoration: none; color: inherit; border-color: var(--warn); }
 .study-home > div { display: grid; flex: 1; min-width: 0; }
 .done-note { margin: 8px 0 0; }
@@ -58,7 +58,10 @@
 .exam-report-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 640px) {
   .study .xp-pill { display: none; }
+  .study .topbar { flex-wrap: wrap; }
+  .study .topbar-title { flex: 1 1 calc(100% - 60px); }
   .study .topbar .icon-btn { flex: none; }
+  .study-home-row { grid-template-columns: minmax(0, 1fr); }
   .study-stats { gap: 8px; }
   .study-tile { padding: 10px 6px; }
   .study-tile b { font-size: var(--fs-2); white-space: nowrap; }

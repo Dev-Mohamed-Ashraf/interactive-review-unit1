@@ -57,7 +57,7 @@
         idx > 0 ? h('a', { class: 'btn btn-ghost', href: `#/l/${list[idx - 1]}` }, RV.icon('arrowPrev', 'flip-rtl'), list[idx - 1]) : h('span'),
         chapterNext(lesson, list, idx));
 
-      root.append(h('div', { class: 'screen path' }, top, hero, h('div', { class: 'path-tools' }, wheelBtn, h('a', { class: 'btn', href: `#/quick/${lesson.id}` }, '⚡ ', t({ ar: 'ملخص سريع', en: 'Quick summary' }))), h('div', { class: 'path-layout' }, objectives, road), nav));
+      root.append(h('div', { class: 'screen path' }, top, hero, h('div', { class: 'path-tools' }, wheelBtn, h('a', { class: 'btn', href: `#/quick/${lesson.id}` }, '⚡ ', t({ ar: 'ملخص سريع', en: 'Quick summary' })), h('a', { class: 'btn', href: `#/print/${lesson.id}` }, '🖨️ ', t({ ar: 'للطباعة', en: 'Print' }))), h('div', { class: 'path-layout' }, objectives, road), nav));
 
       const tl = gsap.timeline();
       tl.from('.path-hero-img', { opacity: 0, duration: 0.8, ease: 'power2.out' }) // (the <img> itself is moved by the CSS Ken Burns — never by GSAP too, or Safari shakes)
