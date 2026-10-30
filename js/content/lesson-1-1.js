@@ -10,7 +10,7 @@ RV.lessons.add('1-1', {
   title: { ar: 'تطور تكنولوجيا المعلومات والتحول الاجتماعي', en: 'Development of IT and Social Transformation' },
   guiding: { ar: 'إزاي تكنولوجيا المعلومات اتطوّرت عبر مراحلها الرئيسية، وإزاي كل مرحلة غيّرت المجتمع؟', en: 'How has IT developed through its major stages, and how has each stage changed society?' },
   hook: {
-    ar: 'في يوم عادي، طالب في مصر بيقرا رسايله على **السوشيال ميديا**، بيدفع فطاره بـ**تطبيق دفع**، بيحضر حصة **أونلاين**، وبيطلب كتاب من **متجر إلكتروني**. من عشرين سنة أغلب ده ماكانش ممكن!',
+    ar: 'في يوم عادي، طالب في مصر بيقرا رسايله على **السوشيال ميديا**، بيدفع فطاره بـ**تطبيق دفع**، بيحضر حصة **أونلاين**، وبيطلب كتاب من **متجر إلكتروني**. من تلاتين سنة أغلب ده ماكانش منتشر بالصورة دي!',
     en: 'On an ordinary day, a student in Egypt checks messages on **SNS**, pays for breakfast with a **cashless app**, joins an **online lesson**, and orders a book from an **e-commerce** shop. Twenty years ago most of this was impossible!',
   },
   keyFact: { ar: 'في كل مرحلة، تكنولوجيا المعلومات جابت __تقنية أو خدمة جديدة__، وغيّرت كمان طريقة المجتمع في __التواصل والشغل والتجارة__.', en: 'At each stage, IT introduced a __new technology or service__ and also changed how society __communicates, works, and does business__.' },
@@ -18,7 +18,7 @@ RV.lessons.add('1-1', {
   objectives: [
     { ar: 'أشرح المراحل الرئيسية في تطور تكنولوجيا المعلومات وأثرها في المجتمع.', en: 'Explain the major stages in the development of IT and their impact on society.' },
     { ar: 'أذكر أمثلة على التغيرات الاجتماعية والتقنيات الناشئة وأشرح خصائصها.', en: 'Give examples of social changes and emerging technologies and explain their characteristics.' },
-    { ar: 'أحسب عدد الترانزستورات بقانون مور لأي سنة.', en: "Calculate transistor counts for any year using Moore's Law." },
+    { ar: 'أحلّل أثر تقنية على فئات مختلفة من المجتمع وأبرّر قراري بالأدلة.', en: "Calculate transistor counts for any year using Moore's Law." },
   ],
 
   stations: [
@@ -35,7 +35,7 @@ RV.lessons.add('1-1', {
           terms: ['ENIAC', 'personal computer', 'Internet', 'smartphone', 'cloud computing'],
           visual: { anim: 'eraMovie' },
           beats: [
-            { ar: '📅 يوم عادي لطالب: بيقرا رسايله على __شبكات التواصل__، بيدفع فطاره __من غير كاش__، بيحضر حصة __أونلاين__، وبيطلب كتاب من __متجر إلكتروني__. من 20 سنة أغلب ده ماكانش موجود!', en: '📅 A normal day for a student: messages on __social networks__, breakfast paid __without cash__, an __online__ class, a book from an __online shop__. Twenty years ago most of this did not exist!' },
+            { ar: '📅 يوم عادي لطالب: بيقرا رسايله على __شبكات التواصل__، بيدفع فطاره __من غير كاش__، بيحضر حصة __أونلاين__، وبيطلب كتاب من __متجر إلكتروني__. من 30 سنة أغلب ده ماكانش منتشر بالصورة دي!', en: '📅 A normal day for a student: messages on __social networks__, breakfast paid __without cash__, an __online__ class, a book from an __online shop__. Twenty years ago most of this did not exist!' },
             { ar: '**① الأربعينيات–الستينيات:** __ميلاد الحاسب (ENIAC)__ بالصمامات المفرغة — كان بيملا أوضة كاملة (حوالي 30 طن)، واستخدامه __عسكري وعلمي__ بس.', en: '**① 1940s–60s:** __birth of the computer (ENIAC)__ with vacuum tubes — it filled a whole room (about 30 tonnes) and was used for __military and scientific__ work only.' },
             { ar: '**② السبعينيات–الثمانينيات:** انتشار __الحواسب الشخصية (PCs)__ — لأول مرة __الأفراد__ يستخدموا الحاسب.', en: '**② 1970s–80s:** __personal computers (PCs)__ spread — for the first time __individuals__ use computers.' },
             { ar: '**③ التسعينيات:** الإنترنت بقى __تجاري__ وظهر __الويب__ ← __عولمة المعلومات__ وانتشار البريد الإلكتروني.', en: '**③ 1990s:** the Internet goes __commercial__ and the __Web__ appears → __globalization of information__ and email.' },
@@ -99,7 +99,7 @@ RV.lessons.add('1-1', {
             { ar: '🔬 جوّه كل موبايل ولابتوب __شريحة (دائرة متكاملة)__ فيها مليارات __الترانزستورات__ — والترانزستور = __مفتاح صغير جدًا__: شغّال/مقفول = 1/0.', en: '🔬 Inside every phone and laptop is a __chip (integrated circuit)__ with billions of __transistors__ — a transistor = __a tiny switch__: on/off = 1/0.' },
             { ar: '📈 **قانون مور:** عدد الترانزستورات في الدائرة المتكاملة __بيتضاعف كل سنتين تقريبًا__ — من 2,300 (Intel 4004 سنة 1971) لأكتر من __100 مليار__ النهارده.', en: '📈 **Moore’s Law:** the number of transistors in an integrated circuit __doubles about every two years__ — from 2,300 (Intel 4004, 1971) to over __100 billion__ today.' },
             { ar: '⚠️ القانون بيتكلم عن __عدد الترانزستورات__ — مش سرعة الإنترنت ولا سرعة المعالج مباشرةً. وهو __«ملاحظة تجريبية»__ مش قانون فيزيائي.', en: '⚠️ The law is about the __number of transistors__ — not Internet speed nor CPU speed directly. And it is an __"empirical observation"__, not a law of physics.' },
-            { ar: '🧱 **المشكلة ①: الحد الفيزيائي** — الترانزستور بقى __أصغر من 10 نانومتر__، يعني عرضه كام ذرة بس! مش هينفع نصغّر للأبد.', en: '🧱 **Problem ①: the physical limit** — transistors are now __under 10 nanometres__, only a few atoms wide! We cannot shrink forever.' },
+            { ar: '🧱 **المشكلة ①: الحد الفيزيائي** — الترانزستور بقى __صغير جدًا__ وقرّب من مقياس الذرات. مش هينفع نصغّر للأبد.', en: '🧱 **Problem ①: the physical limit** — transistors are now __under 10 nanometres__, only a few atoms wide! We cannot shrink forever.' },
             { ar: '🔥 **المشكلة ②: تأثير النفق الكمومي** (الإلكترون بيعدّي الحاجز العازل) و**③: تيار التسرّب** (تيار بيهرب والمفتاح مقفول) ← __حرارة وطاقة أعلى__.', en: '🔥 **Problem ②: quantum tunnelling** (electrons pass through the insulating barrier) and **③: leakage current** (current escapes while off) → __more heat and power__.' },
             { ar: '🚀 **الحلول:** __تعدد الأنوية والمعالجة المتوازية__ (أنوية كتير بتقسّم الشغل في نفس الوقت) و__تصميمات متخصصة__. أما __الحوسبة الكمومية__ فنهج مختلف لفئات محددة من المسائل، مش بديل لكل الحواسيب.', en: '🚀 **Solutions:** __parallel processing__ (many cores share the work at the same time) and __quantum computers__ (computing based on quantum mechanics).' },
             { ar: '📌 **الخلاصة:** `N = N₀ × 2^n` و n = عدد السنين ÷ 2 — والقانون بيقرّب من حدّ فيزيائي (نفق كمومي + تيار تسرّب).', en: '📌 **The point:** `N = N₀ × 2^n` with n = years ÷ 2 — and the law is nearing a physical limit (tunnelling + leakage).' },
@@ -118,14 +118,14 @@ RV.lessons.add('1-1', {
         },
         {
           type: 'scene',
-          title: { ar: 'أول معالج في التاريخ: Intel 4004', en: 'The first microprocessor: Intel 4004' },
+          title: { ar: 'أول معالج دقيق تجاري: Intel 4004', en: 'The first microprocessor: Intel 4004' },
           visual: { anim: 'photo', props: { img: 'img/real-intel4004.webp', credit: 'Intel C4004 · Fouky / Wikimedia Commons · CC BY-SA 4.0', hotspots: [
             { x: 45, y: 30, icon: 'cpu', label: { ar: 'سنة 1971', en: 'Year 1971' }, beat: 0 },
             { x: 30, y: 75, icon: 'bolt', label: { ar: '2,300 ترانزستور بس!', en: 'only 2,300 transistors!' }, beat: 1 },
           ] } },
           beats: [
-            { ar: 'ده **Intel 4004** الحقيقي — أول معالج دقيق في التاريخ، اتعمل سنة __1971__.', en: 'This is the real **Intel 4004** — the first microprocessor, made in __1971__.' },
-            { ar: 'كان فيه __2,300 ترانزستور__ بس. موبايلك النهارده فيه أكتر من __15 مليار__ — وده بالظبط اللي قانون مور اتوقّعه.', en: 'It had only __2,300 transistors__. Your phone today has over __15 billion__ — exactly what Moore’s Law predicted.' },
+            { ar: 'ده **Intel 4004** الحقيقي — أول معالج دقيق تجاري، اتعمل سنة __1971__.', en: 'This is the real **Intel 4004** — the first microprocessor, made in __1971__.' },
+            { ar: 'كان فيه __2,300 ترانزستور__ بس. موبايلك النهارده فيه أكتر من __15 مليار__ — وده قريب من اللي قانون مور بيتوقّعه.', en: 'It had only __2,300 transistors__. Your phone today has over __15 billion__ — exactly what Moore’s Law predicted.' },
           ],
         },
         {
@@ -192,7 +192,7 @@ RV.lessons.add('1-1', {
             { ar: '**الخطوة 2 — عدد مرات التضاعف:** `n = 23 ÷ 2 = 11.5` __مرة__.', en: '**Step 2 — doublings:** n = 23 ÷ 2 = __11.5 times__.' },
             { ar: '**الخطوة 3 — نعوّض في القانون:** `N = 1,451 × 2^11.5`', en: '**Step 3 — substitute:** N = 1,451 × 2^11.5' },
             { ar: '**الخطوة 4 — نحسب 2^11.5:** = `2^11 × 2^0.5 = 2,048 × 1.414 ≈ 2,896` (يعني العدد اتضاعف حوالي 2,896 مرة!).', en: '**Step 4 — compute 2^11.5:** = 2^11 × 2^0.5 = 2,048 × 1.414 ≈ __2,896__ (the count grew about 2,896-fold!).' },
-            { ar: '**الناتج:** `N = 1,451 × 2,896 ≈ 4,202,545` __ترانزستور__ (حوالي 4.2 مليون).', en: '**Answer:** N = 1,451 × 2,896 ≈ __4,202,545 transistors__ (about 4.2 million).' },
+            { ar: '**الناتج:** `N = 1,451 × 2,896 ≈ 4,202,096` __ترانزستور__ (حوالي 4.2 مليون).', en: '**Answer:** N = 1,451 × 2,896 ≈ __4,202,545 transistors__ (about 4.2 million).' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'لو n فيها نص (زي 11.5)، استخدم `2^0.5 = √2 ≈ 1.414`.', en: 'If n has a half (like 11.5), use 2^0.5 = √2 ≈ 1.414.' } }],
         },
@@ -229,7 +229,7 @@ RV.lessons.add('1-1', {
           visual: { anim: 'mooreSolver', props: { mode: 'years', ratio: 16 } },
           beats: [
             { ar: '**المطلوب:** بعد كام سنة عدد الترانزستورات يبقى __16 ضعف__؟', en: '**Find:** after how many years is the count __16 times__ bigger?' },
-            { ar: '**الخطوة 1:** نكتب 16 كـ أُس للـ 2: `16 = 2×2×2×2 = 2` __^4__.', en: '**Step 1:** write 16 as a power of 2: 16 = 2×2×2×2 = __2^4__.' },
+            { ar: '**الخطوة 1:** نكتب 16 كـ أُس للـ 2: `16 = 2×2×2×2 = 2^4`.', en: '**Step 1:** write 16 as a power of 2: 16 = 2×2×2×2 = __2^4__.' },
             { ar: '**الخطوة 2:** يعني n = __4 مرات__ تضاعف.', en: '**Step 2:** so n = __4 doublings__.' },
             { ar: '**الناتج:** كل تضاعف = سنتين → `4 × 2 = 8` __سنين__.', en: '**Answer:** each doubling = 2 years → 4 × 2 = __8 years__.' },
           ],
@@ -399,7 +399,7 @@ RV.lessons.add('1-1', {
           visual: { anim: 'edgeVsCloud' },
           beats: [
             { ar: 'العربية ماشية __60 كم/س__ (يعني __16.7 متر كل ثانية__). فجأة واحد عدّى قدامها على بعد __25 متر__! القرار لازم يكون فوري.', en: 'The car moves at __60 km/h__ (that is __16.7 m every second__). Suddenly someone steps out __25 m__ ahead! The decision must be instant.' },
-            { ar: '**لو بعتنا البيانات للسحابة:** الإشارة تطلع للبرج ← السحابة ← ترجع… حوالي __0.8 ثانية__ — والعربية لسه ماشية __13 متر__ قبل ما تبدأ تفرمل → __خطر!__', en: '**If we send data to the cloud:** the signal goes to the tower → cloud → back… about __0.8 s__ — the car travels __13 m__ before braking even starts → __danger!__' },
+            { ar: '**لو بعتنا البيانات للسحابة (أرقام توضيحية):** الإشارة تطلع للبرج ← السحابة ← ترجع… حوالي __0.8 ثانية__ — والعربية لسه ماشية __13 متر__ قبل ما تبدأ تفرمل → __خطر!__', en: '**If we send data to the cloud:** the signal goes to the tower → cloud → back… about __0.8 s__ — the car travels __13 m__ before braking even starts → __danger!__' },
             { ar: '**بالحوسبة الطرفية:** القرار بيتاخد __جوه العربية نفسها__ في حوالي __0.05 ثانية__ → تبدأ تفرمل فورًا وتقف __في أمان__.', en: '**With edge computing:** the decision is made __on the car itself__ in about __0.05 s__ → braking starts immediately and it stops __safely__.' },
             { ar: '**الخلاصة:** تأخير حتى __0.1 ثانية__ ممكن يسبّب حادثة، عشان كده القيادة الذاتية بتستخدم **الحوسبة الطرفية**: معالجة البيانات __فورًا على الجهاز نفسه__ بدل إرسالها للسحابة.', en: '**Bottom line:** even a __0.1 s__ delay can cause an accident, so self-driving uses **edge computing**: processing data __instantly on the device itself__ instead of sending it to the cloud.' },
           ],
@@ -440,7 +440,7 @@ RV.lessons.add('1-1', {
           beats: [
             { ar: '**البِت التقليدي:** ليه حالة واحدة بس في المرة: __0 أو 1__ — زي مفتاح النور.', en: '**Classical bit:** one state at a time: __0 or 1__ — like a light switch.' },
             { ar: '**الكيوبت:** بيستخدم __التراكب (superposition)__ فيكون __0 و 1 مع بعض__ في نفس الوقت.', en: '**Qubit:** uses __superposition__ to be __0 and 1 at the same time__.' },
-            { ar: '**الحوسبة الكمومية:** تقنية متوقع إنها __تسرّع بشكل هائل__ حسابات __صعبة أو مستحيلة__ على الحاسب التقليدي، باستخدام __مبادئ ميكانيكا الكم__.', en: '**Quantum computing:** expected to __dramatically speed up__ computations that are __difficult or impossible__ for traditional computers, using __quantum mechanics__.' },
+            { ar: '**الحوسبة الكمومية:** نهج بيستخدم __خصائص ميكانيكا الكم__، وممكن يتفوّق في __فئات محددة من المسائل__، لكنه __مش بيسرّع كل الحسابات__.', en: '**Quantum computing:** expected to __dramatically speed up__ computations that are __difficult or impossible__ for traditional computers, using __quantum mechanics__.' },
           ],
         },
         {
@@ -448,7 +448,7 @@ RV.lessons.add('1-1', {
           q: { widget: 'match', prompt: { ar: 'وصّل كل وصف بالتقنية المناسبة:', en: 'Match each description with the technology:' },
             left: [
               { ar: 'تضيف معلومات رقمية فوق صور العالم الحقيقي', en: 'Overlays digital information on real-world images' },
-              { ar: 'تستخدم الذكاء الاصطناعي لقيادة مركبة بدون إنسان', en: 'Uses AI to drive a vehicle without a human' },
+              { ar: 'تستخدم الذكاء الاصطناعي لقيادة مركبة بأقل تدخل بشري', en: 'Uses AI to drive a vehicle without a human' },
               { ar: 'تُغرق المستخدم في فضاء افتراضي', en: 'Immerses the user in a virtual space' },
             ],
             right: [
@@ -464,7 +464,7 @@ RV.lessons.add('1-1', {
             { ar: 'تكنولوجيا المعلومات اتطوّرت __على مراحل__: حاسب ← PC ← إنترنت ← موبايل ← سحابة، وكل مرحلة غيّرت __المجتمع__ مش الأجهزة بس.', en: 'IT developed __in stages__: computer → PC → Internet → smartphone → cloud, and each reshaped __society__, not just devices.' },
             { ar: '**قانون مور:** الترانزستورات ×2 كل سنتين — `N = N₀ × 2^n`، و n = عدد السنين ÷ 2. وبيقرّب من __حدّ فيزيائي__ (نفق كمومي + تيار تسرّب).', en: "**Moore's Law:** transistors ×2 every two years — `N = N₀ × 2^n`, n = years ÷ 2. It is nearing a __physical limit__ (tunneling + leakage)." },
             { ar: 'خمس تحولات: **SNS · تجارة إلكترونية · عمل عن بُعد · تعلّم أونلاين · دفع غير نقدي**.', en: 'Five changes: **SNS · e-commerce · remote work · online learning · cashless payment**.' },
-            { ar: 'تقنيات ناشئة: **القيادة الذاتية** (بحوسبة طرفية) · **AR** يضيف · **VR** يستبدل · **الحوسبة الكمومية** تسرّع الحسابات الصعبة.', en: 'Emerging: **autonomous driving** (with edge computing) · **AR** adds · **VR** replaces · **quantum** speeds up hard computations.' },
+            { ar: 'تقنيات ناشئة: **القيادة الذاتية** (بحوسبة طرفية) · **AR** يضيف · **VR** يستبدل · **الحوسبة الكمومية** ممكن تتفوّق في مسائل محددة.', en: 'Emerging: **autonomous driving** (with edge computing) · **AR** adds · **VR** replaces · **quantum** speeds up hard computations.' },
           ],
         },
       ],
@@ -510,14 +510,14 @@ RV.lessons.add('1-1', {
           q: { widget: 'match', prompt: { ar: '(3) وافِق بين الوصف والتقنية:', en: '(3) Match description and technology:' },
             left: [
               { ar: 'تضيف معلومات رقمية فوق صور العالم الحقيقي', en: 'Overlays digital info on real-world images' },
-              { ar: 'تقود مركبة بالذكاء الاصطناعي بدون إنسان', en: 'Drives a vehicle with AI, no human' },
+              { ar: 'تقود مركبة بالذكاء الاصطناعي بأقل تدخل بشري', en: 'Drives a vehicle with AI, no human' },
               { ar: 'تُغرق المستخدم في فضاء افتراضي', en: 'Immerses the user in a virtual space' },
             ],
             right: [{ ar: 'A القيادة الذاتية', en: 'A Autonomous driving' }, { ar: 'B الواقع المعزز', en: 'B AR' }, { ar: 'C الواقع الافتراضي', en: 'C VR' }],
             answer: [1, 0, 2] },
           solution: [
             { ar: 'a: إضافة معلومات رقمية فوق الحقيقي = **AR** ← B.', en: 'a: overlaying digital info on reality = **AR** → B.' },
-            { ar: 'b: قيادة بدون إنسان = **قيادة ذاتية** ← A.', en: 'b: driving without a human = **autonomous driving** → A.' },
+            { ar: 'b: قيادة بأقل تدخل بشري = **قيادة ذاتية** ← A.', en: 'b: driving without a human = **autonomous driving** → A.' },
             { ar: 'c: الانغماس في فضاء افتراضي = **VR** ← C.', en: 'c: immersion in a virtual space = **VR** → C.' },
           ],
         },
@@ -536,7 +536,7 @@ RV.lessons.add('1-1', {
             { q: { ar: 'بيع وشراء السلع والخدمات باستخدام الإنترنت؟', en: 'Buying/selling goods and services using the Internet?' }, a: { ar: 'التجارة الإلكترونية (EC)', en: 'E-commerce (EC)' } },
             { q: { ar: 'نمط العمل من المنزل أو مكان بعيد باستخدام الإنترنت؟', en: 'Working from home or a remote location using the Internet?' }, a: { ar: 'العمل عن بُعد', en: 'Remote work' } },
             { q: { ar: 'نظام الدفع بالنقود الإلكترونية ورموز QR دون كاش؟', en: 'Paying with e-money / QR codes without cash?' }, a: { ar: 'الدفع غير النقدي', en: 'Cashless payment' } },
-            { q: { ar: 'التقنية التي تستخدم الذكاء الاصطناعي لقيادة مركبة دون إنسان؟', en: 'Technology that uses AI to drive a vehicle without a human?' }, a: { ar: 'القيادة الذاتية', en: 'Autonomous driving' } },
+            { q: { ar: 'التقنية التي تستخدم الذكاء الاصطناعي لقيادة مركبة بأقل تدخل بشري؟', en: 'Technology that uses AI to drive a vehicle without a human?' }, a: { ar: 'القيادة الذاتية', en: 'Autonomous driving' } },
           ] },
         },
         {
@@ -549,17 +549,17 @@ RV.lessons.add('1-1', {
             ],
             items: [
               { text: { ar: 'حضور حصص عبر التعلّم الإلكتروني', en: 'Taking classes through online learning' }, group: 2 },
-              { text: { ar: 'الدفع بتطبيق موبايل', en: 'Paying with a mobile payment app' }, group: 1 },
+              { text: { ar: 'الدفع بتطبيق موبايل', en: 'Paying with a mobile payment app' }, group: 0 },
               { text: { ar: 'مشاركة صور مع الأصحاب على SNS', en: 'Sharing photos with friends on SNS' }, group: 0 },
               { text: { ar: 'شركة تطبّق نظام العمل من المنزل', en: 'A company adopting work-from-home' }, group: 1 },
             ],
-            explain: { ar: 'التعلّم ← تعليم · الدفع غير النقدي والعمل عن بُعد ← اقتصاد وصناعة · مشاركة الصور ← حياة يومية.', en: 'Learning → education · cashless payment & remote work → economy · sharing photos → daily life.' } },
+            explain: { ar: 'التعلّم ← تعليم · العمل عن بُعد في الشركات ← صناعة واقتصاد · الدفع بالموبايل ومشاركة الصور ← حياة يومية.', en: 'Learning → education · remote work → economy · mobile payment and sharing photos → daily life.' } },
         },
         {
           type: 'quiz', title: { ar: 'تمرين 2 (2)', en: 'Try 2 (2)' },
           q: { widget: 'mcq', prompt: { ar: 'اختر الوصف __غير__ المناسب لتقنية ناشئة:', en: 'Choose the description that is NOT appropriate:' },
             options: [
-              { ar: 'القيادة الذاتية تستخدم الذكاء الاصطناعي لقيادة مركبة دون إنسان.', en: 'Autonomous driving uses AI to drive without a human.' },
+              { ar: 'القيادة الذاتية تستخدم الذكاء الاصطناعي لقيادة مركبة بأقل تدخل بشري.', en: 'Autonomous driving uses AI to drive without a human.' },
               { ar: 'الواقع المعزز يضيف معلومات رقمية فوق صور العالم الحقيقي.', en: 'AR overlays digital info on real-world images.' },
               { ar: 'الواقع الافتراضي يحسّن بشكل كبير سرعة معالجة الحاسب.', en: 'VR dramatically improves processing speed.' },
               { ar: 'الحوسبة الكمومية متوقّع أن تسرّع حسابات صعبة على الحاسب التقليدي.', en: 'Quantum computing is expected to speed up hard computations.' },
@@ -625,10 +625,10 @@ RV.lessons.add('1-1', {
           { front: { ar: 'العمل عن بُعد', en: 'Remote work' }, back: { ar: 'العمل من المنزل أو مكان بعيد عبر الإنترنت.', en: 'Working from home or a remote location over the Internet.' } },
           { front: { ar: 'التعلّم عبر الإنترنت', en: 'Online learning' }, back: { ar: 'تقديم الدروس والمواد عبر الإنترنت.', en: 'Classes and materials delivered over the Internet.' } },
           { front: { ar: 'الدفع غير النقدي', en: 'Cashless payment' }, back: { ar: 'الدفع بنقود إلكترونية أو QR دون كاش.', en: 'Payment without cash (e-money, QR).' } },
-          { front: { ar: 'القيادة الذاتية', en: 'Autonomous driving' }, back: { ar: 'تقنية تستخدم الذكاء الاصطناعي لقيادة المركبة بدون إنسان.', en: 'AI drives a vehicle without human operation.' } },
+          { front: { ar: 'القيادة الذاتية', en: 'Autonomous driving' }, back: { ar: 'تقنية تستخدم الذكاء الاصطناعي لقيادة المركبة بأقل تدخل بشري حسب مستوى الأتمتة.', en: 'AI drives a vehicle without human operation.' } },
           { front: { ar: 'الواقع المعزز AR', en: 'AR' }, back: { ar: 'يضيف معلومات رقمية فوق صور العالم الحقيقي.', en: 'Overlays digital information on real-world images.' } },
           { front: { ar: 'الواقع الافتراضي VR', en: 'VR' }, back: { ar: 'ينغمس فيه المستخدم في عالم افتراضي كامل.', en: 'Immersion in a computer-generated virtual space.' } },
-          { front: { ar: 'الحوسبة الكمومية', en: 'Quantum computing' }, back: { ar: 'تسرّع حسابات صعبة على الحاسب التقليدي بمبادئ ميكانيكا الكم.', en: 'Speeds up hard computations using quantum mechanics.' } },
+          { front: { ar: 'الحوسبة الكمومية', en: 'Quantum computing' }, back: { ar: 'ممكن تتفوّق في فئات محددة من المسائل بخصائص ميكانيكا الكم.', en: 'Speeds up hard computations using quantum mechanics.' } },
         ] },
       }],
     },
@@ -648,7 +648,7 @@ RV.lessons.add('1-1', {
               { ar: '«IT كخدمة»: الناس والشركات بتستأجر الخدمة عبر الإنترنت بدل شراء أجهزة.', en: '"IT as a service": rent services online instead of buying hardware.' },
               { ar: 'مثال واقعي (Google Drive / Netflix / ChatGPT…).', en: 'A real example (Google Drive / Netflix / ChatGPT…).' },
             ],
-            model: { ar: 'مع انتشار الحوسبة السحابية بقت موارد التخزين والمعالجة متاحة عبر الإنترنت بكميات ضخمة، فأصبح ممكن تحليل بيانات ضخمة جدًا كانت مستحيلة على جهاز واحد. القدرة دي هي اللي سمحت بتدريب وتشغيل أنظمة الذكاء الاصطناعي. وكمان اتغيّر مفهوم الاستخدام لـ«تكنولوجيا المعلومات كخدمة»: بدل ما الشركة تشتري سيرفرات، بتستأجر الخدمة وتدفع على قد استخدامها — زي تخزين الصور على Google Drive أو مشاهدة Netflix.', en: 'With cloud computing, huge storage and processing became available over the Internet, making large-scale data analysis possible. That capacity enabled training and running AI systems. Usage shifted to "IT as a service": instead of buying servers, organizations rent services and pay per use — e.g. Google Drive storage or Netflix streaming.' } },
+            model: { ar: 'مع انتشار الحوسبة السحابية بقت موارد التخزين والمعالجة متاحة عبر الإنترنت بكميات كبيرة، فأصبح ممكن تحليل بيانات ضخمة جدًا كانت مستحيلة على جهاز واحد. القدرة دي هي اللي سمحت بتدريب وتشغيل أنظمة الذكاء الاصطناعي. وكمان اتغيّر مفهوم الاستخدام لـ«تكنولوجيا المعلومات كخدمة»: بدل ما الشركة تشتري سيرفرات، بتستأجر الخدمة وتدفع على قد استخدامها — زي تخزين الصور على Google Drive أو مشاهدة Netflix.', en: 'With cloud computing, huge storage and processing became available over the Internet, making large-scale data analysis possible. That capacity enabled training and running AI systems. Usage shifted to "IT as a service": instead of buying servers, organizations rent services and pay per use — e.g. Google Drive storage or Netflix streaming.' } },
         },
         {
           type: 'quiz', optional: true,
@@ -738,8 +738,8 @@ RV.lessons.add('1-1', {
             { text: { ar: 'المعالجة المتوازية = نواة واحدة أسرع', en: 'Parallel processing = one faster core' }, answer: false },
             { text: { ar: 'شبكات التواصل بتنشر المعلومة بسرعة', en: 'SNS spread information quickly' }, answer: true },
             { text: { ar: 'العمل عن بُعد لازم يكون من المكتب', en: 'Remote work must be from the office' }, answer: false },
-            { text: { ar: 'من 2002 لـ `2025 = 11.5` مرة تضاعف', en: '2002 to 2025 = 11.5 doublings' }, answer: true },
-            { text: { ar: 'من 2010 لـ `2016 = 6` مرات تضاعف', en: '2010 to 2016 = 6 doublings' }, answer: false },
+            { text: { ar: 'من 2002 لـ 2025 = `11.5` مرة تضاعف', en: '2002 to 2025 = 11.5 doublings' }, answer: true },
+            { text: { ar: 'من 2010 لـ 2016 = `6` مرات تضاعف', en: '2010 to 2016 = 6 doublings' }, answer: false },
         ] },
       }],
     },
@@ -762,15 +762,15 @@ RV.lessons.add('1-1', {
           { ar: 'شراء هدوم بالكاش من محل في المول', en: 'Buying clothes with cash in a mall shop' }, { ar: 'الشراء من متجر إنترنت مثل أمازون', en: 'Buying from an online store like Amazon' }, { ar: 'حضور حصة أونلاين مع مدرس من البيت', en: 'Attending an online lesson from home' }, { ar: 'دفع الفطار بالموبايل بـ QR في المدرسة', en: 'Paying for breakfast by QR at school' },
         ], answer: 1 } },
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '4. لماذا تستخدم القيادة الذاتية الحوسبة الطرفية بدل السحابة؟', en: '4. Why does autonomous driving use edge computing instead of the cloud?' }, options: [
-          { ar: 'لأن الحوسبة الطرفية أرخص بكثير من السحابة', en: 'Because edge computing is much cheaper than the cloud' }, { ar: 'لتقليل كمية بيانات الإنترنت التي تستهلكها العربية', en: 'To cut down how much Internet data the car uses' }, { ar: 'لأن القرار يجب أن يُتّخذ في أقل من 0.1 ثانية', en: 'Because the decision must be taken in under 0.1 s' }, { ar: 'لأن السحابة لا تستطيع تحليل صور الكاميرات', en: 'Because the cloud cannot analyse camera images' },
+          { ar: 'لأن الحوسبة الطرفية أرخص بكثير من السحابة', en: 'Because edge computing is much cheaper than the cloud' }, { ar: 'لتقليل كمية بيانات الإنترنت التي تستهلكها العربية', en: 'To cut down how much Internet data the car uses' }, { ar: 'لأن التأخير في القرار قد يؤثر في السلامة', en: 'Because the decision must be taken in under 0.1 s' }, { ar: 'لأن السحابة لا تستطيع تحليل صور الكاميرات', en: 'Because the cloud cannot analyse camera images' },
         ], answer: 2 } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '5. الحوسبة الطرفية ترسل كل البيانات للسحابة أولًا قبل اتخاذ أي قرار.', en: '5. Edge computing sends all data to the cloud first.' }, answer: false }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '6. الواقع المعزّز (AR) يستبدل العالم الحقيقي بالكامل ببيئة افتراضية.', en: '6. AR completely replaces the real world.' }, answer: false }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '7. الحوسبة الكمومية هدفها تسريع حسابات صعبة على الحاسب التقليدي.', en: '7. Quantum computing aims to speed up hard computations.' }, answer: true }] } },
         { type: 'quiz', q: { widget: 'numeric', prompt: { ar: '8. شريحة فيها 2,000 ترانزستور سنة 2010. كام ترانزستور سنة 2018 حسب قانون مور؟', en: '8. A chip has 2,000 transistors in 2010. How many in 2018 by Moore\'s Law?' }, answer: 32000, tolerance: 0, check: { mode: 'forward', y0: 2010, n0: 2000, y1: 2018 }, explain: { ar: 'n = 8 ÷ 2 = 4 → 2,000 × 16 = 32,000', en: 'n = 8 ÷ 2 = 4 → 2,000 × 16 = 32,000' } } },
         { type: 'quiz', q: { widget: 'essay', prompt: { ar: '9. اشرح باختصار لماذا يقترب قانون مور من حدّ فيزيائي، مع ذكر ظاهرة واحدة.', en: "9. Briefly explain why Moore's Law is approaching a physical limit; name one effect." },
-          points: [{ ar: 'الترانزستورات صغرت لحجم بضع ذرات.', en: 'Transistors shrank to a few atoms wide.' }, { ar: 'ذِكر النفق الكمومي أو تيار التسرّب وشرحه.', en: 'Names and explains quantum tunneling or leakage current.' }],
-          model: { ar: 'لأن الترانزستورات صغرت جدًا لحجم بضع ذرات، فبتظهر مشاكل زي تأثير النفق الكمومي اللي فيه الإلكترونات بتعدّي الحاجز العازل، فيصعب الجمع بين أداء أعلى واستهلاك طاقة أقل.', en: 'Transistors are now only a few atoms wide, so effects like quantum tunneling (electrons passing through the insulating barrier) appear, making it hard to get both higher performance and lower power.' } } },
+          points: [{ ar: 'الترانزستورات صغرت جدًا وقربت من مقياس الذرات.', en: 'Transistors shrank to a few atoms wide.' }, { ar: 'ذِكر النفق الكمومي أو تيار التسرّب وشرحه.', en: 'Names and explains quantum tunneling or leakage current.' }],
+          model: { ar: 'لأن الترانزستورات صغرت جدًا وقربت من مقياس الذرات، فبتظهر مشاكل زي تأثير النفق الكمومي اللي فيه الإلكترونات بتعدّي الحاجز العازل، فيصعب الجمع بين أداء أعلى واستهلاك طاقة أقل.', en: 'Transistors are now only a few atoms wide, so effects like quantum tunneling (electrons passing through the insulating barrier) appear, making it hard to get both higher performance and lower power.' } } },
         { type: 'quiz', q: { widget: 'essay', prompt: { ar: '10. اذكر تحوّلين اجتماعيين أحدثتهما تكنولوجيا المعلومات، واشرح خاصية واحدة لكل منهما.', en: '10. Name two social changes brought by IT and one characteristic of each.' },
           points: [{ ar: 'تحوّل أول + خاصيته (مثلًا SNS: تنشر المعلومة بسرعة).', en: 'First change + characteristic (e.g. SNS spreads info fast).' }, { ar: 'تحوّل تاني + خاصيته (مثلًا التجارة الإلكترونية: بيع وشراء عبر الإنترنت).', en: 'Second change + characteristic (e.g. e-commerce: buying/selling online).' }],
           model: { ar: 'شبكات التواصل الاجتماعي: بتتيح التواصل ونشر المعلومات وتنشرها بسرعة كبيرة. التجارة الإلكترونية: بيع وشراء السلع والخدمات عبر الإنترنت مثل Amazon.', en: 'SNS: lets users connect and share, spreading information rapidly. E-commerce: buying and selling goods and services online, e.g. Amazon.' } } },

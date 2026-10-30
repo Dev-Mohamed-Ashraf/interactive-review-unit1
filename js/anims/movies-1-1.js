@@ -76,7 +76,7 @@
     ${U.hd(3, '③ ' + L('التسعينيات: الإنترنت تجاريًا + الويب', '1990s: commercial Internet + the Web'))}
     ${U.hd(4, '④ ' + L('الألفينات: الهواتف الذكية', '2000s: smartphones'))}
     ${U.hd(5, '⑤ ' + L('من 2010 فصاعدًا: الحوسبة السحابية', '2010s onward: cloud computing'))}
-    ${U.nt(0, L('من 20 سنة أغلب ده ماكانش موجود! — تعالوا نرجع بالزمن', 'Twenty years ago most of this did not exist! — let’s travel back'), 'warn')}
+    ${U.nt(0, L('من 30 سنة أغلب ده ماكانش منتشر بالصورة دي! — تعالوا نرجع بالزمن', 'Twenty years ago most of this did not exist! — let’s travel back'), 'warn')}
     ${U.nt(1, L('مافيش كيبورد ولا شاشة: كان بيتبرمج بالأسلاك والمفاتيح', 'No keyboard, no screen: programmed with cables and switches'))}
     ${U.nt(2, L('الحاسب نزل من المعامل… للبيوت والمكاتب', 'The computer leaves the labs… for homes and offices'))}
     ${U.nt(3, L('المعلومة بقت توصل لأي حد في العالم', 'Information now reaches anyone in the world'))}
@@ -190,7 +190,7 @@
     ${U.bub('b2', 30, 505, 400, L('خلّي بالك: الكلام عن «العدد» بس', 'Careful: it is only about the COUNT') + ' ☝️')}
 
     ${U.art('atoms', 520, 250, 520, 240, '0 0 520 240', ART_ATOMS)}
-    ${U.pill('nm', 600, 520, L('أصغر من 10 نانومتر = عرض كام ذرة بس', 'under 10 nm = only a few atoms wide'), 't-amber')}
+    ${U.pill('nm', 600, 520, L('التصغير قرّب من مقياس الذرات', 'under 10 nm = only a few atoms wide'), 't-amber')}
     ${U.box('i3', 1180, 240, 700, 't-amber', { ic: '🧱', h: L('المشكلة ①: الحد الفيزيائي', 'Problem ①: the physical limit'), p: L('الترانزستور صغر جدًا', 'the transistor got extremely small'), s: L('مش هينفع نصغّر للأبد', 'we cannot shrink forever') })}
 
     ${U.art('tun', 480, 230, 300, 260, '0 0 300 260', ART_TUNNEL)}
@@ -201,7 +201,7 @@
     ${U.art('core1', 480, 250, 360, 240, '0 0 360 240', ART_CORE(1))}
     ${U.art('core4', 480, 250, 360, 260, '0 0 360 260', ART_CORE(4))}
     ${U.box('i5a', 900, 240, 480, 't-green', { ic: '⚙️', h: L('المعالجة المتوازية', 'Parallel processing'), p: L('أنوية كتير بتقسّم الشغل في نفس الوقت', 'many cores share the work at once') })}
-    ${U.box('i5b', 1400, 240, 480, 't-violet', { ic: '⚛️', h: L('الحواسب الكمومية', 'Quantum computers'), p: L('حساب مبني على مبادئ ميكانيكا الكم', 'computing based on quantum mechanics') })}
+    ${U.box('i5b', 1400, 240, 480, 't-violet', { ic: '⚛️', h: L('الحواسب الكمومية', 'Quantum computers'), p: L('نهج مختلف لفئات محددة من المسائل', 'computing based on quantum mechanics') })}
     ${U.bub('b5', 30, 505, 400, L('بدل ما نصغّر أكتر… نشتغل بذكاء أكتر', 'Instead of shrinking more… work smarter') + ' 💡')}
 
     ${U.hd(0, '🔬 ' + L('جوّه كل جهاز… شريحة', 'Inside every device… a chip'))}
@@ -218,7 +218,7 @@
     ${U.hd(6, '💡 ' + L('الخلاصة', 'The point'))}
     ${U.box('r1', 1290, 140, 540, 't-blue', { ic: '📈', h: L('قانون مور', 'Moore’s Law'), p: L('الترانزستورات ×2 كل سنتين', 'transistors ×2 every 2 years') })}
     ${U.box('r2', 690, 140, 540, 't-red', { ic: '🧱', h: L('المشاكل', 'The limits'), p: L('حد فيزيائي · نفق كمومي · تيار تسرّب', 'physical limit · tunnelling · leakage') })}
-    ${U.box('r3', 90, 140, 540, 't-green', { ic: '🚀', h: L('الحلول', 'Solutions'), p: L('معالجة متوازية · حواسب كمومية', 'parallel processing · quantum computers') })}
+    ${U.box('r3', 90, 140, 540, 't-green', { ic: '🚀', h: L('الحلول', 'Solutions'), p: L('تعدد الأنوية · معالجة متوازية · تصميمات متخصصة', 'parallel processing · quantum computers') })}
     ${U.rp('rp1', 500, '<bdi class="code">N = N₀ × 2ⁿ</bdi>  ·  <bdi>' + L('n = عدد السنين ÷ 2', 'n = number of years ÷ 2') + '</bdi>', 't-amber')}
   </div>`,
     });
@@ -355,7 +355,7 @@
 
     ${U.art('car', 470, 300, 560, 320, '0 0 560 320', ART_CAR)}
     ${U.emo('ped', 1042, 384, 116, 80, '🚶')}
-    ${U.box('i3', 1200, 230, 680, 't-blue', { ic: '🚗', h: L('القيادة الذاتية', 'Self-driving'), p: L('الذكاء الاصطناعي بيسوق العربية من غير سواق', 'AI drives the car with no driver') })}
+    ${U.box('i3', 1200, 230, 680, 't-blue', { ic: '🚗', h: L('القيادة الذاتية', 'Self-driving'), p: L('الذكاء الاصطناعي بيساعد في القيادة بأقل تدخل بشري', 'AI drives the car with no driver') })}
     ${U.pill('p3a', 1220, 480, '👀 ' + L('تشوف: كاميرات وحسّاسات', 'Sees: cameras & sensors'), 't-amber')}
     ${U.pill('p3b', 1220, 560, '🧠 ' + L('تفكّر: تتعرّف وتقرّر', 'Thinks: recognises & decides'), 't-violet')}
     ${U.pill('p3c', 1220, 640, '🦶 ' + L('تتصرّف: دريكسيون وفرامل', 'Acts: steering & brakes'), 't-green')}
@@ -372,7 +372,7 @@
 
     ${U.box('i6a', d ? 1280 : 470, 240, 600, 't-slate', { ic: '💡', h: L('البِت التقليدي', 'A classical bit'), p: L('0 أو 1 — حالة واحدة في المرة', '0 OR 1 — one state at a time') })}
     <div id="so-bit" class="later so-bit" ${MK.S(d ? 1510 : 700, 500, 140)}>0</div><div id="so-bit1" class="later so-bit" ${MK.S(d ? 1510 : 700, 500, 140)}>1</div>
-    ${U.box('i6b', d ? 470 : 1120, 240, 760, 't-violet', { ic: '⚛️', h: L('الكيوبت', 'A qubit'), p: L('0 و 1 مع بعض في نفس الوقت (التراكب)', '0 AND 1 at the same time (superposition)'), s: L('تسرّع بشكل هائل حسابات صعبة على الحاسب العادي', 'hugely speeds up calculations hard for normal computers') })}
+    ${U.box('i6b', d ? 470 : 1120, 240, 760, 't-violet', { ic: '⚛️', h: L('الكيوبت', 'A qubit'), p: L('0 و 1 مع بعض في نفس الوقت (التراكب)', '0 AND 1 at the same time (superposition)'), s: L('ممكن تتفوّق في فئات محددة من المسائل', 'hugely speeds up calculations hard for normal computers') })}
     <div id="so-qb" class="later so-bit q" ${MK.S(d ? 740 : 1390, 540, 220)}>0 + 1</div>
 
     ${U.hd(0, '① ' + L('شبكات التواصل الاجتماعي', 'Social networking'))}
@@ -389,7 +389,7 @@
   <div id="so-recap" class="mv-recap">
     ${U.hd(7, '💡 ' + L('الخلاصة', 'The point'))}
     ${U.box('r1', 990, 140, 840, 't-blue', { ic: '👥', h: L('خمس تحولات اجتماعية', 'Five social changes'), p: L('SNS · تجارة إلكترونية · عمل عن بُعد', 'SNS · e-commerce · remote work'), s: L('تعلّم أونلاين · دفع غير نقدي', 'online learning · cashless payment') })}
-    ${U.box('r2', 90, 140, 840, 't-violet', { ic: '🚀', h: L('تقنيات ناشئة', 'Emerging technologies'), p: L('قيادة ذاتية (بحوسبة طرفية)', 'self-driving (edge computing)'), s: L('AR يضيف · VR يستبدل · الكمومية تسرّع', 'AR adds · VR replaces · quantum speeds up') })}
+    ${U.box('r2', 90, 140, 840, 't-violet', { ic: '🚀', h: L('تقنيات ناشئة', 'Emerging technologies'), p: L('قيادة ذاتية (بحوسبة طرفية)', 'self-driving (edge computing)'), s: L('AR يضيف · VR يستبدل · الكمومية لمسائل محددة', 'AR adds · VR replaces · quantum speeds up') })}
     ${U.rp('rp1', 520, '🔁 ' + L('كل تقنية جديدة بتغيّر طريقة تواصلنا وشغلنا وتجارتنا', 'Each new technology changes how we communicate, work and trade'), 't-green')}
   </div>`,
     });

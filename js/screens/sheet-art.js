@@ -99,7 +99,7 @@
       const col = (i, l) => { const v = (i + 1) * (l + 1); return v >= 6 ? '#fecaca' : v >= 3 ? '#fde68a' : '#bbf7d0'; };
       const dot = (i, l, s, v) => { const x = x0 + i * cell + cell / 2, y = y0 + (2 - l) * cell + cell / 2; return `<circle cx="${x}" cy="${y}" r="15" fill="#0f172a"/><text x="${x}" y="${y + 4.5}" text-anchor="middle" font-size="12" style="fill:#fff">${s}=${v}</text>`; };
       return svg(250, 172, `${seq(9, (k) => { const i = k % 3, l = Math.floor(k / 3); return `<rect x="${x0 + i * cell}" y="${y0 + (2 - l) * cell}" width="${cell - 2}" height="${cell - 2}" rx="5" fill="${col(i, l)}"/>`; })}
-        ${dot(2, 2, 'a', 9)}${dot(2, 1, 'c', 6)}${dot(0, 2, 'b', 3)}${dot(0, 0, 'd', 1)}${txt(x0 + 66, 160, T('التأثير →', 'Impact →'), 12)}<text x="24" y="80" text-anchor="middle" font-size="12" transform="rotate(-90 24 80)">${T('الاحتمالية →', 'Likelihood →')}</text>`);
+        ${dot(2, 2, 'a', 9)}${T(dot(2, 0, 'c', 3), dot(2, 1, 'c', 6))}${dot(0, 2, 'b', 3)}${dot(0, 0, 'd', 1)}${txt(x0 + 66, 160, T('التأثير →', 'Impact →'), 12)}<text x="24" y="80" text-anchor="middle" font-size="12" transform="rotate(-90 24 80)">${T('الاحتمالية →', 'Likelihood →')}</text>`);
     },
     semantic() {
       return svg(250, 150, `<rect x="4" y="4" width="242" height="142" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>${tag(14, 12, 222, 26, '&lt;header&gt;', '#bae6fd', 12)}${tag(14, 44, 222, 22, '&lt;nav&gt;', '#fde68a', 12)}${tag(14, 72, 222, 42, '&lt;main&gt;', '#bbf7d0', 12)}${tag(14, 120, 222, 20, '&lt;footer&gt;', '#ddd6fe', 11.5)}`);

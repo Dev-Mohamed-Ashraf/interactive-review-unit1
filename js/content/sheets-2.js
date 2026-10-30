@@ -193,10 +193,10 @@
       [{ t: 'formula', f: T('درجة الخطر = درجة التأثير × درجة الاحتمالية', 'Risk size = impact × likelihood'), p: T('طريقة مبسطة · الخطر: احتمال حدث يسبب ضررًا · التأثير: حجم الضرر · الاحتمالية: مدى احتمال وقوعه · ترتيب باقي الحالات حسب المصفوفة والسياق والضوابط', 'Risk: a possible future problem and its effect · impact: how much harm · likelihood: how probable') }],
       [
         { t: 'draw', art: 'risk', ic: '📊', title: T('مصفوفة المخاطر', 'Risk matrix') },
-        { t: 'vflow', ic: '🥇', title: T('الترتيب: a > c > b > d', 'Order: a > c > b > d'), items: [
+        { t: 'vflow', ic: '🥇', title: T('الترتيب: a، بعدين b وc متساويتين، بعدين d', 'Order: a > c > b > d'), items: [
           { h: T('a = 3 × 3 = 9 — الأول', 'a = 3 × 3 = 9 — first'), p: T('تأثير كبير × احتمالية عالية', 'large impact × high likelihood'), c: 'red' },
-          { h: 'c = 3 × 2 = 6', p: T('كبير × متوسطة', 'large × medium'), c: 'amber' },
-          { h: 'b = 1 × 3 = 3', p: T('صغير × عالية', 'small × high'), c: 'amber' },
+          { h: T('c = 3 × 1 = 3', 'c = 3 × 2 = 6'), p: T('كبير × منخفضة', 'large × medium'), c: 'amber' },
+          { h: T('b = 1 × 3 = 3 — زي c', 'b = 1 × 3 = 3'), p: T('صغير × عالية', 'small × high'), c: 'amber' },
           { h: T('d = 1 × 1 = 1 — الأخير', 'd = 1 × 1 = 1 — last'), p: T('صغير × منخفضة', 'small × low'), c: 'green' },
         ] },
       ],

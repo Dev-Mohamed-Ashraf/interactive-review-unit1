@@ -61,12 +61,12 @@
     ${B.card('cmpA', 320, 550, 620, 0, 'c-blue', { row: true, ic: '🔑', h: L('المتماثل', 'Common key'), p: L('سريع ⚡ — بس توصيل المفتاح خطر', 'fast ⚡ — but sending the key is risky') })}
     ${B.card('cmpB', 980, 550, 620, 0, 'c-violet', { row: true, ic: '🔓', h: L('المفتاح العام', 'Public key'), p: L('توصيل آمن 🔒 — بس بطيء 🐢', 'safe delivery 🔒 — but slow 🐢') })}
 
-    ${B.mid('fA', 126, '🔓 ' + L('المفتاح العام ← يوصّل المفتاح بأمان', 'public key → delivers the key safely'), 'c-violet')}
+    ${B.mid('fA', 126, '🔓 ' + L('آليات المفتاح العام ← مصادقة واتفاق آمن على المفتاح', 'public key → delivers the key safely'), 'c-violet')}
     ${B.mid('fB', 204, '🔑 ' + L('المفتاح المتماثل ← يبعت البيانات الكتير بسرعة', 'common key → sends lots of data quickly'), 'c-blue')}
-    ${B.mid('fC', 282, '✅ ' + L('أمان + سرعة', 'security + speed'), 'c-green solid big')}
+    ${B.mid('fC', 282, '✅ ' + L('أمان + كفاءة', 'security + speed'), 'c-green solid big')}
     ${B.big('sk', 340, 380, 80, 66, '🔑')}${B.big('skA', 360, 300, 80, 66, '🔑')}${B.big('skB', 1480, 300, 80, 66, '🔑')}
     ${range(5).map((k) => B.big('pk' + k, 330, 604, 70, 48, '📦')).join('')}
-    ${B.mid('dh', 380, 'ℹ️ ' + L('إصدارات TLS الحديثة بتتفق على المفتاح المشترك بطريقة اسمها Diffie-Hellman', 'current TLS versions agree on the shared key with Diffie-Hellman instead'), 'c-slate sm')}
+    ${B.mid('dh', 380, 'ℹ️ ' + L('الطرفين بيتفقوا على أسرار مشتركة ويشتقوا منها مفاتيح الجلسة', 'current TLS versions agree on the shared key with Diffie-Hellman instead'), 'c-slate sm')}
 
     ${U.hd(0, '🔑 ' + L('النوع الأول: التشفير المتماثل', 'Type 1: common-key (symmetric) cryptography'))}
     ${U.hd(1, '😈 ' + L('المشكلة: المفتاح نفسه لازم يسافر', 'The problem: the key itself must travel'))}
@@ -76,7 +76,7 @@
     ${U.nt(0, L('التشفير المتماثل: نفس المفتاح للتشفير وفك التشفير', 'common-key cryptography: the same key encrypts and decrypts'), 'ok')}
     ${U.nt(1, L('لازم المفتاح يوصل للطرف التاني الأول بأمان — ولو اتسرق في السكة، كل حاجة تتكشف', 'the key must first reach the other side safely — stolen on the way, everything is exposed'), 'warn')}
     ${U.nt(2, L('العام بيقفل · الخاص بس بيفتح ← تبعت سر من غير ما تتفقوا على مفتاح قبل كده', 'the public key locks · only the private key unlocks → send a secret with no key agreed beforehand'), 'ok')}
-    ${U.nt(4, L('ده بالظبط اللي HTTPS بيعمله — تعالى نشوفه مرحلة مرحلة 👇', 'that is exactly what HTTPS does — let’s watch it stage by stage 👇'), 'ok')}
+    ${U.nt(4, L('ده بالضبط اللي HTTPS بيعمله — تعالى نشوفه مرحلة مرحلة 👇', 'that is exactly what HTTPS does — let’s watch it stage by stage 👇'), 'ok')}
   </div>`;
       },
     });
@@ -201,19 +201,19 @@
     const M = MK.create(stage, api, { props,
       cls: 'mv-mu mv-l12', prefix: P, beats: 2,
       html: (L) => {
-        const KN = L('معرفة', 'knowledge'), PO = L('حيازة', 'possession'), BI = L('حيوية', 'biometric');
+        const KN = L('معرفة', 'knowledge'), PO = L('حيازة', 'possession'), BI = L('سمات حيوية', 'biometric');
         const f = (cls, txt, type) => `<span class="f ${cls}"><b>${txt}</b><i>${type}</i></span>`;
         const PLUS = '<span class="plus">+</span>';
         const SV = [
-          ['🏦', L('البنك أونلاين', 'Online banking'), f('k', '🔑 ' + L('كلمة سر', 'password'), KN) + PLUS + f('p', '🔢 ' + L('كلمة سر لمرة واحدة', 'one-time password'), PO), 'c-blue'],
-          ['💬', L('السوشيال ميديا', 'Social media'), f('k', '🔑 ' + L('كلمة سر', 'password'), KN) + PLUS + f('p', '📩 ' + L('كود SMS', 'SMS code'), PO), 'c-violet'],
-          ['🛒', L('التسوّق أونلاين', 'Online shopping'), f('k', '🔑 ' + L('كلمة سر', 'password'), KN) + PLUS + f('p', '💳 ' + L('كود <bdi>3-D Secure</bdi>', '<bdi>3-D Secure</bdi> code'), PO), 'c-amber'],
-          ['💼', L('لابتوب الشركة', 'Company laptop'), f('p', '🪪 ' + L('كارت ذكي', 'smart card'), PO) + PLUS + f('b', '👆 ' + L('بصمة', 'fingerprint'), BI), 'c-teal']];
+          ['🏦', L('البنك أونلاين', 'Online banking'), f('k', '🔑 ' + L('كلمة مرور', 'password'), KN) + PLUS + f('p', '🔢 ' + L('كلمة مرور لمرة واحدة', 'one-time password'), PO), 'c-blue'],
+          ['💬', L('السوشيال ميديا', 'Social media'), f('k', '🔑 ' + L('كلمة مرور', 'password'), KN) + PLUS + f('p', '📩 ' + L('كود SMS', 'SMS code'), PO), 'c-violet'],
+          ['🛒', L('التسوّق أونلاين', 'Online shopping'), f('k', '🔑 ' + L('كلمة مرور', 'password'), KN) + PLUS + f('p', '💳 ' + L('هوية بطاقة الائتمان', '<bdi>3-D Secure</bdi> code'), PO), 'c-amber'],
+          ['💼', L('دخول مبنى مؤمّن', 'Company laptop'), f('p', '🪪 ' + L('بطاقة دخول', 'smart card'), PO) + PLUS + f('b', '👆 ' + L('بصمة', 'fingerprint'), BI), 'c-teal']];
         return `
   <div id="mu-stage" class="mv-stage">
     ${SV.map(([ic, h, facts, cc], k) => B.card('s' + k, 70 + (k % 2) * 910, 128 + Math.floor(k / 2) * 280, 870, 262, cc, { ic, h, html: `<div class="l12-facts">${facts}</div>` })).join('')}
     ${B.mid('lg', 694, `<span class="l12-key k">🧠 ${KN}</span> ${L('حاجة إنت عارفها', 'something you know')} · <span class="l12-key p">📱 ${PO}</span> ${L('حاجة معاك', 'something you have')} · <span class="l12-key b">👆 ${BI}</span> ${L('حاجة هي إنت', 'something you are')}`, 'c-slate')}
-    ${U.hd(0, '🏦 ' + L('المصادقة متعددة العوامل في خدمات حقيقية', 'Multi-factor authentication in real services'))}
+    ${U.hd(0, '🏦 ' + L('المصادقة الثنائية في خدمات حقيقية', 'Multi-factor authentication in real services'))}
     ${U.hd(1, '🛡️ ' + L('عامل اتكسر؟ التاني لسه بيقفل الباب', 'One factor broken? The other still locks the door'))}
     ${U.nt(1, L('كل خدمة بتجمع عاملين من نوعين مختلفين — لو واحد اتكسر، التاني بيمنع الدخول', 'each service combines two DIFFERENT kinds of factor — if one breaks, the other still blocks the way in'), 'ok')}
   </div>`;
@@ -277,7 +277,7 @@
     ${U.hd(3, '🙅‍♂️ ' + L('عدم التنصل', 'Non-repudiation'))}
     ${U.hd(4, '📜 ' + L('الشهادة الرقمية: الموقع ده حقيقي؟', 'The digital certificate: is this site genuine?'))}
     ${U.nt(2, L('التوقيع الرقمي بيكشف التلاعب في البيانات وانتحال هوية المرسِل', 'a digital signature detects data tampering and sender impersonation'), 'ok')}
-    ${U.nt(3, L('عدم التنصل = المرسِل مايقدرش ينكر بعد كده إنه بعت', 'non-repudiation = the sender cannot later deny having sent it'), 'ok')}
+    ${U.nt(3, L('عدم التنصل = دليل يصعّب على المرسِل إنكار إنه بعت', 'non-repudiation = the sender cannot later deny having sent it'), 'ok')}
   </div>`,
     });
     const { q, Q, tl, IN, POP, OUT, SND, frame, sx } = M;
@@ -364,7 +364,7 @@
       html: (L) => {
         const STEPS = [[L('فتح الموقع', 'open the shop'), '👂 ' + L('خطر: التنصّت', 'threat: eavesdropping'), '🔐 ' + L('التشفير (HTTPS)', 'encryption (HTTPS)')],
           [L('التأكد من الموقع', 'check the site'), '🎭 ' + L('خطر: موقع مزيّف', 'threat: a fake site'), '📜 ' + L('الشهادة الرقمية', 'digital certificate')],
-          [L('تسجيل الدخول', 'log in'), '🔓 ' + L('خطر: دخول غير مصرّح', 'threat: unauthorized login'), '📱 ' + L('المصادقة متعددة العوامل', 'multi-factor authentication')],
+          [L('تسجيل الدخول', 'log in'), '🔓 ' + L('خطر: دخول غير مصرّح', 'threat: unauthorized login'), '📱 ' + L('المصادقة الثنائية', 'multi-factor authentication')],
           [L('إرسال الطلب', 'send the order'), '✏️ ' + L('خطر: التلاعب', 'threat: tampering'), '✍️ ' + L('التوقيع الرقمي', 'digital signature')]];
         return `
   <div id="sk-stage" class="mv-stage">
@@ -381,9 +381,9 @@
     <div id="sk-wf" class="l12u l12-win fake later" style="${B.at(1300, 140, 580, 330)}"><div class="wbar"><i></i><i></i><i></i><span class="url">⚠️ sh0p-deals.xyz</span></div><div class="wbody">🎭 ${L('عروض وهمية!', 'fake deals!')}<div class="l12-field">📜 ${L('مفيش شهادة سليمة', 'no valid certificate')} <b>✗</b></div></div></div>
     ${B.stamp('ws', 1300, 510, '🚫 ' + L('المتصفح حذّرك', 'browser warning'))}
 
-    <div id="sk-wl" class="l12u l12-win later" style="${B.at(680, 140, 620, 400)}"><div class="wbar"><i></i><i></i><i></i><span class="url">🔒 shop.com/login</span></div><div class="wbody">👤 ${L('تسجيل الدخول', 'Log in')}<div class="l12-field">🔑 ${L('كلمة السر', 'password')} <b>••••••</b></div><div class="l12-field">📩 ${L('كود SMS', 'SMS code')} <b>482913</b></div></div></div>
+    <div id="sk-wl" class="l12u l12-win later" style="${B.at(680, 140, 620, 400)}"><div class="wbar"><i></i><i></i><i></i><span class="url">🔒 shop.com/login</span></div><div class="wbody">👤 ${L('تسجيل الدخول', 'Log in')}<div class="l12-field">🔑 ${L('كلمة المرور', 'password')} <b>••••••</b></div><div class="l12-field">📩 ${L('كود SMS', 'SMS code')} <b>482913</b></div></div></div>
     ${B.chip('sms', 1340, 150, '📩 ' + L('وصلك على موبايلك: 482913', 'sent to your phone: 482913'), 'c-blue')}
-    ${B.chip('hkp', 1340, 250, '😈 ' + L('معايا كلمة السر المسرّبة!', 'I have the leaked password!'), 'c-red')}
+    ${B.chip('hkp', 1340, 250, '😈 ' + L('معايا كلمة المرور المسرّبة!', 'I have the leaked password!'), 'c-red')}
     ${B.chip('hkx', 1340, 340, '⛔ ' + L('مفيش موبايل = مفيش دخول', 'no phone = no way in'), 'c-red')}
 
     <div id="sk-od" class="l12u l12-doc later" style="${B.at(700, 170, 380)}">🧾 ${L('الطلب: 🎧 سماعة', 'order: 🎧 headphones')}<small>${L('العنوان: القاهرة', 'address: Cairo')}</small>${L('المبلغ:', 'amount:')} <span id="sk-a1" class="amt">800</span><span id="sk-a2" class="amt bad" style="display:none">8</span> ${L('جنيه', 'EGP')}<span class="seal">🔏</span></div>
@@ -392,7 +392,7 @@
 
     ${[['🔐', L('التشفير', 'Encryption'), L('يمنع قراءة المحتوى من أي طرف تالت', 'stops third parties reading the content'), 'c-blue'],
       ['📜', L('الشهادة الرقمية', 'Digital certificate'), L('تثبت إن الطرف التاني حقيقي', 'proves the other side is genuine'), 'c-green'],
-      ['📱', L('المصادقة متعددة العوامل', 'Multi-factor authentication'), L('تمنع الدخول غير المصرّح', 'blocks unauthorized logins'), 'c-amber'],
+      ['📱', L('المصادقة الثنائية', 'Multi-factor authentication'), L('تقلّل احتمال الدخول غير المصرّح', 'blocks unauthorized logins'), 'c-amber'],
       ['✍️', L('التوقيع الرقمي', 'Digital signature'), L('يكشف التلاعب وانتحال المرسِل + عدم التنصل', 'detects tampering & sender impersonation + non-repudiation'), 'c-violet']]
       .map(([ic, h, p, cc], k) => B.card('e' + k, 660 + (k % 2) * 620, 136 + Math.floor(k / 2) * 230, 590, 210, cc, { row: true, ic, h, p })).join('')}
     ${B.chip('all', 660, 610, '🛡️ ' + L('الأمان = تقنيات كتير شغّالة مع بعض — مش تقنية واحدة', 'security = many technologies working together — not one'), 'c-green big', 1210)}
@@ -400,7 +400,7 @@
     ${U.hd(0, '🛒 ' + L('هتشتري أونلاين… و4 أخطار مستنياك', 'You buy online… and 4 threats are waiting'))}
     ${U.hd(1, '① ' + L('التشفير: محدش يقدر يقرا بياناتك', 'Encryption: nobody can read your data'))}
     ${U.hd(2, '② ' + L('الشهادة الرقمية: ده المتجر الحقيقي؟', 'Digital certificate: is it the real shop?'))}
-    ${U.hd(3, '③ ' + L('المصادقة متعددة العوامل: كلمة السر مش كفاية', 'Multi-factor authentication: a password is not enough'))}
+    ${U.hd(3, '③ ' + L('المصادقة الثنائية: كلمة المرور مش كفاية', 'Multi-factor authentication: a password is not enough'))}
     ${U.hd(4, '④ ' + L('التوقيع الرقمي: الطلب وصل زي ما هو؟', 'Digital signature: did the order arrive unchanged?'))}
     ${U.hd(5, '🛡️ ' + L('الخلاصة: كل تقنية بتصد خطر', 'Recap: each technology stops a threat'))}
     ${U.nt(0, L('التنصّت · الموقع المزيّف · الدخول غير المصرّح · التلاعب — محتاجين أكتر من تقنية', 'eavesdropping · fake site · unauthorized login · tampering — one technology is not enough'), 'warn')}

@@ -21,9 +21,9 @@
       h('b', null, t({ ar: 'التلاعب بالبيانات', en: 'Data tampering' })), h('small', null, t({ ar: 'تعديل بيانات جوّه النظام من غير تصريح', en: 'data altered inside the system without authorization' })));
     const page = h('div', { class: 'it-page' }, h('b', { class: 'mono' }, '503'), h('small', null, t({ ar: 'الخدمة مش متاحة', en: 'Service unavailable' })));
     const outage = h('div', { class: 'it-card it-out' }, h('div', { class: 'it-vis' }, page),
-      h('b', null, t({ ar: 'توقّف الخدمة', en: 'Service outage' })), h('small', null, t({ ar: 'الخدمة بتقف بسبب هجوم على الخادم', en: 'a service goes down due to an attack on the server' })));
+      h('b', null, t({ ar: 'انقطاع الخدمة', en: 'Service outage' })), h('small', null, t({ ar: 'الخدمة بتقف بسبب هجوم على الخادم', en: 'a service goes down due to an attack on the server' })));
     const not = h('div', { class: 'it-not' }, '🔄 ', t({ ar: 'تحديث برمجي لإضافة ميزات جديدة = ', en: 'A software update adding new features = ' }), h('b', null, t({ ar: 'مش حادث أمني ✋ (مفيش ضرر)', en: 'NOT a security incident ✋ (no damage)' })));
-    const def = h('div', { class: 'it-def' }, t({ ar: '🚨 الحادث الأمني = موقف بيحصل فيه __ضرر فعلي__ بسبب مشكلة في أمن المعلومات', en: '🚨 A security incident = a situation where __actual damage__ occurs due to an information-security problem' }).replace(/__/g, ''));
+    const def = h('div', { class: 'it-def' }, t({ ar: '🚨 الحادث الأمني = حدث بيأثر في __سرية المعلومات أو سلامتها أو توافرها__، أو يهددها بجدية، أو يخالف سياسة أمنية', en: '🚨 A security incident = a situation where __actual damage__ occurs due to an information-security problem' }).replace(/__/g, ''));
     const cards = [leak, tamper, outage];
     const wrap = h('div', { class: 'it-wrap' }, def, h('div', { class: 'it-grid' }, cards), not);
     stage.appendChild(wrap);

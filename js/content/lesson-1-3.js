@@ -17,6 +17,7 @@ RV.lessons.add('1-3', {
   objectives: [
     { ar: 'أذكر أمثلة لاستخدام الذكاء الاصطناعي في الحياة اليومية والصناعات المختلفة.', en: 'Give examples of AI in daily life and various industries.' },
     { ar: 'أشرح إيه اللي الذكاء الاصطناعي شاطر فيه وإيه اللي محتاج حذر.', en: 'Explain what AI is good at and what requires caution.' },
+    { ar: 'أقيّم استخدامًا للذكاء الاصطناعي في سياق محدد، وأبرّر الحاجة إلى الإشراف البشري عندما يكون أثر الخطأ أو القرار مرتفعًا.', en: 'Evaluate an AI use in a given context and justify human oversight when the impact of an error or decision is high.' },
   ],
 
   stations: [
@@ -70,7 +71,7 @@ RV.lessons.add('1-3', {
             { ar: '🏥 **الرعاية الصحية:** __التشخيص بالصور__ — الـAI يكشف الأمراض من صور __الأشعة السينية والمقطعية__ ويعلّم على المكان المشكوك فيه، و__يدعم اكتشاف الأدوية__. والقرار النهائي للطبيب.', en: '🏥 **Healthcare:** __image diagnosis__ — AI detects disease in __X-ray and CT images__ and flags the suspicious spot, and it __supports drug discovery__. The final decision is the doctor’s.' },
             { ar: '🌾 **الزراعة:** __التنبؤ بميعاد الحصاد__، و__كشف الآفات وأمراض النبات__ بالصور.', en: '🌾 **Agriculture:** __predicting harvest timing__ and __detecting pests and plant disease__ from images.' },
             { ar: '🏭 **التصنيع:** __أتمتة فحص جودة المنتج__ (الكاميرا تطلّع القطعة البايظة) و__الصيانة التنبؤية__: نتنبّأ إن الآلة __هتعطل قبل ما تعطل__.', en: '🏭 **Manufacturing:** __automated quality inspection__ (the camera rejects the faulty item) and __predictive maintenance__: predicting a machine __will fail before it does__.' },
-            { ar: '🚚 **اللوجستيات:** __تحسين مسارات التوصيل__ — بدل طريق عشوائي طويل، أقصر مسار بوقت وبنزين أقل.', en: '🚚 **Logistics:** __optimising delivery routes__ — instead of a long random route, the shortest one with less time and fuel.' },
+            { ar: '🚚 **الخدمات اللوجستية:** __تحسين مسارات التوصيل__ — بدل طريق عشوائي طويل، أقصر مسار بوقت وبنزين أقل.', en: '🚚 **Logistics:** __optimising delivery routes__ — instead of a long random route, the shortest one with less time and fuel.' },
             { ar: '📌 **الخلاصة:** التشخيص بالصور ← __صحة__ · كشف الآفات ← __زراعة__ · الصيانة التنبؤية ← __تصنيع__ · تحسين المسارات ← __لوجستيات__.', en: '📌 **Recap:** image diagnosis → __healthcare__ · pest detection → __agriculture__ · predictive maintenance → __manufacturing__ · route optimisation → __logistics__.' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
@@ -78,7 +79,7 @@ RV.lessons.add('1-3', {
         {
           type: 'quiz', title: { ar: 'صنّف', en: 'Classify' },
           q: { widget: 'classify', prompt: { ar: 'كل استخدام تبع أنهي صناعة؟', en: 'Which industry does each use belong to?' },
-            groups: [{ icon: 'heart', label: { ar: 'الصحة', en: 'Healthcare' } }, { icon: 'leaf', label: { ar: 'الزراعة', en: 'Agriculture' } }, { icon: 'factory', label: { ar: 'التصنيع', en: 'Manufacturing' } }, { icon: 'truck', label: { ar: 'اللوجستيات', en: 'Logistics' } }],
+            groups: [{ icon: 'heart', label: { ar: 'الرعاية الصحية', en: 'Healthcare' } }, { icon: 'leaf', label: { ar: 'الزراعة', en: 'Agriculture' } }, { icon: 'factory', label: { ar: 'التصنيع', en: 'Manufacturing' } }, { icon: 'truck', label: { ar: 'الخدمات اللوجستية', en: 'Logistics' } }],
             items: [
               { text: { ar: 'تحسين مسارات التوصيل', en: 'Optimising delivery routes' }, group: 3 },
               { text: { ar: 'كشف الأمراض من الأشعة', en: 'Detecting diseases from X-rays' }, group: 0 },
@@ -111,9 +112,9 @@ RV.lessons.add('1-3', {
           terms: ['patterns', 'human review', 'black box', 'accountability'],
           visual: { anim: 'cautionMovie' },
           beats: [
-            { ar: '💪 الذكاء الاصطناعي __شاطر في__: إيجاد وتصنيف __الأنماط__ في بيانات معقّدة (صور ونصوص)، __التعرّف والتوليد__ للصور والصوت والنص، و__التنبؤ الاحتمالي__ من البيانات.', en: '💪 AI is __good at__: finding and sorting __patterns__ in complex data (images, text), __recognising and generating__ images, audio and text, and __probabilistic prediction__ from data.' },
-            { ar: '⚠️ __محتاج حذر في__: الأحكام الأخلاقية، الخصوصية، القرار النهائي (مين المسؤول؟)، البيانات المتحيزة، الهلوسة، حقوق النشر، والصندوق الأسود.', en: '⚠️ It __needs caution in__: ethical judgements, privacy, the final decision (who is responsible?), biased data, hallucination, copyright and the black box.' },
-            { ar: '🩻 **الحل:** الـAI __يقترح__ والإنسان __يراجع ويقرّر__ — زي الطبيب اللي لازم يأكّد تشخيص الأشعة، لأن الغلط بيأثر على حياة إنسان.', en: '🩻 **The fix:** AI __suggests__, a human __reviews and decides__ — like the doctor who must confirm an X-ray diagnosis, because a mistake affects a human life.' },
+            { ar: '💪 الذكاء الاصطناعي __شاطر في__: إيجاد وتصنيف __الأنماط__ في بيانات معقّدة (صور ونصوص)، __التعرّف__ على الصور والصوت والنص، و__توليد__ بعض أنواع المحتوى، و__التنبؤ الاحتمالي__ من البيانات.', en: '💪 AI is __good at__: finding and sorting __patterns__ in complex data (images, text), __recognising and generating__ images, audio and text, and __probabilistic prediction__ from data.' },
+            { ar: '⚠️ __محتاج حذر في__: الأحكام الأخلاقية، الخصوصية، القرارات عالية الأثر (مين المسؤول؟)، البيانات غير الكافية أو غير الممثلة أو المتحيزة، الهلوسة، حقوق المؤلف، والصندوق الأسود.', en: '⚠️ It __needs caution in__: ethical judgements, privacy, the final decision (who is responsible?), biased data, hallucination, copyright and the black box.' },
+            { ar: '🩻 **الحل:** الـAI __يقترح__ والإنسان __يراجع ويقرّر__ — زي الطبيب اللي لازم يأكّد تشخيص الأشعة، لأن الغلط بيأثر على حياة إنسان. وكل ما زاد __أثر القرار__ زادت أهمية __التحقق البشري__.', en: '🩻 **The fix:** AI __suggests__, a human __reviews and decides__ — like the doctor who must confirm an X-ray diagnosis, because a mistake affects a human life.' },
             { ar: '⬛ **مشكلة الصندوق الأسود:** النموذج بياخد قرار (رفض القرض)… بس __مش واضح إزاي وصل له__ — فصعب نتحقّق إنه صح أو نكتشف الغلط.', en: '⬛ **The black-box problem:** the model makes a decision (loan rejected)… but __it is not clear how it got there__ — so it is hard to check it or find the mistake.' },
             { ar: '🔦 جوّه الصندوق: شبكة عصبية فيها __ملايين ومليارات الأرقام (الأوزان)__ — النتيجة واضحة، بس __مفيش سبب مكتوب__ نقدر نقراه.', en: '🔦 Inside the box: a neural network with __millions or billions of numbers (weights)__ — the result is clear, but there is __no written reason__ we can read.' },
             { ar: '🚨 الصندوق الأسود ممكن يأذي في: قرض اترفض · وظيفة (يمكن بسبب تحيّز) · تشخيص طبي · تأمين — عشان كده __لازم إنسان يراجع__ في المهام الحسّاسة.', en: '🚨 The black box can hurt in: a rejected loan · a job (maybe bias) · a medical diagnosis · insurance — so __a human must review__ sensitive tasks.' },
@@ -219,12 +220,12 @@ RV.lessons.add('1-3', {
         {
           type: 'quiz', title: { ar: 'تدريب 2 — سؤال 2', en: 'Exercise 2 — Q2' },
           q: { widget: 'mcq', prompt: { ar: 'اختار __كل__ اللي محتاج حذر:', en: 'Choose ALL that require caution:' },
-            options: [{ ar: 'المعالجة السريعة لكمية كبيرة من البيانات', en: 'Fast processing of large data' }, { ar: 'الأحكام الأخلاقية', en: 'Ethical judgments' }, { ar: 'أحكام المعلومات الشخصية والخصوصية', en: 'Personal info & privacy judgments' }, { ar: 'التعرف على الصور والصوت', en: 'Image & audio recognition' }], answer: [1, 2] },
+            options: [{ ar: 'المعالجة السريعة لكمية كبيرة من البيانات', en: 'Fast processing of large data' }, { ar: 'الأحكام الأخلاقية', en: 'Ethical judgments' }, { ar: 'الأحكام الخاصة بالمعلومات الشخصية والخصوصية', en: 'Personal info & privacy judgments' }, { ar: 'التعرف على الصور والصوت', en: 'Image & audio recognition' }], answer: [1, 2] },
         },
         {
           type: 'quiz', title: { ar: 'تدريب 3 (1)', en: 'Exercise 3 (1)' },
           q: { widget: 'mcq', prompt: { ar: 'اختار __كل__ اللي الـAI شاطر فيه:', en: 'Choose ALL that AI excels at:' },
-            options: [{ ar: 'الأحكام الأخلاقية', en: 'Ethical judgments' }, { ar: 'إيجاد الخصائص في الصور والنصوص وتصنيفها', en: 'Finding & classifying features' }, { ar: 'أحكام المعلومات الشخصية', en: 'Personal-info judgments' }, { ar: 'الاستدلال والتنبؤ الاحتمالي', en: 'Probabilistic reasoning & prediction' }, { ar: 'قرارات بتتحمّل مسؤولية النتائج', en: 'Decisions bearing responsibility' }, { ar: 'التعرّف على الصور والصوت والنص وتوليدها', en: 'Recognising & generating images/audio/text' }], answer: [1, 3, 5] },
+            options: [{ ar: 'الأحكام الأخلاقية', en: 'Ethical judgments' }, { ar: 'إيجاد الخصائص في الصور والنصوص وتصنيفها', en: 'Finding & classifying features' }, { ar: 'الأحكام الخاصة بالمعلومات الشخصية', en: 'Personal-info judgments' }, { ar: 'الاستدلال والتنبؤ الاحتمالي', en: 'Probabilistic reasoning & prediction' }, { ar: 'قرارات بتتحمّل مسؤولية النتائج', en: 'Decisions bearing responsibility' }, { ar: 'التعرّف على الصور والصوت والنص وتوليدها', en: 'Recognising & generating images/audio/text' }], answer: [1, 3, 5] },
         },
         {
           type: 'quiz', title: { ar: 'تدريب 3 (2)', en: 'Exercise 3 (2)' },
@@ -252,7 +253,7 @@ RV.lessons.add('1-3', {
           { front: { ar: 'التعرف على الوجه', en: 'Face recognition' }, back: { ar: 'يكتشف ويتعرّف على وجوه الأشخاص في الصور تلقائيًا.', en: 'Automatically detects and identifies faces in photos.' } },
           { front: { ar: 'الصيانة التنبؤية', en: 'Predictive maintenance' }, back: { ar: 'التنبؤ بأعطال المنتج/الآلة مقدّمًا (تصنيع).', en: 'Predicting product/machine failures in advance (manufacturing).' } },
           { front: { ar: 'مشكلة الصندوق الأسود', en: 'Black-box problem' }, back: { ar: 'عدم وضوح إزاي الذكاء الاصطناعي وصل لحكمه.', en: 'When it is unclear how an AI reached its judgment.' } },
-          { front: { ar: 'الهلوسة', en: 'Hallucination' }, back: { ar: 'توليد محتوى يبدو صحيح لكنه مخالف للحقائق.', en: 'Generating content that differs from the facts.' } },
+          { front: { ar: 'الهلوسة', en: 'Hallucination' }, back: { ar: 'توليد معلومات غير صحيحة أو غير مدعومة تبدو مقنعة.', en: 'Generating content that differs from the facts.' } },
         ] },
       }],
     },
@@ -363,7 +364,7 @@ RV.lessons.add('1-3', {
             { text: { ar: 'القرار النهائي في المهام الحساسة للإنسان', en: 'Humans make final decisions in sensitive tasks' }, answer: true },
             { text: { ar: 'المعالجة السريعة للبيانات من قائمة الحذر', en: 'Fast data processing is a caution item' }, answer: false },
             { text: { ar: 'الـ AI ممكن يكون واثق وهو غلطان', en: 'AI can be confidently wrong' }, answer: true },
-            { text: { ar: 'حقوق النشر في بيانات التدريب من قضايا الحذر', en: 'Copyright in training data is a caution' }, answer: true },
+            { text: { ar: 'حقوق المؤلف في بيانات التدريب من قضايا الحذر', en: 'Copyright in training data is a caution' }, answer: true },
         ] },
       }],
     },
@@ -379,7 +380,7 @@ RV.lessons.add('1-3', {
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '4. ينفع نسيب الأحكام الأخلاقية للـAI بالكامل بلا مشكلة.', en: '4. Ethical judgments can be left entirely to AI.' }, answer: false }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '5. أحكام الـAI ممكن تبقى غير دقيقة لما بيانات التدريب تكون متحيزة.', en: '5. Biased training data can make AI judgments inaccurate.' }, answer: true }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '6. «مشكلة الصندوق الأسود» = مش واضح إزاي الـAI وصل لحكمه.', en: '6. The black-box problem = unclear how the AI reached its judgment.' }, answer: true }] } },
-        { type: 'quiz', q: { widget: 'match', prompt: { ar: '7. وصّل كل استخدام بصناعته:', en: '7. Match each use to its industry:' }, left: [{ ar: 'تحسين مسارات التوصيل', en: 'Optimising delivery routes' }, { ar: 'كشف الأمراض من الأشعة', en: 'Detecting diseases from X-rays' }, { ar: 'كشف الآفات', en: 'Detecting pests' }], right: [{ ar: 'الصحة', en: 'Healthcare' }, { ar: 'الزراعة', en: 'Agriculture' }, { ar: 'اللوجستيات', en: 'Logistics' }], answer: [2, 0, 1] } },
+        { type: 'quiz', q: { widget: 'match', prompt: { ar: '7. وصّل كل استخدام بصناعته:', en: '7. Match each use to its industry:' }, left: [{ ar: 'تحسين مسارات التوصيل', en: 'Optimising delivery routes' }, { ar: 'كشف الأمراض من الأشعة', en: 'Detecting diseases from X-rays' }, { ar: 'كشف الآفات', en: 'Detecting pests' }], right: [{ ar: 'الرعاية الصحية', en: 'Healthcare' }, { ar: 'الزراعة', en: 'Agriculture' }, { ar: 'الخدمات اللوجستية', en: 'Logistics' }], answer: [2, 0, 1] } },
         { type: 'quiz', q: { widget: 'essay', prompt: { ar: '8. ليه لازم طبيب بشري يأكّد تشخيص الـAI من صور الأشعة؟', en: '8. Why must a human doctor confirm an AI X-ray diagnosis?' },
           points: [{ ar: 'الخطأ بيأثر على حياة إنسان.', en: 'An error affects a life.' }, { ar: 'الـAI ممكن يغلط / مسؤولية القرار على الإنسان.', en: 'AI can err / the human bears responsibility.' }],
           model: { ar: 'لأن الخطأ بيأثر على حياة المريض، والـAI ممكن يغلط وهو واثق، فالطبيب بيراجع ويتحمّل مسؤولية القرار.', en: 'Because an error affects the patient\'s life and AI can be confidently wrong; the doctor reviews and takes responsibility.' } } },

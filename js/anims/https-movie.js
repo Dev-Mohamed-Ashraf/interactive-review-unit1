@@ -46,6 +46,7 @@
   const KEY = (fill, ring, hole) => `<circle cx="30" cy="32" r="24" fill="${fill}" stroke="${ring}" stroke-width="5"/><circle cx="30" cy="32" r="9" fill="${hole}"/>
     <rect x="52" y="26" width="84" height="13" rx="6" fill="${fill}"/><rect x="110" y="37" width="10" height="18" rx="3" fill="${fill}"/><rect x="92" y="37" width="10" height="13" rx="3" fill="${fill}"/>`;
   const GOLD = KEY('#f59e0b', '#fef3c7', '#78350f');
+  const PARAMS = '<g font-family="monospace" font-size="24" font-weight="700" text-anchor="middle" fill="#fff"><rect x="4" y="12" width="40" height="40" rx="8" fill="#7c3aed"/><text x="24" y="41">g</text><rect x="50" y="12" width="40" height="40" rx="8" fill="#0d9488"/><text x="70" y="41">p</text><rect x="96" y="12" width="40" height="40" rx="8" fill="#ea580c"/><text x="116" y="41">A</text></g>';
   const LOCK_BODY = '<rect x="6" y="46" width="74" height="54" rx="12" fill="#3b82f6" stroke="#bfdbfe" stroke-width="4"/><circle cx="43" cy="68" r="7" fill="#1e3a8a"/><rect x="40" y="70" width="6" height="16" rx="3" fill="#1e3a8a"/>';
 
   K.defineAnim('httpsMovie', (stage, props, api) => {
@@ -92,7 +93,7 @@
     <div id="hm-t-hacker" class="tag later">😈 ${L('المهاجم', 'Attacker')}</div>
 
     <div id="hm-hd1" class="head later">${L('المرحلة ① التحقق من هوية الخادم', 'Stage ① verify the server')}</div>
-    <div id="hm-hd2" class="head later">${L('المرحلة ② تبادل مفتاح الجلسة', 'Stage ② exchange the session key')}</div>
+    <div id="hm-hd2" class="head later">${L('المرحلة ② اشتقاق مفاتيح الجلسة', 'Stage ② exchange the session key')}</div>
     <div id="hm-hd3" class="head later">${L('المرحلة ③ نقل البيانات المشفّرة', 'Stage ③ encrypted data')}</div>
 
     <div id="hm-tp" class="later">🔑 ${L('كلمة المرور', 'Password')}: 1234</div>
@@ -100,8 +101,8 @@
     <div id="hm-th1" class="card threat later"><span class="e">👀</span>${L('يقرأ كلمة المرور', 'Reads the password')}<small>${L('التنصت', 'eavesdropping')}</small></div>
     <div id="hm-th2" class="card threat later"><span class="e">✏️</span>${L('يغيّر رسالتك', 'Changes your message')}<small>100 ⟵ 10,000</small></div>
     <div id="hm-th3" class="card threat later"><span class="e">🎭</span>${L('ينتحل شخصية البنك', 'Pretends to be the bank')}<small>${L('موقع مزيّف', 'fake site')}</small></div>
-    ${[1, 2, 3].map((k) => `<div id="hm-xm${k}" class="xm later"><b>🚫 ${L('اتمنع', 'blocked')}</b></div>`).join('')}
-    <div id="hm-shield" class="later">🛡️ <span>HTTPS</span> ${L('يمنع ده كله', 'stops all of this')}</div>
+    ${[1, 2, 3].map((k) => `<div id="hm-xm${k}" class="xm later"><b>🚫 ${L('محمي', 'blocked')}</b></div>`).join('')}
+    <div id="hm-shield" class="later">🛡️ <span>HTTPS</span> ${L('يقلّل المخاطر دي', 'stops all of this')}</div>
 
     <div id="hm-cert" class="later"><div class="t">📜 ${L('شهادة رقمية', 'Digital certificate')}</div><div class="d">www.bank.com</div><div style="font-size:25px">${L('موقّعة من جهة الشهادات', 'signed by the CA')} ✍️</div><div class="seal">✔</div></div>
     <svg id="hm-pub" class="later" viewBox="0 0 86 104">
@@ -122,20 +123,20 @@
     <div id="hm-real" class="ptag later">✅ ${L('ده البنك الحقيقي', 'This is the real bank')}</div>
 
     <svg id="hm-spark" class="later" viewBox="0 0 200 140"><g fill="#fde68a"><path d="M30 20 l5 14 14 5 -14 5 -5 14 -5 -14 -14 -5 14 -5z"/><path d="M170 30 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z"/><path d="M160 110 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z"/><path d="M40 108 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/></g></svg>
-    <svg id="hm-skey" class="later" viewBox="0 0 140 64">${GOLD}</svg>
-    <div id="hm-skeytag" class="ptag later">🔑 ${L('مفتاح الجلسة (متماثل) — جديد', 'Session key (common) — new')}</div>
+    <svg id="hm-skey" class="later" viewBox="0 0 140 64">${L(PARAMS, GOLD)}</svg>
+    <div id="hm-skeytag" class="ptag later">🔑 ${L('معاملات تبادل المفاتيح', 'Session key (common) — new')}</div>
     <div id="hm-boxg" class="later">
       <svg viewBox="0 0 160 140"><rect x="8" y="48" width="144" height="88" rx="12" fill="#92400e" stroke="#fbbf24" stroke-width="5"/><rect x="8" y="80" width="144" height="10" fill="#78350f"/>
         <g id="hm-lid"><rect x="4" y="26" width="152" height="30" rx="10" fill="#b45309" stroke="#fbbf24" stroke-width="5"/></g></svg>
       <svg id="hm-boxlock" class="later" viewBox="0 0 86 104"><path d="M22 48 V30 a21 21 0 0 1 42 0 V48" fill="none" stroke="#93c5fd" stroke-width="9" stroke-linecap="round"/>${LOCK_BODY}</svg>
     </div>
-    <div id="hm-note" class="card later"><span class="no">❌ ${L('المفتاح العام لا يتحوّل إلى مفتاح متماثل', 'The public key is NOT turned into a common key')}</span><span class="yes">✅ ${L('هو فقط القفل اللي بيوصّل مفتاح الجلسة بأمان', 'It is only the lock that delivers the session key safely')}</span></div>
-    <div id="hm-b-hack1" class="bubble tl later">😈 ${L('هاخد الصندوق!', 'I’ll take the box!')}</div>
-    <div id="hm-b-hack2" class="bubble tl later"><span>😫 ${L('مش قادر أفتحه!', 'I can’t open it!')}</span><span>${L('معنديش المفتاح الخاص', 'I don’t have the private key')}</span></div>
+    <div id="hm-note" class="card later"><span class="no">❌ ${L('مفتاح الجلسة نفسه مابيتبعتش على الشبكة', 'The public key is NOT turned into a common key')}</span><span class="yes">✅ ${L('كل طرف بيشتقّه عنده من المعاملات المتبادلة', 'It is only the lock that delivers the session key safely')}</span></div>
+    <div id="hm-b-hack1" class="bubble tl later">😈 ${L('هاخد اللي ماشي في السكة!', 'I’ll take the box!')}</div>
+    <div id="hm-b-hack2" class="bubble tl later"><span>😫 ${L('مش قادر أوصل للمفتاح!', 'I can’t open it!')}</span><span>${L('المفتاح نفسه مابيتبعتش', 'I don’t have the private key')}</span></div>
     <div id="hm-xbox" class="later">✕</div>
     <svg id="hm-skey2" class="later" viewBox="0 0 140 64">${GOLD}</svg>
     <svg id="hm-skeyB" class="later" viewBox="0 0 140 64">${GOLD}</svg>
-    <div id="hm-same" class="card later">🤝 ${L('الطرفان معهما نفس مفتاح الجلسة', 'Both sides now share the same session key')}</div>
+    <div id="hm-same" class="card later">🤝 ${L('كل طرف اشتق نفس مفتاح الجلسة عنده', 'Both sides now share the same session key')}</div>
 
     ${[L('كلمة المرور', 'password'), L('رصيد الحساب', 'balance'), L('تحويل 100 جنيه', 'send EGP 100'), L('كشف الحساب', 'statement'), L('تسجيل خروج', 'sign out')]
       .map((x, k) => `<div id="hm-pk${k + 1}" class="pk later">🔒 ${x}</div>`).join('')}
@@ -146,10 +147,10 @@
   <div id="hm-recap">
     <div id="hm-r-brand" class="later">${L('مراجعة تفاعلية · البرمجة والذكاء الاصطناعي · الدرس 2-1', 'Interactive review · Programming & AI · Lesson 2-1')}</div>
     <div id="hm-r-title" class="later">${L('الخلاصة', 'The point')} 💡</div>
-    <div id="hm-rc1" class="rc later"><span class="ic">🔓</span><span class="h">${L('المفتاح العام', 'Public key')}</span><span class="p">${L('يوصّل مفتاح الجلسة بأمان', 'delivers the session key safely')}</span></div>
+    <div id="hm-rc1" class="rc later"><span class="ic">🔓</span><span class="h">${L('المفتاح العام', 'Public key')}</span><span class="p">${L('للمصادقة والاتفاق الآمن على مفاتيح الجلسة', 'delivers the session key safely')}</span></div>
     <div id="hm-r-plus" class="later">+</div>
-    <div id="hm-rc2" class="rc later"><span class="ic">🔑</span><span class="h">${L('المفتاح المتماثل', 'Common key')}</span><span class="p">${L('ينقل البيانات بسرعة', 'moves the data fast')}</span></div>
-    <div id="hm-r-eq" class="later">= ${L('أمان + سرعة', 'security + speed')} 🔒</div>
+    <div id="hm-rc2" class="rc later"><span class="ic">🔑</span><span class="h">${L('المفتاح المتماثل', 'Common key')}</span><span class="p">${L('يحمي البيانات بسرعة', 'moves the data fast')}</span></div>
+    <div id="hm-r-eq" class="later">= ${L('أمان + كفاءة', 'security + speed')} 🔒</div>
     <div id="hm-r-url" class="later">🔒 <span><span class="s">https</span>://www.bank.com</span></div>
   </div>
   <div id="hm-vig"></div>`;
@@ -332,7 +333,7 @@
     OUT(Q('xbox b-hack2'), c, 0.3);
     tl.to(q('ch-hacker'), { y: 0, duration: 0.3 }, c);
     tl.to(q('boxg'), { x: 840, y: 20, duration: 1.0, ease: 'power2.inOut' }, c + 0.3); SND('whoosh', c + 0.3);
-    tl.to(q('priv'), { x: -250, y: 215, rotation: -20, duration: 0.8, ease: 'power2.inOut' }, c + 1.3);
+    if (L('ar', 'en') === 'en') tl.to(q('priv'), { x: -250, y: 215, rotation: -20, duration: 0.8, ease: 'power2.inOut' }, c + 1.3);
     tl.to(q('boxlock'), { opacity: 0, y: -30, duration: 0.3 }, c + 2.1);
     tl.to(q('lid'), { rotation: -38, duration: 0.35, ease: 'back.out(2)' }, c + 2.25);
     POP(q('skey2'), c + 2.45, 0.5);

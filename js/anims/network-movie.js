@@ -64,9 +64,9 @@
     <div id="nw-n0" class="note later">💎 ${L('الكنز = بيانات العملاء في المكتب الداخلي · وبره = زوار… ومهاجمين', 'The treasure = customer data in the inner office · outside = visitors… and attackers')}</div>
     <div id="nw-n1" class="note later">📋 ${L('قواعد مضبوطة مسبقًا', 'Preset rules')}: ✅ ${L('زوار ← خادم الويب', 'visitors → web server')} · ⛔ ${L('دخول مباشر ← قاعدة البيانات', 'direct access → database')}</div>
     <div id="nw-n2a" class="note later">🏨 ${L('الخوادم العامة (ويب + بريد) هنا — بعيد عن المكتب الداخلي', 'Public servers (web + mail) live here — away from the inner office')}</div>
-    <div id="nw-n2b" class="note ok later">🛡️ ${L('الباب التاني (جدار حماية تاني) وقفه ← الشبكة الداخلية سليمة', 'The second door (another firewall) stops him → the inside is safe')}</div>
+    <div id="nw-n2b" class="note ok later">🛡️ ${L('جدار الحماية التاني بيقلّل احتمال وصول الهجوم للشبكة الداخلية', 'The second door (another firewall) stops him → the inside is safe')}</div>
     <div id="nw-n3" class="note later">🏠 ${L('العمل عن بُعد', 'Remote work')} · 🏢 ${L('ربط الفروع', 'Linking branches')} — ${L('والمتنصّت شايف رموز ملهاش معنى', 'the eavesdropper sees only symbols')}</div>
-    <div id="nw-n5" class="note bad later">⛔ ${L('مفيش «جوّه موثوق»: الهوية + الصلاحيات بتتفحص في كل مرة', 'No "trusted inside": identity + permissions are checked every time')}</div>
+    <div id="nw-n5" class="note bad later">⛔ ${L('مفيش «جوّه موثوق»: الهوية + الصلاحيات + السياق بتتفحص عند طلب الوصول', 'No "trusted inside": identity + permissions are checked every time')}</div>
 
     <div id="nw-b-emp1" class="bubble tl mv-bub later">${L('إحنا شغالين هنا… والبيانات دي سرّية جدًا', 'We work here… and this data is top secret')} 🤫</div>
     <div id="nw-b-vis" class="bubble tl mv-bub later">🙋‍♂️ ${L('عايز أشوف موقعكم', 'I want to see your website')}</div>

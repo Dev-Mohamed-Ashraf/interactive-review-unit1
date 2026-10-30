@@ -28,7 +28,7 @@
       ['🚨', 'الاكتشاف', 'Detection', 'اكتشاف الحادث وتأكيده', 'discover and confirm the incident'],
       ['🔌', 'الاحتواء', 'Containment', 'نحدّ من نطاق التأثير: نفصل الجهاز', 'limit the impact: isolate the PC'],
       ['🧹', 'الاستئصال', 'Eradication', 'نشيل السبب: نمسح البرنامج الخبيث', 'remove the cause: delete the malware'],
-      ['♻️', 'الاستعادة', 'Recovery', 'نرجّع الأنظمة لطبيعتها من نسخة نضيفة', 'back to normal from a clean backup'],
+      ['♻️', 'الاستعادة', 'Recovery', 'نرجّع الأنظمة لحالة آمنة وطبيعية من نسخة سليمة', 'back to normal from a clean backup'],
       ['🛡️', 'الدروس والتحسين', 'Prevention', 'نحلّل السبب: تحديث + تدريب', 'analyse the cause: patch + training'],
     ];
     const NUM = '①②③④⑤⑥';

@@ -55,7 +55,7 @@
     ${B.svg('bot', 90, 150, 300, 300, '0 0 300 300', ROBOT('#fbbf24'))}
     ${B.card('odds', 470, 150, 1380, 0, 'c-slate', { h: '🤖 ' + L('النموذج بيقيّم متقدّمين جداد بنفس المهارات', 'The model rates new applicants with the same skills'),
       html: `<div class="l12-pr"><b>● ${L('فرصة القبول', 'chance')}</b><span class="l12-bar o"><i id="bi-r1" data-w="70" style="width:70%"></i></span><em>70%</em></div><div class="l12-pr"><b>▲ ${L('فرصة القبول', 'chance')}</b><span class="l12-bar s"><i id="bi-r2" data-w="18" style="width:18%"></i></span><em>18%</em></div>` })}
-    ${B.card('def1', 90, 500, 1760, 0, 'c-red', { row: true, ic: '⚖️', h: L('التحيز الخوارزمي', 'Algorithmic bias'), p: L('تحيّز في أحكام الـAI سببه تحيّز في بيانات التدريب — النموذج اتعلّم الظلم وكرّره', 'bias in AI judgements caused by bias in the training data — the model learned the injustice and repeated it') })}
+    ${B.card('def1', 90, 500, 1760, 0, 'c-red', { row: true, ic: '⚖️', h: L('التحيز الخوارزمي', 'Algorithmic bias'), p: L('نمط في مخرجات الـAI ممكن يؤدي لنتايج غير عادلة أو ضارة — النموذج اتعلّم الظلم وكرّره', 'bias in AI judgements caused by bias in the training data — the model learned the injustice and repeated it') })}
   </div>
   <div id="bi-s2" class="mv-stage">
     ${B.card('bal', 70, 140, 840, 460, 'c-green', { h: '⚖️ ' + L('① بيانات متوازنة لكل المجموعات', '① Balanced data for every group'),
@@ -68,24 +68,24 @@
     ${B.card('cols', 70, 140, 1040, 0, 'c-slate', { h: '📋 ' + L('أعمدة البيانات', 'Data columns'), html: `<div class="l12-cols"><span class="cg">👥 ${L('المجموعة', 'group')}</span><span class="cx">🏘️ ${L('الحي', 'district')}</span><span class="cx">⚽ ${L('اسم النادي', 'club name')}</span><span>⭐ ${L('المهارات', 'skills')}</span></div>` })}
     ${B.big('cut', 140, 350, 100, 80, '✂️')}
     ${B.stamp('back', 300, 460, '😬 ' + L('التحيز رجع!', 'the bias is back!'))}
-    ${B.card('prox', 1170, 140, 690, 0, 'c-amber', { ic: '🕵️', h: L('المتغيّر الوسيط', 'Proxy variable'), p: L('متغيّر مرتبط بالمجموعة… ممكن يرجّع التحيز حتى لو شلنا عمود المجموعة', 'a variable linked to the group… can bring the bias back even after removing the group column') })}
-    ${B.chip('also', 70, 640, '🛠️ ' + L('والتحيز ممكن يدخل كمان من اختيار المتغيّرات أو تصميم النموذج', 'bias can also enter through the choice of variables or the model design'), 'c-amber')}
+    ${B.card('prox', 1170, 140, 690, 0, 'c-amber', { ic: '🕵️', h: L('المتغيّر البديل', 'Proxy variable'), p: L('متغيّر بيمثّل المجموعة بشكل غير مباشر… ممكن يرجّع التحيز حتى لو شلنا عمودها', 'a variable linked to the group… can bring the bias back even after removing the group column') })}
+    ${B.chip('also', 70, 640, '🛠️ ' + L('والتحيز ممكن يدخل كمان من اختيار المتغيّرات أو تصميم النموذج أو طريقة الاستخدام', 'bias can also enter through the choice of variables or the model design'), 'c-amber')}
   </div>
   <div id="bi-s4" class="mv-stage">
-    ${B.card('e1', 70, 150, 860, 440, 'c-red', { ic: '💼', h: L('ذكاء توظيف', 'A hiring AI'), p: L('بيقيّم جنس معيّن بشكل غير عادل لأن قرارات الماضي كانت كده', 'rates one gender unfairly because past decisions did'), html: `<div class="l12-cv"><span>📄 ✅</span><span>📄 ❌</span><span>📄 ✅</span><span>📄 ❌</span></div>` })}
+    ${B.card('e1', 70, 150, 860, 440, 'c-red', { ic: '💼', h: L('ذكاء توظيف', 'A hiring AI'), p: L('بيقيّم فئة معيّنة بشكل غير عادل لأن قرارات الماضي كانت كده', 'rates one gender unfairly because past decisions did'), html: `<div class="l12-cv"><span>📄 ✅</span><span>📄 ❌</span><span>📄 ✅</span><span>📄 ❌</span></div>` })}
     ${B.card('e2', 990, 150, 860, 440, 'c-red', { ic: '📷', h: L('التعرّف على الوجه', 'Face recognition'), p: L('بيغلط أكتر مع مجموعات عرقية صورها كانت قليلة في التدريب', 'misidentifies more often the groups with few training photos'), html: `<div class="l12-faces">${range(8).map((k) => `<span class="${k % 3 === 2 ? 'x' : ''}">🙂</span>`).join('')}</div>` })}
   </div>
   <div id="bi-s5" class="mv-stage">
-    ${[['📂', L('السبب', 'The cause'), L('بيانات تدريب متحيّزة: ناقصة أو فيها تمييز قديم', 'biased training data: missing groups or old discrimination'), 'c-red'],
+    ${[['📂', L('السبب', 'The cause'), L('أهمه بيانات تدريب متحيّزة: ناقصة أو فيها تمييز قديم', 'biased training data: missing groups or old discrimination'), 'c-red'],
       ['⚖️', L('العلاج', 'The fix'), L('بيانات متوازنة + اختبار لكل مجموعة', 'balanced data + testing for every group'), 'c-green'],
-      ['🕵️', L('الفخ', 'The trap'), L('المتغيّر الوسيط بيرجّع التحيز', 'a proxy variable brings the bias back'), 'c-amber']]
+      ['🕵️', L('الفخ', 'The trap'), L('المتغيّر البديل بيرجّع التحيز', 'a proxy variable brings the bias back'), 'c-amber']]
       .map(([ic, h, p, c], k) => B.card('c' + k, 70 + k * 600, 150, 570, 330, c, { ic, h, p })).join('')}
     ${B.mid('nope', 560, '❌ ' + L('السبب مش بطء الحاسب ولا ضعف الإنترنت', 'the cause is NOT a slow computer or a weak connection'), 'c-red big')}
   </div>
     ${U.hd(0, '🏢 ' + L('ذكاء توظيف اتدرّب على قرارات الماضي', 'A hiring AI trained on past decisions'))}
     ${U.hd(1, '🤖 ' + L('النموذج اتعلّم الظلم… وكرّره', 'The model learned the injustice… and repeats it'))}
     ${U.hd(2, '🔧 ' + L('نقلّل التحيز إزاي؟', 'How do we reduce bias?'))}
-    ${U.hd(3, '🕵️ ' + L('فخ المتغيّر الوسيط', 'The proxy-variable trap'))}
+    ${U.hd(3, '🕵️ ' + L('فخ المتغيّر البديل', 'The proxy-variable trap'))}
     ${U.hd(4, '🌍 ' + L('أمثلة حقيقية', 'Real cases'))}
     ${U.hd(5, '📌 ' + L('الخلاصة', 'Recap'))}`;
       },
@@ -177,7 +177,7 @@
   </div>
   <div id="pv-s2" class="mv-stage">
     ${B.svg('scale', 660, 150, 600, 480, '0 0 400 330', SCALE)}
-    ${B.chip('left', 520, 470, '🛡️ ' + L('أمان', 'safety') + ' + 😌 ' + L('راحة', 'convenience'), 'c-green big')}
+    ${B.chip('left', 520, 470, '🛡️ ' + L('سلامة', 'safety') + ' + 😌 ' + L('راحة', 'convenience'), 'c-green big')}
     ${B.chip('right', 1110, 470, '🔒 ' + L('خصوصية', 'privacy'), 'c-violet big')}
     ${B.chip('q1', 90, 200, '❓ ' + L('مين يشوف البيانات؟', 'who sees the data?'), 'c-amber big')}
     ${B.chip('q2', 90, 320, '⏳ ' + L('لحد إمتى تتخزّن؟', 'how long is it kept?'), 'c-amber big')}
@@ -195,13 +195,13 @@
     ${B.card('yes', 70, 140, 860, 470, 'c-red', { ic: '✅', h: L('قضايا خصوصية', 'Privacy issues') })}
     ${B.card('no', 990, 140, 860, 470, 'c-slate', { ic: '❌', h: L('مش قضايا خصوصية', 'NOT privacy issues') })}
     ${B.chip('i0', 760, 640, '📹 ' + L('تتبّع الأفراد بالتعرّف على الوجه', 'tracking people by face recognition'), 'c-red')}
-    ${B.chip('i1', 760, 640, '🗂️ ' + L('جمع البيانات الشخصية بكميات ضخمة', 'mass collection of personal data'), 'c-red')}
+    ${B.chip('i1', 760, 640, '🗂️ ' + L('جمع البيانات الشخصية بكميات كبيرة', 'mass collection of personal data'), 'c-red')}
     ${B.chip('i2', 760, 640, '🎨 ' + L('الـAI بيعمل أعمال إبداعية', 'AI makes creative works'), 'c-slate')}
     ${B.chip('i3', 760, 640, '⚡ ' + L('سرعة الـAI زادت', 'AI got faster'), 'c-slate')}
   </div>
     ${U.hd(0, '📹 ' + L('المراقبة بالتعرّف على الوجه', 'Face-recognition surveillance'))}
-    ${U.hd(1, '🗂️ ' + L('الجمع الضخم للبيانات الشخصية', 'Mass collection of personal data'))}
-    ${U.hd(2, '⚖️ ' + L('أمان وراحة… ولا خصوصية؟', 'Safety and convenience… or privacy?'))}
+    ${U.hd(1, '🗂️ ' + L('الجمع الجماعي للبيانات الشخصية', 'Mass collection of personal data'))}
+    ${U.hd(2, '⚖️ ' + L('سلامة وراحة… ولا خصوصية؟', 'Safety and convenience… or privacy?'))}
     ${U.hd(3, '🔒 ' + L('حماية الخصوصية: إنت اللي تتحكّم', 'Privacy protection: you are in control'))}
     ${U.hd(4, '⚠️ ' + L('فخ الامتحان', 'Exam trap'))}`,
     });
@@ -313,7 +313,7 @@
     ${B.ch('dv', 160, 300, 'md')}${B.ch('us', 850, 300, 'md')}${B.ch('op', 1540, 300, 'md')}
     ${B.chip('l0', 120, 610, '👨‍💻 ' + L('المطوّر', 'developer'), 'c-blue', 300)}${B.chip('l1', 810, 610, '🧑 ' + L('المستخدم', 'user'), 'c-violet', 300)}${B.chip('l2', 1500, 610, '🏢 ' + L('المشغّل', 'operator'), 'c-amber', 300)}
     ${B.mid('who', 130, '⚖️ ' + L('لو الـAI غلط… مين المسؤول؟', 'if the AI is wrong… who is responsible?'), 'c-amber big')}
-    ${B.mid('none', 220, '❓ ' + L('لسه مفيش معيار واضح متّفق عليه', 'there is no agreed standard yet'), 'c-red')}
+    ${B.mid('none', 220, '❓ ' + L('مفيش توزيع واحد يصلح لكل السياقات', 'there is no agreed standard yet'), 'c-red')}
   </div>
     ${U.hd(0, '⬛ ' + L('الصندوق الأسود: قرار من غير «ليه»', 'The black box: a decision without a “why”'))}
     ${U.hd(1, '🔍 ' + L('XAI: الصندوق بقى شفاف', 'XAI: the box becomes transparent'))}
@@ -321,8 +321,8 @@
     ${U.hd(3, '② ' + L('XAI بيشرح: «لو كان… كان»', 'XAI explains: “what if…”'))}
     ${U.hd(4, '③ ' + L('XAI بيشرح: الخريطة الحرارية', 'XAI explains: the heat map'))}
     ${U.hd(5, '⚖️ ' + L('المسؤولية', 'Responsibility'))}
-    ${U.nt(0, L('حتى لو النتيجة طلعت صح بالصدفة… الغموض بيمنع التحقّق', 'even if the result is right by chance… the mystery blocks checking'), 'warn')}
-    ${U.nt(5, '✅ ' + L('XAI بيحقّق الشفافية ويساعد العدالة والمساءلة', 'XAI brings transparency and helps fairness and accountability'), 'ok')}`,
+    ${U.nt(0, L('حتى لو النتيجة طلعت صح… الغموض بيصعّب تقييمها واكتشاف الأخطاء', 'even if the result is right by chance… the mystery blocks checking'), 'warn')}
+    ${U.nt(5, '✅ ' + L('XAI بيدعم الشفافية ويساعد العدالة والمساءلة', 'XAI brings transparency and helps fairness and accountability'), 'ok')}`,
     });
     const { q, Q, tl, IN, POP, OUT, SND, frame, sx } = M;
     const all = (sel) => M.board.querySelectorAll(sel);
@@ -406,7 +406,7 @@
   </div>
   <div id="pr-s1" class="mv-stage">
     ${B.card('glass', 70, 140, 820, 480, 'c-violet', { h: '🔎 ' + L('صندوق شفاف', 'A glass box'), html: `<ul class="l12-list"><li>① ${L('بيانات الطلب', 'the application data')}</li><li>② ${L('العوامل اللي اتحسبت', 'the factors that counted')}</li><li>③ ${L('القرار وسببه', 'the decision and its reason')}</li></ul>` })}
-    ${B.card('p1', 960, 160, 900, 0, 'c-violet', { ic: '👁️', h: L('الشفافية (Transparency)', 'Transparency'), p: L('إظهار عملية اتخاذ القرار وطريقة الشغل الداخلية بوضوح', 'showing how decisions are made and how it works inside'), k: L('مثال: الإفصاح للمستخدمين عن إزاي النظام بيقرّر', 'e.g. telling users how the system decides') })}
+    ${B.card('p1', 960, 160, 900, 0, 'c-violet', { ic: '👁️', h: L('الشفافية (Transparency)', 'Transparency'), p: L('إتاحة معلومات واضحة عن النظام واستخدامه وعملية القرار وحدوده', 'showing how decisions are made and how it works inside'), k: L('مثال: الإفصاح للمستخدمين عن إزاي النظام بيقرّر', 'e.g. telling users how the system decides') })}
   </div>
   <div id="pr-s2" class="mv-stage">
     ${B.card('addr', 70, 300, 340, 0, 'c-slate', { ic: '📍', h: L('عنوانك', 'Your address') })}
@@ -420,7 +420,7 @@
     ${B.big('arw', 620, 230, 90, 60, B.arrow, 'l12-gold')}
     ${B.ch('en', 760, 330, 'md')}
     ${B.chip('me', 640, 650, '🙋‍♂️ ' + L('«أنا المسؤول… وهصلّح»', '“I am responsible… I will fix it”'), 'c-amber big')}
-    ${B.card('p3', 1160, 160, 700, 0, 'c-amber', { ic: '🙋‍♂️', h: L('المساءلة (Accountability)', 'Accountability'), p: L('إن يكون فيه حد مسؤول وقابل للمحاسبة عن قرارات الـAI', 'someone is responsible and answerable for AI decisions') })}
+    ${B.card('p3', 1160, 160, 700, 0, 'c-amber', { ic: '🙋‍♂️', h: L('المساءلة (Accountability)', 'Accountability'), p: L('تحديد الجهات المسؤولة عن النظام وقراراته وآثاره وإمكان محاسبتها', 'someone is responsible and answerable for AI decisions') })}
   </div>
   <div id="pr-s4" class="mv-stage">
     ${[['⚖️', L('العدالة', 'Fairness'), 'c-blue'], ['👁️', L('الشفافية', 'Transparency'), 'c-violet'], ['🛡️', L('الخصوصية', 'Privacy'), 'c-green'], ['🙋‍♂️', L('المساءلة', 'Accountability'), 'c-amber']]

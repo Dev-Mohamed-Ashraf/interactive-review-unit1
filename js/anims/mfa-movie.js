@@ -37,48 +37,48 @@
 
     <div id="mf-hd0" class="head later">🧠 ${L('حساب أحمد محمي بعامل واحد بس', 'Ahmed’s account: one factor only')}</div>
     <div id="mf-hd1" class="head later">🚨 ${L('العامل الوحيد اتكسر ← المهاجم دخل', 'The only factor broke → the attacker is in')}</div>
-    <div id="mf-hd2" class="head later">🔐 ${L('المصادقة متعددة العوامل', 'Multi-factor authentication')}: 🧠 + 📱</div>
-    <div id="mf-hd3" class="head later">⛔ ${L('كلمة السر لوحدها مابقتش كفاية', 'The password alone is no longer enough')}</div>
+    <div id="mf-hd2" class="head later">🔐 ${L('المصادقة الثنائية', 'Multi-factor authentication')}: 🧠 + 📱</div>
+    <div id="mf-hd3" class="head later">⛔ ${L('كلمة المرور لوحدها مابقتش كفاية', 'The password alone is no longer enough')}</div>
     <div id="mf-hd4" class="head later">✅ ${L('عاملين من نوعين مختلفين', 'Two different kinds of factor')}</div>
-    <div id="mf-hd5" class="head later">⚠️ ${L('فخ: كلمتين سر مش مصادقة متعددة العوامل', 'Trap: two passwords are NOT MFA')}</div>
+    <div id="mf-hd5" class="head later">⚠️ ${L('فخ: كلمتين مرور مش مصادقة ثنائية', 'Trap: two passwords are NOT MFA')}</div>
     <div id="mf-hd6" class="head later">💡 ${L('الخلاصة: عوامل المصادقة التلاتة', 'The point: the three factors')}</div>
 
     <div id="mf-login" class="later">
       <div class="ttl">🏦 ${L('بنك المستقبل · تسجيل الدخول', 'Future Bank · sign in')}</div>
-      <div id="mf-f1" class="row"><span class="fld">🔑 ${L('كلمة السر', 'Password')} <b>••••••</b></span><span class="fac k">🧠 ${L('معرفة', 'knowledge')}</span></div>
+      <div id="mf-f1" class="row"><span class="fld">🔑 ${L('كلمة المرور', 'Password')} <b>••••••</b></span><span class="fac k">🧠 ${L('معرفة', 'knowledge')}</span></div>
       <div id="mf-f2" class="row later"><span class="fld">📱 ${L('كود الموبايل', 'Phone code')} <b>______</b></span><span class="fac p">📱 ${L('حيازة', 'possession')}</span></div>
       <div id="mf-st-ok" class="st ok later">✔</div><div id="mf-st-bad" class="st bad later">🚨</div><div id="mf-st-no" class="st no later">⛔</div>
     </div>
 
-    <div id="mf-b-ahmed1" class="bubble tl mv-bub later">${L('كلمة السر بتاعتي قوية… كفاية كده!', 'My password is strong… that’s enough!')} 💪</div>
-    <div id="mf-b-bank1" class="bubble tr mv-bub later">✅ ${L('كلمة السر صح — اتفضل', 'Password correct — come in')}</div>
-    <div id="mf-pw0" class="chip later">🔑 ${L('كلمة السر', 'password')} ••••••</div>
+    <div id="mf-b-ahmed1" class="bubble tl mv-bub later">${L('كلمة المرور بتاعتي قوية… كفاية كده!', 'My password is strong… that’s enough!')} 💪</div>
+    <div id="mf-b-bank1" class="bubble tr mv-bub later">✅ ${L('كلمة المرور صح — اتفضل', 'Password correct — come in')}</div>
+    <div id="mf-pw0" class="chip later">🔑 ${L('كلمة المرور', 'password')} ••••••</div>
 
-    <div id="mf-leak" class="later"><div class="t">📄 ${L('قايمة كلمات سر مسرّبة', 'Leaked password list')}</div><div class="l">ahmed : Ahmed2024</div><div class="l">omar : 123456</div><div class="s">${L('من موقع تاني اتسرّق', 'from another breached site')}</div></div>
-    <div id="mf-b-hack1" class="bubble tl later">${L('لقيت كلمة سر أحمد!', 'Found Ahmed’s password!')} 😈</div>
+    <div id="mf-leak" class="later"><div class="t">📄 ${L('قايمة كلمات مرور مسرّبة', 'Leaked password list')}</div><div class="l">ahmed : Ahmed2024</div><div class="l">omar : 123456</div><div class="s">${L('من موقع تاني اتسرّق', 'from another breached site')}</div></div>
+    <div id="mf-b-hack1" class="bubble tl later">${L('لقيت كلمة مرور أحمد!', 'Found Ahmed’s password!')} 😈</div>
     <div id="mf-pw" class="chip bad later">🔑 Ahmed2024</div>
     <div id="mf-b-bank2" class="bubble tr mv-bub later">${L('أهلًا يا أحمد!', 'Welcome, Ahmed!')} 😃<span class="aside">${L('(ده مش أحمد!)', '(that’s not Ahmed!)')}</span></div>
 
     <svg id="mf-phone" class="later" viewBox="0 0 90 150">${PHONE.replace(/^<svg[^>]*>|<\/svg>$/g, '')}</svg>
     <div id="mf-b-ahmed2" class="bubble tl mv-bub later">${L('من النهارده: لازم الكود اللي على موبايلي كمان', 'From today: the code on my phone is needed too')} 📱</div>
 
-    <div id="mf-b-bank3" class="bubble tr mv-bub later">${L('كلمة السر صح… ابعت الكود اللي وصل لموبايلك', 'Password correct… now send the code from your phone')}</div>
+    <div id="mf-b-bank3" class="bubble tr mv-bub later">${L('كلمة المرور صح… ابعت الكود اللي وصل لموبايلك', 'Password correct… now send the code from your phone')}</div>
     <div id="mf-code" class="chip code later">💬 ${L('الكود', 'code')} 482913</div>
     <div id="mf-b-hack2" class="bubble tl later">${L('كود؟! مفيش معايا موبايله', 'A code?! I don’t have his phone')} 😤</div>
     <div id="mf-block" class="later">⛔ ${L('اتمنع', 'Blocked')}</div>
     <div id="mf-b-bank4" class="bubble tr mv-bub later">${L('أهلًا يا أحمد الحقيقي', 'Welcome, the real Ahmed')} 👋</div>
 
-    <div id="mf-cmpA" class="cmp no later"><div class="ic">🔑 + 🔑</div><div class="h">${L('كلمة سر + كلمة سر', 'password + password')}</div><div class="f">🧠 ${L('معرفة', 'knowledge')} + 🧠 ${L('معرفة', 'knowledge')}</div><div class="v">❌ ${L('مش MFA — نفس العامل مرتين', 'NOT MFA — the same factor twice')}</div></div>
-    <div id="mf-cmpB" class="cmp yes later"><div class="ic">🔑 + 📱</div><div class="h">${L('كلمة سر + كود الموبايل', 'password + phone code')}</div><div class="f">🧠 ${L('معرفة', 'knowledge')} + 📱 ${L('حيازة', 'possession')}</div><div class="v">✅ ${L('MFA — عاملين مختلفين', 'MFA — two different factors')}</div></div>
-    <div id="mf-b-hack3" class="bubble tl mv-bub later">${L('لو الاتنين كلمة سر… هسرقهم من نفس القايمة', 'Two passwords? I’ll steal both from one list')} 😏</div>
+    <div id="mf-cmpA" class="cmp no later"><div class="ic">🔑 + 🔑</div><div class="h">${L('كلمة مرور + كلمة مرور', 'password + password')}</div><div class="f">🧠 ${L('معرفة', 'knowledge')} + 🧠 ${L('معرفة', 'knowledge')}</div><div class="v">❌ ${L('مش 2FA — نفس العامل مرتين', 'NOT MFA — the same factor twice')}</div></div>
+    <div id="mf-cmpB" class="cmp yes later"><div class="ic">🔑 + 📱</div><div class="h">${L('كلمة مرور + كود الموبايل', 'password + phone code')}</div><div class="f">🧠 ${L('معرفة', 'knowledge')} + 📱 ${L('حيازة', 'possession')}</div><div class="v">✅ ${L('2FA — عاملين مختلفين', 'MFA — two different factors')}</div></div>
+    <div id="mf-b-hack3" class="bubble tl mv-bub later">${L('لو الاتنين كلمة مرور… هسرقهم من نفس القايمة', 'Two passwords? I’ll steal both from one list')} 😏</div>
   </div>
 
   <div id="mf-recap">
-    <div id="mf-rc1" class="rc later"><span class="ic">🧠</span><span class="h">${L('المعرفة', 'Knowledge')}</span><span class="p">${L('حاجة إنت عارفها', 'something you know')}</span><span class="x">${L('كلمة سر · PIN', 'password · PIN')}</span></div>
-    <div id="mf-rc2" class="rc later"><span class="ic">📱</span><span class="h">${L('الحيازة', 'Possession')}</span><span class="p">${L('حاجة معاك', 'something you have')}</span><span class="x">${L('موبايل · كارت ذكي', 'phone · smart card')}</span></div>
-    <div id="mf-rc3" class="rc later"><span class="ic">👆</span><span class="h">${L('الحيوية', 'Biometric')}</span><span class="p">${L('حاجة هي إنت', 'something you are')}</span><span class="x">${L('بصمة · وجه', 'fingerprint · face')}</span></div>
-    <div id="mf-rule" class="later">🔐 MFA = ${L('اتنين أو أكتر من عوامل مختلفة', 'two or more DIFFERENT factors')}</div>
-    <div id="mf-rule2" class="later">❌ ${L('كلمة سر + سؤال سري = نفس العامل (معرفة) ← مش MFA', 'password + secret question = same factor (knowledge) → not MFA')}</div>
+    <div id="mf-rc1" class="rc later"><span class="ic">🧠</span><span class="h">${L('المعرفة', 'Knowledge')}</span><span class="p">${L('حاجة إنت عارفها', 'something you know')}</span><span class="x">${L('كلمة مرور · PIN', 'password · PIN')}</span></div>
+    <div id="mf-rc2" class="rc later"><span class="ic">📱</span><span class="h">${L('الحيازة', 'Possession')}</span><span class="p">${L('حاجة معاك', 'something you have')}</span><span class="x">${L('موبايل · بطاقة ذكية', 'phone · smart card')}</span></div>
+    <div id="mf-rc3" class="rc later"><span class="ic">👆</span><span class="h">${L('السمات الحيوية', 'Biometric')}</span><span class="p">${L('حاجة هي إنت', 'something you are')}</span><span class="x">${L('بصمة · وجه', 'fingerprint · face')}</span></div>
+    <div id="mf-rule" class="later">🔐 MFA = ${L('عاملين مستقلين من فئتين مختلفتين', 'two or more DIFFERENT factors')}</div>
+    <div id="mf-rule2" class="later">❌ ${L('كلمة مرور + سؤال سري = نفس العامل (معرفة) ← مش 2FA', 'password + secret question = same factor (knowledge) → not MFA')}</div>
   </div>`,
     });
     const { q, Q, tl, at, IN, POP, OUT, SND, PULSE } = M;

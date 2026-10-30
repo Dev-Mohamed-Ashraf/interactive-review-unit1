@@ -62,7 +62,7 @@
       widget: 'mcq',
       prompt: { ar: 'ليه بقى صعب نجمع بين أداء أعلى واستهلاك طاقة أقل في الشرائح الحديثة؟', en: 'Why is it hard to get both higher performance and lower power in modern chips?' },
       options: [
-        { ar: 'الترانزستور صغر لحد كام ذرة، فظهر تسرّب وحرارة', en: 'Transistors shrank to a few atoms, causing leakage and heat' },
+        { ar: 'الترانزستور صغر جدًا، فظهر تسرّب وحرارة', en: 'Transistors shrank to a few atoms, causing leakage and heat' },
         { ar: 'المصانع بطّلت تستخدم السيليكون في الشرائح', en: 'Factories stopped using silicon in chips' },
         { ar: 'عدد الترانزستورات بقى بيقل كل سنتين', en: 'Transistor counts now halve every two years' },
         { ar: 'البرامج الحديثة مابقتش محتاجة سرعة معالجة', en: 'Modern software no longer needs processing speed' },
@@ -77,7 +77,7 @@
         { text: { ar: 'تيار التسرّب معناه إن جزء من التيار بيعدّي حتى والترانزستور مقفول.', en: 'Leakage current means some current flows even when the transistor is off.' }, answer: true },
         { text: { ar: 'المعالجة المتوازية = نواة واحدة بتخلّص المهام ورا بعض بسرعة أكبر.', en: 'Parallel processing = one core finishing tasks one after another, faster.' }, answer: false, explain: { ar: 'معناها __أنوية كتير__ بتقسّم الشغل وتشتغل __في نفس الوقت__.', en: 'It means __many cores__ splitting the work and running __at the same time__.' } },
         { text: { ar: 'كل ما الترانزستور يصغر أكتر، المشاكل الفيزيائية بتقل.', en: 'The smaller the transistor, the fewer the physical problems.' }, answer: false, explain: { ar: 'بالعكس: لما يوصل لحجم الذرات بيظهر __النفق الكمومي__ و__التسرّب__.', en: 'The opposite: at atomic sizes __tunneling__ and __leakage__ appear.' } },
-        { text: { ar: 'الحواسب الكمومية اتجاه جديد لزيادة الأداء مبني على ميكانيكا الكم.', en: 'Quantum computers are a new direction for performance, based on quantum mechanics.' }, answer: true },
+        { text: { ar: 'الحوسبة الكمومية نهج مختلف مبني على ميكانيكا الكم، وقد يفيد في فئات محددة من المسائل.', en: 'Quantum computers are a new direction for performance, based on quantum mechanics.' }, answer: true },
       ],
     }),
   ]);

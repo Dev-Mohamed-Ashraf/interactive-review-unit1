@@ -128,10 +128,10 @@
     ${U.hd(1, '🎙️ ' + L('المساعد الصوتي', 'Voice assistants'))}
     ${U.hd(2, '🌐 ' + L('الترجمة الآلية', 'Machine translation'))}
     ${U.hd(3, '🙂 ' + L('التعرّف على الوجه', 'Face recognition'))}
-    ${U.hd(4, '🏥 ' + L('الصحة: التشخيص بالصور', 'Healthcare: image diagnosis'))}
+    ${U.hd(4, '🏥 ' + L('الرعاية الصحية: التشخيص بالصور', 'Healthcare: image diagnosis'))}
     ${U.hd(5, '🌾 ' + L('الزراعة: الحصاد والآفات', 'Agriculture: harvest and pests'))}
     ${U.hd(6, '🏭 ' + L('التصنيع: الجودة والصيانة التنبؤية', 'Manufacturing: quality and predictive maintenance'))}
-    ${U.hd(7, '🚚 ' + L('اللوجستيات: أحسن طريق للتوصيل', 'Logistics: the best delivery route'))}
+    ${U.hd(7, '🚚 ' + L('الخدمات اللوجستية: أحسن طريق للتوصيل', 'Logistics: the best delivery route'))}
     ${U.hd(8, '📌 ' + L('الخلاصة: الذكاء الاصطناعي في 4 صناعات', 'Recap: AI in four industries'))}
     ${U.nt(4, L('الـAI يعلّم على المكان المشكوك فيه… والقرار النهائي للطبيب', 'AI flags the suspicious spot… the final decision is the doctor’s'), 'ok')}`,
     });
@@ -278,9 +278,9 @@
     ${B.card('g2', 1270, 150, 580, 520, 'c-green', { ic: '📊', h: L('التنبؤ الاحتمالي', 'Probabilistic prediction'), p: L('بيتنبّأ من البيانات', 'predicts from data'), html: `<div class="l12-pr"><b>🌧️ ${L('مطر بكرة', 'rain tomorrow')}</b><span class="l12-bar o"><i data-w="70" style="width:70%"></i></span><em>70%</em></div>` })}
   </div>
   <div id="ca-s1" class="mv-stage">
-    ${[['⚖️', L('الأحكام الأخلاقية', 'Ethical judgements'), L('ممكن تأدّي لتمييز أو تحيّز', 'may lead to discrimination')], ['🔒', L('الخصوصية', 'Privacy'), L('بيانات شخصية', 'personal data')],
+    ${[['⚖️', L('الأحكام الأخلاقية', 'Ethical judgements'), L('ممكن تؤدّي لتمييز أو تحيّز', 'may lead to discrimination')], ['🔒', L('الخصوصية', 'Privacy'), L('بيانات شخصية', 'personal data')],
       ['👨‍⚖️', L('القرار النهائي', 'The final decision'), L('مين المسؤول عن النتيجة؟', 'who is responsible?')], ['📊', L('بيانات متحيّزة', 'Biased data'), L('الحكم بيبقى غير دقيق', 'judgements become inaccurate')],
-      ['😵', L('الهلوسة', 'Hallucination'), L('كلام مختلف عن الحقيقة', 'content that differs from the facts')], ['©️', L('حقوق النشر', 'Copyright'), L('استخدام أعمال محمية في التدريب', 'protected works as training data')],
+      ['😵', L('الهلوسة', 'Hallucination'), L('كلام مختلف عن الحقيقة', 'content that differs from the facts')], ['©️', L('حقوق المؤلف', 'Copyright'), L('استخدام أعمال محمية في التدريب', 'protected works as training data')],
       ['⬛', L('الصندوق الأسود', 'The black box'), L('مش واضح وصل للحكم إزاي', 'unclear how it reached the result')]]
       .map(([ic, h, p], k) => B.card('w' + k, 70 + (k % 4) * 450, 140 + Math.floor(k / 4) * 280, 420, 250, 'c-red', { ic, h, p })).join('')}
   </div>

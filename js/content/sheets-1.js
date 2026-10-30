@@ -288,7 +288,7 @@
       ] }],
       [
         { t: 'cards', ic: '🕵️', title: T('مداخل تانية للتحيّز', 'Other ways in'), cols: 1, items: [
-          { h: T('المتغيّر الوسيط', 'A proxy variable'), p: T('شلنا «المجموعة»… بس الحي أو النادي يرجّعها', 'remove the group… the area or club brings it back'), c: 'amber' },
+          { h: T('المتغيّر البديل', 'A proxy variable'), p: T('شلنا «المجموعة»… بس الحي أو النادي يرجّعها', 'remove the group… the area or club brings it back'), c: 'amber' },
           { h: T('تصميم النظام · طريقة استخدامه · السياق البشري والاجتماعي', 'Variable choice · model design'), c: 'violet' },
           { h: T('أمثلة حقيقية', 'Real examples'), p: T('توظيف غير عادل لجنس معيّن · وجوه بتتغلّط أكتر مع مجموعات عرقية معيّنة', 'a hiring AI unfair to one gender · faces misidentified more for some ethnic groups'), c: 'red' },
         ] },
@@ -300,7 +300,7 @@
       [{ t: 'sec', n: '2', label: T('قضايا الخصوصية', 'Privacy Issues') }],
       [{ t: 'tree', ic: '🔒', title: T('قضايا الخصوصية', 'Privacy issues'), root: { h: T('الأمان والراحة قصاد الخصوصية ← محتاجين قواعد: مين يشوف؟ ولحد إمتى؟', 'Safety vs privacy → rules: who sees it? for how long?'), c: 'blue' }, kids: [
         { ic: '📹', h: T('المراقبة بالتعرف على الوجه', 'Face-recognition surveillance'), p: T('تتبّع الأفراد: مين وفين وإمتى', 'tracking who, where, when'), c: 'red' },
-        { ic: '🗂️', h: T('الجمع الضخم للبيانات', 'Mass data collection'), p: T('لايكات · بحث · مكان · مشتريات', 'likes · searches · location · purchases'), c: 'amber' },
+        { ic: '🗂️', h: T('الجمع الجماعي للبيانات', 'Mass data collection'), p: T('لايكات · بحث · مكان · مشتريات', 'likes · searches · location · purchases'), c: 'amber' },
         { ic: '🛡️', h: T('حماية الخصوصية', 'Privacy protection'), p: T('يتشارك اللي لازم ولغرض واضح', 'share only what is needed, for a clear purpose'), c: 'green' },
       ] }],
       [{ t: 'sec', n: '3', label: T('الذكاء الاصطناعي القابل للتفسير والمسؤولية', 'Explainable AI (XAI) and Responsibility') }],
@@ -349,7 +349,7 @@
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
         { bad: T('التحيّز سببه بطء الحاسب', 'Bias comes from a slow computer'), good: T('البيانات أو التصميم أو الاستخدام', 'Biased training data') },
         { bad: T('المساءلة = القدرة على شرح القرار', 'Opaque is fine if the result is right'), good: T('ده XAI؛ المساءلة: مين يتحاسب', 'It is hard to verify it') },
-        { bad: T('«الـAI مبدع» قضية خصوصية', '“AI is creative” is a privacy issue'), good: T('التتبّع والجمع الضخم بس', 'Only tracking and mass collection') },
+        { bad: T('«الـAI مبدع» قضية خصوصية', '“AI is creative” is a privacy issue'), good: T('التتبّع والجمع الجماعي بس', 'Only tracking and mass collection') },
       ] }],
       [{ t: 'takeaway', label: T('الخلاصة', 'Key takeaway'), p: T('لو البيانات أو التصميم متحيز، الذكاء الاصطناعي ممكن يكرر التحيز؛ والاستخدام المسؤول معناه نتحقق من التحيز، ونقدر نشرح القرارات، ونعرف مين المسؤول.', 'If training data is biased, an AI can reproduce that bias; using AI responsibly means checking for bias, explaining decisions, and knowing who is accountable.') }],
     ],

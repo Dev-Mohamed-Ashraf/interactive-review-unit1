@@ -217,7 +217,7 @@
     ${B.chip('x2a', 372, 254, '✉️ ' + L('فلتر السبام', 'spam filter'), 'c-green')}
     ${B.chipE('x2b', 372, 254, '🛒 ' + L('التوصيات', 'recommendations'), 'c-green')}
     ${B.chip('x3a', 504, 358, '🚗 ' + L('القيادة الذاتية', 'self-driving'), 'c-violet sm')}
-    ${B.chipE('x3b', 504, 358, '🔊 ' + L('تركيب الكلام', 'speech synthesis'), 'c-violet sm')}
+    ${B.chipE('x3b', 504, 358, '🔊 ' + L('التعرف على الكلام', 'speech synthesis'), 'c-violet sm')}
     ${B.chip('x4a', 650, 560, '💬 ChatGPT', 'c-pink sm', 290)}
     ${B.chip('x4b', 960, 560, '🎨 ' + L('توليد الصور', 'image generation'), 'c-pink sm', 310)}
     ${B.mid('x4c', 640, L('بيولّد محتوى جديد', 'creates new content'), 'c-pink')}
@@ -559,7 +559,7 @@
     ${B.svg('deck', 80, 150, 420, 330, '0 0 420 330', DECK(P))}
     ${B.big('cnt', 60, 490, 460, 50, `<bdi id="${P}num">0</bdi> ${L('صورة', 'images')}`, 'l12-gold')}
     ${B.chip('ex1', 70, 580, '🚗 ' + L('تحليل صور القيادة الذاتية', 'image analysis for self-driving'), 'c-blue sm', 440)}
-    ${B.chip('ex2', 70, 664, '🔊 ' + L('تركيب الكلام', 'speech synthesis'), 'c-pink', 440)}
+    ${B.chip('ex2', 70, 664, '🔊 ' + L('التعرف على الكلام', 'speech synthesis'), 'c-pink', 440)}
 
     ${B.ch('ch-fm', 60, 470, 'md')}
     ${range(6).map((k) => B.card('lv' + k, 60 + (k % 3) * 176, 130 + Math.floor(k / 3) * 180, 164, 168, (k % 2 ? 'c-red' : 'c-green') + ' tile',
@@ -587,7 +587,7 @@
       ['📚', L('التعلّم العميق', 'Deep learning'), L('جوّه التعلّم الآلي: طبقات كتير + بيانات ضخمة', 'inside ML: many layers + huge data'), 'c-blue'],
       ['⚠️', L('الحاجة النادرة', 'Rare cases'), L('لو نادرة في بياناته ← غالبًا هيغلط', 'rare in its data → it will likely err'), 'c-red']]
       .map(([ic, h, p, cc], k) => B.card('rc' + k, 70 + k * 450, 150, 420, 290, cc, { ic, h, p })).join('')}
-    ${B.mid('rp1', 520, '🚗 ' + L('القيادة الذاتية (التعرّف على المشاة)', 'self-driving (spotting pedestrians)') + ' · 🔊 ' + L('تركيب الكلام', 'speech synthesis') + ' · 🌾 ' + L('فحص المحاصيل', 'crop checks'), 'c-blue big')}
+    ${B.mid('rp1', 520, '🚗 ' + L('القيادة الذاتية (التعرّف على المشاة)', 'self-driving (spotting pedestrians)') + ' · 🔊 ' + L('التعرف على الكلام', 'speech synthesis') + ' · 🌾 ' + L('فحص المحاصيل', 'crop checks'), 'c-blue big')}
     ${B.mid('rp2', 620, '⭐ ' + L('الشبكة العصبية = التقنية الأساسية ورا التقدّم الكبير في الذكاء الاصطناعي', 'the neural network = the core technology behind recent AI progress'), 'c-green')}
   </div>`;
       },
@@ -764,7 +764,7 @@
     ${B.flip('t1', 160, 150, 1600, 150, `<span class="ic">🤔</span><span>«${L('فلتر السبام ذكاء اصطناعي توليدي', 'A spam filter is generative AI')}»؟</span>`,
       `<span class="x">✗</span><span><del>«${L('فلتر السبام ذكاء اصطناعي توليدي', 'A spam filter is generative AI')}»</del>${L('غلط!', 'False!')}<small>${L('ده تعلّم آلي بيصنّف (سبام / سليم) — مابيولّدش محتوى جديد', 'it is machine learning that classifies (spam / OK) — it creates nothing new')}</small></span>`)}
     ${B.flip('t2', 160, 340, 1600, 150, `<span class="ic">🤔</span><span>«${L('الذكاء التوليدي بيستخدم تعلّم آلي عادي مش تعلّم عميق', 'Generative AI uses ordinary ML, not deep learning')}»؟</span>`,
-      `<span class="x">✗</span><span><del>«${L('الذكاء التوليدي بيستخدم تعلّم آلي عادي مش تعلّم عميق', 'Generative AI uses ordinary ML, not deep learning')}»</del>${L('غلط!', 'False!')}<small>${L('الذكاء التوليدي مبني على التعلّم العميق', 'generative AI is built on deep learning')}</small></span>`)}
+      `<span class="x">✗</span><span><del>«${L('الذكاء التوليدي بيستخدم تعلّم آلي عادي مش تعلّم عميق', 'Generative AI uses ordinary ML, not deep learning')}»</del>${L('غلط!', 'False!')}<small>${L('غالبية الذكاء التوليدي مبنية على التعلّم العميق', 'generative AI is built on deep learning')}</small></span>`)}
     ${B.flip('t3', 160, 530, 1600, 150, `<span class="ic">🤔</span><span>«${L('أحط إجابته في تقرير المدرسة زي ما هي', 'I can paste its answer into my school report')}»؟</span>`,
       `<span class="x">✗</span><span><del>«${L('أحط إجابته في تقرير المدرسة زي ما هي', 'I can paste its answer into my school report')}»</del>${L('لأ!', 'No!')}<small>${L('ممكن تكون هلوسة — اتحقّق من مصدر موثوق واكتب بفهمك', 'it may be a hallucination — verify with a reliable source and write it yourself')}</small></span>`)}
 

@@ -16,7 +16,7 @@
         { ar: 'عدد المتقدّمين كان كبير جدًا السنة دي', en: 'There were too many applicants this year' },
       ],
       answer: 0,
-      explain: { ar: 'ده **المتغيّر الوسيط (proxy)**: متغيّر __مرتبط__ بالمجموعة بيرجّع التحيّز من الباب الخلفي.', en: 'That is a **proxy variable**: something __linked__ to the group brings the bias back through the back door.' },
+      explain: { ar: 'ده **المتغيّر البديل (proxy)**: متغيّر __بيمثّل المجموعة بشكل غير مباشر__ فبيرجّع التحيّز.', en: 'That is a **proxy variable**: something __linked__ to the group brings the bias back through the back door.' },
     }),
     q(2, {
       widget: 'mcq',
@@ -34,7 +34,7 @@
       widget: 'tf',
       items: [
         { text: { ar: 'التحيّز ممكن يدخل كمان من اختيار المتغيّرات أو تصميم النموذج.', en: 'Bias can also enter through the choice of variables or the model design.' }, answer: true },
-        { text: { ar: 'شيل عمود «المجموعة» من البيانات كفاية لوحده إنه يمنع التحيّز.', en: 'Removing the "group" column is enough on its own to stop bias.' }, answer: false, explain: { ar: 'لأ — __المتغيّر الوسيط__ ممكن يرجّعه. لازم نختبر النتايج لكل مجموعة.', en: 'No — a __proxy variable__ can bring it back. Results must be tested per group.' } },
+        { text: { ar: 'شيل عمود «المجموعة» من البيانات كفاية لوحده إنه يمنع التحيّز.', en: 'Removing the "group" column is enough on its own to stop bias.' }, answer: false, explain: { ar: 'لأ — __المتغيّر البديل__ ممكن يرجّعه. لازم نختبر النتايج لكل مجموعة.', en: 'No — a __proxy variable__ can bring it back. Results must be tested per group.' } },
         { text: { ar: 'الذكاء الاصطناعي مستحيل يكون متحيّز لأنه آلة.', en: 'AI can never be biased because it is a machine.' }, answer: false, explain: { ar: 'بيتعلّم من __بيانات البشر__ — لو البيانات ظالمة، بيتعلّم الظلم ويكرّره.', en: 'It learns from __human data__ — if the data is unfair, it learns and repeats the unfairness.' } },
         { text: { ar: 'اختبار نتايج النموذج لكل مجموعة قبل استخدامه بيساعد يقلّل التحيّز.', en: 'Testing the model’s results for each group before use helps reduce bias.' }, answer: true },
       ],
@@ -93,13 +93,13 @@
       widget: 'mcq',
       prompt: { ar: 'تشخيص ذكاء اصطناعي طلع غلط وأذى مريض. حسب الدرس، مين المسؤول؟', en: 'An AI diagnosis was wrong and harmed a patient. According to the lesson, who is responsible?' },
       options: [
-        { ar: 'الآراء بتختلف، ولسه مفيش معيار واضح', en: 'There is no clear agreed standard yet; opinions differ' },
+        { ar: 'مفيش معيار واحد لكل السياقات', en: 'There is no clear agreed standard yet; opinions differ' },
         { ar: 'المطوّر لوحده دايمًا وفي كل الحالات', en: 'Always the developer alone, in every case' },
         { ar: 'المريض، لأنه وافق إنه يستخدم النظام', en: 'The patient, for agreeing to use the system' },
         { ar: 'محدش خالص، لأن الآلة هي اللي غلطت', en: 'Nobody, because the machine made the mistake' },
       ],
       answer: 0,
-      explain: { ar: 'الآراء بتختلف بين __المطوّر والمستخدِم والمشغِّل__، و__لسه مفيش معيار واضح__ — بس لازم يبقى فيه حد مسؤول (المساءلة).', en: 'Opinions differ between __developer, user and operator__, and __there is no clear standard yet__ — but someone must be accountable.' },
+      explain: { ar: 'الأدوار بتختلف بين __المطوّر والمشغِّل والجهة المستخدمة والمستخدِم__، و__مفيش معيار واحد لكل السياقات__ — بس لازم تتحدد الجهات المسؤولة (المساءلة).', en: 'Opinions differ between __developer, user and operator__, and __there is no clear standard yet__ — but someone must be accountable.' },
     }),
     q(3, {
       widget: 'tf',
@@ -134,14 +134,14 @@
         { ar: 'حماية الخصوصية', en: 'Privacy protection' },
       ],
       answer: 0,
-      explain: { ar: 'المساءلة = إن يكون فيه حد __مسؤول وقابل للمحاسبة__ عن قرارات الـAI.', en: 'Accountability = someone is __responsible and answerable__ for the AI’s decisions.' },
+      explain: { ar: 'المساءلة = __تحديد الجهات المسؤولة__ وإمكان محاسبتها.', en: 'Accountability = someone is __responsible and answerable__ for the AI’s decisions.' },
     }),
     q(3, {
       widget: 'tf',
       items: [
         { text: { ar: 'العدالة معناها إن النظام مايميّزش ظلمًا ضد أي شخص أو مجموعة.', en: 'Fairness means the system does not unfairly discriminate against anyone.' }, answer: true },
         { text: { ar: 'الشفافية معناها إن بيانات المستخدمين تفضل سرّية.', en: 'Transparency means users’ data stays secret.' }, answer: false, explain: { ar: 'ده __حماية الخصوصية__. الشفافية = إظهار __إزاي النظام بيقرّر__.', en: 'That is __privacy protection__. Transparency = showing __how the system decides__.' } },
-        { text: { ar: 'المساءلة معناها إن فيه حد مسؤول وقابل للمحاسبة عن قرارات الـAI.', en: 'Accountability means someone is responsible and answerable for AI decisions.' }, answer: true },
+        { text: { ar: 'المساءلة معناها تحديد الجهات المسؤولة وإمكان محاسبتها وفق أدوارها.', en: 'Accountability means someone is responsible and answerable for AI decisions.' }, answer: true },
         { text: { ar: 'النظام يبقى عادل طالما سريع ودقيق، حتى لو ظلم مجموعة.', en: 'A system is fair as long as it is fast and accurate, even if it wrongs one group.' }, answer: false, explain: { ar: 'العدالة مش السرعة ولا الدقة العامة — لو ظلم __أي مجموعة__ يبقى مش عادل.', en: 'Fairness is not speed or overall accuracy — wronging __any group__ makes it unfair.' } },
       ],
     }),

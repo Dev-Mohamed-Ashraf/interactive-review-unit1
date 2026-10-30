@@ -7,7 +7,7 @@ RV.addChapter({
   number: 2,
   title: { ar: 'الأمن السيبراني', en: 'Cybersecurity' },
   subtitle: {
-    ar: 'إزاي بنحمي البيانات والشبكات: التشفير والمصادقة، تصميم أمن الشبكات، والاستجابة للحوادث وإدارة المخاطر.',
+    ar: 'إزاي بنحمي البيانات والشبكات: التشفير والمصادقة، تصميم أمان الشبكات، والاستجابة للحوادث وإدارة المخاطر.',
     en: 'How data and networks are protected: cryptography and authentication, network security design, and incident response and risk management.',
   },
   lessons: ['2-1', '2-2', '2-3'],
