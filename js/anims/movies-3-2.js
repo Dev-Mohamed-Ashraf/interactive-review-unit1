@@ -29,7 +29,7 @@
     <div id="w2-cl" class="l12u l12-win later" style="${B.at(70, 220, 420, 320)}"><div class="wbar"><i></i><i></i><i></i><span class="url" id="w2-url">🌐 shop.com</span></div>
       <div class="wbody l12-lay">
         <div class="ly l0">💻 ${L('العميل', 'The client')}<div class="l12-field">🛒 ${L('صفحة المنتجات', 'products page')}</div></div>
-        <div class="ly l1"><div class="l12-field">👤 ${L('اسم المستخدم', 'username')} <b>ahmed</b></div><div class="l12-field">🔑 ${L('كلمة السر', 'password')} <b>••••</b></div></div>
+        <div class="ly l1"><div class="l12-field">👤 ${L('اسم المستخدم', 'username')} <b>ahmed</b></div><div class="l12-field">🔑 ${L('كلمة المرور', 'password')} <b>••••</b></div></div>
         <div class="ly l2">☀️ ${L('الطقس', 'Weather')}<div class="l12-big2">${L('القاهرة', 'Cairo')} <bdi>31°</bdi></div></div></div></div>
     ${B.svg('wire', 500, 360, 920, 40, '0 0 920 40', WIRE(920))}
     ${B.svg('rk', 1440, 200, 240, 330, '0 0 240 330', RACK)}
@@ -54,9 +54,9 @@
 
   <div id="w2-s2" class="mv-stage">
     ${B.ch('hk', 860, 140, 'sm')}
-    ${env('h1', '📨 ' + L('كلمة السر:', 'password:') + ' <bdi class="code">1234</bdi>', 'c-red')}
-    ${B.chip('rd', 1060, 160, '👀 «' + L('كلمة السر', 'password') + ' <bdi>1234</bdi>»', 'c-red big')}
-    ${B.card('hd', 520, 600, 1340, 0, 'c-red', { row: true, ic: '📖', h: 'HTTP — HyperText Transfer Protocol', p: L('بروتوكول لتبادل البيانات بين العملاء والخوادم — بس المحتوى بيمشي مقروء', 'a protocol between clients and servers — but content travels readable') })}
+    ${env('h1', '📨 ' + L('كلمة المرور:', 'password:') + ' <bdi class="code">1234</bdi>', 'c-red')}
+    ${B.chip('rd', 1060, 160, '👀 «' + L('كلمة المرور', 'password') + ' <bdi>1234</bdi>»', 'c-red big')}
+    ${B.card('hd', 520, 600, 1340, 0, 'c-red', { row: true, ic: '📖', h: 'HTTP — HyperText Transfer Protocol', p: L('بروتوكول لتبادل الرسائل بين عميل وخادم — بس المحتوى بيمشي مقروء', 'a protocol between clients and servers — but content travels readable') })}
   </div>
 
   <div id="w2-s3" class="mv-stage">
@@ -81,7 +81,7 @@
   </div>
 
   <div id="w2-s6" class="mv-stage">
-    ${[['200', '✅', L('نجاح', 'success'), L('كله تمام', 'all good'), 'c-green'], ['404', '❓', L('الصفحة مش موجودة', 'page not found'), L('العنوان غلط — من جهة العميل', 'wrong address — the client side'), 'c-amber'], ['500', '💥', L('خطأ في الخادم', 'server error'), L('المشكلة عند الخادم', 'the problem is on the server'), 'c-red']]
+    ${[['200', '✅', L('نجاح', 'success'), L('كله تمام', 'all good'), 'c-green'], ['404', '❓', L('المورد المطلوب مش موجود', 'page not found'), L('المورد مش موجود بالعنوان ده', 'wrong address — the client side'), 'c-amber'], ['500', '💥', L('خطأ في الخادم', 'server error'), L('المشكلة عند الخادم', 'the problem is on the server'), 'c-red']]
       .map(([n, ic, h, p, c], k) => B.card('c' + k, 70 + k * 610, 150, 580, 0, c, { html: `<div class="l12-code3"><bdi>${n}</bdi> ${ic}</div>`, h, p })).join('')}
     ${B.mid('cdx', 600, '📨 ' + L('كل استجابة فيها «رمز حالة» بيبلّغ بالنتيجة', 'every response carries a status code reporting the result'), 'c-slate big')}
   </div>
@@ -89,8 +89,8 @@
   <div id="w2-s7" class="mv-stage">
     ${env('a1', '🔌 API: ' + L('عايز طقس القاهرة', 'Cairo weather please'), 'c-amber')}
     <div id="w2-js" class="l12u l12-doc l12-json later" style="${B.at(900, 130, 480)}"><div class="code ltr">{<br>&nbsp;&nbsp;"city": "Cairo",<br>&nbsp;&nbsp;"temp": 31,<br>&nbsp;&nbsp;"sky": "sunny"<br>}</div></div>
-    ${B.card('ad', 520, 580, 660, 0, 'c-amber', { row: true, ic: '🔌', h: 'API', p: L('نظام لتبادل البيانات بين برامج مختلفة — والأمامية بتطلب من الخلفية عن طريقه', 'a system for exchanging data between programs — the frontend asks the backend through it') })}
-    ${B.card('jd', 1220, 580, 640, 0, 'c-blue', { row: true, ic: '📄', h: 'JSON', p: L('سهلة القراءة للبشر وسهلة المعالجة للحاسب', 'easy for humans to read, easy for computers to process') })}
+    ${B.card('ad', 520, 580, 660, 0, 'c-amber', { row: true, ic: '🔌', h: 'API', p: L('قواعد بتسمح لبرنامج يطلب بيانات أو وظائف من برنامج تاني — والأمامية ممكن تطلب من الخلفية عن طريقه', 'a system for exchanging data between programs — the frontend asks the backend through it') })}
+    ${B.card('jd', 1220, 580, 640, 0, 'c-blue', { row: true, ic: '📄', h: 'JSON', p: L('نصية ومقروءة وبتدعمها لغات كتير', 'easy for humans to read, easy for computers to process') })}
   </div>
 
   <div id="w2-s8" class="mv-stage">

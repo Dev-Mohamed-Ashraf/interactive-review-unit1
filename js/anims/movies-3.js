@@ -25,15 +25,15 @@
     const M = MK.create(stage, api, { props,
       cls: 'mv-web mv-l12 mv-l31', prefix: P, beats: 9,
       html: (L) => {
-        const STEPS = [L('① تستقبل', '① receive'), L('② تبعت', '② send'), L('③ تدوّر', '③ search'), L('④ ترجّع', '④ return'), L('⑤ ترتّب', '⑤ organise'), L('⑥ تعرض', '⑥ display')];
+        const STEPS = [L('① تستقبل', '① receive'), L('② تبعت', '② send'), L('③ تطلب', '③ search'), L('④ ترجّع', '④ return'), L('⑤ تجهّز', '⑤ organise'), L('⑥ تعرض', '⑥ display')];
         return `
   <div id="w1-s0" class="mv-stage">
     <div id="w1-app" class="l12u l12-win later" style="${B.at(70, 150, 860, 420)}"><div class="wbar"><i></i><i></i><i></i><span class="url">🌐 <span class="u u0">youtube.com</span><span class="u u1">amazon.com</span><span class="u u2">mail.google.com</span><span class="u u3">maps.google.com</span></span></div>
       <div class="wbody l12-apps"><span class="a a0">▶️ YouTube</span><span class="a a1">🛒 Amazon</span><span class="a a2">✉️ Gmail</span><span class="a a3">🗺️ Google Maps</span></div></div>
-    ${B.card('inst', 1000, 150, 420, 250, 'c-slate', { ic: '📦', h: L('تسطيب برنامج مخصّص؟', 'Install special software?') })}
-    ${B.stamp('noi', 1080, 420, '✗ ' + L('مش محتاج', 'not needed'))}
-    ${B.chip('brw', 1480, 220, '🌐 ' + L('يكفي متصفح', 'a browser is enough'), 'c-green big')}
-    ${B.card('def0', 70, 610, 1790, 0, 'c-blue', { row: true, ic: '🌐', h: L('تطبيق الويب', 'Web application'), p: L('تطبيق بيتستخدم عن طريق متصفح الويب — من غير ما تسطّب برنامج مخصّص', 'an application used through a web browser — no dedicated software to install') })}
+    ${B.card('inst', 1000, 150, 420, 250, 'c-slate', { ic: '📦', h: L('لازم تسطيب؟', 'Install special software?') })}
+    ${B.stamp('noi', 1080, 420, '✗ ' + L('مش دايمًا', 'not needed'))}
+    ${B.chip('brw', 1480, 220, '🌐 ' + L('عادةً من المتصفح', 'a browser is enough'), 'c-green big')}
+    ${B.card('def0', 70, 610, 1790, 0, 'c-blue', { row: true, ic: '🌐', h: L('تطبيق الويب', 'Web application'), p: L('تطبيق بيتستخدم عادةً من متصفح الويب، وبعضه ممكن يتثبّت على الجهاز', 'an application used through a web browser — no dedicated software to install') })}
   </div>
 
   <div id="w1-tr" class="mv-stage">
@@ -51,12 +51,12 @@
     ${B.chip('w1', 770, 556, '🖥️ ' + L('على الخادم — مش ظاهرة', 'on the server — hidden'), 'c-violet', 400)}
     ${B.chip('w2', 1230, 556, '📚 ' + L('تنظّم · تخزّن · تدير', 'organise · store · manage'), 'c-green', 620)}
     ${B.card('x0', 70, 556, 640, 0, 'c-blue', { p: L('شاشة البحث · صفحات المنتجات · نماذج الإدخال', 'search screen · product pages · input forms') })}
-    ${B.card('x1', 770, 556, 400, 0, 'c-violet', { p: L('البحث عن المنتجات المطابقة · مصادقة الدخول', 'matching products · login authentication') })}
+    ${B.card('x1', 770, 556, 400, 0, 'c-violet', { p: L('البحث عن المنتجات المطابقة · التحقق من تسجيل الدخول', 'matching products · login authentication') })}
     ${B.card('x2', 1230, 556, 620, 0, 'c-green', { p: L('المنتجات · المستخدمين · سجل الطلبات', 'products · users · order history') })}
     ${B.chip('p1', 560, 300, '🔎 «' + L('سماعة', 'headphones') + '»', 'c-amber')}
     ${B.chip('p2', 1020, 300, '🔍 ' + L('دوّر على: سماعة', 'find: headphones'), 'c-amber')}
     ${B.chip('p3', 1220, 400, '📦 ' + L('منتجين مطابقين', '2 matches'), 'c-green')}
-    ${B.chip('p4', 760, 400, '📋 ' + L('النتايج مترتّبة', 'sorted results'), 'c-green')}
+    ${B.chip('p4', 760, 400, '📋 ' + L('النتايج جاهزة', 'sorted results'), 'c-green')}
     ${STEPS.map((s, k) => B.chip('st' + k, 70 + k * 300, 676, s, 'c-slate', 270)).join('')}
     ${B.chip('ok', 90, 470, '✅ ' + L('الأمامية شغّالة', 'the frontend works'), 'c-green')}
     ${B.big('q1', 920, 360, 80, 70, '❓')}${B.big('q2', 1490, 360, 80, 70, '❓')}
@@ -67,9 +67,9 @@
   <div id="w1-s6" class="mv-stage">
     <div id="w1-tab" class="l12u l12-grid later" style="${B.at(70, 140, 1790, 520)}">
       <b></b><b class="h c-blue">🖥️ ${L('الأمامية', 'Frontend')}</b><b class="h c-violet">⚙️ ${L('الخلفية', 'Backend')}</b><b class="h c-green">🗄️ ${L('قاعدة البيانات', 'Database')}</b>
-      <b class="r">🎬 ${L('موقع فيديو', 'Video site')}</b><span>${L('تشغيل الفيديو وشاشة البحث', 'playback & search screens')}</span><span>${L('اختيار الفيديوهات المقترحة · عدّ المشاهدات', 'pick recommendations · count views')}</span><span>${L('الفيديوهات · المستخدمين · سجل المشاهدة', 'videos · users · watch history')}</span>
-      <b class="r">💬 ${L('تواصل اجتماعي', 'SNS')}</b><span>${L('التايملاين وشاشة النشر', 'timeline & post screens')}</span><span>${L('مين يشوف البوست · الإشعارات', 'who sees a post · notifications')}</span><span>${L('البوستات · المتابعات · الرسايل', 'posts · follows · messages')}</span>
-      <b class="r">🛒 ${L('متجر إلكتروني', 'E-commerce')}</b><span>${L('قايمة المنتجات والسلة', 'product list & cart')}</span><span>${L('مراجعة المخزون · تنفيذ الدفع', 'stock check · payment')}</span><span>${L('المنتجات · الطلبات · العملاء', 'products · orders · customers')}</span></div>
+      <b class="r">🎬 ${L('موقع فيديو', 'Video site')}</b><span>${L('تشغيل الفيديو وشاشة البحث', 'playback & search screens')}</span><span>${L('اختيار الفيديوهات الموصى بيها · عدّ المشاهدات', 'pick recommendations · count views')}</span><span>${L('الفيديوهات · المستخدمين · سجل المشاهدة', 'videos · users · watch history')}</span>
+      <b class="r">💬 ${L('تواصل اجتماعي', 'SNS')}</b><span>${L('الخط الزمني وشاشة النشر', 'timeline & post screens')}</span><span>${L('مين يشوف البوست · الإشعارات', 'who sees a post · notifications')}</span><span>${L('البوستات · المتابعات · الرسايل', 'posts · follows · messages')}</span>
+      <b class="r">🛒 ${L('متجر إلكتروني', 'E-commerce')}</b><span>${L('قايمة المنتجات والسلة', 'product list & cart')}</span><span>${L('التحقق من المخزون · طلبات الدفع', 'stock check · payment')}</span><span>${L('المنتجات · الطلبات · العملاء', 'products · orders · customers')}</span></div>
   </div>
 
   <div id="w1-s8" class="mv-stage">

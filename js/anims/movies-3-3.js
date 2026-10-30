@@ -26,7 +26,7 @@
     ${[['🏗️', 'HTML', L('البنية (الهيكل)', 'structure'), 'c-amber'], ['🎨', 'CSS', L('المظهر', 'appearance'), 'c-blue'], ['💡', 'JavaScript', L('السلوك والتفاعل', 'behaviour'), 'c-violet']]
       .map(([ic, h, p, c], k) => B.card('t' + k, 70 + k * 420, 170, 390, 300, c, { ic, h: `<bdi>${h}</bdi>`, p })).join('')}
     ${B.svg('h0', 1380, 150, 420, 380, '0 0 400 360', HOUSE)}
-    ${B.mid('tog', 560, '🧩 ' + L('كل تقنية ليها دور مستقل… والصفحة بتتعمل بيهم مع بعض', 'each has its own role… the page is made with all of them together'), 'c-slate big')}
+    ${B.mid('tog', 560, '🧩 ' + L('كل تقنية ليها دور مختلف… ومش لازم الصفحة تستخدم التلاتة مع بعض', 'each has its own role… the page is made with all of them together'), 'c-slate big')}
   </div>
 
   <div id="f3-ed" class="mv-stage">
@@ -40,34 +40,34 @@
     ${B.chip('an0', 1460, 560, '🏗️ ' + L('HTML = هيكل المبنى', 'HTML = the frame'), 'c-amber', 400)}
     ${B.chip('an1', 1460, 560, '🎨 ' + L('CSS = الديكور', 'CSS = the decoration'), 'c-blue', 400)}
     ${B.chip('an2', 1460, 560, '💡 ' + L('JS = الكهربا والسباكة', 'JS = electricity & plumbing'), 'c-violet', 400)}
-    ${B.chip('d0', 70, 620, 'HTML: ' + L('بيوصف العناصر: عناوين · فقرات · صور · لينكات', 'describes elements: headings · paragraphs · images · links'), 'c-amber big')}
+    ${B.chip('d0', 70, 620, 'HTML: ' + L('بيوصف العناصر: عناوين · فقرات · صور · روابط', 'describes elements: headings · paragraphs · images · links'), 'c-amber big')}
     ${B.chip('d1', 70, 620, 'CSS: ' + L('الألوان · التخطيط · الحجم · الخطوط', 'colours · layout · size · fonts'), 'c-blue big')}
     ${B.chip('d2', 70, 620, 'JS: ' + L('بيرد على الضغط وبيحدّث جزء بس من الشاشة', 'responds to clicks and updates only part of the screen'), 'c-violet big')}
     ${B.chip('trp', 70, 700, '⚠️ ' + L('فخ: «CSS بيضيف السلوك» ← غلط', 'trap: “CSS adds behaviour” → false'), 'c-red')}
   </div>
 
   <div id="f3-s4" class="mv-stage">
-    <div id="f3-sem" class="l12u l12-blocks later" style="${B.at(70, 140, 820, 460)}"><b class="hd">&lt;header&gt; ${L('أعلى الصفحة', 'top')}</b><b class="nv">&lt;nav&gt; ${L('التنقّل', 'navigation')}</b><b class="mn">&lt;main&gt; ${L('المتن', 'main content')}</b><b class="ft">&lt;footer&gt; ${L('أسفل الصفحة', 'bottom')}</b></div>
+    <div id="f3-sem" class="l12u l12-blocks later" style="${B.at(70, 140, 820, 460)}"><b class="hd">&lt;header&gt; ${L('أعلى الصفحة', 'top')}</b><b class="nv">&lt;nav&gt; ${L('التنقّل', 'navigation')}</b><b class="mn">&lt;main&gt; ${L('المحتوى الرئيسي', 'main content')}</b><b class="ft">&lt;footer&gt; ${L('أسفل الصفحة', 'bottom')}</b></div>
     <div id="f3-div" class="l12u l12-blocks gray later" style="${B.at(1040, 140, 820, 460)}"><b>&lt;div&gt;</b><b>&lt;div&gt;</b><b class="mn">&lt;div&gt;</b><b>&lt;div&gt;</b></div>
     ${B.stamp('ok', 260, 630, '✓ ' + L('بتدل على المعنى', 'they mean something'), true)}
     ${B.stamp('no', 1240, 630, '✗ ' + L('صناديق ملهاش معنى', 'meaningless boxes'))}
   </div>
   <div id="f3-s5" class="mv-stage">
     ${B.card('acc', 70, 150, 860, 380, 'c-green', { ic: '🔊', h: L('① إمكانية الوصول', '① Accessibility'), p: L('برامج قراءة الشاشة بتفهم بنية الصفحة — فالمعلومة توصل لذوي الإعاقة البصرية', 'screen readers understand the structure — information reaches visually impaired users'), html: `<div class="l12-say">«header… nav… main…» 🔊</div>` })}
-    ${B.card('seo', 990, 150, 870, 380, 'c-blue', { ic: '🔎', h: L('② SEO — تحسين محركات البحث', '② SEO'), p: L('محركات البحث تفهم المحتوى صح فتظهر الصفحة بشكل مناسب', 'search engines understand the content and show the page properly'), html: `<div class="l12-rank"><span class="me">1. nile-shop.com ✓</span><span>2. ...</span></div>` })}
+    ${B.card('seo', 990, 150, 870, 380, 'c-blue', { ic: '🔎', h: L('② SEO — تحسين محركات البحث', '② SEO'), p: L('ممكن تساعد محركات البحث تفهم البنية — بس مابتضمنش ترتيب أعلى', 'search engines understand the content and show the page properly'), html: `<div class="l12-rank"><span class="me">1. nile-shop.com ✓</span><span>2. ...</span></div>` })}
     ${B.mid('fast', 590, '⚠️ ' + L('مش بالضرورة بتخلّي الصفحة أسرع!', 'it does NOT necessarily make the page faster!'), 'c-red big')}
   </div>
   <div id="f3-s6" class="mv-stage">
     <div id="f3-dev" class="l12u l12-dev later" style="${B.at(500, 150, 920, 420)}"><div class="g"><span>🛍️</span><span>👟</span><span>🎧</span><span>⌚</span><span>📱</span><span>🎒</span></div></div>
     ${B.chip('w0', 160, 250, '🖥️ ' + L('كمبيوتر', 'PC'), 'c-blue big', 260)}${B.chip('w1', 160, 350, '📟 ' + L('تابلت', 'tablet'), 'c-blue big', 260)}${B.chip('w2', 160, 450, '📱 ' + L('موبايل', 'phone'), 'c-blue big', 260)}
     ${B.chip('one', 1480, 250, '1️⃣ ' + L('صفحة واحدة', 'one page'), 'c-green big', 380)}
-    ${B.chip('mf', 160, 620, '📱 ' + L('نهج الأولوية للجوال (mobile-first): نبدأ التصميم من الشاشات الصغيرة', 'mobile-first: start designing from small screens'), 'c-amber big')}
+    ${B.chip('mf', 160, 620, '📱 ' + L('نهج الأولوية للجوال: مراعاة الشاشات الصغيرة من بداية التصميم', 'mobile-first: start designing from small screens'), 'c-amber big')}
   </div>
   <div id="f3-s7" class="mv-stage">
     ${B.card('box', 70, 150, 600, 420, 'c-slate', { ic: '🧰', h: L('مكوّنات جاهزة', 'Ready-made parts'), html: `<div class="l12-parts"><span>🔘 Button</span><span>🧾 Card</span><span>☰ Navbar</span><span>📝 Form</span></div>` })}
-    ${[['⚛️', 'React', L('من Meta: بيحدّث جزء من الشاشة بكفاءة — للتطبيقات الكبيرة', 'by Meta: updates part of the screen efficiently — big apps'), 'c-blue'],
+    ${[['⚛️', 'React', L('مكتبة JavaScript لبناء الواجهات من مكوّنات قابلة لإعادة الاستخدام', 'by Meta: updates part of the screen efficiently — big apps'), 'c-blue'],
       ['🟩', 'Vue', L('بسيط: تبني تدريجيًا من ميزات صغيرة', 'simple: build up gradually from small features'), 'c-green'],
-      ['▲', 'Next.js', L('مزايا React + تسريع عرض الصفحة', 'React’s strengths + faster page display'), 'c-slate']]
+      ['▲', 'Next.js', L('إطار مبني على React: التوجيه وطرق عرض الصفحات', 'React’s strengths + faster page display'), 'c-slate']]
       .map(([ic, h, p, c], k) => B.card('fw' + k, 720, 150 + k * 150, 1140, 0, c, { row: true, ic, h: `<bdi>${h}</bdi>`, p })).join('')}
     ${B.mid('fd', 640, '🧱 ' + L('الإطار = وظائف ومكوّنات جاهزة ← تطوير أكفأ من غير ما تكتب كل حاجة من الصفر', 'a framework = ready functions and parts → efficient building, not everything from scratch'), 'c-amber')}
   </div>
