@@ -3,7 +3,7 @@
  * definition (js/content/sheets-*.js). A sheet is rows of blocks; every
  * block type is a small diagram, so related ideas are joined by real arrows:
  *   flow · cycle · tree · nest · link · layers · cards · compare · formula ·
- *   draw · traps · note
+ *   draw · traps · note · goal · sec · stages · defs · qa · drill · takeaway
  * RV.sheet.render(paper, lessonIds, cover) lays the rows out on real A4
  * pages (a row never splits), so the screen shows what the printer gets.
  * ========================================================= */
@@ -110,6 +110,44 @@
       return h('div', { class: 'sh-traps' }, b.items.map((it) => h('div', { class: 'sh-trap' },
         h('span', { class: 'bad' }, '✗ ', rich(it.bad)), arrow(), h('span', { class: 'good' }, '✓ ', rich(it.good)))));
     },
+    goal(b) {
+      return h('div', { class: 'sh-goal' },
+        h('div', { class: 'q' }, h('small', null, '❓ ', rich(b.label)), h('b', null, rich(b.q))),
+        h('div', { class: 'aims' }, h('small', null, '🎯 ', rich(b.aimsLabel)), h('ul', null, b.aims.map((x) => h('li', null, rich(x))))));
+    },
+    sec(b) {
+      return h('div', { class: 'sh-sec' }, h('span', { class: 'n' }, b.n), h('b', null, rich(b.label)), b.sub ? h('small', null, rich(b.sub)) : null);
+    },
+    stages(b) {
+      return h('div', { class: 'sh-stages', style: { '--n': b.items.length } }, b.items.map((it) => h('div', { class: `sh-stage c-${it.c || 'l'}` },
+        h('span', { class: 'when' }, rich(it.when)),
+        h('span', { class: 'dot' }, it.ic),
+        h('b', null, rich(it.h)),
+        h('span', { class: 'p' }, rich(it.p)),
+        arrowDown(),
+        h('div', { class: 'eff' }, h('small', null, rich(b.effect)), rich(it.e)))));
+    },
+    defs(b) {
+      return h('div', { class: `sh-defs n-${b.items.length}` }, b.items.map((it) => h('div', { class: `sh-def c-${it.c || 'l'}` },
+        h('span', { class: 'ic' }, it.ic),
+        h('div', { class: 'tx' },
+          h('b', null, rich(it.h)),
+          h('i', { dir: 'auto' }, RV.i18n.alt(it.h)),
+          h('p', null, rich(it.p)),
+          it.tags ? h('div', { class: 'tags' }, it.tags.map((x) => h('span', null, rich(x)))) : null))));
+    },
+    qa(b) {
+      return h('div', { class: 'sh-qa' },
+        h('div', { class: 'q' }, h('small', null, '📝 ', rich(b.mark)), h('b', null, rich(b.q))),
+        h('ul', null, b.items.map((x) => h('li', null, rich(x)))));
+    },
+    drill(b) {
+      return h('div', { class: 'sh-drill' }, b.items.map((it, k) => h('div', { class: 'it' },
+        h('span', { class: 'n' }, String(k + 1)), h('p', null, rich(it.q)), h('b', null, rich(it.a)))));
+    },
+    takeaway(b) {
+      return h('div', { class: 'sh-take' }, h('span', { class: 'ic' }, '⭐'), h('div', null, h('small', null, rich(b.label)), h('p', null, rich(b.p))));
+    },
     note(b) {
       return h('div', { class: `sh-note c-${b.c || 'l'}` }, h('span', { class: 'ic' }, b.ic || '💡'), h('p', null, rich(b.p)));
     },
@@ -117,7 +155,7 @@
 
   function block(b) {
     const inner = BLOCK[b.t](b);
-    return h('section', { class: `sh-block is-${b.t}` }, b.title ? h('h3', { class: 'sh-h' }, b.ic ? `${b.ic} ` : '', rich(b.title)) : null, inner);
+    return h('section', { class: `sh-block is-${b.t}${b.big ? ' is-big' : ''}` }, b.title ? h('h3', { class: 'sh-h' }, b.ic ? `${b.ic} ` : '', rich(b.title)) : null, inner);
   }
   const rowEl = (row) => h('div', { class: 'sh-row', style: { gridTemplateColumns: row.map((b) => `minmax(0, ${b.w || 1}fr)`).join(' ') } }, row.map(block));
 
@@ -182,7 +220,10 @@
       }
     };
     open();
-    def.rows.forEach((row) => put(rowEl(row)));
+    def.rows.forEach((row) => {
+      if (row[0].page && page.body.children.length) { page.classList.add('is-full'); open(); }
+      put(rowEl(row));
+    });
     const terms = termsRow(lesson);
     if (terms) put(terms);
     /* a few lines alone on a new page: tighten the sheet so they fit */

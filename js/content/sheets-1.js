@@ -8,64 +8,99 @@
   const T = (ar, en) => ({ ar, en });
 
   RV.addSheet('1-1', {
-    lead: T('في كل مرحلة، تكنولوجيا المعلومات جابت تقنية جديدة وغيّرت طريقة التواصل والشغل والتجارة.', 'Each stage brought a new technology and changed how we communicate, work and trade.'),
+    lead: T('في كل مرحلة أضافت تكنولوجيا المعلومات جهازًا جديدًا، وغيّرت معه طريقة تواصل المجتمع وعمله وتجارته.', 'At each stage, information technology introduced a new technology or service and changed how society communicates, works, and does business.'),
     rows: [
-      [{ t: 'flow', ic: '🕰️', title: T('مراحل التطور', 'Stages of development'), items: [
-        { ic: '🖥️', h: T('الحاسب', 'Computer'), p: T('40s–60s · ENIAC بالصمامات المفرغة · حوالي 30 طن · عسكري وعلمي', '1940s–60s · ENIAC, vacuum tubes · about 30 tons · military, science'), c: 'slate' },
-        { ic: '💻', h: T('الحاسب الشخصي PC', 'Personal computer (PC)'), p: T('70s–80s · الأفراد يستخدموا الحاسب لأول مرة', '1970s–80s · individuals use computers for the first time'), c: 'blue' },
-        { ic: '🌐', h: T('الإنترنت', 'Internet'), p: T('90s · تجاري + الويب · عولمة المعلومات والبريد', '1990s · commercial + web · global information, e-mail'), c: 'violet' },
-        { ic: '📱', h: T('الموبايل', 'Mobile'), p: T('2000s · هواتف ذكية · انتشار هائل لإنترنت الموبايل', '2000s · smartphones (iPhone) · explosive mobile internet'), c: 'pink' },
-        { ic: '☁️', h: T('الحوسبة السحابية', 'Cloud computing'), p: T('2010+ · موارد IT كخدمة · بيانات ضخمة وذكاء اصطناعي', '2010+ · IT resources as a service · big data and AI'), c: 'teal' },
+      [{ t: 'goal', label: T('السؤال الرئيسي', 'Guiding question'), q: T('كيف تطورت تكنولوجيا المعلومات عبر مراحلها الرئيسية، وكيف غيّرت كل مرحلة المجتمع؟', 'How has information technology developed through its major stages, and how has each stage changed society?'),
+        aimsLabel: T('هتطلع من الدرس قادر', 'By the end you can'), aims: [
+          T('تشرح المراحل الرئيسية وأثرها في المجتمع', 'Explain the major stages and their impact on society'),
+          T('تذكر أمثلة على التغيرات والتقنيات الناشئة وتشرح خصائصها', 'Give examples of social changes and emerging technologies'),
+          T('تحلّل أثر تقنية على فئات مختلفة وتبرّر رأيك بالأدلة', 'Analyze a technology’s impact on different groups'),
+        ] }],
+      [{ t: 'sec', n: '1', label: T('تاريخ تكنولوجيا المعلومات (IT)', 'The History of Information Technology (IT)'), sub: T('الأجهزة بقت أصغر وأكثر ترابطًا', 'Each stage smaller and more connected') }],
+      [{ t: 'stages', effect: T('التأثير', 'Impact'), items: [
+        { when: T('الأربعينيات – الستينيات', '1940s–60s'), ic: '🖥️', h: T('ظهور الحواسيب الإلكترونية', 'Birth of the computer'), p: T('ومنها ENIAC · الصمامات المفرغة', 'ENIAC · vacuum tubes'), e: T('أساسًا للأغراض العسكرية والحسابات العلمية', 'Mainly military and scientific computation'), c: 'slate' },
+        { when: T('السبعينيات – الثمانينيات', '1970s–80s'), ic: '💻', h: T('انتشار الحواسيب الشخصية', 'Spread of personal computers'), p: 'PCs', e: T('بداية استخدام الأفراد للحاسب', 'Beginning of personal computer use'), c: 'blue' },
+        { when: T('التسعينيات', '1990s'), ic: '🌐', h: T('إتاحة الإنترنت تجاريًا', 'Commercialization of the Internet'), p: T('ظهور الويب', 'the Web'), e: T('وصول عالمي للمعلومات والبريد الإلكتروني', 'Globalization of information; spread of email'), c: 'violet' },
+        { when: T('العقد الأول من الألفية', '2000s'), ic: '📱', h: T('ظهور الهواتف الذكية', 'Rise of smartphones'), p: T('آيفون وغيره', 'iPhone, etc.'), e: T('انتشار سريع وواسع للإنترنت عبر الهواتف', 'Explosive spread of mobile Internet'), c: 'pink' },
+        { when: T('العقد الثاني فصاعدًا', '2010s onward'), ic: '☁️', h: T('انتشار الحوسبة السحابية', 'Spread of cloud computing'), p: T('موارد IT كخدمات عبر الإنترنت', '“IT as a service”'), e: T('تحليل البيانات الضخمة والذكاء الاصطناعي', 'Large-scale data analysis and AI'), c: 'teal' },
       ] }],
       [
-        { t: 'draw', art: 'moore', ic: '📈', title: T('قانون مور', 'Moore’s Law'), cap: T('عدد الترانزستورات في الدائرة المتكاملة بيتضاعف تقريبًا كل عامين · الترانزستور = مفتاح صغير 1/0 · من 2,300 (Intel 4004 سنة 1971) لأكتر من 100 مليار', 'The number of transistors on an integrated circuit doubles about every two years · a transistor is a tiny 1/0 switch · from 2,300 (Intel 4004, 1971) to over 100 billion') },
-        { t: 'cards', ic: '🧱', title: T('مشاكله وحلوله', 'Its problems and solutions'), cols: 1, items: [
-          { h: T('بيتكلم عن عدد الترانزستورات', 'It is about transistor count'), p: T('مش سرعة الإنترنت ولا المعالج · ملاحظة تجريبية مش قانون فيزيائي', 'not internet or CPU speed · an observation, not a law of physics'), c: 'amber' },
-          { h: T('تحديات التصغير', 'The physical limit'), p: T('هندسية وفيزيائية: تيارات التسرّب + تأثيرات كمومية زي النفق الكمومي', 'quantum tunnelling + leakage current → hard to get higher performance and lower power together'), c: 'red' },
-          { h: T('الحلول', 'New directions'), p: T('تعدد الأنوية والمعالجة المتوازية · تصميمات متخصصة', 'parallel processing on multiple cores · quantum computers'), c: 'green' },
-          { h: T('الحوسبة الكمومية هنا', 'Quantum computers'), p: T('نهج مختلف لفئات محددة من المسائل، مش بديل لكل الحواسيب', 'based on the principles of quantum mechanics'), c: 'violet' },
+        { t: 'draw', art: 'moore', big: true, w: 1.5, ic: '📈', title: T('قانون مور: عدد الترانزستورات عبر الزمن', 'Moore’s Law: transistor count over time') },
+        { t: 'cards', ic: '🧱', title: T('افهم القانون', 'Understand the law'), cols: 1, items: [
+          { h: T('الملاحظة', 'The observation'), p: T('عدد الترانزستورات في الدوائر المتكاملة بيزيد بمعدل يقارب الضعف كل عامين', 'Transistors on an integrated circuit double about every two years'), c: 'blue' },
+          { h: T('مش قانون فيزيائي ثابت', 'An empirical observation'), p: T('اتجاه تاريخي استمر عقودًا وزوّد قدرات الحوسبة وأداء المعالجات', 'It held for many years and computing power rose dramatically'), c: 'amber' },
+          { h: T('التحديات', 'The physical limit'), p: T('هندسية وفيزيائية: تيارات التسرّب + تأثيرات كمومية زي النفق الكمومي', 'quantum tunneling + leakage current: hard to raise performance and cut power together'), c: 'red' },
+          { h: T('اتجاهات التحسين', 'New directions'), p: T('تعدد الأنوية · المعالجة المتوازية · تصميمات متخصصة', 'parallel processing on multiple cores · quantum computers'), c: 'green' },
         ] },
       ],
       [
-        { t: 'formula', w: 1.1, f: 'N = N₀ × 2^n     n = (t − t₀) ÷ 2', p: T('N₀ في السنة t₀ (البداية) · N في السنة t (المطلوبة) · n مرات التضاعف', 'N₀ in year t₀ (start) · N in year t (asked) · n doublings'), ex: T('رايح للمستقبل: اضرب في 2^n · راجع للماضي: اقسم · 2^0.5 ≈ 1.414', 'To the future: × 2^n · to the past: ÷ 2^n · 2^0.5 ≈ 1.414') },
-        { t: 'cards', ic: '✏️', title: T('أمثلة محلولة', 'Worked examples'), cols: 1, items: [
-          { h: T('2002: 1,451 ← 2025؟', '2002: 1,451 → 2025?'), p: T('n = 23 ÷ 2 = 11.5 · 2^11.5 ≈ 2,896 ← ≈ 4.2 مليون', 'n = 23 ÷ 2 = 11.5 · 2^11.5 ≈ 2,896 → ≈ 4.2 million'), c: 'blue' },
-          { h: T('2000: مليون ← 2010؟', '2000: one million → 2010?'), p: T('n = 5 · 2^5 = 32 ← 32 مليون', 'n = 5 · 2^5 = 32 → 32 million'), c: 'teal' },
-          { h: T('2020: 8,000 ← 2014؟', '2020: 8,000 → 2014?'), p: T('n = 3 · N₀ = 8,000 ÷ 8 = 1,000', 'n = 3 · N₀ = 8,000 ÷ 8 = 1,000'), c: 'violet' },
-          { h: T('16 ضعف بعد كام سنة؟', '16 times after how long?'), p: T('16 = 2^4 ← n = 4 ← 8 سنين', '16 = 2^4 → n = 4 → 8 years'), c: 'green' },
+        { t: 'formula', w: 1.05, title: T('إثراء من الموقع (مش في الكتاب)', 'Extra from the app (not in the book)'), ic: '➕', f: 'N = N₀ × 2^n  ·  n = (t − t₀) ÷ 2', p: T('N₀ في السنة t₀ (البداية) · N في السنة t (المطلوبة) · n مرات التضاعف', 'N₀ in year t₀ (start) · N in year t (asked) · n doublings'), ex: T('للمستقبل: اضرب في 2^n · للماضي: اقسم · 2^0.5 ≈ 1.414', 'To the future: × 2^n · to the past: ÷ 2^n · 2^0.5 ≈ 1.414') },
+        { t: 'cards', ic: '✏️', title: T('أمثلة محلولة', 'Worked examples'), cols: 2, items: [
+          { h: T('2002: 1,451 ← 2025؟', '2002: 1,451 → 2025?'), p: T('11.5 مرة تضاعف ← تقريبًا 4.2 مليون', 'n = 11.5 · ≈ 2,896 times → ≈ 4.2 million'), c: 'blue' },
+          { h: T('2000: مليون ← 2010؟', '2000: one million → 2010?'), p: T('5 مرات تضاعف ← 32 مليون', 'n = 5 · 2^5 = 32 → 32 million'), c: 'teal' },
+          { h: T('2020: 8,000 ← 2014؟', '2020: 8,000 → 2014?'), p: T('3 مرات للماضي ← نقسم على 8 ← 1,000', 'n = 3 · 8,000 ÷ 8 = 1,000'), c: 'violet' },
+          { h: T('16 ضعف بعد كام سنة؟', '16 times after how long?'), p: T('4 مرات تضاعف ← 8 سنين', '16 = 2^4 → n = 4 → 8 years'), c: 'green' },
         ] },
       ],
-      [{ t: 'cards', ic: '🔄', title: T('خمس تحوّلات في المجتمع', 'Five social transformations'), cols: 5, items: [
-        { ic: '💬', h: 'SNS', p: T('منصات للتواصل ونشر المحتوى ومشاركته بسرعة', 'connect, post and share; spreads information rapidly'), c: 'blue' },
-        { ic: '🛒', h: T('تجارة إلكترونية', 'E-commerce'), p: T('بيع وشراء أونلاين: Amazon · eBay', 'online trade: Amazon · eBay'), c: 'amber' },
-        { ic: '🏠', h: T('عمل عن بُعد', 'Remote work'), p: T('من البيت أو أي مكان', 'from home or anywhere'), c: 'green' },
-        { ic: '🎓', h: T('تعلّم أونلاين', 'Online learning'), p: T('دروس ومواد تعليمية عبر الإنترنت', 'classes and study materials over the Internet'), c: 'violet' },
-        { ic: '💳', h: T('الدفع غير النقدي', 'Cashless payment'), p: T('بطاقات مصرفية · تطبيق هاتف · رموز QR', 'e-money · QR codes · credit/debit cards · payment apps'), c: 'pink' },
+      [{ t: 'sec', n: '2', label: T('التغيرات الاجتماعية الناتجة عن تكنولوجيا المعلومات', 'Social Changes Resulting from Information Technology'), sub: T('خمس تحوّلات', 'Five changes') }],
+      [{ t: 'defs', items: [
+        { ic: '💬', h: T('شبكات التواصل الاجتماعي', 'SNS (Social Networking Service)'), p: T('منصات تتيح للمستخدمين التواصل ونشر المحتوى ومشاركته بسرعة', 'Users connect, post and share; highly effective at spreading information rapidly'), c: 'blue' },
+        { ic: '🛒', h: T('التجارة الإلكترونية', 'E-commerce (EC)'), p: T('بيع السلع والخدمات وشراؤها عبر الإنترنت', 'Buying and selling goods and services through the Internet'), tags: ['Amazon', 'eBay'], c: 'amber' },
+        { ic: '🏠', h: T('العمل عن بُعد', 'Remote work'), p: T('الشخص يؤدي مهامه من المنزل أو موقع بعيد باستخدام الإنترنت', 'Work done from home or other remote locations using the Internet'), c: 'green' },
+        { ic: '🎓', h: T('التعلّم عبر الإنترنت', 'Online learning'), p: T('نمط تعليمي تُقدَّم فيه الدروس والمواد التعليمية عبر الإنترنت', 'Classes and study materials delivered using the Internet'), c: 'violet' },
+        { ic: '💳', h: T('الدفع غير النقدي', 'Cashless payment'), p: T('دفع قيمة السلع أو الخدمات بوسائل غير نقدية', 'Payments using electronic money, QR codes, etc., without cash'), tags: [T('بطاقات مصرفية', 'credit and debit cards'), T('تطبيقات الهاتف', 'mobile payment apps'), T('رموز QR', 'QR codes')], c: 'pink' },
       ] }],
-      [{ t: 'flow', ic: '🚗', title: T('القيادة الذاتية: ذكاء اصطناعي يساعد في القيادة بأقل تدخل بشري حسب مستوى الأتمتة (مثال Waymo)', 'Autonomous driving: AI drives a vehicle without human operation (e.g. Waymo)'), items: [
-        { ic: '👀', h: T('بتشوف', 'Sees'), p: T('كاميرات وحسّاسات وLiDAR', 'cameras, sensors, LiDAR'), c: 'blue' },
-        { ic: '🧠', h: T('بتفكّر', 'Thinks'), p: T('تتعرّف وتقرّر: أكمّل؟ أقف؟', 'recognizes, decides: go or stop?'), c: 'violet' },
-        { ic: '🕹️', h: T('بتتصرّف', 'Acts'), p: T('الدريكسيون والفرامل والبنزين', 'steering, brakes, throttle'), c: 'green' },
-      ] }],
+      [{ t: 'note', ic: '⚖️', c: 'amber', p: T('**فكّر زي مهندس:** الدفع غير النقدي ميزته سرعة الدفع، وتحدّيه الحاجة لبطاقة أو هاتف — قيّمه من منظور العميل وصاحب المتجر الصغير واللي مش معاه بطاقة ولا هاتف ذكي.', '**Think as an engineer:** cashless payment is fast but needs a card or phone — weigh it for the customer, the small shop owner and a person with neither.') }],
+      [{ t: 'sec', n: '3', label: T('تقنيات ناشئة بارزة', 'Notable Emerging Technologies') }],
       [
-        { t: 'draw', art: 'edge', ic: '🛰️', title: T('الحوسبة الطرفية ولا السحابة؟', 'Edge computing or the cloud?'), cap: T('التأخير بيأثر في السلامة، فبعض البيانات بتتعالج محليًا على المركبة لتقليل زمن الاستجابة', 'A delay of even 0.1 seconds can lead to an accident, so processing is done instantly on the vehicle, not in the cloud') },
-        { t: 'draw', art: 'arvr', ic: '🕶️', title: T('AR ولا VR؟', 'AR or VR?'), cap: T('AR: Pokémon GO · تجربة كنبة في أوضتك | VR: نظارة في لعبة أو جولة', 'AR: Pokémon GO · a sofa in your room | VR: a headset game or tour') },
+        { t: 'draw', art: 'edge', big: true, w: 1.45, ic: '🚗', title: T('القيادة الذاتية', 'Autonomous driving'), cap: T('ذكاء اصطناعي يساعد على قيادة المركبة، بأقل تدخل بشري حسب مستوى الأتمتة · وعشان التأخير بيأثر في السلامة، بعض البيانات بتتعالج محليًا لتقليل زمن الاستجابة', 'AI drives a vehicle without human operation · a delay of even 0.1 seconds can lead to an accident, so edge computing processes data instantly on the vehicle') },
+        { t: 'vflow', ic: '🔁', title: T('بتشتغل إزاي؟', 'How it works'), items: [
+          { ic: '👀', h: T('تدرك محيطها', 'Recognizes the surroundings'), p: T('كاميرات ومستشعرات', 'cameras and sensors'), c: 'blue' },
+          { ic: '🧠', h: T('تعالج البيانات وتقرّر', 'Makes driving decisions'), c: 'violet' },
+          { ic: '🕹️', h: T('تتحكم في القيادة', 'Controls the vehicle'), c: 'green' },
+        ] },
       ],
       [
-        { t: 'compare', ic: '⚛️', title: T('الحوسبة الكمومية: ممكن تتفوّق في فئات محددة من المسائل، مش كل الحسابات', 'Quantum computing: expected to dramatically speed up calculations hard for traditional computers'),
-          cols: [{ h: T('البِت التقليدي', 'Classical bit'), c: 'slate' }, { h: T('الكيوبت', 'Qubit'), c: 'teal' }],
-          rows: [
-            { k: T('الحالة', 'State'), v: [T('0 أو 1', '0 or 1'), T('التراكب: 0 و1 مع بعض', 'superposition: 0 and 1 together')] },
-            { k: T('مثال', 'Example'), v: [T('زي مفتاح النور', 'like a light switch'), T('IBM Q System One قرب الصفر المطلق', 'IBM Q System One, near absolute zero')] },
-          ] },
+        { t: 'draw', art: 'arvr', ic: '🕶️', title: T('الواقع المعزز والواقع الافتراضي', 'AR / VR'), cap: T('AR: يضيف عناصر أو معلومات رقمية لمشهد من العالم الحقيقي · VR: يضع المستخدم داخل بيئة افتراضية مولّدة حاسوبيًا', 'AR overlays digital information on real-world images · VR immerses users in a computer-generated virtual space') },
+        { t: 'draw', art: 'qubit', ic: '⚛️', title: T('الحوسبة الكمومية', 'Quantum computing'), cap: T('تستخدم خصائص ميكانيكا الكم، وممكن تتفوّق في فئات محددة من المسائل، لكنها مش بتسرّع كل الحسابات', 'Uses quantum mechanics; expected to dramatically speed up computations difficult for traditional computers') },
       ],
+      [{ t: 'sec', page: true, n: '✓', label: T('راجع نفسك: أسئلة الكتاب بإجاباتها', 'Check yourself: the book’s questions, answered') }],
+      [{ t: 'drill', items: [
+        { q: T('رتّب مراحل تطور تكنولوجيا المعلومات زمنيًا', 'Put the stages of IT in order'), a: T('الحاسب ← الإنترنت تجاريًا ← الهواتف الذكية ← السحابة', 'Computer → commercial Internet → smartphones → cloud') },
+        { q: T('ملاحظة: عدد الترانزستورات يتضاعف تقريبًا كل عامين', 'Transistors double about every two years'), a: T('قانون مور', 'Moore’s Law') },
+        { q: T('بيع السلع والخدمات وشراؤها عبر الإنترنت', 'Buying and selling goods and services online'), a: T('التجارة الإلكترونية', 'E-commerce') },
+        { q: T('أداء العمل من المنزل أو موقع بعيد عبر الإنترنت', 'Working from home or a remote location'), a: T('العمل عن بُعد', 'Remote work') },
+        { q: T('مدفوعات بالنقود الإلكترونية ورموز QR دون نقد', 'Payments by electronic money or QR codes'), a: T('الدفع غير النقدي', 'Cashless payment') },
+        { q: T('تقنية تقود مركبة بأقل تدخل بشري حسب مستوى الأتمتة', 'AI drives a vehicle without human operation'), a: T('القيادة الذاتية', 'Autonomous driving') },
+        { q: T('انتشرت في السبعينيات والثمانينيات واستخدمها الأفراد', 'Spread in the 1970s–80s, used by individuals'), a: T('الحواسيب الشخصية', 'Personal computers') },
+        { q: T('من العقد الثاني فصاعدًا، تدعم البيانات الضخمة والذكاء الاصطناعي', 'From the 2010s, supports big data and AI'), a: T('الحوسبة السحابية', 'Cloud computing') },
+        { q: T('تضيف معلومات رقمية فوق صور من العالم الحقيقي', 'Overlays digital information on real-world images'), a: T('الواقع المعزز AR', 'AR') },
+        { q: T('اختر الناشئة: بريد إلكتروني · قيادة ذاتية · حواسب شخصية · AR · VR · حوسبة كمومية', 'Pick the emerging ones: email · autonomous driving · PCs · AR · VR · quantum computing'), a: T('القيادة الذاتية · AR · VR · الكمومية', 'Autonomous driving · AR · VR · quantum') },
+      ] }],
+      [
+        { t: 'qa', mark: T('توقف وفكّر', 'Pause & think'), q: T('ليه القيادة الذاتية بتعالج البيانات على المركبة مش في السحابة؟', 'Why process data on the vehicle, not in the cloud?'), items: [
+          T('التأخير بيأثر في السلامة', 'A delay of even 0.1 seconds can lead to an accident'),
+          T('المعالجة المحلية بتقلّل زمن الاستجابة', 'Edge computing decides instantly on the vehicle'),
+        ] },
+        { t: 'qa', mark: T('طبّق ما تعلمته · إجابة مقترحة', 'In a new context · suggested answer'), q: T('قرية اتصلت بالإنترنت والدفع غير النقدي لأول مرة: إيه اللي هيتغيّر؟', 'A village gets Internet and cashless payment for the first time: what changes?'), items: [
+          T('تغييران: تعلّم وشراء عبر الإنترنت · دفع من غير نقد', 'Two changes: online learning and shopping · paying without cash'),
+          T('تحدٍّ جديد: الأمان، وإتاحة الوصول لمن معهوش هاتف أو بطاقة', 'A new problem: security, and access for people with no phone or card'),
+        ] },
+      ],
+      [{ t: 'qa', mark: T('سؤال بنمط الامتحان · 6 درجات · نقاط الإجابة', 'Exam-style question · 6 marks · points to make'), q: T('حلّل كيف غيّر انتشار الحوسبة السحابية طريقة استخدام تكنولوجيا المعلومات.', 'Analyze how the spread of cloud computing has changed the way information technology is used.'), items: [
+        T('تحليل البيانات الضخمة: معالجة بيانات كبيرة بقت متاحة عبر الإنترنت', 'Large-scale data analysis became available over the Internet'),
+        T('الذكاء الاصطناعي: موارد السحابة بتدعم استخدامه على نطاق واسع', 'AI: cloud resources support its wide use'),
+        T('تكنولوجيا المعلومات كخدمة: نستخدم الموارد عبر الإنترنت بدل ما نمتلكها', '“IT as a service”: resources are used over the Internet instead of owned'),
+      ] }],
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
-        { bad: T('الطرفية بتبعت للسحابة قبل القرار', 'Edge sends to the cloud first'), good: T('بتعالج على الجهاز فورًا', 'Processes on the device') },
-        { bad: T('AR بيستبدل الواقع بالكامل', 'AR replaces reality'), good: T('ده VR؛ AR بيضيف', 'That is VR; AR adds') },
-        { bad: T('VR بيحسّن سرعة المعالجة', 'VR speeds up processing'), good: T('خلط مع الحوسبة الكمومية', 'Confused with quantum') },
-        { bad: T('التجارة الإلكترونية في محل بالكاش', 'E-commerce is a cash shop'), good: T('عبر الإنترنت', 'Over the internet') },
-        { bad: T('الكمومية بديل لكل الحواسيب', 'Moore’s Law is about CPU speed'), good: T('لفئات محددة من المسائل', 'Transistor count') },
+        { bad: T('الطرفية بتبعت للسحابة قبل القرار', 'Edge sends to the cloud first'), good: T('بتعالج على الجهاز نفسه', 'Processes on the device itself') },
+        { bad: T('AR بيستبدل الواقع بالكامل', 'AR replaces reality'), good: T('ده VR؛ AR بيضيف فوقه', 'That is VR; AR adds to it') },
+        { bad: T('VR بيحسّن سرعة معالجة الحاسب', 'VR speeds up processing'), good: T('خلط مع الحوسبة الكمومية', 'Confused with quantum computing') },
+        { bad: T('التجارة الإلكترونية شراء بالكاش من المحل', 'E-commerce is cash in a shop'), good: T('بيع وشراء عبر الإنترنت', 'Buying and selling online') },
+        { bad: T('قانون مور عن سرعة الإنترنت', 'Moore’s Law is about CPU speed'), good: T('عن عدد الترانزستورات', 'About transistor count') },
+        { bad: T('الكمومية بديل لكل الحواسيب', 'Stages: smartphones before the Internet'), good: T('لفئات محددة من المسائل', 'Computer → Internet → smartphone → cloud') },
       ] }],
+      [{ t: 'takeaway', label: T('الخلاصة', 'Key takeaway'), p: T('تطورت تكنولوجيا المعلومات عبر مراحل: الحواسب، والإنترنت، والهواتف الذكية، والحوسبة السحابية. وفي كل مرحلة غيّرت طريقة التواصل والعمل والتعلّم والدفع، وظهرت معها تحديات في الأمان والإنصاف وإتاحة الوصول.', 'Information technology developed in stages — computers, the Internet, smartphones, and cloud computing. At each stage it introduced a new technology or service and changed how society communicates, works, learns, and pays.') }],
     ],
   });
 

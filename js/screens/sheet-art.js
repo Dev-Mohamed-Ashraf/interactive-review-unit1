@@ -37,10 +37,18 @@
         ${lines.map((l, k) => `<text x="16" y="${25 + k * 18}" font-size="12.5" direction="ltr" xml:space="preserve" style="font-family:var(--mono);fill:#6ee7b7">${l}</text>`).join('')}`);
     },
     moore() {
-      const pts = seq(7, (k) => { const x = 40 + k * 36, y = 126 - 2 ** k * 1.7; return `<circle cx="${x}" cy="${y}" r="4.5" fill="currentColor"/>${txt(x, y - 9, `×${2 ** k}`, 10.5)}`; });
-      const path = Array.from({ length: 7 }, (_, k) => `${k ? 'L' : 'M'}${40 + k * 36} ${126 - 2 ** k * 1.7}`).join('');
-      return svg(290, 150, `${axes(26, 8, 256, 120)}<path d="${path}" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>${pts}
-        ${txt(160, 144, T('كل سنتين ← الضعف', 'every 2 years → double'), 11.5)}`);
+      /* the processors of the book's figure, on a log scale; each label has its own place */
+      const X = (y) => 58 + (y - 1970) * 6.5, Y = (e) => 206 - (e - 3) * 21;
+      const grid = [[3, '10³'], [6, '10⁶'], [9, '10⁹'], [12, '10¹²']].map(([e, s]) => `<path d="M58 ${Y(e)}H416" stroke="#e2e8f0" stroke-width="1.5"/><text x="50" y="${Y(e) + 4}" text-anchor="end" font-size="11" direction="ltr">${s}</text>`).join('');
+      const years = [1970, 1980, 1990, 2000, 2010, 2020].map((y) => `<text x="${X(y)}" y="223" text-anchor="middle" font-size="11">${y}</text>`).join('');
+      const name = (x, y, n) => `<text x="${x}" y="${y}" text-anchor="middle" font-size="12.5" direction="ltr" style="font-weight:800;fill:#0f172a">${n}</text>`;
+      const P = [[1971, 2300, 135, 203, 'Intel 4004 · 2,300', ''], [1978, 29000, 160, 174, 'Intel 8086', T('29 ألف', '29,000')],
+        [1989, 1200000, 232, 146, 'Intel 80486', T('1.2 مليون', '1.2 million')], [2000, 42000000, 304, 114, 'Pentium 4', T('42 مليون', '42 million')],
+        [2010, 1170000000, 274, 62, 'Core i7', T('1.17 مليار', '1.17 billion')], [2022, 114000000000, 334, 30, 'Apple M1 Ultra', T('114 مليار', '114 billion')]];
+      const dots = P.map(([y, v, lx, ly, n, l]) => `<circle cx="${X(y)}" cy="${Y(Math.log10(v))}" r="6" fill="currentColor" stroke="#fff" stroke-width="2"/>${name(lx, ly, n)}${l ? txt(lx, ly + 14, l, 12) : ''}`).join('');
+      const e0 = Math.log10(2300), trend = `M${X(1971)} ${Y(e0)}L${X(2022)} ${Y(e0 + ((2022 - 1971) / 2) * Math.log10(2))}`;
+      return svg(430, 230, `${grid}${axes(58, 8, 358, 198)}${years}<path d="${trend}" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="7 5"/>${dots}
+        <rect x="66" y="12" width="172" height="25" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>${txt(152, 29, T('الضعف تقريبًا كل عامين', 'double about every 2 years'), 12.5)}`);
     },
     arvr() {
       return svg(290, 124, `<rect x="4" y="6" width="134" height="88" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/><path d="M12 84l34-34 22 20 18-14 44 28" fill="none" stroke="#64748b" stroke-width="2.5"/><rect x="58" y="22" width="66" height="26" rx="6" fill="#fde68a" stroke="#d97706" stroke-width="2"/>${txt(91, 40, T('إضافة', 'added'), 11.5)}
@@ -48,8 +56,20 @@
         ${txt(71, 114, T('AR يضيف فوق الواقع', 'AR adds to reality'), 12)}${txt(219, 114, T('VR عالم كامل بديل', 'VR replaces it all'), 12)}`);
     },
     edge() {
-      return svg(290, 124, `${tag(10, 40, 84, 44, '🚗', '#d1fae5', 20)}${tag(196, 40, 84, 44, '☁️', '#e0f2fe', 20)}<path d="M102 62H188" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6 5"/>${txt(145, 54, T('بطيء', 'slow'), 11)}
-        ${txt(52, 26, T('طرفية: قرار فوري', 'edge: instant'), 11.5)}${txt(238, 26, T('سحابة: بعيدة', 'cloud: far'), 11.5)}${txt(145, 112, T('بتعالج بعض البيانات محليًا على المركبة', 'A self-driving car decides on the device'), 11.5)}`);
+      return svg(420, 150, `<rect x="4" y="96" width="412" height="44" rx="10" fill="#334155"/><path d="M16 118H404" stroke="#f8fafc" stroke-width="3" stroke-dasharray="20 14"/>
+        <text x="96" y="104" text-anchor="middle" font-size="44">🚗</text><text x="26" y="96" text-anchor="middle" font-size="30">🚶‍♂️</text>
+        <rect x="40" y="6" width="150" height="42" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/>${txt(115, 24, T('الحوسبة الطرفية', 'Edge computing'), 12.5, 'style="font-weight:900;fill:#065f46"')}${txt(115, 41, T('معالجة على المركبة نفسها', 'processed on the vehicle'), 11)}
+        <path d="M108 50V62" stroke="#059669" stroke-width="3"/>
+        <text x="352" y="62" text-anchor="middle" font-size="46">☁️</text>${txt(352, 84, T('السحابة', 'The cloud'), 12)}
+        <path d="M150 64C210 40 260 40 318 50" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6 5"/><path d="M226 38l14 14m0-14l-14 14" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+        ${txt(238, 72, T('مانستناش السحابة', 'no waiting for the cloud'), 11.5, 'style="font-weight:800;fill:#991b1b"')}`);
+    },
+    qubit() {
+      return svg(420, 132, `<rect x="4" y="4" width="196" height="124" rx="14" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>${txt(102, 26, T('البت التقليدي', 'Classical bit'), 13, 'style="font-weight:900;fill:#0f172a"')}
+        <rect x="42" y="38" width="54" height="54" rx="10" fill="#fff" stroke="#94a3b8" stroke-width="2"/>${txt(69, 74, '0', 26, 'style="fill:#94a3b8"')}
+        <rect x="108" y="38" width="54" height="54" rx="10" fill="#475569"/>${txt(135, 74, '1', 26, 'style="fill:#fff"')}${txt(102, 116, T('حالة واحدة في المرة', 'holds one state'), 11.5)}
+        <rect x="220" y="4" width="196" height="124" rx="14" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>${txt(318, 26, T('الكيوبت (qubit)', 'Qubit'), 13, 'style="font-weight:900;fill:#0f172a"')}
+        <circle cx="318" cy="66" r="32" fill="#fff" stroke="#0d9488" stroke-width="2.5"/><ellipse cx="318" cy="66" rx="32" ry="10" fill="none" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="4 3"/>${txt(318, 72, '0 + 1', 15, 'style="font-weight:900;fill:#0f766e"')}${txt(318, 116, T('مبدأ التراكب الكمومي', 'uses superposition'), 11.5)}`);
     },
     nn() {
       const L = [[40, 3], [130, 4], [220, 4], [300, 2]], ys = (n, k) => 80 - ((n - 1) * 30) / 2 + k * 30;
