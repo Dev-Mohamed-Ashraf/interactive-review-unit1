@@ -8,7 +8,7 @@
   const T = (ar, en) => ({ ar, en });
 
   RV.addSheet('5-1', {
-    lead: T('التحليل الكويس بيبدأ بجمع كويس: مرحلة الجمع بتحدّد جودة التحليل كله.', 'Good analysis starts with good collection: this stage decides the quality of everything after it.'),
+    lead: T('التحليل الكويس بيبدأ بجمع كويس: مرحلة الجمع بتأثّر بقوة في جودة التحليل كله.', 'Good analysis starts with good collection: this stage decides the quality of everything after it.'),
     rows: [
       [{ t: 'goal', label: T('السؤال الرئيسي', 'Guiding question'), q: T('كيف تجمع بيانات يمكنك الوثوق بها، وكيف يمكن لعينة صغيرة أن تمثل مجتمعًا إحصائيًا كاملًا بعدالة؟', 'How do you collect data you can trust, and how can a small sample fairly represent a whole population?'),
         aimsLabel: T('هتطلع من الدرس قادر', 'By the end you can'), aims: [
@@ -47,14 +47,14 @@
         cols: [{ h: T('المعاينة العشوائية البسيطة', 'Simple random sampling'), c: 'amber' }, { h: T('المعاينة الطبقية', 'Stratified sampling'), c: 'teal' }],
         rows: [
           { k: T('الفكرة', 'Idea'), v: [T('اختيار عشوائي من إطار المجتمع', 'pure chance, no bias'), T('فئات مهمة للسؤال (نوع · سن · صف) ثم عينة من كل فئة بتصميم محدد', 'strata (sex · age · year), then random from each')] },
-          { k: T('الفرصة', 'Chance'), v: [T('معروفة ومتساوية لكل واحد', 'known and equal for all'), T('طبقة 50% من المجتمع = 50% من العينة', 'a 50% stratum = 50% of the sample')] },
+          { k: T('الفرصة', 'Chance'), v: [T('معروفة ومتساوية لكل واحد', 'known and equal for all'), T('طبقة 50% من المجتمع = 50% من العينة (لو التوزيع نسبي)', 'a 50% stratum = 50% of the sample')] },
           { k: T('إمتى', 'When'), v: [T('أساسية وسهلة · محتاجة إطار مناسب نختار منه', 'the basic one · even with little info'), T('تمثيل الفئات المهمة وتحسين الدقة', 'when strata differ → less bias')] },
         ] }],
       [{ t: 'sec', n: '4', label: T('تحيّز أخذ العينات', 'Bias in Surveys') }],
       [{ t: 'cards', ic: '⚠️', title: T('تحيّز المعاينة: طريقة الاختيار بتخلّي ناس أكتر أو أقل احتمالًا للتمثيل ← التعميم مش موثوق', 'Sampling bias: the sample misses the population → no generalizing'), cols: 3, items: [
-        { ic: '🙋‍♂️', h: T('الاختيار الذاتي', 'Self-selection'), p: T('استبيان ويب يرد عليه المهتمين بس (مين اتسأل)', 'only those interested reply (who was asked)'), c: 'red' },
+        { ic: '🙋‍♂️', h: T('الاختيار الذاتي', 'Self-selection'), p: T('استبيان ويب يرد عليه المهتمون بس (مين شارك)', 'only those interested reply (who is surveyed)'), c: 'red' },
         { ic: '🎭', h: T('تحيّز الاستجابة', 'Response bias'), p: T('الإجابة «المرغوبة»: خطأ قياس (إزاي جاوبوا)', 'the “desired” answer: a measurement error (how they answered)'), c: 'amber' },
-        { ic: '🚉', h: T('الزمان/المكان', 'Time/location'), p: T('محطة الضهر أيام الشغل: يغيب الموظفين والطلبة', 'a station at noon: workers and students absent'), c: 'violet' },
+        { ic: '🚉', h: T('الزمان/المكان', 'Time/location'), p: T('قدام محطة بعد الضهر أيام الأسبوع: بيستبعد الموظفين والطلاب', 'a station at noon: workers and students absent'), c: 'violet' },
       ] }],
       [{ t: 'flow', ic: '😬', title: T('واثقة… بس غلط', 'Confident… but wrong'), items: [
         { ic: '🌐', h: T('استبيان ويب عن النوم', 'A web survey on sleep'), c: 'blue' },
@@ -105,7 +105,7 @@
       ] }],
       [{ t: 'sec', n: '2', label: T('القيم المفقودة والشاذة والبيانات المكررة', 'Missing Values, Outliers and Duplicates') }],
       [{ t: 'tree', ic: '🧹', title: T('التنظيف: كل مشكلة وعلاجها', 'Cleaning: each problem and its fix'), root: { h: T('تنظيف البيانات (مفيش وصفة واحدة)', 'Data cleaning (no single recipe)'), c: 'amber' }, kids: [
-        { ic: '🕳️', h: T('القيم المفقودة', 'Missing values'), p: T('حسب نسبة الفقد ونمطه والغرض', 'by share, pattern, purpose'), list: [T('الحذف: سجل أو متغير لو الفقد قليل ومن غير تحيّز', 'deletion: few, scattered'), T('التعويض: قيمة بديلة (متوسط · وسيط) ونفحص أثرها؛ المتوسط ممكن يقلّل التباين', 'imputation: mean · median · neighbour'), T('وضع علامة: مؤشر إن الغياب ليه معنى', 'flagging: absence has meaning')], c: 'red' },
+        { ic: '🕳️', h: T('القيم المفقودة', 'Missing values'), p: T('حسب نسبة الفقد ونمطه والغرض', 'by share, pattern, purpose'), list: [T('الحذف: سجل أو متغير لو الفقد قليل ومن غير تحيّز', 'deletion: few, scattered'), T('التعويض: قيمة بديلة (متوسط · وسيط) ونفحص أثرها؛ المتوسط ممكن يقلّل التباين', 'imputation: mean · median · neighbor'), T('وضع علامة: مؤشر إن الغياب ليه معنى', 'flagging: absence has meaning')], c: 'red' },
         { ic: '📈', h: T('القيم الشاذة', 'Outliers'), p: T('بعيدة عن معظم القيم — مش لازم غلط، نتحقق من المصدر', 'far away — not always wrong'), list: [T('قيمة غير طبيعية (خطأ) ← نصحّح أو نحذف', 'abnormal value (error) → fix or delete'), T('قيمة صحيحة ← مانحذفهاش لبُعدها، نقرّر حسب السؤال', 'rare truth → keep for now'), T('«9999» غلطة كتابة ← 9', '“9999” a typo → 9')], c: 'amber' },
         { ic: '👯', h: T('البيانات المكررة', 'Duplicate data'), p: T('بتلخبط نتايج التجميع', 'distort aggregates'), list: [T('ماتتحذفش غير بعد التأكد', 'removed in principle'), T('تكرار غير مقصود لنفس الحدث؟', 'confirm it is a true duplicate'), T('شراء مرتين = عمليتين بيع', 'bought twice = two sales')], c: 'violet' },
       ] }],
@@ -202,7 +202,7 @@
         { t: 'vflow', ic: '🏷️', title: T('الإشارة إلى المصدر: دايمًا', 'Source citation: always'), items: [
           { h: T('الجهة الناشرة · اسم المجموعة', 'Provider · data name'), c: 'violet' },
           { h: T('الإصدار أو تاريخ الوصول · الرابط', 'Date obtained · URL'), c: 'violet' },
-          { h: T('غيرك يلاقيها ويقيّمها، ومايثبتش الموثوقية لوحده', 'Reliability + others can verify'), c: 'green' },
+          { h: T('غيرك يلاقيها ويقيّمها، ومابتثبتش الموثوقية لوحدها', 'Reliability + others can verify'), c: 'green' },
         ] },
       ],
       [{ t: 'sec', page: true, n: '✓', label: T('راجع نفسك: أسئلة الكتاب بإجاباتها', 'Check yourself: the book’s questions, answered') }],
@@ -218,8 +218,8 @@
       ] }],
       [{ t: 'qa', mark: T('سؤال بنمط الامتحان · 6 درجات · نقاط الإجابة', 'Exam-style question · 6 marks · points to make'), q: T('اشرح لماذا يجب على المحلل التحقق من شروط الاستخدام والإشارة إلى المصدر حتى عندما تكون البيانات مجانية ومفتوحة.', 'Explain why an analyst must check the terms of use and cite the source even when the data is free and open.'), items: [
         T('حقك في الاستخدام بتحدده شروط كل مجموعة', 'Your right to use the data is set per dataset'),
-        T('الإشارة إلى المصدر بيساعد الآخرين يلاقوها ويقيّموها', 'Citing shows reliability'),
-        T('وبيسمح لغيرك يراجع التحليل', 'It also lets others verify the analysis'),
+        T('الإشارة إلى المصدر بتساعد الآخرين يلاقوها ويقيّموها', 'Citing shows reliability'),
+        T('وبتسمح لغيرك يراجع التحليل', 'It also lets others verify the analysis'),
       ] }],
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
         { bad: T('المفتوحة من غير فحص الشروط', 'Open data needs no terms check'), good: T('لازم نفحص شروط كل مجموعة', 'Check each dataset’s terms') },

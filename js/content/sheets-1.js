@@ -105,7 +105,7 @@
   });
 
   RV.addSheet('1-2', {
-    lead: T('الذكاء الاصطناعي مجال واسع، والتعلّم الآلي والعميق والتوليدي مفاهيم مترابطة جوّاه.', 'AI is a wide field; machine, deep and generative learning are nested inside it.'),
+    lead: T('الذكاء الاصطناعي مجال واسع، والتعلّم الآلي والعميق والتوليدي مفاهيم مترابطة جوّاه.', 'AI is a wide field; machine learning, deep learning and generative AI are nested inside it.'),
     rows: [
       [{ t: 'goal', label: T('السؤال الرئيسي', 'Guiding question'), q: T('ما هو الذكاء الاصطناعي، وكيف يرتبط التعلّم الآلي والتعلّم العميق والذكاء الاصطناعي التوليدي ببعضهم؟', 'What is AI, and how are machine learning, deep learning, and generative AI related?'),
         aimsLabel: T('هتطلع من الدرس قادر', 'By the end you can'), aims: [
@@ -133,7 +133,7 @@
           { k: T('النتيجة', 'Result'), v: [T('fr€e عدّت ← القاعدة اتكسرت', 'fr€e passes → the rule breaks'), T('الأنماط بتتعلّم لوحدها', 'patterns are learned')] },
         ] }],
       [{ t: 'flow', ic: '🔁', title: T('خطوات التعلّم الآلي', 'Steps of machine learning'), items: [
-        { ic: '🗃️', h: T('بيانات', 'Data'), p: T('أمثلة بإجاباتها', 'labelled examples'), c: 'slate' },
+        { ic: '🗃️', h: T('بيانات', 'Data'), p: T('أمثلة بإجاباتها', 'labeled examples'), c: 'slate' },
         { ic: '⚙️', h: T('تدريب', 'Training'), p: T('يكتشف الأنماط بنفسه', 'finds patterns itself'), c: 'violet' },
         { ic: '📦', h: T('نموذج', 'Model'), c: 'blue' },
         { ic: '🔮', h: T('تنبؤ', 'Prediction'), p: T('سبام 94% · سليم', 'spam 94% · safe'), c: 'green' },
@@ -209,7 +209,7 @@
         ] }],
       [{ t: 'sec', n: '1', label: T('استخدام الذكاء الاصطناعي في الحياة اليومية', 'Use of AI in Daily Life') }],
       [{ t: 'cards', ic: '🏠', title: T('في حياتنا اليومية', 'In daily life'), cols: 4, items: [
-        { ic: '🎬', h: T('أنظمة التوصية', 'Recommendation systems'), p: T('تجمع سلوكك وتتنبّأ بتفضيلاتك: YouTube · Amazon · Spotify', 'use your behaviour to predict tastes: YouTube · Amazon · Spotify'), c: 'blue' },
+        { ic: '🎬', h: T('أنظمة التوصية', 'Recommendation systems'), p: T('تجمع سلوكك وتتنبّأ بتفضيلاتك: YouTube · Amazon · Spotify', 'use your behavior to predict tastes: YouTube · Amazon · Spotify'), c: 'blue' },
         { ic: '🎙️', h: T('المساعد الصوتي', 'Voice assistant'), p: T('Siri · Google Assistant', 'Siri · Google Assistant'), c: 'violet' },
         { ic: '🌍', h: T('الترجمة الآلية', 'Machine translation'), p: T('تلقائيًا: Google Translate · DeepL', 'automatic: Google Translate · DeepL'), c: 'green' },
         { ic: '🙂', h: T('التعرف على الوجه', 'Face recognition'), p: T('يكشف الوجوه في الصور ويتعرّف عليها · فتح الموبايل', 'detects and identifies faces in photos · phone unlock'), c: 'pink' },
@@ -224,7 +224,7 @@
         { ic: '🏥', h: T('الرعاية الصحية', 'Healthcare'), list: [T('التشخيص بالصور: أشعة ومقطعية', 'image diagnosis: X-ray, CT'), T('يدعم اكتشاف الأدوية', 'supports drug discovery'), T('القرار النهائي للطبيب', 'the doctor decides')], c: 'red' },
         { ic: '🌾', h: T('الزراعة', 'Agriculture'), list: [T('التنبؤ بميعاد الحصاد', 'harvest prediction'), T('كشف الآفات وأمراض النبات', 'detects pests and disease')], c: 'green' },
         { ic: '🏭', h: T('التصنيع', 'Manufacturing'), list: [T('أتمتة فحص الجودة', 'automated quality checks'), T('صيانة تنبؤية قبل العطل', 'predictive maintenance')], c: 'amber' },
-        { ic: '🚚', h: T('الخدمات اللوجستية', 'Logistics'), list: [T('تحسين المسارات: أقصر طريق', 'route optimisation: the shortest way'), T('وقت وبنزين أقل', 'less time and fuel')], c: 'blue' },
+        { ic: '🚚', h: T('الخدمات اللوجستية', 'Logistics'), list: [T('تحسين المسارات: أقصر طريق', 'route optimization: the shortest way'), T('وقت وبنزين أقل', 'less time and fuel')], c: 'blue' },
       ] }],
       [{ t: 'sec', n: '3', label: T('خصائص الذكاء الاصطناعي واحتياطات الاستخدام', 'Characteristics of AI and Cautions for Use') }],
       [{ t: 'compare', ic: '⚖️', title: T('شاطر في إيه؟ ومحتاج حذر في إيه؟', 'Strong at… careful with…'),
@@ -256,7 +256,7 @@
       ] }],
       [{ t: 'qa', mark: T('توقف وفكّر', 'Pause & think'), q: T('ليه القرار النهائي في التشخيص لازم يتأكد منه طبيب؟', 'Why should a human doctor confirm the final diagnosis?'), items: [
         T('الذكاء الاصطناعي ممكن يغلط، والخطأ أثره كبير على المريض', 'AI can be wrong, and the impact is high'),
-        T('مفيش توضيح كافٍ لأساس الحكم، والمسؤولية لازم تكون واضحة', 'The basis of its judgment may be unclear, and someone must be responsible'),
+        T('أساس الحكم ممكن مايبقاش واضح، والمسؤولية لازم تتحدد', 'The basis of its judgment may be unclear, and someone must be responsible'),
       ] }],
       [{ t: 'qa', mark: T('سؤال بنمط الامتحان · 6 درجات · نقاط الإجابة', 'Exam-style question · 6 marks · points to make'), q: T('حلّل لماذا يناسب الذكاء الاصطناعي بعض المهام بينما يتطلب الحذر في مهام أخرى.', 'Analyze why AI is well suited to some tasks but requires caution in others.'), items: [
         T('يبرع في إيجاد الأنماط والتعرّف والتنبؤ من البيانات', 'It is good at finding patterns, recognition and prediction'),
@@ -312,7 +312,7 @@
       [{ t: 'cards', ic: '🧰', title: T('أدوات XAI', 'XAI tools'), cols: 3, items: [
         { ic: '📊', h: T('أهمية كل عامل', 'Factor importance'), p: T('كل عامل أثّر قد إيه في القرار', 'how much each factor counted'), c: 'blue' },
         { ic: '🔀', h: T('«لو كان… كان اتقبل»', '“If… it would pass”'), p: T('أصغر تغيير يقلب النتيجة', 'the smallest change that flips it'), c: 'violet' },
-        { ic: '🌡️', h: T('الخريطة الحرارية', 'Heat map'), p: T('تلوّن مكان التشخيص في الصورة الطبية', 'colours the diagnosed area'), c: 'red' },
+        { ic: '🌡️', h: T('الخريطة الحرارية', 'Heat map'), p: T('تلوّن مكان التشخيص في الصورة الطبية', 'colors the diagnosed area'), c: 'red' },
       ] }],
       [{ t: 'note', ic: '🧾', c: 'amber', p: T('**المسؤولية:** تحديد أدوار وواجبات الأطراف: المطوّر والجهة المشغِّلة والمستخدم — ومفيش توزيع واحد يصلح لكل السياقات؛ بيختلف حسب النظام والاستخدام والقواعد.', '**Responsibility:** who answers when an AI judges wrongly? Views differ for developer, user and operator, and it is not yet clearly determined. XAI supports transparency, fairness and accountability.') }],
       [{ t: 'sec', n: '4', label: T('المبادئ الأساسية لأخلاقيات الذكاء الاصطناعي', 'Basic Principles of AI Ethics') }],
@@ -324,7 +324,7 @@
           { ic: '🧾', h: T('المساءلة', 'Accountability'), c: 'amber' },
         ] },
         { t: 'cards', ic: '📘', title: T('يعني إيه كل مبدأ؟', 'What each means'), cols: 1, items: [
-          { h: T('العدالة', 'Fairness'), p: T('عدم التمييز ظلمًا — توظيف بعدل بغضّ النظر عن الجنس', 'no unfair discrimination — fair hiring regardless of sex'), c: 'blue' },
+          { h: T('العدالة', 'Fairness'), p: T('عدم التمييز ظلمًا — توظيف بعدل بغضّ النظر عن الجنس', 'no unfair discrimination — fair hiring regardless of gender'), c: 'blue' },
           { h: T('الشفافية', 'Transparency'), p: T('معلومات واضحة عن النظام واستخدامه وعملية القرار وحدوده', 'show the decision process and inner workings clearly'), c: 'violet' },
           { h: T('حماية الخصوصية', 'Privacy protection'), p: T('التعامل المناسب مع المعلومات الشخصية — مثال: مفيش استخدام لغرض غير اللي اتجمعت عشانه', 'handle personal information appropriately — e.g. no use beyond the original purpose'), c: 'green' },
           { h: T('المساءلة', 'Accountability'), p: T('تحديد الجهات المسؤولة وإمكان محاسبتها وفق أدوارها', 'being answerable for the AI’s decisions'), c: 'amber' },

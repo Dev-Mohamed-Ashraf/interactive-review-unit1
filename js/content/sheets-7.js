@@ -39,7 +39,7 @@
       ] }],
       [{ t: 'sec', n: '3', label: T('التصنيف والتجميع والتعلّم المعزَّز', 'Classification, Clustering and Reinforcement Learning') }],
       [
-        { t: 'draw', art: 'classify', ic: '🏷️', title: T('التصنيف (إشراف)', 'Classification (supervised)'), cap: T('① تدريب: أوسمة ← حد فاصل ② تنبّؤ: فئة بيانات جديدة', '① Training: labels → a boundary ② Prediction: class of new data') },
+        { t: 'draw', art: 'classify', ic: '🏷️', title: T('التصنيف (إشراف)', 'Classification (supervised)'), cap: T('① تدريب: وسوم ← حد فاصل ② تنبّؤ: فئة بيانات جديدة', '① Training: labels → a boundary ② Prediction: class of new data') },
         { t: 'draw', art: 'cluster', ic: '📦', title: T('التجميع (غير إشراف)', 'Clustering (unsupervised)'), cap: T('عناقيد حسب السمات ومقياس التشابه · بنية محتملة مش مجموعات طبيعية مؤكدة · k-means يحدد العدد مسبقًا · البشر يفسّروا', 'The machine finds “what is similar”, even with group names and number unknown · humans interpret, e.g. for marketing') },
         { t: 'draw', art: 'grid', ic: '🎮', title: T('المعزَّز', 'Reinforcement'), cap: T('وكيل: الحالة · الفعل · المكافأة (−5 / +10) · بيئة آمنة زي المحاكاة والألعاب', 'Agent: state · action · reward (−5 / +10) · right answer unknown, result can be judged · simulators, games') },
       ],
@@ -47,7 +47,7 @@
         cols: [{ h: T('التصنيف', 'Classification'), c: 'blue' }, { h: T('التجميع', 'Clustering'), c: 'green' }, { h: T('المعزَّز', 'Reinforcement'), c: 'amber' }],
         rows: [
           { k: '1', v: [T('إيميل مزعج/عادي', 'spam/normal mail'), T('عملاء بشراء متشابه', 'customers with similar buying'), T('درجة عالية في لعبة', 'a high game score')] },
-          { k: '2', v: [T('صورة طبية طبيعية/غير طبيعية', 'normal/abnormal medical image'), T('مستمعين ← ترشيحات', 'listeners → recommendations'), T('روبوت يتعلّم يمشي', 'a robot learns to walk')] },
+          { k: '2', v: [T('صورة طبية طبيعية/غير طبيعية', 'normal/abnormal medical image'), T('مستمعين ← توصيات', 'listeners → recommendations'), T('روبوت يتعلّم يمشي', 'a robot learns to walk')] },
           { k: '3', v: [T('كلب/قطة/طائر', 'dog/cat/bird'), T('مقالات متشابهة', 'similar news articles'), T('قيادة آمنة', 'safe driving')] },
         ] }],
       [{ t: 'note', ic: '🔎', c: 'blue', p: T('**السمة (Feature):** دليل في البيانات مفيد للتنبّؤ — نوع الكلمات · عنوان المرسِل · طول النص. بعضها يحدده المطوّر وبعض النماذج تتعلّم تمثيلاتها تلقائيًا، ونتجنب تسرب البيانات والتحيّز.', 'A **feature** is a clue useful for prediction — words · sender · text length. Choosing features strongly affects accuracy.') }],
@@ -75,8 +75,8 @@
         T('الرقابة البشرية بتزيد مع خطورة القرار', 'Important decisions need human review'),
       ] }],
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
-        { bad: T('الإشراف من غير أوسمة', 'Supervised has no labels'), good: T('بأوسمة', 'It has labels') },
-        { bad: T('التجميع حسب أوسمة مدّية', 'Clustering uses given labels'), good: T('من غير أوسمة', 'No labels') },
+        { bad: T('الإشراف من غير وسوم', 'Supervised has no labels'), good: T('بوسوم', 'It has labels') },
+        { bad: T('التجميع حسب وسوم معطاة', 'Clustering uses given labels'), good: T('من غير وسوم', 'No labels') },
         { bad: T('حل لكل حاجة وأحسن من الإنسان', 'It solves all, better than humans'), good: T('أداة بتدعم الإنسان', 'A tool supporting humans') },
         { bad: T('أساس الحكم بيتعرض بسهولة', 'Its basis is easy to show'), good: T('صندوق أسود', 'A black box') },
         { bad: T('التجميع بيثبت مجموعات طبيعية', 'Clustering = classification'), good: T('بنية محتملة بس', 'They differ in labels') },
@@ -86,7 +86,7 @@
   });
 
   RV.addSheet('7-2', {
-    lead: T('خلايا بسيطة متوصّلة في طبقات، والتدريب بيظبط أوزانها — والعمق بيبني السمات خطوة خطوة.', 'Simple cells in layers, training tunes their weights — and depth builds features step by step.'),
+    lead: T('خلايا بسيطة متوصّلة في طبقات، والتدريب بيضبط أوزانها — والعمق بيبني السمات خطوة خطوة.', 'Simple cells in layers, training tunes their weights — and depth builds features step by step.'),
     rows: [
       [{ t: 'goal', label: T('السؤال الرئيسي', 'Guiding question'), q: T('كيف تعمل بنية مبسطة لشبكة عصبية، وكيف تتغير معلماتها أثناء التدريب، وماذا قد يضيف العمق؟', 'How is a neural network built and trained, and what does making it “deep” add?'),
         aimsLabel: T('هتطلع من الدرس قادر', 'By the end you can'), aims: [
@@ -114,14 +114,14 @@
         { ic: '✅', h: T('بعد التدريب', 'After'), p: T('نقيس الأداء على بيانات منفصلة (التعميم)، ومفيش ضمان لصحة كل تنبؤ', 'right even on new data'), c: 'green' },
       ] }],
       [{ t: 'sec', n: '3', label: T('التعلّم العميق', 'Deep Learning') }],
-      [{ t: 'draw', art: 'features', ic: '🪜', title: T('التعلّم العميق: سمات هرمية', 'Deep learning: hierarchical features'), cap: T('مثال تقريبي، مش مسار ثابت: الطبقات الضحلة: خطوط وتغيّر ألوان ← الوسطى: أجزاء (عيون، أنف، حلقات) ← العميقة: الوجه أو الرقم كله', 'Shallow: lines, colour changes → middle: parts (eyes, nose, loops) → deep: the whole face or digit') }],
+      [{ t: 'draw', art: 'features', ic: '🪜', title: T('التعلّم العميق: سمات هرمية', 'Deep learning: hierarchical features'), cap: T('مثال تقريبي، مش مسار ثابت: الطبقات الضحلة: خطوط وتغيّر ألوان ← الوسطى: أجزاء (عيون، أنف، حلقات) ← العميقة: الوجه أو الرقم كله', 'Shallow: lines, color changes → middle: parts (eyes, nose, loops) → deep: the whole face or digit') }],
       [
         { t: 'link', ic: '🚀', title: T('إيه اللي ساعد ينتشر؟', 'What made it practical'), w: 1.3, nodes: [
           { ic: '🗃️', h: T('بيانات وأدوات وخوارزميات أفضل', 'Big data'), c: 'blue' },
           { ic: '🖥️', h: T('قدرة حاسوبية', 'Computing power'), p: T('GPU · TPU، مش شرط لكل استخدام', 'GPU · TPU'), c: 'amber' },
           { ic: '✅', h: T('انتشار', 'Practical'), c: 'green' },
         ], edges: [{ sign: '+' }, { sign: '=' }] },
-        { t: 'note', ic: '⚠️', c: 'red', p: T('**عمق أكتر مش ضمان:** بيزوّد الكلفة، والشبكة ممكن تحفظ الأمثلة ومايعمّمش. مفيش عدد عالمي للطبقات، وكمان زيادة البيانات لوحدها مش ضمان.', '**Overfitting:** more depth guarantees nothing — it memorizes and chases noise. Ensure data is enough and varied.') },
+        { t: 'note', ic: '⚠️', c: 'red', p: T('**عمق أكتر مش ضمان:** بيزوّد الكلفة، والشبكة ممكن تحفظ الأمثلة وماتعمّمش. مفيش عدد عالمي للطبقات، وكمان زيادة البيانات لوحدها مش ضمان.', '**Overfitting:** more depth guarantees nothing — it memorizes and chases noise. Ensure data is enough and varied.') },
       ],
       [{ t: 'sec', n: '4', label: T('لماذا أحدث التعلّم العميق قفزة', 'Why Deep Learning Brought a Leap') }],
       [{ t: 'cards', ic: '📈', title: T('القفزة: تقدّم كبير في مهام محددة', 'The leap: near-human accuracy or better'), cols: 3, items: [
@@ -149,7 +149,7 @@
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
         { bad: T('طبقة الإدخال بتطلّع النتايج', 'The input layer gives results'), good: T('دي الإخراج', 'That is the output') },
         { bad: T('التعلّم العميق بطبقة مخفية واحدة', 'Deep learning has one hidden layer'), good: T('شبكات متعددة الطبقات', 'Many hidden layers') },
-        { bad: T('الأوزان مظبوطة قبل التدريب', 'Weights are set before training'), good: T('تهيئة عشوائية', 'Random') },
+        { bad: T('الأوزان مضبوطة قبل التدريب', 'Weights are set before training'), good: T('تهيئة عشوائية', 'Random') },
         { bad: T('عمق أكبر = أداء أحسن دايمًا', 'Layers do not affect problem difficulty'), good: T('مايضمنش', 'Harder problems need more') },
       ] }],
       [{ t: 'takeaway', label: T('الخلاصة', 'Key takeaway'), p: T('الشبكة العصبية طبقات (إدخال ← مخفية ← إخراج)، والخلية ترجّح مدخلاتها وتجمعها، والتدريب يضبط الأوزان. التعلّم العميق يبني السمات خطوة بخطوة، من غير ما يضمن صحة كل تنبؤ.', 'A neural network = layers of neurons (input → hidden → output); each neuron weights and sums its inputs, and training tunes the weights. Deep learning stacks many hidden layers to build features.') }],
@@ -198,7 +198,7 @@
           cols: [{ ic: '✅', h: T('بيحسّن', 'Improves'), c: 'green' }, { ic: '✗', h: T('مابيضمنش', 'Does not guarantee'), c: 'red' }],
           rows: [
             { k: '1', v: [T('الأسلوب · ردود طبيعية ومهذّبة', 'style · natural, polite replies'), T('الحقيقة', 'truth')] },
-            { k: '2', v: [T('إتباع التعليمات وقصد السؤال', 'following instructions and intent'), T('الأمان الكامل', 'full safety')] },
+            { k: '2', v: [T('اتباع التعليمات وقصد السؤال', 'following instructions and intent'), T('الأمان الكامل', 'full safety')] },
             { k: '3', v: [T('بعض جوانب السلامة', 'part of safety'), T('مناسبة كل مخرج', 'depends on raters and design')] },
           ] },
         { t: 'draw', art: 'hub', ic: '🎛️', title: T('تعدّد الوسائط', 'Multimodality'), cap: T('قدرة نموذج أو نظام على أكتر من وسيط · في المدخلات أو المخرجات أو الاتنين · مش كل نظام يدعم الكل', 'Each data type = a modality · one model handles many kinds, converted to one numeric form') },
@@ -228,7 +228,7 @@
         { bad: T('بيرجّع نفس جمل التدريب دايمًا', 'It repeats training sentences'), good: T('بيولّد رمز بعد رمز', 'It generates by repeated prediction') },
         { bad: T('RLHF بيخلّيه يقول الحقيقة دايمًا', 'RLHF makes it always truthful'), good: T('مش بيضمن الحقيقة', 'No truth guarantee') },
         { bad: T('تعدّد الوسائط = نص بس', 'Multimodality = text only'), good: T('أكتر من وسيط حسب النظام', 'Text, image, audio, video') },
-        { bad: T('نموذج أكبر = أصدق', 'A bigger model = more truthful'), good: T('أطلق، مش بالضرورة أصدق', 'More fluent, not more truthful') },
+        { bad: T('نموذج أكبر = أصدق', 'A bigger model = more truthful'), good: T('أكثر طلاقة، مش بالضرورة أصدق', 'More fluent, not more truthful') },
       ] }],
       [{ t: 'takeaway', label: T('الخلاصة', 'Key takeaway'), p: T('يولّد النموذج النص رمزًا بعد رمز وفق احتمالات، وده مش بيضمن صحة الحقائق. الكبر عدد المعلمات وحجم التدريب والحوسبة، وRLHF يحسن اتباع التعليمات. الطلاقة لا تساوي الحقيقة: تحقق من الادعاءات المهمة.', 'A language model generates text by predicting the next word again and again — plausible, not guaranteed true. Fluency is not truth, so verify important claims.') }],
     ],

@@ -44,7 +44,7 @@
         { t: 'tree', ic: '🛡️', title: T('المصادقة الثنائية (2FA) ومتعددة العوامل (MFA)', 'Multi-factor authentication (MFA)'), w: 1.15, root: { h: T('2FA: عاملين مستقلين من فئتين مختلفتين · MFA: عاملين أو أكتر', 'Two or more of the three factors'), c: 'teal' }, kids: [
           { ic: '🧠', h: T('معرفة', 'Knowledge'), p: T('حاجة عارفها: كلمة سر', 'you know it: a password'), c: 'blue' },
           { ic: '📱', h: T('حيازة', 'Possession'), p: T('حاجة معاك: موبايل · كارت', 'you have it: phone · card'), c: 'amber' },
-          { ic: '👆', h: T('سمات حيوية', 'Biometric'), p: T('حاجة هي إنت: بصمة · وجه', 'you are it: print · face'), c: 'pink' },
+          { ic: '👆', h: T('سمات حيوية', 'Biometric'), p: T('حاجة هي إنت: بصمة · وجه', 'you are it: fingerprint · face'), c: 'pink' },
         ] },
         { t: 'compare', ic: '🏦', title: T('أمثلة حقيقية', 'Real examples'),
           cols: [{ h: T('العامل الأول', 'First factor'), c: 'blue' }, { h: T('التاني', 'Second'), c: 'amber' }],
@@ -60,7 +60,7 @@
       [
         { t: 'vflow', ic: '✍️', title: T('التوقيع الرقمي', 'Digital signature'), items: [
           { ic: '🔏', h: T('الخاص يوقّع (الاتجاه معكوس)', 'Private key signs (reversed)'), c: 'red' },
-          { ic: '🔍', h: T('العام يتحقق', 'Public key verifies'), p: T('المهاجم غيّر 100 ← 900 ؟ التحقق يفشل', 'attacker changed 100 → 900? it fails'), c: 'blue' },
+          { ic: '🔍', h: T('العام يتحقق', 'Public key verifies'), p: T('المهاجم غيّر 100 ← 900؟ التحقق يفشل', 'attacker changed 100 → 900? it fails'), c: 'blue' },
           { ic: '✅', h: T('كشف تلاعب وانتحال + دليل يدعم عدم التنصل', 'Tamper and spoof detection + non-repudiation'), p: T('عندما يتطلب النظام ذلك', 'cannot deny sending'), c: 'green' },
         ] },
         { t: 'cards', ic: '🧩', title: T('شراء من متجر: 4 أخطار و4 حلول', 'Shopping: 4 threats, 4 answers'), cols: 1, items: [
@@ -88,7 +88,7 @@
       ] }],
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
         { bad: T('كلمتين سر = 2FA', 'Two passwords = MFA'), good: T('نفس العامل، مش 2FA', 'Two-step with the same factor, not MFA') },
-        { bad: T('HTTPS = موقع موثوق وحماية مطلقة', 'HTTPS means RSA only'), good: T('بيقلّل المخاطر بس', 'Both key types are combined') },
+        { bad: T('HTTPS = موقع موثوق وحماية مطلقة', 'HTTPS uses only one kind of key'), good: T('بيقلّل المخاطر بس', 'It combines public-key and common-key') },
         { bad: T('التوقيع يحسّن سرعة الاتصال', 'A signature speeds the connection'), good: T('يكشف التلاعب + عدم التنصل', 'Tamper detection + non-repudiation') },
         { bad: T('كل البيانات بالمفتاح العام', 'All data by public key'), good: T('بطيء؛ البيانات بالمتماثل', 'Slow; data uses the common key') },
       ] }],
@@ -118,7 +118,7 @@
       [{ t: 'layers', ic: '🧅', title: T('الدفاع في العمق: طبقات تقلّل الخطر وتحدّ من أثر الاختراق لو طبقة فشلت', 'Defense in depth: if one fails, the next protects'), items: [
         { ic: '🧱', h: T('١ مدخل الشبكة', '1 Network entrance'), p: T('جدار حماية يمنع الاتصال غير المصرّح', 'a firewall blocks unauthorized traffic'), c: 'amber' },
         { ic: '🚇', h: T('٢ مسار الاتصال', '2 Communication path'), p: T('VPN يشفّر: اللي يلتقط البيانات مايفهمهاش', 'VPN encrypts: captured data is unreadable'), c: 'blue' },
-        { ic: '🏢', h: T('٣ وضع الخوادم', '3 Server placement'), p: T('DMZ: خادم ويب مخترق يفضل محبوس', 'DMZ: a breached web server stays contained'), c: 'violet' },
+        { ic: '🏢', h: T('٣ وضع الخوادم', '3 Server placement'), p: T('DMZ: فصل الخوادم العامة عن الشبكة الداخلية', 'DMZ: separates public servers from the internal network'), c: 'violet' },
         { ic: '💻', h: T('٤ الأجهزة الطرفية', '4 Endpoints'), p: T('مكافح فيروسات + تحديث نظام التشغيل', 'antivirus + OS updates'), c: 'green' },
       ] }],
       [{ t: 'sec', n: '3', label: T('مفهوم نهج انعدام الثقة', 'The Concept of Zero Trust') }],

@@ -19,29 +19,29 @@
       [{ t: 'compare', ic: '📺', title: T('الوسائط الخمسة', 'The five media'),
         cols: [{ ic: '📺', h: T('تلفزيون', 'TV'), c: 'blue' }, { ic: '📻', h: T('راديو', 'Radio'), c: 'amber' }, { ic: '📰', h: T('صحيفة', 'Newspaper'), c: 'slate' }, { ic: '🌐', h: T('موقع إلكتروني', 'Website'), c: 'violet' }, { ic: '💬', h: T('وسائل التواصل', 'SNS'), c: 'pink' }],
         rows: [
-          { k: T('المحتوى', 'Content'), v: [T('فيديو + صوت', 'video + audio'), T('صوت بس', 'audio only'), T('نص + صور', 'text + images'), T('كل الأنواع', 'all types'), T('ينشرها المستخدمين', 'shared by users')] },
+          { k: T('المحتوى', 'Content'), v: [T('فيديو + صوت', 'video + audio'), T('صوت بس', 'audio only'), T('نص + صور', 'text + images'), T('كل الأنواع', 'all types'), T('كل الأنواع · ينشرها المستخدمون', 'all types · posted by users')] },
           { k: T('بيخاطب', 'Reaches'), v: [T('النظر والسمع', 'sight, hearing'), T('السمع بس', 'hearing only'), T('النظر · مطبوع', 'sight · printed'), T('متنوّع', 'varied'), T('متنوّع', 'varied')] },
           { k: T('الاتجاه', 'Direction'), v: [T('واحد عادةً', 'one-way'), T('واحد عادةً', 'one-way'), T('واحد', 'one-way'), T('واحد أساسًا + نماذج وتعليقات', 'one-way + forms, comments'), T('اتجاهين', 'two-way')] },
-          { k: T('ميزته', 'Strength'), v: [T('لكتير مرة واحدة', 'many at once'), T('أثناء التنقل أو مهام تانية حسب التغطية', 'anywhere, while busy'), T('من غير إنترنت', 'no internet'), T('يتحدّث في أي وقت', 'updated any time'), T('أسرع نشر', 'fastest spread')] },
+          { k: T('ميزته', 'Strength'), v: [T('لجمهور كبير مرة واحدة', 'many at once'), T('أثناء التنقل أو مهام تانية حسب التغطية', 'anywhere, while busy'), T('من غير إنترنت', 'no Internet'), T('يتحدّث في أي وقت', 'updated any time'), T('أسرع نشر', 'fastest spread')] },
         ] }],
       [{ t: 'link', ic: '↔️', title: T('اتجاه واحد ولا اتجاهين؟', 'One-way or two-way?'), nodes: [
         { ic: '📣', h: T('المرسل', 'Sender'), c: 'blue' },
         { ic: '👥', h: T('المستقبل', 'Receiver'), c: 'green' },
-      ], edges: [{ to: T('واحد: تلفزيون · راديو · جرنال', 'one-way: TV · radio · paper'), back: T('اتجاهين: تواصل + نماذج الموقع', 'two-way: SNS + site forms') }] }],
+      ], edges: [{ to: T('واحد: تلفزيون · راديو · صحيفة', 'one-way: TV · radio · paper'), back: T('اتجاهين: تواصل + نماذج الموقع', 'two-way: SNS + site forms') }] }],
       [{ t: 'sec', n: '2', label: T('نقاط القوة والقيود في المواقع الإلكترونية', 'Strengths and Constraints of Websites') }],
       [
         { t: 'cards', ic: '🌐', title: T('نقاط قوة المواقع', 'Website strengths'), cols: 1, items: [
           { ic: '✅', h: T('خمس نقاط', 'Five points'), list: [T('تجمع معلومات متنوعة', 'combine varied information'), T('تتحدّث في أي وقت', 'updated any time'), T('توصل من أي مكان فيه اتصال مناسب', 'reach almost anywhere'), T('تفاعل بالنماذج والتعليقات', 'interact via forms, comments'), T('من المتصفح، وبعض التطبيقات تتثبّت', 'just a browser, no app')], c: 'green' },
         ] },
         { t: 'cards', ic: '🚧', title: T('قيود المواقع', 'Website constraints'), cols: 1, items: [
-          { ic: '⚠️', h: T('تلات قيود', 'Three limits'), list: [T('معظم الوظائف محتاجة اتصال (وبعض المواقع توفر محتوى محدود من غيره)', 'usually need internet (unless cached)'), T('غالبًا لازم يفتحها، إلا لو فيه إشعارات أو قنوات تانية', 'users must come themselves'), T('العرض والسرعة حسب الجهاز والشبكة', 'display, speed vary by device, network')], c: 'red' },
+          { ic: '⚠️', h: T('تلات قيود', 'Three limits'), list: [T('معظم الوظائف محتاجة اتصال (وبعض المواقع توفر محتوى محدود من غيره)', 'usually need Internet (unless cached)'), T('غالبًا لازم يفتحها، إلا لو فيه إشعارات أو قنوات تانية', 'users must come themselves'), T('العرض والسرعة حسب الجهاز والشبكة', 'display, speed vary by device, network')], c: 'red' },
         ] },
       ],
       [{ t: 'sec', n: '3', label: T('اختيار الوسائط وفقًا للغرض', 'Choosing Media According to Purpose') }],
       [{ t: 'tree', ic: '🎯', title: T('الاختيار حسب الغرض', 'Choosing by purpose'), root: { h: T('اختيار الوسيط: الغرض؟ الجمهور المستهدف؟ الموارد؟', 'Choosing media: your goal? your target audience?'), c: 'violet' }, kids: [
         { ic: '📺', h: T('وصول واسع بسرعة', 'Wide, fast reach'), p: T('تلفزيون · إعلانات التواصل', 'TV · social ads'), c: 'blue' },
         { ic: '🌐', h: T('تفاصيل يرجعولها', 'Details to revisit'), p: T('موقع: كمية كبيرة منظمة في صفحات وأقسام', 'a website: no limit on volume, view any time'), c: 'violet' },
-        { ic: '✉️', h: T('رسالة لناس بعينهم', 'To specific people'), p: T('إيميل · رسايل مباشرة', 'e-mail · direct messages'), c: 'amber' },
+        { ic: '✉️', h: T('رسالة لناس بعينهم', 'To specific people'), p: T('إيميل · رسايل مباشرة', 'email · direct messages'), c: 'amber' },
         { ic: '💬', h: T('انتشار بالتناقل', 'Spread by sharing'), p: T('تواصل: يشاركوا بإرادتهم', 'SNS: shared willingly'), c: 'pink' },
       ] }],
       [{ t: 'flow', ic: '🔗', title: T('بنجمع الوسائط: كل واحد يسدّ ضعف التاني', 'Combining media: each covers the other'), items: [
@@ -49,7 +49,7 @@
         { ic: '🌐', h: T('موقع', 'Website'), p: T('العمق والتفاصيل', 'depth and detail'), c: 'violet' },
         { ic: '💬', h: T('تواصل اجتماعي', 'Social media'), p: T('ينشرها', 'spreads it'), c: 'pink' },
       ] }],
-      [{ t: 'note', ic: '👨‍👦‍👦', c: 'amber', p: T('**فكّر في الجمهور:** عيلة من غير إنترنت مش هيوصلها الموقع — يوصلها راديو أو ملصق مطبوع.', '**Think of the audience:** a family with no internet will not get a website — radio or a printed poster reaches them.') }],
+      [{ t: 'note', ic: '👨‍👦‍👦', c: 'amber', p: T('**فكّر في الجمهور:** عيلة من غير إنترنت مش هيوصلها الموقع — يوصلها راديو أو ملصق مطبوع.', '**Think of the audience:** a family with no Internet will not get a website — radio or a printed poster reaches them.') }],
       [{ t: 'sec', page: true, n: '✓', label: T('راجع نفسك: أسئلة الكتاب بإجاباتها', 'Check yourself: the book’s questions, answered') }],
       [{ t: 'drill', items: [
         { q: T('التلفزيون بيتيح تفاعلًا في الاتجاهين؟', 'TV allows two-way interaction?'), a: T('غلط: عادةً من المرسل للمتلقي', 'False: one-way') },
@@ -69,7 +69,7 @@
       ] }],
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
         { bad: T('التلفزيون تفاعل في الاتجاهين', 'TV is two-way'), good: T('اتجاه واحد', 'One-way') },
-        { bad: T('الموقع بيتشاف من غير إنترنت', 'A website needs no internet'), good: T('معظم وظائفه محتاجة اتصال', 'Usually needs a connection') },
+        { bad: T('الموقع بيتشاف من غير إنترنت', 'A website needs no Internet'), good: T('معظم وظائفه محتاجة اتصال', 'Usually needs a connection') },
         { bad: T('المعلومة بتوصل من غير ما يدخلوا', 'Information arrives without visiting'), good: T('غالبًا لازم يفتحه', 'Users must visit') },
         { bad: T('وسيط واحد أو الموقع يكفي دايمًا', 'One medium or a site always suffices'), good: T('الأنسب حسب الغرض والجمهور', 'The best fit for purpose, audience') },
       ] }],
@@ -89,7 +89,7 @@
         ] }],
       [{ t: 'flow', ic: '🪜', title: T('الترتيب', 'The order'), items: [
         { ic: '🪪', h: T('شخصية المستخدم', 'Persona'), p: T('مين؟', 'who?'), c: 'pink' },
-        { ic: '📐', h: T('المخطط الهيكلي', 'Wireframe'), p: T('فين؟ قبل الألوان', 'where? no colour'), c: 'slate' },
+        { ic: '📐', h: T('المخطط الهيكلي', 'Wireframe'), p: T('فين؟ قبل الألوان', 'where? no color'), c: 'slate' },
         { ic: '🎨', h: 'CRAP', p: T('وضّحها', 'make it clear'), c: 'violet' },
         { ic: '🧭', h: 'UCD', p: T('قرّر للمستخدم', 'decide for the user'), c: 'green' },
       ] }],
@@ -102,12 +102,12 @@
         ] },
         { t: 'draw', art: 'wire', ic: '📐', title: T('المخطط الهيكلي (Wireframe)', 'Wireframe'), cap: T('مخطط أولي لأماكن العناصر وأولوياتها · تفاصيل بصرية قليلة', 'Placement and priority · not a final design') },
       ],
-      [{ t: 'note', ic: '💬', c: 'amber', p: T('**ليه قبل الألوان؟** لو بدأنا بالألوان النقاش يروح للذوق الشخصي («بحب الأزرق!»). لو ثبّتنا المكان والأولوية، النقاش يبقى عن احتياج المستخدم وأصحاب المصلحة يتفقوا.', '**Why before colour?** Colour first turns talk to taste (“I like blue!”). Fix placement first, and talk stays on user needs and stakeholders agree.') }],
+      [{ t: 'note', ic: '💬', c: 'amber', p: T('**ليه قبل الألوان؟** لو بدأنا بالألوان النقاش يروح للذوق الشخصي («بحب الأزرق!»). لو ثبّتنا المكان والأولوية، النقاش يبقى عن احتياج المستخدم وأصحاب المصلحة يتفقوا.', '**Why before color?** Color first turns talk to taste (“I like blue!”). Fix placement first, and talk stays on user needs and stakeholders agree.') }],
       [{ t: 'sec', n: '2', label: T('المبادئ الأربعة للتصميم (CRAP)', 'The Four Principles of Design (CRAP)') }],
       [{ t: 'cards', ic: '🎨', title: T('مبادئ CRAP الأربعة (بصرية، مش بديل لقابلية الاستخدام وإمكانية الوصول)', 'The four CRAP principles'), cols: 4, items: [
-        { ic: '🔆', h: T('التباين', 'Contrast'), p: T('يبرز الأهم: عناوين واضحة · تباين للأزرار المهمة من غير الاعتماد على اللون وحده', 'highlights priority: large bold titles, an accent colour on the Buy button'), c: 'red' },
+        { ic: '🔆', h: T('التباين', 'Contrast'), p: T('يبرز الأهم: عناوين واضحة · تباين للأزرار المهمة من غير الاعتماد على اللون وحده', 'highlights priority: large bold titles, an accent color on the Buy button'), c: 'red' },
         { ic: '🔁', h: T('التكرار', 'Repetition'), p: T('يوحّد: لون وحجم وخط العناوين والأيقونات، فالمستخدم مايتشتتش', 'unifies: same heading style, matching icons, so users do not get lost'), c: 'blue' },
-        { ic: '📏', h: T('المحاذاة', 'Alignment'), p: T('ينظّم: خط أساس مشترك حسب اتجاه اللغة (العربي يمين لشمال) وشبكة التصميم', 'orders: a common baseline, one rule for left or centre'), c: 'amber' },
+        { ic: '📏', h: T('المحاذاة', 'Alignment'), p: T('ينظّم: خط أساس مشترك حسب اتجاه اللغة (العربي يمين لشمال) وشبكة التصميم', 'orders: a common baseline, one rule for left or center'), c: 'amber' },
         { ic: '🧲', h: T('التقارب', 'Proximity'), p: T('يجمّع: صورة واسم وسعر مع بعض + مسافات مناسبة', 'groups: image, name, price together, with margins between items'), c: 'green' },
       ] }],
       [{ t: 'sec', n: '3', label: T('التصميم المتمحور حول المستخدم', 'User-Centered Design (UCD)') }],
@@ -137,7 +137,7 @@
         { bad: T('تجميع الاسم والسعر والصورة = محاذاة', 'Grouping name, price, image = alignment'), good: T('تقارب', 'Proximity') },
         { bad: T('توحيد خط العناوين = تباين', 'One heading font = contrast'), good: T('تكرار', 'Repetition') },
         { bad: T('التشفير من مبادئ CRAP', 'Encryption is a CRAP principle'), good: T('مش منها', 'It is not') },
-        { bad: T('المخطط الهيكلي تصميم نهائي بألوان', 'A wireframe is a final colour design'), good: T('مخطط بتفاصيل بصرية قليلة', 'A plan with no colour') },
+        { bad: T('المخطط الهيكلي تصميم نهائي بألوان', 'A wireframe is a final color design'), good: T('مخطط بتفاصيل بصرية قليلة', 'A plan with no color') },
       ] }],
       [{ t: 'takeaway', label: T('الخلاصة', 'Key takeaway'), p: T('شخصية المستخدم (من) ← المخطط الهيكلي (أين) ← CRAP (وضّح) ← UCD (قرّر لصالح المستخدم): صمّم من المستخدم إلى الداخل.', 'Persona (who) → wireframe (where) → CRAP (make it clear) → UCD (decide for the user). Design from the user inward.') }],
     ],
@@ -174,7 +174,7 @@
         { ic: '🛑', h: T('منع الأخطاء', 'Error prevention'), p: T('التصميم يصعّب الغلط', 'design makes mistakes hard'), c: 'red' },
         { ic: '💡', h: T('وضوح حالة النظام', 'Visible system status'), p: T('مؤشر تحميل · رسايل خطأ الإدخال', 'loading indicator · input errors'), c: 'amber' },
       ] }],
-      [{ t: 'flow', ic: '🛒', title: T('مثال: PV عالي و CVR واطي', 'Example: high PV, low CVR'), items: [
+      [{ t: 'flow', ic: '🛒', title: T('مثال: PV عالي و CVR منخفض', 'Example: high PV, low CVR'), items: [
         { ic: '📊', h: T('الأرقام: فين؟', 'Numbers: where?'), p: T('بين الدخول والشراء', 'between arrival and purchase'), c: 'blue' },
         { ic: '🧪', h: T('اختبار استخدام: ليه؟', 'Usability test: why?'), p: T('زرار الدفع مستخبي', 'the pay button is hidden'), c: 'violet' },
         { ic: '🆎', h: T('A/B يحسم التغيير', 'A/B settles the change'), p: T('بعد ما الأصوات تكشف المشكلة', 'after voices reveal the problem'), c: 'green' },

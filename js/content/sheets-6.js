@@ -48,12 +48,12 @@
         { h: T('③ القيمة الاحتمالية p', '③ The p-value'), p: T('نختار الاختبار ونتحقق من افتراضاته ونحسب: 0.02', 'from the data: 0.02'), c: 'pink' },
         { h: T('④ الحكم', '④ Judgment'), p: T('0.02 ≤ 0.05 ← نرفض H₀', '0.02 < 0.05 → reject H₀'), c: 'green' },
       ] }],
-      [{ t: 'sec', n: '4', label: T('طرق اختبار الفرضيات الرئيسية', 'Major Hypothesis Testing Methods') }],
+      [{ t: 'sec', n: '4', label: T('القيمة الاحتمالية وطرق الاختبار الرئيسية', 'The p-value and Major Hypothesis Tests') }],
       [
         { t: 'draw', art: 'pvalue', ic: '🎯', title: T('p قصاد α', 'p versus α'), cap: T('p: احتمال نتيجة بنفس التطرف أو أشد لو H₀ صح · α حد بيتحدد مسبقًا · رفض H₀ = دلالة إحصائية من غير إثبات H₁ يقينًا · p = 0.04: نرفض عند 0.05 ومانرفضش عند 0.01', 'p: chance of a result this extreme if H₀ holds · rejecting H₀ = statistically significant · p = 0.04: reject at 0.05, not at 0.01') },
         { t: 'cards', ic: '🧪', title: T('أشهر طرق الاختبار', 'Major tests'), cols: 1, items: [
           { ic: '📊', h: T('اختبار t', 't-test'), p: T('عائلة لمقارنة المتوسطات: مثال فرق متوسطي مجموعتين', 'difference of two group means'), c: 'blue' },
-          { ic: '🔢', h: T('اختبار مربع كاي', 'Chi-squared test'), p: T('ارتباط متغيرين فئويين في جدول تقاطعي: الجنس × تفضيل المادة', 'two categorical variables: year × favourite subject'), c: 'amber' },
+          { ic: '🔢', h: T('اختبار مربع كاي', 'Chi-squared test'), p: T('ارتباط متغيرين فئويين في جدول تقاطعي: الجنس × تفضيل المادة', 'two categorical variables: year × favorite subject'), c: 'amber' },
         ] },
       ],
       [{ t: 'sec', n: '5', label: T('تنبيهات بخصوص الاستدلال', 'Cautions Regarding Inference') }],
@@ -161,7 +161,7 @@
       ] }],
       [{ t: 'qa', mark: T('سؤال بنمط الامتحان · 6 درجات · نقاط الإجابة', 'Exam-style question · 6 marks · points to make'), q: T('اشرح لماذا يمكن لنموذج انحدار ذي R² عالٍ أن يظل أساسًا غير كافٍ للادعاء بأن متغيرًا يسبب آخر.', 'Explain why a regression model with a high R² can still be a poor basis for claiming that one variable causes another.'), items: [
         T('R² بيقيس الملاءمة والارتباط، مش السبب', 'R² measures fit and association, not cause'),
-        T('ممكن عامل تالت يأثر في الاتنين', 'A third factor may affect both'),
+        T('ممكن عامل تالت يأثّر في الاتنين', 'A third factor may affect both'),
         T('الادعاء السببي محتاج تصميم دراسة وأدلة إضافية', 'Causation needs precedence, excluding other factors, and theory'),
       ] }],
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
@@ -197,7 +197,7 @@
           { k: '1', v: [T('نقارن فئات', 'compare values'), T('أعمدة (Bar)', 'bar graph')] },
           { k: '2', v: [T('تغيّر عبر الزمن أو الترتيب', 'change over time'), T('خطوط (Line)', 'line graph')] },
           { k: '3', v: [T('علاقة متغيرين كمّيين', 'two quantities (few points); not for categorical combinations'), T('مبعثر (Scatter)', 'scatter plot')] },
-          { k: '4', v: [T('قيمة لكل خلية في شبكة باللون + مفتاح الألوان: مدينة × شهر', 'a third value by colour: day × hour · city × month'), T('خريطة حرارية', 'heatmap')] },
+          { k: '4', v: [T('قيمة لكل خلية في شبكة باللون + مفتاح الألوان: مدينة × شهر', 'a third value by color: day × hour · city × month'), T('خريطة حرارية', 'heatmap')] },
           { k: '5', v: [T('تكرارات أو نسب متغيرين فئويين: الصف × المادة المفضّلة', 'two categories by share: year × subject'), T('مخطط المستطيلات', 'mosaic plot')] },
         ] }],
       [{ t: 'flow', ic: '😵', title: T('التراكب الزائد للنقاط', 'Overplotting'), items: [
@@ -209,12 +209,12 @@
       [{ t: 'sec', n: '3', label: T('سرد قصص البيانات', 'Data Storytelling') }],
       [{ t: 'flow', ic: '📖', title: T('سرد قصص البيانات: حول سؤال أو نتيجة، من غير إخفاء اللي يغيّر التفسير', 'Data storytelling'), items: [
         { ic: '1️⃣', h: T('وضّح الرسالة', 'Clarify the message'), p: T('جملة واحدة والعنوان يحمل الادعاء', 'one sentence, the title claims it'), c: 'amber' },
-        { ic: '2️⃣', h: T('اختار العناصر', 'Select elements'), p: T('شيل اللي مالوش علاقة وأبرز المهم، من غير إخفاء السياق أو الأدلة المخالفة', 'cut the rest, colour the key part'), c: 'blue' },
+        { ic: '2️⃣', h: T('اختار العناصر', 'Select elements'), p: T('شيل اللي مالوش علاقة وأبرز المهم، من غير إخفاء السياق أو الأدلة المخالفة', 'cut the rest, color the key part'), c: 'blue' },
         { ic: '3️⃣', h: T('معلومات داعمة', 'Supporting information'), p: T('عنوان · محاور · وحدات · المصدر والفترة · تعريف المقياس', 'title · axes · units · notes'), c: 'green' },
       ] }],
       [{ t: 'cards', ic: '⚠️', title: T('رسم بياناته صح… بيضلّل', 'Correct data, a misleading chart'), cols: 3, items: [
         { ic: '📉', h: T('محور مش من صفر', 'Axis not from zero'), p: T('98 قصاد 100 تبان ضخمة ← ابدأ من صفر', '98 vs 100 looks huge → start at zero'), c: 'red' },
-        { ic: '🎨', h: T('ألوان من غير مفتاح', 'Colours without a key'), p: T('مالهاش معنى', 'meaningless'), c: 'amber' },
+        { ic: '🎨', h: T('ألوان من غير مفتاح', 'Colors without a key'), p: T('مالهاش معنى', 'meaningless'), c: 'amber' },
         { ic: '✂️', h: T('حذف فئات', 'Dropped categories'), p: T('صورة ناقصة', 'an incomplete picture'), c: 'violet' },
       ] }],
       [{ t: 'note', ic: '👥', c: 'green', p: T('وفي الآخر: **اقعد مكان الجمهور** واتأكّد إن الرسالة وصلت.', 'Finally, **sit in the audience’s seat** and check the message lands.') }],
@@ -232,7 +232,7 @@
       [{ t: 'qa', mark: T('سؤال بنمط الامتحان · 6 درجات · نقاط الإجابة', 'Exam-style question · 6 marks · points to make'), q: T('اشرح لماذا يمكن أن يؤدي اختيار الرسم الخطأ أو إخفاء تسمياته إلى تضليل الجمهور حتى عندما تكون البيانات صحيحة.', 'Explain why choosing the wrong graph, or hiding a chart’s labels, can mislead an audience even when the data is correct.'), items: [
         T('الرسم لازم يناسب نوع البيانات والسؤال', 'The graph must match the data and the question'),
         T('من غير عنوان ومحاور ووحدات القارئ مش هيفهم صح', 'Without title, axes and units the reader misunderstands'),
-        T('المقياس الخاطئ بيدّي انطباعًا البيانات مابتدعموش', 'A misleading scale gives an impression the data does not support'),
+        T('المقياس الخاطئ بيدّي انطباع مش مدعوم بالبيانات', 'A misleading scale gives an impression the data does not support'),
       ] }],
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
         { bad: T('ضمّن أكبر عدد من العناصر', 'Include as many elements as possible'), good: T('شيل اللي مالوش علاقة', 'Remove what is irrelevant') },

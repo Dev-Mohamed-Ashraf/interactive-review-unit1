@@ -114,7 +114,7 @@
       ],
       [{ t: 'flow', ic: '🚀', title: T('رحلة فتح صفحة', 'The journey of opening a page'), items: [
         { h: T('① طلب', '① Request'), p: T('المتصفح: طريقة + عنوان', 'browser: method + URL'), c: 'blue' },
-        { h: T('② يسافر', '② Travels'), p: T('عبر الإنترنت', 'over the internet'), c: 'slate' },
+        { h: T('② يسافر', '② Travels'), p: T('عبر الإنترنت', 'over the Internet'), c: 'slate' },
         { h: T('③ يعالج', '③ Processes'), p: T('وممكن يسأل القاعدة', 'may query the database'), c: 'violet' },
         { h: T('④ يرد', '④ Responds'), p: T('رمز حالة + محتوى', 'status code + content'), c: 'green' },
         { h: T('⑤ يعرض', '⑤ Displays'), p: T('المتصفح', 'the browser'), c: 'blue' },
@@ -155,7 +155,7 @@
   });
 
   RV.addSheet('3-3', {
-    lead: T('HTML البنية وCSS المظهر وJavaScript السلوك — والحديث بيضيف الدلالية والتجاوب والأطر.', 'HTML structure, CSS appearance, JavaScript behaviour — modern work adds semantics, responsiveness, frameworks.'),
+    lead: T('HTML البنية وCSS المظهر وJavaScript السلوك — والحديث بيضيف الدلالية والتجاوب والأطر.', 'HTML structure, CSS appearance, JavaScript behavior — modern work adds semantics, responsiveness, frameworks.'),
     rows: [
       [{ t: 'goal', label: T('السؤال الرئيسي', 'Guiding question'), q: T('كيف تعمل HTML وCSS وJavaScript معًا لبناء صفحة ويب، وما الذي يجعل الواجهة الحديثة ذات معنى وقابلة للتكيف وفعالة؟', 'How do HTML, CSS, and JavaScript work together, and what makes a modern frontend meaningful, adaptable, and efficient?'),
         aimsLabel: T('هتطلع من الدرس قادر', 'By the end you can'), aims: [
@@ -165,10 +165,10 @@
       [{ t: 'sec', n: '1', label: T('أدوار HTML و CSS و JavaScript', 'The Roles of HTML, CSS, and JavaScript') }],
       [{ t: 'cards', ic: '🏠', title: T('تلات أدوار مختلفة زي المبنى (ومش لازم الصفحة تستخدمهم كلهم)', 'Three separate roles, like a building'), cols: 3, items: [
         { ic: '🏗️', h: 'HTML', p: T('البنية: عناوين · فقرات · صور · لينكات — هيكل المبنى', 'structure: headings, text, images, links — the frame'), c: 'amber' },
-        { ic: '🎨', h: 'CSS', p: T('المظهر: ألوان · تخطيط · حجم · خطوط — الديكور الداخلي والخارجي', 'appearance: colours, layout, size, fonts — interior and exterior'), c: 'blue' },
-        { ic: '⚡', h: 'JavaScript', p: T('السلوك: يرد على الضغط ويحدّث جزء من الشاشة — الكهربا والسباكة', 'behaviour: reacts, updates part of the screen — wiring, plumbing'), c: 'green' },
+        { ic: '🎨', h: 'CSS', p: T('المظهر: ألوان · تخطيط · حجم · خطوط — الديكور الداخلي والخارجي', 'appearance: colors, layout, size, fonts — interior and exterior'), c: 'blue' },
+        { ic: '⚡', h: 'JavaScript', p: T('السلوك: يرد على الضغط ويحدّث جزء من الشاشة — الكهربا والسباكة', 'behavior: reacts, updates part of the screen — wiring, plumbing'), c: 'green' },
       ] }],
-      [{ t: 'note', ic: '✂️', c: 'blue', p: T('**ليه الفصل بينهم؟** تعدّل المظهر (CSS) من غير ما تلمس المحتوى (HTML)، وتضيف سلوك (JS) من غير ما تعيد كتابة الصفحة.', '**Why separate them?** Change appearance (CSS) without touching content (HTML), add behaviour (JS) without rewriting the page.') }],
+      [{ t: 'note', ic: '✂️', c: 'blue', p: T('**ليه الفصل بينهم؟** تعدّل المظهر (CSS) من غير ما تلمس المحتوى (HTML)، وتضيف سلوك (JS) من غير ما تعيد كتابة الصفحة.', '**Why separate them?** Change appearance (CSS) without touching content (HTML), add behavior (JS) without rewriting the page.') }],
       [{ t: 'sec', n: '2', label: T('HTML الدلالية', 'Semantic HTML') }],
       [
         { t: 'draw', art: 'semantic', ic: '🏷️', title: T('HTML الدلالية', 'Semantic HTML'), cap: T('عناصر توضّح وظيفة أجزاء الصفحة بدل صناديق div', 'Element names (tags) that show meaning instead of div boxes') },
@@ -179,7 +179,7 @@
       ],
       [{ t: 'sec', n: '3', label: T('التصميم المتجاوب', 'Responsive Design') }],
       [
-        { t: 'draw', art: 'responsive', ic: '📱', title: T('التصميم المتجاوب', 'Responsive design'), cap: T('التخطيط بيتظبط تلقائيًا: كمبيوتر · تابلت · موبايل', 'Layout adapts by itself: desktop · tablet · phone') },
+        { t: 'draw', art: 'responsive', ic: '📱', title: T('التصميم المتجاوب', 'Responsive design'), cap: T('التخطيط بيتضبط تلقائيًا: كمبيوتر · تابلت · موبايل', 'Layout adapts by itself: desktop · tablet · phone') },
         { t: 'vflow', ic: '📲', title: T('نهج الأولوية للجوال (mobile-first)', 'Mobile-first'), items: [
           { ic: '📱', h: T('نبدأ بالشاشة الصغيرة', 'Start with the small screen'), p: T('مع كتر التصفح من الموبايل', 'as phone browsing grew'), c: 'pink' },
           { ic: '💻', h: T('وبعدين نوسّع', 'Then widen'), c: 'blue' },
@@ -208,7 +208,7 @@
         T('JavaScript: بتصفّي النتائج أثناء الكتابة', 'JavaScript: filters the results as the user types'),
       ] }],
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
-        { bad: T('CSS بيضيف السلوك', 'CSS adds behaviour'), good: T('السلوك JavaScript', 'JavaScript does') },
+        { bad: T('CSS بيضيف السلوك', 'CSS adds behavior'), good: T('السلوك JavaScript', 'JavaScript does') },
         { bad: T('المتجاوب عشان السرعة أو ترتيب البحث', 'Responsive is for speed or ranking'), good: T('عشان الأجهزة المختلفة', 'For different devices') },
         { bad: T('الإطار لغة بنية أو تشفير', 'A framework is a language or encryption'), good: T('بنية لتطوير أكفأ', 'A base for efficient development') },
         { bad: T('الدلالية بتسرّع الصفحة أو تضمن أعلى ترتيب', 'Semantic tags speed the page'), good: T('وصول + فهم محركات البحث', 'Accessibility + SEO') },
