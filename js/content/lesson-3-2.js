@@ -10,7 +10,7 @@ RV.lessons.add('3-2', {
   title: { ar: 'طرق اتصال تطبيقات الويب', en: 'Web Application Communication Methods' },
   guiding: { ar: 'إزاي العميل والخادم بيتواصلوا عشان تطبيق الويب يشتغل، وبيستخدموا قواعد ورسايل إيه؟', en: 'How do the client and server communicate to make a web application work, and what rules and messages do they use?' },
   hook: {
-    ar: 'لما بتدوس على لينك أو زرار «بحث»، جهازك مش شايل الموقع كله — هو __بيطلبه__ من حاسب بعيد. متصفحك هو **العميل** اللي بيبعت الطلب، و**خادم** في مكان ما بيرد بـ**استجابة**. التبادل ده بتحكمه قواعد مشتركة اسمها **البروتوكولات** — وهو ده اللي بيحصل بين ضغطتك والصفحة اللي بتشوفها.',
+    ar: 'لما بتدوس على رابط أو زرار «بحث»، جهازك مش شايل الموقع كله — هو __بيطلبه__ من حاسب بعيد. متصفحك هو **العميل** اللي بيبعت الطلب، و**خادم** في مكان ما بيرد بـ**استجابة**. التبادل ده بتحكمه قواعد مشتركة اسمها **البروتوكولات** — وهو ده اللي بيحصل بين ضغطتك والصفحة اللي بتشوفها.',
     en: 'When you click a link or press "search", your device does not hold the whole website — it __asks__ a distant computer for it. Your browser is the **client** making the request; a **server** somewhere answers with a **response**. This exchange is governed by shared rules called **protocols** — and it is what happens between your click and the page you see.',
   },
   keyFact: { ar: 'تطبيقات الويب بتشتغل بأن __العميل يبعت طلبات__ و__الخادم يرجّع استجابات__، باستخدام بروتوكولات (HTTP/HTTPS) وغالبًا __API__ بيتبادل البيانات بصيغ زي __JSON__.', en: 'Web apps work by __a client sending requests__ and __a server returning responses__, using protocols (HTTP/HTTPS) and often __APIs__ that exchange data in formats like __JSON__.' },

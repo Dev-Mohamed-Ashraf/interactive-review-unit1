@@ -50,8 +50,8 @@
   </div>
   <div id="i4-s1" class="mv-stage">
     ${B.card('pl', 700, 150, 1160, 0, 'c-blue', { row: true, ic: '🎯', h: 'P · ' + L('خطّط', 'Plan'), p: L('نحدّد هدف ونعمل خطة للتحسين', 'set a goal and plan the improvement') })}
-    ${B.card('gl1', 700, 350, 620, 0, 'c-blue', { h: '🎯 ' + L('الهدف', 'The goal'), p: L('نقلّل معدل الارتداد 10%', 'cut the bounce rate by 10%'), k: '<bdi>40%</bdi> ' + B.arrow + ' <bdi>30%</bdi>' })}
-    ${B.card('pn', 1370, 350, 490, 0, 'c-slate', { h: '📝 ' + L('الخطة', 'The plan'), p: L('إعادة تصميم الصفحة الرئيسية', 'redesign the homepage') })}
+    ${B.card('gl1', 700, 350, 620, 0, 'c-blue', { h: '🎯 ' + L('الهدف', 'The goal'), p: L('نرفع إكمال التسجيل من 40% لـ 50%', 'cut the bounce rate by 10%'), k: '<bdi>40%</bdi> ' + B.arrow + ' <bdi>' + L('50%', '30%') + '</bdi>' })}
+    ${B.card('pn', 1370, 350, 490, 0, 'c-slate', { h: '📝 ' + L('الخطة', 'The plan'), p: L('تغيير مناسب في الصفحة', 'redesign the homepage') })}
   </div>
   <div id="i4-s2" class="mv-stage">
     ${B.card('do', 700, 150, 1160, 0, 'c-green', { row: true, ic: '🛠️', h: 'D · ' + L('نفّذ', 'Do'), p: L('ننفّذ حسب الخطة — نغيّر تصميم الصفحة الرئيسية', 'carry out the plan — change the homepage design') })}
@@ -63,13 +63,13 @@
   </div>
   <div id="i4-s3" class="mv-stage">
     ${B.card('ck', 700, 150, 1160, 0, 'c-amber', { row: true, ic: '📏', h: 'C · ' + L('تحقّق', 'Check'), p: L('نقيس النتايج ونقيّم قد إيه حقّقنا الهدف', 'measure the results and evaluate how far the goal was met') })}
-    ${B.card('ms', 700, 330, 1160, 0, 'c-amber', { h: '🚪 ' + L('معدل الارتداد', 'Bounce rate'), html: meter([[L('قبل', 'before'), 40, 's', '40%'], [L('بعد', 'after'), 34, 'm', '34%']]) })}
-    ${B.chip('vd', 700, 650, '📉 ' + L('اتحسّن لـ 34%… بس لسه موصلناش للهدف 30%', 'down to 34%… but not yet the 30% goal'), 'c-amber', 1160)}
+    ${B.card('ms', 700, 330, 1160, 0, 'c-amber', { h: '🚪 ' + L('إكمال التسجيل', 'Bounce rate'), html: meter([[L('قبل', 'before'), 40, 's', '40%'], [L('بعد', 'after'), L('46', '34'), 'm', L('46%', '34%')]]) })}
+    ${B.chip('vd', 700, 650, '📉 ' + L('اتحسّن لـ 46%… بس لسه موصلناش للهدف 50%', 'down to 34%… but not yet the 30% goal'), 'c-amber', 1160)}
   </div>
   <div id="i4-s4" class="mv-stage">
-    ${B.card('ac', 700, 150, 1160, 0, 'c-red', { row: true, ic: '🔁', h: 'A · ' + L('تصرّف', 'Act'), p: L('على حسب التقييم نفكّر في التحسين الجاي', 'based on the evaluation, decide the next improvement') })}
-    ${B.card('ok', 700, 340, 560, 0, 'c-green', { ic: '✅', h: L('الأثر كفاية؟', 'Effect enough?'), p: L('نكمّل بالطريقة دي', 'continue this way') })}
-    ${B.card('no', 1300, 340, 560, 0, 'c-red', { ic: '🔧', h: L('مش كفاية؟', 'Not enough?'), p: L('نراجع العناوين أو مكان الصور', 'revise headings or image placement') })}
+    ${B.card('ac', 700, 150, 1160, 0, 'c-red', { row: true, ic: '🔁', h: 'A · ' + L('تصرّف', 'Act'), p: L('بناءً على النتايج نعتمد اللي نجح أو نغيّر الخطة', 'based on the evaluation, decide the next improvement') })}
+    ${B.card('ok', 700, 340, 560, 0, 'c-green', { ic: '✅', h: L('حقّق الهدف؟', 'Effect enough?'), p: L('نعتمده أو نوسّعه', 'continue this way') })}
+    ${B.card('no', 1300, 340, 560, 0, 'c-red', { ic: '🔧', h: L('ماحقّقش الهدف؟', 'Not enough?'), p: L('نراجع السبب والخطة', 'revise headings or image placement') })}
     ${B.chip('bk', 700, 640, '↩️ ' + L('ونرجع لـ«خطّط» تاني — نتحسّن تدريجيًا بالتكرار', 'and back to “Plan” — improve gradually by repeating'), 'c-blue', 1160)}
   </div>
 
@@ -78,7 +78,7 @@
     ${B.ch('us', 70, 420, 'md')}
     ${B.chip('sy', 70, 250, '«' + L('زرار التسجيل تحت خالص!', 'Sign-up is way down!') + '» 😕', 'c-slate', 540)}
     <div id="i4-ph" class="l12u l12-phone l44-ph later" style="${B.at(320, 330, 270, 410)}"><div class="scr"><div class="lng">${range(7).map(() => '<i></i>').join('')}<span class="cta">${L('سجّل', 'Sign up')}</span></div></div></div>
-    ${B.card('em', 680, 250, 560, 0, 'c-pink', { ic: '🤝', h: '① ' + L('التعاطف', 'Empathize'), p: L('نحط نفسنا مكان المستخدم ونفهم تحدياته واحتياجاته', 'put ourselves in the user’s place; understand challenges and needs') })}
+    ${B.card('em', 680, 250, 560, 0, 'c-pink', { ic: '🤝', h: '① ' + L('التعاطف', 'Empathize'), p: L('نتعرّف على تجربة المستخدم واحتياجاته', 'put ourselves in the user’s place; understand challenges and needs') })}
     ${B.card('df', 1290, 250, 570, 0, 'c-violet', { ic: '🎯', h: '② ' + L('التعريف', 'Define'), p: L('من اللي فهمناه نوضّح المشكلة اللي هنحلّها', 'from what we learned, clarify the problem to solve') })}
     ${B.chip('pb', 680, 610, '📌 ' + L('المشكلة: الطالب مش لاقي «سجّل» على الموبايل', 'Problem: students can’t find “Sign up” on phones'), 'c-violet', 1180)}
   </div>
@@ -104,17 +104,17 @@
     ${B.card('win', 700, 520, 520, 0, 'c-green', { ic: '🏆', h: L('B أكتر فاعلية', 'B is more effective'), p: L('بالبيانات — مش بالذوق', 'by data — not by taste') })}
   </div>
   <div id="i4-s8" class="mv-stage">
-    ${B.card('r1', 70, 150, 880, 0, 'c-green', { ic: '1️⃣', h: L('غيّر عنصر واحد بس في المرة', 'Change only one element at a time'),
+    ${B.card('r1', 70, 150, 880, 0, 'c-green', { ic: '1️⃣', h: L('فرق واضح ومحدد بين النسختين', 'Change only one element at a time'),
       html: `<div class="l44-pair"><span class="buy a">${L('اشترِ', 'Buy')}</span><b>vs</b><span class="buy b">${L('اشترِ', 'Buy')}</span><em>✓ ${L('اللون بس', 'colour only')}</em></div>` })}
-    ${B.card('r2', 990, 150, 870, 0, 'c-blue', { ic: '📊', h: L('قرّر بعد بيانات كفاية', 'Decide after enough data'),
+    ${B.card('r2', 990, 150, 870, 0, 'c-blue', { ic: '📊', h: L('حدّد المقياس قبل الاختبار، واجمع عينة كافية', 'Decide after enough data'),
       html: `<div class="l44-pair"><span class="smp">👥 <bdi class="sn">10</bdi></span><span class="l12-slot"><em class="e1">⏳ ${L('لسه بدري', 'too early')}</em><em class="e2">✅ ${L('نقرّر', 'decide')}</em></span></div>` })}
-    ${B.card('bd', 70, 470, 1790, 0, 'c-red', { row: true, ic: '❌', h: L('نغيّر اللون + الكلام + المكان مع بعض', 'Change colour + text + position together'), p: L('مش هتعرف أنهي تغيير عمل الأثر ← طريقة غلط', 'you cannot tell which change made the effect → a wrong practice') })}
+    ${B.card('bd', 70, 470, 1790, 0, 'c-red', { row: true, ic: '❌', h: L('نغيّر اللون + الكلام + المكان مع بعض', 'Change colour + text + position together'), p: L('حزمة التغييرات بتقيس أثر الحزمة، مش كل عنصر', 'you cannot tell which change made the effect → a wrong practice') })}
     ${B.big('qm', 1700, 500, 120, 90, '❓')}
   </div>
   <div id="i4-s9" class="mv-stage">
     ${B.card('x0', 70, 160, 560, 400, 'c-blue', { ic: '🔁', h: 'PDCA', p: L('خطّط ← نفّذ ← تحقّق ← تصرّف ← وتاني', 'Plan → Do → Check → Act → again'), k: L('إزاي نكرّر', 'how we repeat') })}
     ${B.card('x1', 680, 160, 560, 400, 'c-violet', { ic: '🧠', h: L('التفكير التصميمي', 'Design thinking'), p: L('تعاطف · تعريف · أفكار · نموذج · اختبار', 'empathize · define · ideate · prototype · test'), k: L('نحسّن إيه', 'what to improve') })}
-    ${B.card('x2', 1290, 160, 570, 400, 'c-green', { ic: '🆎', h: L('اختبار A/B', 'A/B testing'), p: L('عنصر واحد + بيانات كفاية', 'one element + enough data'), k: L('أنهي خيار', 'which option') })}
+    ${B.card('x2', 1290, 160, 570, 400, 'c-green', { ic: '🆎', h: L('اختبار A/B', 'A/B testing'), p: L('فرق واضح + عينة كافية', 'one element + enough data'), k: L('أنهي خيار', 'which option') })}
     ${B.mid('xb', 620, '🌱 ' + L('حسّن في دواير — الموقع عمره ما بيخلص', 'improve in loops — a website is never finished'), 'c-amber big')}
   </div>
     ${U.hd(0, '🌱 ' + L('الموقع عمره ما بيخلص', 'A website is never finished'))}

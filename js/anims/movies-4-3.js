@@ -28,37 +28,37 @@
   </div>
   <div id="e3-s1" class="mv-stage">
     ${B.ch('us', 80, 360, 'md')}${B.ch('ob', 380, 360, 'md')}
-    ${B.chip('ut', 60, 250, '🧪 ' + L('اختبار الاستخدام: نراقب الاستخدام الفعلي', 'usability test: watch real use'), 'c-violet big')}
+    ${B.chip('ut', 60, 250, '🧪 ' + L('اختبار قابلية الاستخدام: نراقب الاستخدام الفعلي', 'usability test: watch real use'), 'c-violet big')}
     ${B.chip('nt', 360, 680, '📝 «' + L('مش لاقي زرار الدفع!', 'can’t find the pay button!') + '»', 'c-amber')}
     ${B.ch('iv', 1060, 360, 'md')}
-    ${B.chip('in', 900, 250, '🎙️ ' + L('مقابلة: نسمع صوتهم مباشرة', 'interview: hear them directly'), 'c-violet big')}
+    ${B.chip('in', 900, 250, '🎙️ ' + L('مقابلة: نسمع آراءهم مباشرة', 'interview: hear them directly'), 'c-violet big')}
     ${B.chip('sy', 1300, 420, '💬 «' + L('بحس إن الخطوات كتير', 'there are too many steps') + '»', 'c-slate')}
-    ${B.mid('why', 140, '❓ ' + L('بيستكشف «الأسباب» بعمق — جوانب ماتتقاسش بالأرقام', 'explores the “reasons” in depth — things numbers can’t show'), 'c-violet')}
+    ${B.mid('why', 140, '❓ ' + L('بيساعد على فهم التجربة وأسباب السلوك والمشكلات', 'explores the “reasons” in depth — things numbers can’t show'), 'c-violet')}
   </div>
   <div id="e3-s2" class="mv-stage">
     ${B.card('an', 70, 150, 860, 460, 'c-blue', { h: '📈 ' + L('تحليلات الويب', 'Web analytics'), html: `<div class="l12-dash"><span>👁️ PV<b><bdi class="c1">0</bdi></b></span><span>⏱️ ${L('الوقت', 'time')}<b><bdi>2:35</bdi></b></span></div>` })}
     ${B.card('ab', 990, 150, 870, 460, 'c-green', { h: '🆎 ' + L('اختبار A/B', 'A/B test'), html: `<div class="l12-ab"><span class="a">A <i class="ba">${L('اشترِ', 'Buy')}</i></span><span class="b">B <i class="bb">${L('اشترِ', 'Buy')}</i></span></div>` + bar('A', 30, 's', '3%') + bar('B', 50, 'o', '5% ✓') })}
-    ${B.mid('obj', 660, '📊 ' + L('بيانات عددية ← تقييم بموضوعية وإحصائيًا', 'numbers → an objective, statistical evaluation'), 'c-blue big')}
+    ${B.mid('obj', 660, '📊 ' + L('بيانات عددية ومقاييس محددة بوضوح', 'numbers → an objective, statistical evaluation'), 'c-blue big')}
   </div>
   <div id="e3-s3" class="mv-stage">
     ${B.card('wh', 70, 150, 860, 380, 'c-blue', { ic: '📍', h: L('الأرقام: «فين»؟', 'Numbers: “where”?'), p: L('قد إيه بيتستخدم — وفين المشكلة', 'how much it is used — where the problem is') })}
-    ${B.card('wy', 990, 150, 870, 380, 'c-violet', { ic: '❓', h: L('الأصوات: «ليه»؟', 'Voices: “why”?'), p: L('ليه صعب الاستخدام', 'why it is hard to use') })}
+    ${B.card('wy', 990, 150, 870, 380, 'c-violet', { ic: '❓', h: L('الآراء: «ليه»؟', 'Voices: “why”?'), p: L('ليه صعب الاستخدام', 'why it is hard to use') })}
     ${B.mid('both', 590, '🤝 ' + L('الجمع بينهم = تقييم أدق', 'combining both = a more accurate evaluation'), 'c-green big')}
   </div>
 
   <div id="e3-s4" class="mv-stage">
     <div id="e3-pv" class="l12u l12-win later" style="${B.at(70, 150, 820, 440)}"><div class="wbar"><i></i><i></i><i></i><span class="url">shop.com</span></div><div class="wbody l12-eye">👁️<b><bdi class="c2">0</bdi></b><small>${L('مشاهدة للصفحة', 'page views')}</small></div></div>
-    ${B.card('pvd', 960, 150, 900, 0, 'c-blue', { ic: '👁️', h: L('PV — مشاهدات الصفحة', 'PV — page views'), p: L('إجمالي عدد مرات مشاهدة الصفحة — مؤشر أساسي لانتشار الموقع', 'total number of times pages were viewed — a basic reach measure') })}
-    ${B.chip('cen', 960, 470, '📈 ' + L('تحليلات الويب = الطريقة المركزية للتقييم الكمّي', 'web analytics = the central quantitative method'), 'c-blue', 900)}
+    ${B.card('pvd', 960, 150, 900, 0, 'c-blue', { ic: '👁️', h: L('PV — مشاهدات الصفحة', 'PV — page views'), p: L('إجمالي مرات المشاهدة — ومش بيساوي عدد الأشخاص', 'total number of times pages were viewed — a basic reach measure') })}
+    ${B.chip('cen', 960, 470, '📈 ' + L('تحليلات الويب = إحدى أدوات التقييم الكمّي', 'web analytics = the central quantitative method'), 'c-blue', 900)}
   </div>
   <div id="e3-s5" class="mv-stage">
     <div id="e3-door" class="l12u l12-flowrow later" style="${B.at(70, 150, 1100, 420)}"><div class="pg1">📄 ${L('الصفحة الأولى', 'first page')}</div><div class="pg2">📄📄 ${L('صفحات تانية', 'more pages')}</div><div class="ex">🚪 ${L('خروج', 'exit')}</div>${range(10).map((k) => `<span class="v v${k}">👤</span>`).join('')}</div>
-    ${B.card('br', 1230, 150, 630, 0, 'c-amber', { ic: '🚪', h: L('معدل الارتداد', 'Bounce rate'), p: L('نسبة الزيارات اللي خلصت بعد الصفحة الأولى بس', 'the share of visits that ended after the first page'), k: '6 / 10 = <bdi>60%</bdi>' })}
-    ${B.chip('exp', 1230, 520, '🎯 ' + L('هل الصفحة كانت على قد توقّع المستخدم؟', 'did the page meet expectations?'), 'c-amber', 630)}
+    ${B.card('br', 1230, 150, 630, 0, 'c-amber', { ic: '🚪', h: L('معدل الارتداد', 'Bounce rate'), p: L('نسبة المستخدمين اللي غادروا بعد الصفحة الأولى بس', 'the share of visits that ended after the first page'), k: '6 / 10 = <bdi>60%</bdi>' })}
+    ${B.chip('exp', 1230, 520, '🎯 ' + L('تعريفه بيختلف حسب أداة التحليل', 'did the page meet expectations?'), 'c-amber', 630)}
   </div>
   <div id="e3-s6" class="mv-stage">
     <div id="e3-fun" class="l12u l12-funnel later" style="${B.at(70, 140, 980, 500)}"><span class="f0">👥 ${L('100 زيارة', '100 visits')}</span><span class="f1">🛍️ ${L('30 شافوا المنتج', '30 saw a product')}</span><span class="f2">🛒 ${L('3 اشتروا', '3 bought')}</span></div>
-    ${B.card('cv', 1110, 150, 750, 0, 'c-green', { ic: '🎯', h: L('معدل التحويل (CVR)', 'Conversion rate (CVR)'), p: L('نسبة الزيارات اللي حقّقت الهدف (شراء، تسجيل…) — بيقيس مساهمة الموقع في الأرباح', 'share of visits that reached the goal (buy, sign-up…) — the site’s contribution to profit'), k: '3 / 100 = <bdi>3%</bdi>' })}
+    ${B.card('cv', 1110, 150, 750, 0, 'c-green', { ic: '🎯', h: L('معدل التحويل (CVR)', 'Conversion rate (CVR)'), p: L('نسبة اللي حقّقوا هدف (شراء، تسجيل…) — مع تحديد المقام', 'share of visits that reached the goal (buy, sign-up…) — the site’s contribution to profit'), k: '3 / 100 = <bdi>3%</bdi>' })}
     ${B.chip('tr', 1110, 520, '⚠️ ' + L('فخ: «الارتداد = نسبة تحقيق الهدف» ← غلط (ده CVR)', 'trap: “bounce = goal rate” → false (that is CVR)'), 'c-red', 750)}
   </div>
   <div id="e3-s7" class="mv-stage">
@@ -79,18 +79,18 @@
   </div>
   <div id="e3-s9" class="mv-stage">
     ${B.card('rq', 70, 150, 860, 380, 'c-blue', { ic: '📊', h: L('الكمّي ← قد إيه؟', 'Quantitative → how much?'), p: 'PV · ' + L('الارتداد', 'bounce') + ' · CVR' })}
-    ${B.card('rl', 990, 150, 870, 380, 'c-violet', { ic: '🔍', h: L('النوعي ← ليه؟', 'Qualitative → why?'), p: L('اختبار الاستخدام · المقابلات · التقييم الإرشادي', 'usability tests · interviews · heuristic evaluation') })}
+    ${B.card('rl', 990, 150, 870, 380, 'c-violet', { ic: '🔍', h: L('النوعي ← ليه؟', 'Qualitative → why?'), p: L('اختبار قابلية الاستخدام · المقابلات · التقييم الإرشادي', 'usability tests · interviews · heuristic evaluation') })}
     ${B.mid('rb', 590, '🤝 ' + L('اجمع الاتنين عشان تقيّم الموقع بوضوح', 'combine both to evaluate a site clearly'), 'c-green big')}
   </div>
     ${U.hd(0, '⚖️ ' + L('نوعين التقييم', 'Two kinds of evaluation'))}
     ${U.hd(1, '🔍 ' + L('التقييم النوعي', 'Qualitative evaluation'))}
     ${U.hd(2, '📊 ' + L('التقييم الكمّي', 'Quantitative evaluation'))}
-    ${U.hd(3, '🤝 ' + L('الأرقام بتقول فين… والأصوات بتقول ليه', 'Numbers say where… voices say why'))}
+    ${U.hd(3, '🤝 ' + L('الأرقام بتقول فين… والآراء بتقول ليه', 'Numbers say where… voices say why'))}
     ${U.hd(4, '👁️ ' + L('مشاهدات الصفحة (PV)', 'Page views (PV)'))}
     ${U.hd(5, '🚪 ' + L('معدل الارتداد', 'Bounce rate'))}
     ${U.hd(6, '🎯 ' + L('معدل التحويل (CVR)', 'Conversion rate (CVR)'))}
     ${U.hd(7, '🧑‍💼 ' + L('التقييم الإرشادي', 'Heuristic evaluation'))}
-    ${U.hd(8, '🛒 ' + L('مثال: PV عالي و CVR واطي', 'Example: high PV, low CVR'))}
+    ${U.hd(8, '🛒 ' + L('مثال: PV عالي و CVR منخفض', 'Example: high PV, low CVR'))}
     ${U.hd(9, '📌 ' + L('الخلاصة', 'Recap'))}`;
       },
     });

@@ -164,7 +164,7 @@
         ] }],
       [{ t: 'sec', n: '1', label: T('أدوار HTML و CSS و JavaScript', 'The Roles of HTML, CSS, and JavaScript') }],
       [{ t: 'cards', ic: '🏠', title: T('تلات أدوار مختلفة زي المبنى (ومش لازم الصفحة تستخدمهم كلهم)', 'Three separate roles, like a building'), cols: 3, items: [
-        { ic: '🏗️', h: 'HTML', p: T('البنية: عناوين · فقرات · صور · لينكات — هيكل المبنى', 'structure: headings, text, images, links — the frame'), c: 'amber' },
+        { ic: '🏗️', h: 'HTML', p: T('البنية: عناوين · فقرات · صور · رابطات — هيكل المبنى', 'structure: headings, text, images, links — the frame'), c: 'amber' },
         { ic: '🎨', h: 'CSS', p: T('المظهر: ألوان · تخطيط · حجم · خطوط — الديكور الداخلي والخارجي', 'appearance: colors, layout, size, fonts — interior and exterior'), c: 'blue' },
         { ic: '⚡', h: 'JavaScript', p: T('السلوك: يرد على الضغط ويحدّث جزء من الشاشة — الكهربا والسباكة', 'behavior: reacts, updates part of the screen — wiring, plumbing'), c: 'green' },
       ] }],

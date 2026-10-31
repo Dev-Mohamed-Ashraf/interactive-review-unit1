@@ -67,7 +67,7 @@
     ${B.ch('ps2', 820, 300, 'md')}
     ${B.chip('u1', 470, 190, '🤔 ' + L('المستخدم محتاج إيه؟', 'what does the user need?'), 'c-green big')}
     ${B.chip('u2', 1100, 190, '📍 ' + L('هيستخدمه في أنهي موقف؟', 'in which situation?'), 'c-blue big')}
-    ${B.chip('u3', 470, 620, '🪪 ' + L('شخصية المستخدم = طريقة لتطبيقه', 'personas are one way to apply it'), 'c-amber')}
+    ${B.chip('u3', 470, 620, '🪪 ' + L('شخصية المستخدم = أداة ممكنة', 'personas are one way to apply it'), 'c-amber')}
     ${B.chip('u4', 1100, 620, '🎯 ' + L('قابلية الاستخدام · إمكانية الوصول', 'usability · accessibility'), 'c-violet')}
     ${B.card('ucd', 70, 300, 640, 0, 'c-green', { ic: '🧭', h: L('التصميم المتمحور حول المستخدم (UCD)', 'User-Centred Design (UCD)'), p: L('من منظور المستخدم — مش راحة المصمّم', 'from the user’s view — not the designer’s comfort') })}
   </div>

@@ -41,10 +41,10 @@
     ${B.svg('rd', 70, 140, 340, 290, '0 0 340 290', RADIO)}
     ${B.svg('wv1', 420, 170, 160, 160, '0 0 160 160', B.mir(160, WAVES('w')))}
     ${B.big('drv', 590, 200, 140, 100, '🚗')}
-    ${B.card('rdd', 70, 470, 860, 0, 'c-amber', { row: true, ic: '📻', h: L('الراديو', 'Radio'), p: L('صوت بس · السمع بس · بيتسمع في أي مكان وإنت بتعمل حاجة تانية · اتجاه واحد', 'audio only · hearing only · heard anywhere while doing something else · one-way') })}
+    ${B.card('rdd', 70, 470, 860, 0, 'c-amber', { row: true, ic: '📻', h: L('الراديو', 'Radio'), p: L('صوت بس · السمع بس · بيتسمع أثناء التنقل أو أداء مهام تانية حسب التغطية · اتجاه واحد', 'audio only · hearing only · heard anywhere while doing something else · one-way') })}
     <div id="m1-np" class="l12u l12-doc l12-paper later" style="${B.at(1010, 140, 520, 300)}"><b>📰 ${L('أخبار النهارده', 'Today’s news')}</b><div class="cols"><i></i><i></i><i></i><i></i><i class="img"></i></div></div>
     ${B.chip('nonet', 1550, 220, '📶 ✗ ' + L('من غير إنترنت', 'no Internet'), 'c-green')}
-    ${B.card('npd', 1010, 470, 850, 0, 'c-slate', { row: true, ic: '📰', h: L('الجرنال', 'Newspaper'), p: L('نص + صور · مطبوع ماديًا · بيتقري من غير إنترنت · اتجاه واحد', 'text + images · printed · read without Internet · one-way') })}
+    ${B.card('npd', 1010, 470, 850, 0, 'c-slate', { row: true, ic: '📰', h: L('الصحيفة', 'Newspaper'), p: L('نص + صور · مطبوعة ماديًا · بتتقري من غير إنترنت · اتجاه واحد', 'text + images · printed · read without Internet · one-way') })}
   </div>
   <div id="m1-s2" class="mv-stage">
     <div id="m1-site" class="l12u l12-win later" style="${B.at(70, 140, 820, 430)}"><div class="wbar"><i></i><i></i><i></i><span class="url">🌐 museum.eg</span></div>
@@ -55,24 +55,24 @@
     ${B.chip('nd', 1040, 610, '💬 ' + L('التواصل: بينشر بسرعة · المستخدمين بيشاركوا', 'SNS: spreads fast · users share'), 'c-violet')}
   </div>
   <div id="m1-s3" class="mv-stage">
-    ${B.card('one', 70, 150, 860, 420, 'c-slate', { h: '➡️ ' + L('اتجاه واحد', 'One-way'), html: `<div class="l12-lane"><span>📺 📻 📰</span><b class="ar1">${B.arrow}</b><span>👥</span></div><p class="cap">${L('المستقبل بيستقبل بس', 'the receiver only receives')}</p>` })}
-    ${B.card('two', 990, 150, 870, 420, 'c-green', { h: '↔️ ' + L('الاتجاهين', 'Two-way'), html: `<div class="l12-lane"><span>💬 ${L('دايمًا', 'always')}</span><b class="ar2">⇄</b><span>👥</span></div><div class="l12-lane"><span>🌐 ${L('بالنماذج والتعليقات', 'via forms & comments')}</span><b class="ar2">⇄</b><span>👥</span></div>` })}
+    ${B.card('one', 70, 150, 860, 420, 'c-slate', { h: '➡️ ' + L('اتجاه واحد', 'One-way'), html: `<div class="l12-lane"><span>📺 📻 📰</span><b class="ar1">${B.arrow}</b><span>👥</span></div><p class="cap">${L('المتلقي بيستقبل بس', 'the receiver only receives')}</p>` })}
+    ${B.card('two', 990, 150, 870, 420, 'c-green', { h: '↔️ ' + L('الاتجاهين', 'Two-way'), html: `<div class="l12-lane"><span>💬 ${L('النشر والمشاركة', 'always')}</span><b class="ar2">⇄</b><span>👥</span></div><div class="l12-lane"><span>🌐 ${L('بالنماذج والتعليقات', 'via forms & comments')}</span><b class="ar2">⇄</b><span>👥</span></div>` })}
     ${B.mid('trp', 620, '⚠️ ' + L('فخ: «التلفزيون بيتيح تفاعل في الاتجاهين» ← غلط', 'trap: “TV allows two-way interaction” → false'), 'c-red big')}
   </div>
   <div id="m1-s4" class="mv-stage">
     <div id="m1-web" class="l12u l12-win later" style="${B.at(70, 160, 640, 440)}"><div class="wbar"><i></i><i></i><i></i><span class="url">🌐 nile-shop.com</span></div><div class="wbody l12-mix"><span>📝</span><span>🖼️</span><span>🎬</span><span>🔊</span></div></div>
-    ${[['🧩', L('تجمع معلومات متنوعة', 'combine diverse information')], ['🔄', L('تتحدّث في أي وقت', 'update any time')], ['🌍', L('توصل من أي مكان تقريبًا', 'reach almost anywhere')], ['↔️', L('تفاعل في الاتجاهين بالنماذج والتعليقات', 'two-way via forms & comments')], ['🌐', L('يكفي متصفح من غير تسطيب', 'just a browser, nothing to install')]]
+    ${[['🧩', L('تجمع معلومات متنوعة', 'combine diverse information')], ['🔄', L('تتحدّث في أي وقت', 'update any time')], ['🌍', L('توصل من أي مكان فيه اتصال مناسب', 'reach almost anywhere')], ['↔️', L('تفاعل في الاتجاهين بالنماذج والتعليقات', 'two-way via forms & comments')], ['🌐', L('بتتستخدم من المتصفح', 'just a browser, nothing to install')]]
       .map(([ic, t], k) => B.chip('g' + k, 780, 150 + k * 104, `<b class="nm">${k + 1}</b> ${ic} ${t}`, 'c-green big', 1080)).join('')}
   </div>
   <div id="m1-s5" class="mv-stage">
-    ${B.card('c0', 70, 150, 570, 420, 'c-red', { ic: '📶', h: L('① محتاجة إنترنت', '① Needs the Internet'), p: L('عادةً — إلا لو الصفحة متخزّنة مؤقتًا', 'usually — unless the page is cached'), html: '<div class="l12-off">⚠️ No internet</div>' })}
-    ${B.card('c1', 670, 150, 570, 420, 'c-amber', { ic: '🚪', h: L('② لازم المستخدم يدخل بنفسه', '② The user must visit'), p: L('المعلومة مابتوصلش لوحدها', 'information does not arrive by itself'), html: `<div class="l12-visit">👀 <bdi>0</bdi> ${L('زيارة', 'visits')}</div>` })}
+    ${B.card('c0', 70, 150, 570, 420, 'c-red', { ic: '📶', h: L('① معظم الوظايف محتاجة اتصال', '① Needs the Internet'), p: L('معظم الوظايف — وبعضها ممكن يتوفّر محدود من غير اتصال', 'usually — unless the page is cached'), html: '<div class="l12-off">⚠️ No internet</div>' })}
+    ${B.card('c1', 670, 150, 570, 420, 'c-amber', { ic: '🚪', h: L('② لازم المستخدم يدخل بنفسه', '② The user must visit'), p: L('غالبًا — إلا مع الإشعارات أو قنوات تانية', 'information does not arrive by itself'), html: `<div class="l12-visit">👀 <bdi>0</bdi> ${L('زيارة', 'visits')}</div>` })}
     ${B.card('c2', 1270, 150, 590, 420, 'c-slate', { ic: '🐢', h: L('③ العرض والسرعة بيختلفوا', '③ Display & speed vary'), p: L('حسب جهاز المستخدم وشبكته', 'by the user’s device and network'), html: `<div class="l12-load"><span>💻 <i class="f"></i></span><span>📱 <i class="s"></i></span></div>` })}
   </div>
   <div id="m1-s6" class="mv-stage">
-    ${[['📣', L('تبلّغ ناس كتير مرة واحدة', 'inform many at once')], ['📚', L('معلومات مفصّلة', 'detailed information')], ['🎯', L('رسالة لناس معيّنين', 'a message to specific people')], ['🔁', L('انتشار بالتناقل', 'word of mouth')]]
+    ${[['📣', L('تبلّغ ناس كتير مرة واحدة', 'inform many at once')], ['📚', L('معلومات مفصّلة', 'detailed information')], ['🎯', L('رسالة لناس معيّنين', 'a message to specific people')], ['🔁', L('انتشار بالتناقل الشفهي', 'word of mouth')]]
       .map(([ic, t], k) => B.chip('pu' + k, 70, 160 + k * 130, ic + ' ' + t, 'c-amber big', 640)).join('')}
-    ${[['📺 ' + L('تلفزيون · إعلانات التواصل', 'TV · SNS ads'), L('وصول واسع', 'wide reach')], ['🌐 ' + L('موقع', 'website'), L('مفيش حد للكمية · يتشاف في أي وقت', 'no limit · view any time')], ['✉️ ' + L('إيميل · رسايل مباشرة', 'email · DMs'), L('توصيل فردي', 'one-to-one')], ['💬 ' + L('التواصل الاجتماعي', 'SNS'), L('المستخدمين بيشاركوا بإرادتهم', 'users share by choice')]]
+    ${[['📺 ' + L('تلفزيون · إعلانات التواصل', 'TV · SNS ads'), L('وصول واسع', 'wide reach')], ['🌐 ' + L('موقع', 'website'), L('كمية كبيرة منظمة · بيتحدّث في أي وقت', 'no limit · view any time')], ['✉️ ' + L('إيميل · رسايل مباشرة', 'email · DMs'), L('توصيل فردي', 'one-to-one')], ['💬 ' + L('التواصل الاجتماعي', 'SNS'), L('المستخدمين بيشاركوا بإرادتهم', 'users share by choice')]]
       .map(([h, p], k) => B.chip('me' + k, 1090, 160 + k * 130, `${h} <small>· ${p}</small>`, 'c-blue', 770)).join('')}
     ${range(4).map((k) => B.big('ln' + k, 740, 166 + k * 130, 320, 46, B.arrow + B.arrow + B.arrow, 'l12-gold')).join('')}
   </div>
@@ -83,20 +83,20 @@
     ${B.card('aud', 70, 520, 1790, 0, 'c-amber', { row: true, ic: '👨‍👦‍👦', h: L('فكّر في الجمهور', 'Think of the audience'), p: L('عيلة من غير إنترنت مش هيوصلها الموقع — يوصلها راديو أو ملصق مطبوع', 'a family with no Internet will not get the website — radio or a printed poster will') })}
   </div>
   <div id="m1-s8" class="mv-stage">
-    ${B.mid('nb', 150, '🏆 ' + L('مفيش وسيط أحسن في كل حاجة', 'no medium is best for everything'), 'c-amber big')}
-    ${[['🎯', L('اختار حسب الغرض والجمهور', 'choose by purpose and audience'), 'c-blue'], ['🔗', L('اجمع الوسائط: كل واحد يعمل اللي بيجيده', 'combine media: each does what it does best'), 'c-green']]
+    ${B.mid('nb', 150, '🏆 ' + L('مفيش وسيلة أحسن في كل حاجة', 'no medium is best for everything'), 'c-amber big')}
+    ${[['🎯', L('اختار حسب الغرض والجمهور', 'choose by purpose and audience'), 'c-blue'], ['🔗', L('اجمع الوسائط: كل واحدة تعمل اللي بتجيده', 'combine media: each does what it does best'), 'c-green']]
       .map(([ic, h, c], k) => B.card('r' + k, 70 + k * 910, 250, 880, 0, c, { row: true, ic, h })).join('')}
     ${B.chip('t1', 70, 470, '⚠️ ' + L('«الموقع بيتشاف من غير إنترنت» ← غلط', '“a website works without the Internet” → false'), 'c-red big', 880)}
     ${B.chip('t2', 980, 470, '⚠️ ' + L('«المعلومة بتوصل لوحدها» ← غلط', '“information arrives by itself” → false'), 'c-red big', 880)}
   </div>
     ${U.hd(0, '📺 ' + L('التلفزيون', 'Television'))}
-    ${U.hd(1, '📻 ' + L('الراديو والجرنال', 'Radio and newspapers'))}
+    ${U.hd(1, '📻 ' + L('الراديو والصحيفة', 'Radio and newspapers'))}
     ${U.hd(2, '🌐 ' + L('الموقع والتواصل الاجتماعي', 'Websites and SNS'))}
     ${U.hd(3, '↔️ ' + L('اتجاه واحد ولا الاتجاهين؟', 'One-way or two-way?'))}
     ${U.hd(4, '✅ ' + L('نقاط قوة المواقع', 'Strengths of websites'))}
     ${U.hd(5, '⚠️ ' + L('قيود المواقع', 'Constraints of websites'))}
-    ${U.hd(6, '🎯 ' + L('اختار الوسيط حسب الغرض', 'Choose the medium by purpose'))}
-    ${U.hd(7, '🔗 ' + L('عمليًا بنجمع كذا وسيط', 'In practice we combine media'))}
+    ${U.hd(6, '🎯 ' + L('اختار الوسيلة حسب الغرض', 'Choose the medium by purpose'))}
+    ${U.hd(7, '🔗 ' + L('عمليًا بنجمع كذا وسيلة', 'In practice we combine media'))}
     ${U.hd(8, '📌 ' + L('الخلاصة', 'Recap'))}`;
       },
     });
