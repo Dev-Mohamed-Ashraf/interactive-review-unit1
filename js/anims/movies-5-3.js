@@ -23,7 +23,7 @@
       html: (L) => `
   <div id="c3-stage" class="mv-stage">
     ${U.emo('gift', 160, 200, 260, 190, '🎁')}
-    ${U.pill('free', 120, 470, '🆓 ' + L('بيانات مفتوحة = متاحة للكل', 'Open data = available to everyone'), 't-green')}
+    ${U.pill('free', 120, 470, '🆓 ' + L('بيانات مفتوحة = ترخيص يسمح بإعادة الاستخدام', 'Open data = available to everyone'), 't-green')}
     ${U.pill('rule', 120, 570, '⚠️ ' + L('مجانية… بس مش من غير قواعد', 'Free… but not without rules'), 't-amber')}
     ${[['📍', L('منين نجيبها؟', 'Where do we get it?')], ['🔌', L('إزاي نجيبها؟', 'How do we fetch it?')], ['📜', L('مسموح نستخدمها إزاي؟', 'How may we use it?')]]
       .map(([e, t], k) => U.pill('w' + k, 1000, 230 + k * 120, e + ' ' + t, 't-blue')).join('')}
@@ -35,16 +35,16 @@
 
     ${U.ch('ch-u', 90, 260, 'md')}
     ${U.pill('br', 330, 210, '🖱️ ' + L('متصفح: تدوّر وتنزّل ملف ملف', 'Browser: search and download file by file'), 't-slate')}
-    ${U.pill('slow', 330, 310, '🐢 ' + L('200 دولة × 20 سنة يدوي؟ مستحيل عمليًا', '200 countries × 20 years by hand? Practically impossible'), 't-red')}
+    ${U.pill('slow', 330, 310, '🐢 ' + L('200 دولة × 20 سنة يدوي؟ صعب جدًا', '200 countries × 20 years by hand? Practically impossible'), 't-red')}
     ${U.box('apib', 1000, 420, 840, 't-blue', { ic: '🔌', h: L('واجهة برمجة التطبيقات (API)', 'Application Programming Interface (API)'), p: L('قواعد لإزاي أجزاء البرامج تتعامل مع بعض', 'rules for how pieces of software interact'), s: L('البرنامج يطلب البيانات مباشرة من غير متصفح', 'a program requests data directly, no browser') })}
-    ${U.pill('fast', 330, 420, '⚡ ' + L('API: سطر واحد يجيب آلاف القيم', 'API: one line fetches thousands of values'), 't-green')}
+    ${U.pill('fast', 330, 420, '⚡ ' + L('API: طلبات متكررة آليًا ضمن حدود الخدمة', 'API: one line fetches thousands of values'), 't-green')}
 
     ${U.box('cli', 90, 250, 400, 't-blue', { ic: '💻', h: L('العميل', 'Client'), p: L('برنامجك', 'your program') })}
     <div id="c3-srvw" class="later" style="position:absolute;inset-inline-start:1530px;top:190px;width:200px;height:430px">${MK.RACK('style="width:100%;height:100%"')}</div>
     ${U.pill('srvl', 1460, 640, '🗄️ ' + L('الخادم: مخزّن البيانات', 'Server: stores the data'), 't-green')}
     ${U.pill('req', 520, 300, '① GET ➜', 'solid')}
     ${U.pill('ep', 300, 150, '📍 ' + L('نقطة النهاية (Endpoint):', 'Endpoint:') + ' ' + CODE('api.worldbank.org/…/EGY/indicator/SP.POP.TOTL'), 't-amber')}
-    ${U.pill('epx', 520, 470, L('الرابط بيحدّد «أنهي بيانات» بالظبط', 'The URL says exactly "which data"'), 't-slate')}
+    ${U.pill('epx', 520, 470, L('الرابط بيحدّد «أنهي بيانات» بالضبط', 'The URL says exactly "which data"'), 't-slate')}
 
     <div id="c3-json" class="box t-green later" style="inset-inline-start:1000px;top:330px;width:470px;font-size:30px;line-height:1.5"><span class="code" style="display:block;text-align:left">{<br>&nbsp;"country": "EGY",<br>&nbsp;"year": 2024,<br>&nbsp;"value": 114500000<br>}</span></div>
     ${U.pill('res', 1000, 250, '② ' + L('الرد بصيغة JSON', 'Response in JSON'), 't-green')}
@@ -69,7 +69,7 @@
     ${U.art('cchart', 90, 170, 560, 360, '0 0 560 360', CHART)}
     ${[['🏢', L('المزوّد:', 'Provider:') + ' World Bank'], ['📄', L('اسم البيانات:', 'Data name:') + ' Population, total'], ['📅', L('تاريخ الحصول:', 'Date obtained:') + ' 2026-10-13'], ['🔗', L('الرابط:', 'URL:') + ' ' + CODE('data.worldbank.org')]]
       .map(([e, t], k) => U.pill('ct' + k, 720, 190 + k * 95, e + ' ' + t, 't-blue')).join('')}
-    ${U.pill('why1', 90, 590, '🛡️ ' + L('دليل على موثوقية البيانات', 'evidence of reliability'), 't-green')}
+    ${U.pill('why1', 90, 590, '🛡️ ' + L('مابيثبتش الموثوقية لوحده', 'evidence of reliability'), 't-green')}
     ${U.pill('why2', 760, 590, '🔎 ' + L('وبيخلّي غيرك يتحقّق من التحليل', 'and lets others verify the analysis'), 't-green')}
 
     ${U.hd(0, '🎁 ' + L('البيانات المفتوحة', 'Open data'))}

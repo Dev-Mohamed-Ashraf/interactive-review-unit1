@@ -262,7 +262,7 @@ RV.lessons.add('7-2', {
           q: { widget: 'mcq', prompt: { ar: 'اختار السبب الأنسب لقفزة التعلّم العميق:', en: 'Choose the best reason for deep learning’s leap:' },
             options: [
               { ar: 'A السمات بقت تتعلّم تلقائيًا من غير ما البشر يصمّموها', en: 'A Features are learned automatically, not hand-designed' },
-              { ar: 'B الكمبيوتر بقى يفكّر بنفس آلية مخ الإنسان بالظبط', en: 'B Computers now think with exactly the brain’s mechanism' },
+              { ar: 'B الكمبيوتر بقى يفكّر بنفس آلية مخ الإنسان بالضبط', en: 'B Computers now think with exactly the brain’s mechanism' },
               { ar: 'C الكمبيوتر بقى يفهم معنى الكلمات فهم كامل', en: 'C Computers now fully understand the meaning of words' },
               { ar: 'D بقى يحكم بدقة كاملة في أي مسألة من غير غلط', en: 'D It now judges any question with perfect accuracy' },
             ],

@@ -80,15 +80,15 @@
        ['🔄', L('٣ التحويل', '3 Transform'), L('أنواع · مقياس · تشكيل', 'types · scale · reshape'), 't-violet'],
        ['📊', L('٤ التحليل', '4 Analyze'), L('إحصاء · رسوم · تعلّم آلي', 'statistics · charts · ML'), 't-green']]
       .map(([ic, h, p, th], k) => U.box('p' + k, 70 + k * 455, 200, 415, th, { ic, h, p })).join('')}
-    ${U.pill('gigo', 470, 470, '🗑️ ' + L('مدخلات غلط ← مخرجات غلط', 'Garbage in → garbage out'), 't-red')}
+    ${U.pill('gigo', 470, 470, '🗑️ ' + L('مدخلات خاطئة — مخرجات خاطئة', 'Garbage in → garbage out'), 't-red')}
     ${U.pill('gig2', 330, 570, L('حساب دقيق على بيانات معيوبة = إجابة معيوبة', 'Careful calculation on flawed data = a flawed answer'), 't-slate')}
 
     ${U.art('tb', 70, 170, 880, 470, '0 0 880 470', table(L))}
     ${[['🕳️', L('قيمة مفقودة', 'Missing value'), 't-red'], ['📈', L('قيمة شاذة', 'Outlier'), 't-amber'], ['👯', L('صف مكرر', 'Duplicate row'), 't-violet'], ['📅', L('صيغ مختلفة', 'Mixed formats'), 't-blue']]
       .map(([e, t, th], k) => U.pill('pb' + k, 1040, 200 + k * 110, e + ' ' + t, th)).join('')}
 
-    ${U.box('del', 1010, 170, 840, 't-red', { h: '🗑️ ' + L('الحذف', 'Deletion'), p: L('نشيل الصف/العمود — لما الفقد قليل ومبعثر من غير تحيّز', 'remove the row/column — when few, scattered without bias') })}
-    ${U.box('imp', 1010, 340, 840, 't-green', { h: '🧩 ' + L('التعويض', 'Imputation'), p: L('نملأ بالمتوسط أو الوسيط أو المجاور — لو مش هيغيّر الاتجاه', 'fill with mean, median or neighbour — if the trend stays') })}
+    ${U.box('del', 1010, 170, 840, 't-red', { h: '🗑️ ' + L('الحذف', 'Deletion'), p: L('نشيل السجل/المتغير — لما الفقد قليل ومايسببش تحيّز', 'remove the row/column — when few, scattered without bias') })}
+    ${U.box('imp', 1010, 340, 840, 't-green', { h: '🧩 ' + L('التعويض', 'Imputation'), p: L('نقدّر قيمة بديلة زي الوسيط — ونفحص أثرها في التوزيع', 'fill with mean, median or neighbour — if the trend stays') })}
     ${U.box('flg', 1010, 510, 840, 't-amber', { h: '🚩 ' + L('وضع علامة', 'Flagging'), p: L('نسيب مؤشر إنها كانت مفقودة — لما الغياب نفسه ليه معنى', 'mark it as missing — when the absence itself means something') })}
 
     ${U.art('spk', 1040, 160, 600, 320, '0 0 600 320', SPIKE)}
@@ -96,7 +96,7 @@
     ${U.pill('oe', 1010, 590, '❌ ' + L('خطأ إدخال/قياس ← صحّح أو احذف', 'Entry/measurement error → fix or delete'), 't-red')}
     ${U.pill('or', 1010, 680, '✅ ' + L('حقيقية (عرض/حدث) ← احتفظ بيها مبدئيًا', 'Real (a sale/event) → keep it for now'), 't-green')}
 
-    ${U.box('dup', 1010, 180, 840, 't-violet', { ic: '👯', h: L('البيانات المكررة', 'Duplicate data'), p: L('بتلخبط المجاميع ← بتتشال مبدئيًا', 'distort totals → removed in principle') })}
+    ${U.box('dup', 1010, 180, 840, 't-violet', { ic: '👯', h: L('البيانات المكررة', 'Duplicate data'), p: L('بتغيّر الحسابات ← بتتشال بعد التأكد', 'distort totals → removed in principle') })}
     ${U.pill('dq', 1010, 430, '🧾🧾 ' + L('نفس العميل اشترى مرتين = عمليتين حقيقيتين', 'Same customer bought twice = two real sales'), 't-amber')}
     ${U.pill('dk', 1010, 530, '✔ ' + L('نتأكّد إنه تكرار فعلي قبل ما نشيله', 'Confirm a true duplicate before removing'), 't-green')}
 
@@ -136,7 +136,7 @@
     ${U.nt(0, L('مفيش وصفة واحدة لكل البيانات — القرار حسب المشكلة وسؤال التحليل', 'No single fix fits all data — it depends on the problem and the question'), 'warn')}
     ${U.nt(2, L('70% فاضي؟ تعويض المتوسط هنا هيطلّع أرقام بعيدة عن الواقع', '70% blank? Imputing a mean here gives unrealistic values'), 'warn')}
     ${U.nt(3, L('اتضح إنها غلطة كتابة: 9999 ← 9', 'It turned out to be a typo: 9999 → 9'), 'ok')}
-    ${U.nt(5, L('أرقام متخزّنة كنص ماتتجمعش · تواريخ مش موحّدة = يوم واحد يتقسم لأيام', 'Numbers stored as text cannot be summed · mixed dates split one day into many'))}
+    ${U.nt(5, L('أرقام متخزّنة كنص ممكن تفشّل الحساب · تواريخ مش موحّدة = يوم واحد يتقسم لأيام', 'Numbers stored as text cannot be summed · mixed dates split one day into many'))}
     ${U.nt(7, '⚠️ ' + L('التحويل الكمي = 0 لـ 1 ثابت · التوحيد القياسي = متوسط 0 وانحراف 1', 'Normalization = a fixed 0–1 · standardization = mean 0, SD 1'), 'warn')}
     ${U.nt(8, L('وضّح الغرض الأول… وبعدين خطّط التشكيل', 'Clarify the purpose first… then plan the reshape'), 'ok')}
   </div>

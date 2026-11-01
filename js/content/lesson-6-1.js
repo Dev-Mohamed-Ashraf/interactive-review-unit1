@@ -31,7 +31,7 @@ RV.lessons.add('6-1', {
           type: 'quiz', optional: true,
           q: { widget: 'poll', prompt: { ar: 'سألت 50 طالب ولقيت متوسط طولهم 168 سم. تقول إيه عن طول كل طلبة المدرسة؟', en: 'You measured 50 students and their mean height is 168 cm. What would you say about all students in the school?' },
             options: [
-              { emoji: '🎯', text: { ar: 'بالظبط 168 سم', en: 'Exactly 168 cm' } },
+              { emoji: '🎯', text: { ar: 'بالضبط 168 سم', en: 'Exactly 168 cm' } },
               { emoji: '↔️', text: { ar: 'حوالي 166 لـ 170 سم', en: 'Around 166 to 170 cm' } },
               { emoji: '🤷‍♂️', text: { ar: 'مقدرش أقول حاجة', en: 'I can’t say anything' } },
             ],
@@ -68,8 +68,8 @@ RV.lessons.add('6-1', {
             options: [
               { ar: 'لو كرّرنا الطريقة 100 مرة، ~95 فترة هتحتوي المتوسط الحقيقي', en: 'If repeated 100 times, ~95 intervals would contain the true mean' },
               { ar: 'فيه احتمال 95% إن المتوسط الحقيقي جوّه الفترة دي بالذات', en: 'There is a 95% chance the true mean is inside this very interval' },
-              { ar: '95% من الطلبة طولهم بين 166 و170 سم بالظبط في المدرسة', en: '95% of the students are exactly between 166 and 170 cm tall' },
-              { ar: 'المتوسط الحقيقي 168 سم بالظبط وده مؤكد بنسبة 95%', en: 'The true mean is exactly 168 cm, and that is 95% certain' },
+              { ar: '95% من الطلبة طولهم بين 166 و170 سم بالضبط في المدرسة', en: '95% of the students are exactly between 166 and 170 cm tall' },
+              { ar: 'المتوسط الحقيقي 168 سم بالضبط وده مؤكد بنسبة 95%', en: 'The true mean is exactly 168 cm, and that is 95% certain' },
             ],
             answer: 0,
             explain: { ar: 'مستوى الثقة __جملة عن الطريقة__ عبر التكرار.', en: 'The confidence level is __a statement about the method__ over repetition.' } },

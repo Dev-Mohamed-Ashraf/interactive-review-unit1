@@ -42,14 +42,14 @@
     <div id="c1-ln" class="l12u l51-lane later" style="${B.at(70, 500, 1300, 100)}">${range(3).map((k) => `<span class="l51pk gdk gdk${k}">📄</span>`).join('')}${range(3).map((k) => `<span class="l51pk trk trk${k}">🗑️</span>`).join('')}</div>
     ${B.chip('ok0', 1400, 516, '✅ ' + L('استنتاج مناسب', 'a sound conclusion'), 'c-green', 450)}
     ${B.chip('ng0', 1400, 516, '❌ ' + L('استنتاج مش مناسب', 'an unfit conclusion'), 'c-red', 450)}
-    ${B.mid('bad', 650, '🗑️ ' + L('بيانات مش مطابقة للغرض ← مفيش تنظيم ولا تحليل يصلّحها', 'data that misses the purpose → no organizing or analysis can rescue it'), 'c-red')}
+    ${B.mid('bad', 650, '🗑️ ' + L('بيانات مش مناسبة للسؤال ← النتايج ممكن تبقى مضللة', 'data that misses the purpose → no organizing or analysis can rescue it'), 'c-red')}
   </div>
   <div id="c1-s1" class="mv-stage">
     ${B.ch('us', 70, 400, 'md')}
     ${[['📋', L('استبيانات', 'Surveys')], ['🎤', L('مقابلات', 'Interviews')], ['👀', L('ملاحظة', 'Observation')], ['🧪', L('تجارب', 'Experiments')]]
       .map(([ic, t], k) => B.card('m' + k, 320 + (k % 2) * 290, 170 + Math.floor(k / 2) * 230, 270, 200, 'c-green', { ic, h: t })).join('')}
     ${B.card('prim', 960, 150, 900, 0, 'c-green', { ic: '🆕', h: L('بيانات أولية', 'Primary data'), p: L('بنجمعها من جديد عشان تناسب غرض محدّد', 'newly collected to fit a specific purpose') })}
-    ${B.card('pro', 960, 410, 900, 0, 'c-green', { row: true, ic: '✅', h: L('أصالة وموثوقية عالية', 'High originality and reliability'), p: L('بنودها متصمّمة على قد الغرض — قلب التحليل', 'items designed for the purpose — the core of analysis') })}
+    ${B.card('pro', 960, 410, 900, 0, 'c-green', { row: true, ic: '✅', h: L('مناسبة للسؤال', 'High originality and reliability'), p: L('الجودة بتعتمد على التصميم والتنفيذ', 'items designed for the purpose — the core of analysis') })}
     ${B.card('con', 960, 570, 900, 0, 'c-amber', { row: true, ic: '⏳', h: L('القيد', 'The limit'), p: '⏱️ ' + L('وقت', 'time') + ' · 💪 ' + L('جهد', 'effort') + ' · 💰 ' + L('تكلفة', 'cost') })}
   </div>
   <div id="c1-s2" class="mv-stage">
@@ -57,13 +57,13 @@
       .map(([ic, t], k) => B.card('so' + k, 70, 160 + k * 160, 500, 0, 'c-blue', { row: true, ic, h: t })).join('')}
     <div id="c1-dc" class="l12u l51-doc later" style="${B.at(620, 150, 460, 560)}"><b class="hd">📊 <bdi class="rn">0</bdi> ${L('صف', 'rows')}</b>${range(7).map((k) => `<i class="r r${k}"></i>`).join('')}<span class="by">${L('جمعها: جهة تانية', 'collected by: someone else')}</span></div>
     ${B.card('sec', 1130, 150, 730, 0, 'c-blue', { row: true, ic: '📚', h: L('بيانات ثانوية', 'Secondary data'), p: L('جمعها ونشرها غيرنا… وإحنا بنستخدمها', 'collected and published by others… we use it') })}
-    ${B.card('fast', 1130, 320, 730, 0, 'c-green', { row: true, ic: '⚡', h: L('كمية كبيرة في وقت قصير', 'A lot in a short time') })}
-    ${B.card('w1', 1130, 430, 730, 0, 'c-amber', { row: true, ic: '🎯', h: L('ممكن ماتطابقش غرضك بالظبط', 'may not match your exact purpose') })}
-    ${B.card('w2', 1130, 540, 730, 0, 'c-red', { row: true, ic: '✂️', h: L('ممكن يكون فيها تحيّز أو حذف', 'may carry bias or omissions'), p: L('حصل وهي بتتحرّر أو تتلخّص', 'from editing or summarizing') })}
+    ${B.card('fast', 1130, 320, 730, 0, 'c-green', { row: true, ic: '⚡', h: L('بتوفّر وقت وتكلفة', 'A lot in a short time') })}
+    ${B.card('w1', 1130, 430, 730, 0, 'c-amber', { row: true, ic: '🎯', h: L('ممكن ماتطابقش غرضك بالضبط', 'may not match your exact purpose') })}
+    ${B.card('w2', 1130, 540, 730, 0, 'c-red', { row: true, ic: '✂️', h: L('لازم نفحص جمعها وتعريفاتها', 'may carry bias or omissions'), p: L('ونقصها وتحيزاتها ومناسبتها', 'from editing or summarizing') })}
   </div>
   <div id="c1-s3" class="mv-stage">
-    ${B.card('pc', 70, 160, 560, 300, 'c-green', { ic: '🆕', h: L('الأولية', 'Primary'), p: L('قيمتها في الموثوقية والأصالة', 'valued for reliability and originality') })}
-    ${B.card('sc', 1290, 160, 570, 300, 'c-blue', { ic: '📚', h: L('الثانوية', 'Secondary'), p: L('قيمتها في الحجم — إحصائيات مانقدرش نجمعها لوحدنا', 'valued for scale — statistics we could not gather alone') })}
+    ${B.card('pc', 70, 160, 560, 300, 'c-green', { ic: '🆕', h: L('الأولية', 'Primary'), p: L('موثوقيتها مش تلقائية', 'valued for reliability and originality') })}
+    ${B.card('sc', 1290, 160, 570, 300, 'c-blue', { ic: '📚', h: L('الثانوية', 'Secondary'), p: L('بتوفّر معلومات جاهزة — بس ممكن ماتناسبش السؤال', 'valued for scale — statistics we could not gather alone') })}
     ${B.card('mix', 680, 160, 560, 300, 'c-violet', { ic: '🤝', h: L('التحليل الحقيقي', 'Real analysis'), p: L('بنجمع الاتنين حسب الغرض والقيود', 'combines both by purpose and constraints') })}
     ${B.flip('cz', 360, 510, 1200, 170, `<span class="ic">🏛️</span>${L('تعداد حكومي نزّلته… أولية ولا ثانوية؟', 'A government census you downloaded… primary or secondary?')}`,
       `<span class="ic">📚</span><span>${L('ثانوية بالنسبة لك', 'Secondary — for you')}<small>${L('أنت ماجمعتهوش بنفسك', 'you did not collect it yourself')}</small></span>`)}
@@ -75,12 +75,12 @@
     ${B.card('lp', 900, 150, 960, 0, 'c-slate', { row: true, ic: '👥', h: L('المجتمع الإحصائي', 'Population'), p: L('المجموعة الكاملة اللي بنحلّلها', 'the whole group we analyze') })}
     ${B.card('ls', 900, 290, 960, 0, 'c-amber', { row: true, ic: '🟡', h: L('العينة', 'Sample'), p: L('الجزء اللي بندرسه فعلًا', 'the part we actually survey') })}
     ${B.card('cen', 900, 440, 460, 0, 'c-violet', { ic: '📋', h: L('حصر شامل (تعداد)', 'Census'), p: L('نمسح المجتمع كله', 'survey all of it') })}
-    ${B.card('ssv', 1400, 440, 460, 0, 'c-violet', { ic: '🔍', h: L('مسح بالعينة', 'Sample survey'), p: L('نمسح عينة مختارة', 'survey a chosen sample') })}
+    ${B.card('ssv', 1400, 440, 460, 0, 'c-violet', { ic: '🔍', h: L('مسح عينة', 'Sample survey'), p: L('نمسح عينة مختارة', 'survey a chosen sample') })}
   </div>
   <div id="c1-s5" class="mv-stage">
     ${B.big('dice', 920, 160, 160, 120, '🎲')}
     ${B.card('srs', 1110, 150, 750, 0, 'c-amber', { h: L('المعاينة العشوائية البسيطة', 'Simple random sampling'), p: L('بالصدفة البحتة من غير تحيّز', 'by pure chance, without bias') })}
-    ${[['⚖️', L('لكل واحد فرصة معروفة ومتساوية', 'everyone has a known, equal chance')], ['🧭', L('الأساسية — تنفع حتى لو معلوماتنا قليلة', 'the basic one — works even with little info')], ['🌍', L('العينة غالبًا تمثّل المجتمع ← نعمّم', 'the sample usually represents the whole → generalize')]]
+    ${[['⚖️', L('لكل واحد فرصة معروفة ومتساوية', 'everyone has a known, equal chance')], ['🧭', L('أساسية — بس محتاجة إطار مناسب', 'the basic one — works even with little info')], ['🌍', L('ممكن تقلّل تحيّز الاختيار وتدعم التعميم', 'the sample usually represents the whole → generalize')]]
       .map(([ic, t], k) => B.card('sr' + k, 920, 350 + k * 120, 940, 0, 'c-amber', { row: true, ic, h: t })).join('')}
   </div>
   <div id="c1-s6" class="mv-stage">
@@ -89,25 +89,25 @@
       <span class="th"></span><span class="th">👥 ${L('المجتمع', 'population')}</span><span class="th"></span><span class="th">🟡 ${L('العينة', 'sample')}</span>
       ${[[24, 6, '50%'], [16, 4, '33%'], [8, 2, '17%']].map(([a, b, pc], k) => `<span class="sw" style="background:${STRAT[k].col}">${L('طبقة', 'stratum')} <bdi>${k + 1}</bdi></span><span class="v"><bdi>${a} · ${pc}</bdi></span><span class="ar">${B.arrow}</span><span class="v s s${k}"><bdi>${b} · ${pc}</bdi></span>`).join('')}
     </div>
-    ${B.chip('use6', 900, 690, '💡 ' + L('مفيدة لما الفروق بين الطبقات بتأثّر — بتقلّل التحيّز', 'useful when strata differ — it reduces bias'), 'c-teal', 960)}
+    ${B.chip('use6', 900, 690, '💡 ' + L('بتساعد على تمثيل فئات مهمة وتحسين الدقة', 'useful when strata differ — it reduces bias'), 'c-teal', 960)}
   </div>
 
   <div id="c1-s7" class="mv-stage">
     ${B.card('bdef', 70, 140, 1790, 0, 'c-red', { row: true, ic: '⚠️', h: L('تحيّز المعاينة', 'Sampling bias'), p: L('طريقة الاختيار متحيّزة ← العينة ماتعكسش المجتمع ← مانقدرش نعمّم', 'a biased way of choosing → the sample misses the population → no generalizing') })}
     ${B.card('b0', 70, 300, 560, 400, 'c-red', { ic: '🙋‍♂️', h: L('الاختيار الذاتي', 'Self-selection'), p: L('اللي عايز يرد بس هو اللي بيرد', 'only those who want to reply do'), html: `<div class="l51-mini">🌐 <span class="hs">🙋‍♂️🙋‍♂️</span><span class="qs">😶😶😶</span></div>` })}
     ${B.card('b1', 680, 300, 560, 400, 'c-amber', { ic: '🎭', h: L('تحيّز الاستجابة', 'Response bias'), p: L('الإجابة «المرغوبة» مش الدقيقة — خطأ قياس', 'the “desired” answer, not the accurate one — a measurement error'), html: `<div class="l51-mini">💬 «<bdi>5</bdi> ${L('ساعات', 'hours')}» <s>⏱️ <bdi>2</bdi></s></div>` })}
-    ${B.card('b2', 1290, 300, 570, 400, 'c-violet', { ic: '🚉', h: L('تحيّز الزمان/المكان', 'Time/location bias'), p: L('مسح قدّام محطة الضهر أيام الشغل', 'a survey at a station at noon on workdays'), html: `<div class="l51-mini">🕛 <span class="gone">👔 🎒</span></div>` })}
+    ${B.card('b2', 1290, 300, 570, 400, 'c-violet', { ic: '🚉', h: L('تحيّز الوقت/الموقع', 'Time/location bias'), p: L('مسح قدّام محطة بعد الضهر أيام الشغل', 'a survey at a station at noon on workdays'), html: `<div class="l51-mini">🕛 <span class="gone">👔 🎒</span></div>` })}
   </div>
   <div id="c1-s8" class="mv-stage">
     <div id="c1-sv" class="l12u l12-win later" style="${B.at(70, 150, 720, 330)}"><div class="wbar"><i></i><i></i><i></i><span class="url">survey.com</span></div>
       <div class="wbody l51-sv"><b>😴 ${L('بتنام كام ساعة؟', 'How many hours do you sleep?')}</b><div class="resp">${range(5).map(() => '<span class="y">😫</span>').join('')}${range(5).map(() => '<span class="n">😌</span>').join('')}</div></div></div>
     ${B.card('avg', 70, 510, 720, 0, 'c-amber', { row: true, ic: '🧮', h: L('المتوسط = 5 ساعات', 'Mean = 5 hours'), p: L('حساب دقيق جدًا…', 'very precise arithmetic…') })}
     ${B.stamp('wg', 300, 640, '❌ ' + L('على المجموعة الغلط!', 'on the wrong group!'))}
-    ${B.card('rd', 860, 150, 1000, 0, 'c-green', { ic: '🛡️', h: L('التحيّز صعب يتشال خالص… بس بيقلّ بتصميم دقيق', 'Bias is hard to remove fully… careful design reduces it'),
-      html: `<ul class="l12-list">${[['👥', L('إزاي نختار المبحوثين', 'how we choose respondents')], ['❓', L('إزاي نصيغ الأسئلة', 'how we word the questions')], ['📋', L('إزاي نعمل المسح', 'how we run the survey')]].map(([ic, t], k) => `<li class="li${k}">✔ ${ic} ${t}</li>`).join('')}</ul>` })}
+    ${B.card('rd', 860, 150, 1000, 0, 'c-green', { ic: '🛡️', h: L('تحيّز المعاينة بيقلّ بتحسين الإطار والاختيار والتوقيت', 'Bias is hard to remove fully… careful design reduces it'),
+      html: `<ul class="l12-list">${[['👥', L('إطار المعاينة', 'how we choose respondents')], ['❓', L('طريقة الاختيار', 'how we word the questions')], ['📋', L('توقيت الوصول', 'how we run the survey')]].map(([ic, t], k) => `<li class="li${k}">✔ ${ic} ${t}</li>`).join('')}</ul>` })}
   </div>
   <div id="c1-s9" class="mv-stage">
-    ${card4('x0', 70, 'c-green', '🆕📚', L('أولية وثانوية', 'Primary & secondary'), L('نجمعها بنفسنا · جاهزة من غيرنا', 'we gather it · ready-made by others'))}
+    ${card4('x0', 70, 'c-green', '🆕📚', L('أولية وثانوية', 'Primary & secondary'), L('نجمعها مباشرة · موجودة مسبقًا', 'we gather it · ready-made by others'))}
     ${card4('x1', 530, 'c-slate', '👥🟡', L('المجتمع والعينة', 'Population & sample'), L('الكل · جزء عادل منه', 'the whole · a fair part of it'))}
     ${card4('x2', 990, 'c-amber', '🎲🧁', L('بسيطة وطبقية', 'Simple & stratified'), L('صدفة بحتة · عشوائي من كل طبقة', 'pure chance · random from each stratum'))}
     ${card4('x3', 1450, 'c-red', '⚠️', L('العينة المتحيّزة', 'A biased sample'), L('إجابة واثقة… بس غلط', 'a confident answer… but wrong'))}
@@ -123,7 +123,7 @@
     ${U.hd(7, '⚠️ ' + L('تلات أنواع للتحيّز', 'Three kinds of bias'))}
     ${U.hd(8, '😬 ' + L('واثقة… بس غلط', 'Confident… but wrong'))}
     ${U.hd(9, '📌 ' + L('الخلاصة', 'Recap'))}
-    ${U.nt(0, '⚠️ ' + L('مرحلة الجمع بتحدّد جودة التحليل كله', 'The collection stage decides the quality of the whole analysis'), 'warn')}
+    ${U.nt(0, '⚠️ ' + L('مرحلة الجمع بتأثر بقوة في جودة التحليل', 'The collection stage decides the quality of the whole analysis'), 'warn')}
     ${U.nt(4, '🔍 ' + L('أخذ العينات = اختيار عينة — والموثوقية بتفرق حسب الطريقة', 'Sampling = choosing a sample — reliability depends on the method'), 'ok')}
     ${U.nt(6, '⚠️ ' + L('مش «ممثّل واحد من كل طبقة» — ده اختيار عشوائي من كل طبقة', 'Not “one representative per stratum” — a random pick from each'), 'warn')}
     ${U.nt(7, L('الاختيار الذاتي = مين اتسأل · الاستجابة = إزاي جاوبوا', 'Self-selection = who was asked · response = how they answered'))}`;

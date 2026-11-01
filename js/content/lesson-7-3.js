@@ -33,7 +33,7 @@ RV.lessons.add('7-3', {
             options: [
               { emoji: '🔎', text: { ar: 'بيدوّر على الإجابة في قاعدة بيانات', en: 'Looks the answer up in a database' } },
               { emoji: '🔮', text: { ar: 'بيخمّن الرمز التالي كلمة كلمة', en: 'Guesses the next word, one at a time' } },
-              { emoji: '🧠', text: { ar: 'بيفهم ويفكّر زي الإنسان بالظبط', en: 'Understands and thinks exactly like a person' } },
+              { emoji: '🧠', text: { ar: 'بيفهم ويفكّر زي الإنسان بالضبط', en: 'Understands and thinks exactly like a person' } },
             ],
             after: { ar: 'التاني هو الصح… ومن هنا بييجي غلطه 👇', en: 'The second is right… and that is where its mistakes come from 👇' } },
         },
@@ -195,7 +195,7 @@ RV.lessons.add('7-3', {
           type: 'quiz', title: { ar: 'تمرين 2 (1)', en: 'Try 2 (1)' },
           q: { widget: 'mcq', prompt: { ar: 'اختار الأنسب لوصف عمل نموذج اللغة:', en: 'Choose the best description of how a language model works:' },
             options: [
-              { ar: 'A بيحفظ الجملة المدخلة ويرجّعها زي ما هي بالظبط', en: 'A Stores the input sentence and returns it exactly' },
+              { ar: 'A بيحفظ الجملة المدخلة ويرجّعها زي ما هي بالضبط', en: 'A Stores the input sentence and returns it exactly' },
               { ar: 'B بيولّد النص بتكرار التنبّؤ بالرمز التالي', en: 'B Generates text by repeatedly predicting the next word' },
               { ar: 'C بيختار الأقرب من قوالب جمل متجهّزة قبل كده', en: 'C Picks the closest of some pre-prepared template sentences' },
               { ar: 'D بيفهم المعنى كامل ويرجّع الرد الصح الوحيد', en: 'D Fully understands and returns the one correct reply' },

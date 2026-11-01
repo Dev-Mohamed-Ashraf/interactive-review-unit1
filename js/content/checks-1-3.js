@@ -36,7 +36,7 @@
         { text: { ar: 'فتح قفل الموبايل بوشّك مثال على التعرف على الوجه.', en: 'Unlocking your phone with your face is face recognition.' }, answer: true },
         { text: { ar: 'الترجمة الآلية لازم مترجم إنسان يراجع كل جملة عشان تشتغل.', en: 'Machine translation needs a human to check every sentence to work.' }, answer: false, explain: { ar: 'الترجمة الآلية بتترجم __تلقائيًا__ (زي Google Translate) — وإن كانت المراجعة مفيدة في الحاجات المهمة.', en: 'It translates __automatically__ (e.g. Google Translate) — though checking helps for important texts.' } },
         { text: { ar: 'المساعد الصوتي بيتعرّف على الصوت ويفهم الأمر وينفّذه.', en: 'A voice assistant recognises speech, understands and executes the command.' }, answer: true },
-        { text: { ar: 'أنظمة التوصية بتعرض لكل المستخدمين نفس التوصيات بالظبط.', en: 'Recommenders show every user exactly the same suggestions.' }, answer: false, explain: { ar: 'التوصيات __مخصّصة لكل شخص__ حسب سلوكه.', en: 'Suggestions are __personal__, based on each user’s behaviour.' } },
+        { text: { ar: 'أنظمة التوصية بتعرض لكل المستخدمين نفس التوصيات بالضبط.', en: 'Recommenders show every user exactly the same suggestions.' }, answer: false, explain: { ar: 'التوصيات __مخصّصة لكل شخص__ حسب سلوكه.', en: 'Suggestions are __personal__, based on each user’s behaviour.' } },
       ],
     }),
   ]);
