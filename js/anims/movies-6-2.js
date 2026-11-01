@@ -54,12 +54,12 @@
     ${U.pill('pr', 1060, 610, '🔮 ' + L('بكرة 35° ← نتوقّع ~165 علبة', 'Tomorrow 35° → expect ~165 tubs'), 't-green')}
 
     ${U.pill('eq', 1060, 180, '📈 y = a x + b — ' + L('خط الانحدار', 'the regression line'), 'solid')}
-    ${U.pill('rs', 1060, 280, '📏 ' + L('المتبقّي = الفعلي − الخط', 'Residual = actual − line'), 't-pink')}
+    ${U.pill('rs', 1060, 280, '📏 ' + L('المتبقّي = الفعلي − المتوقّع', 'Residual = actual − line'), 't-pink')}
     ${U.box('ls', 1060, 390, 780, 't-amber', { h: L('طريقة المربعات الصغرى', 'Least squares'), p: L('نختار a وb اللي بيقلّلوا مجموع مربعات المتبقيات', 'pick a and b that minimize the sum of squared residuals'), s: L('الانحدار البسيط = متغير تفسيري واحد', 'simple regression = one explanatory variable') })}
 
-    ${[['📐', L('المساحة', 'Floor area'), 'x₁'], ['🗓️', L('عمر المبنى', 'Building age'), 'x₂'], ['🚉', L('البعد عن المحطة', 'Distance to station'), 'x₃']]
+    ${[['📐', L('الحجم', 'Floor area'), 'x₁'], ['🗓️', L('عمر المبنى', 'Building age'), 'x₂'], ['🚉', L('البعد عن المحطة', 'Distance to station'), 'x₃']]
       .map(([e, t, x], k) => U.pill('in' + k, 90, 180 + k * 95, e + ' ' + t + ' (' + x + ')', 't-blue')).join('')}
-    ${U.box('eq2', 640, 200, 620, 't-violet', { h: '🏠 ' + L('سعر المسكن', 'House price'), p: '<span class="code">y = a₁x₁ + a₂x₂ + a₃x₃ + b</span>', s: L('كل معامل = قوة تأثير متغيره · b = نقطة التقاطع', 'each coefficient = its variable’s weight · b = intercept') })}
+    ${U.box('eq2', 640, 200, 620, 't-violet', { h: '🏠 ' + L('سعر المنزل', 'House price'), p: '<span class="code">y = a₁x₁ + a₂x₂ + a₃x₃ + b</span>', s: L('كل معامل = تغيّر التنبؤ مع زيادة وحدة · b = نقطة التقاطع', 'each coefficient = its variable’s weight · b = intercept') })}
     ${U.emo('house', 1380, 190, 200, 150, '🏠')}
     ${U.box('cs', 90, 490, 820, 't-amber', { h: L('بسيط: متغير تفسيري واحد', 'Simple: one explanatory variable'), p: L('بسيط وسهل التفسير — علاقة بين متغيرين باختصار', 'simple, easy to interpret — two variables concisely') })}
     ${U.box('cm', 1010, 490, 820, 't-violet', { h: L('متعدد: اتنين أو أكتر', 'Multiple: two or more'), p: L('بيعبّر عن علاقات معقّدة — النتيجة بتتأثّر بعوامل كتير', 'expresses complex relationships — many factors') })}
@@ -88,7 +88,7 @@
 
     ${U.art('ov', 90, 170, 580, 320, '0 0 580 320', OVER)}
     ${U.pill('ovg', 90, 510, '✅ ' + L('اتجاه بسيط', 'a simple trend'), 't-green')}
-    ${U.pill('ovw', 90, 600, '❌ ' + L('ملاءمة مفرطة = بتطارد الضوضاء', 'overfitting = chasing noise'), 't-red')}
+    ${U.pill('ovw', 90, 600, '❌ ' + L('ملاءمة مفرطة = بتطارد التشويش', 'overfitting = chasing noise'), 't-red')}
     ${['🔍 ' + L('النموذج مابيخلصش بإنشائه: أكّد الدقة والصلاحية للغرض', 'A model is not done when built: confirm accuracy and fit for purpose'), '📏 ' + L('ماتطبّقوش برّه مدى البيانات', 'Do not apply it outside the data’s range'), '🧮 ' + L('مش بـ R² لوحده — مع المؤشرات التانية', 'Not R² alone — with the other indicators'), '➕ ' + L('متغيرات أكتر ≠ نموذج أحسن', 'More variables ≠ a better model')]
       .map((t, k) => U.pill('k' + k, 760, 180 + k * 100, t, 't-slate')).join('')}
 

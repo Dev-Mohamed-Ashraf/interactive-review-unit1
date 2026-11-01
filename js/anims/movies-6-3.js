@@ -74,10 +74,10 @@
     ${U.art('g1', 90, 180, 350, 250, '0 0 350 250', BAR)}
     ${U.art('g2', 785, 180, 350, 250, '0 0 350 250', LN2)}
     ${U.art('g3', 1480, 180, 350, 250, '0 0 350 250', SC)}
-    ${U.box('g1b', 60, 450, 410, 't-blue', { h: L('أعمدة', 'Bar'), p: L('نقارن قيم', 'compare values') })}
-    ${U.box('g2b', 755, 450, 410, 't-green', { h: L('خطوط', 'Line'), p: L('تغيّر مع الزمن', 'change over time') })}
+    ${U.box('g1b', 60, 450, 410, 't-blue', { h: L('أعمدة', 'Bar'), p: L('نقارن فئات', 'compare values') })}
+    ${U.box('g2b', 755, 450, 410, 't-green', { h: L('خطوط', 'Line'), p: L('تغيّر عبر زمن أو ترتيب', 'change over time') })}
     ${U.box('g3b', 1450, 450, 410, 't-amber', { h: L('مبعثر', 'Scatter'), p: L('متغيرين كمّيين', 'two quantities') })}
-    ${U.pill('g12', 430, 640, L('دول بيناسبوا متغير أو اتنين — والاختيار حسب عدد المتغيرات ونوعها والغرض', 'These suit one or two variables — choose by number, type and purpose'), 't-slate')}
+    ${U.pill('g12', 430, 640, L('الاختيار حسب نوع البيانات والسؤال والجمهور وطريقة المقارنة', 'These suit one or two variables — choose by number, type and purpose'), 't-slate')}
 
     ${U.art('blob', 90, 170, 640, 400, '0 0 640 400', BLOB)}
     ${U.art('dens', 1150, 190, 640, 380, '0 0 640 380', DENS)}
@@ -98,7 +98,7 @@
     ${U.pill('ttl', 90, 600, '📝 ' + L('«فصل 3 جاب أعلى متوسط في الرياضيات»', '"Class 3 scored highest in maths"'), 'solid')}
     ${U.box('s1', 820, 180, 1010, 't-amber', { ic: '①', h: L('وضّح الرسالة', 'Clarify the message'), p: L('اللي عايز تقوله لازم يتقال في جملة واحدة — والعنوان يحمل الادعاء', 'what you want to say fits one sentence — the title carries the claim') })}
     ${U.box('s2', 820, 380, 1010, 't-blue', { ic: '②', h: L('اختار العناصر', 'Select the elements'), p: L('شيل اللي مالوش علاقة، ولوّن المهم بس والباقي باهت', 'remove what does not serve it; colour only the key part') })}
-    ${U.box('s3', 820, 580, 1010, 't-green', { ic: '③', h: L('معلومات داعمة', 'Supporting information'), p: L('عنوان · تسميات المحاور · الوحدات · ملاحظات', 'title · axis labels · units · notes') })}
+    ${U.box('s3', 820, 580, 1010, 't-green', { ic: '③', h: L('معلومات داعمة', 'Supporting information'), p: L('عنوان · تسميات المحاور · الوحدات · المصدر · ملاحظات', 'title · axis labels · units · notes') })}
 
     ${U.art('mis', 90, 170, 600, 360, '0 0 600 360', MIS)}
     ${U.pill('mw', 760, 190, '😱 ' + L('محور مش من صفر: 98 قصاد 100 تبان أضعاف!', 'Axis not from zero: 98 vs 100 looks huge!'), 't-red')}

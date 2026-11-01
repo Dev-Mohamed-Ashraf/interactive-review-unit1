@@ -50,7 +50,7 @@
     ${U.pill('ar2', 700, 380, L('➜', '⬅') + ' ' + L('نستنتج خصائص المجتمع', 'infer the population'), 't-blue')}
     ${U.pill('unc', 700, 500, '❓ ' + L('دايمًا فيه عدم يقين… نقيسه مش نخبّيه', 'always uncertain… measure it, don’t hide it'), 'solid')}
     ${U.pill('ap1', 90, 640, '📏 ' + L('التقدير: «قد إيه تقريبًا؟»', 'Estimation: "about how big?"'), 't-green')}
-    ${U.pill('ap2', 960, 640, '⚖️ ' + L('اختبار الفرضيات: «حقيقي ولا صدفة؟»', 'Hypothesis testing: "real or chance?"'), 't-violet')}
+    ${U.pill('ap2', 960, 640, '⚖️ ' + L('اختبار الفرضيات: «فيه دليل كافي ضد H₀؟»', 'Hypothesis testing: "real or chance?"'), 't-violet')}
 
     ${U.art('nl', 160, 170, 1600, 260, '0 0 1600 260', NUML)}
     ${U.pill('pt', 160, 470, '📍 ' + L('تقدير نقطي: المتوسط ≈ 168 سم (قيمة واحدة)', 'Point estimate: mean ≈ 168 cm (one value)'), 't-pink')}
@@ -78,8 +78,8 @@
     ${U.pill('cc', 330, 500, '🎓 ' + L('الحكم: الطريقة الجديدة بتحقّق متوسط أعلى (إحصائيًا)', 'Conclusion: the new method gives a higher mean (statistically)'), 't-green')}
 
     ${U.art('g', 160, 170, 1600, 200, '0 0 1600 200', GAUGE)}
-    ${U.pill('r1', 160, 430, '✅ p < α ' + L('← نرفض H₀ — النتيجة دالّة إحصائيًا', '→ reject H₀ — statistically significant'), 't-green')}
-    ${U.pill('r2', 160, 530, '➖ p ≥ α ' + L('← مانرفضش H₀ — مش دالّة', '→ do not reject H₀ — not significant'), 't-slate')}
+    ${U.pill('r1', 160, 430, '✅ p < α ' + L('← نرفض H₀ — النتيجة ذات دلالة إحصائية', '→ reject H₀ — statistically significant'), 't-green')}
+    ${U.pill('r2', 160, 530, '➖ p ≥ α ' + L('← مانرفضش H₀ — مش ذات دلالة', '→ do not reject H₀ — not significant'), 't-slate')}
     ${U.box('pdef', 1100, 410, 720, 't-pink', { h: L('القيمة الاحتمالية p', 'The p-value'), p: L('احتمال نتيجة متطرفة كده أو أكتر لو H₀ صح', 'chance of a result this extreme or more if H₀ holds'), s: L('α = الحد اللي بنرفض عنده H₀', 'α = the threshold for rejecting H₀') })}
 
     ${U.box('tt', 90, 170, 820, 't-blue', { ic: '📊', h: L('اختبار t', 't-test'), p: L('فيه فرق بين متوسطي مجموعتين؟', 'do two groups’ means differ?'), s: L('طريقة تعلّم جديدة ولا التقليدية؟', 'a new learning method vs the usual one?') })}
@@ -92,9 +92,9 @@
     ${U.pill('sw', 330, 420, '⚖️ ' + L('نقلّل α ← النوع الأول يقلّ… والتاني يزيد (مفاضلة)', 'Lower α → Type I falls… Type II rises (a trade-off)'), 'solid')}
     ${U.art('saw', 560, 520, 800, 180, '0 0 800 180', SAW)}
 
-    ${['❌ ' + L('p مش «احتمال إن H₀ صح»', 'p is not "the chance H₀ is true"'), '❌ ' + L('p صغيرة مش معناها «تأثير كبير»', 'a small p does not mean "a big effect"'), '❌ ' + L('p < 0.05 قاعدة للحكم، مش حقيقة مطلقة', 'p < 0.05 is a rule, not absolute truth'), '⚠️ ' + L('«دالّة إحصائيًا» ≠ «مهمة عمليًا»', '"significant" ≠ "important in practice"')]
+    ${['❌ ' + L('p مش «احتمال إن H₀ صح»', 'p is not "the chance H₀ is true"'), '❌ ' + L('p صغيرة مش معناها «تأثير كبير»', 'a small p does not mean "a big effect"'), '❌ ' + L('p < 0.05 قاعدة للحكم، مش حقيقة مطلقة', 'p < 0.05 is a rule, not absolute truth'), '⚠️ ' + L('«ذات دلالة إحصائية» ≠ «مهمة عمليًا»', '"significant" ≠ "important in practice"')]
       .map((t, k) => U.pill('w' + k, 90, 180 + k * 110, t, k === 3 ? 't-amber' : 't-red')).join('')}
-    ${U.box('ex', 1080, 180, 740, 't-blue', { ic: '🖱️', h: L('100,000 مستخدم', '100,000 users'), p: L('نسبة نقر 0.4% مقابل 0.5% ← دالّة!', 'click rate 0.4% vs 0.5% → significant!'), s: L('بس هل بتفرق في الربح؟ ده حكم تاني', 'but does it matter for profit? a separate judgment') })}
+    ${U.box('ex', 1080, 180, 740, 't-blue', { ic: '🖱️', h: L('100,000 مستخدم', '100,000 users'), p: L('نسبة نقر 0.4% مقابل 0.5% ← ذات دلالة!', 'click rate 0.4% vs 0.5% → significant!'), s: L('بس هل بتفرق في الربح؟ ده حكم تاني', 'but does it matter for profit? a separate judgment') })}
 
     ${U.hd(0, '🔎 ' + L('الاستدلال الإحصائي', 'Statistical inference'))}
     ${U.hd(1, '📍 ' + L('نقطي… ولا فاصل؟', 'Point… or interval?'))}
@@ -112,9 +112,9 @@
   <div id="f1-recap" class="mv-recap">
     ${U.hd(9, '💡 ' + L('الخلاصة', 'The point'))}
     ${B.card('x0', 70, 170, 410, 420, 'c-amber rc', { ic: '📏', p: L('نقطي = قيمة · فاصل = مدى + مستوى ثقة (جملة عن الطريقة)', 'Point = a value · interval = a range + a confidence level (about the method)') })}
-    ${B.card('x1', 530, 170, 410, 420, 'c-violet rc', { ic: '🪜', p: L('H₀ و H₁ ← α مسبقًا ← p ← نرفض H₀ لو p < α', 'H₀ & H₁ → α first → p → reject H₀ if p < α') })}
+    ${B.card('x1', 530, 170, 410, 420, 'c-violet rc', { ic: '🪜', p: L('H₀ و H₁ ← α مسبقًا ← p ← نرفض H₀ لو p ≤ α', 'H₀ & H₁ → α first → p → reject H₀ if p < α') })}
     ${B.card('x2', 990, 170, 410, 420, 'c-red rc', { ic: '🚨', p: L('النوع الأول = إنذار كاذب · النوع التاني = تفويت', 'Type I = false alarm · Type II = a miss') })}
-    ${B.card('x3', 1450, 170, 410, 420, 'c-green rc', { ic: '⚠️', p: L('دالّة إحصائيًا ≠ مهمة عمليًا', 'Statistically significant ≠ practically important') })}
+    ${B.card('x3', 1450, 170, 410, 420, 'c-green rc', { ic: '⚠️', p: L('ذات دلالة إحصائية ≠ مهمة عمليًا', 'Statistically significant ≠ practically important') })}
   </div>`,
     });
     const { q, Q, tl, at, IN, POP, OUT, SND, frame, sx } = M;
