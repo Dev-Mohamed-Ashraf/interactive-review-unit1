@@ -194,7 +194,7 @@
     ${U.box('i3', 1180, 240, 700, 't-amber', { ic: '🧱', h: L('المشكلة ①: الحد الفيزيائي', 'Problem ①: the physical limit'), p: L('الترانزستور صغر جدًا', 'the transistor got extremely small'), s: L('مش هينفع نصغّر للأبد', 'we cannot shrink forever') })}
 
     ${U.art('tun', 480, 230, 300, 260, '0 0 300 260', ART_TUNNEL)}
-    ${U.box('i4a', 800, 230, 520, 't-violet', { ic: '👻', h: L('② تأثير النفق الكمومي', '② Quantum tunnelling'), p: L('الإلكترون بيعدّي الحاجز العازل', 'electrons pass through the barrier'), s: L('المفتاح مابقاش «مقفول» بشكل موثوق', 'the switch is no longer reliably off') })}
+    ${U.box('i4a', 800, 230, 520, 't-violet', { ic: '👻', h: L('② تأثير النفق الكمومي', '② Quantum tunneling'), p: L('الإلكترون بيعدّي الحاجز العازل', 'electrons pass through the barrier'), s: L('المفتاح مابقاش «مقفول» بشكل موثوق', 'the switch is no longer reliably off') })}
     ${U.art('leak', 1360, 230, 340, 200, '0 0 340 200', ART_LEAK)}
     ${U.box('i4b', 1360, 440, 520, 't-blue', { ic: '💧', h: L('③ تيار التسرّب', '③ Leakage current'), p: L('تيار بيهرب والمفتاح مقفول', 'current escapes while off') })}
 
@@ -217,7 +217,7 @@
   <div id="mo-recap" class="mv-recap">
     ${U.hd(6, '💡 ' + L('الخلاصة', 'The point'))}
     ${U.box('r1', 1290, 140, 540, 't-blue', { ic: '📈', h: L('قانون مور', 'Moore’s Law'), p: L('الترانزستورات ×2 كل سنتين', 'transistors ×2 every 2 years') })}
-    ${U.box('r2', 690, 140, 540, 't-red', { ic: '🧱', h: L('المشاكل', 'The limits'), p: L('حد فيزيائي · نفق كمومي · تيار تسرّب', 'physical limit · tunnelling · leakage') })}
+    ${U.box('r2', 690, 140, 540, 't-red', { ic: '🧱', h: L('المشاكل', 'The limits'), p: L('حد فيزيائي · نفق كمومي · تيار تسرّب', 'physical limit · tunneling · leakage') })}
     ${U.box('r3', 90, 140, 540, 't-green', { ic: '🚀', h: L('الحلول', 'Solutions'), p: L('تعدد الأنوية · معالجة متوازية · تصميمات متخصصة', 'parallel processing · quantum computers') })}
     ${U.rp('rp1', 500, '<bdi class="code">N = N₀ × 2ⁿ</bdi>  ·  <bdi>' + L('n = عدد السنين ÷ 2', 'n = number of years ÷ 2') + '</bdi>', 't-amber')}
   </div>`,
@@ -357,7 +357,7 @@
     ${U.emo('ped', 1042, 384, 116, 80, '🚶')}
     ${U.box('i3', 1200, 230, 680, 't-blue', { ic: '🚗', h: L('القيادة الذاتية', 'Self-driving'), p: L('الذكاء الاصطناعي بيساعد في القيادة بأقل تدخل بشري', 'AI drives the car with no driver') })}
     ${U.pill('p3a', 1220, 480, '👀 ' + L('تشوف: كاميرات وحسّاسات', 'Sees: cameras & sensors'), 't-amber')}
-    ${U.pill('p3b', 1220, 560, '🧠 ' + L('تفكّر: تتعرّف وتقرّر', 'Thinks: recognises & decides'), 't-violet')}
+    ${U.pill('p3b', 1220, 560, '🧠 ' + L('تفكّر: تتعرّف وتقرّر', 'Thinks: recognizes & decides'), 't-violet')}
     ${U.pill('p3c', 1220, 640, '🦶 ' + L('تتصرّف: دريكسيون وفرامل', 'Acts: steering & brakes'), 't-green')}
 
     ${U.box('i4a', 1160, 230, 720, 't-red', { ic: '☁️', h: L('لو بعتنا للسحابة: حوالي 0.8 ثانية', 'Via the cloud: about 0.8 s'), p: L('العربية تمشي حوالي 13 متر قبل ما تفرمل ← خطر!', 'the car travels about 13 m before braking → danger!') })}

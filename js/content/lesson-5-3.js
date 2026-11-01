@@ -190,7 +190,7 @@ RV.lessons.add('5-3', {
             { q: { ar: '1. اسم بوابة البيانات المفتوحة للبنك الدولي؟', en: '1. The name of the World Bank’s open-data portal?' }, a: { ar: 'World Bank Open Data', en: 'World Bank Open Data' } },
             { q: { ar: '2. قواعد تعامل أجزاء البرامج مع بعض، وبتستخدم لجلب البيانات؟', en: '2. Rules by which software parts interact, also used to fetch data?' }, a: { ar: 'API', en: 'API' } },
             { q: { ar: '3. اذكر صيغة نصية شائعة ممكن الـAPI يستخدمها لتمثيل البيانات المهيكلة.', en: '3. The common data format returned by an API?' }, a: { ar: 'JSON', en: 'JSON' } },
-            { q: { ar: '4. ذكر معلومات المصدر بالطريقة اللي الترخيص أو معيار الاستشهاد بيطلبها؟', en: '4. Citing source information the way the licence or citation standard requires?' }, a: { ar: 'الإشارة إلى المصدر (الإسناد)', en: 'Source citation' } },
+            { q: { ar: '4. ذكر معلومات المصدر بالطريقة اللي الترخيص أو معيار الاستشهاد بيطلبها؟', en: '4. Citing source information the way the license or citation standard requires?' }, a: { ar: 'الإشارة إلى المصدر (الإسناد)', en: 'Source citation' } },
           ] },
         },
         {
@@ -313,7 +313,7 @@ RV.lessons.add('5-3', {
         {
           type: 'quiz', optional: true,
           q: { widget: 'essay', tag: { ar: 'فكّر كمهندس — الوصول للإنترنت', en: 'Think as an engineer — Internet access' },
-            prompt: { ar: 'لمشروع مدرسي عايز توضّح إزاي الوصول للإنترنت في مصر اتغيّر في 10 سنين مقارنة ببلدين جيران. ١) افحص مزوّدين (World Bank وUN Data): فيه أرقام الوصول للإنترنت حسب الدولة والسنة؟ وآخر سنة متاحة؟ ٢) قارنهم في نقطة مش في جدول الدرس (البيانات بترجع لورا قد إيه، أو الشروط تسمح بنشر الرسم؟) وسمِّ خطر لاختيار مصدر غلط. ٣) اختار مزوّد وطريقة جلب واكتب سطر المصدر.', en: 'For a school project you want to show how Internet access in Egypt changed over 10 years versus two neighbours. 1) Check two providers (World Bank, UN Data): do they carry Internet-access figures by country and year? Latest year? 2) Compare them on a point not in the lesson table (how far back, or whether the terms allow publishing a chart) and name a risk of the wrong source. 3) Choose one provider and one fetch method and write the citation line.' },
+            prompt: { ar: 'لمشروع مدرسي عايز توضّح إزاي الوصول للإنترنت في مصر اتغيّر في 10 سنين مقارنة ببلدين جيران. ١) افحص مزوّدين (World Bank وUN Data): فيه أرقام الوصول للإنترنت حسب الدولة والسنة؟ وآخر سنة متاحة؟ ٢) قارنهم في نقطة مش في جدول الدرس (البيانات بترجع لورا قد إيه، أو الشروط تسمح بنشر الرسم؟) وسمِّ خطر لاختيار مصدر غلط. ٣) اختار مزوّد وطريقة جلب واكتب سطر المصدر.', en: 'For a school project you want to show how Internet access in Egypt changed over 10 years versus two neighbors. 1) Check two providers (World Bank, UN Data): do they carry Internet-access figures by country and year? Latest year? 2) Compare them on a point not in the lesson table (how far back, or whether the terms allow publishing a chart) and name a risk of the wrong source. 3) Choose one provider and one fetch method and write the citation line.' },
             points: [
               { ar: 'نبدأ من الأعمدة المطلوبة: دولة، سنة، نسبة الوصول.', en: 'Start from the fields needed: country, year, access rate.' },
               { ar: 'خطر: بيانات قديمة/ناقصة أو شروط تمنع النشر.', en: 'Risk: old/incomplete data or terms forbidding publication.' },

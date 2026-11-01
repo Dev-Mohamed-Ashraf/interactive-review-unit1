@@ -183,11 +183,11 @@
     ${B.svg('head', 130, 150, 380, 340, '0 0 380 340', HEAD(P, B))}
     ${B.svg('bot', 1410, 160, 340, 330, '0 0 300 300', ROBOT('#38bdf8'))}
     ${B.svg('arc', 520, 168, 880, 80, '0 0 880 80', B.mir(880, '<path d="M10 74 Q440 -40 840 70" fill="none" stroke="#c4b5fd" stroke-width="6" stroke-dasharray="16 12"/><path d="M816 46 L850 74 L808 82" fill="none" stroke="#c4b5fd" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>'))}
-    ${B.mid('cp', 116, '🔁 ' + L('الحاسب بيعيد إنتاج السلوك الذكي أو بينفّذه', 'the computer reproduces or performs intelligent behaviour'), 'c-violet')}
+    ${B.mid('cp', 116, '🔁 ' + L('الحاسب بيعيد إنتاج السلوك الذكي أو بينفّذه', 'the computer reproduces or performs intelligent behavior'), 'c-violet')}
     ${B.chip('k1', 560, 262, '🎓 ' + L('تعلّم', 'learning'), 'c-violet big', 280)}
     ${B.chip('k2', 560, 344, '🧩 ' + L('استدلال', 'reasoning'), 'c-violet big', 280)}
-    ${B.chip('k3', 560, 426, '⚖️ ' + L('حكم', 'judgement'), 'c-violet big', 280)}
-    ${B.card('def', 130, 540, 1660, 0, 'c-violet', { row: true, ic: '🤖', h: L('الذكاء الاصطناعي (AI)', 'Artificial intelligence (AI)'), p: L('مصطلح عام لتقنيات بتعيد إنتاج أو تنفّذ سلوك إنساني ذكي (تعلّم · استدلال · حكم) على الحاسب', 'a general term for technologies that reproduce or perform intelligent human behaviour (learning · reasoning · judgement) on a computer') })}
+    ${B.chip('k3', 560, 426, '⚖️ ' + L('حكم', 'judgment'), 'c-violet big', 280)}
+    ${B.card('def', 130, 540, 1660, 0, 'c-violet', { row: true, ic: '🤖', h: L('الذكاء الاصطناعي (AI)', 'Artificial intelligence (AI)'), p: L('مصطلح عام لتقنيات بتعيد إنتاج أو تنفّذ سلوك إنساني ذكي (تعلّم · استدلال · حكم) على الحاسب', 'a general term for technologies that reproduce or perform intelligent human behavior (learning · reasoning · judgment) on a computer') })}
     ${B.chip('e1', 170, 714, '🗣️ ' + L('التعرّف على الكلام', 'speech recognition'), 'c-blue', 480)}
     ${B.chip('e2', 720, 714, '🖼️ ' + L('التعرّف على الصور', 'image recognition'), 'c-blue', 480)}
     ${B.chip('e3', 1270, 714, '🌐 ' + L('الترجمة', 'translation'), 'c-blue', 480)}
@@ -199,9 +199,9 @@
     ${B.svg('r2', 1010, 170, 300, 300, '0 0 300 300', ROBOT('#fbbf24'))}
     ${B.svg('r3', 1440, 170, 300, 300, '0 0 300 300', ROBOT('#f472b6'))}
     ${B.chip('rl1', 540, 494, '🌐 ' + L('بيترجم بس', 'translates only'), 'c-teal', 380)}
-    ${B.chip('rl2', 970, 494, '🖼️ ' + L('بيتعرّف على الصور بس', 'recognises images only'), 'c-amber', 380)}
+    ${B.chip('rl2', 970, 494, '🖼️ ' + L('بيتعرّف على الصور بس', 'recognizes images only'), 'c-amber', 380)}
     ${B.chip('rl3', 1400, 494, '✉️ ' + L('بيفرز السبام بس', 'sorts spam only'), 'c-pink', 380)}
-    ${B.chip('req', 560, 600, '🖼️ ' + L('اتعرّف على الصورة دي!', 'recognise this photo!'), 'c-slate', 340)}
+    ${B.chip('req', 560, 600, '🖼️ ' + L('اتعرّف على الصورة دي!', 'recognize this photo!'), 'c-slate', 340)}
     ${B.big('qm', 680, 196, 100, 120, '❓')}
 
     <div id="ai-R1" class="l12u l12-ring c-blue later" style="left:200px;top:128px;width:1520px;height:622px"></div>
@@ -239,7 +239,7 @@
     ${U.hd(4, '⚠️ ' + L('متداخلة… مش متوازية!', 'Nested… not parallel!'))}
     ${U.nt(0, '🤔 ' + L('كلهم ذكاء اصطناعي… بس مش من نفس النوع!', 'All of them are AI… but not the same kind!'), 'warn')}
     ${U.nt(2, L('كل AI النهارده بارع في مهمة واحدة — مش ذكاء عام يعمل كل حاجة زي الإنسان', 'Every AI today is expert at ONE task — not a general intelligence like a human'), 'warn')}
-    ${U.nt(3, '<bdi class="code">AI ⊃ ML ⊃ DL ⊃ GenAI</bdi> — ' + L('من الأوسع للأكثر تخصصًا', 'from the broadest to the most specialised'), 'ok')}
+    ${U.nt(3, '<bdi class="code">AI ⊃ ML ⊃ DL ⊃ GenAI</bdi> — ' + L('من الأوسع للأكثر تخصصًا', 'from the broadest to the most specialized'), 'ok')}
   </div>`,
     });
     const { q, Q, tl, IN, POP, OUT, SND, frame, sx } = M;
@@ -360,7 +360,7 @@
     ${B.ch('ch-hk', 950, 128, 'sm')}
 
     ${DATA.map(([e, t, s], k) => B.mail('d' + k, 268 + (k % 3) * 295, 140 + Math.floor(k / 3) * 92, 287, t, s ? SP : OK, 'mini')).join('')}
-    ${B.chip('dlb', 280, 430, '🗂️ ' + L('بيانات متعلّم عليها: كل إيميل ومعاه الإجابة الصح', 'labelled data: every e-mail with its right answer'), 'c-amber')}
+    ${B.chip('dlb', 280, 430, '🗂️ ' + L('بيانات متعلّم عليها: كل إيميل ومعاه الإجابة الصح', 'labeled data: every e-mail with its right answer'), 'c-amber')}
 
     ${B.card('pat', 110, 140, 990, 410, 'c-violet', { h: '🔍 ' + L('الأنماط اللي اكتشفها بنفسه', 'The patterns it found by itself'),
       html: row('«' + L('فلوس ببلاش', 'free money') + '»', 92, 's', L('سبام', 'spam')) + row('«' + L('جايزة', 'prize') + '»', 85, 's', L('سبام', 'spam')) + row('«' + L('واجب · حصة', 'homework · class') + '»', 90, 'o', L('سليم', 'OK')) })}
@@ -564,7 +564,7 @@
     ${B.ch('ch-fm', 60, 470, 'md')}
     ${range(6).map((k) => B.card('lv' + k, 60 + (k % 3) * 176, 130 + Math.floor(k / 3) * 180, 164, 168, (k % 2 ? 'c-red' : 'c-green') + ' tile',
       { html: LEAF(k % 2 ? '#a3a33a' : '#22c55e', k % 2 ? '#78350f' : '') + `<span class="k">${k % 2 ? L('مريض', 'sick') : L('سليم', 'healthy')}</span>` })).join('')}
-    ${B.chip('lbl', 300, 500, '🏷️ ' + L('آلاف الصور المعنونة', 'thousands of labelled photos'), 'c-amber')}
+    ${B.chip('lbl', 300, 500, '🏷️ ' + L('آلاف الصور المعنونة', 'thousands of labeled photos'), 'c-amber')}
     ${B.svg('net2', 760, 180, 600, 360, '0 0 600 360', NET([3, 4, 4, 2], 600, 360, B, { r: 22 }))}
     ${B.card('nw1', 320, 590, 164, 168, 'c-slate tile', { html: LEAF('#a3a33a', '#78350f') + `<span class="k">${L('جديدة', 'new')}</span>` })}
     ${B.card('nw2', 320, 590, 164, 168, 'c-slate tile', { html: LEAF('#22c55e', '#c026d3') + `<span class="k">${L('جديدة', 'new')}</span>` })}
@@ -572,17 +572,17 @@
     ${B.card('rb', 1420, 170, 440, 360, 'c-red', { ic: LEAF('#22c55e', '#c026d3'), h: L('مرض نادر! 🤷‍♂️', 'A rare disease! 🤷‍♂️'), p: L('مريضة 52% · سليمة 48%', 'sick 52% · healthy 48%'), k: '❓ ' + L('محتار', 'unsure') })}
     ${B.stamp('oops', 1360, 566, '⚠️ ' + L('ممكن يغلط!', 'it may be wrong!'))}
 
-    ${U.hd(0, '🧠 ' + L('الشبكة العصبية: مستوحاة من خلايا المخ', 'Neural network: modelled on brain cells'))}
+    ${U.hd(0, '🧠 ' + L('الشبكة العصبية: مستوحاة من خلايا المخ', 'Neural network: modeled on brain cells'))}
     ${U.hd(1, '⚡ ' + L('الإشارة بتعدّي طبقة ورا طبقة', 'Signals pass layer by layer'))}
     ${U.hd(2, '🏋️ ' + L('التدريب: الأوزان بتتضبط شوية شوية', 'Training: the weights are tuned little by little'))}
     ${U.hd(3, '📚 ' + L('التعلّم العميق = طبقات كتير + بيانات ضخمة', 'Deep learning = many layers + huge data'))}
     ${U.hd(4, '🌾 ' + L('مثال جديد: مزارع بيفحص محصوله', 'New context: a farmer checks his crops'))}
-    ${U.nt(0, L('مكوّنات بسيطة كتير متوصّلة في طبقات ← بتتعلّم من البيانات وتاخد أحكام معقّدة', 'many simple units linked in layers → they learn from data and make complex judgements'), 'ok')}
+    ${U.nt(0, L('مكوّنات بسيطة كتير متوصّلة في طبقات ← بتتعلّم من البيانات وتاخد أحكام معقّدة', 'many simple units linked in layers → they learn from data and make complex judgments'), 'ok')}
     ${U.nt(3, '⭐ ' + L('الشبكات العصبية هي التقنية الأساسية ورا التقدّم الكبير في الذكاء الاصطناعي', 'neural networks are the core technology behind recent AI progress'), 'ok')}
   </div>
   <div id="dl-recap" class="mv-recap">
     ${U.hd(5, '💡 ' + L('الخلاصة', 'The point'))}
-    ${[['🕸️', L('شبكة عصبية', 'Neural network'), L('مستوحاة من خلايا المخ · طبقات: إدخال ← مخفية ← إخراج', 'modelled on neurons · input → hidden → output'), 'c-violet'],
+    ${[['🕸️', L('شبكة عصبية', 'Neural network'), L('مستوحاة من خلايا المخ · طبقات: إدخال ← مخفية ← إخراج', 'modeled on neurons · input → hidden → output'), 'c-violet'],
       ['⚖️', L('الأوزان', 'Weights'), L('كل وصلة ليها وزن… بيتضبط بالتدريب', 'every link has a weight… tuned by training'), 'c-amber'],
       ['📚', L('التعلّم العميق', 'Deep learning'), L('جوّه التعلّم الآلي: طبقات كتير + بيانات ضخمة', 'inside ML: many layers + huge data'), 'c-blue'],
       ['⚠️', L('الحاجة النادرة', 'Rare cases'), L('لو نادرة في بياناته ← غالبًا هيغلط', 'rare in its data → it will likely err'), 'c-red']]

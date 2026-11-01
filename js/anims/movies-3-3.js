@@ -23,7 +23,7 @@
       cls: 'mv-web mv-l12 mv-l33', prefix: P, beats: 9,
       html: (L) => `
   <div id="f3-s0" class="mv-stage">
-    ${[['🏗️', 'HTML', L('البنية (الهيكل)', 'structure'), 'c-amber'], ['🎨', 'CSS', L('المظهر', 'appearance'), 'c-blue'], ['💡', 'JavaScript', L('السلوك والتفاعل', 'behaviour'), 'c-violet']]
+    ${[['🏗️', 'HTML', L('البنية (الهيكل)', 'structure'), 'c-amber'], ['🎨', 'CSS', L('المظهر', 'appearance'), 'c-blue'], ['💡', 'JavaScript', L('السلوك والتفاعل', 'behavior'), 'c-violet']]
       .map(([ic, h, p, c], k) => B.card('t' + k, 70 + k * 420, 170, 390, 300, c, { ic, h: `<bdi>${h}</bdi>`, p })).join('')}
     ${B.svg('h0', 1380, 150, 420, 380, '0 0 400 360', HOUSE)}
     ${B.mid('tog', 560, '🧩 ' + L('كل تقنية ليها دور مختلف… ومش لازم الصفحة تستخدم التلاتة مع بعض', 'each has its own role… the page is made with all of them together'), 'c-slate big')}
@@ -41,9 +41,9 @@
     ${B.chip('an1', 1460, 560, '🎨 ' + L('CSS = الديكور', 'CSS = the decoration'), 'c-blue', 400)}
     ${B.chip('an2', 1460, 560, '💡 ' + L('JS = الكهربا والسباكة', 'JS = electricity & plumbing'), 'c-violet', 400)}
     ${B.chip('d0', 70, 620, 'HTML: ' + L('بيوصف العناصر: عناوين · فقرات · صور · روابط', 'describes elements: headings · paragraphs · images · links'), 'c-amber big')}
-    ${B.chip('d1', 70, 620, 'CSS: ' + L('الألوان · التخطيط · الحجم · الخطوط', 'colours · layout · size · fonts'), 'c-blue big')}
+    ${B.chip('d1', 70, 620, 'CSS: ' + L('الألوان · التخطيط · الحجم · الخطوط', 'colors · layout · size · fonts'), 'c-blue big')}
     ${B.chip('d2', 70, 620, 'JS: ' + L('بيرد على الضغط وبيحدّث جزء بس من الشاشة', 'responds to clicks and updates only part of the screen'), 'c-violet big')}
-    ${B.chip('trp', 70, 700, '⚠️ ' + L('فخ: «CSS بيضيف السلوك» ← غلط', 'trap: “CSS adds behaviour” → false'), 'c-red')}
+    ${B.chip('trp', 70, 700, '⚠️ ' + L('فخ: «CSS بيضيف السلوك» ← غلط', 'trap: “CSS adds behavior” → false'), 'c-red')}
   </div>
 
   <div id="f3-s4" class="mv-stage">
@@ -80,7 +80,7 @@
     ${U.hd(0, '🧱 ' + L('الصفحة = تلات تقنيات', 'A page = three technologies'))}
     ${U.hd(1, '🏗️ ' + L('HTML: البنية', 'HTML: structure'))}
     ${U.hd(2, '🎨 ' + L('CSS: المظهر', 'CSS: appearance'))}
-    ${U.hd(3, '💡 ' + L('JavaScript: السلوك والتفاعل', 'JavaScript: behaviour'))}
+    ${U.hd(3, '💡 ' + L('JavaScript: السلوك والتفاعل', 'JavaScript: behavior'))}
     ${U.hd(4, '🏷️ ' + L('HTML الدلالية', 'Semantic HTML'))}
     ${U.hd(5, '🎯 ' + L('فوايد HTML الدلالية', 'Why semantic HTML?'))}
     ${U.hd(6, '📱 ' + L('التصميم المتجاوب', 'Responsive design'))}

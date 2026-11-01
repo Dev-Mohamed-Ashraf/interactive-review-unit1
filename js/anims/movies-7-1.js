@@ -59,7 +59,7 @@
     ${U.pill('la', 760, 190, '🟦 ' + L('وسم: «عادي»', 'Label: "normal"'), 't-blue')}
     ${U.pill('lb', 1120, 190, '🟥 ' + L('وسم: «مزعج»', 'Label: "spam"'), 't-red')}
     ${U.pill('ltr', 760, 300, '① ' + L('التدريب: يلاقي حد فاصل من الأزواج (إدخال + وسم)', 'Training: find a boundary from (input + label) pairs'), 't-amber')}
-    ${U.pill('lpr', 760, 400, '② ' + L('التنبّؤ: إيميل جديد من غير وسم ← «عادي»', 'Prediction: a new unlabelled email → "normal"'), 't-green')}
+    ${U.pill('lpr', 760, 400, '② ' + L('التنبّؤ: إيميل جديد من غير وسم ← «عادي»', 'Prediction: a new unlabeled email → "normal"'), 't-green')}
     ${U.box('clb', 760, 510, 1060, 't-blue', { h: L('التصنيف', 'Classification'), p: L('نتنبّأ البيانات دي تبع أنهي فئة — مثال للتعلّم الخاضع للإشراف', 'predict which class the input belongs to — supervised learning') })}
 
     ${[['🔤', L('نوع الكلمات في الإيميل', 'Kinds of words in the email')], ['📮', L('عنوان المرسِل', 'Sender address')], ['📏', L('طول النص', 'Text length')]]

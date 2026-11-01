@@ -57,7 +57,7 @@ RV.lessons.add('6-1', {
             items: [
               { text: { ar: 'متوسط الطول ≈ 168 سم', en: 'Mean height ≈ 168 cm' }, group: 0 },
               { text: { ar: 'المتوسط بين 166 و170 سم بثقة 95%', en: 'The mean is 166–170 cm at 95% confidence' }, group: 1 },
-              { text: { ar: 'نسبة المؤيدين ≈ 62%', en: 'Share in favour ≈ 62%' }, group: 0 },
+              { text: { ar: 'نسبة المؤيدين ≈ 62%', en: 'Share in favor ≈ 62%' }, group: 0 },
               { text: { ar: 'وقت المذاكرة بين 2.5 و3.1 ساعة', en: 'Study time between 2.5 and 3.1 hours' }, group: 1 },
             ],
             explain: { ar: 'رقم واحد = __نقطي__ · مدى = __فاصل__ (فترة ثقة).', en: 'One number = __point__ · a range = __interval__ (confidence interval).' } },
@@ -341,7 +341,7 @@ RV.lessons.add('6-1', {
         {
           type: 'quiz', optional: true,
           q: { widget: 'essay', tag: { ar: 'في سياق جديد', en: 'In a new context' },
-            prompt: { ar: 'متجر جرّب لونين لزرار الدفع على 200,000 زائر، واللون الجديد نسبة نقره أعلى بـ 0.05 نقطة مئوية، وp = 0.01 عند مستوى دلالة 5%. النتيجة ذات دلالة إحصائية؟ واشرح ليه المتجر ممكن برضه مايغيّرش الزرار.', en: 'A shop tested two pay-button colours on 200,000 visitors; the new colour’s click rate is 0.05 points higher, with p = 0.01 at a 5% level. Is it significant? Why might the shop still not change the button?' },
+            prompt: { ar: 'متجر جرّب لونين لزرار الدفع على 200,000 زائر، واللون الجديد نسبة نقره أعلى بـ 0.05 نقطة مئوية، وp = 0.01 عند مستوى دلالة 5%. النتيجة ذات دلالة إحصائية؟ واشرح ليه المتجر ممكن برضه مايغيّرش الزرار.', en: 'A shop tested two pay-button colors on 200,000 visitors; the new color’s click rate is 0.05 points higher, with p = 0.01 at a 5% level. Is it significant? Why might the shop still not change the button?' },
             points: [{ ar: 'أيوه ذات دلالة (0.01 < 0.05).', en: 'Yes, significant (0.01 < 0.05).' }, { ar: 'الفرق ضئيل جدًا عمليًا مع عينة ضخمة.', en: 'The difference is tiny in practice with a huge sample.' }, { ar: 'التكلفة/الربح حكم منفصل.', en: 'Cost/profit is a separate judgment.' }],
             model: { ar: 'أيوه، النتيجة __ذات دلالة إحصائية__ لأن p = 0.01 < α = 0.05، فنرفض «مفيش فرق». بس مع 200,000 زائر حتى فرق __ضئيل جدًا__ (0.05 نقطة مئوية) بيبقى ذو دلالة. المتجر ممكن مايغيّرش الزرار لأن الفرق ده تقريبًا مالوش أثر على الربح، وتكلفة التغيير (تصميم، اختبار، تعارض مع هوية الموقع) ممكن تكون أكبر من فايدته. ذات دلالة إحصائية ≠ مهمة عمليًا.', en: 'Yes, the result is __statistically significant__ because p = 0.01 < α = 0.05, so we reject "no difference". But with 200,000 visitors even a __tiny__ difference (0.05 points) becomes significant. The shop might not change the button because the difference barely affects profit, and the cost of changing (design, testing, clashing with the brand) could outweigh the benefit. Statistically significant ≠ practically important.' } },
         },

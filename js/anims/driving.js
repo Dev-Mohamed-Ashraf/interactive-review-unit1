@@ -75,11 +75,11 @@
     const wheel = h('div', { class: 'hud-wheel' }, api.icon('compass'));
     const brake = h('div', { class: 'hud-brake' }, h('i'));
     const hud = h('div', { class: 'drive-hud' },
-      h('div', { class: 'hud-item' }, wheel, h('small', null, t({ ar: 'دريكسيون', en: 'steering' }))),
+      h('div', { class: 'hud-item' }, wheel, h('small', null, t({ ar: 'عجلة القيادة', en: 'steering' }))),
       h('div', { class: 'hud-item' }, brake, h('small', null, t({ ar: 'فرامل', en: 'brake' }))),
       h('div', { class: 'hud-item hud-speed' }, speedV, h('small', null, 'km/h')));
     const think = h('div', { class: 'drive-think' }, api.icon('brain'), h('span'));
-    const noDriver = h('div', { class: 'stage-label drive-nodriver' }, '🚗 ', t({ ar: 'مفيش سواق — الذكاء الاصطناعي هو اللي سايق', en: 'No driver — AI is driving' }));
+    const noDriver = h('div', { class: 'stage-label drive-nodriver' }, '🚗 ', t({ ar: 'الذكاء الاصطناعي بيساعد في القيادة بأقل تدخل بشري', en: 'No driver — AI is driving' }));
     stage.append(hud, think, noDriver);
 
     // perpetual motion

@@ -35,8 +35,8 @@
       items: [
         { text: { ar: 'كل تعلّم عميق هو تعلّم آلي.', en: 'All deep learning is machine learning.' }, answer: true },
         { text: { ar: 'كل ذكاء اصطناعي هو تعلّم عميق.', en: 'All AI is deep learning.' }, answer: false, explain: { ar: 'الـAI هو الأوسع؛ التعلّم العميق __جزء__ جوّاه (جوّه التعلّم الآلي).', en: 'AI is the widest; deep learning is only __a part__ of it (inside ML).' } },
-        { text: { ar: 'الذكاء الاصطناعي بيعيد إنتاج سلوك إنساني ذكي زي التعلّم والاستدلال والحكم.', en: 'AI reproduces intelligent human behaviour such as learning, reasoning and judgment.' }, answer: true },
-        { text: { ar: 'الذكاء التوليدي هو الدايرة الأوسع اللي فيها كل الأنواع.', en: 'Generative AI is the widest circle that contains all the others.' }, answer: false, explain: { ar: 'بالعكس: هو __الأكثر تخصصًا__ — الدايرة الصغيرة جوّه الكل.', en: 'The opposite: it is the __most specialised__ — the smallest circle inside all.' } },
+        { text: { ar: 'الذكاء الاصطناعي بيعيد إنتاج سلوك إنساني ذكي زي التعلّم والاستدلال والحكم.', en: 'AI reproduces intelligent human behavior such as learning, reasoning and judgment.' }, answer: true },
+        { text: { ar: 'الذكاء التوليدي هو الدايرة الأوسع اللي فيها كل الأنواع.', en: 'Generative AI is the widest circle that contains all the others.' }, answer: false, explain: { ar: 'بالعكس: هو __الأكثر تخصصًا__ — الدايرة الصغيرة جوّه الكل.', en: 'The opposite: it is the __most specialized__ — the smallest circle inside all.' } },
       ],
     }),
   ]);
@@ -58,13 +58,13 @@
       widget: 'mcq',
       prompt: { ar: 'عايز تدرّب نموذج يفرّق بين صور القطط والكلاب. محتاج إيه أساسًا؟', en: 'You want to train a model to tell cats from dogs. What do you mainly need?' },
       options: [
-        { ar: 'صور كتير متعلّم عليها «قطة» أو «كلب»', en: 'Many photos labelled "cat" or "dog"' },
+        { ar: 'صور كتير متعلّم عليها «قطة» أو «كلب»', en: 'Many photos labeled "cat" or "dog"' },
         { ar: 'قواعد مكتوبة لشكل ودن ووش كل حيوان', en: 'Written rules for each animal’s ears and face' },
         { ar: 'كاميرا دقتها أعلى من كاميرا الموبايل', en: 'A camera sharper than a phone camera' },
         { ar: 'إنترنت أسرع عشان الصور تتحمّل بسرعة', en: 'Faster Internet so the photos load quickly' },
       ],
       answer: 0,
-      explain: { ar: 'التعلّم الآلي = __أمثلة متعلّم عليها__ والنموذج يكتشف الأنماط بنفسه — من غير قواعد مكتوبة بالإيد.', en: 'ML = __labelled examples__; the model finds the patterns itself — no hand-written rules.' },
+      explain: { ar: 'التعلّم الآلي = __أمثلة متعلّم عليها__ والنموذج يكتشف الأنماط بنفسه — من غير قواعد مكتوبة بالإيد.', en: 'ML = __labeled examples__; the model finds the patterns itself — no hand-written rules.' },
     }),
     q(3, {
       widget: 'tf',

@@ -18,7 +18,7 @@ RV.lessons.add('1-1', {
   objectives: [
     { ar: 'أشرح المراحل الرئيسية في تطور تكنولوجيا المعلومات وأثرها في المجتمع.', en: 'Explain the major stages in the development of IT and their impact on society.' },
     { ar: 'أذكر أمثلة على التغيرات الاجتماعية والتقنيات الناشئة وأشرح خصائصها.', en: 'Give examples of social changes and emerging technologies and explain their characteristics.' },
-    { ar: 'أحلّل أثر تقنية على فئات مختلفة من المجتمع وأبرّر قراري بالأدلة.', en: "Calculate transistor counts for any year using Moore's Law." },
+    { ar: 'أحلّل أثر تقنية على فئات مختلفة من المجتمع وأبرّر قراري بالأدلة.', en: "Analyze a technology's impact on different groups and justify the decision with evidence." },
   ],
 
   stations: [
@@ -99,10 +99,10 @@ RV.lessons.add('1-1', {
             { ar: '🔬 جوّه كل موبايل ولابتوب __شريحة (دائرة متكاملة)__ فيها مليارات __الترانزستورات__ — والترانزستور = __مفتاح صغير جدًا__: شغّال/مقفول = 1/0.', en: '🔬 Inside every phone and laptop is a __chip (integrated circuit)__ with billions of __transistors__ — a transistor = __a tiny switch__: on/off = 1/0.' },
             { ar: '📈 **قانون مور:** عدد الترانزستورات في الدائرة المتكاملة __بيتضاعف كل سنتين تقريبًا__ — من 2,300 (Intel 4004 سنة 1971) لأكتر من __100 مليار__ النهارده.', en: '📈 **Moore’s Law:** the number of transistors in an integrated circuit __doubles about every two years__ — from 2,300 (Intel 4004, 1971) to over __100 billion__ today.' },
             { ar: '⚠️ القانون بيتكلم عن __عدد الترانزستورات__ — مش سرعة الإنترنت ولا سرعة المعالج مباشرةً. وهو __«ملاحظة تجريبية»__ مش قانون فيزيائي.', en: '⚠️ The law is about the __number of transistors__ — not Internet speed nor CPU speed directly. And it is an __"empirical observation"__, not a law of physics.' },
-            { ar: '🧱 **المشكلة ①: الحد الفيزيائي** — الترانزستور بقى __صغير جدًا__ وقرّب من مقياس الذرات. مش هينفع نصغّر للأبد.', en: '🧱 **Problem ①: the physical limit** — transistors are now __under 10 nanometres__, only a few atoms wide! We cannot shrink forever.' },
-            { ar: '🔥 **المشكلة ②: تأثير النفق الكمومي** (الإلكترون بيعدّي الحاجز العازل) و**③: تيار التسرّب** (تيار بيهرب والمفتاح مقفول) ← __حرارة وطاقة أعلى__.', en: '🔥 **Problem ②: quantum tunnelling** (electrons pass through the insulating barrier) and **③: leakage current** (current escapes while off) → __more heat and power__.' },
+            { ar: '🧱 **المشكلة ①: الحد الفيزيائي** — الترانزستور بقى __صغير جدًا__ وقرّب من مقياس الذرات. مش هينفع نصغّر للأبد.', en: '🧱 **Problem ①: the physical limit** — transistors are now __under 10 nanometers__, only a few atoms wide! We cannot shrink forever.' },
+            { ar: '🔥 **المشكلة ②: تأثير النفق الكمومي** (الإلكترون بيعدّي الحاجز العازل) و**③: تيار التسرّب** (تيار بيهرب والمفتاح مقفول) ← __حرارة وطاقة أعلى__.', en: '🔥 **Problem ②: quantum tunneling** (electrons pass through the insulating barrier) and **③: leakage current** (current escapes while off) → __more heat and power__.' },
             { ar: '🚀 **الحلول:** __تعدد الأنوية والمعالجة المتوازية__ (أنوية كتير بتقسّم الشغل في نفس الوقت) و__تصميمات متخصصة__. أما __الحوسبة الكمومية__ فنهج مختلف لفئات محددة من المسائل، مش بديل لكل الحواسيب.', en: '🚀 **Solutions:** __parallel processing__ (many cores share the work at the same time) and __quantum computers__ (computing based on quantum mechanics).' },
-            { ar: '📌 **الخلاصة:** `N = N₀ × 2^n` و n = عدد السنين ÷ 2 — والقانون بيقرّب من حدّ فيزيائي (نفق كمومي + تيار تسرّب).', en: '📌 **The point:** `N = N₀ × 2^n` with n = years ÷ 2 — and the law is nearing a physical limit (tunnelling + leakage).' },
+            { ar: '📌 **الخلاصة:** `N = N₀ × 2^n` و n = عدد السنين ÷ 2 — والقانون بيقرّب من حدّ فيزيائي (نفق كمومي + تيار تسرّب).', en: '📌 **The point:** `N = N₀ × 2^n` with n = years ÷ 2 — and the law is nearing a physical limit (tunneling + leakage).' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
         },
@@ -118,14 +118,14 @@ RV.lessons.add('1-1', {
         },
         {
           type: 'scene',
-          title: { ar: 'أول معالج دقيق تجاري: Intel 4004', en: 'The first microprocessor: Intel 4004' },
+          title: { ar: 'أول معالج دقيق تجاري: Intel 4004', en: 'The first commercial microprocessor: Intel 4004' },
           visual: { anim: 'photo', props: { img: 'img/real-intel4004.webp', credit: 'Intel C4004 · Fouky / Wikimedia Commons · CC BY-SA 4.0', hotspots: [
             { x: 45, y: 30, icon: 'cpu', label: { ar: 'سنة 1971', en: 'Year 1971' }, beat: 0 },
             { x: 30, y: 75, icon: 'bolt', label: { ar: '2,300 ترانزستور بس!', en: 'only 2,300 transistors!' }, beat: 1 },
           ] } },
           beats: [
-            { ar: 'ده **Intel 4004** الحقيقي — أول معالج دقيق تجاري، اتعمل سنة __1971__.', en: 'This is the real **Intel 4004** — the first microprocessor, made in __1971__.' },
-            { ar: 'كان فيه __2,300 ترانزستور__ بس. موبايلك النهارده فيه أكتر من __15 مليار__ — وده قريب من اللي قانون مور بيتوقّعه.', en: 'It had only __2,300 transistors__. Your phone today has over __15 billion__ — exactly what Moore’s Law predicted.' },
+            { ar: 'ده **Intel 4004** الحقيقي — أول معالج دقيق تجاري، اتعمل سنة __1971__.', en: 'This is the real **Intel 4004** — the first commercial microprocessor, made in __1971__.' },
+            { ar: 'كان فيه __2,300 ترانزستور__ بس. موبايلك النهارده فيه أكتر من __15 مليار__ — وده قريب من اللي قانون مور بيتوقّعه.', en: 'It had only __2,300 transistors__. Your phone today has over __15 billion__ — close to what Moore’s Law predicts.' },
           ],
         },
         {
@@ -192,7 +192,7 @@ RV.lessons.add('1-1', {
             { ar: '**الخطوة 2 — عدد مرات التضاعف:** `n = 23 ÷ 2 = 11.5` __مرة__.', en: '**Step 2 — doublings:** n = 23 ÷ 2 = __11.5 times__.' },
             { ar: '**الخطوة 3 — نعوّض في القانون:** `N = 1,451 × 2^11.5`', en: '**Step 3 — substitute:** N = 1,451 × 2^11.5' },
             { ar: '**الخطوة 4 — نحسب 2^11.5:** = `2^11 × 2^0.5 = 2,048 × 1.414 ≈ 2,896` (يعني العدد اتضاعف حوالي 2,896 مرة!).', en: '**Step 4 — compute 2^11.5:** = 2^11 × 2^0.5 = 2,048 × 1.414 ≈ __2,896__ (the count grew about 2,896-fold!).' },
-            { ar: '**الناتج:** `N = 1,451 × 2,896 ≈ 4,202,096` __ترانزستور__ (حوالي 4.2 مليون).', en: '**Answer:** N = 1,451 × 2,896 ≈ __4,202,545 transistors__ (about 4.2 million).' },
+            { ar: '**الناتج:** `N = 1,451 × 2,896 ≈ 4,202,096` __ترانزستور__ (حوالي 4.2 مليون).', en: '**Answer:** N = 1,451 × 2,896 ≈ __4,202,096 transistors__ (about 4.2 million).' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'لو n فيها نص (زي 11.5)، استخدم `2^0.5 = √2 ≈ 1.414`.', en: 'If n has a half (like 11.5), use 2^0.5 = √2 ≈ 1.414.' } }],
         },
@@ -683,7 +683,7 @@ RV.lessons.add('1-1', {
         {
           type: 'quiz', optional: true,
           q: { widget: 'essay', tag: { ar: 'فكّر لحظة', en: 'Pause & think' },
-            prompt: { ar: 'لو بقى عندنا مجتمع بلا نقد بالكامل: اختار ميزة واحدة ومخاوف واحدة، واشرح السبب لكل واحدة.', en: 'If a fully cashless society were realised: one advantage and one concern, with reasons.' },
+            prompt: { ar: 'لو بقى عندنا مجتمع بلا نقد بالكامل: اختار ميزة واحدة ومخاوف واحدة، واشرح السبب لكل واحدة.', en: 'If a fully cashless society were realized: one advantage and one concern, with reasons.' },
             points: [
               { ar: 'ميزة + سببها (سرعة/أمان من السرقة/تتبع المصاريف)', en: 'An advantage + reason (speed / theft-safety / tracking spending)' },
               { ar: 'مخاوف + سببها (اللي معندوش موبايل أو حساب / الأعطال / الخصوصية)', en: 'A concern + reason (people without phones/accounts / outages / privacy)' },
@@ -762,7 +762,7 @@ RV.lessons.add('1-1', {
           { ar: 'شراء هدوم بالكاش من محل في المول', en: 'Buying clothes with cash in a mall shop' }, { ar: 'الشراء من متجر إنترنت مثل أمازون', en: 'Buying from an online store like Amazon' }, { ar: 'حضور حصة أونلاين مع مدرس من البيت', en: 'Attending an online lesson from home' }, { ar: 'دفع الفطار بالموبايل بـ QR في المدرسة', en: 'Paying for breakfast by QR at school' },
         ], answer: 1 } },
         { type: 'quiz', q: { widget: 'mcq', prompt: { ar: '4. لماذا تستخدم القيادة الذاتية الحوسبة الطرفية بدل السحابة؟', en: '4. Why does autonomous driving use edge computing instead of the cloud?' }, options: [
-          { ar: 'لأن الحوسبة الطرفية أرخص بكثير من السحابة', en: 'Because edge computing is much cheaper than the cloud' }, { ar: 'لتقليل كمية بيانات الإنترنت التي تستهلكها العربية', en: 'To cut down how much Internet data the car uses' }, { ar: 'لأن التأخير في القرار قد يؤثر في السلامة', en: 'Because the decision must be taken in under 0.1 s' }, { ar: 'لأن السحابة لا تستطيع تحليل صور الكاميرات', en: 'Because the cloud cannot analyse camera images' },
+          { ar: 'لأن الحوسبة الطرفية أرخص بكثير من السحابة', en: 'Because edge computing is much cheaper than the cloud' }, { ar: 'لتقليل كمية بيانات الإنترنت التي تستهلكها العربية', en: 'To cut down how much Internet data the car uses' }, { ar: 'لأن التأخير في القرار قد يؤثر في السلامة', en: 'Because even a 0.1 s delay can cause an accident' }, { ar: 'لأن السحابة لا تستطيع تحليل صور الكاميرات', en: 'Because the cloud cannot analyze camera images' },
         ], answer: 2 } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '5. الحوسبة الطرفية ترسل كل البيانات للسحابة أولًا قبل اتخاذ أي قرار.', en: '5. Edge computing sends all data to the cloud first.' }, answer: false }] } },
         { type: 'quiz', q: { widget: 'tf', items: [{ text: { ar: '6. الواقع المعزّز (AR) يستبدل العالم الحقيقي بالكامل ببيئة افتراضية.', en: '6. AR completely replaces the real world.' }, answer: false }] } },

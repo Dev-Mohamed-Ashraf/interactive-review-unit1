@@ -222,7 +222,7 @@ RV.lessons.add('7-3', {
               { ar: 'A طريقة لبناء نموذج لغة من الصفر بنصوص كتير', en: 'A A way to build a language model from scratch with text' },
               { ar: 'B ضبط النموذج لردود أحسن بتقييمات بشرية كمكافأة', en: 'B Tuning the model with human ratings as a reward' },
               { ar: 'C بتشيل بنية الشبكة العصبية وتبسّط المعالجة', en: 'C Removing the network structure to simplify processing' },
-              { ar: 'D بتخلّيه يحلّ مسائل رياضة عشان دقة الحساب', en: 'D Making it solve maths problems to improve arithmetic' },
+              { ar: 'D بتخلّيه يحلّ مسائل رياضة عشان دقة الحساب', en: 'D Making it solve math problems to improve arithmetic' },
             ],
             fixedOrder: true, answer: 1,
             explain: { ar: 'B صح.', en: 'B is right.' } },

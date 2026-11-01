@@ -88,7 +88,7 @@
       .map(([e, t, th], k) => U.pill('pb' + k, 1040, 200 + k * 110, e + ' ' + t, th)).join('')}
 
     ${U.box('del', 1010, 170, 840, 't-red', { h: '🗑️ ' + L('الحذف', 'Deletion'), p: L('نشيل السجل/المتغير — لما الفقد قليل ومايسببش تحيّز', 'remove the row/column — when few, scattered without bias') })}
-    ${U.box('imp', 1010, 340, 840, 't-green', { h: '🧩 ' + L('التعويض', 'Imputation'), p: L('نقدّر قيمة بديلة زي الوسيط — ونفحص أثرها في التوزيع', 'fill with mean, median or neighbour — if the trend stays') })}
+    ${U.box('imp', 1010, 340, 840, 't-green', { h: '🧩 ' + L('التعويض', 'Imputation'), p: L('نقدّر قيمة بديلة زي الوسيط — ونفحص أثرها في التوزيع', 'fill with mean, median or neighbor — if the trend stays') })}
     ${U.box('flg', 1010, 510, 840, 't-amber', { h: '🚩 ' + L('وضع علامة', 'Flagging'), p: L('نسيب مؤشر إنها كانت مفقودة — لما الغياب نفسه ليه معنى', 'mark it as missing — when the absence itself means something') })}
 
     ${U.art('spk', 1040, 160, 600, 320, '0 0 600 320', SPIKE)}

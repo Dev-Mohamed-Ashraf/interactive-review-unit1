@@ -53,22 +53,22 @@
       cls: 'mv-life mv-l12 mv-l13', prefix: P, beats: 9, cast: { st: 'studentL', dr: 'doctor' },
       html: (L) => `
   <div id="lf-s0" class="mv-stage">
-    ${B.card('his', 70, 150, 520, 330, 'c-slate', { h: '📜 ' + L('سلوكك السابق', 'Your past behaviour'), html: `<ul class="l12-list"><li>👀 ${L('شفت ماتشات كورة', 'watched football')}</li><li>❤️ ${L('حبّيت فيديوهات برمجة', 'liked coding videos')}</li><li>⏱️ ${L('قعدت كتير على العلوم', 'stayed long on science')}</li></ul>` })}
+    ${B.card('his', 70, 150, 520, 330, 'c-slate', { h: '📜 ' + L('سلوكك السابق', 'Your past behavior'), html: `<ul class="l12-list"><li>👀 ${L('شفت ماتشات كورة', 'watched football')}</li><li>❤️ ${L('حبّيت فيديوهات برمجة', 'liked coding videos')}</li><li>⏱️ ${L('قعدت كتير على العلوم', 'stayed long on science')}</li></ul>` })}
     ${B.svg('bot0', 690, 190, 260, 260, '0 0 300 300', ROBOT('#34d399'))}
     ${B.big('ar0', 600, 280, 90, 60, B.arrow, 'l12-gold')}${B.big('ar1', 960, 280, 90, 60, B.arrow, 'l12-gold')}
     <div id="lf-ph" class="l12u l12-phone later" style="${B.at(1100, 110, 380, 600)}"><div class="scr"><div class="abar">▶️ ${L('فيديوهات', 'Videos')}</div>
       <div class="tile t0">💻 ${L('كورس برمجة', 'coding course')}<b>✨ ${L('مقترح ليك', 'for you')}</b></div><div class="tile">⚽ ${L('ملخص الماتش', 'match highlights')}</div><div class="tile">🔭 ${L('أسرار الفضاء', 'space secrets')}</div></div></div>
-    ${B.card('d0', 1540, 150, 330, 360, 'c-green', { ic: '🎯', h: L('أنظمة التوصية', 'Recommendation systems'), p: L('بتتنبّأ بتفضيلاتك من سلوكك السابق وتعرضلك توصيات', 'predict your taste from past behaviour and show suggestions') })}
+    ${B.card('d0', 1540, 150, 330, 360, 'c-green', { ic: '🎯', h: L('أنظمة التوصية', 'Recommendation systems'), p: L('بتتنبّأ بتفضيلاتك من سلوكك السابق وتعرضلك توصيات', 'predict your taste from past behavior and show suggestions') })}
     ${B.chip('x0', 70, 520, '🧪 ' + L('أمثلة:', 'e.g.') + ' YouTube · Amazon · Spotify', 'c-green big')}
   </div>
   <div id="lf-s1" class="mv-stage">
     ${B.ch('st', 60, 400, 'md')}
     ${B.chip('say', 40, 300, '🗣️ «' + L('يا مساعد، صحّيني 7 الصبح', 'Hey assistant, wake me at 7') + '»', 'c-slate big')}
     <svg id="lf-wv" class="l12u l12-svg later" style="${B.at(320, 450, 380, 120)}" viewBox="0 0 380 120">${range(16).map((k) => `<rect class="wb" x="${8 + k * 23}" y="${60 - (12 + (k * 29) % 44)}" width="12" height="${2 * (12 + (k * 29) % 44)}" rx="6" fill="#38bdf8"/>`).join('')}</svg>
-    ${[['🎤', L('يتعرّف على الصوت', 'recognises the voice'), L('صوتك ← كلام مكتوب', 'your voice → text'), 'c-blue'], ['🧠', L('يفهم الأمر', 'understands the command'), L('«صحّيني 7» = منبّه', '“wake me at 7” = alarm'), 'c-violet'], ['✅', L('ينفّذه', 'executes it'), L('⏰ منبّه 7:00', '⏰ alarm 7:00'), 'c-green']]
+    ${[['🎤', L('يتعرّف على الصوت', 'recognizes the voice'), L('صوتك ← كلام مكتوب', 'your voice → text'), 'c-blue'], ['🧠', L('يفهم الأمر', 'understands the command'), L('«صحّيني 7» = منبّه', '“wake me at 7” = alarm'), 'c-violet'], ['✅', L('ينفّذه', 'executes it'), L('⏰ منبّه 7:00', '⏰ alarm 7:00'), 'c-green']]
       .map(([ic, h, p, c], k) => B.card('v' + k, 760 + k * 380, 170, 330, 240, c, { ic, h, p })).join('')}
     ${B.big('va0', 1090, 250, 50, 50, B.arrow, 'l12-gold')}${B.big('va1', 1470, 250, 50, 50, B.arrow, 'l12-gold')}
-    ${B.card('d1', 760, 470, 1090, 0, 'c-violet', { row: true, ic: '🎙️', h: L('المساعد الصوتي', 'Voice assistant'), p: L('يتعرّف على الصوت · يفهم الأمر · ينفّذه', 'recognises the voice · understands the command · executes it') })}
+    ${B.card('d1', 760, 470, 1090, 0, 'c-violet', { row: true, ic: '🎙️', h: L('المساعد الصوتي', 'Voice assistant'), p: L('يتعرّف على الصوت · يفهم الأمر · ينفّذه', 'recognizes the voice · understands the command · executes it') })}
     ${B.chip('x1', 760, 640, '🧪 ' + L('أمثلة:', 'e.g.') + ' Siri · Google Assistant', 'c-violet big')}
   </div>
   <div id="lf-s2" class="mv-stage">
@@ -112,14 +112,14 @@
   </div>
   <div id="lf-s7" class="mv-stage">
     ${B.svg('map', 70, 140, 900, 520, '0 0 900 520', MAP(B))}
-    ${B.card('d7', 1040, 150, 820, 0, 'c-blue', { row: true, ic: '🚚', h: L('اللوجستيات', 'Logistics'), p: L('تحسين مسارات التوصيل', 'optimising delivery routes') })}
+    ${B.card('d7', 1040, 150, 820, 0, 'c-blue', { row: true, ic: '🚚', h: L('اللوجستيات', 'Logistics'), p: L('تحسين مسارات التوصيل', 'optimizing delivery routes') })}
     ${B.chip('lng', 1040, 330, '❌ ' + L('طريق عشوائي: 42 كم', 'random route: 42 km'), 'c-red big')}
     ${B.chip('sht', 1040, 430, '✅ ' + L('أقصر مسار: 18 كم', 'shortest route: 18 km'), 'c-green big')}
     ${B.chip('sav', 1040, 530, '⛽ ' + L('وقت أقل · بنزين أقل', 'less time · less fuel'), 'c-amber')}
   </div>
   <div id="lf-s8" class="mv-stage">
     ${[['🏥', L('الصحة', 'Healthcare'), L('التشخيص بالصور · دعم اكتشاف الأدوية', 'image diagnosis · drug discovery'), 'c-pink'], ['🌾', L('الزراعة', 'Agriculture'), L('ميعاد الحصاد · كشف الآفات', 'harvest timing · pests'), 'c-green'],
-      ['🏭', L('التصنيع', 'Manufacturing'), L('فحص الجودة · الصيانة التنبؤية', 'quality inspection · predictive maintenance'), 'c-amber'], ['🚚', L('اللوجستيات', 'Logistics'), L('تحسين مسارات التوصيل', 'route optimisation'), 'c-blue']]
+      ['🏭', L('التصنيع', 'Manufacturing'), L('فحص الجودة · الصيانة التنبؤية', 'quality inspection · predictive maintenance'), 'c-amber'], ['🚚', L('اللوجستيات', 'Logistics'), L('تحسين مسارات التوصيل', 'route optimization'), 'c-blue']]
       .map(([ic, h, p, c], k) => B.card('r' + k, 70 + k * 450, 150, 420, 300, c, { ic, h, p })).join('')}
     ${B.mid('rp', 520, '🔧 ' + L('الصيانة التنبؤية = نتنبّأ بعطل الآلة قبل ما يحصل', 'predictive maintenance = predicting a failure before it happens'), 'c-amber big')}
   </div>
@@ -278,8 +278,8 @@
     ${B.card('g2', 1270, 150, 580, 520, 'c-green', { ic: '📊', h: L('التنبؤ الاحتمالي', 'Probabilistic prediction'), p: L('بيتنبّأ من البيانات', 'predicts from data'), html: `<div class="l12-pr"><b>🌧️ ${L('مطر بكرة', 'rain tomorrow')}</b><span class="l12-bar o"><i data-w="70" style="width:70%"></i></span><em>70%</em></div>` })}
   </div>
   <div id="ca-s1" class="mv-stage">
-    ${[['⚖️', L('الأحكام الأخلاقية', 'Ethical judgements'), L('ممكن تؤدّي لتمييز أو تحيّز', 'may lead to discrimination')], ['🔒', L('الخصوصية', 'Privacy'), L('بيانات شخصية', 'personal data')],
-      ['👨‍⚖️', L('القرار النهائي', 'The final decision'), L('مين المسؤول عن النتيجة؟', 'who is responsible?')], ['📊', L('بيانات متحيّزة', 'Biased data'), L('الحكم بيبقى غير دقيق', 'judgements become inaccurate')],
+    ${[['⚖️', L('الأحكام الأخلاقية', 'Ethical judgments'), L('ممكن تؤدّي لتمييز أو تحيّز', 'may lead to discrimination')], ['🔒', L('الخصوصية', 'Privacy'), L('بيانات شخصية', 'personal data')],
+      ['👨‍⚖️', L('القرار النهائي', 'The final decision'), L('مين المسؤول عن النتيجة؟', 'who is responsible?')], ['📊', L('بيانات متحيّزة', 'Biased data'), L('الحكم بيبقى غير دقيق', 'judgments become inaccurate')],
       ['😵', L('الهلوسة', 'Hallucination'), L('كلام مختلف عن الحقيقة', 'content that differs from the facts')], ['©️', L('حقوق المؤلف', 'Copyright'), L('استخدام أعمال محمية في التدريب', 'protected works as training data')],
       ['⬛', L('الصندوق الأسود', 'The black box'), L('مش واضح وصل للحكم إزاي', 'unclear how it reached the result')]]
       .map(([ic, h, p], k) => B.card('w' + k, 70 + (k % 4) * 450, 140 + Math.floor(k / 4) * 280, 420, 250, 'c-red', { ic, h, p })).join('')}
@@ -318,7 +318,7 @@
     ${U.hd(3, '⬛ ' + L('مشكلة الصندوق الأسود', 'The black-box problem'))}
     ${U.hd(4, '🔦 ' + L('جوّه الصندوق: ملايين الأرقام', 'Inside the box: millions of numbers'))}
     ${U.hd(5, '🚨 ' + L('فين الصندوق الأسود ممكن يأذي؟', 'Where can the black box hurt?'))}
-    ${U.nt(1, '⚠️ ' + L('«نسيب الأحكام الأخلاقية للـAI بالكامل» ← غلط', '“Leave ethical judgements fully to AI” → false'), 'bad')}
+    ${U.nt(1, '⚠️ ' + L('«نسيب الأحكام الأخلاقية للـAI بالكامل» ← غلط', '“Leave ethical judgments fully to AI” → false'), 'bad')}
     ${U.nt(3, L('لو مش فاهمين «ليه»، صعب نتحقّق إن القرار صح أو نكتشف الغلط', 'Without the “why”, we cannot check the decision or find the mistake'), 'warn')}
     ${U.nt(4, L('من غير «ليه» مانقدرش نتحقّق ولا نكتشف التحيّز ولا نعرف نحاسب مين', 'Without the “why” we cannot verify, spot bias or hold anyone accountable'), 'bad')}
     ${U.nt(5, '✅ ' + L('الحل: إنسان يراجع في المهام الحسّاسة — والعالم بيشتغل على XAI', 'The fix: a human reviews sensitive tasks — and the world works on XAI'), 'ok')}`,

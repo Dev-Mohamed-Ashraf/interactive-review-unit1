@@ -25,7 +25,7 @@
     const M = MK.create(stage, api, { props,
       cls: 'mv-web mv-l12 mv-l31', prefix: P, beats: 9,
       html: (L) => {
-        const STEPS = [L('① تستقبل', '① receive'), L('② تبعت', '② send'), L('③ تطلب', '③ search'), L('④ ترجّع', '④ return'), L('⑤ تجهّز', '⑤ organise'), L('⑥ تعرض', '⑥ display')];
+        const STEPS = [L('① تستقبل', '① receive'), L('② تبعت', '② send'), L('③ تطلب', '③ search'), L('④ ترجّع', '④ return'), L('⑤ تجهّز', '⑤ organize'), L('⑥ تعرض', '⑥ display')];
         return `
   <div id="w1-s0" class="mv-stage">
     <div id="w1-app" class="l12u l12-win later" style="${B.at(70, 150, 860, 420)}"><div class="wbar"><i></i><i></i><i></i><span class="url">🌐 <span class="u u0">youtube.com</span><span class="u u1">amazon.com</span><span class="u u2">mail.google.com</span><span class="u u3">maps.google.com</span></span></div>
@@ -49,7 +49,7 @@
     ${B.svg('db', 1330, 210, 420, 320, '0 0 420 330', DB)}
     ${B.chip('w0', 70, 556, '💻 ' + L('على المتصفح — المستخدم شايفها', 'on the browser — the user sees it'), 'c-blue', 640)}
     ${B.chip('w1', 770, 556, '🖥️ ' + L('على الخادم — مش ظاهرة', 'on the server — hidden'), 'c-violet', 400)}
-    ${B.chip('w2', 1230, 556, '📚 ' + L('تنظّم · تخزّن · تدير', 'organise · store · manage'), 'c-green', 620)}
+    ${B.chip('w2', 1230, 556, '📚 ' + L('تنظّم · تخزّن · تدير', 'organize · store · manage'), 'c-green', 620)}
     ${B.card('x0', 70, 556, 640, 0, 'c-blue', { p: L('شاشة البحث · صفحات المنتجات · نماذج الإدخال', 'search screen · product pages · input forms') })}
     ${B.card('x1', 770, 556, 400, 0, 'c-violet', { p: L('البحث عن المنتجات المطابقة · التحقق من تسجيل الدخول', 'matching products · login authentication') })}
     ${B.card('x2', 1230, 556, 620, 0, 'c-green', { p: L('المنتجات · المستخدمين · سجل الطلبات', 'products · users · order history') })}

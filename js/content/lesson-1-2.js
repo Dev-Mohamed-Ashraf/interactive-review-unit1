@@ -17,7 +17,7 @@ RV.lessons.add('1-2', {
   objectives: [
     { ar: 'أشرح يعني إيه ذكاء اصطناعي.', en: 'Explain what AI is.' },
     { ar: 'أوضّح موقع الذكاء الاصطناعي التوليدي بين تقنيات الذكاء الاصطناعي.', en: 'Explain where generative AI sits within AI technologies.' },
-    { ar: 'أقيّم خطر الهلوسة وأحدد إجراء للتحقق من مخرجات الذكاء الاصطناعي التوليدي.', en: 'Distinguish hand-written rules from learning from data.' },
+    { ar: 'أقيّم خطر الهلوسة وأحدد إجراء للتحقق من مخرجات الذكاء الاصطناعي التوليدي.', en: 'Assess the risk of hallucination and choose a way to verify generative AI output.' },
   ],
 
   stations: [
@@ -35,16 +35,16 @@ RV.lessons.add('1-2', {
           visual: { anim: 'aiMovie' },
           beats: [
             { ar: '📱 الموبايل مليان ذكاء اصطناعي: __فلتر السبام__ بيرتّب إيميلك، المتجر بيـ__رشّحلك__ منتجات، تطبيق __الترجمة__ بيحوّل لغة لتانية، و__ChatGPT__ بيولّد نص من طلبك. **كلهم AI… بس مش من نفس النوع!**', en: '📱 Your phone is full of AI: a __spam filter__ sorts e-mail, a store __recommends__ products, a __translation__ app converts languages, and __ChatGPT__ writes text from a prompt. **All AI… but not the same kind!**' },
-            { ar: '🧠 **الذكاء الاصطناعي (AI):** __مصطلح عام__ لتقنيات بتخلّي الحاسب __يعيد إنتاج أو ينفّذ سلوك إنساني ذكي__ — زي __التعلّم والاستدلال والحكم__. أمثلة يومية: __التعرّف على الكلام__ · __التعرّف على الصور__ · __الترجمة__.', en: '🧠 **Artificial intelligence (AI):** a __general term__ for technologies that make a computer __reproduce or perform intelligent human behaviour__ — __learning, reasoning, judgement__. Everyday examples: __speech recognition__ · __image recognition__ · __translation__.' },
+            { ar: '🧠 **الذكاء الاصطناعي (AI):** __مصطلح عام__ لتقنيات بتخلّي الحاسب __يعيد إنتاج أو ينفّذ سلوك إنساني ذكي__ — زي __التعلّم والاستدلال والحكم__. أمثلة يومية: __التعرّف على الكلام__ · __التعرّف على الصور__ · __الترجمة__.', en: '🧠 **Artificial intelligence (AI):** a __general term__ for technologies that make a computer __reproduce or perform intelligent human behavior__ — __learning, reasoning, judgment__. Everyday examples: __speech recognition__ · __image recognition__ · __translation__.' },
             { ar: '🎯 ذكاء النهارده **«ضيّق»**: معظم الأنظمة __بارعة في مهمة محددة أو مجموعة محدودة من المهام__ — روبوت الترجمة لو اديته صورة يتلخبط. الإنسان بقى عنده __ذكاء عام__ يعمل حاجات كتير.', en: '🎯 Today’s AI is **“narrow”**: each system is __expert at one task only__ — hand the translation robot a photo and it is lost. A human has __general intelligence__ for many tasks.' },
-            { ar: '⭕ **العيلة المتداخلة** — كل دايرة جوّه اللي قبلها: **AI** (الأوسع، حتى الأنظمة بالقواعد — مثال: الترجمة) ⊃ **التعلّم الآلي** (فلتر السبام · التوصيات) ⊃ **التعلّم العميق** (تحليل صور القيادة الذاتية · التعرف على الكلام) ⊃ **التوليدي** (ChatGPT · توليد الصور). من __الأوسع__ للـ__أكثر تخصصًا__.', en: '⭕ **The nested family** — each circle inside the last: **AI** (the broadest, even rule-based systems — e.g. translation) ⊃ **machine learning** (spam filter · recommendations) ⊃ **deep learning** (image analysis for self-driving · speech synthesis) ⊃ **generative AI** (ChatGPT · image generation). From the __broadest__ to the __most specialised__.' },
+            { ar: '⭕ **العيلة المتداخلة** — كل دايرة جوّه اللي قبلها: **AI** (الأوسع، حتى الأنظمة بالقواعد — مثال: الترجمة) ⊃ **التعلّم الآلي** (فلتر السبام · التوصيات) ⊃ **التعلّم العميق** (تحليل صور القيادة الذاتية · التعرف على الكلام) ⊃ **التوليدي** (ChatGPT · توليد الصور). من __الأوسع__ للـ__أكثر تخصصًا__.', en: '⭕ **The nested family** — each circle inside the last: **AI** (the broadest, even rule-based systems — e.g. translation) ⊃ **machine learning** (spam filter · recommendations) ⊃ **deep learning** (image analysis for self-driving · speech synthesis) ⊃ **generative AI** (ChatGPT · image generation). From the __broadest__ to the __most specialized__.' },
             { ar: '⚠️ **متداخلة مش متوازية:** دول __مش 4 تقنيات منفصلة جنب بعض__. فخاخ: «AI و ML نفس المعنى» ← __غلط__ (AI المجال الواسع) · «DL منفصل عن ML» ← __غلط__ (DL نوع متقدّم جوّه ML). والعلاقة دي __تبسيط تعليمي__، مش تسلسل صارم في كل حالة.', en: '⚠️ **Nested, not parallel:** these are __not 4 separate side-by-side technologies__. Traps: “AI and ML mean the same” → __false__ (AI is the broad field) · “DL is separate from ML” → __false__ (DL is an advanced kind inside ML).' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
         },
         {
           type: 'quiz', title: { ar: 'رتّب الدوائر', en: 'Order the circles' },
-          q: { widget: 'order', prompt: { ar: 'رتّب من الأوسع للأكثر تخصصًا:', en: 'Order from broadest to most specialised:' },
+          q: { widget: 'order', prompt: { ar: 'رتّب من الأوسع للأكثر تخصصًا:', en: 'Order from broadest to most specialized:' },
             items: [{ ar: 'الذكاء الاصطناعي', en: 'AI' }, { ar: 'التعلّم الآلي', en: 'Machine learning' }, { ar: 'التعلّم العميق', en: 'Deep learning' }, { ar: 'الذكاء الاصطناعي التوليدي', en: 'Generative AI' }],
             explain: { ar: 'AI ⊃ ML ⊃ DL ⊃ GenAI', en: 'AI ⊃ ML ⊃ DL ⊃ GenAI' } },
         },
@@ -74,7 +74,7 @@ RV.lessons.add('1-2', {
           visual: { anim: 'learnMovie' },
           beats: [
             { ar: '📜 **الطريقة القديمة:** المبرمج بيكتب __قاعدة ثابتة بإيده__: «لو الإيميل فيه free ← سبام». المحتال كتب __fr€e__ ← الإيميل عدّى و__القاعدة اتكسرت__. ومستحيل تكتب قاعدة لكل حالة!', en: '📜 **The old way:** the programmer writes a __fixed rule by hand__: “if the e-mail has free → spam”. The scammer wrote __fr€e__ → it got through and __the rule broke__. You can’t write a rule for everything!' },
-            { ar: '📚 **الطريقة الجديدة (التعلّم الآلي):** بدل القواعد، بنديله __أمثلة كتير ومع كل مثال الإجابة الصح__ (سبام / سليم) — دي اسمها __البيانات المتعلّم عليها__.', en: '📚 **The new way (machine learning):** instead of rules we give it __many examples, each with the right answer__ (spam / OK) — that is __labelled data__.' },
+            { ar: '📚 **الطريقة الجديدة (التعلّم الآلي):** بدل القواعد، بنديله __أمثلة كتير ومع كل مثال الإجابة الصح__ (سبام / سليم) — دي اسمها __البيانات المتعلّم عليها__.', en: '📚 **The new way (machine learning):** instead of rules we give it __many examples, each with the right answer__ (spam / OK) — that is __labeled data__.' },
             { ar: '⚙️ **التدريب:** الحاسب بيدوّر في البيانات و__يكتشف الأنماط بنفسه__: «فلوس ببلاش» و«جايزة» غالبًا سبام، «واجب» و«حصة» غالبًا سليم. __محدش كتب له القاعدة__ — وفي الآخر بيطلع __النموذج__.', en: '⚙️ **Training:** the computer searches the data and __finds the patterns itself__: “free money” and “prize” are usually spam, “homework” and “class” usually OK. __Nobody wrote the rule__ — and out comes __the model__.' },
             { ar: '🔮 **التنبؤ:** إيميل جديد __عمره ما شافه__ ← النموذج بيحكم: «مبروك كسبت فلوس» سبام 94% · «ميعاد الدرس اتغيّر» سبام 6% بس ← سليم. ده تعريف **التعلّم الآلي:** يتعلّم __أنماط من البيانات__ عشان __يتنبّأ ويحكم__.', en: '🔮 **Prediction:** a new e-mail it __has never seen__ → the model judges: “You won money” 94% spam · “Class time changed” only 6% → OK. That is **machine learning:** learning __patterns from data__ to __predict and judge__.' },
             { ar: '🛒 **نفس الفكرة في التوصيات:** المتجر بيتعلّم من __مشترياتك القديمة__ ويرشّحلك حاجة جديدة. فلتر السبام والتوصيات __شغلهم مختلف__، بس __الاتنين تعلّم آلي__: بيانات قديمة ← أنماط ← تنبؤ.', en: '🛒 **Same idea in recommendations:** the store learns from __your past purchases__ and suggests something new. Spam filters and recommendations __do different jobs__, but __both are machine learning__: past data → patterns → prediction.' },
@@ -105,12 +105,12 @@ RV.lessons.add('1-2', {
           terms: ['neural network', 'layers', 'weights', 'training', 'deep learning'],
           visual: { anim: 'dlMovie' },
           beats: [
-            { ar: '🧠 **الشبكة العصبية:** نظام __مستوحى بصورة مبسطة من ترابط العصبونات__ — __مكوّنات بسيطة كتير متوصّلة__ في طبقات: __إدخال ← طبقات مخفية ← إخراج__. بتتعلّم من البيانات وتاخد __أحكام معقّدة__.', en: '🧠 **Neural network:** a system __modelled on the brain’s nerve cells (neurons)__ — __many simple connected units__ in layers: __input → hidden layers → output__. It learns from data and makes __complex judgements__.' },
+            { ar: '🧠 **الشبكة العصبية:** نظام __مستوحى بصورة مبسطة من ترابط العصبونات__ — __مكوّنات بسيطة كتير متوصّلة__ في طبقات: __إدخال ← طبقات مخفية ← إخراج__. بتتعلّم من البيانات وتاخد __أحكام معقّدة__.', en: '🧠 **Neural network:** a system __modeled on the brain’s nerve cells (neurons)__ — __many simple connected units__ in layers: __input → hidden layers → output__. It learns from data and makes __complex judgments__.' },
             { ar: '⚡ صورة من كاميرا عربية ذاتية القيادة بتدخل الشبكة، والإشارة __بتعدّي طبقة ورا طبقة__ لحد الإخراج: «مشاة». و__كل وصلة ليها وزن__ بيحدّد قوة الإشارة — الوصلة السميكة أقوى.', en: '⚡ A frame from a self-driving car’s camera enters the network and the signal __passes layer by layer__ to the output: “pedestrian”. __Every link has a weight__ that sets the signal’s strength — a thick link is stronger.' },
             { ar: '🏋️ **التدريب:** أول محاولة الشبكة __غلطت__ ← الغلطة بترجع لورا و__الأوزان بتتغيّر شوية شوية__ ← بعد آلاف الأمثلة الحكم بقى صح: مشاة 97%.', en: '🏋️ **Training:** on the first try the network __was wrong__ → the error travels back and __the weights change little by little__ → after thousands of examples it gets it right: pedestrian 97%.' },
             { ar: '📚 **التعلّم العميق:** تقنية متقدّمة __جوّه التعلّم الآلي__ = شبكات بـ__طبقات مخفية كتير__ + __بيانات ضخمة__ (ملايين الصور). __بيكتشف الخصائص بنفسه__ طبقة ورا طبقة (حواف ← أشكال ← مشاة). أمثلة: __تحليل صور القيادة الذاتية__ · __التعرف على الكلام__. والشبكات العصبية هي __التقنية الأساسية ورا تقدّم الذكاء الاصطناعي__.', en: '📚 **Deep learning:** an advanced technology __inside machine learning__ = networks with __many hidden layers__ + __huge data__ (millions of images). It __discovers the features itself__ layer by layer (edges → shapes → pedestrian). Examples: __image analysis for self-driving__ · __speech synthesis__. Neural networks are __the core technology behind recent AI progress__.' },
-            { ar: '🌾 **في سياق جديد:** مزارع عايز يفرّق __المحصول السليم من المريض__ بالصور ← الشبكة لازم تتدرّب على __آلاف الصور المعنونة «سليم / مريض»__. ولو ظهر __مرض نادر__ مااتدرّبتش عليه ← __ممكن تغلط__.', en: '🌾 **In a new context:** a farmer wants to tell __healthy crops from diseased ones__ in photos → the network must train on __thousands of photos labelled “healthy / diseased”__. A __rare disease__ it never trained on → __it may be wrong__.' },
-            { ar: '💡 **الخلاصة:** شبكة عصبية بطبقات مستوحاة من المخ · __أوزان بتتضبط بالتدريب__ · التعلّم العميق = __طبقات كتير + بيانات ضخمة__ · الحاجة __النادرة في بياناته__ ← غالبًا بيغلط فيها.', en: '💡 **The point:** a layered neural network modelled on the brain · __weights tuned by training__ · deep learning = __many layers + huge data__ · something __rare in its data__ → it often gets it wrong.' },
+            { ar: '🌾 **في سياق جديد:** مزارع عايز يفرّق __المحصول السليم من المريض__ بالصور ← الشبكة لازم تتدرّب على __آلاف الصور المعنونة «سليم / مريض»__. ولو ظهر __مرض نادر__ مااتدرّبتش عليه ← __ممكن تغلط__.', en: '🌾 **In a new context:** a farmer wants to tell __healthy crops from diseased ones__ in photos → the network must train on __thousands of photos labeled “healthy / diseased”__. A __rare disease__ it never trained on → __it may be wrong__.' },
+            { ar: '💡 **الخلاصة:** شبكة عصبية بطبقات مستوحاة من المخ · __أوزان بتتضبط بالتدريب__ · التعلّم العميق = __طبقات كتير + بيانات ضخمة__ · الحاجة __النادرة في بياناته__ ← غالبًا بيغلط فيها.', en: '💡 **The point:** a layered neural network modeled on the brain · __weights tuned by training__ · deep learning = __many layers + huge data__ · something __rare in its data__ → it often gets it wrong.' },
           ],
           notes: [{ kind: 'tip', text: { ar: 'كل «التالي» = مشهد واحد بيتحرك وبعدين يقف عشان تشرح. زرار ⟲ فوق بيعيد المشهد.', en: 'Each "Next" = one scene that plays, then freezes so you can explain. The ⟲ button replays the scene.' } }],
         },
@@ -160,7 +160,7 @@ RV.lessons.add('1-2', {
         {
           type: 'summary',
           points: [
-            { ar: '**الذكاء الاصطناعي** مصطلح عام لتقنيات بتنفّذ سلوك إنساني ذكي على الحاسب.', en: '**AI** is a general term for technologies that perform intelligent human behaviour on a computer.' },
+            { ar: '**الذكاء الاصطناعي** مصطلح عام لتقنيات بتنفّذ سلوك إنساني ذكي على الحاسب.', en: '**AI** is a general term for technologies that perform intelligent human behavior on a computer.' },
             { ar: 'الفئات متداخلة: `AI ⊃ ML ⊃ DL ⊃ GenAI` — مش أربع تقنيات منفصلة.', en: 'The categories are nested: `AI ⊃ ML ⊃ DL ⊃ GenAI` — not four separate technologies.' },
             { ar: '**التعلّم الآلي** يتعلّم أنماط من البيانات · **التعلّم العميق** يستخدم شبكات عصبية وبيانات ضخمة · **التوليدي** يولّد محتوى جديد.', en: '**ML** learns patterns from data · **DL** uses neural networks + big data · **GenAI** generates new content.' },
             { ar: 'الذكاء التوليدي ممكن __يهلوس__ — راجع المصدر دايمًا.', en: 'Generative AI can __hallucinate__ — always check the source.' },
@@ -216,7 +216,7 @@ RV.lessons.add('1-2', {
         {
           type: 'quiz', title: { ar: 'تمرين 1', en: 'Try 1' },
           q: { widget: 'recall', prompt: { ar: 'قول الإجابة وبعدين اكشفها:', en: 'Say the answer, then reveal:' }, items: [
-            { q: { ar: 'المصطلح العام (اختصار من حرفين) لتقنيات بتنفّذ سلوك إنساني ذكي على الحاسب؟', en: 'The general term (two-letter abbreviation) for technologies performing intelligent human behaviour on a computer?' }, a: { ar: 'AI — الذكاء الاصطناعي', en: 'AI — Artificial Intelligence' } },
+            { q: { ar: 'المصطلح العام (اختصار من حرفين) لتقنيات بتنفّذ سلوك إنساني ذكي على الحاسب؟', en: 'The general term (two-letter abbreviation) for technologies performing intelligent human behavior on a computer?' }, a: { ar: 'AI — الذكاء الاصطناعي', en: 'AI — Artificial Intelligence' } },
             { q: { ar: 'تقنية التعلّم اللي بتتعلّم أنماط من البيانات لعمل تنبؤات وأحكام؟', en: 'The learning technology that learns patterns from data to predict and judge?' }, a: { ar: 'التعلّم الآلي', en: 'Machine learning' } },
             { q: { ar: 'التقنية المتقدّمة جوّه التعلّم الآلي اللي بتستخدم شبكات عصبية؟', en: 'The advanced technology within ML that uses neural networks?' }, a: { ar: 'التعلّم العميق', en: 'Deep learning' } },
             { q: { ar: 'تقنية الذكاء الاصطناعي اللي بتستخدم التعلّم العميق لتوليد بيانات جديدة؟', en: 'The AI technology that uses deep learning to generate new data?' }, a: { ar: 'الذكاء الاصطناعي التوليدي', en: 'Generative AI' } },
@@ -237,7 +237,7 @@ RV.lessons.add('1-2', {
           q: { widget: 'fill', prompt: { ar: 'اقرأ الفقرة واملأ الفراغات:', en: 'Read and fill the blanks:' },
             text: {
               ar: 'المصطلح العام لتقنيات بتنفّذ سلوك إنساني ذكي على الحاسب هو {0}. وإحدى تقنيات التعلّم اللي بتتعلّم الأنماط من البيانات هي {1}. وجوّاها تقنية متقدّمة بتستخدم الشبكات العصبية هي {2}. والتقنية اللي بتستخدمها لتوليد بيانات جديدة هي {3}.',
-              en: 'The general term for technologies performing intelligent human behaviour on a computer is {0}. One learning technology that learns patterns from data is {1}. Within it, an advanced technology using neural networks is {2}. The technology using that to generate new data is {3}.',
+              en: 'The general term for technologies performing intelligent human behavior on a computer is {0}. One learning technology that learns patterns from data is {1}. Within it, an advanced technology using neural networks is {2}. The technology using that to generate new data is {3}.',
             },
             bank: [{ ar: 'الذكاء الاصطناعي', en: 'AI' }, { ar: 'التعلّم الآلي', en: 'machine learning' }, { ar: 'التعلّم العميق', en: 'deep learning' }, { ar: 'الذكاء التوليدي', en: 'generative AI' }, { ar: 'الحوسبة السحابية', en: 'cloud computing' }],
             answer: [0, 1, 2, 3] },
@@ -248,7 +248,7 @@ RV.lessons.add('1-2', {
             groups: [{ icon: 'mail', label: { ar: 'التعلّم الآلي', en: 'Machine learning' } }, { icon: 'network', label: { ar: 'التعلّم العميق', en: 'Deep learning' } }, { icon: 'sparkle', label: { ar: 'التوليدي', en: 'Generative AI' } }],
             items: [
               { text: { ar: 'تصنيف السبام تلقائيًا', en: 'Sorting spam automatically' }, group: 0 },
-              { text: { ar: 'التعرف على المشاة في القيادة الذاتية', en: 'Recognising pedestrians in self-driving' }, group: 1 },
+              { text: { ar: 'التعرف على المشاة في القيادة الذاتية', en: 'Recognizing pedestrians in self-driving' }, group: 1 },
               { text: { ar: 'توليد صور جديدة من نص', en: 'Generating new images from text' }, group: 2 },
               { text: { ar: 'توصية منتجات حسب تاريخ الشراء', en: 'Recommending products from purchase history' }, group: 0 },
             ] },
@@ -273,10 +273,10 @@ RV.lessons.add('1-2', {
       steps: [{
         type: 'quiz',
         q: { widget: 'flash', cards: [
-          { front: { ar: 'الذكاء الاصطناعي (AI)', en: 'Artificial Intelligence (AI)' }, back: { ar: 'مصطلح عام لتقنيات بتعيد إنتاج أو تنفّذ سلوك إنساني ذكي (تعلّم، استدلال، حكم) على الحاسب.', en: 'General term for technologies that reproduce or perform intelligent human behaviour on a computer.' } },
+          { front: { ar: 'الذكاء الاصطناعي (AI)', en: 'Artificial Intelligence (AI)' }, back: { ar: 'مصطلح عام لتقنيات بتعيد إنتاج أو تنفّذ سلوك إنساني ذكي (تعلّم، استدلال، حكم) على الحاسب.', en: 'General term for technologies that reproduce or perform intelligent human behavior on a computer.' } },
           { front: { ar: 'التعلّم الآلي', en: 'Machine learning' }, back: { ar: 'يتعلّم أنماط من البيانات لعمل تنبؤات وأحكام.', en: 'Learns patterns from data to make predictions and judgments.' } },
           { front: { ar: 'التعلّم العميق', en: 'Deep learning' }, back: { ar: 'تقنية متقدّمة داخل التعلّم الآلي تستخدم الشبكات العصبية على بيانات ضخمة.', en: 'Advanced ML using neural networks on large-scale data.' } },
-          { front: { ar: 'الشبكة العصبية', en: 'Neural network' }, back: { ar: 'نظام مستوحى من خلايا المخ العصبية؛ مكوّنات كتير متوصّلة بتتعلّم من البيانات وتاخد أحكام معقّدة.', en: 'Modelled on brain neurons; many connected components that learn from data and make complex judgments.' } },
+          { front: { ar: 'الشبكة العصبية', en: 'Neural network' }, back: { ar: 'نظام مستوحى من خلايا المخ العصبية؛ مكوّنات كتير متوصّلة بتتعلّم من البيانات وتاخد أحكام معقّدة.', en: 'Modeled on brain neurons; many connected components that learn from data and make complex judgments.' } },
           { front: { ar: 'الذكاء الاصطناعي التوليدي', en: 'Generative AI' }, back: { ar: 'يستخدم التعلّم العميق لتوليد بيانات جديدة (نص، صور، صوت، برامج).', en: 'Uses deep learning to generate new data (text, images, audio, programs).' } },
           { front: { ar: 'الهلوسة', en: 'Hallucination' }, back: { ar: 'إن النموذج التوليدي يطلّع نص يبدو معقول لكنه غلط.', en: 'A generative model producing fluent but factually wrong output.' } },
         ] },
@@ -298,18 +298,18 @@ RV.lessons.add('1-2', {
               { ar: 'DL جوّه ML ويستخدم شبكات عصبية (مثال: التعرف على المشاة).', en: 'DL is inside ML and uses neural networks (e.g. pedestrian recognition).' },
               { ar: 'التوليدي جوّه DL ويولّد محتوى (مثال: ChatGPT).', en: 'GenAI is inside DL and generates content (e.g. ChatGPT).' },
             ],
-            model: { ar: 'الذكاء الاصطناعي هو المجال الأوسع لأي تقنية بتقلّد السلوك الذكي، زي الترجمة. جوّاه التعلّم الآلي اللي بيتعلّم أنماط من البيانات بدل القواعد المكتوبة، زي فلتر السبام. وجوّه التعلّم الآلي التعلّم العميق اللي بيستخدم شبكات عصبية وبيانات ضخمة، زي التعرف على المشاة في القيادة الذاتية. وجوّه التعلّم العميق الذكاء التوليدي اللي بيولّد محتوى جديد، زي ChatGPT. يعني دي فئات متداخلة من الأوسع للأكثر تخصصًا مش تقنيات منفصلة.', en: 'AI is the broadest field — any technology imitating intelligent behaviour, e.g. translation. Inside it, ML learns patterns from data instead of hand-written rules, e.g. spam filters. Inside ML, DL uses neural networks and big data, e.g. pedestrian recognition. Inside DL, generative AI creates new content, e.g. ChatGPT. They are nested categories, broad to specialised — not separate technologies.' } },
+            model: { ar: 'الذكاء الاصطناعي هو المجال الأوسع لأي تقنية بتقلّد السلوك الذكي، زي الترجمة. جوّاه التعلّم الآلي اللي بيتعلّم أنماط من البيانات بدل القواعد المكتوبة، زي فلتر السبام. وجوّه التعلّم الآلي التعلّم العميق اللي بيستخدم شبكات عصبية وبيانات ضخمة، زي التعرف على المشاة في القيادة الذاتية. وجوّه التعلّم العميق الذكاء التوليدي اللي بيولّد محتوى جديد، زي ChatGPT. يعني دي فئات متداخلة من الأوسع للأكثر تخصصًا مش تقنيات منفصلة.', en: 'AI is the broadest field — any technology imitating intelligent behavior, e.g. translation. Inside it, ML learns patterns from data instead of hand-written rules, e.g. spam filters. Inside ML, DL uses neural networks and big data, e.g. pedestrian recognition. Inside DL, generative AI creates new content, e.g. ChatGPT. They are nested categories, broad to specialized — not separate technologies.' } },
         },
         {
           type: 'quiz', optional: true,
           q: { widget: 'essay', tag: { ar: 'في سياق جديد', en: 'In a new context' },
             prompt: { ar: 'مزارع عايز يستخدم الذكاء الاصطناعي عشان يفرّق المحاصيل السليمة من المريضة بالصور. يتعلّم من إيه؟ واذكر سبب ممكن يخلّي حكمه غلط.', en: 'A farmer wants AI to tell healthy from diseased crops in photos. What must it learn from, and why might it be wrong?' },
             points: [
-              { ar: 'يتعلّم من آلاف الصور المعنونة «سليم/مريض».', en: 'Learns from thousands of labelled healthy/diseased photos.' },
+              { ar: 'يتعلّم من آلاف الصور المعنونة «سليم/مريض».', en: 'Learns from thousands of labeled healthy/diseased photos.' },
               { ar: 'تعلّم عميق لتحليل الصور.', en: 'Deep learning for image analysis.' },
               { ar: 'سبب للخطأ: مرض نادر مااتدرّبش عليه / صور قليلة / إضاءة مختلفة.', en: 'Error cause: rare disease not in training / too few images / different lighting.' },
             ],
-            model: { ar: 'النموذج محتاج يتدرّب بالتعلّم العميق على آلاف الصور لنباتات معنونة «سليم» و«مريض» عشان يكتشف الأنماط. ممكن يغلط لو ظهر مرض نادر ماكانش في بيانات التدريب، أو لو الصور اتصوّرت في إضاءة مختلفة عن اللي اتدرّب عليها.', en: 'The model must be trained with deep learning on thousands of photos labelled "healthy" and "diseased" to learn the patterns. It may be wrong on a rare disease missing from its training data, or on photos taken in very different lighting.' } },
+            model: { ar: 'النموذج محتاج يتدرّب بالتعلّم العميق على آلاف الصور لنباتات معنونة «سليم» و«مريض» عشان يكتشف الأنماط. ممكن يغلط لو ظهر مرض نادر ماكانش في بيانات التدريب، أو لو الصور اتصوّرت في إضاءة مختلفة عن اللي اتدرّب عليها.', en: 'The model must be trained with deep learning on thousands of photos labeled "healthy" and "diseased" to learn the patterns. It may be wrong on a rare disease missing from its training data, or on photos taken in very different lighting.' } },
         },
       ],
     },
@@ -337,7 +337,7 @@ RV.lessons.add('1-2', {
               { ar: 'الاتنين بيتعلّموا أنماط من بيانات سابقة', en: 'Both learn patterns from past data' },
               { ar: 'الاتنين بيستخدموا الأنماط للتنبؤ/الحكم على حاجة جديدة', en: 'Both use the patterns to predict/judge something new' },
             ],
-            model: { ar: 'الاتنين مابيمشوش على قواعد مكتوبة بإيد المبرمج، لكن بيتعلّموا أنماط من بيانات سابقة (إيميلات معنونة أو تاريخ شراء)، وبيستخدموها عشان يتنبّأوا بحاجة جديدة: الإيميل ده سبام؟ المستخدم ده هيحب المنتج ده؟', en: 'Neither follows hand-written rules; both learn patterns from past data (labelled emails or purchase history) and use them to predict something new: is this email spam? will this user like this product?' } },
+            model: { ar: 'الاتنين مابيمشوش على قواعد مكتوبة بإيد المبرمج، لكن بيتعلّموا أنماط من بيانات سابقة (إيميلات معنونة أو تاريخ شراء)، وبيستخدموها عشان يتنبّأوا بحاجة جديدة: الإيميل ده سبام؟ المستخدم ده هيحب المنتج ده؟', en: 'Neither follows hand-written rules; both learn patterns from past data (labeled emails or purchase history) and use them to predict something new: is this email spam? will this user like this product?' } },
         },
         {
           type: 'quiz', optional: true,

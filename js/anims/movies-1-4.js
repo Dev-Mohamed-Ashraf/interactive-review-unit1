@@ -55,7 +55,7 @@
     ${B.svg('bot', 90, 150, 300, 300, '0 0 300 300', ROBOT('#fbbf24'))}
     ${B.card('odds', 470, 150, 1380, 0, 'c-slate', { h: '🤖 ' + L('النموذج بيقيّم متقدّمين جداد بنفس المهارات', 'The model rates new applicants with the same skills'),
       html: `<div class="l12-pr"><b>● ${L('فرصة القبول', 'chance')}</b><span class="l12-bar o"><i id="bi-r1" data-w="70" style="width:70%"></i></span><em>70%</em></div><div class="l12-pr"><b>▲ ${L('فرصة القبول', 'chance')}</b><span class="l12-bar s"><i id="bi-r2" data-w="18" style="width:18%"></i></span><em>18%</em></div>` })}
-    ${B.card('def1', 90, 500, 1760, 0, 'c-red', { row: true, ic: '⚖️', h: L('التحيز الخوارزمي', 'Algorithmic bias'), p: L('نمط في مخرجات الـAI ممكن يؤدي لنتايج غير عادلة أو ضارة — النموذج اتعلّم الظلم وكرّره', 'bias in AI judgements caused by bias in the training data — the model learned the injustice and repeated it') })}
+    ${B.card('def1', 90, 500, 1760, 0, 'c-red', { row: true, ic: '⚖️', h: L('التحيز الخوارزمي', 'Algorithmic bias'), p: L('نمط في مخرجات الـAI ممكن يؤدي لنتايج غير عادلة أو ضارة — النموذج اتعلّم الظلم وكرّره', 'bias in AI judgments caused by bias in the training data — the model learned the injustice and repeated it') })}
   </div>
   <div id="bi-s2" class="mv-stage">
     ${B.card('bal', 70, 140, 840, 460, 'c-green', { h: '⚖️ ' + L('① بيانات متوازنة لكل المجموعات', '① Balanced data for every group'),
@@ -173,7 +173,7 @@
   <div id="pv-s1" class="mv-stage">
     <div id="pv-ph" class="l12u l12-phone later" style="${B.at(120, 130, 340, 560)}"><div class="scr"><div class="abar">📱 ${L('موبايلك', 'your phone')}</div><div class="tile">👍 ${L('لايكات', 'likes')}</div><div class="tile">🔍 ${L('بحث', 'searches')}</div><div class="tile">📍 ${L('مكانك', 'location')}</div><div class="tile">🛍️ ${L('مشترياتك', 'purchases')}</div></div></div>
     ${range(8).map((k) => B.big('d' + k, 480, 220 + (k % 4) * 110, 80, 54, ['👍', '🔍', '📍', '🛍️'][k % 4])).join('')}
-    ${B.card('file', 1100, 140, 760, 440, 'c-amber', { ic: '🗂️', h: L('ملف ضخم عنك', 'A huge file about you'), p: L('بيانات سلوكك على الإنترنت بتتجمع وتتحلّل', 'your online behaviour is collected and analysed'), html: `<div class="l12-count"><bdi id="pv-n">0</bdi> ${L('معلومة', 'facts')}</div>` })}
+    ${B.card('file', 1100, 140, 760, 440, 'c-amber', { ic: '🗂️', h: L('ملف ضخم عنك', 'A huge file about you'), p: L('بيانات سلوكك على الإنترنت بتتجمع وتتحلّل', 'your online behavior is collected and analyzed'), html: `<div class="l12-count"><bdi id="pv-n">0</bdi> ${L('معلومة', 'facts')}</div>` })}
   </div>
   <div id="pv-s2" class="mv-stage">
     ${B.svg('scale', 660, 150, 600, 480, '0 0 400 330', SCALE)}
@@ -291,7 +291,7 @@
   <div id="xa-s1" class="mv-stage">
     ${B.chip('rsn', 1100, 260, '🏘️ ' + L('السبب: «الحي اللي ساكن فيه»!', 'the reason: “the district you live in”!'), 'c-red big')}
     ${B.chip('fix', 1100, 380, '🔧 ' + L('تحيّز… لازم يتشال ويتصلّح', 'bias… it must be removed'), 'c-green big')}
-    ${B.card('xai', 420, 590, 1440, 0, 'c-blue', { row: true, ic: '🔍', h: L('الذكاء الاصطناعي القابل للتفسير (XAI)', 'Explainable AI (XAI)'), p: L('تقنية بتخلّي البشر يفهموا ليه الـAI أخد حكم معيّن', 'lets humans understand why an AI made a judgement') })}
+    ${B.card('xai', 420, 590, 1440, 0, 'c-blue', { row: true, ic: '🔍', h: L('الذكاء الاصطناعي القابل للتفسير (XAI)', 'Explainable AI (XAI)'), p: L('تقنية بتخلّي البشر يفهموا ليه الـAI أخد حكم معيّن', 'lets humans understand why an AI made a judgment') })}
   </div>
   <div id="xa-s2" class="mv-stage">
     ${B.card('imp', 70, 140, 1100, 470, 'c-slate', { h: '① ' + L('كل عامل أثّر قد إيه؟', 'How much did each factor weigh?'),
@@ -307,7 +307,7 @@
     ${B.svg('xr', 90, 150, 420, 420, '0 0 440 440', XRAY)}
     ${B.ch('dr', 600, 360, 'md')}
     ${B.chip('ok', 560, 250, '👨‍⚕️ ' + L('«المكان ده منطقي… موافق»', '“that area makes sense… agreed”'), 'c-green big')}
-    ${B.card('three', 1230, 140, 630, 0, 'c-pink', { ic: '③', h: L('الخريطة الحرارية', 'Heat map'), p: L('بتلوّن المكان اللي بنى عليه التشخيص', 'colours the area the diagnosis relied on') })}
+    ${B.card('three', 1230, 140, 630, 0, 'c-pink', { ic: '③', h: L('الخريطة الحرارية', 'Heat map'), p: L('بتلوّن المكان اللي بنى عليه التشخيص', 'colors the area the diagnosis relied on') })}
   </div>
   <div id="xa-s5" class="mv-stage">
     ${B.ch('dv', 160, 300, 'md')}${B.ch('us', 850, 300, 'md')}${B.ch('op', 1540, 300, 'md')}

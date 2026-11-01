@@ -23,7 +23,7 @@
       prompt: { ar: 'نظام تعرّف على الوجه بيغلط أكتر مع مجموعة معيّنة من الناس. إيه أنسب حل؟', en: 'A face-recognition system makes more mistakes with one group of people. What is the best fix?' },
       options: [
         { ar: 'نزوّد صورها في التدريب ونختبر النتايج لكل مجموعة', en: 'Add enough photos of that group and test results per group' },
-        { ar: 'نزوّد سرعة المعالج عشان يحلّل الصور بشكل أسرع', en: 'Use a faster processor so it analyses images faster' },
+        { ar: 'نزوّد سرعة المعالج عشان يحلّل الصور بشكل أسرع', en: 'Use a faster processor so it analyzes images faster' },
         { ar: 'نقلّل عدد الصور في بيانات التدريب كلها بالتساوي', en: 'Reduce the number of photos in all the training data' },
         { ar: 'نمنع المجموعة دي من استخدام النظام خالص عشان الغلط', en: 'Ban that group from using the system at all' },
       ],
@@ -69,7 +69,7 @@
     q(3, {
       widget: 'tf',
       items: [
-        { text: { ar: 'اللايكات والبحث والمكان كلها بيانات ممكن تتجمع وتتحلّل عنك.', en: 'Likes, searches and location are all data that can be collected and analysed about you.' }, answer: true },
+        { text: { ar: 'اللايكات والبحث والمكان كلها بيانات ممكن تتجمع وتتحلّل عنك.', en: 'Likes, searches and location are all data that can be collected and analyzed about you.' }, answer: true },
         { text: { ar: 'حماية الخصوصية معناها إن ماحدش يستخدم أي بيانات خالص.', en: 'Privacy protection means nobody may use any data at all.' }, answer: false, explain: { ar: 'معناها نتعامل معاها __بشكل مناسب__: يتشارك بس اللي لازم ولغرض واضح.', en: 'It means handling it __appropriately__: share only what is needed, for a clear purpose.' } },
         { text: { ar: 'كاميرات التعرف على الوجه في الأماكن العامة ممكن تتتبّع الأفراد.', en: 'Face-recognition cameras in public places can track individuals.' }, answer: true },
       ],
@@ -104,7 +104,7 @@
     q(3, {
       widget: 'tf',
       items: [
-        { text: { ar: 'الخريطة الحرارية بتلوّن المكان اللي النموذج بنى عليه التشخيص.', en: 'A heat map colours the area the model based its diagnosis on.' }, answer: true },
+        { text: { ar: 'الخريطة الحرارية بتلوّن المكان اللي النموذج بنى عليه التشخيص.', en: 'A heat map colors the area the model based its diagnosis on.' }, answer: true },
         { text: { ar: 'هدف XAI إنه يخلّي النموذج أسرع في المعالجة.', en: 'The goal of XAI is to make the model process faster.' }, answer: false, explain: { ar: 'هدفه إن البشر __يفهموا ليه__ النموذج أخد الحكم.', en: 'Its goal is for humans to __understand why__ the model made a decision.' } },
         { text: { ar: 'لما نفهم «ليه» النموذج قرّر، نقدر نكتشف التحيّز ونحاسب.', en: 'Once we understand why the model decided, we can detect bias and hold people accountable.' }, answer: true },
       ],

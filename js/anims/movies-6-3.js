@@ -82,28 +82,28 @@
     ${U.art('blob', 90, 170, 640, 400, '0 0 640 400', BLOB)}
     ${U.art('dens', 1150, 190, 640, 380, '0 0 640 380', DENS)}
     ${U.pill('op', 90, 600, '😵 ' + L('5000 نقطة = كتلة صمّاء: التراكب الزائد للنقاط', '5,000 points = one blob: overplotting'), 't-red')}
-    ${U.pill('opf', 1080, 600, '✅ ' + L('خلايا ملوّنة بتبيّن فين الكثافة', 'coloured cells show where density is'), 't-green')}
+    ${U.pill('opf', 1080, 600, '✅ ' + L('خلايا ملوّنة بتبيّن فين الكثافة', 'colored cells show where density is'), 't-green')}
     ${U.emo('arr', 830, 300, 160, 90, L('⬅', '➜'))}
 
     ${U.art('heat', 90, 160, 1000, 380, '0 0 1000 380', HEAT(L))}
-    ${U.box('hb', 1140, 170, 690, 't-amber', { ic: '🌡️', h: L('الخريطة الحرارية', 'Heatmap'), p: L('محورين + قيمة تالتة رقمية باللون', 'two axes + a third numeric value as colour'), s: L('عدد العملاء: يوم × وقت', 'customers: day × time') })}
+    ${U.box('hb', 1140, 170, 690, 't-amber', { ic: '🌡️', h: L('الخريطة الحرارية', 'Heatmap'), p: L('محورين + قيمة تالتة رقمية باللون', 'two axes + a third numeric value as color'), s: L('عدد العملاء: يوم × وقت', 'customers: day × time') })}
     ${U.pill('hk', 1140, 460, '🔥 ' + L('أزحم وقت: مسا الخميس والجمعة والسبت', 'Busiest: Thu, Fri and Sat evenings'), 'solid')}
     ${U.pill('hw', 1140, 560, L('بتنفع كمان للمتغيرات الفئوية', 'also suits categorical combinations'), 't-slate')}
 
     ${U.art('mos', 90, 160, 660, 480, '0 0 660 480', MOS(L))}
-    ${['#38bdf8', '#34d399', '#fbbf24'].map((c, k) => `<div id="v3-lg${k}" class="pill t-slate later" style="inset-inline-start:800px;top:${180 + k * 80}px;border-color:${c}">${['📐 ' + L('رياضيات', 'Maths'), '🔬 ' + L('علوم', 'Science'), '🗣️ ' + L('لغات', 'Languages')][k]}</div>`).join('')}
+    ${['#38bdf8', '#34d399', '#fbbf24'].map((c, k) => `<div id="v3-lg${k}" class="pill t-slate later" style="inset-inline-start:800px;top:${180 + k * 80}px;border-color:${c}">${['📐 ' + L('رياضيات', 'Math'), '🔬 ' + L('علوم', 'Science'), '🗣️ ' + L('لغات', 'Languages')][k]}</div>`).join('')}
     ${U.box('mb', 1120, 170, 710, 't-blue', { ic: '🧩', h: L('مخطط المستطيلات (الفسيفساء)', 'Mosaic plot'), p: L('متغيرين فئويين — النسبة = المساحة', 'two categorical variables — share = area'), s: L('عرض العمود = نسبة الفئة · الارتفاع = نسبتها جوّه مجموعتها', 'width = group share · height = share within group') })}
 
     ${U.art('st', 90, 180, 640, 400, '0 0 640 400', STORY(L))}
-    ${U.pill('ttl', 90, 600, '📝 ' + L('«فصل 3 جاب أعلى متوسط في الرياضيات»', '"Class 3 scored highest in maths"'), 'solid')}
+    ${U.pill('ttl', 90, 600, '📝 ' + L('«فصل 3 جاب أعلى متوسط في الرياضيات»', '"Class 3 scored highest in math"'), 'solid')}
     ${U.box('s1', 820, 180, 1010, 't-amber', { ic: '①', h: L('وضّح الرسالة', 'Clarify the message'), p: L('اللي عايز تقوله لازم يتقال في جملة واحدة — والعنوان يحمل الادعاء', 'what you want to say fits one sentence — the title carries the claim') })}
-    ${U.box('s2', 820, 380, 1010, 't-blue', { ic: '②', h: L('اختار العناصر', 'Select the elements'), p: L('شيل اللي مالوش علاقة، ولوّن المهم بس والباقي باهت', 'remove what does not serve it; colour only the key part') })}
+    ${U.box('s2', 820, 380, 1010, 't-blue', { ic: '②', h: L('اختار العناصر', 'Select the elements'), p: L('شيل اللي مالوش علاقة، ولوّن المهم بس والباقي باهت', 'remove what does not serve it; color only the key part') })}
     ${U.box('s3', 820, 580, 1010, 't-green', { ic: '③', h: L('معلومات داعمة', 'Supporting information'), p: L('عنوان · تسميات المحاور · الوحدات · المصدر · ملاحظات', 'title · axis labels · units · notes') })}
 
     ${U.art('mis', 90, 170, 600, 360, '0 0 600 360', MIS)}
     ${U.pill('mw', 760, 190, '😱 ' + L('محور مش من صفر: 98 قصاد 100 تبان أضعاف!', 'Axis not from zero: 98 vs 100 looks huge!'), 't-red')}
     ${U.pill('mf', 760, 290, '✅ ' + L('ابدأ المحور من صفر — من غير ما تغيّر ولا رقم', 'Start the axis at zero — without changing one number'), 't-green')}
-    ${U.pill('m2', 760, 400, '🎨 ' + L('ألوان من غير مفتاح ← مالهاش معنى', 'Colours with no key → meaningless'), 't-amber')}
+    ${U.pill('m2', 760, 400, '🎨 ' + L('ألوان من غير مفتاح ← مالهاش معنى', 'Colors with no key → meaningless'), 't-amber')}
     ${U.pill('m3', 760, 500, '✂️ ' + L('حذف فئات ← صورة ناقصة', 'Dropped categories → an incomplete picture'), 't-amber')}
     ${U.pill('aud', 760, 610, '👥 ' + L('في الآخر: اقعد مكان الجمهور واتأكّد إن الرسالة وصلت', 'Finally: sit in the audience’s seat and check the message lands'), 'solid')}
 
@@ -116,14 +116,14 @@
     ${U.hd(6, '② ' + L('سرد القصص: العناصر', 'Storytelling: the elements'))}
     ${U.hd(7, '③ ' + L('سرد القصص: معلومات داعمة', 'Storytelling: supporting info'))}
     ${U.hd(8, '⚠️ ' + L('رسم «صح»… بيضلّل', 'A "correct" chart… that misleads'))}
-    ${U.nt(4, L('خريطة حرارية = لون عبر محورين · مخطط المستطيلات = مساحة لفئتين', 'Heatmap = colour across two axes · mosaic = area for two categories'), 'warn')}
+    ${U.nt(4, L('خريطة حرارية = لون عبر محورين · مخطط المستطيلات = مساحة لفئتين', 'Heatmap = color across two axes · mosaic = area for two categories'), 'warn')}
     ${U.nt(6, '⚠️ ' + L('عناصر أكتر مابتوضّحش الرسالة… بتدفنها', 'More elements do not clarify the message… they bury it'), 'warn')}
   </div>
   <div id="v3-recap" class="mv-recap">
     ${U.hd(9, '💡 ' + L('الخلاصة', 'The point'))}
     ${B.card('x0', 70, 170, 410, 420, 'c-violet rc', { ic: '🧠📣', p: L('دورين: فهم المحلّل نفسه + التوصيل للآخرين', 'Two roles: the analyst’s understanding + communicating') })}
     ${B.card('x1', 530, 170, 410, 420, 'c-blue rc', { ic: '📈', p: L('متغير/اتنين ← أعمدة · خطوط · مبعثر', 'One or two variables → bar · line · scatter') })}
-    ${B.card('x2', 990, 170, 410, 420, 'c-amber rc', { ic: '🌡️', p: L('خريطة حرارية = لون عبر محورين · 🧩 مستطيلات = مساحة لفئتين', 'Heatmap = colour on two axes · mosaic = area for two categories') })}
+    ${B.card('x2', 990, 170, 410, 420, 'c-amber rc', { ic: '🌡️', p: L('خريطة حرارية = لون عبر محورين · 🧩 مستطيلات = مساحة لفئتين', 'Heatmap = color on two axes · mosaic = area for two categories') })}
     ${B.card('x3', 1450, 170, 410, 420, 'c-green rc', { ic: '📝', p: L('رسالة واحدة · عناصر بتخدمها · تسميات صادقة', 'One message · serving elements · honest labels') })}
   </div>`,
     });

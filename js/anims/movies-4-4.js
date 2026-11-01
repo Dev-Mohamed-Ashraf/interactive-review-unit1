@@ -84,14 +84,14 @@
   </div>
   <div id="i4-s6" class="mv-stage">
     ${B.chip('id', 70, 250, '③ ' + L('توليد الأفكار: أفكار كتير', 'Ideate: many ideas'), 'c-amber', 560)}
-    ${[L('الزرار فوق', 'button on top'), L('شريط ثابت', 'sticky bar'), L('زرار أكبر', 'bigger button'), L('لون أوضح', 'clearer colour')]
+    ${[L('الزرار فوق', 'button on top'), L('شريط ثابت', 'sticky bar'), L('زرار أكبر', 'bigger button'), L('لون أوضح', 'clearer color')]
       .map((t, k) => `<div id="${P}i${k}" class="l12u l44-note later" style="${B.at(70 + (k % 2) * 290, 340 + Math.floor(k / 2) * 180, 270, 160)}">💡<br>${t}</div>`).join('')}
     ${B.chip('pt', 680, 250, '④ ' + L('النموذج الأولي: نموذج سريع', 'Prototype: a quick model'), 'c-blue', 560)}
     <div id="i4-sk" class="l12u l44-sk later" style="${B.at(800, 340, 320, 360)}"><span class="cta">${L('سجّل', 'Sign up')}</span><i></i><i></i><i></i><i></i></div>
     ${B.chip('ts', 1290, 250, '⑤ ' + L('الاختبار: المستخدمين يجرّبوه', 'Test: users try it'), 'c-green', 570)}
     ${B.ch('te', 1300, 400, 'md')}
     ${B.chip('f1', 1540, 400, '👍 ' + L('لقيته بسرعة', 'found it fast'), 'c-green sm')}
-    ${B.chip('f2', 1540, 500, '🤔 ' + L('اللون باهت', 'colour is faint'), 'c-amber sm')}
+    ${B.chip('f2', 1540, 500, '🤔 ' + L('اللون باهت', 'color is faint'), 'c-amber sm')}
     ${B.big('rt', 1530, 214, 70, 54, '↩️')}
     ${B.mid('bk2', 696, '↩️ ' + L('على حسب النتيجة ممكن نرجع للتعاطف أو التعريف — رايح جاي', 'based on the result we may go back to empathize or define — back and forth'), 'c-pink')}
   </div>
@@ -105,10 +105,10 @@
   </div>
   <div id="i4-s8" class="mv-stage">
     ${B.card('r1', 70, 150, 880, 0, 'c-green', { ic: '1️⃣', h: L('فرق واضح ومحدد بين النسختين', 'Change only one element at a time'),
-      html: `<div class="l44-pair"><span class="buy a">${L('اشترِ', 'Buy')}</span><b>vs</b><span class="buy b">${L('اشترِ', 'Buy')}</span><em>✓ ${L('اللون بس', 'colour only')}</em></div>` })}
+      html: `<div class="l44-pair"><span class="buy a">${L('اشترِ', 'Buy')}</span><b>vs</b><span class="buy b">${L('اشترِ', 'Buy')}</span><em>✓ ${L('اللون بس', 'color only')}</em></div>` })}
     ${B.card('r2', 990, 150, 870, 0, 'c-blue', { ic: '📊', h: L('حدّد المقياس قبل الاختبار، واجمع عينة كافية', 'Decide after enough data'),
       html: `<div class="l44-pair"><span class="smp">👥 <bdi class="sn">10</bdi></span><span class="l12-slot"><em class="e1">⏳ ${L('لسه بدري', 'too early')}</em><em class="e2">✅ ${L('نقرّر', 'decide')}</em></span></div>` })}
-    ${B.card('bd', 70, 470, 1790, 0, 'c-red', { row: true, ic: '❌', h: L('نغيّر اللون + الكلام + المكان مع بعض', 'Change colour + text + position together'), p: L('حزمة التغييرات بتقيس أثر الحزمة، مش كل عنصر', 'you cannot tell which change made the effect → a wrong practice') })}
+    ${B.card('bd', 70, 470, 1790, 0, 'c-red', { row: true, ic: '❌', h: L('نغيّر اللون + الكلام + المكان مع بعض', 'Change color + text + position together'), p: L('حزمة التغييرات بتقيس أثر الحزمة، مش كل عنصر', 'you cannot tell which change made the effect → a wrong practice') })}
     ${B.big('qm', 1700, 500, 120, 90, '❓')}
   </div>
   <div id="i4-s9" class="mv-stage">
