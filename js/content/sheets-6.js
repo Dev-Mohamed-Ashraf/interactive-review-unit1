@@ -146,7 +146,7 @@
       [{ t: 'cards', ic: '⚠️', title: T('تنبيهات', 'Cautions'), cols: 3, items: [
         { h: T('النموذج مابيخلصش بإنشائه', 'Not done when built'), p: T('أكّد الدقة وماتطبّقوش برّه مدى البيانات', 'confirm accuracy; stay in the data’s range'), c: 'amber' },
         { h: T('مش R² لوحده', 'Not R² alone'), p: T('أخطاء التنبؤ والافتراضات والأداء على بيانات جديدة · R² المعدّل لمقارنة نماذج', 'with the other measures'), c: 'blue' },
-        { h: T('متغيرات أكتر ≠ أحسن', 'More variables ≠ better'), p: T('اختار المناسب للغرض · المفرط في الملاءمة بيطارد الضوضاء', 'overfitting chases noise'), c: 'red' },
+        { h: T('متغيرات أكتر ≠ أحسن', 'More variables ≠ better'), p: T('اختار المناسب للغرض · المفرط في الملاءمة بيطارد التشويش', 'overfitting chases noise'), c: 'red' },
       ] }],
       [{ t: 'sec', page: true, n: '✓', label: T('راجع نفسك: أسئلة الكتاب بإجاباتها', 'Check yourself: the book’s questions, answered') }],
       [{ t: 'drill', items: [

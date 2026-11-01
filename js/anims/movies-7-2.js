@@ -59,8 +59,8 @@
     ${U.pill('na', 1150, 620, '⚡ ' + L('دالة التنشيط: علاقات مش تناسبية بس', 'Activation: non-proportional relations'), 't-amber')}
 
     ${U.box('b0', 70, 180, 570, 't-red', { ic: '🎲', h: L('قبل التدريب', 'Before training'), p: L('أوزان عشوائية ← صورة كلب ← «قطة» ❌', 'random weights → a dog photo → "cat" ❌') })}
-    ${U.box('b1', 675, 180, 570, 't-amber', { ic: '🔧', h: L('أثناء التدريب', 'During training'), p: L('نظبط الأوزان شوية شوية حسب الفرق بين التنبّؤ والإجابة', 'tune weights step by step from the gap to the answer') })}
-    ${U.box('b2', 1280, 180, 570, 't-green', { ic: '✅', h: L('بعد التدريب', 'After training'), p: L('إجابات صح حتى على بيانات جديدة', 'correct answers even on new data') })}
+    ${U.box('b1', 675, 180, 570, 't-amber', { ic: '🔧', h: L('أثناء التدريب', 'During training'), p: L('نضبط الأوزان شوية شوية حسب الفرق بين التنبّؤ والإجابة', 'tune weights step by step from the gap to the answer') })}
+    ${U.box('b2', 1280, 180, 570, 't-green', { ic: '✅', h: L('بعد التدريب', 'After training'), p: L('نقيس الأداء على بيانات منفصلة', 'correct answers even on new data') })}
     ${U.pill('accl', 90, 480, '🎯 ' + L('الدقة', 'Accuracy'), 't-slate')}
     ${U.art('acc', 360, 470, 1100, 100, '0 0 1100 100', ACC)}
     ${U.pill('accv', 1500, 480, L('20% ← 95%', '20% → 95%'), 'solid')}
@@ -84,11 +84,11 @@
 
     ${U.hd(0, '🧠 ' + L('بنية الشبكة العصبية', 'The structure of a neural network'))}
     ${U.hd(1, '⚪ ' + L('خلية عصبية واحدة', 'One neuron'))}
-    ${U.hd(2, '🔧 ' + L('التدريب = ظبط الأوزان', 'Training = tuning the weights'))}
+    ${U.hd(2, '🔧 ' + L('التدريب = ضبط الأوزان', 'Training = tuning the weights'))}
     ${U.hd(3, '🪜 ' + L('التعلّم العميق: سمات طبقة فوق طبقة', 'Deep learning: features layer on layer'))}
     ${U.hd(4, '🚀 ' + L('إيه اللي خلّاه عملي؟', 'What made it practical?'))}
     ${U.hd(5, '📈 ' + L('القفزة', 'The leap'))}
-    ${U.nt(0, L('مشكلة أصعب ← طبقات وعقد أكتر', 'A harder problem → more layers and nodes'))}
+    ${U.nt(0, L('البنية حسب المهمة والبيانات والموارد', 'A harder problem → more layers and nodes'))}
     ${U.nt(2, L('كل خلية بسيطة… بس خلايا كتير مع بعض = أحكام معقّدة', 'Each neuron is simple… many together = complex judgments'), 'ok')}
     ${U.nt(3, L('في الكتاب: حواف ← عيون وأنف ← الوجه كله — نفس الفكرة', 'In the textbook: edges → eyes and nose → the whole face — same idea'))}
   </div>
@@ -96,7 +96,7 @@
     ${U.hd(6, '💡 ' + L('الخلاصة', 'The point'))}
     ${B.card('x0', 70, 170, 410, 420, 'c-violet rc', { ic: '🧠', p: L('إدخال ← مخفية (سمات) ← إخراج', 'Input → hidden (features) → output') })}
     ${B.card('x1', 530, 170, 410, 420, 'c-blue rc', { ic: '⚪', p: L('الخلية: أوزان × مدخلات ← مجموع ← دالة تنشيط', 'A neuron: weights × inputs → sum → activation') })}
-    ${B.card('x2', 990, 170, 410, 420, 'c-amber rc', { ic: '🔧', p: L('التدريب بيظبط الأوزان: عشوائية ← مضبوطة', 'Training tunes weights: random → tuned') })}
+    ${B.card('x2', 990, 170, 410, 420, 'c-amber rc', { ic: '🔧', p: L('التدريب بيضبط الأوزان: عشوائية ← مضبوطة', 'Training tunes weights: random → tuned') })}
     ${B.card('x3', 1450, 170, 410, 420, 'c-green rc', { ic: '🪜', p: L('عميق = طبقات كتير: خطوط ← أجزاء ← الكل', 'Deep = many layers: lines → parts → whole') })}
   </div>`,
     });

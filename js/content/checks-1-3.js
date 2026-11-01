@@ -8,7 +8,7 @@
   RV.addSteps('1-3', 'daily', [
     q(1, {
       widget: 'mcq',
-      prompt: { ar: 'قلت «يا Siri، اضبط منبّه الساعة 7» واتظبط فعلًا. أنهي خدمة دي؟', en: 'You said "Hey Siri, set an alarm for 7" and it did. Which service is this?' },
+      prompt: { ar: 'قلت «يا Siri، اضبط منبّه الساعة 7» واتضبط فعلًا. أنهي خدمة دي؟', en: 'You said "Hey Siri, set an alarm for 7" and it did. Which service is this?' },
       options: [
         { ar: 'مساعد صوتي', en: 'Voice assistant' },
         { ar: 'نظام توصية', en: 'Recommendation system' },

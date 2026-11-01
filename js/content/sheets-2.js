@@ -42,20 +42,20 @@
       [{ t: 'sec', n: '2', label: T('استخدام المصادقة في الخدمات الفعلية', 'Use of Authentication in Real Services') }],
       [
         { t: 'tree', ic: '🛡️', title: T('المصادقة الثنائية (2FA) ومتعددة العوامل (MFA)', 'Multi-factor authentication (MFA)'), w: 1.15, root: { h: T('2FA: عاملين مستقلين من فئتين مختلفتين · MFA: عاملين أو أكتر', 'Two or more of the three factors'), c: 'teal' }, kids: [
-          { ic: '🧠', h: T('معرفة', 'Knowledge'), p: T('حاجة عارفها: كلمة سر', 'you know it: a password'), c: 'blue' },
+          { ic: '🧠', h: T('معرفة', 'Knowledge'), p: T('حاجة عارفها: كلمة مرور', 'you know it: a password'), c: 'blue' },
           { ic: '📱', h: T('حيازة', 'Possession'), p: T('حاجة معاك: موبايل · كارت', 'you have it: phone · card'), c: 'amber' },
           { ic: '👆', h: T('سمات حيوية', 'Biometric'), p: T('حاجة هي إنت: بصمة · وجه', 'you are it: fingerprint · face'), c: 'pink' },
         ] },
         { t: 'compare', ic: '🏦', title: T('أمثلة حقيقية', 'Real examples'),
           cols: [{ h: T('العامل الأول', 'First factor'), c: 'blue' }, { h: T('التاني', 'Second'), c: 'amber' }],
           rows: [
-            { k: T('البنك أونلاين', 'Online bank'), v: [T('كلمة سر', 'password'), T('كلمة سر لمرة واحدة OTP', 'one-time password')] },
-            { k: T('السوشيال ميديا', 'Social media'), v: [T('كلمة سر', 'password'), T('كود SMS', 'SMS code')] },
-            { k: T('التسوّق أونلاين', 'Online shopping'), v: [T('كلمة سر', 'password'), T('التحقق من هوية بطاقة الائتمان', '3-D Secure one-time code')] },
+            { k: T('البنك أونلاين', 'Online bank'), v: [T('كلمة مرور', 'password'), T('كلمة مرور لمرة واحدة OTP', 'one-time password')] },
+            { k: T('السوشيال ميديا', 'Social media'), v: [T('كلمة مرور', 'password'), T('كود SMS', 'SMS code')] },
+            { k: T('التسوّق أونلاين', 'Online shopping'), v: [T('كلمة مرور', 'password'), T('التحقق من هوية بطاقة الائتمان', '3-D Secure one-time code')] },
             { k: T('دخول مبنى مؤمَّن', 'Company laptop'), v: [T('بطاقة دخول', 'smart card'), T('بصمة إصبع', 'fingerprint')] },
           ] },
       ],
-      [{ t: 'note', ic: '🔓', c: 'amber', p: T('**ليه بنجمع؟** بعامل واحد لو اتكسر المهاجم يدخل (قايمة كلمات سر مسرّبة). بعاملين مختلفين، لو كلمة السر اتسرّبت الكود لسه بيمنعه.', '**Why combine?** One broken factor lets an attacker in. With two different factors, a leaked password still fails without the code.') }],
+      [{ t: 'note', ic: '🔓', c: 'amber', p: T('**ليه بنجمع؟** بعامل واحد لو اتكسر المهاجم يدخل (قايمة كلمات مرور مسرّبة). بعاملين مختلفين، لو كلمة المرور اتسرّبت الكود لسه بيمنعه.', '**Why combine?** One broken factor lets an attacker in. With two different factors, a leaked password still fails without the code.') }],
       [{ t: 'sec', n: '3', label: T('تركيبات تقنيات الأمان', 'Combinations of Security Technologies') }],
       [
         { t: 'vflow', ic: '✍️', title: T('التوقيع الرقمي', 'Digital signature'), items: [
@@ -87,7 +87,7 @@
         T('الجمع بينهم بيحقق الأمان والسرعة مع بعض', 'Together they give both security and speed'),
       ] }],
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
-        { bad: T('كلمتين سر = 2FA', 'Two passwords = MFA'), good: T('نفس العامل، مش 2FA', 'Two-step with the same factor, not MFA') },
+        { bad: T('كلمتين مرور = 2FA', 'Two passwords = MFA'), good: T('نفس العامل، مش 2FA', 'Two-step with the same factor, not MFA') },
         { bad: T('HTTPS = موقع موثوق وحماية مطلقة', 'HTTPS uses only one kind of key'), good: T('بيقلّل المخاطر بس', 'It combines public-key and common-key') },
         { bad: T('التوقيع يحسّن سرعة الاتصال', 'A signature speeds the connection'), good: T('يكشف التلاعب + عدم التنصل', 'Tamper detection + non-repudiation') },
         { bad: T('كل البيانات بالمفتاح العام', 'All data by public key'), good: T('بطيء؛ البيانات بالمتماثل', 'Slow; data uses the common key') },
@@ -97,7 +97,7 @@
   });
 
   RV.addSheet('2-2', {
-    lead: T('الأمن القوي من تراكُب الإجراءات والتحقق من كل وصول — مش من حاجز واحد.', 'Strong security comes from layered measures and checking every access — not one barrier.'),
+    lead: T('الأمن القوي من تكديس الإجراءات والتحقق من كل وصول — مش من حاجز واحد.', 'Strong security comes from layered measures and checking every access — not one barrier.'),
     rows: [
       [{ t: 'goal', label: T('السؤال الرئيسي', 'Guiding question'), q: T('كيف يمكن لمؤسسة أن تصمم شبكتها بحيث يظل النظام محميًا حتى لو تم اختراق أحد الدفاعات؟', 'How can an organization design its network so that, even if one defense is breached, the system stays protected?'),
         aimsLabel: T('هتطلع من الدرس قادر', 'By the end you can'), aims: [
@@ -175,9 +175,9 @@
         { t: 'tree', ic: '💥', title: T('الحادث الأمني', 'A security incident'), w: 1.25, root: { h: T('حدث يؤثر في سرية المعلومات أو سلامتها أو توافرها، أو يهددها بجدية، أو يخالف سياسة أمنية', 'A situation where actual damage occurs due to an information security problem'), c: 'red' }, kids: [
           { ic: '📤', h: T('تسرّب معلومات', 'Information leak'), p: T('شخصية أو سرّية', 'personal or secret'), c: 'amber' },
           { ic: '✏️', h: T('تلاعب بالبيانات', 'Data tampering'), p: T('رصيد 500 بقى 5,000', 'balance 500 → 5,000'), c: 'violet' },
-          { ic: '⛔', h: T('توقّف خدمة', 'Service outage'), p: T('هجوم على الخادم', 'an attack on the server'), c: 'blue' },
+          { ic: '⛔', h: T('انقطاع خدمة', 'Service outage'), p: T('هجوم على الخادم', 'an attack on the server'), c: 'blue' },
         ] },
-        { t: 'note', ic: '✋', c: 'green', p: T('**مش حادث:** تحديث برمجي لإضافة ميزات. **حوادث:** فدية تشفّر الملفات · تسريب بيانات العملاء · توقّف خدمة بهجوم.', '**Not an incident:** a feature update — no harm. **Incidents:** ransomware · a customer-data leak · an outage from an attack.') },
+        { t: 'note', ic: '✋', c: 'green', p: T('**مش حادث:** تحديث برمجي لإضافة ميزات. **حوادث:** فدية تشفّر الملفات · تسريب بيانات العملاء · انقطاع خدمة بهجوم.', '**Not an incident:** a feature update — no harm. **Incidents:** ransomware · a customer-data leak · an outage from an attack.') },
       ],
       [{ t: 'sec', n: '2', label: T('تدفق الاستجابة للحوادث', 'The Flow of Incident Response') }],
       [{ t: 'layers', ic: '🚨', title: T('نموذج تعليمي مبسط من ست مراحل (مثال: برنامج فدية)', 'The six stages in order (ransomware example)'), items: [

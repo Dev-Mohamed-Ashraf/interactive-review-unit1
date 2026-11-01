@@ -8,7 +8,7 @@
   const T = (ar, en) => ({ ar, en });
 
   RV.addSheet('4-1', {
-    lead: T('لكل وسيط قوة وقيود، والاختيار — وغالبًا كذا وسيط مع بعض — حسب الغرض والجمهور.', 'Each medium has strengths and limits; choose — often several — by purpose and audience.'),
+    lead: T('لكل وسيلة قوة وقيود، والاختيار — وغالبًا كذا وسيلة مع بعض — حسب الغرض والجمهور.', 'Each medium has strengths and limits; choose — often several — by purpose and audience.'),
     rows: [
       [{ t: 'goal', label: T('السؤال الرئيسي', 'Guiding question'), q: T('ما نقاط القوة والقيود في الوسائط المختلفة، وكيف تختار الوسيلة المناسبة لغرض وجمهور معينين؟', 'What are the strengths and constraints of different media, and how do you choose the right one?'),
         aimsLabel: T('هتطلع من الدرس قادر', 'By the end you can'), aims: [
@@ -26,7 +26,7 @@
         ] }],
       [{ t: 'link', ic: '↔️', title: T('اتجاه واحد ولا اتجاهين؟', 'One-way or two-way?'), nodes: [
         { ic: '📣', h: T('المرسل', 'Sender'), c: 'blue' },
-        { ic: '👥', h: T('المستقبل', 'Receiver'), c: 'green' },
+        { ic: '👥', h: T('المتلقي', 'Receiver'), c: 'green' },
       ], edges: [{ to: T('واحد: تلفزيون · راديو · صحيفة', 'one-way: TV · radio · paper'), back: T('اتجاهين: تواصل + نماذج الموقع', 'two-way: SNS + site forms') }] }],
       [{ t: 'sec', n: '2', label: T('نقاط القوة والقيود في المواقع الإلكترونية', 'Strengths and Constraints of Websites') }],
       [
@@ -38,11 +38,11 @@
         ] },
       ],
       [{ t: 'sec', n: '3', label: T('اختيار الوسائط وفقًا للغرض', 'Choosing Media According to Purpose') }],
-      [{ t: 'tree', ic: '🎯', title: T('الاختيار حسب الغرض', 'Choosing by purpose'), root: { h: T('اختيار الوسيط: الغرض؟ الجمهور المستهدف؟ الموارد؟', 'Choosing media: your goal? your target audience?'), c: 'violet' }, kids: [
+      [{ t: 'tree', ic: '🎯', title: T('الاختيار حسب الغرض', 'Choosing by purpose'), root: { h: T('اختيار الوسيلة: الغرض؟ الجمهور المستهدف؟ الموارد؟', 'Choosing media: your goal? your target audience?'), c: 'violet' }, kids: [
         { ic: '📺', h: T('وصول واسع بسرعة', 'Wide, fast reach'), p: T('تلفزيون · إعلانات التواصل', 'TV · social ads'), c: 'blue' },
         { ic: '🌐', h: T('تفاصيل يرجعولها', 'Details to revisit'), p: T('موقع: كمية كبيرة منظمة في صفحات وأقسام', 'a website: no limit on volume, view any time'), c: 'violet' },
         { ic: '✉️', h: T('رسالة لناس بعينهم', 'To specific people'), p: T('إيميل · رسايل مباشرة', 'email · direct messages'), c: 'amber' },
-        { ic: '💬', h: T('انتشار بالتناقل', 'Spread by sharing'), p: T('تواصل: يشاركوا بإرادتهم', 'SNS: shared willingly'), c: 'pink' },
+        { ic: '💬', h: T('انتشار بالتناقل الشفهي', 'Spread by sharing'), p: T('تواصل: يشاركوا بإرادتهم', 'SNS: shared willingly'), c: 'pink' },
       ] }],
       [{ t: 'flow', ic: '🔗', title: T('بنجمع الوسائط: كل واحد يسدّ ضعف التاني', 'Combining media: each covers the other'), items: [
         { ic: '📺', h: T('إعلان تلفزيوني', 'TV advert'), p: T('يجذب الانتباه', 'grabs attention'), c: 'blue' },
@@ -57,21 +57,21 @@
         { q: T('وسائل التواصل فعالة في نشر المعلومات بسرعة؟', 'SNS spreads information rapidly?'), a: T('صح', 'True') },
         { q: T('الموقع بيتشاف من غير اتصال؟', 'A website is normally viewable offline?'), a: T('غلط: معظم وظائفه محتاجة اتصال', 'False: it normally needs a connection') },
         { q: T('إتاحة معلومات تفصيلية للاطلاع في أي وقت', 'Detailed information viewable at any time'), a: T('الموقع الإلكتروني', 'Website') },
-        { q: T('جعل المستخدمين ينشرون المعلومة بالتناقل', 'Users spread information by word of mouth'), a: T('وسائل التواصل الاجتماعي', 'SNS') },
+        { q: T('جعل المستخدمين ينشرون المعلومة بالتناقل الشفهي', 'Users spread information by word of mouth'), a: T('وسائل التواصل الاجتماعي', 'SNS') },
         { q: T('إعلام عدد كبير من الناس في آن واحد بالفيديو', 'Inform many people at once with video'), a: T('التلفزيون', 'TV') },
         { q: T('إيصال معلومة لأشخاص محددين', 'Deliver information to specific people'), a: T('البريد الإلكتروني والرسائل المباشرة', 'Email and direct messages') },
       ] }],
       [{ t: 'qa', mark: T('سؤال بنمط الامتحان · 6 درجات · نقاط الإجابة', 'Exam-style question · 6 marks · points to make'), q: T('اشرح لماذا قد تستخدم مؤسسة موقعًا وتلفزيونًا ووسائل تواصل معًا للترويج لخدمة جديدة.', 'Explain why an organization might use a website, TV, and SNS together to promote a new service.'), items: [
         T('التلفزيون: انتشار واسع', 'TV: wide reach'),
         T('الموقع: العمق والتفاصيل', 'Website: full detail, any time'),
-        T('وسائل التواصل: النشر بالتناقل', 'SNS: word of mouth'),
+        T('وسائل التواصل: النشر بالتناقل الشفهي', 'SNS: word of mouth'),
         T('كل وسيلة بتقوم باللي بتجيده', 'Each medium does what it does best'),
       ] }],
       [{ t: 'traps', ic: '🎯', title: T('فخاخ الامتحان', 'Exam traps'), items: [
         { bad: T('التلفزيون تفاعل في الاتجاهين', 'TV is two-way'), good: T('اتجاه واحد', 'One-way') },
         { bad: T('الموقع بيتشاف من غير إنترنت', 'A website needs no Internet'), good: T('معظم وظائفه محتاجة اتصال', 'Usually needs a connection') },
         { bad: T('المعلومة بتوصل من غير ما يدخلوا', 'Information arrives without visiting'), good: T('غالبًا لازم يفتحه', 'Users must visit') },
-        { bad: T('وسيط واحد أو الموقع يكفي دايمًا', 'One medium or a site always suffices'), good: T('الأنسب حسب الغرض والجمهور', 'The best fit for purpose, audience') },
+        { bad: T('وسيلة واحدة أو الموقع يكفي دايمًا', 'One medium or a site always suffices'), good: T('الأنسب حسب الغرض والجمهور', 'The best fit for purpose, audience') },
       ] }],
       [{ t: 'takeaway', label: T('الخلاصة', 'Key takeaway'), p: T('مفيش وسيلة هي الأفضل لكل شيء: طابق الوسيلة مع الغرض والجمهور، واجمع بين الوسائط بحيث تقوم كل واحدة بما تجيده.', 'No medium is best for everything — match the medium to the purpose and audience, and combine media so each does what it does best.') }],
     ],
@@ -155,7 +155,7 @@
         ] }],
       [{ t: 'sec', n: '1', label: T('التقييم النوعي والكمي', 'Qualitative and Quantitative Evaluation') }],
       [{ t: 'tree', ic: '⚖️', title: T('نوعين التقييم', 'Two kinds of evaluation'), root: { h: T('تقييم الموقع', 'Evaluating a site'), c: 'violet' }, kids: [
-        { ic: '🔍', h: T('التقييم النوعي = ليه؟', 'Qualitative evaluation = why?'), p: T('يفهم تجربة المستخدم وأسباب السلوك والمشكلات', 'explores reasons numbers cannot show'), list: [T('اختبار الاستخدام: نراقب الاستخدام الفعلي', 'usability testing: watch real use'), T('المقابلات: نسمع الاحتياجات والضيق', 'interviews: hear needs and frustrations'), T('التقييم الإرشادي: خبراء', 'heuristic evaluation: experts')], c: 'violet' },
+        { ic: '🔍', h: T('التقييم النوعي = ليه؟', 'Qualitative evaluation = why?'), p: T('يفهم تجربة المستخدم وأسباب السلوك والمشكلات', 'explores reasons numbers cannot show'), list: [T('اختبار قابلية الاستخدام: نراقب الاستخدام الفعلي', 'usability testing: watch real use'), T('المقابلات: نسمع الاحتياجات والضيق', 'interviews: hear needs and frustrations'), T('التقييم الإرشادي: خبراء', 'heuristic evaluation: experts')], c: 'violet' },
         { ic: '📊', h: T('التقييم الكمّي = قد إيه؟', 'Quantitative evaluation = how much?'), p: T('يقيس السلوك والنتائج بأرقام ومقاييس محددة', 'numbers: objective, statistical'), list: [T('تحليلات الويب: إحدى أدواته', 'web analytics: the central method'), T('PV · الوقت · الارتداد · CVR', 'PV · time · bounce · CVR'), T('اختبار A/B: نقارن خيارين', 'A/B testing: compare two options')], c: 'blue' },
       ] }],
       [{ t: 'note', ic: '🤝', c: 'green', p: T('الأرقام بتوصف **اللي بيحصل**… والمقابلات والملاحظة بتساعد نفهم **ليه**. المؤشر لوحده مايفسّرش السبب، والملاحظة مش بتمثّل كل المستخدمين — فالدراسة ممكن تجمع النوعين.', 'Numbers say **where** to look… voices say **why** — together the evaluation is more accurate.') }],
@@ -201,7 +201,7 @@
         { bad: T('النوعي بيعتمد على الأرقام', 'Qualitative relies on numbers'), good: T('الأرقام = كمّي', 'Numbers = quantitative') },
         { bad: T('PV = عدد الأشخاص', 'Numbers alone explain why'), good: T('ممكن فيه تكرار', 'They show how much') },
       ] }],
-      [{ t: 'takeaway', label: T('الخلاصة', 'Key takeaway'), p: T('التقييم الكمي (PV ومعدل الارتداد وCVR) يظهر مقدار الاستخدام، والتقييم النوعي (اختبارات الاستخدام والمقابلات والتقييم الإرشادي) يساعد نفهم السبب: اجمع بينهما.', 'Quantitative (PV, bounce rate, CVR) shows how much; qualitative (usability tests, interviews, heuristic checks) shows why. Combine both.') }],
+      [{ t: 'takeaway', label: T('الخلاصة', 'Key takeaway'), p: T('التقييم الكمي (PV ومعدل الارتداد وCVR) يظهر مقدار الاستخدام، والتقييم النوعي (اختبارات قابلية الاستخدام والمقابلات والتقييم الإرشادي) يساعد نفهم السبب: اجمع بينهما.', 'Quantitative (PV, bounce rate, CVR) shows how much; qualitative (usability tests, interviews, heuristic checks) shows why. Combine both.') }],
     ],
   });
 

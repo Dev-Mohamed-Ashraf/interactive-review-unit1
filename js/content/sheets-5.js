@@ -54,7 +54,7 @@
       [{ t: 'cards', ic: '⚠️', title: T('تحيّز المعاينة: طريقة الاختيار بتخلّي ناس أكتر أو أقل احتمالًا للتمثيل ← التعميم مش موثوق', 'Sampling bias: the sample misses the population → no generalizing'), cols: 3, items: [
         { ic: '🙋‍♂️', h: T('الاختيار الذاتي', 'Self-selection'), p: T('استبيان ويب يرد عليه المهتمون بس (مين شارك)', 'only those interested reply (who is surveyed)'), c: 'red' },
         { ic: '🎭', h: T('تحيّز الاستجابة', 'Response bias'), p: T('الإجابة «المرغوبة»: خطأ قياس (إزاي جاوبوا)', 'the “desired” answer: a measurement error (how they answered)'), c: 'amber' },
-        { ic: '🚉', h: T('الزمان/المكان', 'Time/location'), p: T('قدام محطة بعد الضهر أيام الأسبوع: بيستبعد الموظفين والطلاب', 'a station at noon: workers and students absent'), c: 'violet' },
+        { ic: '🚉', h: T('الوقت/الموقع', 'Time/location'), p: T('قدام محطة بعد الضهر أيام الأسبوع: بيستبعد الموظفين والطلاب', 'a station at noon: workers and students absent'), c: 'violet' },
       ] }],
       [{ t: 'flow', ic: '😬', title: T('واثقة… بس غلط', 'Confident… but wrong'), items: [
         { ic: '🌐', h: T('استبيان ويب عن النوم', 'A web survey on sleep'), c: 'blue' },
@@ -89,7 +89,7 @@
   });
 
   RV.addSheet('5-2', {
-    lead: T('البيانات الخام نادرًا ما تكون جاهزة — مدخلات غلط ← مخرجات غلط، وكل خطوة قرار بيقوده الغرض.', 'Raw data is rarely ready — garbage in, garbage out — and each step is a decision led by the purpose.'),
+    lead: T('البيانات الخام نادرًا ما تكون جاهزة — مدخلات خاطئة — مخرجات خاطئة، وكل خطوة قرار بيقوده الغرض.', 'Raw data is rarely ready — garbage in, garbage out — and each step is a decision led by the purpose.'),
     rows: [
       [{ t: 'goal', label: T('السؤال الرئيسي', 'Guiding question'), q: T('لماذا يجب تنظيف البيانات وتحويلها قبل التحليل، وما الخيارات التي ينطوي عليها كل إصلاح؟', 'Why must data be cleaned and transformed before analysis, and what choices does each fix involve?'),
         aimsLabel: T('هتطلع من الدرس قادر', 'By the end you can'), aims: [
@@ -173,7 +173,7 @@
         cols: [{ h: T('المتصفح', 'Browser'), c: 'slate' }, { h: T('API: قواعد يطلب بيها برنامج بيانات أو وظائف', 'API: rules for programs'), c: 'blue' }],
         rows: [
           { k: T('الطريقة', 'How'), v: [T('ندوّر وننزّل بإيدينا', 'search and download by hand'), T('البرنامج يبعت الطلب مباشرة', 'the program requests directly')] },
-          { k: T('200 دولة × 20 سنة', '200 countries × 20 years'), v: [T('مستحيل عمليًا', 'practically impossible'), T('سطر واحد ويتكرّر آليًا', 'one line, repeated automatically')] },
+          { k: T('200 دولة × 20 سنة', '200 countries × 20 years'), v: [T('صعب جدًا', 'practically impossible'), T('سطر واحد ويتكرّر آليًا', 'one line, repeated automatically')] },
         ] }],
       [{ t: 'link', ic: '🔌', title: T('رحلة طلب الـAPI', 'The API request journey'), nodes: [
         { ic: '💻', h: T('العميل', 'Client'), p: T('برنامجك: عايز سكان مصر 2024', 'your program: Egypt’s population, 2024'), c: 'blue' },

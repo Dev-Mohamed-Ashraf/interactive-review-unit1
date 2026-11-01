@@ -548,7 +548,7 @@
     ${B.card('res', 90, 488, 460, 270, 'c-blue', { h: '🎯 ' + L('حكم الشبكة', 'The network says'), html: pr('b1', '🚶 ' + L('مشاة', 'person'), 30, 'o') + pr('b2', '🪧 ' + L('لأ', 'none'), 70, 's') })}
     ${B.big('xw', 470, 470, 90, 70, '❌')}${B.big('xo', 470, 470, 90, 70, '✅')}
     ${B.mid('t1', 680, '1️⃣ ' + L('أول محاولة: غلط!', 'First try: wrong!'), 'c-red')}
-    ${B.mid('t2', 680, '🔧 ' + L('الغلطة بترجع لورا… والأوزان بتتظبط شوية', 'the error travels back… the weights shift a little'), 'c-amber')}
+    ${B.mid('t2', 680, '🔧 ' + L('الغلطة بترجع لورا… والأوزان بتتضبط شوية', 'the error travels back… the weights shift a little'), 'c-amber')}
     ${B.mid('t3', 680, '✅ ' + L('بعد آلاف الأمثلة: الحكم بقى صح', 'after thousands of examples: it gets it right'), 'c-green')}
 
     ${B.svg('deep', 600, 160, 1180, 440, '0 0 1180 440', NET([3, 5, 5, 5, 5, 5, 2], 1180, 440, B, { r: 20 }))}
@@ -574,7 +574,7 @@
 
     ${U.hd(0, '🧠 ' + L('الشبكة العصبية: مستوحاة من خلايا المخ', 'Neural network: modelled on brain cells'))}
     ${U.hd(1, '⚡ ' + L('الإشارة بتعدّي طبقة ورا طبقة', 'Signals pass layer by layer'))}
-    ${U.hd(2, '🏋️ ' + L('التدريب: الأوزان بتتظبط شوية شوية', 'Training: the weights are tuned little by little'))}
+    ${U.hd(2, '🏋️ ' + L('التدريب: الأوزان بتتضبط شوية شوية', 'Training: the weights are tuned little by little'))}
     ${U.hd(3, '📚 ' + L('التعلّم العميق = طبقات كتير + بيانات ضخمة', 'Deep learning = many layers + huge data'))}
     ${U.hd(4, '🌾 ' + L('مثال جديد: مزارع بيفحص محصوله', 'New context: a farmer checks his crops'))}
     ${U.nt(0, L('مكوّنات بسيطة كتير متوصّلة في طبقات ← بتتعلّم من البيانات وتاخد أحكام معقّدة', 'many simple units linked in layers → they learn from data and make complex judgements'), 'ok')}
@@ -583,7 +583,7 @@
   <div id="dl-recap" class="mv-recap">
     ${U.hd(5, '💡 ' + L('الخلاصة', 'The point'))}
     ${[['🕸️', L('شبكة عصبية', 'Neural network'), L('مستوحاة من خلايا المخ · طبقات: إدخال ← مخفية ← إخراج', 'modelled on neurons · input → hidden → output'), 'c-violet'],
-      ['⚖️', L('الأوزان', 'Weights'), L('كل وصلة ليها وزن… بيتظبط بالتدريب', 'every link has a weight… tuned by training'), 'c-amber'],
+      ['⚖️', L('الأوزان', 'Weights'), L('كل وصلة ليها وزن… بيتضبط بالتدريب', 'every link has a weight… tuned by training'), 'c-amber'],
       ['📚', L('التعلّم العميق', 'Deep learning'), L('جوّه التعلّم الآلي: طبقات كتير + بيانات ضخمة', 'inside ML: many layers + huge data'), 'c-blue'],
       ['⚠️', L('الحاجة النادرة', 'Rare cases'), L('لو نادرة في بياناته ← غالبًا هيغلط', 'rare in its data → it will likely err'), 'c-red']]
       .map(([ic, h, p, cc], k) => B.card('rc' + k, 70 + k * 450, 150, 420, 290, cc, { ic, h, p })).join('')}

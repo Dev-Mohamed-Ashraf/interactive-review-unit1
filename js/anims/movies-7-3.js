@@ -38,12 +38,12 @@
     ${U.box('ans', 340, 300, 900, 't-blue', { ic: '🤖', p: L('«اتبنى سنة 1150م بأمر صلاح الدين» — بثقة كاملة!', '"It was built in 1150 AD by order of Saladin" — fully confident!') })}
     ${U.xc('xx', 1180, 300)}
     ${U.pill('tr', 340, 520, '📚 ' + L('الحقيقة: 876–879م بأمر أحمد بن طولون', 'The fact: 876–879 AD, by Ahmad ibn Tulun'), 't-green')}
-    ${U.box('hb', 1320, 190, 520, 't-red', { h: L('الهلوسة', 'Hallucination'), p: L('رد مقنع بس مخالف للحقيقة', 'a convincing reply that is factually wrong'), s: L('لأنه بيختار المحتمل مش الصح', 'because it picks the likely, not the true') })}
+    ${U.box('hb', 1320, 190, 520, 't-red', { h: L('الهلوسة', 'Hallucination'), p: L('معلومة غير صحيحة أو مختلقة بصياغة مقنعة', 'a convincing reply that is factually wrong'), s: L('لأنه بيختار المحتمل مش الصح', 'because it picks the likely, not the true') })}
     ${U.pill('chk', 340, 620, '✔ ' + L('اتحقّق من التواريخ والأسماء والأرقام', 'Verify dates, names and numbers'), 'solid')}
 
-    ${U.box('dat', 90, 180, 820, 't-blue', { ic: '📚', h: L('كمية بيانات التدريب', 'Amount of training data'), p: L('نصوص إنترنت هائلة: مليارات لتريليونات كلمة (Tokens)', 'vast Internet text: billions to trillions of words (tokens)') })}
-    ${U.box('par', 1010, 180, 820, 't-violet', { ic: '⚙️', h: L('عدد المعلمات', 'Number of parameters'), p: L('قيم الأوزان: مليارات لتريليونات', 'the weights: billions to trillions') })}
-    ${U.pill('emg', 90, 470, '✨ ' + L('بعد حجم معيّن تظهر قدرات جديدة:', 'Past a certain scale new abilities appear:'), 'solid')}
+    ${U.box('dat', 90, 180, 820, 't-blue', { ic: '📚', h: L('كمية بيانات التدريب', 'Amount of training data'), p: L('نصوص ومصادر واسعة: بتتقاس بعدد الرموز (Tokens)', 'vast Internet text: billions to trillions of words (tokens)') })}
+    ${U.box('par', 1010, 180, 820, 't-violet', { ic: '⚙️', h: L('عدد المعلمات', 'Number of parameters'), p: L('قيم الأوزان: مليارات في كتير من النماذج', 'the weights: billions to trillions') })}
+    ${U.pill('emg', 90, 470, '✨ ' + L('قدرات ممكن تتحسن مع الحجم — من غير حد ثابت:', 'Past a certain scale new abilities appear:'), 'solid')}
     ${['🧠 ' + L('استدلال', 'reasoning'), '📝 ' + L('تلخيص', 'summarizing'), '🌍 ' + L('ترجمة', 'translation'), '💻 ' + L('كود', 'code')]
       .map((t, k) => U.pill('ab' + k, 90 + k * 290, 570, t, 't-green')).join('')}
     ${U.pill('svc', 1300, 570, '💬 ChatGPT · Claude · Gemini', 't-slate')}
@@ -57,11 +57,11 @@
     ${U.pill('rres', 90, 470, '✅ ' + L('ردود طبيعية ومهذّبة', 'natural, polite replies'), 't-green')}
     ${U.pill('rres2', 90, 570, '🎯 ' + L('مناسبة للقصد · بتتجنّب غير المناسب', 'fit the intent · avoid the inappropriate'), 't-green')}
 
-    ${U.box('yes', 90, 180, 820, 't-green', { ic: '✔', h: L('RLHF بيحسّن', 'RLHF improves'), p: L('إتباع التعليمات · الأسلوب · جزء من الأمان', 'following instructions · tone · some safety') })}
+    ${U.box('yes', 90, 180, 820, 't-green', { ic: '✔', h: L('RLHF بيحسّن', 'RLHF improves'), p: L('اتباع التعليمات · الأسلوب · جزء من الأمان', 'following instructions · tone · some safety') })}
     ${U.box('no', 1010, 180, 820, 't-red', { ic: '✘', h: L('ومابيضمنش', 'and does not guarantee'), p: L('الحقيقة · الأمان الكامل', 'truth · complete safety') })}
-    ${U.pill('big', 260, 480, '📏 ' + L('نموذج أكبر = أطلق في الكلام… مش بالضرورة أصدق', 'A bigger model = more fluent… not necessarily more truthful'), 'solid')}
+    ${U.pill('big', 260, 480, '📏 ' + L('نموذج أكبر = أكتر طلاقة… مش بالضرورة أصدق', 'A bigger model = more fluent… not necessarily more truthful'), 'solid')}
 
-    ${U.box('mm', 660, 290, 600, 't-violet', { ic: '🤖', h: L('نموذج واحد', 'One model'), p: L('كل الوسائط = أرقام جوّه الشبكة', 'every modality = numbers inside the network') })}
+    ${U.box('mm', 660, 290, 600, 't-violet', { ic: '🤖', h: L('نموذج أو نظام', 'One model'), p: L('كل وسيط بيترمز عدديًا والتمثيلات بتترابط', 'every modality = numbers inside the network') })}
     ${[['📝', L('نص', 'Text'), 150, 200], ['🖼️', L('صورة', 'Image'), 1380, 200], ['🔊', L('صوت', 'Audio'), 150, 470], ['🎬', L('فيديو', 'Video'), 1380, 470]]
       .map(([e, t, x, y], k) => U.box('md' + k, x, y, 380, 't-blue', { ic: e, h: t })).join('')}
     ${U.pill('num', 600, 560, '<span class="code">[0.12, −0.48, 0.91, …]</span>', 't-slate')}
@@ -81,7 +81,7 @@
     ${U.hd(5, '🎛️ ' + L('تعدّد الوسائط', 'Multimodality'))}
     ${U.hd(6, '🛡️ ' + L('استخدمه بأمان', 'Use it safely'))}
     ${U.nt(0, L('«طقس اليوم» ← «مشمس» ← «و» ← «دافئ»: كلمة كلمة', '"Today’s weather is" → "sunny" → "and" → "warm": word by word'), 'ok')}
-    ${U.nt(2, L('«كبير» = البيانات والمعلمات — الاتنين مع بعض', '"Large" = data AND parameters — both together'), 'warn')}
+    ${U.nt(2, L('«كبير» = المعلمات والبيانات والحوسبة', '"Large" = data AND parameters — both together'), 'warn')}
     ${U.nt(3, L('الترتيب: تدريب أولي ← تقييم بشري ← ضبط معزَّز', 'Order: initial training → human evaluation → RL tuning'), 'warn')}
   </div>
   <div id="lm-recap" class="mv-recap">
@@ -89,7 +89,7 @@
     ${B.card('x0', 70, 170, 410, 420, 'c-violet rc', { ic: '🔮', p: L('بيتنبّأ بالكلمة المحتملة… مش المؤكدة ← هلوسة', 'Predicts the likely word… not the sure one → hallucination') })}
     ${B.card('x1', 530, 170, 410, 420, 'c-blue rc', { ic: '🏔️', p: L('LLM = بيانات هائلة + مليارات المعلمات', 'LLM = vast data + billions of parameters') })}
     ${B.card('x2', 990, 170, 410, 420, 'c-amber rc', { ic: '👍', p: L('RLHF بيحسّن الأسلوب… مش بيضمن الحقيقة', 'RLHF improves style… does not guarantee truth') })}
-    ${B.card('x3', 1450, 170, 410, 420, 'c-green rc', { ic: '🎛️', p: L('تعدّد الوسائط: نص + صورة + صوت في نموذج واحد', 'Multimodality: text + image + audio in one model') })}
+    ${B.card('x3', 1450, 170, 410, 420, 'c-green rc', { ic: '🎛️', p: L('تعدّد الوسائط: أكتر من وسيط حسب النظام', 'Multimodality: text + image + audio in one model') })}
   </div>`,
     });
     const { q, Q, tl, at, IN, POP, OUT, SND, frame, sx } = M;

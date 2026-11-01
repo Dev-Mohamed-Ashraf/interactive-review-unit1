@@ -43,15 +43,15 @@
     ${U.box('ml1', 90, 540, 520, 't-violet', { h: '📥 ' + L('بيانات', 'Data') + ' + ✅ ' + L('إجابات', 'Answers'), p: L('أمثلة كتير', 'lots of examples') })}
     ${U.emo('mla', 640, 560, 120, 70, L('⬅', '➜'))}
     ${U.box('ml2', 790, 540, 420, 't-violet', { ic: '💻', h: L('← يلاقي القواعد بنفسه', '→ finds the rules itself') })}
-    ${U.box('mld', 1290, 300, 540, 't-amber', { ic: '🧠', h: L('التعلّم الآلي', 'Machine learning'), p: L('يتعلّم أنماط من بيانات كتير عشان يحكم على بيانات جديدة', 'learns patterns from big data to judge new data'), s: L('أشهر طريقة لتشغيل الذكاء الاصطناعي', 'the most common way AI works') })}
+    ${U.box('mld', 1290, 300, 540, 't-amber', { ic: '🧠', h: L('التعلّم الآلي', 'Machine learning'), p: L('يتعلّم أنماط من بيانات كتير عشان يحكم على بيانات جديدة', 'learns patterns from big data to judge new data'), s: L('أحد الأساليب الرئيسة في بناء أنظمة الذكاء الاصطناعي', 'the most common way AI works') })}
 
     ${[['🐶🐱', L('الصورة كلب ولا قطة؟', 'Dog or cat in the photo?')], ['📧', L('الإيميل مزعج؟', 'Is the email spam?')], ['🎙️', L('صوت ← نص', 'Speech → text')]]
       .map(([e, t], k) => U.box('u' + k, 90 + k * 420, 190, 380, 't-green', { ic: e, p: t })).join('')}
     ${U.pill('uw', 90, 420, '✅ ' + L('القواعد أعقد من إن الإنسان يكتبها ← سيب الجهاز يتعلّم من الأمثلة', 'Rules too complex to write → let the computer learn from examples'), 't-green')}
-    ${U.box('nx', 1390, 190, 440, 't-red', { ic: '➕', p: L('جمع رقمين = قاعدة بسيطة ← مش محتاج تعلّم آلة', 'adding two numbers = a simple rule → no ML needed') })}
+    ${U.box('nx', 1390, 190, 440, 't-red', { ic: '➕', p: L('جمع رقمين = قاعدة بسيطة ← مش محتاج تعلّم آلي', 'adding two numbers = a simple rule → no ML needed') })}
 
     ${U.box('t0', 70, 180, 570, 't-blue', { ic: '🏷️', h: L('خاضع للإشراف', 'Supervised'), p: L('إدخال + إجابة صحيحة (وسم)', 'input + correct answer (label)'), s: '→ ' + L('قواعد للتنبّؤ بالإجابة', 'rules to predict the answer') })}
-    ${U.box('t1', 675, 180, 570, 't-green', { ic: '📦', h: L('غير خاضع للإشراف', 'Unsupervised'), p: L('إدخال بس (من غير إجابات)', 'input only (no answers)'), s: '→ ' + L('بنية أو مجموعات مستخبية', 'hidden structure or groups') })}
+    ${U.box('t1', 675, 180, 570, 't-green', { ic: '📦', h: L('غير خاضع للإشراف', 'Unsupervised'), p: L('إدخال بس (من غير إجابات)', 'input only (no answers)'), s: '→ ' + L('بنية أو مجموعات محتملة', 'hidden structure or groups') })}
     ${U.box('t2', 1280, 180, 570, 't-amber', { ic: '🎮', h: L('معزَّز', 'Reinforcement'), p: L('أفعال ونتايجها (مكافآت)', 'actions and their results (rewards)'), s: '→ ' + L('يختار أفعال أحسن', 'how to choose better actions') })}
     ${U.pill('tq', 230, 520, '🧭 ' + L('عندك إجابات؟ إشراف · مفيش وعايز مجموعات؟ غير إشراف · تجربة وخطأ؟ معزَّز', 'Labels? supervised · none, want groups? unsupervised · trial & error? reinforcement'), 'solid')}
 
@@ -67,7 +67,7 @@
     ${U.box('fb', 760, 510, 1060, 't-violet', { h: L('السمة (Feature)', 'Feature'), p: L('دليل في البيانات بيساعد في التنبّؤ — واختيار السمات بيأثّر جامد على الدقة', 'a clue in the data that helps prediction — choosing features drives accuracy') })}
 
     ${U.art('clu', 90, 170, 600, 400, '0 0 600 400', CLU)}
-    ${U.box('cub', 760, 180, 1060, 't-green', { h: L('التجميع (Clustering)', 'Clustering'), p: L('يجمّع المتشابه في مجموعات — من غير أوسمة؛ الجهاز بيلاقي «إيه المتشابه» بنفسه', 'groups similar items — no labels; the computer finds "what is similar" itself') })}
+    ${U.box('cub', 760, 180, 1060, 't-green', { h: L('التجميع (Clustering)', 'Clustering'), p: L('يقسّم البيانات لعناقيد حسب السمات ومقياس التشابه — من غير وسوم', 'groups similar items — no labels; the computer finds "what is similar" itself') })}
     ${[['🛒', L('عملاء متجر باتجاهات شراء متشابهة', 'Shoppers with similar buying habits')], ['🎧', L('مستمعين بأذواق متشابهة ← توصيات', 'Listeners with similar tastes → recommendations')], ['📰', L('مقالات أخبار متشابهة', 'Similar news articles')]]
       .map(([e, t], k) => U.pill('ce' + k, 760, 360 + k * 90, e + ' ' + t, 't-slate')).join('')}
 
@@ -100,13 +100,13 @@
     ${U.hd(6, '🎮 ' + L('التعلّم المعزَّز', 'Reinforcement learning'))}
     ${U.hd(7, '⚖️ ' + L('التحيّز', 'Bias'))}
     ${U.hd(8, '⬛ ' + L('مشكلة الصندوق الأسود', 'The black-box problem'))}
-    ${U.nt(5, L('الفرق بين التصنيف والتجميع = في أوسمة ولا لأ', 'Classification vs clustering = labels given or not'), 'warn')}
+    ${U.nt(5, L('الفرق بين التصنيف والتجميع = في وسوم ولا لأ', 'Classification vs clustering = labels given or not'), 'warn')}
     ${U.nt(7, L('بيانات متحيّزة ← أحكام متحيّزة', 'Biased data → biased judgments'), 'bad')}
   </div>
   <div id="l1-recap" class="mv-recap">
     ${U.hd(9, '💡 ' + L('الخلاصة', 'The point'))}
     ${B.card('x0', 70, 170, 410, 420, 'c-violet rc', { ic: '🤖', p: L('التعلّم الآلي بيلاقي القواعد من البيانات بدل ما نكتبها', 'ML finds the rules from data instead of us writing them') })}
-    ${B.card('x1', 530, 170, 410, 420, 'c-blue rc', { ic: '🏷️', p: L('إشراف (أوسمة ← تصنيف بسمات) · 📦 غير إشراف (تجميع)', 'Supervised (labels → classification) · unsupervised (clustering)') })}
+    ${B.card('x1', 530, 170, 410, 420, 'c-blue rc', { ic: '🏷️', p: L('إشراف (وسوم ← تصنيف بسمات) · 📦 غير إشراف (تجميع)', 'Supervised (labels → classification) · unsupervised (clustering)') })}
     ${B.card('x2', 990, 170, 410, 420, 'c-amber rc', { ic: '🎮', p: L('معزَّز: حالة · فعل · مكافأة', 'Reinforcement: state · action · reward') })}
     ${B.card('x3', 1450, 170, 410, 420, 'c-red rc', { ic: '⚖️', p: L('تحيّز + صندوق أسود ← يدعم الإنسان مش يستبدله', 'Bias + black box → it supports humans, not replaces them') })}
   </div>`,
