@@ -135,6 +135,7 @@ RV.lessons.add('1-1', {
             { text: { ar: 'قانون مور قانون فيزيائي ثابت لا يمكن أن يتوقف.', en: "Moore's Law is a fixed law of physics that can never stop." }, answer: false, explain: { ar: 'هو ملاحظة تجريبية، وبيقرّب من حدّ فيزيائي.', en: 'It is an empirical observation, and it is approaching a physical limit.' } },
             { text: { ar: 'في تأثير النفق الكمومي، الإلكترونات تعدّي الحاجز العازل بدل ما تقف.', en: 'In quantum tunneling, electrons pass through the insulating barrier instead of stopping.' }, answer: true },
             { text: { ar: 'المعالجة المتوازية معناها نواة واحدة تشتغل أسرع.', en: 'Parallel processing means one single core running faster.' }, answer: false, explain: { ar: 'معناها أنوية كتير بتشتغل في نفس الوقت.', en: 'It means many cores working at the same time.' } },
+            { text: { ar: 'قانون مور: العدد بيتضاعف كل 10 سنين.', en: 'Moore’s Law: the count doubles every 10 years.' }, answer: false, explain: { ar: 'بيتضاعف كل __سنتين__ تقريبًا، مش كل 10 سنين.', en: 'It doubles about every __two years__, not every ten.' } },
           ] },
         },
       ],
@@ -456,7 +457,7 @@ RV.lessons.add('1-1', {
               { ar: 'الواقع المعزز AR', en: 'AR' },
               { ar: 'الواقع الافتراضي VR', en: 'VR' },
             ],
-            answer: [1, 0, 2], explain: { ar: 'a ← B (AR) · b ← A (قيادة ذاتية) · c ← C (VR)', en: 'a → B (AR) · b → A (autonomous) · c → C (VR)' } },
+            answer: [1, 0, 2], explain: { ar: 'a ← AR · b ← القيادة الذاتية · c ← VR', en: 'a → AR · b → autonomous driving · c → VR' } },
         },
         {
           type: 'summary',
@@ -493,16 +494,18 @@ RV.lessons.add('1-1', {
         {
           type: 'example',
           q: { widget: 'tf', prompt: { ar: '(2) ضع ✓ أو ✗:', en: '(2) Mark ✓ or ✗:' }, items: [
-            { text: { ar: 'قانون مور ملاحظة تجريبية: عدد الترانزستورات يتضاعف كل سنتين تقريبًا.', en: "Moore's Law: transistor count doubles about every two years." }, answer: true },
-            { text: { ar: 'قيل إن قانون مور يقترب من حدّ فيزيائي في السنوات الأخيرة.', en: "Moore's Law has been said to be nearing a physical limit." }, answer: true },
-            { text: { ar: 'شبكات التواصل فعّالة جدًا في نشر المعلومات بسرعة.', en: 'SNS are highly effective at spreading information quickly.' }, answer: true },
-            { text: { ar: 'التجارة الإلكترونية تعني شراء السلع من محل حقيقي بالكاش.', en: 'E-commerce means buying goods with cash in a physical shop.' }, answer: false, explain: { ar: 'التجارة الإلكترونية = بيع وشراء عبر الإنترنت.', en: 'E-commerce = buying and selling over the Internet.' } },
+            { text: { ar: 'أ) قانون مور ملاحظة تجريبية: عدد الترانزستورات يتضاعف كل سنتين تقريبًا.', en: "A) Moore's Law: transistor count doubles about every two years." }, answer: true },
+            { text: { ar: 'ب) قيل إن قانون مور يقترب من حدّ فيزيائي في السنوات الأخيرة.', en: "B) Moore's Law has been said to be nearing a physical limit." }, answer: true },
+            { text: { ar: 'ج) شبكات التواصل فعّالة جدًا في نشر المعلومات بسرعة.', en: 'C) SNS are highly effective at spreading information quickly.' }, answer: true },
+            { text: { ar: 'د) التجارة الإلكترونية تعني شراء السلع من محل حقيقي بالكاش.', en: 'D) E-commerce means buying goods with cash in a physical shop.' }, answer: false, explain: { ar: 'التجارة الإلكترونية = بيع وشراء عبر الإنترنت.', en: 'E-commerce = buying and selling over the Internet.' } },
+            { text: { ar: 'هـ) الدفع بـ QR مثال على الدفع غير النقدي.', en: 'E) Paying by QR code is an example of cashless payment.' }, answer: true },
           ] },
           solution: [
             { ar: 'أ) ده التعريف الصحيح لقانون مور ← **✓**.', en: 'A) Correct definition of Moore\'s Law → **✓**.' },
             { ar: 'ب) فعلًا بيقرّب من حدّ فيزيائي ← **✓**.', en: 'B) It is indeed nearing a physical limit → **✓**.' },
             { ar: 'ج) SNS فعّالة جدًا في نشر المعلومة بسرعة ← **✓**.', en: 'C) SNS spread information rapidly → **✓**.' },
             { ar: 'د) التجارة الإلكترونية عبر __الإنترنت__ مش في محل بالكاش ← **✗**.', en: 'D) E-commerce is over the __Internet__, not cash in a shop → **✗**.' },
+            { ar: 'هـ) الدفع بـ QR من غير كاش = دفع غير نقدي ← **✓**.', en: 'E) Paying by QR without cash = cashless payment → **✓**.' },
           ],
         },
         {
@@ -516,9 +519,9 @@ RV.lessons.add('1-1', {
             right: [{ ar: 'A القيادة الذاتية', en: 'A Autonomous driving' }, { ar: 'B الواقع المعزز', en: 'B AR' }, { ar: 'C الواقع الافتراضي', en: 'C VR' }],
             answer: [1, 0, 2] },
           solution: [
-            { ar: 'a: إضافة معلومات رقمية فوق الحقيقي = **AR** ← B.', en: 'a: overlaying digital info on reality = **AR** → B.' },
-            { ar: 'b: قيادة بأقل تدخل بشري = **قيادة ذاتية** ← A.', en: 'b: driving without a human = **autonomous driving** → A.' },
-            { ar: 'c: الانغماس في فضاء افتراضي = **VR** ← C.', en: 'c: immersion in a virtual space = **VR** → C.' },
+            { ar: 'a: إضافة معلومات رقمية فوق الحقيقي = **AR**.', en: 'a: overlaying digital info on reality = **AR**.' },
+            { ar: 'b: قيادة بأقل تدخل بشري = **قيادة ذاتية**.', en: 'b: driving without a human = **autonomous driving**.' },
+            { ar: 'c: الانغماس في فضاء افتراضي = **VR**.', en: 'c: immersion in a virtual space = **VR**.' },
           ],
         },
       ],

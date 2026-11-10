@@ -171,16 +171,18 @@ RV.lessons.add('1-4', {
         {
           type: 'example',
           q: { widget: 'tf', prompt: { ar: '(1) ضع ✓ أو ✗:', en: '(1) Mark ✓ or ✗:' }, items: [
-            { text: { ar: 'التحيز الخوارزمي نمط في مخرجات الـAI ممكن ينشأ من البيانات أو تصميم النظام أو طريقة استخدامه، وممكن يؤدي لنتايج غير عادلة.', en: 'Algorithmic bias is bias in AI judgments caused by biased training data.' }, answer: true },
-            { text: { ar: 'حتى لو عملية القرار مش واضحة، مفيش مشكلة مادام النتيجة صح.', en: 'An opaque process is fine as long as the result is correct.' }, answer: false },
-            { text: { ar: 'الـXAI تقنية بتخلّي البشر يفهموا منطق الـAI.', en: 'XAI lets humans understand the AI\'s reasoning.' }, answer: true },
-            { text: { ar: 'لما الـAI يغلط، تحديد المسؤول محسوم بوضوح بالفعل.', en: 'Who is responsible for an AI error is already clearly settled.' }, answer: false },
+            { text: { ar: 'A) التحيز الخوارزمي نمط في مخرجات الـAI ممكن ينشأ من البيانات أو تصميم النظام أو طريقة استخدامه، وممكن يؤدي لنتايج غير عادلة.', en: 'A) Algorithmic bias is bias in AI judgments caused by biased training data.' }, answer: true },
+            { text: { ar: 'B) حتى لو عملية القرار مش واضحة، مفيش مشكلة مادام النتيجة صح.', en: 'B) An opaque process is fine as long as the result is correct.' }, answer: false },
+            { text: { ar: 'C) الـXAI تقنية بتخلّي البشر يفهموا منطق الـAI.', en: 'C) XAI lets humans understand the AI\'s reasoning.' }, answer: true },
+            { text: { ar: 'D) لما الـAI يغلط، تحديد المسؤول محسوم بوضوح بالفعل.', en: 'D) Who is responsible for an AI error is already clearly settled.' }, answer: false },
+            { text: { ar: 'E) تتبّع الناس بكاميرات التعرف على الوجه قضية خصوصية.', en: 'E) Tracking people with face-recognition cameras is a privacy issue.' }, answer: true },
           ] },
           solution: [
             { ar: 'A) ده التعريف الصحيح ← **✓**.', en: 'A) Correct definition → **✓**.' },
             { ar: 'B) لما العملية مش واضحة يبقى __صعب نتحقّق__ من صحة النتيجة ← **✗**.', en: 'B) An opaque process makes the result __hard to verify__ → **✗**.' },
             { ar: 'C) ده وصف صحيح للـXAI ← **✓**.', en: 'C) Correct description of XAI → **✓**.' },
             { ar: 'D) الآراء بتختلف بين المطوّر والمستخدم والمشغّل، ولسه ماتحدّدتش بوضوح ← **✗**.', en: 'D) Views differ among developer, user and operator; no standard yet → **✗**.' },
+            { ar: 'E) تتبّع الأفراد في الأماكن العامة بيمسّ __الخصوصية__ ← **✓**.', en: 'E) Tracking individuals in public places touches __privacy__ → **✓**.' },
           ],
         },
         {
@@ -195,8 +197,8 @@ RV.lessons.add('1-4', {
             right: [{ ar: 'A العدالة', en: 'A Fairness' }, { ar: 'B الشفافية', en: 'B Transparency' }, { ar: 'C حماية الخصوصية', en: 'C Privacy protection' }, { ar: 'D المساءلة', en: 'D Accountability' }],
             answer: [0, 1, 2, 3] },
           solution: [
-            { ar: 'a: عدم التمييز = **العدالة** ← A · b: إظهار القرار = **الشفافية** ← B.', en: 'a: no discrimination = **fairness** → A · b: showing the process = **transparency** → B.' },
-            { ar: 'c: حماية البيانات = **حماية الخصوصية** ← C · d: تحديد المسؤولين وإمكان محاسبتهم = **المساءلة** ← D.', en: 'c: protecting data = **privacy protection** → C · d: being answerable = **accountability** → D.' },
+            { ar: 'a: عدم التمييز = **العدالة** · b: إظهار القرار = **الشفافية**.', en: 'a: no discrimination = **fairness** · b: showing the process = **transparency**.' },
+            { ar: 'c: حماية البيانات = **حماية الخصوصية** · d: تحديد المسؤولين وإمكان محاسبتهم = **المساءلة**.', en: 'c: protecting data = **privacy protection** · d: being answerable = **accountability**.' },
           ],
         },
       ],

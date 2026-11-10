@@ -70,6 +70,7 @@ RV.lessons.add('5-1', {
             { text: { ar: 'البيانات الأولية موجودة مسبقًا جمعها غيرنا قبل كده.', en: 'Primary data was already collected and published by others.' }, answer: false, explain: { ar: 'دي __الثانوية__؛ الأولية بنجمعها من جديد لغرضنا.', en: 'That is __secondary__; primary is gathered fresh for our purpose.' } },
             { text: { ar: 'لو جمعنا بيانات مش مطابقة للغرض، التحليل الدقيق بعد كده يصلّحها.', en: 'If unsuitable data is collected, careful analysis later can fix it.' }, answer: false, explain: { ar: 'لأ — النتايج ممكن تبقى مضللة مهما كان التحليل دقيق.', en: 'Impossible — collection decides the quality of the whole analysis.' } },
             { text: { ar: 'عمليًا بنجمع بين الأولية والثانوية حسب الغرض والقيود.', en: 'In practice primary and secondary data are combined by purpose and constraints.' }, answer: true },
+            { text: { ar: 'البيانات الأولية جمعها رخيص وسريع دايمًا.', en: 'Primary data is always cheap and fast to collect.' }, answer: false, explain: { ar: 'جمعها بياخد __وقت ومجهود وتكلفة__.', en: 'Collecting it takes __time, effort and cost__.' } },
           ] },
         },
         {
@@ -154,12 +155,14 @@ RV.lessons.add('5-1', {
             { text: { ar: 'B) اختيار عينة من مجتمع يُسمى أخذ العينات.', en: 'B) Selecting a sample from a population is called sampling.' }, answer: true },
             { text: { ar: 'C) المعاينة الطبقية تقسّم المجتمع لطبقات وتختار عينة عشوائية من كل طبقة.', en: 'C) Stratified sampling divides the population into strata and picks a random sample from each.' }, answer: true },
             { text: { ar: 'D) عند وجود تحيّز معاينة، قد لا تنطبق الاستنتاجات على المجتمع كله.', en: 'D) With sampling bias, the conclusions may not apply to the whole population.' }, answer: true },
+            { text: { ar: 'E) حصر الاستبيان في وقت ومكان واحد بيقلّل التحيّز.', en: 'E) Limiting a survey to one time and place reduces bias.' }, answer: false },
           ] },
           solution: [
             { ar: 'A) دي __الثانوية__؛ الأولية بتتجمع من جديد لغرض ← **✗**.', en: 'A) That is __secondary__; primary is gathered fresh for a purpose → **✗**.' },
             { ar: 'B) تعريف أخذ العينات ← **✓**.', en: 'B) The definition of sampling → **✓**.' },
             { ar: 'C) تعريف المعاينة الطبقية ← **✓**.', en: 'C) The definition of stratified sampling → **✓**.' },
             { ar: 'D) العينة المتحيّزة ماتعكسش المجتمع ← **✓**.', en: 'D) A biased sample does not reflect the population → **✓**.' },
+            { ar: 'E) ده __بيعمل__ تحيّز الوقت/الموقع ← **✗**.', en: 'E) That __creates__ time/location bias → **✗**.' },
           ],
         },
         {
@@ -172,8 +175,8 @@ RV.lessons.add('5-1', {
             right: [{ ar: 'A المعاينة الطبقية', en: 'A Stratified sampling' }, { ar: 'B المعاينة العشوائية البسيطة', en: 'B Simple random sampling' }],
             answer: [1, 0] },
           solution: [
-            { ar: 'a: صدفة بحتة = **البسيطة** ← B.', en: 'a: pure chance = **simple random** → B.' },
-            { ar: 'b: طبقات + عشوائي = **الطبقية** ← A.', en: 'b: strata + random = **stratified** → A.' },
+            { ar: 'a: صدفة بحتة = **البسيطة**.', en: 'a: pure chance = **simple random**.' },
+            { ar: 'b: طبقات + عشوائي = **الطبقية**.', en: 'b: strata + random = **stratified**.' },
           ],
         },
       ],

@@ -139,12 +139,14 @@ RV.lessons.add('6-2', {
             { text: { ar: 'B) R² مؤشر بيوضّح قد إيه النموذج بيفسّر التباين في البيانات.', en: 'B) R² shows how much of the variance in the data the model explains.' }, answer: true },
             { text: { ar: 'C) المعادلة اللي بتطلع من البيانات في الانحدار اسمها النموذج، وهي تمثيل مبسّط لعلاقة حقيقية.', en: 'C) The equation obtained from data in regression is the model, a simplified representation of a real relationship.' }, answer: true },
             { text: { ar: 'D) لو معادلة التنبّؤ ملائمة، نقدر نقول فيه علاقة سببية بين المتغير التفسيري والاستجابة.', en: 'D) If the prediction equation fits, a causal relationship exists between the explanatory and response variables.' }, answer: false },
+            { text: { ar: 'E) الـMAE بيدّي الأخطاء الكبيرة وزن أكبر من الـRMSE.', en: 'E) MAE gives large errors more weight than RMSE does.' }, answer: false },
           ] },
           solution: [
             { ar: 'A) ده __البسيط__؛ المتعدد بكذا متغير ← **✗**.', en: 'A) That is __simple__; multiple uses several → **✗**.' },
             { ar: 'B) تعريف R² ← **✓**.', en: 'B) The definition of R² → **✓**.' },
             { ar: 'C) تعريف النموذج ← **✓**.', en: 'C) The definition of a model → **✓**.' },
             { ar: 'D) الملاءمة لوحدها __مابتثبتش__ السببية ← **✗**.', en: 'D) A fit alone does __not__ prove causation → **✗**.' },
+            { ar: 'E) العكس: __RMSE__ هو اللي بيبرز الأخطاء الكبيرة لأنه بيربّعها ← **✗**.', en: 'E) The reverse: __RMSE__ highlights big errors because it squares them → **✗**.' },
           ],
         },
         {
@@ -158,9 +160,9 @@ RV.lessons.add('6-2', {
             right: [{ ar: 'A RMSE', en: 'A RMSE' }, { ar: 'B R²', en: 'B R²' }, { ar: 'C MAE', en: 'C MAE' }],
             answer: [2, 0, 1] },
           solution: [
-            { ar: 'a: مطلق = **MAE** ← C.', en: 'a: absolute = **MAE** → C.' },
-            { ar: 'b: جذر مربعات = **RMSE** ← A.', en: 'b: root of squares = **RMSE** → A.' },
-            { ar: 'c: تفسير التباين = **R²** ← B.', en: 'c: variance explained = **R²** → B.' },
+            { ar: 'a: مطلق = **MAE**.', en: 'a: absolute = **MAE**.' },
+            { ar: 'b: جذر مربعات = **RMSE**.', en: 'b: root of squares = **RMSE**.' },
+            { ar: 'c: تفسير التباين = **R²**.', en: 'c: variance explained = **R²**.' },
           ],
         },
       ],

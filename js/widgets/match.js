@@ -7,6 +7,16 @@
   const W = RV.wkit;
   const COLORS = ['#38bdf8', '#a78bfa', '#34d399', '#fbbf24', '#f472b6', '#fb923c'];
 
+  /** Book items carry their own letter ("A Encryption", "a) …"); the card already shows one, so drop it
+   *  when every item of the column is lettered in order. */
+  function unkey(list, txt, base) {
+    const re = (k) => new RegExp('^' + String.fromCharCode(base + k) + '(\\)\\s*|\\s+)');
+    const lettered = (lang) => list.every((x, k) => re(k).test(String((x && x[lang]) || '')));
+    if (!lettered('ar') || !lettered('en')) return txt;
+    const k = list.indexOf(txt);
+    return { ar: txt.ar.replace(re(k), ''), en: txt.en.replace(re(k), '') };
+  }
+
   W.defineWidget('match', {
     validate(q) {
       const e = [];
@@ -32,16 +42,22 @@
       const colL = h('div', { class: 'match-col' });
       const colR = h('div', { class: 'match-col' });
       const L = q.left.map((txt, i) => {
-        const b = h('button', { class: 'match-item', type: 'button' }, h('span', { class: 'match-key' }, String.fromCharCode(97 + i)), h('span', null, RV.rich(txt)));
+        const b = h('button', { class: 'match-item', type: 'button' }, h('span', { class: 'match-key' }, String.fromCharCode(97 + i)), h('span', null, RV.rich(unkey(q.left, txt, 97))));
         b.addEventListener('click', () => tapLeft(i));
         colL.appendChild(b);
         return b;
       });
-      const R = q.right.map((txt, j) => {
-        const b = h('button', { class: 'match-item', type: 'button' }, h('span', { class: 'match-key' }, String.fromCharCode(65 + j)), h('span', null, RV.rich(txt)));
+      // the answers column comes in a new order each time, and no answer sits level with its own item
+      // (the book often pairs a→A, b→B…); its letters follow the new order, so they give nothing away
+      const owner = (j) => q.answer.indexOf(j);
+      const rOrder = q.fixedOrder ? q.right.map((_, j) => j)
+        : RV.dom.shuffleUntil(q.right.map((_, j) => j), (o) => o.some((j, pos) => owner(j) === pos));
+      const R = [];
+      rOrder.forEach((j, pos) => {
+        const b = h('button', { class: 'match-item', type: 'button' }, h('span', { class: 'match-key' }, String.fromCharCode(65 + pos)), h('span', null, RV.rich(unkey(q.right, q.right[j], 65))));
         b.addEventListener('click', () => tapRight(j));
         colR.appendChild(b);
-        return b;
+        R[j] = b;
       });
       wrap.append(svg, colL, colR);
       el.append(W.header(q, 'tapPair'), wrap);

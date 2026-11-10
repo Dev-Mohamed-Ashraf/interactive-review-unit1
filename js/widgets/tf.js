@@ -24,15 +24,18 @@
       const rows = [];
 
       const list = h('div', { class: 'tf-list' });
-      // statements appear in a new random order each time → no "T, F, T, F" rhythm to guess from
-      const order = q.fixedOrder ? q.items.map((_, i) => i) : RV.dom.shuffle(q.items.map((_, i) => i));
+      // statements appear in a new random order each time, never as a rhythm (T F T F, T T F F) to guess from
+      const idx = q.items.map((_, i) => i);
+      // book statements carry their own letter (A, B… / أ، ب…), which the solution refers to — no number then
+      const lettered = q.items.every((it) => /^\s*([A-H]|[أبجدوز]|هـ)\)/.test(RV.i18n.t(it.text)));
+      const order = q.fixedOrder ? idx : RV.dom.shuffleUntil(idx, (o) => RV.dom.patterned(o.map((i) => q.items[i].answer)));
       order.forEach((i, pos) => {
         const it = q.items[i];
         const yes = h('button', { class: 'tf-btn tf-yes', type: 'button' }, RV.icon('check'), RV.i18n.ui('tf_true'));
         const no = h('button', { class: 'tf-btn tf-no', type: 'button' }, RV.icon('x'), RV.i18n.ui('tf_false'));
         const note = h('p', { class: 'tf-note' });
         const row = h('div', { class: 'tf-row' },
-          q.items.length > 1 ? h('span', { class: 'tf-num' }, String(pos + 1)) : null,
+          q.items.length > 1 && !lettered ? h('span', { class: 'tf-num' }, String(pos + 1)) : null,
           h('p', { class: 'tf-text' }, RV.rich(it.text)),
           h('div', { class: 'tf-btns' }, yes, no),
           note);

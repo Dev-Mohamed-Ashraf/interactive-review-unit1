@@ -70,6 +70,8 @@ RV.lessons.add('3-1', {
             { text: { ar: 'الواجهة الأمامية بتشتغل على المتصفح وبتستقبل إدخال المستخدم.', en: 'The frontend runs on the browser and accepts the user’s input.' }, answer: true },
             { text: { ar: 'التحقق من تسجيل الدخول مثال لشغل الواجهة الخلفية.', en: 'Login authentication is an example of backend work.' }, answer: true },
             { text: { ar: 'قاعدة البيانات هي اللي بتعرض الشاشات للمستخدم.', en: 'The database is what displays the screens to the user.' }, answer: false, explain: { ar: 'العرض شغل __الأمامية__؛ قاعدة البيانات __بتخزّن وتسترجع__.', en: 'Display is the __frontend__’s job; the database __stores and retrieves__.' } },
+            { text: { ar: 'سجل الطلبات بيتخزّن في قاعدة البيانات.', en: 'Order history is stored in the database.' }, answer: true },
+            { text: { ar: 'شاشة سلة المشتريات شغل قاعدة البيانات.', en: 'The shopping-cart screen is the database’s job.' }, answer: false, explain: { ar: 'الشاشة اللي بتشوفها = __الواجهة الأمامية__؛ قاعدة البيانات بتخزّن البيانات وتسترجعها.', en: 'The screen you see = the __frontend__; the database stores and retrieves data.' } },
           ] },
         },
         {
@@ -167,12 +169,14 @@ RV.lessons.add('3-1', {
             { text: { ar: 'B) الواجهة الخلفية هي الجزء اللي بيشتغل على المتصفح.', en: 'B) The backend is the part that runs on the browser.' }, answer: false },
             { text: { ar: 'C) قاعدة البيانات نظام بينظّم البيانات ويخزّنها ويديرها.', en: 'C) A database is a system that organizes, stores and manages data.' }, answer: true },
             { text: { ar: 'D) تطبيق الويب بيشتغل بالواجهة الأمامية لوحدها.', en: 'D) A web application operates with the frontend alone.' }, answer: false },
+            { text: { ar: 'E) التحقق من تسجيل الدخول مثال لشغل الواجهة الخلفية.', en: 'E) Login authentication is an example of backend work.' }, answer: true },
           ] },
           solution: [
             { ar: 'A) الأمامية = الشاشة اللي المستخدم بيشوفها ← **✓**.', en: 'A) Frontend = the screen users see → **✓**.' },
             { ar: 'B) الخلفية بتشتغل على __الخادم__ مش المتصفح ← **✗**.', en: 'B) The backend runs on the __server__, not the browser → **✗**.' },
             { ar: 'C) ده التعريف الصحيح لقاعدة البيانات ← **✓**.', en: 'C) Correct definition of a database → **✓**.' },
             { ar: 'D) تطبيق الويب بيشتغل بـ__تلات طبقات__ ← **✗**.', en: 'D) A web app works with __three tiers__ → **✗**.' },
+            { ar: 'E) التحقق بيحصل على الخادم = __الواجهة الخلفية__ ← **✓**.', en: 'E) Verification happens on the server = the __backend__ → **✓**.' },
           ],
         },
         {
@@ -186,9 +190,9 @@ RV.lessons.add('3-1', {
             right: [{ ar: 'A الواجهة الأمامية', en: 'A Frontend' }, { ar: 'B الواجهة الخلفية', en: 'B Backend' }, { ar: 'C قاعدة البيانات', en: 'C Database' }],
             answer: [1, 0, 2] },
           solution: [
-            { ar: 'a: المعالجة على جانب الخادم = **الخلفية** ← B.', en: 'a: server-side processing = **backend** → B.' },
-            { ar: 'b: الشاشة اللي المستخدم بيتفاعل معاها = **الأمامية** ← A.', en: 'b: the screen users interact with = **frontend** → A.' },
-            { ar: 'c: التخزين والإدارة = **قاعدة البيانات** ← C.', en: 'c: storing and managing = **database** → C.' },
+            { ar: 'a: المعالجة على جانب الخادم = **الخلفية**.', en: 'a: server-side processing = **backend**.' },
+            { ar: 'b: الشاشة اللي المستخدم بيتفاعل معاها = **الأمامية**.', en: 'b: the screen users interact with = **frontend**.' },
+            { ar: 'c: التخزين والإدارة = **قاعدة البيانات**.', en: 'c: storing and managing = **database**.' },
           ],
         },
       ],

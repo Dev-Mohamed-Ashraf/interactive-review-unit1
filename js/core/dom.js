@@ -64,5 +64,21 @@
       }
       return a;
     },
+    /** Shuffle, retrying (a few dozen times) while `bad(order)` says the order gives the answers away. */
+    shuffleUntil(arr, bad) {
+      let a = RV.dom.shuffle(arr);
+      for (let k = 0; k < 60 && bad(a); k++) a = RV.dom.shuffle(arr);
+      return a;
+    },
+    /** A sequence of answer keys that is too regular to hide anything: all in blocks (TTFF, 001122)
+     *  or strictly repeating (TFTF, 012012). Short sequences never count. */
+    patterned(keys) {
+      if (keys.length < 4) return false;
+      const kinds = new Set(keys).size;
+      let runs = 1;
+      for (let i = 1; i < keys.length; i++) if (keys[i] !== keys[i - 1]) runs++;
+      if (kinds > 1 && runs === kinds) return true;
+      return kinds > 1 && keys.every((k, i) => i < kinds || k === keys[i - kinds]);
+    },
   };
 })();

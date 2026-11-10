@@ -37,6 +37,8 @@
         { text: { ar: 'الترجمة الآلية لازم مترجم إنسان يراجع كل جملة عشان تشتغل.', en: 'Machine translation needs a human to check every sentence to work.' }, answer: false, explain: { ar: 'الترجمة الآلية بتترجم __تلقائيًا__ (زي Google Translate) — وإن كانت المراجعة مفيدة في الحاجات المهمة.', en: 'It translates __automatically__ (e.g. Google Translate) — though checking helps for important texts.' } },
         { text: { ar: 'المساعد الصوتي بيتعرّف على الصوت ويفهم الأمر وينفّذه.', en: 'A voice assistant recognizes speech, understands and executes the command.' }, answer: true },
         { text: { ar: 'أنظمة التوصية بتعرض لكل المستخدمين نفس التوصيات بالضبط.', en: 'Recommenders show every user exactly the same suggestions.' }, answer: false, explain: { ar: 'التوصيات __مخصّصة لكل شخص__ حسب سلوكه.', en: 'Suggestions are __personal__, based on each user’s behavior.' } },
+        { text: { ar: 'المتاجر الإلكترونية بتقترح منتجات على أساس سجل مشترياتك.', en: 'Online shops recommend products based on your purchase history.' }, answer: true },
+        { text: { ar: 'المساعد الصوتي هو اللي بيترجم القوائم المكتوبة بلغة أجنبية.', en: 'A voice assistant is what translates menus written in a foreign language.' }, answer: false, explain: { ar: 'ترجمة النصوص دي __الترجمة الآلية__؛ المساعد الصوتي بيتعرّف على الصوت وينفّذ الأوامر.', en: 'Translating text is __machine translation__; a voice assistant recognizes speech and carries out commands.' } },
       ],
     }),
   ]);
@@ -72,6 +74,7 @@
         { text: { ar: 'الذكاء الاصطناعي في الزراعة ممكن يتنبّأ بموعد الحصاد.', en: 'AI in agriculture can predict harvest time.' }, answer: true },
         { text: { ar: 'الصيانة التنبؤية معناها نصلّح الآلة بعد ما تعطل.', en: 'Predictive maintenance means repairing a machine after it breaks.' }, answer: false, explain: { ar: 'بالعكس: نتنبّأ بالعطل __قبل ما يحصل__.', en: 'The opposite: we predict the failure __before it happens__.' } },
         { text: { ar: 'في الرعاية الصحية الذكاء الاصطناعي بيدعم اكتشاف أدوية جديدة.', en: 'In healthcare AI supports discovering new drugs.' }, answer: true },
+        { text: { ar: 'كشف الآفات وأمراض النبات استخدام للذكاء الاصطناعي في الزراعة.', en: 'Detecting pests and plant diseases is a use of AI in agriculture.' }, answer: true },
       ],
     }),
   ]);
@@ -108,6 +111,8 @@
         { text: { ar: 'النموذج الكبير فيه ملايين أو مليارات الأوزان، وده سبب إن «ليه» صعب يتقري.', en: 'Big models hold millions or billions of weights — that is why the "why" is hard to read.' }, answer: true },
         { text: { ar: 'الذكاء الاصطناعي ضعيف في التعرّف على الأنماط في الصور.', en: 'AI is weak at recognizing patterns in images.' }, answer: false, explain: { ar: 'بالعكس — ده من أقوى حاجاته. ضعفه في __الحكم الأخلاقي والقرار النهائي__.', en: 'The opposite — that is one of its strengths. Its weakness is __ethical judgment and final decisions__.' } },
         { text: { ar: 'لو القرار طلع صح، مش مهم نفهم إزاي اتاخد.', en: 'If the decision turned out right, it does not matter how it was made.' }, answer: false, explain: { ar: 'من غير «ليه» __مانقدرش نتحقّق__ إنه صح لسبب صح، ولا نكتشف التحيّز.', en: 'Without the "why" we __cannot verify__ it was right for the right reason, or detect bias.' } },
+        { text: { ar: 'الـAI ممكن نسيبه ياخد القرار النهائي في المهام الحساسة لوحده.', en: 'AI can be left to make the final decision in sensitive tasks on its own.' }, answer: false, explain: { ar: 'في المهام الحساسة __الإنسان__ هو اللي ياخد القرار النهائي.', en: 'In sensitive tasks a __human__ makes the final decision.' } },
+        { text: { ar: 'حقوق المؤلف في بيانات التدريب من القضايا اللي لازم ناخد بالنا منها.', en: 'Copyright in training data is one of the issues to be careful about.' }, answer: true },
       ],
     }),
   ]);

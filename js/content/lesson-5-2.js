@@ -70,6 +70,7 @@ RV.lessons.add('5-2', {
             { text: { ar: 'كل القيم الشاذة أخطاء ولازم تتمسح فورًا.', en: 'All outliers are errors and must be deleted at once.' }, answer: false, explain: { ar: 'نحدّد __السبب__ الأول؛ ممكن تكون حقيقية نادرة.', en: 'Find __the cause__ first; it may be a rare real value.' } },
             { text: { ar: 'البيانات المكررة بتتشال بس بعد ما نتأكّد إنها تكرار فعلي.', en: 'Duplicates are removed only after confirming they truly duplicate.' }, answer: true },
             { text: { ar: 'تنظيف البيانات بيتعمل قبل جمعها.', en: 'Data cleaning is done before collection.' }, answer: false, explain: { ar: 'بيتعمل __بعد__ الجمع.', en: 'It is done __after__ collection.' } },
+            { text: { ar: 'أي قيمة مفقودة لازم تتمسح.', en: 'Every missing value must be deleted.' }, answer: false, explain: { ar: 'فيه تلات استجابات: __الحذف أو التعويض أو وضع علامة__ حسب الموقف.', en: 'There are three responses: __deletion, imputation or flagging__, depending on the case.' } },
           ] },
         },
         {
@@ -147,12 +148,16 @@ RV.lessons.add('5-2', {
             { text: { ar: 'B) استجابات القيم المفقودة تلاتة: الحذف والتعويض ووضع العلامة.', en: 'B) The responses to missing values are three: deletion, imputation and flagging.' }, answer: true },
             { text: { ar: 'C) كل القيم الشاذة سببها أخطاء إدخال أو قياس، فلازم تتمسح دايمًا.', en: 'C) All outliers come from entry or measurement errors, so they must always be deleted.' }, answer: false },
             { text: { ar: 'D) التوحيد القياسي بيحوّل البيانات لصيغة متوسطها 0 وانحرافها المعياري 1.', en: 'D) Standardization converts data to a form with mean 0 and standard deviation 1.' }, answer: true },
+            { text: { ar: 'E) التحويل الكمي بيحوّل البيانات لنطاق من 0 لـ 1.', en: 'E) Normalization converts data to a range from 0 to 1.' }, answer: true },
+            { text: { ar: 'F) وضع علامة بيُستخدم لما يكون الغياب نفسه ليه معنى.', en: 'F) Flagging is used when the absence itself has meaning.' }, answer: true },
           ] },
           solution: [
             { ar: 'A) بيتعمل __بعد__ الجمع ← **✗**.', en: 'A) It is done __after__ collection → **✗**.' },
             { ar: 'B) حذف · تعويض · علامة ← **✓**.', en: 'B) Delete · impute · flag → **✓**.' },
             { ar: 'C) فيه قيم شاذة __حقيقية__ ماينفعش تتمسح دايمًا ← **✗**.', en: 'C) Some outliers are __real__ and must not always be deleted → **✗**.' },
             { ar: 'D) تعريف التوحيد القياسي ← **✓**.', en: 'D) The definition of standardization → **✓**.' },
+            { ar: 'E) ده التعريف الصحيح (Min‑Max) ← **✓**.', en: 'E) Correct definition (Min‑Max) → **✓**.' },
+            { ar: 'F) زي واحد رفض يجاوب، فالغياب نفسه معلومة ← **✓**.', en: 'F) e.g. someone refused to answer, so the gap itself is information → **✓**.' },
           ],
         },
         {
@@ -166,9 +171,9 @@ RV.lessons.add('5-2', {
             right: [{ ar: 'A التجميع', en: 'A Aggregation' }, { ar: 'B الربط', en: 'B Join' }, { ar: 'C التحويل الكمي', en: 'C Normalization' }],
             answer: [2, 1, 0] },
           solution: [
-            { ar: 'a: 0 لـ 1 = **التحويل الكمي** ← C.', en: 'a: 0 to 1 = **normalization** → C.' },
-            { ar: 'b: عنصر مشترك = **الربط** ← B.', en: 'b: shared element = **join** → B.' },
-            { ar: 'c: مجاميع ومتوسطات = **التجميع** ← A.', en: 'c: totals and averages = **aggregation** → A.' },
+            { ar: 'a: 0 لـ 1 = **التحويل الكمي**.', en: 'a: 0 to 1 = **normalization**.' },
+            { ar: 'b: عنصر مشترك = **الربط**.', en: 'b: shared element = **join**.' },
+            { ar: 'c: مجاميع ومتوسطات = **التجميع**.', en: 'c: totals and averages = **aggregation**.' },
           ],
         },
       ],

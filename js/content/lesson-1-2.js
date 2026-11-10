@@ -88,6 +88,7 @@ RV.lessons.add('1-2', {
             { text: { ar: 'التعلّم الآلي بيتعلّم أنماط من البيانات عشان يعمل تنبؤات وأحكام.', en: 'Machine learning learns patterns from data to make predictions and judgments.' }, answer: true },
             { text: { ar: 'التعلّم الآلي يقدر يشتغل من غير أي بيانات خالص.', en: 'Machine learning can work with no data at all.' }, answer: false, explain: { ar: 'هو أصلًا بيتعلّم من البيانات.', en: 'It learns from data by definition.' } },
             { text: { ar: 'فلتر الرسائل المزعجة مثال على التعلّم الآلي.', en: 'A spam filter is an example of machine learning.' }, answer: true },
+            { text: { ar: 'التعلّم الآلي جزء من الذكاء الاصطناعي.', en: 'Machine learning is part of AI.' }, answer: true },
           ] },
         },
       ],
@@ -177,16 +178,18 @@ RV.lessons.add('1-2', {
         {
           type: 'example',
           q: { widget: 'tf', prompt: { ar: '(1) ضع ✓ أو ✗:', en: '(1) Mark ✓ or ✗:' }, items: [
-            { text: { ar: 'التعلّم الآلي واحدة من التقنيات اللي بتشغّل الذكاء الاصطناعي.', en: 'Machine learning is one of the technologies that make AI work.' }, answer: true },
-            { text: { ar: 'التعلّم العميق تقنية مختلفة تمامًا عن التعلّم الآلي.', en: 'Deep learning is completely different from machine learning.' }, answer: false },
-            { text: { ar: 'الذكاء التوليدي بيستخدم التعلّم العميق عشان يولّد بيانات جديدة.', en: 'Generative AI uses deep learning to generate new data.' }, answer: true },
-            { text: { ar: 'الذكاء الاصطناعي والتعلّم الآلي ليهم نفس المعنى.', en: 'AI and machine learning mean the same thing.' }, answer: false },
+            { text: { ar: 'أ) التعلّم الآلي واحدة من التقنيات اللي بتشغّل الذكاء الاصطناعي.', en: 'A) Machine learning is one of the technologies that make AI work.' }, answer: true },
+            { text: { ar: 'ب) التعلّم العميق تقنية مختلفة تمامًا عن التعلّم الآلي.', en: 'B) Deep learning is completely different from machine learning.' }, answer: false },
+            { text: { ar: 'ج) الذكاء التوليدي بيستخدم التعلّم العميق عشان يولّد بيانات جديدة.', en: 'C) Generative AI uses deep learning to generate new data.' }, answer: true },
+            { text: { ar: 'د) الذكاء الاصطناعي والتعلّم الآلي ليهم نفس المعنى.', en: 'D) AI and machine learning mean the same thing.' }, answer: false },
+            { text: { ar: 'هـ) مخرجات الذكاء التوليدي دايمًا صحيحة.', en: 'E) Generative AI output is always correct.' }, answer: false },
           ] },
           solution: [
             { ar: 'أ) التعلّم الآلي إحدى تقنيات التعلّم اللي بتشغّل الـ AI ← **✓**.', en: 'A) ML is one of the learning technologies that power AI → **✓**.' },
             { ar: 'ب) التعلّم العميق __نوع متقدّم جوّه__ التعلّم الآلي ← **✗**.', en: 'B) DL is __an advanced kind within__ ML → **✗**.' },
             { ar: 'ج) ده التعريف الصحيح للتوليدي ← **✓**.', en: 'C) Correct description of generative AI → **✓**.' },
             { ar: 'د) الـ AI مفهوم واسع والتعلّم الآلي تقنية جوّاه ← **✗**.', en: 'D) AI is broad; ML is one technology inside it → **✗**.' },
+            { ar: 'هـ) الذكاء التوليدي ممكن __يهلوس__، فلازم نتحقّق من مخرجاته ← **✗**.', en: 'E) Generative AI can __hallucinate__, so its output must be checked → **✗**.' },
           ],
         },
         {
@@ -200,9 +203,9 @@ RV.lessons.add('1-2', {
             right: [{ ar: 'A التعلّم الآلي', en: 'A Machine learning' }, { ar: 'B التعلّم العميق', en: 'B Deep learning' }, { ar: 'C الذكاء التوليدي', en: 'C Generative AI' }],
             answer: [0, 1, 2] },
           solution: [
-            { ar: 'a: تعلّم أنماط من البيانات = **التعلّم الآلي** ← A.', en: 'a: learning patterns from data = **machine learning** → A.' },
-            { ar: 'b: شبكات عصبية = **التعلّم العميق** ← B.', en: 'b: neural networks = **deep learning** → B.' },
-            { ar: 'c: توليد بيانات جديدة = **الذكاء التوليدي** ← C.', en: 'c: generating new data = **generative AI** → C.' },
+            { ar: 'a: تعلّم أنماط من البيانات = **التعلّم الآلي**.', en: 'a: learning patterns from data = **machine learning**.' },
+            { ar: 'b: شبكات عصبية = **التعلّم العميق**.', en: 'b: neural networks = **deep learning**.' },
+            { ar: 'c: توليد بيانات جديدة = **الذكاء التوليدي**.', en: 'c: generating new data = **generative AI**.' },
           ],
         },
       ],

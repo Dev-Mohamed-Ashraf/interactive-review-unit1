@@ -70,6 +70,8 @@ RV.lessons.add('4-1', {
             { text: { ar: 'الصحيفة ممكن تتقري من غير اتصال إنترنت.', en: 'A newspaper can be read without the Internet.' }, answer: true },
             { text: { ar: 'الموقع ممكن يتفاعل في الاتجاهين عن طريق النماذج والتعليقات.', en: 'A website can be two-way through forms and comments.' }, answer: true },
             { text: { ar: 'الصحف أكتر وسيلة فعّالة في نشر المعلومة بسرعة.', en: 'Newspapers are the most effective for spreading information fast.' }, answer: false, explain: { ar: 'الأسرع في النشر __التواصل الاجتماعي__.', en: 'The fastest at spreading is __SNS__.' } },
+            { text: { ar: 'التلفزيون وسيلة في اتجاه واحد من المرسل للمتلقي.', en: 'TV is one-way, from sender to receiver.' }, answer: true },
+            { text: { ar: 'الموقع بيخاطب حاسة السمع بس.', en: 'A website appeals only to hearing.' }, answer: false, explain: { ar: 'الموقع بيجمع __نص وصور وصوت وفيديو__.', en: 'A website combines __text, images, audio and video__.' } },
           ] },
         },
         {
@@ -155,12 +157,14 @@ RV.lessons.add('4-1', {
             { text: { ar: 'B) التلفزيون وسيلة بتتيح تفاعل في الاتجاهين مع المستخدمين.', en: 'B) TV allows two-way interaction with users.' }, answer: false },
             { text: { ar: 'C) التواصل الاجتماعي فعّال جدًا في نشر المعلومة بسرعة.', en: 'C) SNS is highly effective at spreading information rapidly.' }, answer: true },
             { text: { ar: 'D) الموقع ممكن يتشاف حتى من غير اتصال إنترنت.', en: 'D) A website can normally be viewed without the Internet.' }, answer: false },
+            { text: { ar: 'E) إعلان تلفزيوني بيوجّه المشاهدين لموقع مثال على الجمع بين الوسائل.', en: 'E) A TV ad that sends viewers to a website is an example of combining media.' }, answer: true },
           ] },
           solution: [
             { ar: 'A) دي نقطة قوة للمواقع ← **✓**.', en: 'A) A strength of websites → **✓**.' },
             { ar: 'B) التلفزيون __اتجاه واحد__ ← **✗**.', en: 'B) TV is __one-way__ → **✗**.' },
             { ar: 'C) وصف صحيح للتواصل الاجتماعي ← **✓**.', en: 'C) Correct description of SNS → **✓**.' },
             { ar: 'D) الموقع __محتاج إنترنت__ عادةً ← **✗**.', en: 'D) A website usually __needs the Internet__ → **✗**.' },
+            { ar: 'E) كل وسيلة بتعمل اللي بتجيده: التلفزيون بيوصل لكتير والموقع بيدّي التفاصيل ← **✓**.', en: 'E) Each medium does what it does best: TV reaches many, the website gives detail → **✓**.' },
           ],
         },
         {
@@ -174,9 +178,9 @@ RV.lessons.add('4-1', {
             right: [{ ar: 'A التلفزيون', en: 'A TV' }, { ar: 'B الموقع', en: 'B Website' }, { ar: 'C التواصل الاجتماعي', en: 'C SNS' }],
             answer: [1, 2, 0] },
           solution: [
-            { ar: 'a: التفاصيل في أي وقت = **الموقع** ← B.', en: 'a: detail any time = **website** → B.' },
-            { ar: 'b: التناقل = **التواصل الاجتماعي** ← C.', en: 'b: word of mouth = **SNS** → C.' },
-            { ar: 'c: فيديو لكتير مرة واحدة = **التلفزيون** ← A.', en: 'c: video to many at once = **TV** → A.' },
+            { ar: 'a: التفاصيل في أي وقت = **الموقع**.', en: 'a: detail any time = **website**.' },
+            { ar: 'b: التناقل = **التواصل الاجتماعي**.', en: 'b: word of mouth = **SNS**.' },
+            { ar: 'c: فيديو لكتير مرة واحدة = **التلفزيون**.', en: 'c: video to many at once = **TV**.' },
           ],
         },
       ],

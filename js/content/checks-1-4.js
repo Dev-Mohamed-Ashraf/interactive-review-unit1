@@ -37,6 +37,8 @@
         { text: { ar: 'شيل عمود «المجموعة» من البيانات كفاية لوحده إنه يمنع التحيّز.', en: 'Removing the "group" column is enough on its own to stop bias.' }, answer: false, explain: { ar: 'لأ — __المتغيّر البديل__ ممكن يرجّعه. لازم نختبر النتايج لكل مجموعة.', en: 'No — a __proxy variable__ can bring it back. Results must be tested per group.' } },
         { text: { ar: 'الذكاء الاصطناعي مستحيل يكون متحيّز لأنه آلة.', en: 'AI can never be biased because it is a machine.' }, answer: false, explain: { ar: 'بيتعلّم من __بيانات البشر__ — لو البيانات ظالمة، بيتعلّم الظلم ويكرّره.', en: 'It learns from __human data__ — if the data is unfair, it learns and repeats the unfairness.' } },
         { text: { ar: 'اختبار نتايج النموذج لكل مجموعة قبل استخدامه بيساعد يقلّل التحيّز.', en: 'Testing the model’s results for each group before use helps reduce bias.' }, answer: true },
+        { text: { ar: 'المتغير البديل ممكن يرجّع التحيّز حتى لو شلنا العمود الحساس.', en: 'A proxy variable can bring bias back even after the sensitive column is removed.' }, answer: true },
+        { text: { ar: 'الـAI ممكن يعيد إنتاج التحيّز اللي في بيانات تدريبه.', en: 'AI can reproduce the bias in its training data.' }, answer: true },
       ],
     }),
   ]);
@@ -72,6 +74,7 @@
         { text: { ar: 'اللايكات والبحث والمكان كلها بيانات ممكن تتجمع وتتحلّل عنك.', en: 'Likes, searches and location are all data that can be collected and analyzed about you.' }, answer: true },
         { text: { ar: 'حماية الخصوصية معناها إن ماحدش يستخدم أي بيانات خالص.', en: 'Privacy protection means nobody may use any data at all.' }, answer: false, explain: { ar: 'معناها نتعامل معاها __بشكل مناسب__: يتشارك بس اللي لازم ولغرض واضح.', en: 'It means handling it __appropriately__: share only what is needed, for a clear purpose.' } },
         { text: { ar: 'كاميرات التعرف على الوجه في الأماكن العامة ممكن تتتبّع الأفراد.', en: 'Face-recognition cameras in public places can track individuals.' }, answer: true },
+        { text: { ar: 'جمع بيانات سلوك الناس بكميات كبيرة قضية خصوصية.', en: 'Collecting large amounts of people’s behavior data is a privacy issue.' }, answer: true },
       ],
     }),
   ]);
@@ -107,6 +110,7 @@
         { text: { ar: 'الخريطة الحرارية بتلوّن المكان اللي النموذج بنى عليه التشخيص.', en: 'A heat map colors the area the model based its diagnosis on.' }, answer: true },
         { text: { ar: 'هدف XAI إنه يخلّي النموذج أسرع في المعالجة.', en: 'The goal of XAI is to make the model process faster.' }, answer: false, explain: { ar: 'هدفه إن البشر __يفهموا ليه__ النموذج أخد الحكم.', en: 'Its goal is for humans to __understand why__ the model made a decision.' } },
         { text: { ar: 'لما نفهم «ليه» النموذج قرّر، نقدر نكتشف التحيّز ونحاسب.', en: 'Once we understand why the model decided, we can detect bias and hold people accountable.' }, answer: true },
+        { text: { ar: 'مادام النتيجة صح، غموض طريقة القرار مش مشكلة.', en: 'If the result is correct, an opaque decision process is no problem.' }, answer: false, explain: { ar: 'من غير ما نفهم «ليه» __صعب نتحقّق__ من النتيجة أو نكتشف التحيّز.', en: 'Without the "why" it is __hard to check__ the result or spot bias.' } },
       ],
     }),
   ]);
@@ -143,6 +147,7 @@
         { text: { ar: 'الشفافية معناها إن بيانات المستخدمين تفضل سرّية.', en: 'Transparency means users’ data stays secret.' }, answer: false, explain: { ar: 'ده __حماية الخصوصية__. الشفافية = إظهار __إزاي النظام بيقرّر__.', en: 'That is __privacy protection__. Transparency = showing __how the system decides__.' } },
         { text: { ar: 'المساءلة معناها تحديد الجهات المسؤولة وإمكان محاسبتها وفق أدوارها.', en: 'Accountability means someone is responsible and answerable for AI decisions.' }, answer: true },
         { text: { ar: 'النظام يبقى عادل طالما سريع ودقيق، حتى لو ظلم مجموعة.', en: 'A system is fair as long as it is fast and accurate, even if it wrongs one group.' }, answer: false, explain: { ar: 'العدالة مش السرعة ولا الدقة العامة — لو ظلم __أي مجموعة__ يبقى مش عادل.', en: 'Fairness is not speed or overall accuracy — wronging __any group__ makes it unfair.' } },
+        { text: { ar: 'المساءلة معناها القدرة على شرح القرار.', en: 'Accountability means being able to explain a decision.' }, answer: false, explain: { ar: 'شرح القرار ده __الشفافية__؛ المساءلة = تحديد المسؤولين وإمكان محاسبتهم.', en: 'Explaining a decision is __transparency__; accountability = someone is answerable.' } },
       ],
     }),
   ]);

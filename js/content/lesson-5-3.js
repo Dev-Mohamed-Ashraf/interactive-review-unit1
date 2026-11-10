@@ -68,6 +68,7 @@ RV.lessons.add('5-3', {
             { text: { ar: 'بالـAPI نقدر نجيب البيانات مباشرة من غير متصفح.', en: 'With an API, data can be fetched directly without a browser.' }, answer: true },
             { text: { ar: 'Kaggle بوابة البنك الدولي لإحصائيات الدول.', en: 'Kaggle is the World Bank’s portal for country statistics.' }, answer: false, explain: { ar: 'Kaggle = __منصّة مسابقات__ ومجموعات بيانات.', en: 'Kaggle = a __competition platform__ with datasets.' } },
             { text: { ar: 'المهم نختار مصدر موثوق ومطابق لغرض التحليل.', en: 'The key is a reliable source matching the analysis purpose.' }, answer: true },
+            { text: { ar: 'UN Data بتوفّر إحصائيات الأمم المتحدة ووكالاتها.', en: 'UN Data provides statistics from the UN and its agencies.' }, answer: true },
           ] },
         },
         {
@@ -152,12 +153,14 @@ RV.lessons.add('5-3', {
             { text: { ar: 'B) باستخدام API نقدر نجيب البيانات مباشرة من غير متصفح.', en: 'B) Using an API, data can be obtained directly without a browser.' }, answer: true },
             { text: { ar: 'C) طالما البيانات مفتوحة، نستخدمها بحرية من غير ما نتحقّق من شروط الاستخدام.', en: 'C) As long as data is open, it can be used freely without checking the terms of use.' }, answer: false },
             { text: { ar: 'D) لما نستخدم البيانات لازم نذكر المزوّد واسم البيانات وتاريخ الحصول والرابط كمصدر.', en: 'D) When using data, the provider, data name, date obtained and URL must be cited as the source.' }, answer: true },
+            { text: { ar: 'E) Kaggle بوابة البنك الدولي لإحصائيات الدول.', en: 'E) Kaggle is the World Bank’s portal for country statistics.' }, answer: false },
           ] },
           solution: [
             { ar: 'A) تعريف صحيح ← **✓**.', en: 'A) A correct description → **✓**.' },
             { ar: 'B) ده دور الـAPI ← **✓**.', en: 'B) That is the API’s role → **✓**.' },
             { ar: 'C) شروط الاستخدام __بتختلف لكل مجموعة__ ولازم تتفحص ← **✗**.', en: 'C) Terms __differ per dataset__ and must be checked → **✗**.' },
             { ar: 'D) عناصر الإشارة إلى المصدر الأربعة ← **✓**.', en: 'D) The four elements of a citation → **✓**.' },
+            { ar: 'E) Kaggle __منصة مسابقات تحليل بيانات__ فيها مجموعات بيانات ← **✗**.', en: 'E) Kaggle is a __data-analysis competition platform__ with datasets → **✗**.' },
           ],
         },
         {
@@ -171,9 +174,9 @@ RV.lessons.add('5-3', {
             right: [{ ar: 'A UN Data', en: 'A UN Data' }, { ar: 'B World Bank Open Data', en: 'B World Bank Open Data' }, { ar: 'C Kaggle', en: 'C Kaggle' }],
             answer: [1, 0, 2] },
           solution: [
-            { ar: 'a: إحصائيات الدول = **World Bank** ← B.', en: 'a: country statistics = **World Bank** → B.' },
-            { ar: 'b: الأمم المتحدة = **UN Data** ← A.', en: 'b: the UN = **UN Data** → A.' },
-            { ar: 'c: مسابقات = **Kaggle** ← C.', en: 'c: competitions = **Kaggle** → C.' },
+            { ar: 'a: إحصائيات الدول = **World Bank**.', en: 'a: country statistics = **World Bank**.' },
+            { ar: 'b: الأمم المتحدة = **UN Data**.', en: 'b: the UN = **UN Data**.' },
+            { ar: 'c: مسابقات = **Kaggle**.', en: 'c: competitions = **Kaggle**.' },
           ],
         },
       ],

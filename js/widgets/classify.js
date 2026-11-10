@@ -23,11 +23,16 @@
 
       const pool = h('div', { class: 'cls-pool' });
       const bins = h('div', { class: 'cls-bins', style: { '--n': q.groups.length } });
-      const cards = q.items.map((it, i) => {
-        const b = h('button', { class: 'cls-card', type: 'button' }, RV.rich(it.text));
+      // cards come in a new order each time: never the authored one, never grouped or in a repeating rhythm
+      const idx = q.items.map((_, i) => i);
+      const order = q.fixedOrder ? idx : RV.dom.shuffleUntil(idx, (o) =>
+        (o.length > 2 && o.every((v, k) => v === k)) || RV.dom.patterned(o.map((i) => q.items[i].group)));
+      const cards = [];
+      order.forEach((i) => {
+        const b = h('button', { class: 'cls-card', type: 'button' }, RV.rich(q.items[i].text));
         b.addEventListener('click', () => select(i));
         pool.appendChild(b);
-        return b;
+        cards[i] = b;
       });
       const binEls = q.groups.map((g, gi) => {
         const drop = h('div', { class: 'cls-drop' });
@@ -39,7 +44,7 @@
       });
 
       el.append(W.header(q, 'tapClassify'), pool, bins);
-      gsap.from(cards, { y: 18, opacity: 0, stagger: 0.05, duration: 0.35, ease: 'power2.out', clearProps: 'all' });
+      gsap.from(order.map((i) => cards[i]), { y: 18, opacity: 0, stagger: 0.05, duration: 0.35, ease: 'power2.out', clearProps: 'all' });
 
       // ── drag & drop with a finger or mouse (tap-to-select still works) ──
       cards.forEach((card, i) => {

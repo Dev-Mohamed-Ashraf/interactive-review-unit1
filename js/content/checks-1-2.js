@@ -37,6 +37,7 @@
         { text: { ar: 'كل ذكاء اصطناعي هو تعلّم عميق.', en: 'All AI is deep learning.' }, answer: false, explain: { ar: 'الـAI هو الأوسع؛ التعلّم العميق __جزء__ جوّاه (جوّه التعلّم الآلي).', en: 'AI is the widest; deep learning is only __a part__ of it (inside ML).' } },
         { text: { ar: 'الذكاء الاصطناعي بيعيد إنتاج سلوك إنساني ذكي زي التعلّم والاستدلال والحكم.', en: 'AI reproduces intelligent human behavior such as learning, reasoning and judgment.' }, answer: true },
         { text: { ar: 'الذكاء التوليدي هو الدايرة الأوسع اللي فيها كل الأنواع.', en: 'Generative AI is the widest circle that contains all the others.' }, answer: false, explain: { ar: 'بالعكس: هو __الأكثر تخصصًا__ — الدايرة الصغيرة جوّه الكل.', en: 'The opposite: it is the __most specialized__ — the smallest circle inside all.' } },
+        { text: { ar: 'الذكاء الاصطناعي والتعلّم الآلي ليهم نفس المعنى بالظبط.', en: 'AI and machine learning mean exactly the same thing.' }, answer: false, explain: { ar: 'التعلّم الآلي __جزء__ من الذكاء الاصطناعي، مش هو نفسه.', en: 'ML is __part of__ AI, not the same thing.' } },
       ],
     }),
   ]);
@@ -72,6 +73,7 @@
         { text: { ar: 'النموذج المدرَّب يقدر يحكم على أمثلة جديدة ماشافهاش قبل كده.', en: 'A trained model can judge new examples it has never seen.' }, answer: true },
         { text: { ar: 'في التعلّم الآلي المبرمج بيكتب كل قاعدة بإيده.', en: 'In ML the programmer writes every rule by hand.' }, answer: false, explain: { ar: 'ده الطريقة القديمة. في التعلّم الآلي النموذج __بيستخرج الأنماط من البيانات__.', en: 'That is the old way. In ML the model __extracts the patterns from data__.' } },
         { text: { ar: 'توصية المنتجات في المتاجر الإلكترونية مثال على التعلّم الآلي.', en: 'Product recommendations in online shops are an example of ML.' }, answer: true },
+        { text: { ar: 'فلتر الرسائل المزعجة مثال على الذكاء التوليدي.', en: 'A spam filter is an example of generative AI.' }, answer: false, explain: { ar: 'فلتر السبام __بيصنّف__ رسائل موجودة (تعلّم آلي)، مش بيولّد محتوى جديد.', en: 'A spam filter __classifies__ existing messages (ML); it does not generate new content.' } },
       ],
     }),
   ]);
@@ -108,6 +110,7 @@
         { text: { ar: 'التعلّم العميق بيحتاج بيانات قليلة جدًا عشان يتعلّم.', en: 'Deep learning needs very little data to learn.' }, answer: false, explain: { ar: 'بالعكس: محتاج __بيانات ضخمة__ وطبقات مخفية كتير.', en: 'The opposite: it needs __huge data__ and many hidden layers.' } },
         { text: { ar: 'الشبكة فيها طبقة إدخال وطبقات مخفية وطبقة إخراج.', en: 'A network has an input layer, hidden layers and an output layer.' }, answer: true },
         { text: { ar: 'كل الوصلات في الشبكة ليها نفس القوة ومابتتغيّرش.', en: 'All connections have the same strength and never change.' }, answer: false, explain: { ar: 'كل وصلة ليها __وزن مختلف__، والتدريب هو تعديل الأوزان دي.', en: 'Each connection has __its own weight__; training means adjusting those weights.' } },
+        { text: { ar: 'التعلّم العميق نوع من التعلّم الآلي بيستخدم الشبكات العصبية.', en: 'Deep learning is a kind of machine learning that uses neural networks.' }, answer: true },
       ],
     }),
   ]);
@@ -144,6 +147,7 @@
         { text: { ar: 'الذكاء التوليدي بيولّد نص بس، مايقدرش يولّد صور أو صوت.', en: 'Generative AI can only create text, not images or audio.' }, answer: false, explain: { ar: 'بيولّد __نص وصور وصوت وبرامج__.', en: 'It creates __text, images, audio and programs__.' } },
         { text: { ar: 'مرجع أو مصدر مش موجود أصلًا يعتبر شكل من أشكال الهلوسة.', en: 'A source that does not exist at all is a form of hallucination.' }, answer: true },
         { text: { ar: 'طالما الإجابة مكتوبة بثقة وبأسلوب حلو، تبقى صحيحة.', en: 'If an answer is written confidently and nicely, it must be correct.' }, answer: false, explain: { ar: 'الهلوسة __شكلها مقنع جدًا__ — الثقة مش دليل. اتحقّق من مصدر موثوق.', en: 'Hallucinations __look very convincing__ — confidence is no proof. Check a trusted source.' } },
+        { text: { ar: 'ChatGPT مثال على الذكاء التوليدي.', en: 'ChatGPT is an example of generative AI.' }, answer: true },
       ],
     }),
   ]);

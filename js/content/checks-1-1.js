@@ -29,6 +29,8 @@
         { text: { ar: 'عولمة المعلومات اتقدّمت لما الإنترنت بقى تجاري في التسعينيات.', en: 'Information globalized when the Internet went commercial in the 1990s.' }, answer: true },
         { text: { ar: 'الهواتف الذكية ظهرت قبل الحواسب الشخصية.', en: 'Smartphones appeared before personal computers.' }, answer: false, explain: { ar: 'الحواسب الشخصية في السبعينيات–الثمانينيات، والهواتف الذكية في الألفية (2000s).', en: 'PCs came in the 1970s–80s, smartphones in the 2000s.' } },
         { text: { ar: 'لما ترفع صورة على Google Drive، بتتخزّن على سيرفر حقيقي في مركز بيانات.', en: 'A photo uploaded to Google Drive is stored on a real server in a data center.' }, answer: true },
+        { text: { ar: 'ENIAC كان بيملا أوضة كاملة.', en: 'ENIAC filled a whole room.' }, answer: true },
+        { text: { ar: 'الحوسبة السحابية معناها تخزّن كل حاجة على جهازك بس.', en: 'Cloud computing means keeping everything only on your own device.' }, answer: false, explain: { ar: 'السحابة = موارد تكنولوجيا المعلومات __كخدمة عبر الإنترنت__ على خوادم بعيدة.', en: 'The cloud = IT resources __as a service over the Internet__ on remote servers.' } },
       ],
     }),
     q(3, {
@@ -114,6 +116,7 @@
         { text: { ar: 'التجارة الإلكترونية لازم يكون فيها دفع كاش عند الاستلام.', en: 'E-commerce must involve paying cash on delivery.' }, answer: false, explain: { ar: 'التجارة الإلكترونية = __بيع وشراء عبر الإنترنت__ — الدفع ممكن يكون بأي طريقة.', en: 'E-commerce = __buying and selling online__ — payment can be any method.' } },
         { text: { ar: 'العمل عن بُعد بيعتمد على الإنترنت عشان تخلّص شغلك من أي مكان.', en: 'Remote work relies on the Internet to do your job from anywhere.' }, answer: true },
         { text: { ar: 'شبكات التواصل خدمة هدفها الأساسي بيع السلع.', en: 'The main purpose of SNS is selling goods.' }, answer: false, explain: { ar: 'هدفها التواصل والنشر والمشاركة. بيع السلع = التجارة الإلكترونية.', en: 'Its purpose is connecting, posting and sharing. Selling goods = e-commerce.' } },
+        { text: { ar: 'شبكات التواصل بتنشر المعلومة بسرعة.', en: 'SNS spread information quickly.' }, answer: true },
       ],
     }),
   ]);

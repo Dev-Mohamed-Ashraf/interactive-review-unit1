@@ -111,6 +111,7 @@ RV.lessons.add('2-1', {
             { text: { ar: 'المفتاح الخاص بيتوزّع على كل الناس عشان يقدروا يبعتوا رسايل.', en: 'The private key is handed to everyone so they can send messages.' }, answer: false, explain: { ar: 'اللي بيتوزّع هو __العام__؛ الخاص __سرّي__ مع صاحبه بس.', en: 'The __public__ key is shared; the private key stays __secret__ with its owner.' } },
             { text: { ar: 'المتصفح بيتحقق من هوية الخادم بفحص شهادته وسلسلة الثقة.', en: 'The browser verifies the server through a certificate authority (CA).' }, answer: true },
             { text: { ar: 'مصافحة TLS بتحصل بعد ما البيانات كلها تتبادل.', en: 'The TLS handshake happens after all the data has been exchanged.' }, answer: false, explain: { ar: 'المصافحة هي __أول حاجة__: تأسيس الاتصال الآمن قبل البيانات.', en: 'The handshake comes __first__: setting up the secure connection before any data.' } },
+            { text: { ar: 'اللي بيتقفل بالمفتاح العام بيتفتح بالمفتاح الخاص.', en: 'What the public key locks, only the private key opens.' }, answer: true },
           ] },
         },
         {
@@ -297,12 +298,14 @@ RV.lessons.add('2-1', {
             { text: { ar: 'B) اتصال HTTPS بيتبادل كل البيانات بالتشفير بالمفتاح العام.', en: 'B) HTTPS exchanges all data using public-key cryptography.' }, answer: false },
             { text: { ar: 'C) المصادقة الثنائية بتستخدم عاملين مستقلين من فئتين مختلفتين لإثبات الهوية.', en: 'C) MFA combines two or more of the three authentication factors.' }, answer: true },
             { text: { ar: 'D) مثال على المصادقة الثنائية: تعيين كلمتين مرور.', en: 'D) An example of MFA is setting two passwords.' }, answer: false },
+            { text: { ar: 'E) الكود اللي بيوصل على موبايلك لمرة واحدة عامل «معرفة».', en: 'E) A one-time code sent to your phone is a "knowledge" factor.' }, answer: false },
           ] },
           solution: [
             { ar: 'A) آليات المفتاح العام للمصادقة والاتفاق على مفاتيح الجلسة، والمتماثل لحماية البيانات ← **✓**.', en: 'A) Public-key for key exchange, common-key for data → **✓**.' },
             { ar: 'B) تبادل كل البيانات بالعام __بطيء__، فالمتماثل بيُستخدم للبيانات ← **✗**.', en: 'B) Exchanging all data with public-key would be __slow__ → **✗**.' },
             { ar: 'C) ده التعريف الصحيح ← **✓**.', en: 'C) Correct definition → **✓**.' },
             { ar: 'D) كلمتين المرور الاتنين «معرفة» — دي مصادقة متعددة الخطوات بنفس العامل، مش 2FA ← **✗**.', en: 'D) Both passwords are "knowledge" — two steps with one factor, not MFA → **✗**.' },
+            { ar: 'E) الموبايل حاجة __معاك__ ← عامل __حيازة__ ← **✗**.', en: 'E) The phone is something __you have__ → a __possession__ factor → **✗**.' },
           ],
         },
         {
@@ -316,9 +319,9 @@ RV.lessons.add('2-1', {
             right: [{ ar: 'A التشفير', en: 'A Encryption' }, { ar: 'B التوقيع الرقمي', en: 'B Digital signature' }, { ar: 'C الشهادة الرقمية', en: 'C Digital certificate' }],
             answer: [0, 1, 2] },
           solution: [
-            { ar: 'a: منع القراءة = **التشفير** ← A.', en: 'a: preventing reading = **encryption** → A.' },
-            { ar: 'b: سلامة الرسالة وهوية موقّعها = **التوقيع الرقمي** ← B.', en: 'b: detecting tampering = **digital signature** → B.' },
-            { ar: 'c: التحقق من هوية الطرف = **الشهادة الرقمية** ← C.', en: 'c: verifying the partner = **digital certificate** → C.' },
+            { ar: 'a: منع القراءة = **التشفير**.', en: 'a: preventing reading = **encryption**.' },
+            { ar: 'b: سلامة الرسالة وهوية موقّعها = **التوقيع الرقمي**.', en: 'b: detecting tampering = **digital signature**.' },
+            { ar: 'c: التحقق من هوية الطرف = **الشهادة الرقمية**.', en: 'c: verifying the partner = **digital certificate**.' },
           ],
         },
       ],
@@ -380,7 +383,7 @@ RV.lessons.add('2-1', {
             ],
             right: [{ ar: 'A التشفير', en: 'A Encryption' }, { ar: 'B التوقيع الرقمي', en: 'B Digital signature' }, { ar: 'C الشهادة الرقمية', en: 'C Digital certificate' }, { ar: 'D المصادقة الثنائية', en: 'D Multi-factor authentication' }],
             answer: [3, 1, 2, 0],
-            explain: { ar: 'a→D · b→B · c→C · d→A.', en: 'a→D · b→B · c→C · d→A.' } },
+            explain: { ar: 'a ← المصادقة الثنائية · b ← التوقيع الرقمي · c ← الشهادة الرقمية · d ← التشفير.', en: 'a → multi-factor authentication · b → digital signature · c → digital certificate · d → encryption.' } },
         },
         {
           type: 'quiz', title: { ar: 'تدريب 3 (2)', en: 'Exercise 3 (2)' },
